@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "ptg-ui-angular": "apps/ptg-ui-angular",
+    "ptg-ui-angular-e2e": "apps/ptg-ui-angular-e2e"
+  }
+}
