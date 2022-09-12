@@ -1,0 +1,60 @@
+<!-- Loading -->
+<ptg-ui-loading [loading]="loading"></ptg-ui-loading>
+
+<!-- reset wrapper Start -->
+<div class="reset-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
+    <div class="reset-container">
+        <div class="reset-form-wrapper">
+            <div class="form-group">
+                <!-- alert -->
+                <ptg-ui-alert *ngIf="errorMessage" [type]="'danger'" [message]="errorMessage" [isDismissible]='true'
+                    (closeAlert)="closeAlert($event)">
+                </ptg-ui-alert>
+            </div>
+            <div class="form-group">
+                <div class="text-center mb-3">
+                    <h3 [innerHTML]="resources.RESET_PASSWORD_TEXT"></h3>
+                </div>
+            </div>
+            <form class="form-forgot" [formGroup]="resetForm" (ngSubmit)="onResetSubmit()">
+                <div class="forgot-form">
+                    <div class="form-group required mb-2">
+                        <label for="inputOldPass" [innerHTML]="resources.OLD_PASSWORD_TEXT"></label>
+                        <!-- input -->
+                        <ptg-ui-input class="w-100" formControlName='oldPassword' id='inputOldPass' type="password"
+                            className="form-control bg_0" [placeholder]="resources.OLD_PASSWORD_PLACEHOLDER">
+                        </ptg-ui-input>
+                    </div>
+                    <div class="form-group required mb-2">
+                        <label for="inputNewPass" [innerHTML]="resources.NEW_PASSWORD_TEXT"></label>
+                        <!-- input -->
+                        <ptg-ui-input class="w-100" formControlName='newPassword' id='inputNewPass' type="password"
+                            className="form-control bg_0" [placeholder]="resources.NEW_PASSWORD_PLACEHOLDER">
+                        </ptg-ui-input>
+                    </div>
+                    <div class="form-group required mb-2">
+                        <label for="inputconfirmPass" [innerHTML]="resources.CONFIRM_PASSWORD_LABEL"></label>
+                        <!-- input -->
+                        <ptg-ui-input class="w-100" formControlName='confirmPassword' id='inputconfirmPass'
+                            type="password" className="form-control bg_0"
+                            [placeholder]="resources.CONFIRM_PASSWORD_PLACEHOLDERE">
+                        </ptg-ui-input>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+                            <!-- button -->
+                            <ptg-ui-button class="" type="submit" btnStyleType="primary" [isDisable]='!resetForm.valid'>
+                                {{resources.RESET_PASSWORD_TEXT}}
+                            </ptg-ui-button>
+                        </div>
+                        <div class="col-5">
+                            <!-- placeholder for cancel button -->
+                            <ng-content></ng-content>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- reset wrapper End -->

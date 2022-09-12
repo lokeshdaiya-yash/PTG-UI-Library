@@ -1,0 +1,19 @@
+<div class="d3-charts">
+    <!-- Bar chart block  -->
+    <div class="mb-2 overflow-auto">
+        <h4 [innerHTML]="'BAR_CHART_TEXT' | translate"></h4>
+        <ptg-ui-bar-chart [data]="barChartData.data" [width]="barChartData.width" [height]="barChartData.height" [margin]="barChartData.margin" [start]="barChartData.start" [end]="barChartData.end"></ptg-ui-bar-chart>
+    </div>
+    
+    <!-- Pie chart block  -->        
+    <div class="overflow-auto mb-2">
+        <h4 [innerHTML]="'PIE_CHART_TEXT' | translate"></h4>
+        <ptg-ui-pie-chart [data]="pieChartData.data" [colorsArray]="pieChartData.colors"></ptg-ui-pie-chart>
+    </div>
+
+    <!-- Line chart block  -->
+    <div class="overflow-auto mb-2">
+        <h4 [innerHTML]="'LINE_CHART_TEXT' | translate"></h4>
+        <ptg-ui-line-chart [data]="lineChartData.data" [margin]="lineChartData.margin" [width]="lineChartData.width" [height]="lineChartData.height"></ptg-ui-line-chart>
+    </div>
+</div>

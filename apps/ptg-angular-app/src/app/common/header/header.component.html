@@ -1,0 +1,18 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <ng-content></ng-content>
+      <a class="navbar-brand logo" href="#">
+        <img src="../../../assets/logo.png" aria-label="logo" alt="logo of the website to understand the purpose">
+      </a>
+      <div class="d-flex">
+        <div class="me-2">
+          <ptg-ui-select class="w-100" [id]="'inputFile'" [items]='langeList'
+          [isMultiple]="false" [closeOnSelect]="true" (change)="changeLang($event)" bindLabel="English" [(ngModel)]="itemValue">
+        </ptg-ui-select>
+        </div>
+          <ptg-ui-userprofile></ptg-ui-userprofile>
+      </div>
+    </div>
+  </nav>
+</header>

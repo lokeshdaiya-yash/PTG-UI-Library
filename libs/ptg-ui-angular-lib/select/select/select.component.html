@@ -1,0 +1,56 @@
+<ng-select [items]="items" [multiple]="isMultiple" bindLabel="name" [selectableGroup]="false"
+  [closeOnSelect]="closeOnSelect" bindValue="name" [placeholder]="placeholder" [(ngModel)]="selectedValue"
+  (change)="onchangeSelection($event)" (blur)="onBlur()">
+  <ng-template *ngIf="isMultiple" ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+    <input id="item-{{ index }}" type="checkbox" [ngModel]="item$.selected" />
+    {{ item.name | uppercase }}
+  </ng-template>
+
+  <!-- <ng-template *ngIf="isMultiple" ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+        <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" /> {{item.name}}
+    </ng-template> -->
+
+  <!-- chips -->
+  <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+    <ng-container *ngTemplateOutlet="
+        chips;
+        context: { items: items, clear: clear, itemCount: 3 }
+      ">
+    </ng-container>
+  </ng-template>
+
+  <!-- checkboxes -->
+  <ng-template *ngIf="isMultiple" ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+    <ng-container *ngTemplateOutlet="
+        multiselect;
+        context: { item: item, item$: item$, index: index }
+      ">
+    </ng-container>
+  </ng-template>
+</ng-select>
+<!-- <br>
+<small>{{selectedValue | json}}</small> -->
+
+<!-- Multiselect checkbox template -->
+<ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" #multiselect>
+  <div class="custom-control custom-checkbox">
+    <input id="item-{{ index }}" type="checkbox" class="custom-control-input" [ngModel]="item$.selected"
+      (change)="inputChange()" />
+    <label class="form-check-label custom-control-label ps-5">
+      {{ item.name }}
+    </label>
+  </div>
+</ng-template>
+
+<!-- chips -->
+<ng-template let-items="items" let-clear="clear" let-itemCount="itemCount" #chips>
+  <div class="ng-value" *ngFor="let item of $any(items | slice: 0:itemCount)">
+    <span class="ng-value-label" [title]="item.name">{{
+      item.name
+      }}</span>
+    <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+  </div>
+  <div class="ng-value" *ngIf="items.length > itemCount">
+    <span class="ng-value-label">{{ items.length - itemCount }} more...</span>
+  </div>
+</ng-template>

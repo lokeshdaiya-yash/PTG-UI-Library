@@ -1,0 +1,121 @@
+<!-- Documentation
+https://swimlane.gitbook.io/ngx-datatable/readme/getting-started 
+http://swimlane.github.io/ngx-datatable/
+-->
+
+<div class="ptg-ui-ptg-ngx-datatable">
+  <ng-container *ngIf="showFiter">
+    <!-- filter input -->
+    <ptg-ui-input
+      class="w-100 mb-3 d-block"
+      fieldname="email"
+      type="text"
+      className="form-control bg_0"
+      placeholder="Type to filter the name column..."
+      (keyup)="updateFilter($event)"
+    >
+    </ptg-ui-input>
+  </ng-container>
+
+  <!-- datatable start from here  -->
+  <div class="table-responsive">
+    <ngx-datatable
+      class="material"
+      [rows]="rows"
+      [columns]="columns"
+      [columnMode]="ColumnMode.force"
+      [scrollbarV]="scrollbarV"
+      [scrollbarH]="scrollbarH"
+      [limit]="limit"
+      [headerHeight]="headerHeight"
+      [footerHeight]="footerHeight"
+      [rowHeight]="rowHeight"
+      [externalPaging]="externalPaging"
+      [count]="totalCount"
+      [offset]="offset"
+      [sorts]="sorts"
+      (sort)="onSort($event)"
+      [externalSorting]="externalSorting"
+      [loadingIndicator]="loaderShowWhen"
+      (page)="onPageChange($event)"
+      [scrollbarH]="hScroll"
+      [scrollbarV]="vScroll"
+      [selectionType]="selectionType"
+      (select)="onSelect($event)"
+    >
+    <!-- [selectionType]="selectionType" -->
+    <!-- (select)="onSelect($event)" -->
+    <ngx-datatable-column *ngIf="selectionType === SelectionType.checkbox"
+            [width]="30"
+            [sortable]="false"
+            [canAutoResize]="false"
+            [draggable]="false"
+            [resizeable]="false"
+            [headerCheckboxable]="true"
+            [checkboxable]="true"
+          >
+          </ngx-datatable-column>
+      <ngx-datatable-column *ngFor="let column of columns; let i = index" name="{{ column.name }}">
+      </ngx-datatable-column>
+
+      <!-- Action button column  -->
+      <ngx-datatable-column [name]="actionButtonHeaderLabel" prop="action" *ngIf="showActionButton">
+        <ng-template ngx-datatable-cell-template let-value="value">
+          <span>
+            <button class="btn btn-primary" type="button" (click)="getAction()">{{actionButtonLabel}}</button>
+          </span>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <!-- custom footer if you want to show  -->
+      <ngx-datatable-footer *ngIf="false">
+        <ng-template
+          ngx-datatable-footer-template
+          let-rowCount="rowCount"
+          let-pageSize="pageSize"
+          let-pages="pages"
+          let-selectedCount="selectedCount"
+          let-curPage="curPage"
+          let-offset="offset"
+        >
+          <!-- custom footer   -->
+          <div style="padding: 5px 10px">
+            <div><strong>Summary</strong>: Gender: Female</div>
+            <hr style="width: 100%" />
+            <div>
+              Rows: {{ rowCount }} | Size: {{ pageSize }} | Current:
+              {{ curPage }} | Offset: {{ offset }}
+            </div>
+            pages - {{ pages }}
+          </div>
+          <!-- custom pagination  -->
+          <ul class="pagination justify-content-center mt-3">
+            <li class="page-item" [ngClass]="{ disabled: currentPage <= 1 }">
+              <a class="page-link">To First</a>
+            </li>
+            <li class="page-item" [ngClass]="{ disabled: currentPage <= 1 }">
+              <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link">1</a></li>
+            <li class="page-item"><a class="page-link">2</a></li>
+            <li
+              class="page-item"
+              [ngClass]="{ disabled: currentPage === totalPage }"
+            >
+              <a class="page-link">Next</a>
+            </li>
+            <li
+              class="page-item"
+              [ngClass]="{ disabled: currentPage === totalPage }"
+            >
+              <a class="page-link">To Last</a>
+            </li>
+          </ul>
+        </ng-template>
+      </ngx-datatable-footer>
+    </ngx-datatable>
+  </div>
+</div>
+
+
+<ng-content></ng-content>

@@ -1,0 +1,9 @@
+// @import '../variables';
+
+::ng-deep {
+
+  .ng-value,
+  .ng-option {
+    text-transform: capitalize;
+  }
+}

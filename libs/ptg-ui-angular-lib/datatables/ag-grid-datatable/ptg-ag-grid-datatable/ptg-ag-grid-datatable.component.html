@@ -1,0 +1,40 @@
+<!-- Documentation 
+https://ag-grid.com/angular-data-grid/getting-started/#enable-sorting-and-filtering-1 -->
+<div class="ag-grid-wrapper">
+	<ag-grid-angular style="width: auto; height: 500px;" 
+        [class]="themeClassName" 
+        [rowData]="rowData"
+        [columnDefs]="columnDef" 
+        [defaultColDef]="defaultColDef" 
+        [rowHeight]="rowHeight" [rowDragManaged]="true"
+        [animateRows]="animateRow" 
+        (filterOpened)="filterOpend($event)" 
+        (filterChanged)="filterChanged($event)"
+        (filterModified)="filterModified($event)" 
+        (paginationChanged)="paginationChanged()" [rowStyle]="rowStyle"
+        [rowClass]="rowClass" 
+        (cellValueChanged)="onCellValueChanged($event)" 
+        [suppressPaginationPanel]="false"
+        [pagination]="pagination" 
+        [paginationPageSize]="paginationLimit" 
+        (gridReady)="onGridReady($event)"
+        (selectionChanged)="getSelectedRow($event)"
+        [rowSelection]="rowSelection"
+        [frameworkComponents]="frameworkComponents"
+        [suppressRowClickSelection]="true">
+    </ag-grid-angular>
+
+    <!-- Custom pagination -->
+    <ng-container *ngIf="enableCustomFilter">
+        <ul class="pagination justify-content-center mt-3 {{customPaginationClass}}" *ngIf="totalPage > 1">
+            <li class="page-item d-none d-sm-block" [ngClass]="{'disabled': currentPage <= 1}"><a class="page-link" (click)="onBtFirst()">To First</a></li>
+            <li class="page-item" [ngClass]="{'disabled': currentPage <= 1}"><a class="page-link" (click)="onBtPrevious()">Previous</a></li>
+            <li class="page-item" *ngFor="let count of pageArray; let i = index" [ngClass]="{'active': count+1 === currentPage}"><a class="page-link" (click)="onBtPage(count)">{{count+1}}</a></li>	
+            <li class="page-item" [ngClass]="{'disabled': currentPage === totalPage}"><a class="page-link" (click)="onBtNext($event)">Next</a></li>
+            <li class="page-item d-none d-sm-block" [ngClass]="{'disabled': currentPage === totalPage}"><a class="page-link" (click)="onBtLast()">To Last</a></li>
+        </ul>
+    </ng-container>
+    <!-- Custom pagination -->
+</div>
+
+

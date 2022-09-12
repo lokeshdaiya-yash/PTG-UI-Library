@@ -1,0 +1,46 @@
+<!-- Documentation
+Table - https://material.angular.io/components/table/overview
+Pagination - https://material.angular.io/components/paginator/overview
+Sort - https://material.angular.io/components/sort/overview -->
+
+  <div class="mat-datatable">
+    <!-- filter input -->
+    <ng-container *ngIf="showFiter">
+      <ptg-ui-input class="w-100 mb-3 d-block" fieldname="search" type="text" className="form-control bg_0"
+          placeholder="Type for default filter" (keyup)="applyFilter($event)">
+    </ptg-ui-input>
+    </ng-container>
+
+    <!-- datatable  -->
+    <div class="table-responsive">
+      <table mat-table class="mb-4 table table-bordered " [dataSource]="dataSource" >
+        <!-- show columns in upcoming order -->
+        <mat-text-column *ngFor="let columnName of columns;" [name]="columnName"></mat-text-column>
+        
+        <!-- to render rows and columns  -->
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;" (click)="getRow(row)"></tr>
+    
+        <!-- Empty message row -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="9999">
+            {{emptyStateMessage}}
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Paginator  -->
+    <mat-paginator 
+      [showFirstLastButtons]="true" 
+      aria-label="Select page of periodic elements"
+      [pageSize]="limit"
+      (page)="onPaginate($event)"
+      [length]="totalCount"
+      [hidePageSize]="true"
+      >
+    </mat-paginator>
+    
+    </div>
+
+

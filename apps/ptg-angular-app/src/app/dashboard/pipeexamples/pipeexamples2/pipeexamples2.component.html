@@ -1,0 +1,60 @@
+<div class="wrapper">
+  <section>
+    <div class="row">
+      <div class="col-12 mt-4 mb-5">
+        <h2 [innerHTML]="'CONVERT_VALUE_USING_DIRECTIVE' | translate"></h2>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="row">
+      <div class="col-12 mb-3">
+        <h4 [innerHTML]="'CURRENCY_PIPES' | translate"></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group mb-2">
+          <ptg-ui-input ptgUiCurrency [(ngModel)]="value1" class="w-100" type="text" className="form-control bg_0"
+            [placeholder]="'ENTER_NUMBER_MY_NUMBER_PLACEHOLDER' | translate" [id]="'currency'" aria_placeholder="ENTER_NUMBER_MY_NUMBER_PLACEHOLDER">
+          </ptg-ui-input>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <section>
+    <div class="row">
+      <div class="col-12 mb-3">
+        <h4 [innerHTML]="'PHONE_NUMBER_FORMATE_PIPES' | translate"></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group mb-2">
+          <ptg-ui-input ptgUiPhoneformat class="w-100" maxlength="10" [(ngModel)]="value5" type="text"
+            className="form-control bg_0" [id]="'number_pipe'" [placeholder]="'ENTER_NUMBER_PLACEHOLDER' | translate"  aria_placeholder="ENTER_NUMBER_PLACEHOLDER">
+          </ptg-ui-input>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <section>
+    <div class="row">
+      <div class="col-12 mb-3">
+        <h4 [innerHTML]="'CAPITALIZE_PIPES' | translate"></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group mb-2">
+          <ptg-ui-input ptgUiCapitalize class="w-100" [(ngModel)]="value2" type="text" className="form-control bg_0"
+            [placeholder]="'ENTER_TEXT_PLACEHOLDER' | translate" [id]="'capital_pipe'" aria_placeholder="ENTER_TEXT_PLACEHOLDER">
+          </ptg-ui-input>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+</div>

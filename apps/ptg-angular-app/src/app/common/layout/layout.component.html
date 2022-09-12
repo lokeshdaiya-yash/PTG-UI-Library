@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <!-- header -->
+  <ptg-ui-header>
+    <!-- <button aria-label="Menu" class="btn btn-primary"
+      [ngClass]="(currentScreenSize === 'XSmall' || currentScreenSize === 'Small') ? 'd-block' : 'd-none'"
+      (click)="isMenuToggle()">
+      <i class="fa-solid fa-bars"></i>
+    </button> -->
+  </ptg-ui-header>
+  <!-- main -->
+  <div class="main">
+    <div class="d-flex h-100">
+      <div class="flex-shrink-1 side-nav-wrapper h-100">
+        <!-- side nav start -->
+        <ptg-ui-sidenav1 [selectedPath]="selectedPath" [isMenuOpen]="isMenuOpen" [menuItems]="menuItems"
+          (select)="($event)"></ptg-ui-sidenav1>
+        <!-- side nav end -->
+      </div>
+      <div class="main-wrapper">
+        <div class="main-conatiner">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer -->
+  <ptg-ui-footer></ptg-ui-footer>
+</div>

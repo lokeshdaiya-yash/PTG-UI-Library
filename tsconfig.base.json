@@ -14,7 +14,29 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "allowJs": false,
+    "paths": {
+      "@ptg-ui/angular/accordian": ["libs/ptg-ui-angular-lib/accordian/index.ts"],
+      "@ptg-ui/angular/alert": ["libs/ptg-ui-angular-lib/alert/index.ts"],
+      "@ptg-ui/angular/button": ["libs/ptg-ui-angular-lib/button/index.ts"],
+      "@ptg-ui/angular/calendar": ["libs/ptg-ui-angular-lib/calendar/index.ts"],
+      "@ptg-ui/angular/charts": ["libs/ptg-ui-angular-lib/charts/index.ts"],
+      "@ptg-ui/angular/checks": ["libs/ptg-ui-angular-lib/checks/index.ts"],
+      "@ptg-ui/angular/file-downloads": ["libs/ptg-ui-angular-lib/file-downloads/index.ts"],
+      "@ptg-ui/angular/indeterminate-checkboxes": ["libs/ptg-ui-angular-lib/indeterminate-checkboxes/index.ts"],
+      "@ptg-ui/angular/input": ["libs/ptg-ui-angular-lib/input/index.ts"],
+      "@ptg-ui/angular/loading": ["libs/ptg-ui-angular-lib/loading/index.ts"],
+      "@ptg-ui/angular/pipes": ["libs/ptg-ui-angular-lib/pipes/index.ts"],
+      "@ptg-ui/angular/radio": ["libs/ptg-ui-angular-lib/radio/index.ts"],
+      "@ptg-ui/angular/select": ["libs/ptg-ui-angular-lib/select/index.ts"],
+      "@ptg-ui/angular/sidenav": ["libs/ptg-ui-angular-lib/sidenav/index.ts"],
+      "@ptg-ui/angular/textarea": ["libs/ptg-ui-angular-lib/textarea/index.ts"],
+      "@ptg-ui/angular/toasts": ["libs/ptg-ui-angular-lib/toasts/index.ts"],
+      "@ptg-angular-app/*": ["apps/ptg-angular-app/src/app/*"],
+      "@ptg-ui/angular": ["libs/ptg-ui-angular-lib/index.ts"],
+      "@ptg-ui/angular/*": ["libs/ptg-ui-angular-lib/*"],
+      "@ptg-ui/*": ["./*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

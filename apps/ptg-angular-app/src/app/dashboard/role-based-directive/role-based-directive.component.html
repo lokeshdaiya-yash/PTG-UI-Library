@@ -1,0 +1,52 @@
+
+<section class="wraper">
+  <div class="container-fluid">
+    <div class="content">
+      <h4 class="mb-5" [innerHTML]="'ROLE_BASED_EXAMPLE_TEXT' | translate"></h4>
+      <div class="row mb-4 align-items-center">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
+          <h6 [innerHTML]="'BUTTON_VISIBLE_FOR_ADMIN_ROLE_TEXT' | translate"></h6>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6"> 
+          <ptg-ui-button
+              ptgUiShowForLoginUsers
+              class="w-100"
+              type="submit"
+              btnStyleType="primary"
+              [isBlock]="true"><i class="fa-solid fa-user-plus m-2"></i>{{'ADD_USER_TEXT' | translate}}
+          </ptg-ui-button>
+        </div>
+      </div> 
+      <div class="row mb-4 align-items-center">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
+          <h6 [innerHTML]="'BUTTON_VISIBLE_FOR_ADMIN_ROLE_TEXT' | translate"></h6>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+          <ptg-ui-button
+            ptgUiShowForLoginUsers
+            class="w-100"
+            type="submit"
+            btnStyleType="primary"
+            [isBlock]="true"
+            ><i class="fa-solid fa-user-pen m-2"></i>{{'EDIT_USER_TEXT' | translate}}
+          </ptg-ui-button>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+          <h6 [innerHTML]="'BUTTON_VISIBLE_FOR_EVERYONE_TEXT' | translate"></h6>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+          <ptg-ui-button
+            class="w-100"
+            type="submit"
+            btnStyleType="primary"
+            [isBlock]="true"
+            ><i class="fa-solid fa-users m-2"></i>
+           {{'VIEW_USER_TEXT' | translate}}
+          </ptg-ui-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

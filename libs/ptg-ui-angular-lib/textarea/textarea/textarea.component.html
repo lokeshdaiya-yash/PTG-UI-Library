@@ -1,0 +1,9 @@
+
+<textarea #textarea  [placeholder]="placeholder"
+[class]="className"
+[id]="id"
+[(ngModel)]="textareaValue"
+[value]="value"
+[attr.aria-placeholder] = "aria_placeholder"
+(input)="onchangeInput($event.target)"
+(blur)="onBlur()"></textarea>

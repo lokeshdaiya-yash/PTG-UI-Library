@@ -1,0 +1,48 @@
+<div class="wrapper">
+    <section>
+        <div class="container-fluid">
+            <div class="form-wrapper">
+                <form class="form-calendar" [formGroup]="calendarForm" (ngSubmit)="onFormSubmit($event)">
+                    <div class="row mb-5">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <label [innerHTML]="resources.MIN_DATE"></label>
+                                </div>
+                                <div class="col-12">
+                                    <ptg-ui-calendar class="w-100" [id]="'startDate'" formControlName='startDate'
+                                        (calendarValueChange)="onStartDateChange($event)">
+                                    </ptg-ui-calendar>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <label  [innerHTML]="resources.MAX_DATE"></label>
+                                </div>
+                                <div class="col-12">
+                                    <ptg-ui-calendar [minDate]="endMinDate" class="w-100"
+                                        formControlName='endDate' [id]="'endDate'" (calendarValueChange)="onEndDateChange($event)">
+                                    </ptg-ui-calendar>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-2 offset-md-2 offset-sm-0 offset-xs-0">
+                            <label class="font-weight-bold">
+                                <b [innerHTML] = "resources.DATE_VALIDATOR_TEXT"></b>
+                            </label>
+                            <div class="row mb-3">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <ptg-ui-calendar [minDate]="startDate" [maxDate]="endDate" class=""
+                                        formControlName='calendar1Value' [id]="'maxEndDate'">
+                                    </ptg-ui-calendar>
+                                </div>
+                            </div>
+                            <div class="row">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

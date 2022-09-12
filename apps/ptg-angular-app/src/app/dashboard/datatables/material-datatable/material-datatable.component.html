@@ -1,0 +1,75 @@
+<h3 class="mb-3" [innerHTML]="'MATERIAL_DATATABLE' | translate"></h3>
+<tabset #staticTabs>
+  <tab heading="Reusable Material Table">
+    <div class="pt-4">
+      <ptg-ui-mat-datatable
+        [data]="data"
+        [columns]="dataColumns"
+        [showFiter]="true"
+        [totalCount]="20"
+        [limit]="10"
+        (paginationData)="paginate($event)"
+      >
+      </ptg-ui-mat-datatable>
+    </div>
+  </tab>
+  <tab heading="Material With Action Button">
+    <!-- datatable  -->
+    <div class="example-container mat-elevation-z8 mat-datatable table-responsive mt-4">
+      <table mat-table class="table table-bordered" [dataSource]="data">
+        <!-- Name Column -->
+        <ng-container matColumnDef="athlete">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.athlete }}</td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="age">
+          <th mat-header-cell *matHeaderCellDef>Age</th>
+          <td mat-cell *matCellDef="let element">{{ element.age }}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="country">
+          <th mat-header-cell *matHeaderCellDef>Country</th>
+          <td mat-cell *matCellDef="let element">{{ element.country }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="year">
+          <th mat-header-cell *matHeaderCellDef>Year</th>
+          <td mat-cell *matCellDef="let element">{{ element.year }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="sport">
+          <th mat-header-cell *matHeaderCellDef>Sport</th>
+          <td mat-cell *matCellDef="let element">{{ element.sport }}</td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="silver">
+          <th mat-header-cell *matHeaderCellDef>Silver</th>
+          <td mat-cell *matCellDef="let element">{{ element.silver }}</td>
+        </ng-container>
+
+        <!-- Action Button -->
+        <ng-container matColumnDef="total">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <button class="btn btn-primary" (click)="getValue()">
+              Click Here
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="dataColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: dataColumns"></tr>
+      </table>
+    </div>
+  </tab>
+</tabset>

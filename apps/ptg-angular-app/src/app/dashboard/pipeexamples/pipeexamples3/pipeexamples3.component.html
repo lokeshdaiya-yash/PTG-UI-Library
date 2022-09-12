@@ -1,0 +1,83 @@
+<div class="wrapper">
+    <section>
+        <div class="row">
+            <div class="col-12 mt-4 mb-5">
+                <h2 [innerHTML]="'CONVERT_VALUE_USING_EVENT' | translate"></h2>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h4 [innerHTML]="'CURRENCY_PIPES' | translate"></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group mb-2">
+                    <ptg-ui-input [(ngModel)]='value1' class="w-100"  type="text" className="form-control bg_0" [placeholder]="'ENTER_NUMBER_MY_NUMBER_PLACEHOLDER' | translate" 
+                    (focusout)='normalize($event)'>
+                    </ptg-ui-input>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr/>
+    <section>
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h4 [innerHTML]="'PHONE_NUMBER_FORMATE_PIPES' | translate"></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group mb-2">
+                    <ptg-ui-input 
+                        class="w-100" 
+                        [(ngModel)]='value5' type="text"
+                        className="form-control bg_0" [placeholder]="'ENTER_NUMBER_PLACEHOLDER' | translate"
+                        (focusout)='convertIntoPhoneNumber($event)'
+                        >
+                    </ptg-ui-input>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr/>
+    <section>
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h4 [innerHTML]="'CAPITALIZE_PIPES' | translate"></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group mb-2">
+                    <ptg-ui-input class="w-100"
+                        [(ngModel)]='value2' type="text"
+                        className="form-control bg_0" [placeholder]="'ENTER_TEXT_PLACEHOLDER' | translate" (focusout)='convertIntoCapitalize($event)'>
+                    </ptg-ui-input>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr/>
+    <!-- <section>
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h4>Truncate Pipes</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group mb-2">
+                    <ptg-ui-input class="w-100"
+                        [(ngModel)]='value4' type="text"
+                        className="form-control bg_0" placeholder="Enter text">
+                    </ptg-ui-input>
+                    <label class="mt-3"><strong>Output:- </strong> {{value4 | truncate : '10'}}</label>
+                </div>
+            </div>
+        </div>
+    </section> -->
+</div>

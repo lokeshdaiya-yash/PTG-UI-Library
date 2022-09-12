@@ -1,0 +1,81 @@
+<div class="wrapper">
+    <section>
+        <div class="row">
+            <div class="col-12 mt-4 mb-5">
+                <h2 [innerHTML]="'CONVERT_VALUE_USING_DIRECTIVE' | translate"></h2>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h4 [innerHTML]="'CURRENCY_PIPES' | translate"></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group mb-2">
+                    <ptg-ui-input class="w-100" type="number" [(ngModel)]='value1' className="form-control bg_0" [id]="'numberText'"
+                        [placeholder]="'ENTER_NUMBER_PLACEHOLDER' | translate">
+                    </ptg-ui-input>
+                    <label aria-label="output" for="numberText" class="mt-3"><strong [innerHTML]="'OUTPUT_TEXT' | translate">:- </strong> {{value1 | currency}}</label>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr />
+    <section>
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h4 [innerHTML]="'PHONE_NUMBER_FORMATE_PIPES' | translate"></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group mb-2">
+                    <ptg-ui-input class="w-100" maxlength="10" [(ngModel)]='value5' type="number" [id]="'numberFormate'"
+                        className="form-control bg_0" [placeholder]="'ENTER_NUMBER_PLACEHOLDER' | translate">
+                    </ptg-ui-input>
+                    <label class="mt-3" for="numberFormate"><strong [innerHTML]="'OUTPUT_TEXT' | translate">:- </strong> {{value5 | phoneFormat}}</label>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr />
+    <section>
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h4 [innerHTML]="'CAPITALIZE_PIPES' | translate"></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group mb-2">
+                    <ptg-ui-input class="w-100" [(ngModel)]='value2' type="text" className="form-control bg_0"
+                        [placeholder]="'ENTER_TEXT_PLACEHOLDER' | translate" [id]="'capital_pipe'">
+                    </ptg-ui-input>
+                    <label class="mt-3" for="capital_pipe"><strong [innerHTML]="'OUTPUT_TEXT' | translate">:- </strong> {{value2 | capitalize}}</label>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr />
+    <section>
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h4 [innerHTML]="'TRUNCATE_PIPES' | translate"></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group mb-2">
+                    <!-- input -->
+                    <ptg-ui-input class="w-100" [(ngModel)]='value4' type="text" className="form-control bg_0"
+                        [placeholder]="'ENTER_TEXT_PLACEHOLDER' | translate"  [id]="'truncate_pipe'">
+                    </ptg-ui-input>
+                    <label class="mt-3"  for="truncate_pipe"><strong [innerHTML]="'OUTPUT_TEXT' | translate">:- </strong> {{value4 | truncate : '10'}}</label>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

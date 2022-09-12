@@ -1,0 +1,9 @@
+@import "variables";
+footer{
+    height: 8vh;
+    background-color: $secondDark;
+    font-size: 11px;
+    p{
+        color: $footer-text;
+    }
+}

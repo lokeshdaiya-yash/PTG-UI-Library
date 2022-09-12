@@ -1,0 +1,19 @@
+<!-- Loading -->
+<ptg-ui-loading [loading]="loading"></ptg-ui-loading>
+
+<!--  Drag and Drop Example 1 Wrapper -->
+   <div class="wrapper1 mt-5 pt-3">
+    <h4 [innerHTML]="'DRAG_DROP_EX_1' | translate"></h4>
+    <div cdkDropList class="example-list" #personList="cdkDropList" [cdkDropListData]="personaldetails"
+       (cdkDropListDropped)="onDrop($event)">
+       <div *ngFor="let item of personaldetails; let i = index" class="divlayout d-flex justify-content-between"
+          cdkDrag>
+          <p cdkDragHandle class="px-2"><i class="fa-solid fa-bars"></i></p>
+          <p>{{i+1}} - {{item.username}}</p>
+          <p cdkDragHandle class="px-2">
+             <i class="fa-solid fa-bars"></i>
+          </p>
+       </div>
+    </div>
+ </div>
+ <hr class="my-5" />

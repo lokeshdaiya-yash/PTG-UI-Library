@@ -1,0 +1,13 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 [innerHTML]="'INTERMEDIATE_CHECKBOX_TEXT' | translate"></h4>
+                <ptg-ui-indeterminate-checkboxes [checkBoxList]="checkBoxData" (onCheckboxValueChanges)="onChanges($event)"></ptg-ui-indeterminate-checkboxes>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

@@ -1,0 +1,12 @@
+<input
+  #input  
+  [placeholder]="placeholder"
+  [class]="className"
+  [type]="type"
+  [id]="id"
+  [(ngModel)]="inputValue"
+  [value]="value"
+  [attr.aria-placeholder] = "aria_placeholder"
+  (input)="onchangeInput($event.target)"
+  (blur)="onBlur()"
+/>

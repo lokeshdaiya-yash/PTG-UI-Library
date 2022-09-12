@@ -42,5 +42,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "ptg-ui-angular"
+  "defaultProject": "ptg-angular-app"
 }

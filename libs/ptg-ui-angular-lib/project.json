@@ -1,0 +1,43 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/ptg-ui-angular-lib",
+  "prefix": "ptg-ui-library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/ptg-ui-angular-lib"],
+      "options": {
+        "project": "libs/ptg-ui-angular-lib/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ptg-ui-angular-lib/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ptg-ui-angular-lib/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ptg-ui-angular-lib"],
+      "options": {
+        "jestConfig": "libs/ptg-ui-angular-lib/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ptg-ui-angular-lib/**/*.ts",
+          "libs/ptg-ui-angular-lib/**/*.html",
+          "libs/ptg-ui-angular-lib/demo-input/**/*.ts",
+          "libs/ptg-ui-angular-lib/demo-input/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

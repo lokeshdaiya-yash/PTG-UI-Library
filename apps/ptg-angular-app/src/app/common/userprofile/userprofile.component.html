@@ -1,0 +1,22 @@
+<!-- User profile wrapper start -->
+<div class="user-wrapper">
+  <span class="profile-icon text-white" (click)="toggleUserProfileDiv()">{{shortName}}</span>
+  <div [hidden]="!showProfileIcon" class="user-container">
+    <div class="triangle-up"></div>
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action bg-info text-white border-top-0">{{userName}}</a>
+      <!-- <a (click)="passwordReset(reset)" class="list-group-item list-group-item-action">Reset Password</a> -->
+      <a (click)="logout()" class="list-group-item list-group-item-action">{{resources.LOGOUT}}</a>
+    </div>
+  </div>
+</div>
+<!-- User profile wrapper end -->
+
+<!-- Dialog for resetpassword -->
+<ng-template #reset let-modal>
+  <div class="modal-body app-orders p-0">
+    <ptg-ui-reset [modalRef]="modalRef">
+      <ptg-ui-button (click)="isClosemodal()" class="" btnStyleType="secondary"> {{resources.CANCEL}} </ptg-ui-button>
+    </ptg-ui-reset>
+  </div>
+</ng-template>

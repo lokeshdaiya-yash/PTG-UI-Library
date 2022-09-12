@@ -2,7 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "ptg-ui-angular": "apps/ptg-ui-angular",
-    "ptg-ui-angular-e2e": "apps/ptg-ui-angular-e2e"
+    "ptg-angular-app": "apps/ptg-angular-app",
+    "ptg-angular-app-e2e": "apps/ptg-angular-app-e2e",
+    "ptg-ui-angular-lib": "libs/ptg-ui-angular-lib"
   }
 }

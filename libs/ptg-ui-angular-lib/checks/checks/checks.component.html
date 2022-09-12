@@ -1,0 +1,7 @@
+<div class="form-check">
+  <input #check [checked]="isChecked" class="form-check-input" type="checkbox" (change)="onCheck()" (blur)="onBlur()"
+    [(ngModel)]="isChecked" [id]="randomId">
+  <label class="form-check-label" [for]="randomId">
+    {{label}}
+  </label>
+</div>

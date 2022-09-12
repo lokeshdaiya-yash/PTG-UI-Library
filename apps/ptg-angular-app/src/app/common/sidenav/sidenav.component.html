@@ -1,0 +1,23 @@
+<div class="sidenav-container pt-3" [ngClass]="{'width-0': isMenuOpen}">
+  <div class="sidenav">
+    <ng-container *ngFor="let item of menuItems">
+      <a class="menu-item" (click)="navigate(item.pages ? null : item)" [ngClass]="{
+          active: selectedPath === item.path,
+          disabled: item.disabled !== false,
+          'parent-item': item.pages
+        }">
+        <i class="icon {{ item.icon }}"  *ngIf="item.icon"></i>
+        <span class="menu-item-text" [innerHtml]="item.label | translate"></span>
+      </a>
+
+      <a class="menu-item child-item" (click)="navigate(childItem)" [ngClass]="{
+          active: selectedPath === childItem.path,
+          disabled: childItem.disabled !== false
+        }" *ngFor="let childItem of item.pages" [innerHtml]="childItem.label! | translate">
+        </a>
+        
+        
+    </ng-container>
+    <ng-content select=".app-template-name"></ng-content>
+  </div>
+</div>

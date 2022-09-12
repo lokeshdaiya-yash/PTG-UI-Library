@@ -1,0 +1,109 @@
+<!-- Loading -->
+<ptg-ui-loading [loading]="loading"></ptg-ui-loading>
+<!-- Signup wrapper Start -->
+<div class="signup-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
+  <div class="signup-container">
+    <div class="signup-form-wrapper">
+      <div class="form-group">
+        <div class="text-center mb-3">
+          <h3 [innerHTML]="resources.REGISTRATION_TEXT"></h3>
+        </div>
+      </div>
+      <form class="form-login" [formGroup]="signupForm" (ngSubmit)="onSignupSubmit()">
+        <div class="login-form">
+          <div class="form-container">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group required mb-2">
+                  <label for="inputUsername" tabindex="0" aria-label="username" [innerHTML]="resources.USER_NAME"></label>
+                  <!-- input -->
+                  <ptg-ui-input class="w-100" formControlName="username" [id]="'inputUsername'" type="text"
+                    className="form-control bg_0" [placeholder]="resources.USER_NAME_PLACEHOLDER">
+                  </ptg-ui-input>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group required mb-2">
+                  <label for="inputEmail" tabindex="0" aria-label="email" [innerHTML]="resources.LABEL_EMAIL"></label>
+                  <!-- input -->
+                  <ptg-ui-input class="w-100" formControlName="email" [id]="'inputEmail'" type="text"
+                    className="form-control bg_0" [placeholder]="resources.INPUT_PLACEHOLDER_EMAIL">
+                  </ptg-ui-input>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group required mb-2">
+                  <label aria-label="DOB" for="inputDob" tabindex="0" [innerHTML]="resources.DOB"></label>
+                  <!-- calendar -->
+                  <ptg-ui-calendar class="w-100" [id]="'inputDob'" formControlName="dob">
+                  </ptg-ui-calendar>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-group required mb-2">
+                  <label aria-label="City" tabindex="0" [innerHTML]="resources.CITY"></label>
+                  <!-- select -->
+                  <ptg-ui-select formControlName="city" class="w-100" [id]="'inputCity'" [items]="cityList"
+                    [isMultiple]="false" [closeOnSelect]="true" [placeholder]="resources.SELECT_TEXT">
+                  </ptg-ui-select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group required mb-2">
+                  <!-- <label for="customRadio" [innerHTML]="resources.GENDER"></label>
+                  <ptg-ui-radio formControlName="gender" [items]="genderList" [id]="'customRadio'"
+                    [name]="'gender-radio-btn'">
+                  </ptg-ui-radio> -->
+                  <fieldset>
+                    <legend tabindex="0" [innerHTML]="resources.GENDER" class="legend-tag">
+                    </legend>
+                    <!-- <label tabindex="0" [innerHTML]="'GENDER' | translate"></label> -->
+                    <ptg-ui-radio formControlName='gender' [items]='genderList'
+                        [name]="'gender-radio-btn'">
+                    </ptg-ui-radio>
+                </fieldset>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group required mb-2">
+                  <label tabindex="0" for="inputPassword" [innerHTML]="resources.LABEL_PASSWORD"></label>
+                  <!-- input -->
+                  <ptg-ui-input class="w-100" [id]="'inputPassword'" type="password" formControlName="password"
+                    className="form-control bg_0" [placeholder]="resources.INPUT_PLACEHOLDER_PASSWORD">
+                  </ptg-ui-input>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group required mb-2">
+                  <!-- checks -->
+                  <ptg-ui-checks formControlName="confirm" [label]="resources.DECLARATION_REGISTRATION_TEXT">
+                  </ptg-ui-checks>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="new_label text-center mt-3 mb-2">
+            <label>{{ resources.REGISTRATION_LABEL_INFO_MSG }}
+              <a class="signup-btn" [routerLink]="['../login']">{{
+                resources.LOG_IN
+                }}</a>.</label>
+          </div>
+          <!-- button -->
+          <ptg-ui-button class="w-100" type="submit" btnStyleType="primary" [isBlock]="true"
+            [isDisable]="!signupForm.valid">
+            {{ resources.SUBMIT }}
+          </ptg-ui-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Signup wrapper End -->
