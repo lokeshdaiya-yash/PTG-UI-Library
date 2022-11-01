@@ -4,6 +4,9 @@
   "projects": {
     "ptg-angular-app": "apps/ptg-angular-app",
     "ptg-angular-app-e2e": "apps/ptg-angular-app-e2e",
-    "ptg-ui-angular-lib": "libs/ptg-ui-angular-lib"
+    "ptg-react-app": "apps/ptg-react-app",
+    "ptg-react-app-e2e": "apps/ptg-react-app-e2e",
+    "ptg-ui-angular-lib": "libs/ptg-ui-angular-lib",
+    "ptg-ui-react-lib": "libs/ptg-ui-react-lib"
   }
 }

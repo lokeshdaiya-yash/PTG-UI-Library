@@ -1,0 +1,8 @@
+.nav-tabs:not(.app-tabs) {
+  .nav-link {
+    color: $dark-grey;
+    &.active {
+        color: $main;
+    }
+  }
+}

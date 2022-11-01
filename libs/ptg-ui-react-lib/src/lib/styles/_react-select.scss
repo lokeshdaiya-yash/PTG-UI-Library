@@ -1,0 +1,22 @@
+/**
+ * @since March 2022
+ * @author Devang Kushwah
+ * @Component ptg-ui-select;
+ * @SCSS calendar SCSS;
+ * @description This SCSS used for select custmization
+**/
+
+// select new styles
+
+.multiSelectContainer .option:hover {
+    background-color: $react-datepicker_star-end !important ;
+    color: $main !important;
+}
+.singleChip{
+   color: $main !important;
+}
+
+#intermediate-checkbox .multiSelectContainer input{
+background-color: $main !important;
+}
+

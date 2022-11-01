@@ -1,0 +1,16 @@
+.input-group {
+  input {
+    border-radius: 2px !important;
+    padding-left: 15px;
+  }
+}
+ptg-ui-input.ng-invalid.ng-touched input{
+  border: 1px solid red;
+  &:focus {
+    box-shadow: 0 0 0 0.1rem rgba(255, 0, 0, 0.25) !important;
+  }
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.1rem rgb(0 33 68 / 25%);
+}

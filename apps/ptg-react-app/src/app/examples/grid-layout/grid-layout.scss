@@ -1,0 +1,14 @@
+@import '../../styles/variables';
+
+.bg-dark-primary {
+    background-color: $main;
+}
+.bg-image {
+    background-image: url("../../../assets/images/bg1.png");
+    background-attachment: fixed;
+}
+section {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    position: relative;
+}

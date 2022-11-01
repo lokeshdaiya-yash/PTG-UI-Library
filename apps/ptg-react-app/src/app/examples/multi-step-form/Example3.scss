@@ -1,0 +1,8 @@
+@import '../../styles/variables';
+
+.MuiStepIcon-completed,.MuiStepIcon-active{
+    color: $main !important;
+}
+.MuiStepIcon-root.Mui-error {
+    color: $error !important;
+}
