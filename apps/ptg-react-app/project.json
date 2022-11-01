@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ptg-react-app/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/ptg-react-app",
+        "index": "apps/ptg-react-app/src/index.html",
+        "baseHref": "/",
+        "main": "apps/ptg-react-app/src/main.tsx",
+        "polyfills": "apps/ptg-react-app/src/polyfills.ts",
+        "tsConfig": "apps/ptg-react-app/tsconfig.app.json",
+        "assets": [
+          "apps/ptg-react-app/src/favicon.ico",
+          "apps/ptg-react-app/src/assets"
+        ],
+        "styles": ["apps/ptg-react-app/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/ptg-react-app/src/environments/environment.ts",
+              "with": "apps/ptg-react-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ptg-react-app:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ptg-react-app:build:development"
+        },
+        "production": {
+          "buildTarget": "ptg-react-app:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/ptg-react-app/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/ptg-react-app"],
+      "options": {
+        "jestConfig": "apps/ptg-react-app/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

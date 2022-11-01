@@ -1,0 +1,21 @@
+/**
+ * @since March 2022
+ * @author Devang Kushwah
+ * @Component ptg-ui-Web Accessibility-calendar;
+ * @SCSS  Web Accessibility calendar SCSS;
+ * @description This SCSS used for calendar custmization
+**/
+
+// Web Accessibility calender new styles
+.MuiPickersDay-daySelected {
+    color: #fff;
+    background-color: $main !important;
+}
+
+.MuiPickersDay-current{
+    color:#84abd6 !important;
+}
+
+.MuiPickersCalendarHeader-dayLabel {
+    color: $react-datepicker__day !important;
+}

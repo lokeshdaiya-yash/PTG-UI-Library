@@ -1,0 +1,47 @@
+.page-link{
+    cursor: pointer;
+}
+
+.full-width-table {
+    width: 100%;
+}
+
+tr.mat-row{
+    cursor: pointer;
+}
+
+// Material datatable 
+.mat-datatable{
+    th.mat-header-cell:first-of-type, td.mat-cell:first-of-type{
+        padding-left: 10;
+    }
+    th.mat-header-cell, td.mat-cell{
+        vertical-align: middle;
+        padding: 0 10px;
+    }
+    @media(max-width:767px){
+        .mat-paginator-container{
+            align-items: center;
+            justify-content:center;
+        }   
+    }
+}
+
+
+// Ag-grid css 
+@media(max-width:767px){
+    .ag-paging-panel{
+        display: block !important;
+        height: auto !important;
+        padding: 5px;
+        text-align: center;
+        .ag-paging-row-summary-panel{
+            margin-bottom: 10px;
+            display: block;
+        }
+        .ag-paging-page-summary-panel{
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+    }
+}

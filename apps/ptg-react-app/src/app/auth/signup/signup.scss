@@ -1,0 +1,38 @@
+@import '../../styles/variables';
+
+.signup-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: $main;
+  overflow: hidden;
+  .signup-form-wrapper {
+    background: white;
+    padding: 4% 10%;
+    width: 40vw;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .signup-wrapper {
+    .signup-form-wrapper {
+      width: 80vw;
+    }
+  }
+}
+
+@media (min-width: 361px) and (max-width: 768px) {
+  .signup-wrapper {
+    .signup-form-wrapper {
+      width: 90vw;
+      overflow: auto;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .signup-wrapper {
+    .signup-form-wrapper {
+      width: 90vw;
+    }
+  }
+}
