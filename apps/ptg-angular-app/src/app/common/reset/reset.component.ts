@@ -13,7 +13,7 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PTGToastsService } from '@ptg-ui/angular/toasts/services/toasts.service';
+import { PTGToastsService } from '@ptg-ui/angular/toasts';
 import { ConfirmPasswordValidator } from '../utils/validators';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { resources } from "../../../resource/resource";

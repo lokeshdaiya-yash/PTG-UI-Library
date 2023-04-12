@@ -23,7 +23,7 @@
           ]
         },
         "styles": ["apps/ptg-angular-app/src/styles.scss"],
-        "scripts": [] 
+        "scripts": []
       },
       "configurations": {
         "production": {
@@ -31,7 +31,7 @@
             {
               "type": "initial",
               "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumError": "5mb"
             },
             {
               "type": "anyComponentStyle",

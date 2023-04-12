@@ -10,7 +10,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { PTGToastsService } from '@ptg-ui/angular/toasts/services/toasts.service';
+import { PTGToastsService } from '@ptg-ui/angular/toasts';
 import { resources } from "../../../resource/resource";
 
 @Component({
