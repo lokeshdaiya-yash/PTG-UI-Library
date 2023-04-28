@@ -9,7 +9,7 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/ptg-react-app",
+        "outputPath": "dist/apps/ptg-ui-apps-backend/public/ptg-react-app",
         "index": "apps/ptg-react-app/src/index.html",
         "baseHref": "/",
         "main": "apps/ptg-react-app/src/main.tsx",
