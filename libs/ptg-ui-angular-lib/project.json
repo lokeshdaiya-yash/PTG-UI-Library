@@ -37,6 +37,38 @@
           "libs/ptg-ui-angular-lib/demo-input/**/*.html"
         ]
       }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/ptg-ui-angular-lib/.storybook",
+        "browserTarget": "ptg-ui-angular-lib:build-storybook",
+        "compodoc": false,
+        "styles": [
+          "libs/ptg-ui-angular-lib/styles/index.scss"
+        ]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/ptg-ui-angular-lib",
+        "configDir": "libs/ptg-ui-angular-lib/.storybook",
+        "browserTarget": "ptg-ui-angular-lib:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
     }
   },
   "tags": []

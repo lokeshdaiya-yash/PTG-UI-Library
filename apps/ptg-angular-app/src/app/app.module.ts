@@ -24,6 +24,11 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {ModalModule} from 'ngx-bootstrap/modal'
 
 
+
+
+
+
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -46,6 +51,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         deps: [HttpClient],
        
       }
+      
     }),
     CdkStepperModule,
     MatStepperModule,

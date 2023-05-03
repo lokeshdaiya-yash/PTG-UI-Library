@@ -1,5 +1,9 @@
-<div [ngClass]="isBlock? 'd-grid gap-2' : ''">
-    <button #button  [type]="type" class='btn' [ngClass]="['btn-'+btnStyleType]" [disabled]="isDisable" tabindex="0">
-        <ng-content></ng-content>
-    </button>
-</div>
+<div [ngClass]="isBlock ? 'btn btn-info' : ''">
+    <button #button  [type]="type" class='btn btn-primary' [ngClass]="classes"   [ngStyle]="{'background-color': backgroundColor}"
+    [disabled]="isDisable" tabindex="0" >
+    <ng-content></ng-content>
+    {{ label }}
+    </button>
+ </div>
+
+

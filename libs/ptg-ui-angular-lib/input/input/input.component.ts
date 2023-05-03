@@ -50,7 +50,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   @Input() placeholder: string | undefined | null = '';
   @Input() bindValue = '';
   @Input() className = '';
-  @Input() type = 'text';
+  @Input() type? = 'text';
   @Input() id = '';
   @Input() value = '';
   @Input() accessKey = '';
@@ -92,7 +92,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit(): void {
-    // this.input.nativeElement.accessKey = this.accessKey;
+    this.input.nativeElement.accessKey = this.accessKey;
   }
 
   handleBlur() {

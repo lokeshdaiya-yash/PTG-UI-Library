@@ -1,90 +1,91 @@
-@import "./variables";
-@import "~bootstrap/scss/bootstrap";
+// @import "./variables";
+// @import "~bootstrap/scss/bootstrap";
 @import "./button";
-@import "./bs-datepicker";
-@import "./checkbox";
-@import "./datatable";
-@import "./forms";
-@import "./fonts";
-@import "./input";
-@import "./modal";
-@import "./ng-select";
-@import "./tabs";
-@import "./custom-scss";
-@import '~ngx-toastr/toastr';
+@import "./_intro.scss"
+// @import "./bs-datepicker";
+// @import "./checkbox";
+// @import "./datatable";
+// @import "./forms";
+// @import "./fonts";
+// @import "./input";
+// @import "./modal";
+// @import "./ng-select";
+// @import "./tabs";
+// @import "./custom-scss";
+// @import '~ngx-toastr/toastr';
 
-// ng-select style
-@import "~@ng-select/ng-select/themes/default.theme.css";  
+// // ng-select style
+// @import "~@ng-select/ng-select/themes/default.theme.css";  
 
-/* Importing Datepicker SCSS file. */
-@import "~ngx-bootstrap/datepicker/bs-datepicker.css";
+// /* Importing Datepicker SCSS file. */
+// @import "~ngx-bootstrap/datepicker/bs-datepicker.css";
 
-// Ag-grid datatable 
-@import "~ag-grid-community/dist/styles/ag-grid.css";
-@import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
+// // Ag-grid datatable 
+// @import "~ag-grid-community/dist/styles/ag-grid.css";
+// @import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
 
-// Ngx datatable 
-@import '~@swimlane/ngx-datatable/index.css';
-@import '~@swimlane/ngx-datatable/themes/material.scss';
-@import '~@swimlane/ngx-datatable/assets/icons.css';
-@import "~@fortawesome/fontawesome-free/css/all.css";
+// // Ngx datatable 
+// @import '~@swimlane/ngx-datatable/index.css';
+// @import '~@swimlane/ngx-datatable/themes/material.scss';
+// @import '~@swimlane/ngx-datatable/assets/icons.css';
+// @import "~@fortawesome/fontawesome-free/css/all.css";
 
-nav {
-  height: 10vh;
-  border-bottom-width: 0px;
-  border-bottom-style: solid;
-  box-shadow: 0px 0px 6px 7px rgba(128, 128, 128, 0.1) !important;
-  z-index: 100 !important;
+// nav {
+//   height: 10vh;
+//   border-bottom-width: 0px;
+//   border-bottom-style: solid;
+//   box-shadow: 0px 0px 6px 7px rgba(128, 128, 128, 0.1) !important;
+//   z-index: 100 !important;
 
-  .logo{
-    img{
-      height: 30px;
-      margin-left: 50px !important; 
-    }
-  }
-}
+//   .logo{
+//     img{
+//       height: 30px;
+//       margin-left: 50px !important; 
+//     }
+//   }
+// }
 
-@media (max-width: 540px) {
-  .navbar-brand.logo{
-    margin-left: 3rem !important;
-  }
-}
-@media (min-width: 540px) and (max-width: 599.98px) {
-  .sidenav-container {
-    .sidenav {
-      width: 45vw;
-    }
-  }
-  .navbar-brand.logo{
-    margin-left: 3rem !important;
-  }
+// @media (max-width: 540px) {
+//   .navbar-brand.logo{
+//     margin-left: 3rem !important;
+//   }
+// }
+// @media (min-width: 540px) and (max-width: 599.98px) {
+//   .sidenav-container {
+//     .sidenav {
+//       width: 45vw;
+//     }
+//   }
+//   .navbar-brand.logo{
+//     margin-left: 3rem !important;
+//   }
   
-}
+// }
 
-@media (min-width: 600px) and (max-width: 959.98px) {
+// @media (min-width: 600px) and (max-width: 959.98px) {
 
-  .navbar-brand.logo{
-    margin-left: 3rem !important;
-  }
-}
+//   .navbar-brand.logo{
+//     margin-left: 3rem !important;
+//   }
+// }
 
 
-@media (max-width: 959.98px) {
+// @media (max-width: 959.98px) {
   
-nav {
-  height: 10vh;
-  border-bottom-width: 0px;
-  border-bottom-style: solid;
-  box-shadow: 0px 0px 6px 7px rgba(128, 128, 128, 0.1) !important;
-  z-index: 100 !important;
+// nav {
+//   height: 10vh;
+//   border-bottom-width: 0px;
+//   border-bottom-style: solid;
+//   box-shadow: 0px 0px 6px 7px rgba(128, 128, 128, 0.1) !important;
+//   z-index: 100 !important;
 
-  .logo{
-      img{
-        height: 30px;
-        margin-left: 10px !important; 
-      }
-    }
-}
+//   .logo{
+//       img{
+//         height: 30px;
+//         margin-left: 10px !important; 
+//       }
+//     }
+// }
 
   
-}
+// }
