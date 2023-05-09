@@ -1,8 +1,31 @@
 <div class="input-group post-icon">
+  <input
+    type="text"
+    [id]="id"
+    [minDate]="minDate"
+    [maxDate]="maxDate"
+    class="form-control"
+    [placeholder]="placeholder"
+    bsDatepicker
+    (bsValueChange)="onDateChanged($event)"
+    [bsConfig]="{ dateInputFormat: 'MM-DD-YYYY', adaptivePosition: true }"
+    #bd="bsDatepicker"
+    [(ngModel)]="inputDate"
+    autocomplete="off"
+    (blur)="onBlur()"
+    [disabled]="disabled"
+    [attr.aria-placeholder]="aria_placeholder"
+    #datePicker
+    [attr.aria-label]="aria_label"
+  />
+  <i (click)="bd.toggle()" class="icon cal-icon"></i>
+</div>
+
+<!-- <div class="input-group post-icon">
   <input type="text" [id]='id' [minDate]="minDate" [maxDate]="maxDate" class="form-control" placeholder="MM-DD-YYYY"
     bsDatepicker (bsValueChange)="onDateChanged($event)"
     [bsConfig]="{ dateInputFormat: 'MM-DD-YYYY', adaptivePosition: true }" #bd="bsDatepicker" [(ngModel)]="inputDate"
     autocomplete="off" (blur)="onBlur()" [disabled]="disabled" [attr.aria-placeholder]="aria_placeholder" #datePicker
     [attr.aria-label]="aria_label" />
   <i (click)="bd.toggle()" class="icon cal-icon"></i>
-</div>
+</div> -->

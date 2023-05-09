@@ -1,5 +1,18 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { ButtonComponent } from './button.component';
+import { storiesOf } from '@storybook/angular';
+import { action } from '@storybook/addon-actions';
+
+
+storiesOf('Addon|Actions', module)
+  .add('Action only', () => ({
+    component: ButtonComponent,
+    props: {
+      text: 'Action only',
+      onClick: action('log 1')
+    }
+  }))
+
 
 
 export default {

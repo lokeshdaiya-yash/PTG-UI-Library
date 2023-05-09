@@ -15,8 +15,8 @@ const Template: Story<ChecksComponent> = (args: ChecksComponent) => ({
   props: args,
 });
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Label = Template.bind({});
+Label.args = {
   label: '',
-  accessKey: '',
+  // accessKey: '',
 };

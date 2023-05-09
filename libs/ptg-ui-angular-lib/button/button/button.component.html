@@ -1,7 +1,7 @@
-<div [ngClass]="isBlock ? 'btn btn-info' : ''">
+<div [ngClass]="isBlock ? 'btnBlock' : ''">
     <button #button  [type]="type" class='btn btn-primary' [ngClass]="classes"   [ngStyle]="{'background-color': backgroundColor}"
     [disabled]="isDisable" tabindex="0" >
-    <ng-content></ng-content>
+    <!-- <ng-content></ng-content> -->
     {{ label }}
     </button>
  </div>

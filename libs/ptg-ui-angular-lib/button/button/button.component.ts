@@ -65,12 +65,12 @@ export class ButtonComponent implements OnInit {
        ? 'ptg-ui-button--primary'
        : 'ptg-ui-button--secondary';
        
-     const disablemode = this.isDisable
-       ? 'ptg-ui-button--isDisable'
-       : 'ptg-ui-button--secondary';
+    //  const disablemode = this.isDisable
+    //    ? 'ptg-ui-button--isDisable'
+    //    : 'ptg-ui-button--secondary';
 
      
-     return [`ptg-ui-button`, `ptg-ui-button--${this.size}`, disablemode];
+     return [`ptg-ui-button`, `ptg-ui-button--${this.size}`, mode];
    
 
     //  return ['ptg-ui-button', `ptg-ui-button--${this.size}`, disablemode];

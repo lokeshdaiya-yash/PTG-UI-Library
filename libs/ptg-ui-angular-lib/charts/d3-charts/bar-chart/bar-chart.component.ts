@@ -20,8 +20,8 @@ export class BarChartComponent implements OnInit {
   // Basic inputs
   @Input() data: any;
   @Input() margin: any;
-  @Input() width: any;
-  @Input() height: any;
+  @Input() width :any;
+  @Input() height : any;
   @Input() start: any;
   @Input() end: any;
 
@@ -46,6 +46,7 @@ export class BarChartComponent implements OnInit {
       .range([0, this.width])
       .domain(data.map((d) => d.Framework))
       .padding(0.2);
+       console.log(data)
 
     // Draw the X-axis on the DOM
     this.svg
@@ -84,6 +85,7 @@ export class BarChartComponent implements OnInit {
   ngOnInit(): void {
     this.createSvg();
     this.drawBars(this.data);
+    console.log(this.data)
   }
 
 }

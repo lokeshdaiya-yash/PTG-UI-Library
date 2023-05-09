@@ -15,14 +15,14 @@ const Template: Story<TextareaComponent> = (args: TextareaComponent) => ({
   props: args,
 });
 
-export const Primary = Template.bind({});
-Primary.args = {
-  placeholder: '',
-  bindValue: '',
-  className: '',
-  type: 'text',
-  id: '',
-  value: '',
-  accessKey: '',
-  aria_placeholder: '',
-};
+// export const Primary = Template.bind({});
+// Primary.args = {
+//   placeholder: '',
+//   bindValue: '',
+//   className: '',
+//   type: 'text',
+//   id: '',
+//   value: '',
+//   accessKey: '',
+//   aria_placeholder: '',
+// };

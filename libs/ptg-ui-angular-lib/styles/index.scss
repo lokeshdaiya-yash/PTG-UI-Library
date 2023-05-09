@@ -1,8 +1,9 @@
 // @import "./variables";
 // @import "~bootstrap/scss/bootstrap";
-@import "./button";
-@import "./_intro.scss"
-// @import "./bs-datepicker";
+  @import "./button";
+  @import "./_intro.scss";
+  @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+  // @import "./bs-datepicker";
 // @import "./checkbox";
 // @import "./datatable";
 // @import "./forms";
@@ -14,11 +15,12 @@
 // @import "./custom-scss";
 // @import '~ngx-toastr/toastr';
 
-// // ng-select style
+// // // ng-select style
 // @import "~@ng-select/ng-select/themes/default.theme.css";  
 
 // /* Importing Datepicker SCSS file. */
 // @import "~ngx-bootstrap/datepicker/bs-datepicker.css";
+ 
 
 // // Ag-grid datatable 
 // @import "~ag-grid-community/dist/styles/ag-grid.css";

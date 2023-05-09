@@ -1,94 +1,70 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
-import { InputComponent } from './input.component';
+import { TextareaComponent } from './textarea.component';
 
 export default {
-  title: 'Component/InputComponent',
-  component: InputComponent,
+  title: 'Component/TextareaComponent',
+  component: TextareaComponent,
   decorators: [
     moduleMetadata({
       imports: [],
     }),
   ],
-} as Meta<InputComponent>;
+} as Meta<TextareaComponent>;
 
-const Template: Story<InputComponent> = (args: InputComponent) => ({
+const Template: Story<TextareaComponent> = (args: TextareaComponent) => ({
   props: args,
 });
-
-
-
 
 export const Placeholder = Template.bind({});
 Placeholder.args = {
   placeholder: '',
-  // bindValue: '',
   className: '',
   type: 'text',
   id: '',
   value: '',
+  // bindValue: '',
   // accessKey: '',
   // aria_placeholder: '',
 };
 
-export const Class = Template.bind({});
-Class.args = {
+export const ClassName = Template.bind({});
+ClassName.args = {
   placeholder: '',
-  // bindValue: '',
   className: '',
   type: 'text',
   id: '',
   value: '',
+  // bindValue: '',
   // accessKey: '',
   // aria_placeholder: '',
 };
 
-export const Type = Template.bind({});
-Type.args = {
-  placeholder: '',
-  // bindValue: '',
-  className: '',
-  type: 'text',
-  id: '',
-  value: '',
-  // accessKey: '',
-  // aria_placeholder: '',
-};
 
 export const Id = Template.bind({});
 Id.args = {
   placeholder: '',
-  // bindValue: '',
   className: '',
   type: 'text',
   id: '',
   value: '',
+  // bindValue: '',
   // accessKey: '',
   // aria_placeholder: '',
 };
+
+
 
 export const Value = Template.bind({});
 Value.args = {
   placeholder: '',
-  // bindValue: '',
   className: '',
   type: 'text',
   id: '',
   value: '',
+  // bindValue: '',
   // accessKey: '',
   // aria_placeholder: '',
 };
-
-// export const AccessKey = Template.bind({});
-// AccessKey.args = {
-//   placeholder: '',
-//   bindValue: '',
-//   className: '',
-//   type: 'text',
-//   id: '',
-//   value: '',
-//   accessKey: '',
-//   aria_placeholder: '',
-// };
 
 
 
