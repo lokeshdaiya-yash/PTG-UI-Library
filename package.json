@@ -43,6 +43,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "@nosferatu500/react-sortable-tree": "^4.1.0",
     "@nrwl/angular": "14.5.10",
+    "@storybook/addon-actions": "^7.0.9",
     "@swimlane/ngx-datatable": "^20.0.0",
     "ag-grid-angular": "^27.0.0",
     "ag-grid-community": "^27.0.1",

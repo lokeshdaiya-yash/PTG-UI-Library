@@ -1,0 +1,63 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import * as LinebarChartComponents from './linebar-chart.stories.ts'
+
+import LinebarChartComponent from './linebar-chart.component';
+
+<Meta title="Component/LinebarChartComponent/LineBarChartComponentDocs" component={ LinebarChartComponent }    />
+
+
+ # LineBarChart Component
+
+ ---
+
+Bar-Line charts show two metric values aggregated across a group dimension. They are useful for showing quantity alongside changes in trends over time. 
+
+Bar shows the rainfall in the month and line shows the temperature of the month.
+
+
+We can import the Bar-Line chart component using the following importation : 
+```
+    import { LinebarChartComponent } from ' @ptg-ui/angular'
+
+```    
+
+Types of controls supported by Bar-Line chart:
+
+ - title
+ - subtitle
+
+
+
+ ## Quick Start
+ 
+ we can create a barline  graph using the following tag: 
+
+
+```
+<ptg-ui-linebar-chart
+  [remainingOptions]="remainingOptions"
+  title="my Charts"
+  subtitle="Source: WorldClimate.com"
+  [categories]="categories"
+></ptg-ui-linebar-chart>
+
+```
+
+
+Following are some controls with their explanation :
+
+1] title :
+
+ The title appears at the top of the graph and should describe the graph. 
+
+ This helps the reader immediately know what the graph is. 
+
+<Canvas><Story id="component-linebarchartcomponent--title" /></Canvas>
+
+
+2] subtitle : 
+
+The subtitle of a piece of writing is a second title which is often longer and explains more than the main title. 
+
+<Canvas><Story id="component-linebarchartcomponent--subtitle" /></Canvas>

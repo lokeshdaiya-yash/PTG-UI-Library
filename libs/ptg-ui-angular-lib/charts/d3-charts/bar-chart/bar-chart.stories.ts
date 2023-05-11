@@ -86,4 +86,12 @@ Start.args = {
   end:160000
 };
 
-
+export const End = Template.bind({});
+End.args = {
+  data:BAR_CHART_D3.data,
+  width:550,
+  height:330,
+  margin:50,
+  start:0, 
+  end:160000
+};
