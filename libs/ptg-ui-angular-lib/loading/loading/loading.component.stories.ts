@@ -1,12 +1,13 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { LoadingComponent } from './loading.component';
+import { LoadingModule } from '../loading.module'
 
 export default {
   title: 'Component/LoadingComponent',
   component: LoadingComponent,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [LoadingModule],
     }),
   ],
 } as Meta<LoadingComponent>;
