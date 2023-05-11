@@ -1,0 +1,48 @@
+import { Meta, Story, ArgsTable, Canvas, Preview } from '@storybook/addon-docs';
+
+import * as ToastsComponents from './toasts.stories.ts';
+
+import ToastsComponent from './toasts.component';
+
+{' '}
+
+<Meta
+  title="Component/ToastsComponent/ToastsComponentDocs"
+  component={ToastsComponent}
+/>
+
+# Toasts Component
+
+---
+
+The Button element is used to create an HTML button. Any text appearing between the opening and closing tags will appear as text on the button. No action takes place by default
+when a button is clicked.
+
+We can import the button tag using the following importation :
+
+```
+    import { ToastsComponent } from ' @ptg-ui/angular'
+```
+
+Types of controls supported by button:
+
+- label
+
+## Quick Start
+
+we can create a toasts message using the following HTML Tag:
+
+```
+<ptg-ui-toasts label="toasts works!"></ptg-ui-toasts>
+
+```
+
+Following are some controls with their explanation :
+
+1] label :
+
+The label property sets the label of toasts message.
+
+<Canvas>
+  <Story id="component-toastscomponent--primary" />
+</Canvas>
