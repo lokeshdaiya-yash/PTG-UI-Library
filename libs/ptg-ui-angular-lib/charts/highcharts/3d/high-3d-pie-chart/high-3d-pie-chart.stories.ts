@@ -1,5 +1,8 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { High3dPieChartComponent } from './high-3d-pie-chart.component';
+import {ChartModule} from '../../../chart.module';
+import { BAR_CHART_3D, LINE_BAR_DATA, LINE_CHART_2D, MULTI_LINE_CHART_2D, PIE_CHART_3D, STACKED_COLUMN_DATA } from '@ptg-angular-app/mock/chart';
+
 
 export default {
   title: 'Component/High3dPieChartComponent',
@@ -19,10 +22,13 @@ const Template: Story<High3dPieChartComponent> = (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  data: [],
-  remainingOptions: {},
-  title: null,
-  xTitle: null,
-  yTitle: null,
-  seriesName: '',
+  data: PIE_CHART_3D.data,
+  title: 'PIE_CHART_3D',
+  };
+
+export const Title = Template.bind({});
+Title.args = {
+  data: PIE_CHART_3D.data,
+  title: 'PIE_CHART_3D',
+
 };
