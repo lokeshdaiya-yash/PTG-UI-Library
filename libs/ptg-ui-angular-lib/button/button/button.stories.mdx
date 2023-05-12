@@ -37,10 +37,14 @@ import ButtonComponent from './button.component';
 
 
 ```
-<button #button  [type]="type" class='btn btn-primary' [ngClass]="classes"   [ngStyle]="{'background-color': backgroundColor}"
-    [disabled]="isDisable" tabindex="0" >
-    Button
-</button>
+<ptg-ui-button
+  type="button"
+  [isDisable]="false"
+  [isBlock]="false"
+  accessKey=""
+  label="Button"
+></ptg-ui-button>
+
 ```
 
 
