@@ -1,12 +1,13 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { AlertComponent } from './alert.component';
+import {AlertModule} from '../alert.module'; 
 
 export default {
   title: 'Component/AlertComponent',
   component: AlertComponent,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [AlertModule],
     }),
   ],
 } as Meta<AlertComponent>;
@@ -17,7 +18,18 @@ const Template: Story<AlertComponent> = (args: AlertComponent) => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
-  type: '',
-  message: '',
-  isDismissible: false,
+   message: 'Hello',
+  isDismissible: true,
+};
+
+export const Message = Template.bind({});
+Message.args = {
+  message: 'Hello',
+ isDismissible: true,
+};
+
+export const isDismissible = Template.bind({});
+isDismissible.args = {
+  message: 'Hello',
+ isDismissible: true,
 };

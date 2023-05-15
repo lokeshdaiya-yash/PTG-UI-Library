@@ -1,12 +1,13 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { SidenavComponent } from './sidenav.component';
+import {SidenavModule} from '../sidenav.module'
 
 export default {
   title: 'Component/SidenavComponent',
   component: SidenavComponent,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [SidenavModule],
     }),
   ],
 } as Meta<SidenavComponent>;

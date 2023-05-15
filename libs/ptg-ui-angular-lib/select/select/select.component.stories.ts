@@ -1,12 +1,14 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { SelectComponent } from './select.component';
+import { CITY_LIST } from '@ptg-angular-app/mock/mocks';
+import { SelectModule } from '../select.module'
 
 export default {
   title: 'Component/SelectComponent',
   component: SelectComponent,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [SelectModule],
     }),
   ],
 } as Meta<SelectComponent>;
@@ -26,4 +28,5 @@ Primary.args = {
   closeOnSelect: false,
   accessKey: '',
   itemCount: 3,
+  items:CITY_LIST
 };

@@ -1,12 +1,14 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { IndeterminateCheckboxesComponent } from './indeterminate-checkboxes.component';
+import {IndeterminateCheckboxesModule} from '../indeterminate-checkboxes.module'
+import { CHECKBOX_ARRAY } from '@ptg-angular-app/mock/mocks';
 
 export default {
   title: 'Component/IndeterminateCheckboxesComponent',
   component: IndeterminateCheckboxesComponent,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [IndeterminateCheckboxesModule],
     }),
   ],
 } as Meta<IndeterminateCheckboxesComponent>;
@@ -19,5 +21,5 @@ const Template: Story<IndeterminateCheckboxesComponent> = (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  checkBoxList: [],
+  checkBoxList: CHECKBOX_ARRAY,
 };
