@@ -24,9 +24,9 @@ Primary.args = {
   placeholder: '',
   bindLabel: '',
   bindValue: '',
-  isMultiple: false,
-  closeOnSelect: false,
+  isMultiple: true,
+  closeOnSelect: true,
   accessKey: '',
   itemCount: 3,
-  items:CITY_LIST
+  items: CITY_LIST
 };

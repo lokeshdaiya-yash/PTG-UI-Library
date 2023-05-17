@@ -55,7 +55,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   @Input() isMultiple!: boolean;
   @Input() closeOnSelect!: boolean;
   @Input() accessKey = '';
-  @Input() itemCount  = 3;
+  @Input() itemCount = 3;
   @Output() change: EventEmitter<any> = new EventEmitter();
   textLimit = '10';
   selectedValue: any = [];
