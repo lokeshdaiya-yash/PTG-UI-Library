@@ -1,0 +1,43 @@
+.feature-icons {
+  color: #35677d;
+}
+
+.mat-card-title {
+  font-weight: bold;
+}
+
+mat-card-content {
+  color: grey;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+mat-card {
+  height: 160px;
+}
+
+.btn-primary {
+  padding: 20px !important
+}
+
+.upload-and-proceed {
+  font-weight: 900;
+  animation: color-change 2s infinite;
+}
+
+@keyframes color-change {
+  0% {
+    color: yellow;
+  }
+
+  50% {
+    color: white;
+  }
+
+  100% {
+    color: yellow;
+  }
+}
+
+.card-shadow {
+  box-shadow: 0px 3px 5px rgba($color: #88B4BA, $alpha: 0.5);
+}

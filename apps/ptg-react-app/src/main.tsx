@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <StrictMode>
-  <BrowserRouter>
+  <BrowserRouter basename="/ptg-react-app">
   <Suspense fallback={<span>Loading...</span>}>
     <App />
   </Suspense>

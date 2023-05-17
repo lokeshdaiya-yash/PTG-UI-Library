@@ -1,0 +1,118 @@
+// .sidebar {
+//   margin-top: 57.188px;
+//   padding: 0;
+//   width: 16%;
+//   background-color: #35677d;
+//   position: fixed;
+
+//   overflow: auto;
+//   top: 0;
+//   bottom: 0;
+//   z-index: 200;
+
+//   ul {
+//     list-style: none;
+//     padding: 0;
+
+//     li {
+//       a {
+//         display: block;
+//         color: white;
+//         padding: 16px;
+//         text-decoration: none;
+
+//         &:hover {
+//           &:not(.active) {
+//             background-color: #88B4BA;
+//             color: white;
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   a.active {
+//     background-color: #88B4BA;
+//     color: white;
+//   }
+// }
+
+.ng-icon-sidebar {
+  margin-top: 57.188px;
+  background-color: #35677d;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  transition: 0.25s;
+  z-index: 200;
+}
+
+.ng-icon-sidebar--closed {
+  width: 48px;
+}
+
+.ng-icon-sidebar--opened {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  width: 16%;
+}
+
+.left-arrow-icon {
+  // margin-left: 12%;
+  align-self: flex-end;
+}
+
+li {
+  width: 256px;
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      &:not(.active) {
+        background-color: #88B4BA;
+        color: white;
+      }
+    }
+  }
+}
+
+a.active {
+  background-color: #88B4BA;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.icon-container {
+  align-items: center;
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  width: 48px;
+  cursor: pointer;
+}
+
+a {
+  align-items: center;
+  color: #d2d2d0;
+  display: flex;
+  text-decoration: none;
+}
+
+.bottom-wrapper {
+  position: fixed;
+  bottom: 0;
+}
+
+.left-icon {
+  right: 84%
+}

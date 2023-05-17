@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "ptgUiLibrary",
+            "prefix": "ptgUi",
             "style": "camelCase"
           }
         ],
@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "ptg-ui-library",
+            "prefix": "ptg-ui",
             "style": "kebab-case"
           }
         ]

@@ -1,0 +1,19 @@
+.form-group {
+  label, legend {
+    color: $second;
+  }
+  &.required {
+    label, legend {
+      &:not(.form-check-label) {
+        &:after {
+          content: "*";
+          color: $red;
+        }
+      }
+    }
+  }
+}
+
+.form-check-input:checked {
+  background-color: unset;
+}
