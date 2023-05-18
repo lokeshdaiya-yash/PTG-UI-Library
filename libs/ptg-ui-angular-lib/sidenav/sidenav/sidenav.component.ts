@@ -45,6 +45,7 @@ export class SidenavComponent{
     
    }
    ngOnInit(): void {
+    console.log(this.menuItems)
     this.breakpointObserver
     .observe([
       Breakpoints.XSmall,

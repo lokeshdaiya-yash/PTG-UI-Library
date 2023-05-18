@@ -28,4 +28,31 @@ export class AccordianComponent implements OnInit {
       this.onChange.emit(event);
   }
 
+
+  
+  public get classes(): string[] {
+      
+      const disablemode = this.isDisabled
+      ? 'ptg-ui-accordian--isDisable'
+      : 'ptg-ui-accordian--secondary';
+
+      const animatedmode = this.isAnimated
+      ? 'ptg-ui-accordian--isAnimated'
+      : 'ptg-ui-accordian--secondary';  
+
+      const oneAtTimemode = this.oneAtATime
+      ? 'ptg-ui-accordian--oneAtATime'
+      : 'ptg-ui-accordian--secondary';  
+    
+    return [`ptg-ui-accordian`, `ptg-ui-accordian--${this.isAnimated}`, animatedmode , disablemode , oneAtTimemode];
+  
+
+
+
+   //  return ['ptg-ui-button', `ptg-ui-button--${this.size}`, disablemode];
+ 
+ 
+  }
+
+  
 }

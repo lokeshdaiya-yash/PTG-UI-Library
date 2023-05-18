@@ -54,7 +54,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   @Input() bindValue!: string;
   @Input() isMultiple!: boolean;
   @Input() closeOnSelect!: boolean;
-  @Input() accessKey = '';
+  // @Input() accessKey = '';
   @Input() itemCount = 3;
   @Output() change: EventEmitter<any> = new EventEmitter();
   textLimit = '10';
@@ -80,6 +80,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit(): void {
+
     // this.selectedValue = [this.items[0].name]
     // this.selectedValue = this.items[0].name;
   }
@@ -87,11 +88,14 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   onchangeSelection(event: any) {
     this.change.emit(event);
     // this.onChange(event);
-    if (!this.isMultiple) {
+    console.log(this.isMultiple)
+    if (this.isMultiple==false) {
       this.onChange(event?.name);
-    } else if (this.isMultiple && !event?.target) {
+      console.log(!this.isMultiple)
+    } else if (this.isMultiple==true && !event?.target) {
       const selected = event && event.map((item: { [x: string]: any }) => item['name']);
       this.onChange(selected);
+      console.log(this.isMultiple)
     }
   }
   inputChange() {

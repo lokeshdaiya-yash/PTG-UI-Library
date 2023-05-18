@@ -5,6 +5,7 @@ import {SidenavModule} from '../sidenav.module'
 export default {
   title: 'Component/SidenavComponent',
   component: SidenavComponent,
+  
   decorators: [
     moduleMetadata({
       imports: [SidenavModule],

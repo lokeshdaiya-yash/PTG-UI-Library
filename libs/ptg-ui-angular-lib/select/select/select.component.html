@@ -1,17 +1,17 @@
-<ng-select [items]="items" class="textBox" [multiple]="false" bindLabel="name" [selectableGroup]="false"
+<ng-select *ngIf="isMultiple==false" [items]="items" class="textBox" [multiple]="false" bindLabel="name" [selectableGroup]="false"
   [closeOnSelect]="closeOnSelect" bindValue="name" [placeholder]="placeholder" [(ngModel)]="selectedValue"
   (change)="onchangeSelection($event)" (blur)="onBlur()">
-  <ng-template *ngIf="isMultiple" ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+  <ng-template  ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
     <input id="item-{{ index }}" type="checkbox" [ngModel]="item$.selected" />
     {{ item.name | uppercase }}
   </ng-template>
 </ng-select>
 
-
-  <ng-select [items]="items" class="textBox" [multiple]="true" bindLabel="name" [selectableGroup]="false"
-    [closeOnSelect]="true" bindValue="name" [placeholder]="placeholder" [(ngModel)]="selectedValue"
+  
+  <ng-select *ngIf="isMultiple==true" [items]="items" class="textBox" [multiple]="true" bindLabel="name" [selectableGroup]="false"
+    [closeOnSelect]="closeOnSelect" bindValue="name" [placeholder]="placeholder" [(ngModel)]="selectedValue"
     (change)="onchangeSelection($event)" (blur)="onBlur()">
-    <ng-template *ngIf="isMultiple" ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+    <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
       <input id="item-{{ index }}" type="checkbox" [ngModel]="item$.selected" />
       {{ item.name | uppercase }}
     </ng-template>
