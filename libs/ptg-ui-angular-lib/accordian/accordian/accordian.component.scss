@@ -1,0 +1,23 @@
+.ptg-ui-accordian--isDisable {
+  pointer-events: none;
+  opacity: 0.5;
+  color: black;
+  // border: 1px solid black;
+}
+
+
+
+.ptg-ui-accordian--isAnimated {
+  width: 250px;
+  height: 130px;
+  background-color: yellow;
+  border: 1px solid black;
+  transform: rotate(20deg);
+  color: red;
+}
+
+.ptg-ui-accordian--oneAtATime:nth-child(2),
+.ptg-ui-accordian--oneAtATime:nth-child(3),
+.ptg-ui-accordian--oneAtATime:nth-child(4) {
+  visibility: hidden;
+}
