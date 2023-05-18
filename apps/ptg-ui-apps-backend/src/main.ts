@@ -21,7 +21,7 @@ app.all('/*', function (req: any, res: any, next: any) {
 });
 
 // allow static content to render
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, '')));
 
 // main routes
 app.get('/api', (req: any, res: any) => {
@@ -35,6 +35,7 @@ app.get('*', (req: express.Request, res: express.Response) => {
   const apps = {
     'ptg-angular-app': 'ptg-angular-app',
     'ptg-react-app': 'ptg-react-app',
+    'ptg-angular-doc-process': 'ptg-angular-doc-process',
   };
   const projectName = pathArr[1] && apps[pathArr[1]];
   if (projectName) {

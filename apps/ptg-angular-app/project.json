@@ -18,9 +18,7 @@
           "apps/ptg-angular-app/src/assets"
         ],
         "stylePreprocessorOptions": {
-          "includePaths": [
-            "libs/ptg-ui-angular-lib/styles"
-          ]
+          "includePaths": ["libs/ptg-ui-angular-lib/styles"]
         },
         "styles": ["apps/ptg-angular-app/src/styles.scss"],
         "scripts": []

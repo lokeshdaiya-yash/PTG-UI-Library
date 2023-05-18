@@ -61,6 +61,7 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
   @Input() minDate?: Date;
   @Input() maxDate?: Date;
   @Input() disabled = false;
+  @Input() isReadOnly = false;
   @Input() accessKey = '';
   @Input() aria_placeholder = 'MM-DD-YYYY';
   @Input() aria_label = 'given-name';

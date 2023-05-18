@@ -47,7 +47,7 @@ export class RadioComponent implements AfterViewInit {
   @Input() accessKey = '';
   @Input() aria_label = '';
   @ViewChild('input', { static: true }) input!: ElementRef;
-
+  @Input() isdisabled:boolean = false;
   // get formField(): FormControl {
   //   return this.parentForm?.get(this.fieldname) as FormControl;
   // }
