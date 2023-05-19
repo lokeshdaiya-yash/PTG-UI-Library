@@ -50,6 +50,8 @@ export class FileDownloadComponent implements OnInit {
       value: 'PNG',
     },
   ];
+
+ 
   fileTypeList: any
   @ViewChild('b_download') b_download!: ElementRef;
   @Input() tableData: any;

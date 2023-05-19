@@ -44,7 +44,7 @@ Primary.args = {
   loaderShowWhen: false,
   totalCount: 100,
   offset: 0,
-  limit: 1,
+  limit: 2,
   virtualization: true,
   externalPaging: false,
   externalSorting: false,
