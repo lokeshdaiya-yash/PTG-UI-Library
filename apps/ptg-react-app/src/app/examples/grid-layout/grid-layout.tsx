@@ -23,7 +23,7 @@ export function GridLayout(props: GridLayoutProps) {
         <div className="row">
             <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
                 <div className="card">
-                    <img src="../../../assets/images/img1.png" className="card-img-top" alt="..."/>
+                    <img src="assets/images/img1.png" className="card-img-top" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">{t('CARD_TITLE_TEXT')}</h5>
                         <p className="card-text">{t('ADD_SOME_QUICK_EX_TEXT')}</p>
@@ -33,7 +33,7 @@ export function GridLayout(props: GridLayoutProps) {
             </div>
             <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
                 <div className="card">
-                    <img src="../../../assets/images/img1.png" className="card-img-top" alt="..."/>
+                    <img src="assets/images/img1.png" className="card-img-top" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">{t('CARD_TITLE_TEXT')}</h5>
                         <p className="card-text">{t('ADD_SOME_QUICK_EX_TEXT')}</p>
@@ -43,7 +43,7 @@ export function GridLayout(props: GridLayoutProps) {
             </div>
             <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
                 <div className="card">
-                    <img src="../../../assets/images/img1.png" className="card-img-top" alt="..."/>
+                    <img src="assets/images/img1.png" className="card-img-top" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">{t('CARD_TITLE_TEXT')}</h5>
                         <p className="card-text">{t('ADD_SOME_QUICK_EX_TEXT')}</p>
@@ -53,7 +53,7 @@ export function GridLayout(props: GridLayoutProps) {
             </div>
             <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12 mb-4">
                 <div className="card">
-                    <img src="../../../assets/images/img1.png" className="card-img-top" alt="..."/>
+                    <img src="assets/images/img1.png" className="card-img-top" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">{t('CARD_TITLE_TEXT')}</h5>
                         <p className="card-text">{t('ADD_SOME_QUICK_EX_TEXT')}</p>
@@ -74,7 +74,7 @@ export function GridLayout(props: GridLayoutProps) {
         <div className="row">
             <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12  mb-4 mb-md-0">
                 <div className="card">
-                    <img src="../../../assets/images/img1.png" className="card-img-top" alt="..."/>
+                    <img src="assets/images/img1.png" className="card-img-top" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">{t('CARD_TITLE_TEXT')}</h5>
                         <p className="card-text">{t('ADD_SOME_QUICK_EX_TEXT')}</p>
@@ -84,7 +84,7 @@ export function GridLayout(props: GridLayoutProps) {
             </div>
             <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12  offset-md-4 offset-sm-0">
                 <div className="card">
-                    <img src="../../../assets/images/img1.png" className="card-img-top" alt="..."/>
+                    <img src="assets/images/img1.png" className="card-img-top" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">{t('CARD_TITLE_TEXT')}</h5>
                         <p className="card-text">{t('ADD_SOME_QUICK_EX_TEXT')}</p>

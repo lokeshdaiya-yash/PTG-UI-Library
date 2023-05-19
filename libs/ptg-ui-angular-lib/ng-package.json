@@ -4,5 +4,9 @@
   "assets": ["./styles"],
   "lib": {
     "entryFile": "index.ts"
-  }
+  },
+  "allowedNonPeerDependencies": [
+    "bootstrap",
+    "@fortawesome/fontawesome-free"
+  ]
 }

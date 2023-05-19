@@ -1,0 +1,61 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ptg-ui-apps-backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/ptg-ui-apps-backend",
+        "index": "apps/ptg-ui-apps-backend/src/index.html",
+        "baseHref": "/",
+        "main": "apps/ptg-ui-apps-backend/src/main.ts",
+        "tsConfig": "apps/ptg-ui-apps-backend/tsconfig.app.json",
+        "assets": ["apps/ptg-ui-apps-backend/src/assets", "apps/ptg-ui-apps-backend/src/index.html"]
+
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "generatePackageJson": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/ptg-ui-apps-backend/src/environments/environment.ts",
+              "with": "apps/ptg-ui-apps-backend/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "ptg-ui-apps-backend:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "ptg-ui-apps-backend:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/ptg-ui-apps-backend/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/ptg-ui-apps-backend"],
+      "options": {
+        "jestConfig": "apps/ptg-ui-apps-backend/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

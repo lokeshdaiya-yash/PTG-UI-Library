@@ -7,7 +7,7 @@
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/ptg-angular-app",
+        "outputPath": "dist/apps/ptg-ui-apps-backend/public/ptg-angular-app",
         "index": "apps/ptg-angular-app/src/index.html",
         "main": "apps/ptg-angular-app/src/main.ts",
         "polyfills": "apps/ptg-angular-app/src/polyfills.ts",
@@ -23,7 +23,7 @@
           ]
         },
         "styles": ["apps/ptg-angular-app/src/styles.scss"],
-        "scripts": [] 
+        "scripts": []
       },
       "configurations": {
         "production": {
@@ -31,7 +31,7 @@
             {
               "type": "initial",
               "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumError": "5mb"
             },
             {
               "type": "anyComponentStyle",

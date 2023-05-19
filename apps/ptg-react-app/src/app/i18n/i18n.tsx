@@ -11,7 +11,7 @@ i18n.use(Backend)
     fallbackLng: "en",
     backend: {
       /* translation file path */
-      loadPath:'../assets/{{ns}}/{{lng}}.json'
+      loadPath:'assets/{{ns}}/{{lng}}.json'
     },
     debug: true,
     ns: ['translations'],

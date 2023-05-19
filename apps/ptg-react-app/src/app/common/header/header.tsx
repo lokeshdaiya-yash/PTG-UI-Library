@@ -22,7 +22,7 @@ export function Header({}: HeaderProps) {
           </label>
           <a className="navbar-brand logo px-2" href="#">
             <img
-              src="../../../assets/logo.png"
+              src="assets/logo.png"
               aria-label="logo"
               alt="website logo"
               className="header-logo"

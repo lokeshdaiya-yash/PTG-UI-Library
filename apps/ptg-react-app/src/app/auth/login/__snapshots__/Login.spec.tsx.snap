@@ -22,7 +22,7 @@ exports[`PtgUiLogin Should match Login Snapshot 1`] = `
           <img
             alt="IMG_LOGO"
             className=""
-            src="./../../../assets/logo.png"
+            src="assets/logo.png"
           />
         </div>
       </div>
@@ -167,7 +167,7 @@ exports[`PtgUiLogin changes the class when hovered 1`] = `
           <img
             alt="logo"
             className=""
-            src="./../../../assets/logo.png"
+            src="assets/logo.png"
           />
         </div>
       </div>

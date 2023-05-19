@@ -20,6 +20,7 @@
       "@ptg-react-app/*": ["apps/ptg-react-app/src/app/*"],
       "@ptg-ui/*": ["./*"],
       "@ptg-ui/angular": ["libs/ptg-ui-angular-lib/index.ts"],
+      "@ptg-ui/angular/*": ["libs/ptg-ui-angular-lib/*"],
       "@ptg-ui/angular/accordian": [
         "libs/ptg-ui-angular-lib/accordian/index.ts"
       ],

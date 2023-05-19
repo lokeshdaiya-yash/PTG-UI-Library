@@ -56,7 +56,7 @@
       &:hover,
       &.active {
         &:not(.parent-item):not(.disabled) {
-          // background-image: url('../../../assets/Path_bg.svg');
+          // background-image: url('/assets/Path_bg.svg');
           background-color: $side-menu-text-color;
           border-end-end-radius: 5rem;
           border-start-end-radius: 5rem;
