@@ -1,5 +1,11 @@
-<accordion [isAnimated]="isAnimated" [closeOthers]="oneAtATime">
-    <accordion-group *ngFor="let item of listData;" [heading]="item.title" (isOpenChange)="change($event)" >
-      {{item.discription}}
-    </accordion-group>
+<accordion [isAnimated]="isAnimated"  [closeOthers]="oneAtATime">
+  <accordion-group
+    *ngFor="let item of listData"
+    [disabled]="isDisabled"
+    [ngClass]="classes"
+    [heading]="item.title"
+    (isOpenChange)="change($event)"
+  >
+    {{ item.discription }}
+  </accordion-group>
 </accordion>

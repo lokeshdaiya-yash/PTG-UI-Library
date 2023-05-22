@@ -6,6 +6,7 @@ import { ACCORDIAN_DATA } from '../../../../assets/mock/mocks';
 export default {
   title: 'Component/AccordianComponent',
   component: AccordianComponent,
+
   decorators: [
     moduleMetadata({
       imports: [AccordianModule],
@@ -24,3 +25,32 @@ Primary.args = {
   oneAtATime: false,
   listData : ACCORDIAN_DATA
 };
+
+export const IsAnimated = Template.bind({});
+IsAnimated.args = {
+  isAnimated: true,
+  isDisabled: false,
+  oneAtATime: false,
+  listData : ACCORDIAN_DATA
+};
+
+
+export const IsDisabled = Template.bind({});
+IsDisabled.args = {
+  isAnimated: false,
+  isDisabled: true,
+  oneAtATime: false,
+  listData : ACCORDIAN_DATA
+};
+
+
+export const OneAtATime = Template.bind({});
+OneAtATime.args = {
+  isAnimated: false,
+  isDisabled: false,
+  oneAtATime: true,
+  listData : ACCORDIAN_DATA
+};
+
+
+
