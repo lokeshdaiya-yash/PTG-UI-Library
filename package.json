@@ -14,7 +14,8 @@
     "build:all:app":"npm run build:backend && npm run build:react-app && npm run build:ng-app",
     "build:ng-lib": "nx build ptg-ui-angular-lib",
     "test": "nx test",
-    "storybook-build": "nx build-storybook ptg-ui-angular-lib"
+    "build:ng-storybook": "nx build-storybook ptg-ui-angular-lib",
+    "start:ng-storybook:":"nx storybook ptg-ui-angular-lib"
   },
   "private": true,
   "dependencies": {
