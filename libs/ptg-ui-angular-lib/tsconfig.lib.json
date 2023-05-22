@@ -12,7 +12,9 @@
     "**/*.spec.ts",
     "jest.config.ts",
     "**/*.test.ts",
-    "../../dist/**/*"
+    "../../dist/**/*",
+    "**/*.stories.ts",
+    "**/*.stories.js"
   ],
   "include": ["**/*.ts"]
 }

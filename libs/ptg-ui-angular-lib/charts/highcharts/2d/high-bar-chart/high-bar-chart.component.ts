@@ -15,6 +15,7 @@ import * as Highcharts from 'highcharts';
 })
 export class HighBarChartComponent implements OnInit {
   @Input() data: any = [];
+  
   ngOnInit(): void {
     
   // Call function to create chart 

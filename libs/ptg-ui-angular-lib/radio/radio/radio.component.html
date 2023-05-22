@@ -1,6 +1,6 @@
 <div class="d-flex">
-  <div (click)="onradioSelect(item)" class="form-check mx-1" *ngFor="let item of items; index as i">
-    <input class="form-check-input" type="radio" [name]="name" [id]="item.name" [checked]="item.default"
+  <div class="form-check mx-1" *ngFor="let item of items; index as i">
+    <input class="form-check-input" type="radio" name="gender" [id]="item.name" [checked]="item.default" [value]="items.name"
       [attr.aria-label]="item.name" #radio (blur)="onBlur()" />
     <label class="form-check-label custom-control-label" [for]="item.name" tabindex="0" [attr.aria-label]="'gender'">
       {{ item.name }}

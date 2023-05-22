@@ -1,0 +1,31 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import * as HighBarChartComponents from './high-bar-chart.stories.ts'
+
+import HighBarChartComponent from './high-bar-chart.component';
+
+<Meta title="Component/HighBarChartComponent/HighBarChartComponentDocs" component={ HighBarChartComponent }    />
+
+ # HighBarChart Component
+
+ ---
+ This chart is created using the Highcharts library. Highcharts provides a wide variety of charts.  
+
+ Bar Chart is the most common chart type that is used to compare different categories of data like frequency, count, total, or average displayed in vertical bars. 
+
+ We can import the HighBarChart Component using the following importation : 
+
+```
+    import { HighBarChartComponent } from ' @ptg-ui/angular'
+```    
+
+
+ ## Quick Start
+ 
+ we can create a highBarChart using the following tag: 
+
+```
+<ptg-ui-high-bar-chart [data]="data"></ptg-ui-high-bar-chart>
+
+```
+

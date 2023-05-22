@@ -19,7 +19,7 @@ import {
   ChangeDetectorRef,
   ViewEncapsulation,
 } from '@angular/core';
-import {  NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'ptg-ui-radio',
@@ -54,13 +54,14 @@ export class RadioComponent implements AfterViewInit {
 
   selectedValue: any;
 
+
   constructor(
     private elementRef: ElementRef,
     private _changeDetectorRef: ChangeDetectorRef
-  ) {}
+  ) { }
 
-  onChange = (_: any) => {};
-  onTouched = () => {};
+  onChange = (_: any) => { };
+  onTouched = () => { };
 
   writeValue(obj: any): void {
     this.selectedValue = obj;

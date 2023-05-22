@@ -24,8 +24,10 @@ export class StackedColumnChartComponent implements OnInit {
       chart: {
         type: 'column'
     },
-      title:this.title,
-      xAxis: {
+    title:{
+      text:this.title
+    },
+    xAxis: {
         categories:this.categories 
     },
     yAxis: {

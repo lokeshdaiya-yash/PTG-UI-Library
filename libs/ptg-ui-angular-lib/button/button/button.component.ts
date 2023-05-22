@@ -6,9 +6,17 @@
  * @author Bhanu Prakash Sharma
  * @Component ptg-ui-button;
  * @description This component for button
-**/
+ **/
 
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit, 
+  ViewChild,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 
 @Component({
   selector: 'ptg-ui-button',
@@ -20,16 +28,22 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
   },
 })
 export class ButtonComponent implements OnInit {
-  @Input() type:any = 'button';
-  @Input() btnStyleType:any;
+  @Input() type: any = 'button';
+  // @Input() btnStyleType: any;
   @Input() isDisable = false;
   @Input() isBlock = false;
   @Input() accessKey = '';
-  @ViewChild("button", { static: true }) button!: ElementRef;
+  @ViewChild('button', { static: true }) button!: ElementRef;
 
+  @Input() size?: 'small' | 'medium' | 'large';
+  @Input() primary = false;
+  @Output() onClick = new EventEmitter<Event>();
+  @Input() label = 'Button';
+  @Input() backgroundColor?: string;
 
   ngOnInit(): void {
     // this.button.nativeElement.accessKey = this.accessKey;
+    
   }
 
   handleKeyDown(event: KeyboardEvent) {
@@ -41,4 +55,29 @@ export class ButtonComponent implements OnInit {
         return;
     }
   }
+
+
+
+
+  public get classes(): string[] {
+
+     const mode = this.primary
+       ? 'ptg-ui-button--primary'
+       : 'ptg-ui-button--secondary';
+       
+    //  const disablemode = this.isDisable
+    //    ? 'ptg-ui-button--isDisable'
+    //    : 'ptg-ui-button--secondary';
+
+     
+     return [`ptg-ui-button`, `ptg-ui-button--${this.size}`, mode];
+   
+
+    //  return ['ptg-ui-button', `ptg-ui-button--${this.size}`, disablemode];
+  
+  
+   }
+   
+
+   
 }

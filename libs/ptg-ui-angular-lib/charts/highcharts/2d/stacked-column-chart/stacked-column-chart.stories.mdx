@@ -1,0 +1,62 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import * as StackedColumnChartComponents from './stacked-column-chart.stories.ts'
+
+import StackedColumnChartComponent from './stacked-column-chart.component';
+
+<Meta title="Component/StackedColumnChartComponent/StackedColumnChartDocs" component={ StackedColumnChartComponent }    />
+
+
+ # StackedColumnChart Component 
+
+ ---
+This chart is created using the Highcharts library. Highcharts provides a wide variety of charts.  
+
+A stacked chart is a form of bar chart that shows the composition and comparison of a few variables, either relative or absolute, over time. 
+
+We can import the StackedColumnChart using the following importation : 
+```
+    import { StackedColumnChartComponent } from ' @ptg-ui/angular'
+
+```    
+
+
+ Types of controls supported by stackedColumnChart:
+
+ - title
+ - yTitle
+
+
+## Quick Start
+
+we can create a stacked column shart using the following tag: 
+
+```
+<ptg-ui-stacked-column-chart
+  [remainingOptions]="remainingOptions"
+  title="Stacked Column"
+  [categories]="categories"
+  yTitle="Values"
+></ptg-ui-stacked-column-chart>
+```
+
+
+
+ Following are some controls with their explanation :
+
+ 1] title :
+
+ The title appears at the top of the graph and should describe the graph. 
+
+ This helps the reader immediately know what the graph is. 
+
+
+<Canvas><Story id="component-stackedcolumnchartcomponent--title" /></Canvas>
+
+
+ 2] yTitle : 
+
+
+The axis title is a short text displayed alongside the axis. Usually, the axis title shows units of measurement for axis values, but you can put any text in it.
+
+<Canvas><Story id="component-stackedcolumnchartcomponent--yaxistitle" /></Canvas>

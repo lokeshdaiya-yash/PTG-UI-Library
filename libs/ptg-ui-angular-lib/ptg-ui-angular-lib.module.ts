@@ -28,6 +28,8 @@ import { FileDownloadsModule } from './file-downloads/file-downloads.module';
 import { AccordianModule } from './accordian/accordian.module';
 import { TextareaModule } from "./textarea/textarea.module";
 import { SidenavModule } from "./sidenav/sidenav.module";
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -40,6 +42,7 @@ import { SidenavModule } from "./sidenav/sidenav.module";
     AlertModule,
     ChecksModule,
     ModalModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     CalendarModule,
     ToastsModule,
     ChartModule,

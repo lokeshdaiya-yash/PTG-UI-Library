@@ -1,6 +1,6 @@
 {
-  "name": "ptg-ui-library",
-  "version": "0.0.0",
+  "name": "ptg-ui-angular-lib",
+  "version": "0.0.5",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -13,7 +13,9 @@
     "build:backend": "nx build ptg-ui-apps-backend --prod",
     "build:all:app":"npm run build:backend && npm run build:react-app && npm run build:ng-app",
     "build:ng-lib": "nx build ptg-ui-angular-lib",
-    "test": "nx test"
+    "test": "nx test",
+    "build:ng-storybook": "nx build-storybook ptg-ui-angular-lib",
+    "start:ng-storybook:":"nx storybook ptg-ui-angular-lib"
   },
   "private": true,
   "dependencies": {
@@ -46,6 +48,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "@nosferatu500/react-sortable-tree": "^4.1.0",
     "@nrwl/angular": "14.5.10",
+    "@storybook/addon-actions": "^7.0.9",
     "@swimlane/ngx-datatable": "^20.0.0",
     "ag-grid-angular": "^27.0.0",
     "ag-grid-community": "^27.0.1",
@@ -109,8 +112,14 @@
     "@nrwl/node": "14.5.0",
     "@nrwl/nx-cloud": "latest",
     "@nrwl/react": "^14.7.5",
+    "@nrwl/storybook": "14.5.10",
     "@nrwl/web": "14.7.5",
     "@nrwl/workspace": "14.5.10",
+    "@storybook/addon-essentials": "~6.5.9",
+    "@storybook/angular": "~6.5.9",
+    "@storybook/builder-webpack5": "~6.5.9",
+    "@storybook/core-server": "~6.5.9",
+    "@storybook/manager-webpack5": "~6.5.9",
     "@testing-library/react": "13.3.0",
     "@types/d3": "^7.4.0",
     "@types/express": "4.17.13",
@@ -148,6 +157,14 @@
     "react-test-renderer": "18.2.0",
     "ts-jest": "27.1.4",
     "ts-node": "10.9.1",
-    "typescript": "~4.7.2"
-  }
+    "typescript": "~4.7.2",
+    "webpack": "^5.64.0"
+  },
+  "description": "This project was generated using [Nx](https://nx.dev).",
+  "main": "decorate-angular-cli.js",
+  "repository": {
+    "type": "git",
+    "url": "https://YASHTech-UIUX@dev.azure.com/YASHTech-UIUX/YASH-UIUX-Library/_git/PTG-UI-Library"
+  },
+  "author": ""
 }

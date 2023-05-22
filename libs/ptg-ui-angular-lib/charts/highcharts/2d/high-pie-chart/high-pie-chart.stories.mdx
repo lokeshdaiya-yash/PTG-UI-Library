@@ -1,0 +1,36 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import * as HighPieChartComponents from './high-pie-chart.stories.ts'
+
+import HighPieChartComponent from './high-pie-chart.component';
+
+<Meta title="Component/HighPieChartComponent/HighPieChartComponentDocs" component={ HighPieChartComponent }    />
+
+ # HighPieChart Component
+
+ ---
+
+This chart is created using the Highcharts library. Highcharts provides a wide variety of charts.  
+
+Pie chart is a type of graph that represents the data in the circular graph.
+
+Pie charts are divided into sections (or 'slices') to represent values of different sizes.
+
+
+We can import the PieChart  using the following importation : 
+```
+    import { HighPieChartComponent } from ' @ptg-ui/angular'
+
+```    
+
+
+ 
+## Quick Start
+
+we can create a piechart using the following tag: 
+
+```
+<ptg-ui-high-pie-chart [data]="data" [colors]="colors"></ptg-ui-high-pie-chart>
+```
+
+

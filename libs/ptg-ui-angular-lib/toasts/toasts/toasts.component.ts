@@ -8,11 +8,13 @@
  * @description This component for toasts
 **/
 
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'ptg-ui-toasts',
   templateUrl: './toasts.component.html',
   styleUrls: ['./toasts.component.scss']
 })
-export class ToastsComponent {}
+export class ToastsComponent {
+  @Input() label = 'toasts works!';
+}

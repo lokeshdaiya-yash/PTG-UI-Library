@@ -1,10 +1,22 @@
-<ng-select [items]="items" [multiple]="isMultiple" bindLabel="name" [selectableGroup]="false"
+<ng-select *ngIf="isMultiple==false" [items]="items" class="textBox" [multiple]="false" bindLabel="name" [selectableGroup]="false"
   [closeOnSelect]="closeOnSelect" bindValue="name" [placeholder]="placeholder" [(ngModel)]="selectedValue"
   (change)="onchangeSelection($event)" (blur)="onBlur()">
-  <ng-template *ngIf="isMultiple" ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+  <ng-template  ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
     <input id="item-{{ index }}" type="checkbox" [ngModel]="item$.selected" />
     {{ item.name | uppercase }}
   </ng-template>
+</ng-select>
+
+  
+  <ng-select *ngIf="isMultiple==true" [items]="items" class="textBox" [multiple]="true" bindLabel="name" [selectableGroup]="false"
+    [closeOnSelect]="closeOnSelect" bindValue="name" [placeholder]="placeholder" [(ngModel)]="selectedValue"
+    (change)="onchangeSelection($event)" (blur)="onBlur()">
+    <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+      <input id="item-{{ index }}" type="checkbox" [ngModel]="item$.selected" />
+      {{ item.name | uppercase }}
+    </ng-template>
+
+    
 
   <!-- <ng-template *ngIf="isMultiple" ng-option-tmp let-item="item" let-item$="item$" let-index="index">
         <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" /> {{item.name}}
@@ -32,7 +44,7 @@
 <small>{{selectedValue | json}}</small> -->
 
 <!-- Multiselect checkbox template -->
-<ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" #multiselect>
+<ng-template  ng-option-tmp let-item="item" let-item$="item$" let-index="index" #multiselect>
   <div class="custom-control custom-checkbox">
     <input id="item-{{ index }}" type="checkbox" class="custom-control-input" [ngModel]="item$.selected"
       (change)="inputChange()" />
@@ -43,7 +55,7 @@
 </ng-template>
 
 <!-- chips -->
-<ng-template let-items="items" let-clear="clear" let-itemCount="itemCount" #chips>
+<ng-template class="textBox" let-items="items" let-clear="clear" let-itemCount="itemCount" #chips>
   <div class="ng-value" *ngFor="let item of $any(items | slice: 0:itemCount)">
     <span class="ng-value-label" [title]="item.name">{{
       item.name
