@@ -20,6 +20,9 @@
     "allowJs": false,
     "paths": {
       "@ptg-angular-app/*": ["apps/ptg-angular-app/src/app/*"],
+      "@ptg-ptg-angular-doc-process/*": [
+        "apps/ptg-angular-doc-process/src/app/*"
+      ],
       "@ptg-react-app/*": ["apps/ptg-react-app/src/app/*"],
       "@ptg-ui/*": ["./*"],
       "@ptg-ui/angular": ["libs/ptg-ui-angular-lib/index.ts"],

@@ -19,7 +19,7 @@ import { DashboardRoutingModule } from "./dashboard-routing.module";
 import { PdfViewerModule } from "ng2-pdf-viewer";
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { ImageCropperModule } from "ngx-image-cropper";
-// import {PtgUiAngularLibModule} from 'libs/ptg-ui-angular-lib/ptg-ui-angular-lib.module';
+import { PtgUiAngularLibModule } from "libs/ptg-ui-angular-lib/ptg-ui-angular-lib.module";
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -34,7 +34,6 @@ import { AgGridModule } from "ag-grid-angular";
 @NgModule({
   declarations: [
     DashboardComponent,
-    
     UploadDocumentComponent,
     SavedDocumentsComponent,
     ResetPasswordComponent,
@@ -53,7 +52,6 @@ import { AgGridModule } from "ag-grid-angular";
     CommonModule,
     DashboardRoutingModule,
     FormsModule, ReactiveFormsModule,
-    // PtgUiAngularLibModule,
     PdfViewerModule,
     FontAwesomeModule,
     DragDropModule,
@@ -61,6 +59,7 @@ import { AgGridModule } from "ag-grid-angular";
     ImageCropperModule,
     MatCardModule,
     AllCommonModule,
+    PtgUiAngularLibModule,
     AgGridModule.withComponents([]),
   ],
   providers: [UserService],

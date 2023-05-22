@@ -8,7 +8,7 @@ import { CropperComponent } from "./cropper/cropper.component";
 import { NgModule } from "@angular/core";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { CommonModule } from "@angular/common";
-import { PtgUiAngularLibModule } from "@ptg-ui/libs/ptg-ui-angular-lib/ptg-ui-angular-lib.module";
+// import { PtgUiAngularLibModule } from "libs/ptg-ui-angular-lib/ptg-ui-angular-lib.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { ToastrModule } from "ngx-toastr";
@@ -18,7 +18,7 @@ import { ImageCropperModule } from "ngx-image-cropper";
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HeaderComponent } from "./header/header.component";
 import { TokenInterceptor } from "../services/token-interceptor/token-interceptor.service";
-
+import { PtgUiAngularLibModule } from 'libs/ptg-ui-angular-lib/ptg-ui-angular-lib.module';
 /**
  * @since March 2022
  * @author Bhanu Prakash Sharma

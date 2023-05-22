@@ -14,10 +14,9 @@ import { ForgotpasswordComponent } from "./forgotpassword/forgotpassword.compone
 import { CommonModule } from "@angular/common";
 import { AuthRoutingModule } from "./auth-routing.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-// import { PtgUiAngularLibModule } from "@ptg-ui/libs/ptg-ui-angular-lib/ptg-ui-angular-lib.module";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
-
+import { PtgUiAngularLibModule } from 'libs/ptg-ui-angular-lib/ptg-ui-angular-lib.module';
 // import { NgModule } from '@angular/core';
 // import { CommonModule } from '@angular/common';
 // import { AuthRoutingModule } from './auth-routing.module';
@@ -41,7 +40,7 @@ import { RouterModule } from "@angular/router";
     AuthRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    // PtgUiAngularLibModule,
+    PtgUiAngularLibModule,
     HttpClientModule,
     RouterModule
   ]

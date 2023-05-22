@@ -12,27 +12,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { ImageCropperModule } from "ngx-image-cropper";
+import { ImageCropperModule } from 'ngx-image-cropper';
 import { AgGridModule } from 'ag-grid-angular';
-import {AllCommonModule} from './common/common.module'
+import { AllCommonModule } from './common/common.module';
 import { RouterModule } from '@angular/router';
+// import { PtgUiAngularLibModule } from 'libs/ptg-ui-angular-lib/ptg-ui-angular-lib.module';
 // import * as fs from 'fs';
 @NgModule({
   declarations: [AppComponent],
   imports: [
     ImageCropperModule,
-BrowserModule,
-BrowserAnimationsModule,
-RouterModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    RouterModule,
     AllCommonModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     PdfViewerModule,
     ToastrModule.forRoot(),
+ 
     AgGridModule.withComponents([]),
   ],
-    providers: [AuthService, AuthGuard, LoginGuard ],
+  providers: [AuthService, AuthGuard, LoginGuard],
 
   bootstrap: [AppComponent],
 })

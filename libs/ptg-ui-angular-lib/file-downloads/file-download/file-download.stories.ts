@@ -1,7 +1,7 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { FileDownloadComponent } from './file-download.component';
 import { FileDownloadsModule } from '../file-downloads.module';
-import { TABLE_DATA } from '@ptg-angular-app/mock/mocks';
+import { TABLE_DATA } from '../../../../assets/mock/mocks';
 
 export default {
   title: 'Component/FileDownloadComponent',

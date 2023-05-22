@@ -19,7 +19,7 @@ export let signup = (req, res) => {
   user.save((err, user) => {
 
     if (err) {
-      res.status(500).send({ message: err });
+      res?.status(500).send({ message: err });
       return;
     } else {
       var token = jwt.sign({ id: user.id }, config.secret, {

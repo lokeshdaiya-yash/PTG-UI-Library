@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 import { SelectComponent } from './select/select.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
-// import { PtgPipesModule } from '@ptg-angular-app/common/pipes/pipes.module';
+
 
 @NgModule({
   declarations: [

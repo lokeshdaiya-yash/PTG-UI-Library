@@ -1,6 +1,6 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { SelectComponent } from './select.component';
-import { CITY_LIST } from '@ptg-angular-app/mock/mocks';
+import { CITY_LIST } from '../../../../assets/mock/mocks';
 import { SelectModule } from '../select.module'
 
 export default {

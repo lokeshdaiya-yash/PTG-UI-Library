@@ -1,7 +1,7 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { PieChartComponent } from './pie-chart.component';
 import {ChartModule} from '../../chart.module';
-import { BAR_CHART_D3, LINE_CHART_D3, PIE_CHART_D3 } from '@ptg-angular-app/mock/chart';
+import { BAR_CHART_D3, LINE_CHART_D3, PIE_CHART_D3 } from '../../../../../assets/mock/chart';
 
 export default {
   title: 'Component/PieChartComponent',

@@ -4,9 +4,10 @@ import { LoginComponent } from './login.component';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { InputComponent } from '@ptg-ui/libs/ptg-angular/src/lib/ptg-ui/input/input/input.component';
-import { LoadingComponent } from '@ptg-ui/libs/ptg-angular/src/lib/ptg-ui/loading/loading/loading.component';
-import { ButtonComponent } from '@ptg-ui/libs/ptg-angular/src/lib/ptg-ui/button/button/button.component';
+import {InputComponent} from '@ptg-ui/angular/input/input/input.component'
+// import { InputComponent } from '@ptg-ui/angular/input/input/input.component';
+import { LoadingComponent } from '@ptg-ui/angular/loading/loading/loading.component';
+import { ButtonComponent } from '@ptg-ui/angular/button/button/button.component';
 import { NgxLoadingModule } from 'ngx-loading';
 import { AuthService } from '../services/auth.service';
 import { delay, of } from 'rxjs';

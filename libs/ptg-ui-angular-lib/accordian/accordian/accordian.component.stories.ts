@@ -1,7 +1,7 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { AccordianComponent } from './accordian.component';
 import { AccordianModule } from '../accordian.module'
-import { ACCORDIAN_DATA } from '@ptg-angular-app/mock/mocks';
+import { ACCORDIAN_DATA } from '../../../../assets/mock/mocks';
 
 export default {
   title: 'Component/AccordianComponent',

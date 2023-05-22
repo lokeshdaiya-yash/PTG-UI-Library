@@ -1,7 +1,7 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { IndeterminateCheckboxesComponent } from './indeterminate-checkboxes.component';
 import {IndeterminateCheckboxesModule} from '../indeterminate-checkboxes.module'
-import { CHECKBOX_ARRAY } from '@ptg-angular-app/mock/mocks';
+import { CHECKBOX_ARRAY } from '../../../../assets/mock/mocks';
 
 export default {
   title: 'Component/IndeterminateCheckboxesComponent',

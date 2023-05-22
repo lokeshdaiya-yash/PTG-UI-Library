@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + Date.now() + '.' + extension)
     },
 })
-const uploadStorage = multer({ storage: storage,  limits: { fileSize: 10485760 } })
+const uploadStorage = multer({ storage: storage,  limits: { fileSize: "10485760" } })
 
 var transporter = nodemailer.createTransport({
     host: "smtp-relay.sendinblue.com",

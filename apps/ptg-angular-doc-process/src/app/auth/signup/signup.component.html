@@ -11,7 +11,7 @@
         <div class="text-center mb-3">
           <img class="mb-3" src="../../../assets/doc-logo.png" alt="" />
 
-          <h3 [innerHTML]="resources?.REGISTRATION_TEXT"></h3>
+          <h3 [innerHTML]="resources.REGISTRATION_TEXT"></h3>
         </div>
       </div>
       <div class="form-group">
@@ -36,7 +36,7 @@
                 <div class="form-group required mb-2">
                   <label
                     for="inputUsername"
-                    [innerHTML]="resources?.FULL_NAME_PLACEHOLDER"
+                    [innerHTML]="resources.FULL_NAME_PLACEHOLDER"
                   ></label>
                   <!-- input -->
                   <ptg-ui-input
@@ -45,7 +45,7 @@
                     id="inputUsername"
                     type="text"
                     className="form-control bg_0"
-                    [placeholder]="resources?.FULL_NAME_PLACEHOLDER"
+                    [placeholder]="resources.FULL_NAME_PLACEHOLDER"
                   >
                   </ptg-ui-input>
                 </div>
@@ -54,7 +54,7 @@
                 <div class="form-group required mb-2">
                   <label
                     for="inputEmail"
-                    [innerHTML]="resources?.LABEL_EMAIL"
+                    [innerHTML]="resources.LABEL_EMAIL"
                   ></label>
                   <!-- input -->
                   <ptg-ui-input
@@ -63,7 +63,7 @@
                     id="inputEmail"
                     type="text"
                     className="form-control bg_0"
-                    [placeholder]="resources?.INPUT_PLACEHOLDER_EMAIL"
+                    [placeholder]="resources.INPUT_PLACEHOLDER_EMAIL"
                   >
                   </ptg-ui-input>
                 </div>
@@ -72,7 +72,7 @@
             <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="form-group required mb-2">
-                  <label for="inputDOB" [innerHTML]="resources?.DOB"></label>
+                  <label for="inputDOB" [innerHTML]="resources.DOB"></label>
                   <!-- calendar -->
                   <ptg-ui-calendar
                     class="w-100"
@@ -86,7 +86,7 @@
                 <div class="form-group required mb-2">
                   <label
                     for="inputGender"
-                    [innerHTML]="resources?.CITY"
+                    [innerHTML]="resources.CITY"
                   ></label>
                   <ptg-ui-input
                     class="w-100"
@@ -94,7 +94,7 @@
                     id="inputCity"
                     type="text"
                     className="form-control bg_0"
-                    [placeholder]="resources?.CITY"
+                    [placeholder]="resources.CITY"
                   >
                   </ptg-ui-input>
                 </div>
@@ -105,7 +105,7 @@
                 <div class="form-group required mb-2">
                   <label
                     for="inputGender"
-                    [innerHTML]="resources?.GENDER"
+                    [innerHTML]="resources.GENDER"
                   ></label>
                   <!-- radio -->
                   <ptg-ui-radio
@@ -123,7 +123,7 @@
                 <div class="form-group required mb-2">
                   <label
                     for="inputPassword"
-                    [innerHTML]="resources?.LABEL_PASSWORD"
+                    [innerHTML]="resources.LABEL_PASSWORD"
                   ></label>
                   <!-- input -->
                   <ptg-ui-input
@@ -132,7 +132,7 @@
                     type="password"
                     formControlName="password"
                     className="form-control bg_0"
-                    [placeholder]="resources?.INPUT_PLACEHOLDER_PASSWORD"
+                    [placeholder]="resources.INPUT_PLACEHOLDER_PASSWORD"
                   >
                   </ptg-ui-input>
                 </div>
@@ -144,7 +144,7 @@
                   <!-- checks -->
                   <ptg-ui-checks
                     formControlName="confirm"
-                    [label]="resources?.DECLARATION_REGISTRATION_TEXT"
+                    [label]="resources.DECLARATION_REGISTRATION_TEXT"
                   >
                   </ptg-ui-checks>
                 </div>
@@ -153,9 +153,9 @@
           </div>
           <div class="new_label text-center mt-3 mb-2">
             <label
-              >{{ resources?.REGISTRATION_LABEL_INFO_MSG }}
+              >{{ resources.REGISTRATION_LABEL_INFO_MSG }}
               <a class="signup-btn" [routerLink]="['../login']">{{
-                resources?.LOG_IN
+                resources.LOG_IN
               }}</a
               >.</label
             >
@@ -168,7 +168,7 @@
             [isBlock]="true"
             [isDisable]="!signupForm.valid"
           >
-            {{ resources?.SUBMIT }}
+            {{ resources.SUBMIT }}
           </ptg-ui-button>
         </div>
       </form>

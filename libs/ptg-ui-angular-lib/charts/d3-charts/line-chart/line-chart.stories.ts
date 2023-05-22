@@ -1,6 +1,6 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { LineChartComponent } from './line-chart.component';
-import { BAR_CHART_D3, LINE_CHART_D3, PIE_CHART_D3 } from '@ptg-angular-app/mock/chart';
+import { BAR_CHART_D3, LINE_CHART_D3, PIE_CHART_D3 } from '../../../../../assets/mock/chart';
 import {ChartModule} from '../../chart.module';
 
 export default {

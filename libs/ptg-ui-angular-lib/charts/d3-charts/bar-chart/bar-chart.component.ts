@@ -10,7 +10,7 @@
 
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import * as d3 from 'd3';
-import { BAR_CHART_D3, LINE_CHART_D3, PIE_CHART_D3 } from '@ptg-angular-app/mock/chart';
+
 
 @Component({
   selector: 'ptg-ui-bar-chart',
@@ -25,11 +25,23 @@ export class BarChartComponent implements OnInit,OnChanges {
   @Input() height : any;
   @Input() start: any;
   @Input() end: any;
-  barChartData = BAR_CHART_D3;
+ // Mock data for 3d bar chart
+ public BAR_CHART_3D = {
+  data: [
+    {
+      name: 'Year 1800',
+      data: [107, 120, 635, 203, 300, 203, 300]
+    }
+  ],
+  categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania', 'Canada', 'Uk']
+}
+
+
+
   svg: any;
 
   ngOnChanges() {
-    this.width=this.barChartData.width;
+    this.width=300;
     this.svg = d3
       .select('figure#bar') //returns a selection object that encapsulates the first element in the DOM with a CSS class of "bar"
       .append('svg') //Appends a new element of this type (tag name) as the last child of each selected element
