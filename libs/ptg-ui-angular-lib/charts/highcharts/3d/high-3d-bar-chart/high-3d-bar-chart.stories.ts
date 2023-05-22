@@ -1,8 +1,19 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { High3dBarChartComponent } from './high-3d-bar-chart.component';
 import {ChartModule} from '../../../chart.module';
-import { BAR_CHART_3D, LINE_BAR_DATA, LINE_CHART_2D, MULTI_LINE_CHART_2D, PIE_CHART_3D, STACKED_COLUMN_DATA } from '../../../../../../assets/mock/chart';
 
+
+export const BAR_CHART_3D = {
+  data: [
+    {
+      name: 'Year 1800',
+      data: [107, 120, 635, 203, 300, 203, 300]
+    }
+  ],
+  categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania', 'Canada', 'Uk']
+}
+
+// Mock data for 2d line chart
 
 export default {
   title: 'Component/High3dBarChartComponent',
