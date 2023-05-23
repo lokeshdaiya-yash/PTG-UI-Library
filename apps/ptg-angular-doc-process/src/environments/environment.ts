@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
   proj:"doc-process",
-  baseUrl: 'http://localhost:3000/api/',
-  fileAccessPath: 'http://localhost:3000/uploads/',
-  signatureFilePath: 'http://localhost:3000/signatures/',
+  baseUrl: 'http://localhost:3000/doc-process/api/',
+  fileAccessPath: 'http://localhost:3000/doc-process/uploads/',
+  signatureFilePath: 'http://localhost:3000/doc-process/signatures/',
 };
 
 
