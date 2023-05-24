@@ -12,7 +12,7 @@
     "build:ng-app": "nx build ptg-angular-app --baseHref /ptg-angular-app/",
     "build:ng-docprocess": "nx build ptg-angular-doc-process --baseHref /ptg-angular-doc-process/",
     "build:backend": "nx build ptg-ui-apps-backend --prod",
-    "build:all:app": "npm run build:backend && npm run build:react-app && npm run build:ng-app && npm run build:ng-docprocess",
+    "build:all:app": "npm run build:backend && npm run build:react-app && npm run build:ng-app",
     "build:ng-lib": "nx build ptg-ui-angular-lib",
     "test": "nx test",
     "build:ng-storybook": "nx build-storybook ptg-ui-angular-lib",

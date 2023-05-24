@@ -1,5 +1,0 @@
-<div *ngIf="buttons">
-    <button class="btn p-0 m-2" type="button" *ngFor="let button of buttons; let i = index" (click)="onClick($event, button.label)">
-        <img [src]="button.icon" class="mb-2" height="12" [title]="button.label">
-    </button>
-</div>
