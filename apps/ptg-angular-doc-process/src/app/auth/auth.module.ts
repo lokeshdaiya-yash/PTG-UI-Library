@@ -42,7 +42,7 @@ import { PtgUiAngularLibModule } from 'libs/ptg-ui-angular-lib/ptg-ui-angular-li
     FormsModule,
     PtgUiAngularLibModule,
     HttpClientModule,
-    RouterModule
+    // RouterModule
   ]
 })
 export class AuthModule { }

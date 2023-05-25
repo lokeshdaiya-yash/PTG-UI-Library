@@ -47,8 +47,7 @@ import { AgGridModule } from "ag-grid-angular";
     FeaturesComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+   
     CommonModule,
     DashboardRoutingModule,
     FormsModule, ReactiveFormsModule,

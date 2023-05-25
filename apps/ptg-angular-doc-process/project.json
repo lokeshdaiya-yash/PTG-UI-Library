@@ -7,7 +7,7 @@
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/ptg-angular-doc-process",
+        "outputPath": "dist/apps/ptg-ui-apps-backend/public/ptg-angular-doc-process",
         "index": "apps/ptg-angular-doc-process/src/index.html",
         "main": "apps/ptg-angular-doc-process/src/main.ts",
         "polyfills": "apps/ptg-angular-doc-process/src/polyfills.ts",

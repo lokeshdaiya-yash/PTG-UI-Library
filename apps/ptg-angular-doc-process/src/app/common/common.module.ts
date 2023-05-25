@@ -62,7 +62,7 @@ import { PtgUiAngularLibModule } from 'libs/ptg-ui-angular-lib/ptg-ui-angular-li
     PtgUiAngularLibModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule,
+    // RouterModule,
     ToastrModule,
     AgGridModule.withComponents([ButtonRendererComponent]),
     FontAwesomeModule,

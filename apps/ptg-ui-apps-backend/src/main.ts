@@ -21,15 +21,43 @@ app.all('/*', function (req, res, next) {
 }) //
 
 // allow static content to render
-app.use('/', express.static(path.join(__dirname, '')));
 
+// console.log("I am here");
 // main routes
 app.get('/api', (req: any, res: any) => {
   res.json({ message: 'Welcome to interview-screening-backend!' });
 });
 app.use(express.static(path.join(__dirname, 'assets'))); 
 
-// fallback when refreshed browser
+
+
+let server = app.listen(port, async () => {
+  console.log('listening on', port);
+});
+
+// using authentication routes
+app.use('/',router)
+app.use('/',userRoutes)
+app.use('/files',express.static('assets'))
+app.use(express.static(path.join(__dirname, 'assets'))); 
+
+
+const username = encodeURIComponent("priyanshu");
+const password = encodeURIComponent("priyanshu921");
+const dbName = "test"
+mongoose
+  .connect(
+    `mongodb+srv://${username}:${password}@naruto.sf8tp46.mongodb.net/${dbName}?retryWrites=true&w=majority`
+    // `mongodb+srv://${username}:${password}@atlascluster.27xfa.mongodb.net/${dbName}?retryWrites=true&w=majority`
+  )
+  .then((data) => {
+    console.log("Successfully connect to MongoDB.");    
+   
+  })
+  .catch((err) => console.log(err));
+
+  // fallback when refreshed browser
+  app.use('/', express.static(path.join(__dirname, 'public')));
 app.get('*', (req: express.Request, res: express.Response) => {
   const pathname = url.parse(req.url).pathname;
   const pathArr = pathname.split('/');
@@ -42,40 +70,7 @@ app.get('*', (req: express.Request, res: express.Response) => {
   if (projectName) {
     res.sendFile(path.join(__dirname, `public/${projectName}`) + '/index.html');
   } else {
-    res.sendFile(path.join(__dirname, `public`) + '/index.html');
+    res.sendFile(path.join(__dirname, ``) + '/index.html');
   }
 });
-
-const server = app.listen(port, async () => {
-  console.log('listening on', port);
-});
-
-// using authentication routes
-app.use('/doc-api',router)
-app.use('/doc-api',userRoutes)
-// app.use('/files',express.static('assets'))
-app.use(express.static(path.join(__dirname, 'assets'))); 
-
-app.get('/doc-process', (req, res) => {
- 
-  // app.use('/files',express.static('./assets'))
-  
-  res.send({ message: 'Welcome to docProcess-backend!'});
-});
-const username = encodeURIComponent("priyanshu");
-const password = encodeURIComponent("priyanshu921");
-const dbName = "test"
-mongoose
-  .connect(
-    `mongodb+srv://${username}:${password}@naruto.sf8tp46.mongodb.net/${dbName}?retryWrites=true&w=majority`
-    // `mongodb+srv://${username}:${password}@atlascluster.27xfa.mongodb.net/${dbName}?retryWrites=true&w=majority`
-  )
-  .then((data) => {
-    const server = app.listen(port, () => {
-      console.log(`Listening at Port - ${port}`);
-      console.log("Successfully connect to MongoDB.");    
-    });
-    server.on('error', console.error);
-  })
-  .catch((err) => console.log(err));
 server.on('error', console.error);

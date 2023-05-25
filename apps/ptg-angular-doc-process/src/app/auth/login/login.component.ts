@@ -63,6 +63,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   // This method for login submit
   onLoginSubmit(): void {
     this.submitted = true;
+    console.log(this.loginForm.value.email,this.loginForm.value.password)
     const payload = {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,

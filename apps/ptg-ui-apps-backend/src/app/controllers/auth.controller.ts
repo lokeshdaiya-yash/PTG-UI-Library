@@ -7,6 +7,7 @@ export let test = (req, res) => {
   res.send({ message: 'tets' })
 }
 export let signup = (req, res) => {
+
   const user = new User({
     name: req.body.name,
     email: req.body.email,
@@ -42,6 +43,7 @@ export let signup = (req, res) => {
   });
 };
 export const login = (req, res) => {
+
   User.findOne({
     email: req.body.email
   })

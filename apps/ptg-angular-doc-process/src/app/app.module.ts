@@ -21,10 +21,11 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    AppRoutingModule,
     ImageCropperModule,
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule,
+    // RouterModule,
     AllCommonModule,
     HttpClientModule,
     ReactiveFormsModule,
