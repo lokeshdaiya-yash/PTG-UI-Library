@@ -75,7 +75,7 @@ Primary.args = {
   bindValue: '',
   isMultiple: false,
   closeOnSelect: false,
-  accessKey: '',
+  // accessKey: '',
   itemCount: 3,
   items:CITY_LIST
 };

@@ -61,7 +61,7 @@
       "executor": "@storybook/angular:build-storybook",
       "outputs": ["{options.outputDir}"],
       "options": {
-        "outputDir": "dist/storybook/ptg-ui-angular-lib",
+        "outputDir": "dist/apps/ptg-ui-apps-backend/public/ptg-angular-storybook",
         "configDir": "libs/ptg-ui-angular-lib/.storybook",
         "browserTarget": "ptg-ui-angular-lib:build-storybook",
         "compodoc": false
