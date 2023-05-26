@@ -1,0 +1,156 @@
+<div class="">
+  <!-- add signature button -->
+  <button
+    *ngIf="!signaturePlacedChild"
+    class="right-sidebar-btn btn"
+    id="signatureBtn"
+    (click)="openAddSignatureModal(addSignature)"
+  >
+    <fa-icon [icon]="faSignature"></fa-icon>&nbsp;{{
+      signatureImg ? 'Re-sign' : 'Add signature'
+    }}
+  </button>
+
+  <div class="mt-2">
+    <button
+      class="right-sidebar-btn btn"
+      id=""
+      (click)="openUploadImageModal(addSignature)"
+    >
+      <fa-icon [icon]="faImage"></fa-icon>&nbsp;Add Image
+    </button>
+  </div>
+  <ng-template #addSignature class="">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">
+        {{ showUploadSignatureImage ? 'Add Signature' : 'Upload Image' }}
+      </h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="clearSignature()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div *ngIf="showUploadSignatureImage">
+        <div (click)="onradioSelect(item.value)" class="form-check form-check-inline mb-2"
+          *ngFor="let item of items; index as i">
+          <input class="form-check-input d-inline" type="radio" [name]="item.name" [id]="item.id"
+            [checked]="item.default" [value]="item.value" [attr.aria-label]="item.label" #radio (blur)="onBlur()" />
+          <label class="form-check-label custom-control-label d-inline signature-options-label" [for]="item.id"
+            tabindex="0" [attr.aria-label]="'page'">
+            {{ item.label }}
+          </label>
+        </div>
+      </div>
+      <div>
+        <!--draw signature on canvas -->
+        <div *ngIf="showDrawSignature && showUploadSignatureImage" class="mt-2">
+          <canvas class="signCanvas" id="canvas" #canvas> </canvas>
+        </div>
+        <!--upload signature -->
+        <div *ngIf="ShowUploadSignature || showUploadImage">
+          <div class="" *ngIf="!processCropper && !showPreview">
+            <form [formGroup]="uploadSignatureForm" (ngSubmit)="uploadSignatureFile()">
+              <div class="upload-section">
+                <input class="file-input" type="file" accept=".jpg,.png,.webp,.jpeg" formControlName="file"
+                  (change)="uploadFileToCrop($event)" />
+                <div>
+                  <img class="uploadFile" src="../../../assets/upload-file.png" alt="upload" />
+                </div>
+                <div>
+                  <h3 class="m-3">Browse and upload</h3>
+                </div>
+                <div>
+                  <label class="m-1 align-middle file-details" for="fileSupport">File
+                    support&nbsp;<b>jpg/png</b></label>
+                </div>
+                <div>
+                  <label class="m-1 align-middle file-details" for="maxFileSize">Max file size&nbsp;<b>20MB</b></label>
+                </div>
+                <div>
+                  <label class="m-1 align-middle file-details" *ngIf="uplodedSignatureFileName"
+                    for="fileDiscription">chosen file<b class="ml-2">{{
+                      uplodedSignatureFileName
+                      }}</b></label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="image-preview" *ngIf="!processCropper && showPreview">
+            <img [src]="gotCroppedImage" />
+          </div>
+          <div *ngIf="processCropper">
+            <!--upload signautre image on AddSignature-->
+            <ptg-ui-cropper [imageToCrop]="selectedImageToCrop" [ratio]="aspectRatio"
+              (croppedImageEvent)="getFinalCroppedImage($event)"></ptg-ui-cropper>
+          </div>
+        </div>
+        <!-- <ptg-ui-cropper 
+      (selectedImg)="getSelectedImage($event)"></ptg-ui-cropper> -->
+        <!--draw signature canvas -->
+        <div *ngIf="ShowSignatureList">
+          <div class="saved-signature-wrapper border rounded p-3 mt-2">
+            <div class="form-check border rounded saved-signature-list m-0" *ngFor="let item of signatureList">
+              <div class="saved-files-radio">
+                <input class="form-check-input mb-1 m-0" type="radio" name="flexRadioDefault" [value]="item.fileName"
+                  (change)="getSignatureImageToPlace(item)" />
+                <label class="form-check-label w-100 m-0 p-1" [for]="item.fileName">
+                  <img class="mx-4" [src]="[imageAccessbaseUrl + item.fileName]" alt="img" />
+                  <span> {{ item.fileName }}</span>
+                </label>
+                <fa-icon class="d-flex ms-auto mx-4 delete-img-icon" (click)="removeSignature(item)" [icon]="faXmark">
+                </fa-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <!-- clear button for Signature -->
+      <div class="d-flex justify-content-center modal-footer" *ngIf="showDrawSignature && showUploadSignatureImage">
+        <!--ReSign button for DrawSignature on AddSignature-->
+        <ptg-ui-button class="clearSignature" btnStyleType="primary" id="clear" [isBlock]="false"
+          (click)="clearSignature()">Re-sign
+        </ptg-ui-button>
+        <!-- Done button for DrawSignature on AddSignature-->
+        <ptg-ui-button class="saveSignature" btnStyleType="primary" id="save" [isBlock]="false"
+          (click)="saveSignature()">
+          Done
+        </ptg-ui-button>
+      </div>
+      <div class="d-flex justify-content-center modal-footer" *ngIf="ShowUploadSignature && showUploadSignatureImage">
+        <!--Change button for upload Signature on Addsignature -->
+        <ptg-ui-button class="clearSignature" btnStyleType="primary" id="clear" [isBlock]="false"
+          (click)="reUploadImageForCropping()">Change
+        </ptg-ui-button>
+        <!-- upload button for upload signature on AddSignature -->
+        <ptg-ui-button [isDisable]="!uplodedFile && uploadSignatureForm.valid" class="saveSignature"
+          btnStyleType="primary" id="save" [isBlock]="false" (click)="uploadSignatureFile()">
+          Upload
+        </ptg-ui-button>
+      </div>
+      <div class="d-flex justify-content-center modal-footer" *ngIf="ShowSignatureList">
+        <!--Cancel button for select from list on AddSignature-->
+        <ptg-ui-button class="clearSignature" btnStyleType="primary" id="clear" [isBlock]="false"
+          (click)="clearSignature()">Cancel
+        </ptg-ui-button>
+        <!-- select button for select from list on AddSignature -->
+        <ptg-ui-button class="saveSignature" btnStyleType="primary" id="save" [isBlock]="false"
+          (click)="setToPlaceTheSelectedSignature()">
+          Select
+        </ptg-ui-button>
+      </div>
+      <div class="d-flex justify-content-center modal-footer" *ngIf="showUploadImage">
+        <!--cancel button for upload Image-->
+        <ptg-ui-button class="clearSignature" btnStyleType="primary" id="clear" [isBlock]="false"
+          (click)="clearSignature()">Cancel
+        </ptg-ui-button>
+        <!-- save button for Upload Image  -->
+        <ptg-ui-button class="saveSignature" btnStyleType="primary" id="save"
+          [isDisable]="!uplodedFile && uploadSignatureForm.valid" [isBlock]="false" (click)="saveImage()">
+          upload
+        </ptg-ui-button>
+      </div>
+    </div>
+  </ng-template>
+</div>

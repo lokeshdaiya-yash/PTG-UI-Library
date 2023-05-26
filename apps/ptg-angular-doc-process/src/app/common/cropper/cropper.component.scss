@@ -1,0 +1,18 @@
+.image {
+  width: 150px;
+  height: 100px;
+}
+
+.cropper-wrp {
+  display: flex;
+  justify-content: center;
+
+  .image-cropper {
+    width: 70%;
+  }
+}
+
+.list-unstyled {
+  cursor: pointer;
+  color: #35677d;
+}

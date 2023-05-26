@@ -1,0 +1,9 @@
+@mixin circle($size) {
+    width: #{$size}'px';
+    height: #{$size}'px';
+    border-radius: 100%;
+    box-shadow: 0px 3px 10px rgb(136 180 186 / 20%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

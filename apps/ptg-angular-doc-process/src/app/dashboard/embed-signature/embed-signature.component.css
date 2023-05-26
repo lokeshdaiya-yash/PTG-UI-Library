@@ -1,0 +1,18 @@
+.page-wrapper {
+    position: absolute;
+    width: 84%;
+    margin-left: 16%;
+    margin-top: 55px;
+}
+
+.title {
+    left: 50%;
+    -webkit-transform: translate(-50%, -8%);
+    transform: translate(-50%, -8%);
+}
+
+#canvas {
+    display: block;
+    border: 1px solid rgb(187, 178, 178);
+    margin: auto;
+}

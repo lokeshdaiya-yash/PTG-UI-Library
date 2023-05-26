@@ -17,6 +17,7 @@
     }
   ],
   "compilerOptions": {
+    "strictPropertyInitialization": false,
     "target": "es2020",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
