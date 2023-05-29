@@ -1,0 +1,37 @@
+<div class="content-wrapper">
+  <div class="title">
+    <h1 class="d-flex main-heading justify-content-center">Upload Document</h1>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form [formGroup]="uploadForm" (ngSubmit)="userFileUpload()">
+          <div class="upload-section">
+            <input class="file-input" type="file" accept="application/pdf" (change)="fileChangeEvent($event)" />
+            <div>
+              <img class="uploadFile" src="../../../assets/upload-file.png" alt="upload" />
+            </div>
+            <div>
+              <h3 class="m-3">Browse and upload</h3>
+            </div>
+            <div>
+              <label class="m-1 align-middle file-details" for="fileSupport">File support&nbsp;<b>pdf</b></label>
+            </div>
+            <div>
+              <label class="m-1 align-middle file-details" for="maxFileSize">Max file size&nbsp;<b>10MB</b></label>
+            </div>
+            <div>
+              <label class="m-1 filalign-middle e-details" *ngIf="fileName" for="fileDiscription">Uploaded
+                file&nbsp;:&nbsp;<b>{{ fileName }}</b></label>
+            </div>
+          </div>
+          <div class="proceed">
+            <ptg-ui-button [isDisable]="!uplodedFile" class="" type="submit" btnStyleType="primary" id="btnSignin">
+              Proceed
+            </ptg-ui-button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

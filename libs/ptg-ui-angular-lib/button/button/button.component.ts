@@ -34,7 +34,7 @@ export class ButtonComponent implements OnInit {
   @Input() isBlock = false;
   @Input() accessKey = '';
   @ViewChild('button', { static: true }) button!: ElementRef;
-
+  @Input() btnStyleType:any;
   @Input() size?: 'small' | 'medium' | 'large';
   @Input() primary = false;
   @Output() onClick = new EventEmitter<Event>();

@@ -1,0 +1,215 @@
+.content-wrapper {
+  padding: 0 !important;
+
+  .pdf {
+    .pdf-viewer {
+      width: 100%;
+      height: 85.5vh;
+    }
+  }
+
+  .edit-sidebar {
+    background-color: white;
+
+    h4 {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    select,
+    a {
+      cursor: pointer;
+    }
+
+    .text-icon {
+      width: 50%;
+    }
+  }
+}
+
+.color-wrapper {
+  position: relative;
+
+  .select-color {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#canvas {
+  display: block;
+  border: 1px solid rgb(187, 178, 178);
+  margin: auto;
+  height: 250px;
+  width: 100%;
+}
+
+.placed-options {
+  .d-flex {
+    display: block !important;
+  }
+}
+
+.signature-div {
+  box-sizing: border-box;
+}
+
+.signature-image {
+  width: 90%;
+}
+
+.text-data {
+  border: 1px solid black;
+  margin: 16px;
+  box-sizing: border-box;
+  height: 40px;
+  overflow-y: hidden;
+}
+
+#addText {
+  width: 100%;
+}
+
+.signature-data {
+  border: 1px solid black;
+  margin: 16px;
+  box-sizing: border-box;
+}
+
+.pdf-boundary {
+  position: relative;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.select-input-information {
+  font-size: x-small !important;
+}
+
+.boundary {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: dotted #ccc 2px;
+  background-color: rgba(187, 178, 178, 0.3);
+}
+
+.drag-box {
+  top: 0;
+  left: 0;
+  position: sticky;
+  width: 100px;
+  height: 60px;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: move;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 4px;
+  margin-right: 25px;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 10px;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.overview-btn {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  top: 5px;
+  background-color: white;
+  border: 1px solid #35677d;
+  font-size: xx-small;
+  font-weight: 600;
+  color: #35677d;
+  transition: 5ms ease-in;
+}
+
+.overview-btn:hover {
+  box-shadow: #35677d;
+  background-color: #35677d;
+  color: white;
+}
+
+.overview {
+  background: #fff;
+  padding: 5px;
+  box-shadow: 5px 5px 18px #888888;
+}
+
+.page-box {
+  border: 1px solid #000;
+  text-align: center;
+  margin: 10px;
+  padding: 30px;
+  background-color: #efefef;
+}
+
+.page-box-selected {
+  border: 2px dashed #66bdec;
+  background-color: #ecf6ff;
+}
+
+.drag-wrapper {
+  position: absolute;
+  width: 110%;
+  height: 120%;
+}
+
+.wrapper-div {
+  position: absolute;
+  right: 0;
+  top: -13px;
+}
+
+.drag-wrapper-icon {
+  cursor: pointer;
+  background: #35677d;
+  color: #fff;
+  border-radius: 100%;
+  padding: 4px;
+}
+
+#dragText {
+  margin: 18px;
+}
+
+#upload-image {
+  margin: 20px;
+}
+
+.main-heading {
+  color: #35677d !important;
+}
+
+.pdf-thumbnail {
+  margin: 1px;
+  width: 90%;
+  height: auto;
+  min-height: 45px;
+  overflow: hidden;
+  opacity: 90%;
+
+  ::ng-deep.ng2-pdf-viewer-container {
+    overflow: hidden !important;
+  }
+
+  ::ng-deep.textLayer {
+    border: 1px solid black;
+  }
+}

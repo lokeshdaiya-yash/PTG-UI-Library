@@ -12,8 +12,10 @@
         "baseHref": "/",
         "main": "apps/ptg-ui-apps-backend/src/main.ts",
         "tsConfig": "apps/ptg-ui-apps-backend/tsconfig.app.json",
-        "assets": ["apps/ptg-ui-apps-backend/src/assets", "apps/ptg-ui-apps-backend/src/index.html"]
-
+        "assets": [
+          "apps/ptg-ui-apps-backend/src/assets",
+          "apps/ptg-ui-apps-backend/src/index.html"
+        ]
       },
       "configurations": {
         "production": {

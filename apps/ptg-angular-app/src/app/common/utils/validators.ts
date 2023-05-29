@@ -32,11 +32,11 @@ export function ConfirmPasswordValidator(controlName: string, matchingControlNam
 export function calendarValidator(startDate: any, endDate: any, matchingControlName: string) {
   return (formGroup: FormGroup) => {
     // console.log('calendarValidator call');
-    let control1 = null;
+    let control1:any = null;
     if(startDate) {
       control1 = formGroup.controls[startDate];
     }
-    let control2 = null;
+    let control2:any = null;
     if(endDate) {
       control2 = formGroup.controls[endDate];
     }

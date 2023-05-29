@@ -1,0 +1,74 @@
+<!-- Loading -->
+<ptg-ui-loading [loading]="loading"></ptg-ui-loading>
+
+<!-- Login wrapper Start -->
+<div class="login-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
+    <div class="login-container">
+        <div class="login-form-wrapper">
+            <div class="form-group">
+                <!-- alert -->
+                <ptg-ui-alert *ngIf="errorMessage" [type]="'danger'" [message]="errorMessage" [isDismissible]="true"
+                    (closeAlert)="closeAlert($event)">
+                </ptg-ui-alert>
+            </div>
+            <div class="form-group">
+                <div class="login-logo text-center mb-3">
+                    <img class="" src="../../../assets/doc-logo.png" alt="" />
+                </div>
+            </div>
+            <form class="form-login" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+                <div class="login-form">
+                    <div class="form-group mb-4">
+                        <label for="inputEmail" [innerHTML]="resources.LABEL_EMAIL"></label>
+                        <div class="userid input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <i class="login-user-icon"></i>
+                            </div>
+                            <!-- input -->
+                            <ptg-ui-input class="w-100" formControlName="email" id="inputEmail" type="text"
+                                className="form-control bg_0" [placeholder]="resources.INPUT_PLACEHOLDER_EMAIL">
+                            </ptg-ui-input>
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="inputPassword" [innerHTML]="resources.LABEL_PASSWORD"></label>
+                        <a (click)="showModal(template)" class="forgot-password float-end">
+                            {{resources.FORGOT_PASSWORD}}?</a>
+                        <div class="userid input-group flex-nowrap">
+                            <div class="input-group-prepend">
+                                <i class="login-password-icon"></i>
+                            </div>
+                            <!-- input -->
+                            <ptg-ui-input class="w-100" id="inputPassword" type="password" formControlName="password"
+                                className="form-control bg_0" [placeholder]="resources.INPUT_PLACEHOLDER_PASSWORD">
+                            </ptg-ui-input>
+                        </div>
+                    </div>
+                    <div class="new_label text-center mb-3">
+                        <label>{{resources.REGISTRATION_LABEL_INFO_MSG}}
+
+                            <a class="signup-btn" [routerLink]="['../signup']">{{resources.SIGN_UP}}</a>.</label>
+                    </div>
+                    <!-- button -->
+                    <ptg-ui-button class="w-100" type="submit" btnStyleType="primary" id="btnSignin" [isBlock]="true"
+                        [isDisable]="!loginForm.valid">
+                        {{resources.SIGN_IN}}
+                    </ptg-ui-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Login wrapper End -->
+
+<!-- Dialog for forgotpassword -->
+<ng-template #template let-modal>
+    <div class="modal-body app-orders p-0">
+        <ptg-ui-forgotpassword [modalRef]="modalRef">
+            <!-- button -->
+            <ptg-ui-button (click)="isClosemodal()" class="" btnStyleType="secondary">
+                Cancel
+            </ptg-ui-button>
+        </ptg-ui-forgotpassword>
+    </div>
+</ng-template>

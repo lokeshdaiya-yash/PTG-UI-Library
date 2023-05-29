@@ -1,7 +1,22 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { HighPieChartComponent } from './high-pie-chart.component';
 import {ChartModule} from '../../../chart.module';
-import { BAR_CHART_3D, LINE_BAR_DATA, LINE_CHART_2D, MULTI_LINE_CHART_2D, PIE_CHART_3D, STACKED_COLUMN_DATA } from '@ptg-angular-app/mock/chart';
+export const PIE_CHART_3D:any =
+{
+  data:[
+    ['Firefox', 45.0],
+    ['IE', 26.8],
+    {
+        name: 'Chrome',
+        y: 12.8,
+        sliced: true,
+        selected: true
+    },
+    ['Safari', 8.5],
+    ['Opera', 6.2],
+    ['Others', 0.7]
+  ]
+}
 
 export default {
   title: 'Component/HighPieChartComponent',

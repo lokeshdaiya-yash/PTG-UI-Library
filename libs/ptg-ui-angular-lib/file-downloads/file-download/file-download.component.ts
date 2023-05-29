@@ -11,7 +11,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 import { toPng } from 'html-to-image';
-// import { FILE_TYPE } from '@ptg-angular-app/mock/mocks';
+
 import html2canvas from 'html2canvas';
 enum FileType {
   PDF = 'PDF',

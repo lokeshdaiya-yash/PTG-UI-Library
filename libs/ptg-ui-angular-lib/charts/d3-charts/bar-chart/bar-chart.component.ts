@@ -24,10 +24,22 @@ export class BarChartComponent implements OnInit {
   @Input() height: any;
   @Input() start: any;
   @Input() end: any;
+ // Mock data for 3d bar chart
 
-  svg: any;
+ public BAR_CHART_3D = {
+  data: [
+    {
+      name: 'Year 1800',
+      data: [107, 120, 635, 203, 300, 203, 300]
+    }
+  ],
+  categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania', 'Canada', 'Uk']
+}
 
-  private createSvg(): void {
+ svg: any;
+
+  ngOnChanges() {
+    this.width=300;
     this.svg = d3
       .select('figure#bar') //returns a selection object that encapsulates the first element in the DOM with a CSS class of "bar"
       .append('svg') //Appends a new element of this type (tag name) as the last child of each selected element
@@ -82,7 +94,7 @@ export class BarChartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createSvg();
+    // this.createSvg();
     this.drawBars(this.data);
   }
 

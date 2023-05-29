@@ -1,0 +1,55 @@
+/***********Cal***************/
+.theme-green .bs-datepicker-head {
+  background-color: white !important;
+  text-align: center;
+
+  button {
+    padding: 3%;
+    background-color: white;
+    border: none;
+
+  }
+}
+
+.theme-green .bs-datepicker-body table td span.selected,
+.theme-green .bs-datepicker-body table td.selected span,
+.theme-green .bs-datepicker-body table td span[class*=select-]:after,
+.theme-green .bs-datepicker-body table td[class*=select-] span:after {
+  background-color: $main !important;
+}
+
+.bs-datepicker-head button:hover {
+  background-color: rgba(215, 215, 215, 0.1);
+}
+
+.theme-green .bs-datepicker-body table td.week span {
+  color: $main !important;
+  display: none;
+}
+
+.bs-datepicker-body table td span.disabled,
+.bs-datepicker-body table td.disabled span {
+  color: #c7d3df;
+}
+
+.theme-green {
+  .bs-datepicker-body {
+    thead,
+    tbody,
+    tfoot,
+    tr,
+    td,
+    th {
+      padding: 5px;
+      text-align: center;
+    }
+  }
+}
+
+
+bs-datepicker-container {
+  background-color: #fff !important;
+  box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%) !important;
+}
+
+/****************************/

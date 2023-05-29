@@ -58,6 +58,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   @Input() maxlength!: string | number | null;
   @Input() minlength!: string | number | null;
   @ViewChild('input', { static: true }) input!: ElementRef;
+  @Input() isReadOnly = false;
   inputValue: any;
 
   // get formField(): FormControl {
