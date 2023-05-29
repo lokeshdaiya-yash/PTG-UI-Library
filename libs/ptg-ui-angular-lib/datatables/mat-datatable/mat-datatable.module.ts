@@ -12,8 +12,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDatatableComponent } from './mat-datatable/mat-datatable.component';
 import { InputModule } from '@ptg-ui/angular/input';
-
-
+import {TranslateModule} from '@ngx-translate/core';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 
 @NgModule({
@@ -23,10 +23,13 @@ import { InputModule } from '@ptg-ui/angular/input';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    TranslateModule.forRoot(),
+    TabsModule.forRoot(),
     InputModule
   ],
   exports:[
-    MatDatatableComponent
+    MatDatatableComponent,
+    TranslateModule
   ]
 })
 export class MatDatatableModule { }

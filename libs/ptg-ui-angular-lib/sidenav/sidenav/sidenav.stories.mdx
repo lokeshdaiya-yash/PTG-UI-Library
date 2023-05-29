@@ -1,0 +1,60 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import * as SidenavComponents from './sidenav.stories.ts'
+
+import SidenavComponent from './sidenav.component';
+
+<Meta title="Component/SidenavComponent/SidenavComponentDocs" component={ SidenavComponent }    />
+
+
+
+ # Sidenav Component
+
+ ---
+
+Sidenav menu is an expandable and collapsible component that typically acts as a side container to place primary or secondary content alongside the main content.
+
+It provides flexible options to be shown and hidden based on user interactions.
+
+
+We can import the Sidenav tag using the following importation : 
+
+```
+    import { SidenavComponent } from ' @ptg-ui/angular'
+```    
+
+ Types of controls supported by Sidenav:
+
+ - isMenuOpen
+ - selectedPath
+
+
+
+ ## Quick Start
+ 
+we can create a sidenav using the following HTML Tag:
+ 
+```
+<ptg-ui-sidenav1
+  selectedPath=""
+  [menuItems]="menuItems"
+  [isMenuOpen]="false"
+></ptg-ui-sidenav1>
+
+```
+
+
+Following are some controls with their explanation :
+
+1] isMenuOpen :
+
+isMenuOpen control is used to hide and show the content of the sidenav.
+
+isMenuOpen control have two values : 
+ 
+a] True - sidenav content is visible.
+
+b] False - sidenav content is hide.
+
+
+<Canvas><Story id="component-sidenavcomponent--is-menu-open" /></Canvas>

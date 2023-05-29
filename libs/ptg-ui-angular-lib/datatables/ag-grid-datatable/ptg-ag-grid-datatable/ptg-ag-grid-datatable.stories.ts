@@ -38,14 +38,14 @@ Primary.args = {
   editable: false,
   rowHeight: 50,
   rowDrag: false,
-  animateRow: true,
   rowClass: '',
   rowSelection: 'multiple',
-  filter: true,
-  pagination: false,
+  pagination: true,
   paginationLimit: 5,
   customPaginationClass: '',
   enableCustomFilter: true,
+  // filter: true,
+  // animateRow: true,
 };
 
 
@@ -69,14 +69,14 @@ ThemeClassName.args = {
   editable: false,
   rowHeight: 50,
   rowDrag: false,
-  animateRow: true,
   rowClass: '',
   rowSelection: 'multiple',
-  filter: true,
-  pagination: false,
+  pagination: true,
   paginationLimit: 5,
   customPaginationClass: '',
   enableCustomFilter: true,
+  // filter: true,
+  // animateRow: true,
 };
 
 
@@ -99,14 +99,14 @@ Sortable.args = {
   editable: false,
   rowHeight: 50,
   rowDrag: false,
-  animateRow: true,
   rowClass: '',
   rowSelection: 'multiple',
-  filter: true,
-  pagination: false,
+  pagination: true,
   paginationLimit: 5,
   customPaginationClass: '',
   enableCustomFilter: true,
+  // filter: true,
+  // animateRow: true,
 };
 
 
@@ -130,14 +130,14 @@ Editable.args = {
   editable: false,
   rowHeight: 50,
   rowDrag: false,
-  animateRow: true,
   rowClass: '',
   rowSelection: 'multiple',
-  filter: true,
-  pagination: false,
+  pagination: true,
   paginationLimit: 5,
   customPaginationClass: '',
   enableCustomFilter: true,
+  // filter: true,
+  // animateRow: true,
 };
 
 
@@ -160,14 +160,14 @@ RowHeight.args = {
   editable: false,
   rowHeight: 50,
   rowDrag: false,
-  animateRow: true,
   rowClass: '',
   rowSelection: 'multiple',
-  filter: true,
-  pagination: false,
+  pagination: true,
   paginationLimit: 5,
   customPaginationClass: '',
   enableCustomFilter: true,
+  // filter: true,
+  // animateRow: true,
 };
 
 
@@ -190,14 +190,14 @@ RowClass.args = {
   editable: false,
   rowHeight: 50,
     rowDrag: false,
-  animateRow: true,
-  rowClass: '',
-  rowSelection: 'multiple',
-  filter: true,
-  pagination: false,
-  paginationLimit: 5,
-  customPaginationClass: '',
-  enableCustomFilter: true,
+    rowClass: '',
+    rowSelection: 'multiple',
+    pagination: true,
+    paginationLimit: 5,
+    customPaginationClass: '',
+    enableCustomFilter: true,
+    // filter: true,
+    // animateRow: true,
 };
 
 
@@ -220,14 +220,14 @@ Pagination.args = {
   editable: false,
   rowHeight: 50,
   rowDrag: false,
-  animateRow: true,
   rowClass: '',
   rowSelection: 'multiple',
-  filter: true,
-  pagination: false,
+  pagination: true,
   paginationLimit: 5,
   customPaginationClass: '',
   enableCustomFilter: true,
+  // filter: true,
+  // animateRow: true,
 };
 
 
@@ -250,14 +250,14 @@ PaginationLimit.args = {
   editable: false,
   rowHeight: 50,
   rowDrag: false,
-  animateRow: true,
   rowClass: '',
   rowSelection: 'multiple',
-  filter: true,
-  pagination: false,
+  pagination: true,
   paginationLimit: 5,
   customPaginationClass: '',
   enableCustomFilter: true,
+  // filter: true,
+  // animateRow: true,
 };
 
 
@@ -280,14 +280,14 @@ CustomPaginationClass.args = {
   editable: false,
   rowHeight: 50,
   rowDrag: false,
-  animateRow: true,
   rowClass: '',
   rowSelection: 'multiple',
-  filter: true,
-  pagination: false,
+  pagination: true,
   paginationLimit: 5,
   customPaginationClass: '',
   enableCustomFilter: true,
+  // filter: true,
+  // animateRow: true,
 };
 
 
@@ -310,12 +310,42 @@ RowSelection.args = {
   editable: false,
   rowHeight: 50,
   rowDrag: false,
-  animateRow: true,
   rowClass: '',
   rowSelection: 'multiple',
-  filter: true,
-  pagination: false,
+  pagination: true,
   paginationLimit: 5,
   customPaginationClass: '',
   enableCustomFilter: true,
+  // filter: true,
+  // animateRow: true,
+};
+
+
+export const EnableCustomFilter = Template.bind({});
+EnableCustomFilter.args = {
+  rowData:GRID_DATA,
+  columnData : [
+    {headerName: 'Athlete', field: 'athlete', rowDrag: true, floatingFilter: true, filter:'agTextColumnFilter',checkboxSelection: true, headerCheckboxSelection: true, pinned: 'left'},
+    {headerName: 'Age', field: 'age'},
+    {headerName: 'Country', field: 'country'},
+    {headerName: 'Year', field: 'year'},
+    {headerName: 'Date', field: 'date'},
+    {headerName: 'Sport', field: 'sport'},
+    {headerName: 'Silver', field: 'silver'},
+    {headerName: 'Total', field: 'total'},
+    
+  ],
+  themeClassName: 'ag-theme-alpine',
+  sortable: false,
+  editable: false,
+  rowHeight: 50,
+  rowDrag: false,
+  rowClass: '',
+  rowSelection: 'multiple',
+  pagination: true,
+  paginationLimit: 5,
+  customPaginationClass: '',
+  enableCustomFilter: true,
+  // filter: true,
+  // animateRow: true,
 };

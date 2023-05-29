@@ -21,5 +21,27 @@ const Template: Story<FileDownloadComponent> = (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  tableData: TABLE_DATA
+  tableData: TABLE_DATA,
+  fileTypeList : [
+    {
+      id: '1',
+      name: 'PDF',
+      value: 'PDF',
+    },
+    {
+      id: '2',
+      name: 'Excel',
+      value: 'EXCEL',
+    },
+    {
+      id: '3',
+      name: 'Word',
+      value: 'WORD',
+    },
+    {
+      id: '4',
+      name: 'Download PNG',
+      value: 'PNG',
+    },
+  ]
 };

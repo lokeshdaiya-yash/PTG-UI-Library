@@ -64,6 +64,7 @@ export class FileDownloadComponent implements OnInit {
   // get file type from dropdown 
   onChange(event: any) {
     this.fileType = event.value;
+    
   }
 
   // Download file according to type 
