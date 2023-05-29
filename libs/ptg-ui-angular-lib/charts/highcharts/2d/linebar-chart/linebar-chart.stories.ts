@@ -1,8 +1,8 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { LinebarChartComponent } from './linebar-chart.component';
-
 import {ChartModule} from '../../../chart.module';
-export const LINE_BAR_DATA:any = {
+
+const LINE_BAR_DATA:any = {
   title:'my Charts',
   subtitle:"Source: WorldClimate.com",
   categories:['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
