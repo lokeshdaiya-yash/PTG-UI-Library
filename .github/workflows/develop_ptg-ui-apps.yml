@@ -25,7 +25,9 @@ jobs:
         run: |
           npm install -f
           build:all:app --if-present
-          npm run test --if-present
+      - name: npm build
+        run: |
+          npm run build:all:app --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
