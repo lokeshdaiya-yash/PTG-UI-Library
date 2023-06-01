@@ -21,10 +21,9 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
+      - name: npm install
         run: |
           npm install -f
-          build:all:app --if-present
       - name: npm build
         run: |
           npm run build:all:app --if-present
