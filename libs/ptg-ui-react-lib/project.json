@@ -1,4 +1,5 @@
 {
+  "name": "ptg-ui-react-lib",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/ptg-ui-react-lib/src",
   "projectType": "library",
@@ -37,6 +38,43 @@
       "options": {
         "jestConfig": "libs/ptg-ui-react-lib/jest.config.ts",
         "passWithNoTests": true
+      }
+    },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/ptg-ui-react-lib/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/ptg-ui-react-lib",
+        "configDir": "libs/ptg-ui-react-lib/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "ptg-ui-react-lib:build-storybook",
+        "staticFilePath": "dist/storybook/ptg-ui-react-lib"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "ptg-ui-react-lib:build-storybook:ci"
+        }
       }
     }
   }
