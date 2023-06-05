@@ -5,7 +5,7 @@
  *
  */
 import { useState, useEffect } from 'react';
-import './Signup.scss';
+import './signup.scss';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
