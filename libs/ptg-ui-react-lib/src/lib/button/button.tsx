@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-access-key */
-import './Button.scss';
+import './button.scss';
 import { Button, ButtonProps } from 'react-bootstrap';
 /* eslint-disable-next-line */
 /**
