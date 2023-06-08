@@ -27,7 +27,10 @@ jobs:
       - name: npm build
         run: |
           npm run build:all:app --if-present
-
+      - name: npm install in dist
+        run: |
+          cd dist/apps/ptg-ui-apps-backend
+           npm install -f
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
@@ -55,5 +58,3 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_32145BC8C8554972B10AAFAFC4A5BB7F }}
           package: .
-          scm-do-build-during-deployment: true
-          enable-oryx-build: true
