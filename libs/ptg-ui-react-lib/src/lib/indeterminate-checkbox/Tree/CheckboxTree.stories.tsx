@@ -3,7 +3,7 @@ import { PtgUiIndeterminateCheckbox } from './CheckboxTree';
 
 const Story: Meta<typeof PtgUiIndeterminateCheckbox> = {
   component: PtgUiIndeterminateCheckbox,
-  title: 'PtgUiIndeterminateCheckbox',
+  title: 'Other/PtgUiIndeterminateCheckbox',
 };
 export default Story;
 

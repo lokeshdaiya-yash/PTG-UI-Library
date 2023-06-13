@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-access-key */
 import './button.scss';
 import { Button, ButtonProps } from 'react-bootstrap';
+import classNames from 'classnames';
 /* eslint-disable-next-line */
 /**
  * @since Feb 2022
@@ -16,7 +17,7 @@ interface PtgUiButtonProps extends ButtonProps {
   disabled?: boolean;
   className?: string;
   children?: React.ReactNode;
-  accessKey?: string;
+  // accessKey?: string;
   // onClick?: () => void;
 }
 
@@ -24,13 +25,16 @@ const defaultProps: PtgUiButtonProps = {
   variant: 'primary',
   disabled: false,
   active: false,
-  className: 'btn btn-primary btn-block',
+  // className: 'btn btn-primary btn-block',
   type: 'button',
+  
 };
 
-export function PtgUiButton({ children, onClick, ...rest }: PtgUiButtonProps) {
+
+export function PtgUiButton({ variant='',children, disabled , active , onClick, ...rest }: PtgUiButtonProps) {
+  const mode = active ? 'Button-active' : 'Button-primary';
   return (
-    <Button onClick={onClick} {...rest}>
+    <Button className={['button',`${variant}`,`${mode}`].join(' ')} onClick={onClick} {...rest}  disabled={disabled}  >
       {children}
     </Button>
   );

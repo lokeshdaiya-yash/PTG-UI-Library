@@ -3,7 +3,7 @@ import { PtgUiCheckbox } from './checks';
 
 const Story: Meta<typeof PtgUiCheckbox> = {
   component: PtgUiCheckbox,
-  title: 'PtgUiCheckbox',
+  title: 'Other/PtgUiCheckbox',
 };
 export default Story;
 

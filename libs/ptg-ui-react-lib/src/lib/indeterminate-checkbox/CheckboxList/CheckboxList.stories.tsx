@@ -3,7 +3,7 @@ import { CheckboxList } from './CheckboxList';
 
 const Story: Meta<typeof CheckboxList> = {
   component: CheckboxList,
-  title: 'CheckboxList',
+  title: 'Other/CheckboxList',
 };
 export default Story;
 

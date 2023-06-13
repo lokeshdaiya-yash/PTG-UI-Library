@@ -3,7 +3,7 @@ import { PtgUiSelect } from './select';
 
 const Story: Meta<typeof PtgUiSelect> = {
   component: PtgUiSelect,
-  title: 'PtgUiSelect',
+  title: 'Other/PtgUiSelect',
 };
 export default Story;
 

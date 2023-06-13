@@ -3,7 +3,7 @@ import { PtgUiRadio } from './radio';
 
 const Story: Meta<typeof PtgUiRadio> = {
   component: PtgUiRadio,
-  title: 'PtgUiRadio',
+  title: 'Other/PtgUiRadio',
 };
 export default Story;
 

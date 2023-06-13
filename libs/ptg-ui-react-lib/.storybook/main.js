@@ -1,10 +1,16 @@
 const config = {
-  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  addons: ['@storybook/addon-essentials'],
+  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+            '../src/lib/**/*.mdx' ],
+  addons: ['@storybook/addon-essentials', '@storybook/addon-docs'],
   framework: {
     name: '@storybook/react-vite',
     options: {},
   },
+  docs: {
+    autodocs: true,
+    defaultName: 'Documents', // set to change the name of generated docs entries
+  },
+ 
 };
 
 export default config;

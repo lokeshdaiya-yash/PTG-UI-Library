@@ -3,7 +3,7 @@ import { PtgUiTextArea } from './textarea';
 
 const Story: Meta<typeof PtgUiTextArea> = {
   component: PtgUiTextArea,
-  title: 'PtgUiTextArea',
+  title: 'Other/PtgUiTextArea',
 };
 export default Story;
 

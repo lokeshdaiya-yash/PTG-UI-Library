@@ -3,7 +3,8 @@ import { PtgUi3dColumn } from './column';
 
 const Story: Meta<typeof PtgUi3dColumn> = {
   component: PtgUi3dColumn,
-  title: 'PtgUi3dColumn',
+  title: 'Other/PtgUi3dColumn',
+  tags: ['autodocs'],
 };
 export default Story;
 

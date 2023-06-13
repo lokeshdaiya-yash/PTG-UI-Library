@@ -3,7 +3,7 @@ import { PtgUiMultiSelectCheckbox } from './multi-select-addition';
 
 const Story: Meta<typeof PtgUiMultiSelectCheckbox> = {
   component: PtgUiMultiSelectCheckbox,
-  title: 'PtgUiMultiSelectCheckbox',
+  title: 'Other/PtgUiMultiSelectCheckbox',
 };
 export default Story;
 

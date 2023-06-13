@@ -3,7 +3,8 @@ import { PtgUiStackedColumn } from './stackedColumn';
 
 const Story: Meta<typeof PtgUiStackedColumn> = {
   component: PtgUiStackedColumn,
-  title: 'PtgUiStackedColumn',
+  title: 'Other/PtgUiStackedColumn',
+  tags: ['autodocs'],
 };
 export default Story;
 

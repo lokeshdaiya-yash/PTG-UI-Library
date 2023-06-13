@@ -3,7 +3,7 @@ import { PtgUiAccordian } from './accordian';
 
 const Story: Meta<typeof PtgUiAccordian> = {
   component: PtgUiAccordian,
-  title: 'PtgUiAccordian',
+  title: 'Other/PtgUiAccordian',
 };
 export default Story;
 

@@ -3,7 +3,7 @@ import { PtgUiReactDataGrid } from './react-data-grid';
 
 const Story: Meta<typeof PtgUiReactDataGrid> = {
   component: PtgUiReactDataGrid,
-  title: 'PtgUiReactDataGrid',
+  title: 'Other/PtgUiReactDataGrid',
 };
 export default Story;
 

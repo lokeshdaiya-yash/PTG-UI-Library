@@ -3,7 +3,7 @@ import { PtgUiLoading } from './loading';
 
 const Story: Meta<typeof PtgUiLoading> = {
   component: PtgUiLoading,
-  title: 'PtgUiLoading',
+  title: 'Other/PtgUiLoading',
 };
 export default Story;
 

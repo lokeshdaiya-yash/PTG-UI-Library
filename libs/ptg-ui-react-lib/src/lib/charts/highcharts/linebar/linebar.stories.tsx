@@ -3,7 +3,8 @@ import { PtgUiLineBar } from './linebar';
 
 const Story: Meta<typeof PtgUiLineBar> = {
   component: PtgUiLineBar,
-  title: 'PtgUiLineBar',
+  title: 'Other/PtgUiLineBar',
+  tags: ['autodocs'],
 };
 export default Story;
 

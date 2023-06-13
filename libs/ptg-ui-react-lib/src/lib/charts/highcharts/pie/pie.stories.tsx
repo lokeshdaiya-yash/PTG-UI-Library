@@ -3,7 +3,8 @@ import { PtgUiPie } from './pie';
 
 const Story: Meta<typeof PtgUiPie> = {
   component: PtgUiPie,
-  title: 'PtgUiPie',
+  title: 'Other/PtgUiPie',
+  tags: ['autodocs'],
 };
 export default Story;
 

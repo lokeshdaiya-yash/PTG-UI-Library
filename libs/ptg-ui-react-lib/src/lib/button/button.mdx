@@ -1,0 +1,90 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import * as PtgUiButtons from './button.stories';
+
+<Meta of = { PtgUiButtons } />
+
+{/* // import PtgUiButton from './button'
+
+// <Meta title="Component/Button/ButtonDocs" component={ PtgUiButton }    /> */}
+
+
+# Button Component
+
+
+ ---
+ The Button element is used to create an HTML button. Any text appearing between the opening and closing tags will appear as text on the button. No action takes place by default 
+ when a button is clicked.
+
+ We can import the button tag using the following importation : 
+
+```
+    import { PtgUiButton } from ' @ptg-ui/react'
+```    
+
+ Types of controls supported by button:
+
+ - variant
+ - children
+ - disabled
+ - active
+ 
+
+
+ ## Quick Start
+ 
+ we can create a button using the following HTML Tag: 
+
+
+```
+<PtgUiButton active disabled variant="primary">
+  Example
+</PtgUiButton>
+
+```
+
+ Following are some controls with their explanation :
+
+ 1] variant :
+
+  We can give the different types of variant to the button like primary , secondary , success , danger .       
+
+  A] Primary variant : <Canvas of={PtgUiButtons.Primary} />   
+  B] Secondary variant : <Canvas of={PtgUiButtons.Secondary} />   
+  C] Success variant :  <Canvas of={PtgUiButtons.Success} />   
+  D] Danger variant : <Canvas of={PtgUiButtons.Danger} />   
+
+
+ 2] children :
+
+ Children control is used to set the label for the button.
+
+ <Canvas of={PtgUiButtons.Children} />   
+
+
+ 3] disabled :
+
+ The disabled property sets or returns whether a button is disabled, or not.
+
+ A disabled element is unusable and un-clickable. Disabled elements are usually rendered in gray by default in browsers.
+
+ Disabled control have two values -  
+
+ true - The button is disabled
+
+ false - Default. The button is not disabled
+
+<Canvas of={PtgUiButtons.Disabled} />   
+
+
+ 4] active :
+
+Active control is used to show the active button.
+
+active control have two values :
+
+true - button is active.
+
+false - button is not active . 
+
+<Canvas of={PtgUiButtons.Active} />

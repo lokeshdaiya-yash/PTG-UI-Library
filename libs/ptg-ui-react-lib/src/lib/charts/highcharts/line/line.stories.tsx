@@ -3,7 +3,8 @@ import { PtgUiLine } from './line';
 
 const Story: Meta<typeof PtgUiLine> = {
   component: PtgUiLine,
-  title: 'PtgUiLine',
+  title: 'Other/PtgUiLine',
+  tags: ['autodocs'],
 };
 export default Story;
 

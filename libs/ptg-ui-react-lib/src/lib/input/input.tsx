@@ -6,9 +6,10 @@
  */
 import './input.scss';
 
-interface PtgUiInputProps {
+
+  interface PtgUiInputProps {
   type: string;
-  value?: any;
+  value?: string ;
   onChange?: any;
   placeholder?: string;
   disabled?: boolean;
@@ -16,11 +17,11 @@ interface PtgUiInputProps {
   className?: string;
   inputsize?: string;
   name?: string;
-  onBlur?: any;
-  ref?: any;
+  // onBlur?: any;
+  // ref?: any;
   // accessKey?: string;
-  maxlength?: any;
-  onKeyUp?: any;
+  // maxlength?: any;
+  // onKeyUp?: any;
   id?: string;
 }
 
@@ -29,14 +30,32 @@ const defaultProps: PtgUiInputProps = {
   value: '',
   placeholder: '',
   disabled: false,
-  required: true,
+  required: false,
   inputsize: 'lg',
   // accessKey: '',
-  id: '',
+  id: 'inputId',
+  name : 'inputName'
 };
 
-export function PtgUiInput({ ...rest }: PtgUiInputProps) {
-  return <input {...rest} data-testid={rest.name}/>;
+export function PtgUiInput({
+  type,
+  inputsize = '',
+  required,
+  id,
+ ...rest
+}: PtgUiInputProps) {
+  const inputreq = required ? 'input-required' : 'Button-primary';
+  return (
+    <input
+      type="text"
+      className={['input', `${inputsize}`, `${inputreq}`].join(' ')}
+      {...rest}
+      data-testid={rest.name}
+      id={id}
+      name={ rest.name }
+      value={rest.value}
+      />
+  );
 }
 PtgUiInput.defaultProps = defaultProps;
 export default PtgUiInput;

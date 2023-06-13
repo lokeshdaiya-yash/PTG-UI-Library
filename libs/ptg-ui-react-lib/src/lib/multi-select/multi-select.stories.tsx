@@ -3,7 +3,7 @@ import { PtgUiMultiSelectbox } from './multi-select';
 
 const Story: Meta<typeof PtgUiMultiSelectbox> = {
   component: PtgUiMultiSelectbox,
-  title: 'PtgUiMultiSelectbox',
+  title: 'Other/PtgUiMultiSelectbox',
 };
 export default Story;
 

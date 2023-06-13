@@ -1,0 +1,127 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import * as PtgUiInputs from './input.stories';
+
+<Meta of = { PtgUiInputs } />
+
+
+# Input Component
+
+ ---
+
+The HTML input element is primarily to create HTML forms. In other words, an HTML `<input>` tag is used to create the data fields on forms that enable users to enter information. 
+
+We can import the input tag using the following importation : 
+
+```
+    import { PtgUiInput } from ' @ptg-ui/react'
+```    
+
+Types of controls supported by input:
+
+ - placeholder
+ - id
+ - required
+ - disabled
+ - name
+ - input size
+ - value
+
+
+
+
+ ## Quick Start
+ 
+ we can create a input using the following HTML Tag: 
+
+
+```
+
+```
+
+Following a are some controls with their values :
+
+1] placeholder :
+
+The placeholder attribute specifies a short hint that describes the expected value of an input field (e.g. a sample value or a short description of the expected format).
+
+The short hint is displayed in the input field before the user enters a value.
+
+Note: The placeholder attribute works with the following input types: text, search, url, tel, email, and password.
+
+<Canvas of={PtgUiInputs.Placeholder}/>       
+
+
+2] id : 
+
+The id attribute specifies a unique id for an HTML element. The value of the id attribute must be unique within the HTML document.
+
+The id attribute is used to point to a specific style declaration in a style sheet. It is also used by other languages and manipulate the element with the specific id.
+
+The syntax for id is: write a hash character (#), followed by an id name. Then, define the CSS properties within curly braces {}.
+
+<Canvas of={PtgUiInputs.Id}/>
+
+
+3] required : 
+
+The required attribute is a boolean attribute.
+
+When present, it specifies that an input field must be filled out before submitting the form.
+
+The required attribute works with the following input types: text, search, url, tel, email, password, date pickers, number, checkbox, radio, and file.
+
+<Canvas of={PtgUiInputs.Required}/>
+
+
+4] disabled :
+
+The disabled attribute is a boolean attribute.
+
+When present, it specifies that the input should be disabled.
+
+A disabled input is unusable and un-clickable.
+
+Disabled control have two values -  
+
+true - The button is disabled
+
+false - Default. The button is not disabled
+
+<Canvas of={PtgUiInputs.Disabled} />   
+
+
+5] name :
+
+The name attribute specifies a name for an HTML element. This name attribute can be used to reference the element in a application. 
+
+For a `<form>` element, the name attribute is used as a reference when the data is submitted. 
+
+For an `<iframe>` element, the name attribute can be used to target a form submission.
+
+<Canvas of={PtgUiInputs.Name} />  
+
+
+6] input size : 
+
+Input size control is used to set the size for an input element. 
+
+We can set the sm , md and lg size for the an input element .   
+
+sm means small , md means medium and lg means large .
+
+<Canvas of={PtgUiInputs.InputSize} />  
+
+
+7]  value :
+
+The value attribute specifies the value of an  element.
+
+The value attribute is used differently for different input types:
+
+For "button", "reset", and "submit" - it defines the text on the button
+For "text", "password", and "hidden" - it defines the initial (default) value of the input field
+For "checkbox", "radio", "image" - it defines the value associated with the input (this is also the value that is sent on submit)
+
+<Canvas of={PtgUiInputs.Value}/>
+

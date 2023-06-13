@@ -3,7 +3,7 @@ import { PtgUiDownload } from './downloadFile';
 
 const Story: Meta<typeof PtgUiDownload> = {
   component: PtgUiDownload,
-  title: 'PtgUiDownload',
+  title: 'Other/PtgUiDownload',
 };
 export default Story;
 

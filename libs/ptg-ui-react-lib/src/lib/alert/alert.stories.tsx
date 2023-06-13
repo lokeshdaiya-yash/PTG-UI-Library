@@ -3,7 +3,8 @@ import { PtgUiAlert } from './alert';
 
 const Story: Meta<typeof PtgUiAlert> = {
   component: PtgUiAlert,
-  title: 'PtgUiAlert',
+  title: 'Other/PtgUiAlert',
+  tags: ['autodocs'],
 };
 export default Story;
 

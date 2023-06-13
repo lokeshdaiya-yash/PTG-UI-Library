@@ -3,7 +3,7 @@ import { PtgUiDatePicker } from './date-picker';
 
 const Story: Meta<typeof PtgUiDatePicker> = {
   component: PtgUiDatePicker,
-  title: 'PtgUiDatePicker',
+  title: 'Other/PtgUiDatePicker',
 };
 export default Story;
 

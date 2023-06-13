@@ -3,7 +3,8 @@ import { PtgUiCalendar } from './calendar';
 
 const Story: Meta<typeof PtgUiCalendar> = {
   component: PtgUiCalendar,
-  title: 'PtgUiCalendar',
+  title: 'Other/PtgUiCalendar',
+  tags: ['autodocs'],
 };
 export default Story;
 

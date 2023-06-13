@@ -3,7 +3,7 @@ import { AccordionItem } from './accordian-item';
 
 const Story: Meta<typeof AccordionItem> = {
   component: AccordionItem,
-  title: 'AccordionItem',
+  title: 'Other/AccordionItem',
 };
 export default Story;
 

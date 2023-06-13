@@ -3,7 +3,7 @@ import { PtgUiReactLib } from './ptg-ui-react-lib';
 
 const Story: Meta<typeof PtgUiReactLib> = {
   component: PtgUiReactLib,
-  title: 'PtgUiReactLib',
+  title: 'Other/PtgUiReactLib',
 };
 export default Story;
 

@@ -3,10 +3,14 @@
 @import './react-web-datepicker';
 @import "./button";
 @import "./tabs";
+@import "./intro";
 
 
 // fontawesome style
 @import "~@fortawesome/fontawesome-free/css/all.css";
 @import '@nosferatu500/react-sortable-tree/style.css';
 
-
+.css-wzniqs {
+    font-family: 'Times New Roman', Times, serif !important;
+    color: aquamarine ;
+}

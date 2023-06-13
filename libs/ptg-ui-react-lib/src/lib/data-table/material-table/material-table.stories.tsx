@@ -3,7 +3,7 @@ import { PtgUiMaterialTable } from './material-table';
 
 const Story: Meta<typeof PtgUiMaterialTable> = {
   component: PtgUiMaterialTable,
-  title: 'PtgUiMaterialTable',
+  title: 'Other/PtgUiMaterialTable',
 };
 export default Story;
 

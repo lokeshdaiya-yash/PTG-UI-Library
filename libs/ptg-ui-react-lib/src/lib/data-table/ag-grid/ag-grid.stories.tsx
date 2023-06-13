@@ -3,7 +3,7 @@ import { PtgUiAgGrid } from './ag-grid';
 
 const Story: Meta<typeof PtgUiAgGrid> = {
   component: PtgUiAgGrid,
-  title: 'PtgUiAgGrid',
+  title: 'Other/PtgUiAgGrid',
 };
 export default Story;
 
