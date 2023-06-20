@@ -1,0 +1,12 @@
+mat-toolbar  {
+    background: #004a9f;
+    color: white;
+    text-align: center;
+   /* background-image: url("restaurants.png");
+    background-repeat: no-repeat; */
+}
+.toggle-btn{
+    margin-right: 6px;
+    background-color: #004a9f;
+    color: white;
+    }
