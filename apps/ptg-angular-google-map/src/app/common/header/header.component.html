@@ -1,0 +1,14 @@
+ 
+  <mat-toolbar>
+    <ng-container class="toggle" *ngFor="let data of headerData">
+            <button class="toggle-btn" mat-icon-button (click)="inputSideNav.toggle();">
+                <mat-icon *ngIf="!inputSideNav.opened" [innerHtml]="data.ToggleIcon1"></mat-icon>
+                <mat-icon *ngIf="inputSideNav.opened" [innerHtml]="data.ToggleIcon2"></mat-icon>
+            </button>
+        </ng-container>
+    Google Map
+    <!-- <img src="restaurants.png" alt="" height="10px" width="10px"> -->
+</mat-toolbar>
+    
+
+ 

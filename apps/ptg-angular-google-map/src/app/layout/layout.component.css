@@ -1,0 +1,9 @@
+
+.content{
+  padding: 20px;
+}
+.footer{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
