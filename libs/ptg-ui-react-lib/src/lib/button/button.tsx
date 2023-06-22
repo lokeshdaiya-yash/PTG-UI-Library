@@ -30,9 +30,9 @@ const defaultProps: PtgUiButtonProps = {
 
 export function PtgUiButton({ children, onClick, ...rest }: PtgUiButtonProps) {
   return (
-    <Button onClick={onClick} {...rest}>
+    <button onClick={onClick} {...rest}>
       {children}
-    </Button>
+    </button>
   );
 }
 
