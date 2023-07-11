@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     CollapseModule.forRoot(),
-    // RouterModule.forRoot([]),
+    RouterModule.forRoot([]),
   ],
   exports: [
     SidenavComponent

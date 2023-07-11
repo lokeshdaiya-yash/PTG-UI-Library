@@ -1,8 +1,8 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { SelectComponent } from './select.component';
+import { SelectModule } from '../select.module';
 
-import { SelectModule } from '../select.module'
-export const CITY_LIST = [
+const CITY_LIST = [
   {
     id: '1',
     name: 'indore',
@@ -50,7 +50,7 @@ export const CITY_LIST = [
   {
     id: '12',
     name: 'nashik',
-  }
+  },
 ];
 export default {
   title: 'Component/SelectComponent',
@@ -69,103 +69,97 @@ const Template: Story<SelectComponent> = (args: SelectComponent) => ({
 export const Primary = Template.bind({});
 Primary.args = {
   id: '',
-  // fieldname: '',
   placeholder: '',
   bindLabel: '',
-  // bindValue: '',
   isMultiple: true,
   closeOnSelect: true,
-  // accessKey: '',
   itemCount: 3,
-  items: CITY_LIST
+  items: CITY_LIST,
+  // accessKey: '',
+  // bindValue: '',
+  // fieldname: '',
 };
-
 
 export const Id = Template.bind({});
 Id.args = {
   id: '',
-  // fieldname: '',
   placeholder: '',
   bindLabel: '',
-  // bindValue: '',
   isMultiple: true,
   closeOnSelect: true,
-  // accessKey: '',
   itemCount: 3,
-  items: CITY_LIST
+  items: CITY_LIST,
+  // fieldname: '',
+  // bindValue: '',
+  // accessKey: '',
 };
-
 
 export const Placeholder = Template.bind({});
 Placeholder.args = {
   id: '',
-  // fieldname: '',
   placeholder: '',
-  bindLabel: '',
-  // bindValue: '',
   isMultiple: true,
+  bindLabel: '',
   closeOnSelect: true,
-  // accessKey: '',
   itemCount: 3,
-  items: CITY_LIST
+  items: CITY_LIST,
+  // fieldname: '',
+  // bindValue: '',
+  // accessKey: '',
 };
-
 
 export const BindLabel = Template.bind({});
 BindLabel.args = {
   id: '',
-  // fieldname: '',
   placeholder: '',
   bindLabel: '',
-  // bindValue: '',
   isMultiple: true,
   closeOnSelect: true,
-  // accessKey: '',
   itemCount: 3,
-  items: CITY_LIST
+  items: CITY_LIST,
+  // accessKey: '',
+  // bindValue: '',
+  // fieldname: '',
 };
-
 
 export const IsMultiple = Template.bind({});
 IsMultiple.args = {
   id: '',
-  // fieldname: '',
   placeholder: '',
   bindLabel: '',
-  // bindValue: '',
   isMultiple: true,
   closeOnSelect: true,
-  // accessKey: '',
   itemCount: 3,
-  items: CITY_LIST
+  items: CITY_LIST,
+  // accessKey: '',
+  // bindValue: '',
+  // fieldname: '',
 };
-
 
 export const CloseOnSelect = Template.bind({});
 CloseOnSelect.args = {
   id: '',
-  // fieldname: '',
   placeholder: '',
   bindLabel: '',
-  // bindValue: '',
   isMultiple: true,
   closeOnSelect: true,
-  // accessKey: '',
   itemCount: 3,
-  items: CITY_LIST
+  items: CITY_LIST,
+  // accessKey: '',
+  // bindValue: '',
+  // fieldname: '',
 };
-
 
 export const ItemCount = Template.bind({});
 ItemCount.args = {
   id: '',
-  // fieldname: '',
   placeholder: '',
   bindLabel: '',
-  // bindValue: '',
   isMultiple: true,
   closeOnSelect: true,
-  // accessKey: '',
   itemCount: 3,
-  items: CITY_LIST
+  items: CITY_LIST,
+  // bindValue: '',
+  // accessKey: '',
+  // fieldname: '',
 };

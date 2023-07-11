@@ -19,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     CommonModule,
     AccordionModule.forRoot(),
-    // BrowserAnimationsModule
+    BrowserAnimationsModule
     
   ],
   exports:[

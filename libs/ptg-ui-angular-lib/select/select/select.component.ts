@@ -93,7 +93,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
       this.onChange(event?.name);
       console.log(!this.isMultiple)
     } else if (this.isMultiple==true && !event?.target) {
-      const selected = event && event.map((item: { [x: string]: any }) => item['name']);
+      const selected= event && event.map((item: { [x: string]: any }) => item['name']);
       this.onChange(selected);
       console.log(this.isMultiple)
     }

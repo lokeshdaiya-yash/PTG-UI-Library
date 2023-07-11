@@ -1,11 +1,10 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { ButtonComponent } from './button.component';
 
-
 export default {
   title: 'Component/ButtonComponent',
   component: ButtonComponent,
-  
+
   parameters: {
     backgroundColor: {
       default: 'red',
@@ -16,42 +15,36 @@ export default {
     },
   },
   argTypes: {
-    isDisable : {
-     control: 'boolean',
+    isDisable: {
+      control: 'boolean',
     },
-    isBlock : {
-      control:'boolean' 
+    isBlock: {
+      control: 'boolean',
     },
-    backgroundColor: { 
+    backgroundColor: {
       control: 'color',
       category: 'Colors',
-       },
-       
+    },
+
     size: {
-      options: ['small','medium', 'large'],
+      options: ['small', 'medium', 'large'],
       mapping: {
         small: 'small',
         medium: 'medium',
-        large:'large',
+        large: 'large',
       },
       description: 'Size options for the button',
-      // variant: {
-      //   options: ['small','medium', 'large'],
-      //   control: { type: 'radio' },
-      // },
-         
-     
       control: {
         type: 'radio',
         labels: {
           small: 'small',
           medium: 'medium',
-          large:'large',
-        }
+          large: 'large',
+        },
       },
       // table: { category: 'format' }
     },
-    },
+  },
 
   decorators: [
     moduleMetadata({
@@ -65,245 +58,63 @@ const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({
   component: ButtonComponent,
 });
 
-
 export const Primary = Template.bind({});
 Primary.args = {
-    label: 'Button',
-    type: 'button',
-    isDisable: false,
-    isBlock: false,
-    accessKey: '', 
-    
-  };
-
-
-  
-  
-export const Small = Template.bind({});
-  Small.args = {
-    type: 'button',
-    label: 'Button',
-    isDisable: false,
-    isBlock: false,
-    accessKey: '',
-    size: 'small',
-    // btnStyleType:'primary'
-    // backgroundColor : 'red'
-  };
-  
-export const Medium = Template.bind({});
-  Medium.args = {
-    type: 'button',
-    label: 'Button',
-    isDisable: false,
-    isBlock: false,
-    accessKey: '',
-    size: 'medium',
-    // btnStyleType:'primary'
-    // backgroundColor : 'red'
-  };
-  
-export const Large = Template.bind({});
-  Large.args = {
-    type: 'button',
-    isDisable: false,
-    isBlock: false,
-    label: 'Button',
-    accessKey: '',
-    size: 'large',
-   // btnStyleType:'primary'
-    // backgroundColor : 'red'
-  };
-
-
-  export const isDisable = Template.bind({});
-  isDisable.args = {
-    type: 'button',
-    isDisable: true,
-    label: 'Button',
-    isBlock: false,
-  };
-
-
-  export const isBlock = Template.bind({});
-  isBlock.args = {
-    label: 'Button',
-    type: 'button',
-    isDisable: false,
-    isBlock: true,
-  };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export const Primary = () => ({
-//   props: { label: 'Button',
-//   type: 'button',
-//   isDisable: false,
-//   isBlock: false,
-//   accessKey: '', 
-// },
-// backgroundColor:''
-  
-// });
-
-
-// export const Small = () => ({
-//   props: { label: 'Button',
-//   type: 'button',
-//   isDisable: false,
-//   isBlock: false,
-//   accessKey: '',
-//   size: 'small',
-// },
-// backgroundColor:'',
-// });
-
-
-
-
-// export const Medium = () => ({
-//   props: { label: 'Button',
-//   type: 'button',
-//   isDisable: false,
-//   isBlock: false,
-//   accessKey: '',
-//   size: 'medium',
-//   backgroundColor:'',
-//   },
-// });
-
-
-// export const Medium = () => ({
-//   props: { label: 'Button',
-//   type: 'button',
-//   isDisable: false,
-//   isBlock: false,
-//   accessKey: '',
-//   size: 'medium',
-//   backgroundColor:'red',
-// },
-// });
-
-
-
-// export const Large = () => ({
-//   props: { 
-//   label: 'Button',
-//   type: 'button',
-//   isBlock: false,
-//   accessKey: '',
-//   backgroundColor:'',
-//   size: 'large',
-//   isDisable: false,
-// },
-// });
-
-
-// export const isDisable = () => ({
-//   props: { 
-//   label: 'Button',
-//   type: 'button',
-//   isDisable: true,
-//   isBlock: false,
-//   // backgroundColor:'red',
-// },
-// });
-
-
-// export const isBlock = () => ({
-//   props: { 
-//   label: 'Button',
-//   type: 'button',
-//   isDisable: false,
-//   isBlock: true,
-//   // backgroundColor:'red',
-// },
-// });
-
-
-
-
- 
-// export const isDisable = Template.bind({});
-// isDisable.args = {
-//   isDisable: true,
-// };
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
- 
-
-
-
-  // type: 'button',
-  // isDisable: false,
-  // isBlock: false,
+  label: 'Button',
+  type: 'button',
+  isDisable: false,
+  isBlock: false,
   // accessKey: '',
-  // size: 'large',
-  // label: 'Label',
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  type: 'button',
+  label: 'Button',
+  isDisable: false,
+  isBlock: false,
+  size: 'small',
+  // accessKey: '',
   // btnStyleType:'primary'
   // backgroundColor : 'red'
+};
 
-  
+export const Medium = Template.bind({});
+Medium.args = {
+  type: 'button',
+  label: 'Button',
+  isDisable: false,
+  isBlock: false,
+  size: 'medium',
+  // accessKey: '',
+  // btnStyleType:'primary'
+  // backgroundColor : 'red'
+};
 
+export const Large = Template.bind({});
+Large.args = {
+  type: 'button',
+  isDisable: false,
+  isBlock: false,
+  label: 'Button',
+  size: 'large',
+  // accessKey: '',
+  // btnStyleType:'primary'
+  // backgroundColor : 'red'
+};
 
-// export const Primary = Template.bind({});
-// Primary.args = {
-//   type: 'button',
-//   isDisable: false,
-//   label: 'Label',
-//   isBlock: false,
-//   accessKey: '',
+export const isDisable = Template.bind({});
+isDisable.args = {
+  type: 'button',
+  isDisable: true,
+  label: 'Button',
+  isBlock: false,
+};
 
-//   // backgroundColor : 'red'
-//   // btnStyleType:'primary'
-// };
+export const isBlock = Template.bind({});
+isBlock.args = {
+  label: 'Button',
+  type: 'button',
+  isDisable: false,
+  isBlock: true,
+};
