@@ -1,0 +1,9 @@
+@import '../../../styles/variables';
+footer {
+  height: 8vh;
+  background-color: $secondDark;
+  font-size: 0.688rem;
+  p {
+    color: $footer-text;
+  }
+}

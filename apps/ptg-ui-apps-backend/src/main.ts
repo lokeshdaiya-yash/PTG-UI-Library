@@ -68,6 +68,7 @@ app.get('*', (req: express.Request, res: express.Response) => {
     'ptg-react-app': 'ptg-react-app',
     'ptg-angular-doc-process': 'ptg-angular-doc-process',
     'ptg-angular-google-map': 'ptg-angular-google-map',
+    'ptg-react-animations': 'ptg-react-animations',
   };
   const projectName = pathArr[1] && apps[pathArr[1]];
   if (projectName) {

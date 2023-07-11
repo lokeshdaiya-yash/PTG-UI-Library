@@ -1,0 +1,68 @@
+/* * {
+  margin: 0;
+  padding: 0;
+ 
+}
+
+.wrapper {
+display: flex;
+min-height: 100vh;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #051742;
+  color:white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card {
+  height: 60vh;
+  border-radius: 13px;
+  box-shadow: 20px 40px 33px rgba(0,0,0,0.3);
+  padding: 2rem;
+  width: 46vw;
+  background-color:  #6cc2ce;
+
+}
+
+.product-canvas {
+  width: 45vw;
+  height: 45vh;
+  background:white;
+  box-shadow:  10px 15px 15px 6px #3891b4;
+  border-radius: 0px;
+  margin-bottom:20px
+
+}
+
+.colors {
+display:flex;
+flex-direction:row;
+
+}
+
+.colors div {
+  padding-left:8%;
+  padding-top: 2%;
+}
+
+.tooltip{
+  padding: 12%;
+}
+.dataDiv{
+  color: white;
+  position: absolute;
+  background-color: rgb(14, 0, 45);
+  border-radius:10% ;
+  width: 20%;
+  margin-top: 27%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-left: 60%;
+  box-shadow: #051742 15px 5px 5px;
+  
+ 
+} */
+
+Canvas {
+  height: 100vh;
+  background-image:url("https://freefrontend.com/assets/img/three-js-examples/snowfall.jpg");
+} 
