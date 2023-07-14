@@ -1,0 +1,98 @@
+.main {
+  background-color: #0a205c;
+  height:100%;
+  align-items: center;
+  margin: 0%;
+  padding: 0%;
+}
+.rowheight{
+  height:100vh;
+
+}
+.register {
+  width: 50% !important;
+  
+}
+
+.loginbutton {
+  font-size: 20px !important;
+  background-color: #425eab !important;
+  font-weight: 600 !important;
+  color: white !important;
+  height: 7vh;
+  width: 14vw;
+  border-radius: 6px;
+  border: #425eab;}
+
+  .box {
+    min-height: 80px !important;
+  }
+  
+  .vGender {
+    min-height: 50px !important;
+    margin-top: 7px;
+  }
+  
+  .pwd {
+    width: 40% !important;
+  }
+  
+  .formDemo {
+    padding-bottom: 10px;
+  
+    padding-top: 10px;
+  }
+  
+  @media screen and (max-width: 570px) {
+    .register {
+      width: 100% !important;
+    }
+  }
+  
+  @media screen and (min-device-width: 320px) and (max-device-width: 800px) {
+    .row {
+      display: inline-block !important;
+    }
+  }
+  
+  @media screen and (min-device-width: 420px) and (max-device-width: 570px) {
+    .register {
+      width: 75% !important;
+      
+      
+    }
+    .row{
+      padding-right: 24px !important;
+    }
+  }
+  @media (max-width: 800px) {
+    .registerform{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 100vh !important; 
+    display: flex; 
+  
+    }
+  }
+  @media (max-width: 900px) {
+    .register {
+      width: 80% !important;
+      
+    }
+  }
+  @media (max-width: 500px) {
+    .register {
+      width: 100% !important;
+      
+    }
+  }
+  
+  
+  // body{
+  //   margin:0px;
+  // }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  

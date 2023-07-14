@@ -1,0 +1,17 @@
+/* css for angular modal */
+.modal_button{
+    background-color: #0a205c;
+    color: white;
+}
+
+.booktitle{
+    font-weight: 600;
+}
+
+.close{
+    background-color: white;
+    color: red;
+    width: 35px;
+    border-radius:8px ;
+    margin-right: 5px;
+}

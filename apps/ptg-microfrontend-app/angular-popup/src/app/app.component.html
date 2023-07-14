@@ -1,0 +1,29 @@
+<!-- Angular bootstrap Modal -->
+<ng-template #mymodal let-modal class="main_modal">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Notification</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true" class="closes">X</span>
+    </button>
+  </div>
+  <!-- Display book name -->
+  <div class="modal-body">
+    One more item <span class="booktitle">"{{ bookTitle }}"</span> added in your
+    cart.
+  </div>
+  <!-- for closing modal -->
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn modal_button"
+      (click)="modal.close('Save click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>
