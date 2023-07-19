@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     const userToken = this.auth.getToken();
     if(userToken && userToken != ''){
       this.router.navigate(['/dashboard/features']);
+     
     }
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]], //

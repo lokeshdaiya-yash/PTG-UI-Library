@@ -3,15 +3,27 @@ import * as bcrypt from "bcryptjs";
 import * as multer from "multer";
 import * as nodemailer from "nodemailer";
 import * as fs from "fs";
+// import { environment } from '../../environments/environment.prod';
 // import * as {promisify} from "until";
 // const fs = require('fs')
 const { promisify } = require('util')
-
 const unlinkAsync = promisify(fs.unlink)
-
 import { User } from '../models/user.model'
 import { SaveFile } from "../models/savefile.model";
-const filePath = "./apps/doc-process-backend/src/assets/"
+
+
+// const filePath = "./apps/ptg-ui-apps-backend/src/assets/"
+//const filePath = "/assets/"
+ 
+var filePath="";
+
+if (process.env.NODE_ENV !== 'production') { 
+     filePath = "./apps/ptg-ui-apps-backend/src/assets/"
+   }else{
+     filePath = "/assets/"
+} 
+console.log(filePath);
+
 const storage = multer.diskStorage({
     
     destination: (req, file, cb, res) => {
@@ -66,6 +78,7 @@ export const uploadFile =  [uploadStorage.single("file"), async (req, res) => {
     if(!req.file){
         return res.status(400).send({ status:false, msg: 'please send file' })
     }
+    console.log("")
     const myFile = new SaveFile({
         type: req.file.mimetype,
         userId: req.body.userId,

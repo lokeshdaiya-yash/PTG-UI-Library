@@ -877,6 +877,8 @@ export class EmbedSignatureComponent implements OnInit {
 
   getSignatureImg(signImg: any) {
     this.signatureImg = signImg;
+    this.isSignDraggable=true;
+    console.log(this.signatureImg)
   }
 
   getProfileImage(profileImg: any) {

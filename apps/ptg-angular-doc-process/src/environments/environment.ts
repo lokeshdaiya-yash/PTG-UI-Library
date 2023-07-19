@@ -7,6 +7,7 @@ export const environment = {
   baseUrl: 'http://localhost:8080/api/',
   fileAccessPath: 'http://localhost:8080/uploads/',
   signatureFilePath: 'http://localhost:8080/signatures/',
+  filePath : "./apps/ptg-ui-apps-backend/src/assets/"
 };
 
 
