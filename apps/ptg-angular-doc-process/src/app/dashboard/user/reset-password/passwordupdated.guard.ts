@@ -15,8 +15,7 @@ export class PasswordupdatedGuard implements CanActivate {
       this.auth.getIsPasswordChanged().subscribe({
         next: (res)=>{
           this.isPasswordChanged = res;
-          console.log('got data', this.isPasswordChanged)
-        }
+       }
       });
       if(!this.isPasswordChanged){
         this.router.navigate(['/dashboard/user/reset-password']);

@@ -184,7 +184,6 @@ export class EmbedSignatureComponent implements OnInit {
     //   }, 200);
     // }
     let subscription = this.route.params.subscribe((params) => {
-      console.log('The id of this route is: ', params.id);
       this.fileId = atob(params.id);
     });
     this.subscriptions.push(subscription);
@@ -227,7 +226,6 @@ export class EmbedSignatureComponent implements OnInit {
         }
       },
       error: (err: any) => {
-        console.log('error', err);
       },
       complete: () => {},
     });
@@ -772,7 +770,6 @@ export class EmbedSignatureComponent implements OnInit {
       // this.positionY = divHeight - (this.position.y - 100) / this.scale + 55;
       this.positionX = x / this.scale + 10;
       this.positionY = divHeight - (y - 100) / this.scale + 50;
-      console.log('signature' + this.positionX, this.positionY);
     } else {
       // Code for landscape
       this.positionX = x - 10;
@@ -791,15 +788,7 @@ export class EmbedSignatureComponent implements OnInit {
       // code for portrait"
       this.positionXxx = x / this.scale + 30;
       this.positionYyy = divHeight - (y - 100) / this.scale + 30;
-      // if (this.signaturePlaced) {
-      //   this.positionXxx = x / this.scale + 210;
-      //   this.positionYyy = divHeight - (y - 100) / this.scale + 50;
-      // } else {
-      //   this.positionXxx = x / this.scale + 400;
-      //   this.positionYyy = divHeight - (y - 100) / this.scale + 50;
-      //   console.log('signature' + this.positionXxx, this.positionYyy);
-      // }
-    } else {
+      } else {
       // Code for landscape
       this.positionXxx = x + 20;
       this.positionYyy = divHeight - (y + 40);
@@ -823,7 +812,6 @@ export class EmbedSignatureComponent implements OnInit {
       // } else {
       //   this.positionxX = x / this.scale + 250;
       //   this.positionyY = divHeight - (y - 100) / this.scale + 77;
-      //   console.log('signature' + this.positionXxx, this.positionYyy);
       // }
     } else {
       this.positionxX = x + 50;
@@ -850,10 +838,8 @@ export class EmbedSignatureComponent implements OnInit {
       this.loading = true;
       let subscription = this.userService.deleteFile(data).subscribe({
         next: (res) => {
-          console.log('res file deleted', res);
         },
         error: (err) => {
-          console.log(err);
         },
       });
       this.subscriptions.push(subscription);
@@ -878,14 +864,11 @@ export class EmbedSignatureComponent implements OnInit {
   getSignatureImg(signImg: any) {
     this.signatureImg = signImg;
     this.isSignDraggable=true;
-    console.log(this.signatureImg)
-  }
+   }
 
   getProfileImage(profileImg: any) {
     this.profileImage = profileImg;
     this.isImageDraggable = true;
-    console.log(this.profileImage);
-    // this.appendSignature(profileImg);
   }
 
   placeSignature(template: TemplateRef<any>, value: string) {

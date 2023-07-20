@@ -37,13 +37,10 @@ export class UserService {
   }
 
   uploadFiles(fileData: any){
-    console.log(fileData);
-    console.log(this.endPOints.uploadFile)
     return this.http.post(this.endPOints.uploadFile, fileData);
   }
 
   uploadSignature(signatureData: any){
-    console.log(signatureData)
     return this.http.post(this.endPOints.uploadSignature,signatureData);
     
   }

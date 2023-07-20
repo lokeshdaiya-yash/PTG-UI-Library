@@ -202,23 +202,12 @@ export class AddSignatureComponent implements OnInit {
     formData.append('userId', this.loggedUserId);
     formData.append('fileType', 'signature');
     this.loading = true;
-    console.log(
-      'fom data payload: ',
-      formData.get('file'),
-      formData.get('userId'),
-      formData.get('fileType')
-    );
-    console.log(this.base64ImageData)
-    console.log(formData) 
+    
     let subscription = this.userService.uploadSignature(formData).subscribe({
       next: async (res: any) => {
         // For response success
-        // console.log('uploaded signautre response: ', res);
-        console.log(res)
         await this.getSignatureImageToPlace(res.data);
-        console.log(this.base64ImageData)
         this.signImg.emit(this.gotCroppedImage);
-        console.log(this.base64ImageData)
         this.modalRef?.hide();
         this.loading = false;
         this.toastrService.success(res.msg, 'Success', {
@@ -228,7 +217,6 @@ export class AddSignatureComponent implements OnInit {
         // this.response = res;
       },
       error: (err) => {
-        // console.log('error', err);
         this.errorMessage = err.error.message || 'Something went wrong';
         this.toastrService.error(this.errorMessage, 'Alert', {
           timeOut: 3000,
@@ -294,10 +282,9 @@ export class AddSignatureComponent implements OnInit {
     let subscription = this.userService.getFileList(dataToSend).subscribe({
       next: (res: any) => {
         this.signatureList = res.data;
-        console.log(this.signatureList)
         },
       error: (err) => {
-        console.log(err);
+
       },
     });
     this.subscriptions.push(subscription);
@@ -310,8 +297,6 @@ export class AddSignatureComponent implements OnInit {
       reader.readAsDataURL(res);
       reader.onloadend = () => {
         this.base64ImageData = reader.result;
-        // console.log('convertd url: ', this.base64ImageData);
-        console.log(this.base64ImageData)
       };
     });
   }

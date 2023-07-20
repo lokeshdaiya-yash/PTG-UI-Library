@@ -89,7 +89,6 @@ export class UploadDocumentComponent implements OnInit {
     formData.append('file', this.uploadForm.get('file')?.value);
     formData.append('userId', this.loggedUserId);
     formData.append('fileType', 'document');
-    console.log(formData)
     
     this.loading = true;
     let subscription =this.userService.uploadFiles(formData).subscribe({
@@ -99,7 +98,6 @@ export class UploadDocumentComponent implements OnInit {
         this.loading = false;
         this.errorMessage = null;
         this.response = res;
-        console.log(res);
         // this.userService.sendFileName(this.response.data._id);
         localStorage.setItem('reloadPage', 'true');
         this.router.navigate([

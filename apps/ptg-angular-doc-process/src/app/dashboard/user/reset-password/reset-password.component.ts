@@ -53,7 +53,6 @@ export class ResetPasswordComponent implements OnInit {
 
     this.userService.resetPassword(dataTosend).subscribe({
       next: (res) => {
-        console.log(res);
         this.loading = false;
         this.errorMessage = null;
         this.auth.setIsPasswordChangedFlag(true);

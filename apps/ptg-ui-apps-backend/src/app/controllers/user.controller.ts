@@ -22,7 +22,7 @@ if (process.env.NODE_ENV !== 'production') {
    }else{
      filePath = "/assets/"
 } 
-console.log(filePath);
+
 
 const storage = multer.diskStorage({
     
@@ -78,7 +78,6 @@ export const uploadFile =  [uploadStorage.single("file"), async (req, res) => {
     if(!req.file){
         return res.status(400).send({ status:false, msg: 'please send file' })
     }
-    console.log("")
     const myFile = new SaveFile({
         type: req.file.mimetype,
         userId: req.body.userId,
@@ -112,12 +111,9 @@ export const forgetPassword = (req, res) => {
         }
         transporter.sendMail(message, function (error, info) {
             if (error) {
-                console.log(error);
-                res.status(500).send({ message: "unable to sent email!!!" })
+               res.status(500).send({ message: "unable to sent email!!!" })
             } else {
-                console.log('Email sent: ' + info.response);
-
-                res.status(200).send({ message: "Temporary password updated successfully" })
+               res.status(200).send({ message: "Temporary password updated successfully" })
             }
         });
     }, err => {
@@ -139,7 +135,6 @@ export const updatePassword = async (req, res) => {
                     message: "Invalid old Password!"
                 });
             } else {
-                console.log(req.body);
                 let update = { password: bcrypt.hashSync(req.body.newPassword, 8), isPasswordChange: true };
                 let filter = { _id: req.body.userId }
                 User.updateOne(
@@ -271,8 +266,7 @@ export const updateFile = [uploadStorage.single("file"), async (req, res) => {
             if(file == null){
                 return res.status(500).send({ message: "something went wrong!!!" });
             }
-            console.log(req.body.fileName);
-            
+          
             if(req.body.fileType == 'pdf' || req.body.fileType == 'document'){
                 unlinkAsync(filePath+'/uploads/'+req.body.fileName);
             }else{
