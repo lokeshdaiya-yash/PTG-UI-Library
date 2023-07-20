@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-access-key */
-import './Button.scss';
+import './button.scss';
 import { Button, ButtonProps } from 'react-bootstrap';
 /* eslint-disable-next-line */
 /**
@@ -30,9 +30,9 @@ const defaultProps: PtgUiButtonProps = {
 
 export function PtgUiButton({ children, onClick, ...rest }: PtgUiButtonProps) {
   return (
-    <Button onClick={onClick} {...rest}>
+    <button onClick={onClick} {...rest}>
       {children}
-    </Button>
+    </button>
   );
 }
 

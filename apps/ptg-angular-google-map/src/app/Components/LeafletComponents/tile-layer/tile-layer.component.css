@@ -1,0 +1,21 @@
+
+.content {
+    height: calc(100vh - 98px);
+    margin: 16px;
+    margin-left: 32px;
+    display: flex;
+    border-radius: 10px;
+  
+  }
+  .marker-position{
+  background-color: white;
+  position: absolute; 
+   
+  left: 40px; 
+  z-index: 99;
+  bottom: 0px;
+  font-size: 10px;
+  
+  
+  }
+  

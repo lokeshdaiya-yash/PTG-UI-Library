@@ -1,11 +1,14 @@
 {
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
-   "projects": {
+  "projects": {
     "ptg-angular-app": "apps/ptg-angular-app",
     "ptg-angular-app-e2e": "apps/ptg-angular-app-e2e",
     "ptg-angular-doc-process": "apps/ptg-angular-doc-process",
     "ptg-angular-doc-process-e2e": "apps/ptg-angular-doc-process-e2e",
+    "ptg-angular-google-map": "apps/ptg-angular-google-map",
+    "ptg-react-animations": "apps/ptg-react-animations",
+    "ptg-react-animations-e2e": "apps/ptg-react-animations-e2e",
     "ptg-react-app": "apps/ptg-react-app",
     "ptg-react-app-e2e": "apps/ptg-react-app-e2e",
     "ptg-ui-angular-lib": "libs/ptg-ui-angular-lib",

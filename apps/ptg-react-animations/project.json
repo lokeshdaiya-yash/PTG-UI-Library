@@ -1,0 +1,84 @@
+{
+  "name": "ptg-react-animations",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ptg-react-animations/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/ptg-ui-apps-backend/public/ptg-react-animations",
+        "index": "apps/ptg-react-animations/src/index.html",
+        "baseHref": "/",
+        "main": "apps/ptg-react-animations/src/main.tsx",
+        "polyfills": "apps/ptg-react-animations/src/polyfills.ts",
+        "tsConfig": "apps/ptg-react-animations/tsconfig.app.json",
+        "assets": [
+          "apps/ptg-react-animations/src/favicon.ico",
+          "apps/ptg-react-animations/src/assets"
+        ],
+        "styles": ["apps/ptg-react-animations/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/ptg-react-animations/src/environments/environment.ts",
+              "with": "apps/ptg-react-animations/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ptg-react-animations:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ptg-react-animations:build:development"
+        },
+        "production": {
+          "buildTarget": "ptg-react-animations:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/ptg-react-animations/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/ptg-react-animations"],
+      "options": {
+        "jestConfig": "apps/ptg-react-animations/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

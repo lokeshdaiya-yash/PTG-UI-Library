@@ -1,0 +1,57 @@
+<app-header [inputSideNav]="sidenav"></app-header>
+<mat-sidenav-container class="tp-container">
+    <mat-sidenav mode="side" #sidenav>
+        <ng-container *ngFor="let data of navData">
+            <ng-container *ngIf="data.id==='1'">
+                <button class="map" mat-button  routerLink="/">
+                    <i [class]="data.MapIcon" aria-hidden="true"></i>
+                    <span class="map-label" [innerHtml]="data.label"></span>
+                    <mat-icon class="menu-button1" [ngClass]="{ rotated: showSubSubMenu }" [innerHtml]="data.icon"
+                        (click)="changeDisplay('gmapop')" (click)="showSubSubMenu = !showSubSubMenu">
+                    </mat-icon>
+                </button>
+                <ng-container *ngFor="let option of data.Options">
+                    <div class="submenu" [hidden]="!gmapDown" [ngClass]="{ expanded: showSubSubMenu }">
+                        <button class="text" routerLinkActive="active-map" [routerLink]="option.RouterLink" [innerHtml]="option.label">
+                        </button>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="data.id==='2'">
+                <button class="leaflet" mat-button  routerLink="/leaflet">
+                    <i [class]="data.MapIcon" aria-hidden="true"></i>
+                    <span class="map-label" [innerHtml]="data.label" *ngIf="isExpanded || isShowing"></span>
+                    <mat-icon class="menu-button2" [ngClass]="{ rotated: showSubSubMenu1}"
+                        *ngIf="isExpanded || isShowing" [innerHtml]="data.icon" (click)="changeDisplay('leafletop')"
+                        (click)="showSubSubMenu1 = !showSubSubMenu1"></mat-icon>
+                </button>
+                <ng-container *ngFor="let option of data.Options">
+                    <div class="submenu" [hidden]="!leafletDown" [ngClass]="{ expanded: showSubSubMenu1 }">
+                        <button class="text" routerLinkActive="active-leaflet" [routerLink]="option.RouterLink" [innerHtml]="option.label">
+                        </button>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="data.id==='3'">
+                <button class="mapbox" mat-button  routerLink="/mapbox"routerLinkActive="active-mapbox">
+                    <i [class]="data.MapIcon" aria-hidden="true"></i>
+                    <span class="map-label" [innerHtml]="data.label" *ngIf="isExpanded || isShowing"></span>
+                    <!-- <mat-icon class="menu-button3" [ngClass]="{ rotated: showSubSubMenu2}"
+                        *ngIf="isExpanded || isShowing" [innerHtml]="data.icon" (click)="changeDisplay('mapboxtop')"
+                        (click)="showSubSubMenu2= !showSubSubMenu2"></mat-icon> -->
+                </button>
+                <!-- <ng-container *ngFor="let option of data.Options">
+                    <div class="submenu" [hidden]="!mapboxDown" [ngClass]="{ expanded: showSubSubMenu2}">
+                        <button class="text" routerLinkActive="active-mapbox" [routerLink]="option.RouterLink" [innerHtml]="option.label">
+                        </button>
+                    </div>
+                </ng-container> -->
+            </ng-container>
+        </ng-container>
+    </mat-sidenav>
+    <mat-sidenav-content style="overflow: hidden;">
+        <div>
+            <router-outlet> </router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
