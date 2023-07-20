@@ -25,7 +25,6 @@ Step 1 - Open the .npmrc file from the below path :
 
 
 
-
 Step 2 - We need to replace the code from the below given code :
 ```
 @ptg-ui:registry=https://pkgs.dev.azure.com/YASHTech-UIUX/YASH-UIUX-Library/_packaging/UI-packages/npm/registry/
@@ -41,10 +40,14 @@ Step 2 - We need to replace the code from the below given code :
 //pkgs.dev.azure.com/YASHTech-UIUX/YASH-UIUX-Library/_packaging/UI-packages/npm/registry/:email=not-used@example.com
 ```
 
+step 3 - Open the cmd and install the following package : 
 
+```
+npm i vsts-npm-auth@0.37.0 -g
 
+```
 
-Step 3 - Open the cmd and run the following command : 
+Step 4 - After that run the following command : 
 
 ```
 vsts-npm-auth -config .npmrc
@@ -54,7 +57,7 @@ After that it will ask for the username and password once it is done we get the 
 
 
 
-Step 4 -  Now we have to install the library so that we have to run the following command :
+Step 5 -  Now we have to install the library so that we have to run the following command :
 
 ```
 npm install @ptg-ui/angular --save
@@ -62,7 +65,9 @@ npm install @ptg-ui/angular --save
 
 
 
-Step 5 - Once the installation is completed we have to just import the elements from the library.
+Step 6 - Once the installation is completed we have to just import the elements from the library.
 
- `import {  } from ' @ptg-ui/angular'`  
+example :
+
+ `import { SelectModule } from ' @ptg-ui/angular'`  
 
