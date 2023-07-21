@@ -26,6 +26,9 @@
       "@ptg-react-app/*": ["apps/ptg-react-app/src/app/*"],
       "@ptg-ui-library/ptg-react": ["libs/ptg-react/src/index.ts"],
       "@ptg-ui-library/web-components": ["dist/libs/web-components"],
+      "@ptg-ui-library/web-components-angular": [
+        "libs/web-components-angular/src/index.ts"
+      ],
       "@ptg-ui-library/web-components-react": [
         "libs/web-components-react/src/index.ts"
       ],

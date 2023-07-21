@@ -17,6 +17,7 @@
     "web-comp-react": "apps/web-comp-react",
     "web-comp-react-e2e": "apps/web-comp-react-e2e",
     "web-components": "libs/web-components",
+    "web-components-angular": "libs/web-components-angular",
     "web-components-react": "libs/web-components-react"
   }
 }
