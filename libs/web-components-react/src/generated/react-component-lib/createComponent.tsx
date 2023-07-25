@@ -48,15 +48,15 @@ export const createReactComponent = <
       super(props);
     }
 
-    componentDidMount() {
+    override componentDidMount() {
       this.componentDidUpdate(this.props);
     }
 
-    componentDidUpdate(prevProps: StencilReactInternalProps<ElementType>) {
+    override componentDidUpdate(prevProps: StencilReactInternalProps<ElementType>) {
       attachProps(this.componentEl, this.props, prevProps);
     }
 
-    render() {
+    override render() {
       const { children, forwardedRef, style, className, ref, ...cProps } = this.props;
 
       let propsToPass = Object.keys(cProps).reduce((acc: any, name) => {

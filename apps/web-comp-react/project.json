@@ -10,7 +10,7 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/web-comp-react",
+        "outputPath": "dist/apps/ptg-ui-apps-backend/public/web-comp-react",
         "index": "apps/web-comp-react/src/index.html",
         "baseHref": "/",
         "main": "apps/web-comp-react/src/main.tsx",
