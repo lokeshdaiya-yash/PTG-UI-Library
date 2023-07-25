@@ -1,0 +1,94 @@
+body {
+    background-color: rgb(238, 238, 238);
+  }
+  @media (min-width: 991.98px) {
+    main {
+      padding-left: 240px;
+    }
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    /* padding: 58px 0px 58px 0; */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    height: 100vh;
+    
+    
+    overflow:auto;
+    
+
+  
+    transition: all 0.3s ease-in;
+  }
+  
+  @media (max-width: 991.98px) {
+    .sidebar {
+      width: 100%;
+      
+    }
+  }
+  .sidebar .active {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  }
+  
+  .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  }
+  .header-logo h2 {
+    margin-left: 20px;
+    color: #ffffff;
+    background-color:#1a222b;
+    padding: 15px;
+    max-width: max-content;
+}
+.list-group .vertical-menu {
+    width: 200px;
+    border-width: 0 0 1px;
+    display: flex;
+    padding: 10px;
+    color: rgb(0, 33, 68);
+    display: block;
+    text-decoration: none;
+    font-family: Poppins, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 400;
+    line-height: 12px;
+    
+
+    
+    
+   
+    
+}
+.list-group .vertical-menu:hover{
+    background-color: rgb(0, 33, 68);
+    color: rgb(238, 238, 238);
+    border-radius: 0px 20px 20px 0px;
+    
+    
+}
+.vertical-menu a {
+    position: relative;
+    display: block;
+    padding: 0.5rem 1.5rem;
+    background-color: rgb(238, 238, 238);
+    color: rgb(0, 33, 68);
+    display: block;
+    text-decoration: none;
+    font-family: Poppins, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 400;
+    line-height: 20px;
+    font-size: 14px;
+    
+    
+} 
