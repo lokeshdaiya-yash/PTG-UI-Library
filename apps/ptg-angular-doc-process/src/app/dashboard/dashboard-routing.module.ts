@@ -11,50 +11,53 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { PasswordupdatedGuard } from './user/reset-password/passwordupdated.guard';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent,
-  canActivate: [AuthGuard],
-  children: [
-    {
-      path: 'features',
-      component: FeaturesComponent,
-      canActivate: [PasswordupdatedGuard],
-    },
-    {
-      path: 'user/reset-password',
-      component: ResetPasswordComponent
-    },
-    {
-      path: 'upload-document',
-      component: UploadDocumentComponent,
-      canActivate: [PasswordupdatedGuard]
-    },
-    {
-      path: 'saved-documents',
-      component: SavedDocumentsComponent,
-      canActivate: [PasswordupdatedGuard]
-    },
-    
-    {
-      path: 'user/profile',
-      component: ProfileComponent,
-      canActivate: [PasswordupdatedGuard]
-    },
-    {
-      path: 'embed-signature/:id',
-      component: EmbedSignatureComponent,
-      canActivate: [PasswordupdatedGuard]
-    },
-    {
-      path: '',
-      redirectTo: 'features',
-      canActivate: [PasswordupdatedGuard],
-      pathMatch: 'full',
-    },
-  ] },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+    children: [
+      
+      {
+        path: 'features',
+        component: FeaturesComponent,
+        canActivate: [PasswordupdatedGuard],
+      },
+      {
+        path: 'user/reset-password',
+        component: ResetPasswordComponent,
+      },
+      {
+        path: 'upload-document',
+        component: UploadDocumentComponent,
+        canActivate: [PasswordupdatedGuard],
+      },
+      {
+        path: 'saved-documents',
+        component: SavedDocumentsComponent,
+        canActivate: [PasswordupdatedGuard],
+      },
+
+      {
+        path: 'user/profile',
+        component: ProfileComponent,
+        canActivate: [PasswordupdatedGuard],
+      },
+      {
+        path: 'embed-signature/:id',
+        component: EmbedSignatureComponent,
+        canActivate: [PasswordupdatedGuard],
+      },
+      {
+        path: '',
+        canActivate: [PasswordupdatedGuard],
+        pathMatch: 'full',
+        component:DashboardComponent
+      },
+    ],
+  },
   {
     path: '**',
     redirectTo: 'features',
-    canActivate: [PasswordupdatedGuard],
     pathMatch: 'full',
   },
   {
@@ -66,6 +69,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DashboardRoutingModule { }
+export class DashboardRoutingModule {}

@@ -164,7 +164,7 @@ export class ModifyPdfPagesComponent implements OnInit {
       },
       error: (err) => {
         this.errorMessage = err.message;
-        console.log(err);
+
       },
       complete: () => {},
     });

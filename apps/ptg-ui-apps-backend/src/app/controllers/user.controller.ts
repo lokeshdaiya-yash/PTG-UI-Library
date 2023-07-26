@@ -3,15 +3,27 @@ import * as bcrypt from "bcryptjs";
 import * as multer from "multer";
 import * as nodemailer from "nodemailer";
 import * as fs from "fs";
+// import { environment } from '../../environments/environment.prod';
 // import * as {promisify} from "until";
 // const fs = require('fs')
 const { promisify } = require('util')
-
 const unlinkAsync = promisify(fs.unlink)
-
 import { User } from '../models/user.model'
 import { SaveFile } from "../models/savefile.model";
-const filePath = "./apps/doc-process-backend/src/assets/"
+
+
+// const filePath = "./apps/ptg-ui-apps-backend/src/assets/"
+//const filePath = "/assets/"
+ 
+var filePath="";
+
+if (process.env.NODE_ENV !== 'production') { 
+     filePath = "./apps/ptg-ui-apps-backend/src/assets/"
+   }else{
+     filePath = "/assets/"
+} 
+
+
 const storage = multer.diskStorage({
     
     destination: (req, file, cb, res) => {
@@ -99,12 +111,9 @@ export const forgetPassword = (req, res) => {
         }
         transporter.sendMail(message, function (error, info) {
             if (error) {
-                console.log(error);
-                res.status(500).send({ message: "unable to sent email!!!" })
+               res.status(500).send({ message: "unable to sent email!!!" })
             } else {
-                console.log('Email sent: ' + info.response);
-
-                res.status(200).send({ message: "Temporary password updated successfully" })
+               res.status(200).send({ message: "Temporary password updated successfully" })
             }
         });
     }, err => {
@@ -126,7 +135,6 @@ export const updatePassword = async (req, res) => {
                     message: "Invalid old Password!"
                 });
             } else {
-                console.log(req.body);
                 let update = { password: bcrypt.hashSync(req.body.newPassword, 8), isPasswordChange: true };
                 let filter = { _id: req.body.userId }
                 User.updateOne(
@@ -258,8 +266,7 @@ export const updateFile = [uploadStorage.single("file"), async (req, res) => {
             if(file == null){
                 return res.status(500).send({ message: "something went wrong!!!" });
             }
-            console.log(req.body.fileName);
-            
+          
             if(req.body.fileType == 'pdf' || req.body.fileType == 'document'){
                 unlinkAsync(filePath+'/uploads/'+req.body.fileName);
             }else{

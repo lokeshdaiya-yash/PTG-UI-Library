@@ -35,37 +35,16 @@ describe('TokenInterceptor', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-  // describe('making http calls', () => {
-  //   it('adds Authorization header', inject([HttpClient, HttpTestingController], (http: HttpClient, httpMock: HttpTestingController) => {
-
-  //     // http.get('/data').subscribe(
-  //     //     response => {
-  //     //         expect(response).toBeTruthy();
-  //     //     }
-  //     // );
-
-  //     const req = httpMock.match(r =>
-
-  //       r.headers.has('Authorization') &&
-  //       r.headers.get('Authorization') === `${'Barrier'} ${authService.getToken()}`);
-  //     console.log('dsfdsfd', req);
-  //     // expect(req.request.method).toEqual('GET');
-
-  //     // req.flush();
-  //     httpMock.verify();
-  //   }));
-  // });
 
   it('should convert object keys to camelCase', inject([HttpClient, HttpTestingController], (http: HttpClient, httpMock: HttpTestingController) => {
 
     http.get('link').subscribe(
       response => {
-        console.log('response', response);
         expect(response).toBeTruthy();
       }
     );
     const request = httpMock.match('/test')
-    console.log(request);
+
   }))
 
   it("should set header authorization", (async () => {

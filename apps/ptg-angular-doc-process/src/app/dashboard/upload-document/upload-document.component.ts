@@ -94,6 +94,7 @@ export class UploadDocumentComponent implements OnInit {
     let subscription =this.userService.uploadFiles(formData).subscribe({
       next: (res: any) => {
         // For response success
+        
         this.loading = false;
         this.errorMessage = null;
         this.response = res;

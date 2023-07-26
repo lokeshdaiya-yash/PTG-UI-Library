@@ -57,11 +57,9 @@ export class CropperComponent implements OnInit {
   }
 
   cropperReady(sourceImageDimensions: Dimensions) {
-    console.log('Cropper ready', sourceImageDimensions);
   }
 
   loadImageFailed() {
-    console.log('Load failed');
   }
 
   resetImage() {

@@ -145,7 +145,6 @@ export class SavedDocumentsComponent implements OnInit {
         this.gridApi.setRowData(this.dataToSetOnRow);
       },
       error: (err) => {
-        console.log(err);
       },
       complete: () => {},
     });
@@ -203,7 +202,6 @@ export class SavedDocumentsComponent implements OnInit {
         this.successMessage = 'File deleted succesfully';
       },
       error: (err) => {
-        console.log(err);
         this.loading = false;
         this.errorMessage = err.message || 'Something went wrong';
       },

@@ -32,7 +32,6 @@ export class TokenInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const URLToExclude = this.endPoints.URLToExclude;
-    console.log('Invoking intercepter');
     if (!(URLToExclude.findIndex((url) =>getLastItem(request.url).includes(url)) > -1)) 
     {
       const token = JSON.parse(this.authService.getToken())?.accessToken;
