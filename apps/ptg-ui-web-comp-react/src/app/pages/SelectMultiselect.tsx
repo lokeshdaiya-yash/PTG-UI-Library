@@ -12,7 +12,7 @@ const SelectMultiselect = () => {
     <div className="SelectMultiselect container">
       <h3 className="title-align">Select/Multiselect</h3>
       <div className="row">
-        <PtgSelect selectData={data}></PtgSelect>
+        <PtgSelect selectData={data} className='pb-2'></PtgSelect>
         <PtgSelect selectData={data} multiSelect={true}></PtgSelect>
       </div>
     </div>
