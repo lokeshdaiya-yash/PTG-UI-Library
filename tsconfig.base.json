@@ -24,6 +24,20 @@
         "apps/ptg-angular-doc-process/src/app/*"
       ],
       "@ptg-react-app/*": ["apps/ptg-react-app/src/app/*"],
+      "@ptg-ui-library/ptg-react": ["libs/ptg-react/src/index.ts"],
+      "@ptg-ui-library/web-components": ["dist/libs/web-components"],
+      "@ptg-ui-library/web-components-angular": [
+        "libs/web-components-angular/src/index.ts"
+      ],
+      "@ptg-ui-library/web-components-react": [
+        "libs/web-components-react/src/index.ts"
+      ],
+      "@ptg-ui-library/web-components/*": [
+        "dist/libs/web-components/dist/components/*"
+      ],
+      "@ptg-ui-library/web-components/loader": [
+        "dist/libs/web-components/loader"
+      ],
       "@ptg-ui/*": ["./*"],
       "@ptg-ui/angular": ["libs/ptg-ui-angular-lib/index.ts"],
       "@ptg-ui/angular/*": ["libs/ptg-ui-angular-lib/*"],
@@ -49,7 +63,15 @@
       "@ptg-ui/angular/sidenav": ["libs/ptg-ui-angular-lib/sidenav/index.ts"],
       "@ptg-ui/angular/textarea": ["libs/ptg-ui-angular-lib/textarea/index.ts"],
       "@ptg-ui/angular/toasts": ["libs/ptg-ui-angular-lib/toasts/index.ts"],
-      "@ptg-ui/react": ["libs/ptg-ui-react-lib/src/index.ts"]
+      "@ptg-ui/react": ["libs/ptg-ui-react-lib/src/index.ts"],
+      "@ptg-ui/ptg-ui-web-components": ["dist/libs/ptg-ui-web-components"],
+      "@ptg-ui/ptg-ui-web-components-angular": [
+        "libs/ptg-ui-web-components-angular/src/index.ts"
+      ],
+      "@ptg-ui/ptg-ui-web-components-react": [
+        "libs/ptg-ui-web-components-react/src/index.ts"
+      ],
+      "@ptg-ui/ptg-ui-web-components/loader": ["dist/libs/ptg-ui-web-components/loader"]
     }
   },
   "exclude": ["node_modules", "tmp"]

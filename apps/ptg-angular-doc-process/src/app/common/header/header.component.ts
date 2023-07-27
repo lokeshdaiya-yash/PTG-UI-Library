@@ -22,20 +22,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     let loggedUser: any = localStorage.getItem('userdata');
-    console.log(loggedUser);
     loggedUser = JSON.parse(loggedUser);
     this.user.getUserData({ userId: loggedUser.id }).subscribe({
       next: (res: any) => {
-        console.log(res);
         this.userDetails = res;
-        console.log(this.userDetails, this.userDetails.name);
         this.user.setUsername(this.userDetails.data.name);
         this.auth.setIsPasswordChangedFlag(res.data.isPasswordChange);
-        console.log('header ', res.data.isPasswordChange)
-      },
+        },
       error: (err) => {
-        console.log(err);
-        if (err.status === 401 || err.message == "Unauthorized!") {
+         if (err.status === 401 || err.message == "Unauthorized!") {
           localStorage.removeItem('userdata');
           this.router.navigate(['/auth'])
         }
@@ -55,7 +50,6 @@ export class HeaderComponent implements OnInit {
     name.subscribe({
       next: (res) => {
         let splitname = res.split(" ");
-        console.log('splited name: ', splitname);
         let gotInitials = splitname[0]?.charAt(0) + splitname[1]?.charAt(0);
         this.userName = gotInitials.toUpperCase();
       }

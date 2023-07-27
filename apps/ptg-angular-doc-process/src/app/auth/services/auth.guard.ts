@@ -20,7 +20,6 @@ export class AuthGuard implements CanActivate {
 
   constructor(private authSvc: AuthService, private router: Router) { 
     this.getUser = this.authSvc.getToken();
-    console.log('authgurad check',this.getUser);
   }
   canActivate(
     route: ActivatedRouteSnapshot,

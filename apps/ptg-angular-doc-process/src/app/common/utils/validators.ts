@@ -31,8 +31,7 @@ export function ConfirmPasswordValidator(controlName: string, matchingControlNam
   // custom validator for Calendar
 export function calendarValidator(startDate: any, endDate: any, matchingControlName: string) {
   return (formGroup: FormGroup) => {
-    // console.log('calendarValidator call');
-    let control1 = null;
+      let control1 = null;
     if(startDate) {
       control1 = formGroup.controls[startDate];
     }
@@ -47,10 +46,10 @@ export function calendarValidator(startDate: any, endDate: any, matchingControlN
       return;
     }
     if(!matchingControl.value || control1?.value > matchingControl.value || control2?.value < matchingControl.value){
-      // console.log('set error');
+   
       matchingControl.setErrors({ calendarValidator: true }); 
     } else {
-      // console.log('no error');
+   
       matchingControl.setErrors(null);
 
     }

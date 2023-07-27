@@ -5,7 +5,8 @@
     "defaultBase": "master"
   },
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "defaultCollection": "@nxext/stencil"
   },
   "implicitDependencies": {
     "package.json": {

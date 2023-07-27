@@ -49,7 +49,6 @@ it('Should forgot submit', ()=>{
     component.onForgotSubmit();
     // modalService.showSuccess();
     const modelRef = new BsModalRef;
-    console.log(modelRef);
     
     // const hide = modelRef?.hide();
     // expect(component.modalRef).toBe(hide);

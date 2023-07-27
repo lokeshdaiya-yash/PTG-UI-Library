@@ -52,7 +52,6 @@ export class AuthService {
 
   // For login
   logIn(payload: User): Observable<TokenRes> {
-    console.log(payload,this.endPoints.login)
     return this.http.post(this.endPoints.login, payload);
   }
 
