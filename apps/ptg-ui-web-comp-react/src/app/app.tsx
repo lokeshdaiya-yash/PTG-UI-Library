@@ -37,24 +37,24 @@ export function App() {
             <div className="main-conatiner">
               <Routes>
                 <Route path="/" element={<Buttons />} />
-                <Route path="/buttons" element={<Buttons />} />
-                <Route path="/modal" element={<Modal />} />
-                <Route path="/radio" element={<Radio />} />
-                <Route path="/table" element={<Table />} />
-                <Route path="/checkbox" element={<Checkbox />} />
-                <Route path="/textarea" element={<Textarea />} />
-                <Route path="/loading" element={<Loading />} />
-                <Route path="/toast" element={<Toast />} />
-                <Route path="/calender" element={<Calender />} />
-                <Route path="/accordion" element={<Accordion />} />
-                <Route path="/input" element={<Input />} />
-                <Route path="/alert" element={<Alert />} />
+                <Route path="/ptg-ui-web-comp-react/buttons" element={<Buttons />} />
+                <Route path="/ptg-ui-web-comp-react/modal" element={<Modal />} />
+                <Route path="/ptg-ui-web-comp-react/radio" element={<Radio />} />
+                <Route path="/ptg-ui-web-comp-react/table" element={<Table />} />
+                <Route path="/ptg-ui-web-comp-react/checkbox" element={<Checkbox />} />
+                <Route path="/ptg-ui-web-comp-react/textarea" element={<Textarea />} />
+                <Route path="/ptg-ui-web-comp-react/loading" element={<Loading />} />
+                <Route path="/ptg-ui-web-comp-react/toast" element={<Toast />} />
+                <Route path="/ptg-ui-web-comp-react/calender" element={<Calender />} />
+                <Route path="/ptg-ui-web-comp-react/accordion" element={<Accordion />} />
+                <Route path="/ptg-ui-web-comp-react/input" element={<Input />} />
+                <Route path="/ptg-ui-web-comp-react/alert" element={<Alert />} />
                 <Route
-                  path="/select-multiselect"
+                  path="/ptg-ui-web-comp-react/select-multiselect"
                   element={<SelectMultiselect />}
                 />
                 <Route
-                  path="/indeterminate-checkbox"
+                  path="/ptg-ui-web-comp-react/indeterminate-checkbox"
                   element={<IndeterminateCheckbox />}
                 />
               </Routes>

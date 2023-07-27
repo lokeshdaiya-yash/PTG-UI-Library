@@ -14,6 +14,8 @@
     "ptg-ui-angular-lib": "libs/ptg-ui-angular-lib",
     "ptg-ui-apps-backend": "apps/ptg-ui-apps-backend",
     "ptg-ui-react-lib": "libs/ptg-ui-react-lib",
+    "ptg-ui-web-comp-angular": "apps/ptg-ui-web-comp-angular",
+    "ptg-ui-web-comp-angular-e2e": "apps/ptg-ui-web-comp-angular-e2e",
     "ptg-ui-web-comp-react": "apps/ptg-ui-web-comp-react",
     "ptg-ui-web-comp-react-e2e": "apps/ptg-ui-web-comp-react-e2e",
     "ptg-ui-web-components": "libs/ptg-ui-web-components",

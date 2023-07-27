@@ -1,0 +1,43 @@
+<div class="buttons container">
+    <h3 class="title-align"> Indenterminate Checkbox</h3>
+    <div class="row">
+      <ul>
+        <li>
+          <ptg-checkbox
+            color="priamry"
+            label="Kivi"
+            name="short" 
+            id="short"
+            for="short"         
+            dataid="chedckobx-1"
+
+           
+
+          ></ptg-checkbox>
+        </li>
+        <li>
+          <ul>
+            <li>
+              <ptg-checkbox
+                color="priamry"
+                label="Mango"               
+                checked=true
+                datavalue="Mango"
+                dataid="chedckobx-2"              
+              ></ptg-checkbox>
+            </li>
+            <li>
+              <ptg-checkbox
+                color="priamry"
+                label="Apple"
+                checked=false
+                datavalue="Apple"
+                callback={handleChange3}
+                dataid="chedckobx-1"
+              ></ptg-checkbox>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
