@@ -12,7 +12,7 @@ import { fabric } from 'fabric';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../services/user.service';
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 import {
   faXmark,
   faSignature,
@@ -197,22 +197,17 @@ export class AddSignatureComponent implements OnInit {
     formData.append(
       'file',
       this.uploadSignatureForm.get('uploadedFile')?.value
+      
     );
     formData.append('userId', this.loggedUserId);
     formData.append('fileType', 'signature');
     this.loading = true;
-    console.log(
-      'fom data payload: ',
-      formData.get('file'),
-      formData.get('userId'),
-      formData.get('fileType')
-    );
+    
     let subscription = this.userService.uploadSignature(formData).subscribe({
       next: async (res: any) => {
         // For response success
-        // console.log('uploaded signautre response: ', res);
         await this.getSignatureImageToPlace(res.data);
-        this.signImg.emit(this.base64ImageData);
+        this.signImg.emit(this.gotCroppedImage);
         this.modalRef?.hide();
         this.loading = false;
         this.toastrService.success(res.msg, 'Success', {
@@ -222,7 +217,6 @@ export class AddSignatureComponent implements OnInit {
         // this.response = res;
       },
       error: (err) => {
-        // console.log('error', err);
         this.errorMessage = err.error.message || 'Something went wrong';
         this.toastrService.error(this.errorMessage, 'Alert', {
           timeOut: 3000,
@@ -288,9 +282,9 @@ export class AddSignatureComponent implements OnInit {
     let subscription = this.userService.getFileList(dataToSend).subscribe({
       next: (res: any) => {
         this.signatureList = res.data;
-      },
+        },
       error: (err) => {
-        console.log(err);
+
       },
     });
     this.subscriptions.push(subscription);
@@ -303,7 +297,6 @@ export class AddSignatureComponent implements OnInit {
       reader.readAsDataURL(res);
       reader.onloadend = () => {
         this.base64ImageData = reader.result;
-        // console.log('convertd url: ', this.base64ImageData);
       };
     });
   }

@@ -15,7 +15,7 @@ body {
     left: 0;
     /* padding: 58px 0px 58px 0; */
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-    width: 240px;
+    width: 208px;
     height: 100vh;
     
     
@@ -53,7 +53,7 @@ body {
     max-width: max-content;
 } */
 .list-group .vertical-menu {
-    width: 200px;
+    width: 167px;
     border-width: 0 0 1px;
     display: flex;
     padding: 10px;
@@ -69,6 +69,11 @@ body {
     
    
     
+}
+.active {
+  background-color: rgb(0, 33, 68);
+  color: rgb(238, 238, 238) !important;
+  border-radius: 0px 20px 20px 0px !important;
 }
 .list-group .vertical-menu:hover{
     background-color: rgb(0, 33, 68);

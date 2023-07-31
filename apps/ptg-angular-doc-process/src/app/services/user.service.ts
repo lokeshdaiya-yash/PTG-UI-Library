@@ -42,6 +42,7 @@ export class UserService {
 
   uploadSignature(signatureData: any){
     return this.http.post(this.endPOints.uploadSignature,signatureData);
+    
   }
 
   getFile(data: any){

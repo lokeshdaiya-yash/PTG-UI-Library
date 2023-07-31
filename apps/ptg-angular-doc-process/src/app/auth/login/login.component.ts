@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     const userToken = this.auth.getToken();
     if(userToken && userToken != ''){
       this.router.navigate(['/dashboard/features']);
+     
     }
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]], //
@@ -63,7 +64,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   // This method for login submit
   onLoginSubmit(): void {
     this.submitted = true;
-    console.log(this.loginForm.value.email,this.loginForm.value.password)
     const payload = {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
@@ -79,7 +79,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (res:any) => {
           // For response success
-          console.log('11133',res);
           this.auth.setToken(JSON.stringify(res));
           this.errorMessage = null;
           this.loginForm.reset();
@@ -93,7 +92,6 @@ export class LoginComponent implements OnInit, OnDestroy {
           }
         },
         error: (err) => {
-          console.log('error', err);
           this.errorMessage = err.error.message || 'Something went wrong';
           this.loading = false;
         },

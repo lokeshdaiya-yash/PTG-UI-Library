@@ -60,18 +60,15 @@ export class ForgotpasswordComponent implements OnInit {
         next: (res) => {
           // For response success
           this.loading = false;
-          this.isHideDiv = true;
-          console.log('forgetPassword', res);
+          this.isHideDiv = true;    
           this.startTimer();
 
           setTimeout(() => {
             this.showResendButton();
             clearInterval(this.interval);
-            console.log('Button Activated')
-          }, 60000) //30secs
+                 }, 60000) //30secs
         },
         error: (err) => {
-          console.log('error', err);
           this.errorMessage = err.error.message || 'Something went wrong';
           this.loading = false;
         },

@@ -26,9 +26,7 @@ app.all('/*', function (req, res, next) {
   next();
 }); //
 
-// allow static content to render
 
-// console.log("I am here");
 // main routes
 app.get('/api', (req: any, res: any) => {
   res.json({ message: 'Welcome to interview-screening-backend!' });
@@ -36,7 +34,6 @@ app.get('/api', (req: any, res: any) => {
 app.use(express.static(path.join(__dirname, 'assets')));
 
 let server = app.listen(port, async () => {
-  console.log('listening on', port);
 });
 
 // using authentication routes
@@ -54,7 +51,6 @@ mongoose
     // `mongodb+srv://${username}:${password}@atlascluster.27xfa.mongodb.net/${dbName}?retryWrites=true&w=majority`
   )
   .then((data) => {
-    console.log('Successfully connect to MongoDB.');
   })
   .catch((err) => console.log(err));
 

@@ -71,7 +71,6 @@ export class SignupComponent implements OnInit, AfterViewInit {
 
 	// This method for signup submit
 	onSignupSubmit() {
-		console.log(this.signupForm.value);
 		const payload = {
 			name: this.signupForm.value.username,
 			email: this.signupForm.value.email,

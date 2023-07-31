@@ -27,7 +27,6 @@ describe('calendarValidator check', () => {
         
         control1 = form?.controls['new Date()'];
         let newfn = jest.fn()
-        console.log('1111111111111111', matchingControl);
         matchingControl?.setErrors({ calendarValidator: true }); 
         matchingControl?.setErrors(null);
         expect(matchingControl?.setErrors).toBeUndefined()
@@ -60,8 +59,7 @@ describe('calendarValidator check', () => {
         const setSum = jest.fn().mockName("ConfirmPasswordValidator")
         setSum();
         const ret = jest.fn().mockReturnValue(form)
-        console.log(ret);
-        
+         
         control = form?.controls['sting'];
         matchingControl = form?.controls['sdcsting']
         matchingControl?.setErrors({ confirmPasswordValidator: true });

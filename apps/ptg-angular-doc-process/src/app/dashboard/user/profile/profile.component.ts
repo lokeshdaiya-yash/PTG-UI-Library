@@ -50,7 +50,6 @@ export class ProfileComponent implements OnInit {
 			dob: ['', Validators.required],
     });
     let loggedUser: any = localStorage.getItem('userdata');
-    console.log(loggedUser);
     this.loggedUserid = JSON.parse(loggedUser).id;
     this.getUserDetails();
   }
@@ -58,9 +57,7 @@ export class ProfileComponent implements OnInit {
   getUserDetails(){
     this.userService.getUserData({ userId: this.loggedUserid }).subscribe({
       next: (res:any) => {
-        console.log(res);
         this.userDetails = res.data;
-        console.log(this.userDetails, this.userDetails.name);
         this.userService.setUsername(this.userDetails.name);
         this.userDetailsForm.patchValue({
           name: this.userDetails.name,
@@ -71,8 +68,7 @@ export class ProfileComponent implements OnInit {
         });
       },
       error: (err) => {
-        console.log(err);
-      },
+           },
       complete: () => {},
     });
   }
@@ -102,7 +98,6 @@ export class ProfileComponent implements OnInit {
     this.loading = true;
     this.userService.updateUserdetails(payload).subscribe({
       next: (res:any)=>{
-        console.log(res);
         this.isEditview = false;
         this.isReadOnly = true;
         this.getUserDetails();

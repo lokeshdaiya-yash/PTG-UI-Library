@@ -20,6 +20,7 @@
       <fa-icon [icon]="faImage"></fa-icon>&nbsp;Add Image
     </button>
   </div>
+  
   <ng-template #addSignature class="">
     <div class="modal-header">
       <h4 class="modal-title pull-left">
@@ -121,7 +122,7 @@
       <div class="d-flex justify-content-center modal-footer" *ngIf="ShowUploadSignature && showUploadSignatureImage">
         <!--Change button for upload Signature on Addsignature -->
         <ptg-ui-button class="clearSignature" btnStyleType="primary" id="clear" [isBlock]="false"
-          (click)="reUploadImageForCropping()">Change
+          [isDisable]="!uplodedFile && uploadSignatureForm.valid"  (click)="reUploadImageForCropping()" >Change
         </ptg-ui-button>
         <!-- upload button for upload signature on AddSignature -->
         <ptg-ui-button [isDisable]="!uplodedFile && uploadSignatureForm.valid" class="saveSignature"
