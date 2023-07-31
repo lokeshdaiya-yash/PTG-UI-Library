@@ -36,7 +36,7 @@ export function App() {
           <div className="main-wrapper">
             <div className="main-conatiner">
               <Routes>
-                <Route path="/" element={<Buttons />} />
+                <Route path="/ptg-ui-web-comp-react" element={<Buttons />} />
                 <Route path="/ptg-ui-web-comp-react/buttons" element={<Buttons />} />
                 <Route path="/ptg-ui-web-comp-react/modal" element={<Modal />} />
                 <Route path="/ptg-ui-web-comp-react/radio" element={<Radio />} />
