@@ -1,0 +1,86 @@
+{
+  "name": "ptg-ui-module-federation-shell",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ptg-ui-module-federation-shell/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/ptg-ui-module-federation-shell",
+        "index": "apps/ptg-ui-module-federation-shell/src/index.html",
+        "baseHref": "/",
+        "main": "apps/ptg-ui-module-federation-shell/src/main.tsx",
+        "polyfills": "apps/ptg-ui-module-federation-shell/src/polyfills.ts",
+        "tsConfig": "apps/ptg-ui-module-federation-shell/tsconfig.app.json",
+        "assets": [
+          "apps/ptg-ui-module-federation-shell/src/favicon.ico",
+          "apps/ptg-ui-module-federation-shell/src/assets"
+        ],
+        "styles": ["apps/ptg-ui-module-federation-shell/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/ptg-ui-module-federation-shell/src/environments/environment.ts",
+              "with": "apps/ptg-ui-module-federation-shell/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ptg-ui-module-federation-shell:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ptg-ui-module-federation-shell:build:development"
+        },
+        "production": {
+          "buildTarget": "ptg-ui-module-federation-shell:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/ptg-ui-module-federation-shell/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/ptg-ui-module-federation-shell"],
+      "options": {
+        "jestConfig": "apps/ptg-ui-module-federation-shell/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

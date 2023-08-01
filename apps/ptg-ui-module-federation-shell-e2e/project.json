@@ -1,0 +1,32 @@
+{
+  "name": "ptg-ui-module-federation-shell-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ptg-ui-module-federation-shell-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/ptg-ui-module-federation-shell-e2e/cypress.config.ts",
+        "devServerTarget": "ptg-ui-module-federation-shell:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "ptg-ui-module-federation-shell:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/ptg-ui-module-federation-shell-e2e/**/*.{js,ts}"
+        ]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["ptg-ui-module-federation-shell"]
+}
