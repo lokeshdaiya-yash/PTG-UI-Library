@@ -55,7 +55,7 @@ mongoose
   .catch((err) => console.log(err));
 
 // fallback when refreshed browser
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, '')));
 app.get('*', (req: express.Request, res: express.Response) => {
   const pathname = url.parse(req.url).pathname;
   const pathArr = pathname.split('/');
@@ -65,6 +65,8 @@ app.get('*', (req: express.Request, res: express.Response) => {
     'ptg-angular-doc-process': 'ptg-angular-doc-process',
     'ptg-angular-google-map': 'ptg-angular-google-map',
     'ptg-react-animations': 'ptg-react-animations',
+    'ptg-ui-web-comp-angular': 'ptg-ui-web-comp-angular',
+    'ptg-ui-web-comp-react': 'ptg-ui-web-comp-react',
   };
   const projectName = pathArr[1] && apps[pathArr[1]];
   if (projectName) {
