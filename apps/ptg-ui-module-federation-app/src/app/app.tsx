@@ -1,52 +1,119 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import styles from './app.module.scss';
-import NxWelcome from './nx-welcome';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Route, Routes, Link } from 'react-router-dom';
+import { addUser, deleteUser, updateUsername } from '../Features/Users';
 
 export function App() {
-  return (
-    <>
-      <NxWelcome title="ptg-ui-module-federation-app" />
-      <div />
+  const dispatch = useDispatch();
+  const userList = useSelector((state: any) => state.users.value);
 
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/page-2">Page 2</Link>
-          </li>
-        </ul>
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [newName, setNewName] = useState('');
+  const [newEmail, setNewEmail] = useState('');
+
+  return (
+    <div className="container mt-4">
+      <div className="container mt-3 mb-3">
+        <input
+          type="text"
+          placeholder="Enter Name..."
+          value={name}
+          onChange={(event) => {
+            setName(event.target.value);
+          }}
+        />
+        <input
+          type="email"
+          className="ms-2"
+          placeholder="Enter Email..."
+          value={email}
+          onChange={(event) => {
+            setEmail(event.target.value);
+          }}
+        />
+        <button
+          className="btn btn-success ms-2"
+          onClick={() => {
+            dispatch(
+              addUser({
+                id: userList[userList.length - 1].id + 1,
+                name,
+                email,
+              })
+            );
+            setEmail('');
+            setName('');
+          }}
+        >
+          Add User
+        </button>
       </div>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              This is the generated root route.{' '}
-              <Link to="/page-2">Click here for page 2.</Link>
-            </div>
-          }
-        />
-        <Route
-          path="/page-2"
-          element={
-            <div>
-              <Link to="/">Click here to go back to root page.</Link>
-            </div>
-          }
-        />
-      </Routes>
-      {/* END: routes */}
-    </>
+      <div className="container mt-3 mb-3">
+        <table className="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>User Name</th>
+              <th>Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {userList.map((user, i) => {
+              return (
+                <tr key={i}>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Enter New Name..."
+                      onChange={(event) => {
+                        setNewName(event.target.value);
+                      }}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Enter New Email..."
+                      onChange={(event) => {
+                        setNewEmail(event.target.value);
+                      }}
+                    />
+                    <button
+                      className="btn btn-primary btn-sm me-4 ms-3"
+                      onClick={() => {
+                        dispatch(
+                          updateUsername({
+                            id: user.id,
+                            name: newName,
+                            email: newEmail,
+                          })
+                        );
+                      }}
+                    >
+                      Update
+                    </button>
+                    <button
+                      className="btn btn-danger btn-sm me-3"
+                      onClick={() => {
+                        dispatch(deleteUser({ id: user.id }));
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 }
 
