@@ -5,6 +5,7 @@
  Delete this file and get started with your project!
  * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  */
+
 export function NxWelcome({ title }: { title: string }) {
   return (
     <>
@@ -813,6 +814,7 @@ export function NxWelcome({ title }: { title: string }) {
           </p>
         </div>
       </div>
+      
     </>
   );
 }
