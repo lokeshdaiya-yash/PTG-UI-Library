@@ -55,7 +55,7 @@ mongoose
   .catch((err) => console.log(err));
 
 // fallback when refreshed browser
-app.use('/', express.static(path.join(__dirname, '')));
+app.use('/', express.static(path.join(__dirname, 'public')));
 app.get('*', (req: express.Request, res: express.Response) => {
   const pathname = url.parse(req.url).pathname;
   const pathArr = pathname.split('/');
