@@ -1,13 +1,35 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+import Footer from './Footer';
+import Header from './Header';
 import styles from './app.module.scss';
 import NxWelcome from './nx-welcome';
+import React, { useState } from "react";
+import { Login } from "./Login";
+import { Register } from "./Register";
+import './App.css';
 
 import { Route, Routes, Link } from 'react-router-dom';
 
 export function App() {
+  const [currentForm, setCurrentForm] = useState('login');
+
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  }
   return (
     <>
-      <NxWelcome title="ptg-ui-module-federation-shell" />
+    <Header/>
+    <Footer/>
+ 
+
+
+  <div className="App">
+    {
+      currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />
+    }
+  </div>
+
+      {/* <NxWelcome title="ptg-ui-module-federation-shell" /> */}
       <div />
 
       {/* START: routes */}
