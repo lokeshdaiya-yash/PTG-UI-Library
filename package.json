@@ -160,7 +160,7 @@
     "@nrwl/react": "^14.7.5",
     "@nrwl/storybook": "14.5.10",
     "@nrwl/web": "14.7.5",
-    "@nrwl/workspace": "14.5.10",
+    "@nrwl/workspace": "^14.5.10",
     "@nxext/stencil": "^14.0.3",
     "@stencil/angular-output-target": "^0.4.0",
     "@stencil/core": "^2.15.2",
