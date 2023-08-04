@@ -1,0 +1,85 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.container {
+  width: "100%";
+  height: 100vh;
+  background-color: darkgrey;
+}
+
+/* // CSS */
+.productDisplay h6{
+  margin: 0;
+}
+.productDisplay{
+  font-size: 16px;
+  width: max-content;
+  background-color: rgb(255, 255, 255);
+  color: blue;
+  border-radius: 6px;
+  display: block;
+  padding: 4px 6px;
+  opacity: 0.7;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: 1px solid #eee;
+  transition: 0.3s ease-in-out all;
+}
+.goole{
+  background-color: antiquewhite;
+}
+.react{
+  background-color: aqua;
+}
+.js{
+ background-color: beige;
+}
+.productDisplay h6{
+  margin-bottom: 4px;
+}
+
+.productDisplay span{
+  background: rgb(80, 80, 242);
+  color: #fff;
+  padding: 3px;
+  border-radius: 10px;
+}
+.productDisplay:hover{
+  opacity: 1;
+  color: #000;
+}
+
+
+/* // Competencies */
+.enrollment-box{
+  background-color: #eee;
+}
+.enrollment-box form{
+  display: flex;
+  flex-direction: column;
+}
+
+.auditorium{
+  width: 700px;
+  height: 280px;
+}
+.auditorium iframe{
+  width: 100%;
+  height: 100%;
+}
+.auditorium .exitBtn{
+  position: absolute;
+    left: -130px;
+    bottom: 45px;
+    padding: 6px 15px;
+    background: #535353;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+}
