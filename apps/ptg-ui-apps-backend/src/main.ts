@@ -55,7 +55,7 @@ mongoose
   .catch((err) => console.log(err));
 
 // fallback when refreshed browser
-app.use('/', express.static(path.join(__dirname, '')));
+app.use('/', express.static(path.join(__dirname, 'public')));
 app.get('*', (req: express.Request, res: express.Response) => {
   const pathname = url.parse(req.url).pathname;
   const pathArr = pathname.split('/');
@@ -70,7 +70,7 @@ app.get('*', (req: express.Request, res: express.Response) => {
   };
   const projectName = pathArr[1] && apps[pathArr[1]];
   if (projectName) {
-    res.sendFile(path.join(__dirname, `/${projectName}`) + '/index.html');
+    res.sendFile(path.join(__dirname, `public/${projectName}`) + '/index.html');
   } else {
     res.sendFile(path.join(__dirname, ``) + '/index.html');
   }
