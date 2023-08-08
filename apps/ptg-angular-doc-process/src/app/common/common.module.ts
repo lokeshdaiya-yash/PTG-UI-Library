@@ -1,23 +1,22 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 
-
-import { FooterComponent } from "./footer/footer.component";
-import { SidebarComponent } from "./sidebar/sidebar.component";
-import { ButtonRendererComponent } from "./renderer/button-renderer/button-renderer.component";
-import { CropperComponent } from "./cropper/cropper.component";
-import { NgModule } from "@angular/core";
-import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-import { CommonModule } from "@angular/common";
+import { FooterComponent } from './footer/footer.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ButtonRendererComponent } from './renderer/button-renderer/button-renderer.component';
+import { CropperComponent } from './cropper/cropper.component';
+import { NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 // import { PtgUiAngularLibModule } from "libs/ptg-ui-angular-lib/ptg-ui-angular-lib.module";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
-import { ToastrModule } from "ngx-toastr";
-import { AgGridModule } from "ag-grid-angular";
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { ImageCropperModule } from "ngx-image-cropper";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
+import { AgGridModule } from 'ag-grid-angular';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ImageCropperModule } from 'ngx-image-cropper';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { HeaderComponent } from "./header/header.component";
-import { TokenInterceptor } from "../services/token-interceptor/token-interceptor.service";
+import { HeaderComponent } from './header/header.component';
+import { TokenInterceptor } from '../services/token-interceptor/token-interceptor.service';
 import { PtgUiAngularLibModule } from 'libs/ptg-ui-angular-lib/ptg-ui-angular-lib.module';
 /**
  * @since March 2022
@@ -78,7 +77,7 @@ import { PtgUiAngularLibModule } from 'libs/ptg-ui-angular-lib/ptg-ui-angular-li
     RouterModule,
     AgGridModule,
     BsDropdownModule,
-    CropperComponent
+    CropperComponent,
   ],
   providers: [
     {

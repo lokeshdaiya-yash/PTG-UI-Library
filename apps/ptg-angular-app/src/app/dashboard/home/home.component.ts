@@ -1,4 +1,4 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @angular-eslint/no-host-metadata-property */
@@ -22,4 +22,4 @@ import { Component } from '@angular/core';
     class: 'w-100',
   },
 })
-export class HomeComponent { }
+export class HomeComponent {}

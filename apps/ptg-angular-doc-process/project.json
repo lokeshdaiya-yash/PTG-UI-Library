@@ -1,4 +1,6 @@
 {
+  "name": "ptg-angular-doc-process",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/ptg-angular-doc-process/src",
   "prefix": "ptg-ui-library",
@@ -72,7 +74,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "apps/ptg-angular-doc-process/**/*.ts",
@@ -81,8 +83,8 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ptg-angular-doc-process"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/ptg-angular-doc-process"],
       "options": {
         "jestConfig": "apps/ptg-angular-doc-process/jest.config.ts",
         "passWithNoTests": true

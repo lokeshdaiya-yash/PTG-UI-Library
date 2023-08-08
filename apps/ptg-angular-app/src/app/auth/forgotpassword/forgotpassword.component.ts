@@ -1,17 +1,17 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 
 /**
  * @since March 2022
  * @author Bhanu Prakash Sharma
  * @Component ptg-ui-forgotpassword;
  * @description This component for forgot password
-**/
+ **/
 
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { PTGToastsService } from '@ptg-ui/angular/toasts';
-import { resources } from "../../../resource/resource";
+import { resources } from '../../../resource/resource';
 
 @Component({
   selector: 'ptg-ui-forgotpassword',
@@ -19,11 +19,11 @@ import { resources } from "../../../resource/resource";
   styleUrls: ['./forgotpassword.component.scss'],
 })
 export class ForgotpasswordComponent implements OnInit {
-  @Input() modalRef: BsModalRef |any;
+  @Input() modalRef: BsModalRef | any;
   forgotForm!: FormGroup;
   loading = false;
   errorMessage = null;
-  resources = resources
+  resources = resources;
 
   get f() {
     return this.forgotForm.controls;

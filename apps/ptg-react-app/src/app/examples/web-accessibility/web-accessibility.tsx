@@ -18,14 +18,14 @@ import {
   PtgUiRadio,
   PtgUiDatePicker,
 } from '@ptg-ui/react';
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+// eslint-disable-next-line @nx/enforce-module-boundaries
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
 import { resources } from '../../resource/resource';
 import { useTranslation } from 'react-i18next';
 /* eslint-disable-next-line */
 export interface WebAccessibilityProps {}
 export function WebAccessibility(props: WebAccessibilityProps) {
-   const { t } = useTranslation();
+  const { t } = useTranslation();
   const startRef: any = useRef();
 
   const [user, setUser]: any = useState({
@@ -387,13 +387,13 @@ export function WebAccessibility(props: WebAccessibilityProps) {
                 <div className="row mt-5">
                   <div className="col-md-12">
                     <h2>{t('ACHIEVED_HEADING')}</h2>
-                        <ol>
-                          <li>{t('ACHIEVED_PNT_ONE')}</li>
-                          <li>{t('ACHIEVED_PNT_TWO')}</li>
-                          <li>{t('ACHIEVED_PNT_THREE')}</li>
-                          <li>{t('ACHIEVED_PNT_FOUR')}</li>
-                          <li>{t('ACHIEVED_PNT_FIVE')}</li>
-                        </ol>
+                    <ol>
+                      <li>{t('ACHIEVED_PNT_ONE')}</li>
+                      <li>{t('ACHIEVED_PNT_TWO')}</li>
+                      <li>{t('ACHIEVED_PNT_THREE')}</li>
+                      <li>{t('ACHIEVED_PNT_FOUR')}</li>
+                      <li>{t('ACHIEVED_PNT_FIVE')}</li>
+                    </ol>
                   </div>
                 </div>
               </form>

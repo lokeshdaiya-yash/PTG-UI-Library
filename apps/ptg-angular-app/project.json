@@ -1,4 +1,6 @@
 {
+  "name": "ptg-angular-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/ptg-angular-app/src",
   "prefix": "ptg-ui-library",
@@ -75,7 +77,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "apps/ptg-angular-app/**/*.ts",
@@ -84,8 +86,8 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ptg-angular-app"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/ptg-angular-app"],
       "options": {
         "jestConfig": "apps/ptg-angular-app/jest.config.ts",
         "passWithNoTests": true

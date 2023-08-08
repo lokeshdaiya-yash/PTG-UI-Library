@@ -1,4 +1,4 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 /**
@@ -16,16 +16,16 @@ import { User } from '../models/user.model';
 import { TokenRes } from '../models/token.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   // private TOKEN_KEY = 'token';
   private TOKEN_KEY = 'userdata';
-  
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {}
 
   // For token set
-  setToken(token:string): void {
+  setToken(token: string): void {
     if (token) {
       localStorage.setItem(this.TOKEN_KEY, token);
     }
@@ -35,7 +35,7 @@ export class AuthService {
   getToken(): any {
     return localStorage.getItem(this.TOKEN_KEY);
   }
-  
+
   // For token remove
   removeToken(): void {
     localStorage.removeItem(this.TOKEN_KEY);
@@ -52,7 +52,7 @@ export class AuthService {
   }
 
   // For user
-  getUser(){
+  getUser() {
     return this.http.get(environment.users);
   }
 }

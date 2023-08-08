@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../../auth/services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class PasswordupdatedGuard implements CanActivate {
+export class PasswordupdatedGuard  {
   isPasswordChanged: boolean;
   constructor(private auth: AuthService, private router: Router){}
   canActivate(

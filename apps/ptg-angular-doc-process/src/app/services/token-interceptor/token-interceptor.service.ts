@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 /**
@@ -8,7 +8,6 @@
  * @interceptor Interceptor Service;
  * @description This service for TokenInterceptor
  */
-
 
 import { Injectable } from '@angular/core';
 import {
@@ -32,8 +31,13 @@ export class TokenInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const URLToExclude = this.endPoints.URLToExclude;
-    if (!(URLToExclude.findIndex((url) =>getLastItem(request.url).includes(url)) > -1)) 
-    {
+    if (
+      !(
+        URLToExclude.findIndex((url) =>
+          getLastItem(request.url).includes(url)
+        ) > -1
+      )
+    ) {
       const token = JSON.parse(this.authService.getToken())?.accessToken;
       request = request.clone({
         setHeaders: {

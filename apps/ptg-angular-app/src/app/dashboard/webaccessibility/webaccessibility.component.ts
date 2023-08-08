@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 /* eslint-disable @typescript-eslint/no-empty-function */
@@ -13,7 +13,12 @@
  * @UpdatedBy Aakshay Patidar
  **/
 
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '@ptg-angular-app/auth/models/user.model';
 import { CITY_LIST, GENDER_LIST } from '../../mock/mocks';
@@ -29,7 +34,7 @@ export class WebaccessibilityComponent implements OnInit {
   genderList = GENDER_LIST;
   cityList = CITY_LIST;
   resources = resources;
-  serviceData:any
+  serviceData: any;
 
   get f() {
     return this.signupForm.controls;
@@ -38,20 +43,18 @@ export class WebaccessibilityComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private cdr: ChangeDetectorRef
-
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
       userName: ['', [Validators.required]],
-      email: ['', [Validators.required,Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       gender: [null, Validators.required],
       city: [null, Validators.required],
       dob: ['', [Validators.required]],
       password: [null, [Validators.required]],
       confirm: [false, [Validators.requiredTrue]],
     });
-    
   }
 
   // This method for signup submit
@@ -63,7 +66,7 @@ export class WebaccessibilityComponent implements OnInit {
       city: this.signupForm.value.city,
       dob: this.signupForm.value.dob,
       password: this.signupForm.value.password,
-    };    
+    };
     this.userSignup(payload);
   }
 
@@ -85,14 +88,12 @@ export class WebaccessibilityComponent implements OnInit {
         autocomplete: 'given-name',
         'aria-label': 'given-label',
       });
-      
     }
-   
-    this.cdr.detectChanges()
+
+    this.cdr.detectChanges();
   }
 
   setAttributes(elements: any, attributes: any) {
-    
     Object.keys(attributes).forEach(function (name) {
       elements.setAttribute(name, attributes[name]);
     });

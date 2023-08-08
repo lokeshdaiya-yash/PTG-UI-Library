@@ -1,4 +1,4 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 /**
@@ -13,21 +13,21 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { TokenRes } from '../models/token.model';
 // import { ENDPOINTS } from 'apps/doc-process-ang/src/config';
-import {ENDPOINTS} from '../../../config'
+import { ENDPOINTS } from '../../../config';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   // private TOKEN_KEY = 'token';
   endPoints = ENDPOINTS;
   checkPasswodUpdated = new BehaviorSubject<boolean>(true);
   private TOKEN_KEY = 'userdata';
-  
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {}
 
   // For token set
-  setToken(token:string): void {
+  setToken(token: string): void {
     if (token) {
       localStorage.setItem(this.TOKEN_KEY, token);
     }
@@ -38,13 +38,13 @@ export class AuthService {
     return localStorage.getItem(this.TOKEN_KEY);
   }
 
-  setIsPasswordChangedFlag(isPwdChanged: boolean){
+  setIsPasswordChangedFlag(isPwdChanged: boolean) {
     this.checkPasswodUpdated.next(isPwdChanged);
   }
-  getIsPasswordChanged(){
+  getIsPasswordChanged() {
     return this.checkPasswodUpdated.asObservable();
   }
-  
+
   // For token remove
   logout(): void {
     localStorage.removeItem(this.TOKEN_KEY);
@@ -61,7 +61,7 @@ export class AuthService {
   }
 
   // For user
-  getUser(){
+  getUser() {
     return this.http.get(`${this.endPoints.user}/userData`);
   }
 

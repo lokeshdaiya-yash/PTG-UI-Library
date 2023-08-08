@@ -1,10 +1,11 @@
 {
+  "name": "ptg-angular-app-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/ptg-angular-app-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
-      "executor": "@nrwl/cypress:cypress",
+      "executor": "@nx/cypress:cypress",
       "options": {
         "cypressConfig": "apps/ptg-angular-app-e2e/cypress.config.ts",
         "devServerTarget": "ptg-angular-app:serve:development",
@@ -17,7 +18,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/ptg-angular-app-e2e/**/*.{js,ts}"]

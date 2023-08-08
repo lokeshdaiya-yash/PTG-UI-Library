@@ -1,10 +1,10 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 /**
  * @since March 2022
  * @author Bhanu Prakash Sharma
  * @Module dashboardRoutingModule;
- * @description This module for dashboard routing 
-**/
+ * @description This module for dashboard routing
+ **/
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -47,23 +47,23 @@ const routes: Routes = [
     component: SelectexampleComponent,
   },
   {
-    path:'charts',
-    component:ChartComponent,
-    children:[
+    path: 'charts',
+    component: ChartComponent,
+    children: [
       {
-        path:'',
-        redirectTo:'d3-charts',
-        pathMatch:'full'
+        path: '',
+        redirectTo: 'd3-charts',
+        pathMatch: 'full',
       },
       {
-        path:'d3-charts',
-        component:D3ChartsComponent
+        path: 'd3-charts',
+        component: D3ChartsComponent,
       },
       {
-        path:'high-charts',
-        component:HighChartsComponent
-      }
-    ]
+        path: 'high-charts',
+        component: HighChartsComponent,
+      },
+    ],
   },
   {
     path: 'draganddrop',
@@ -99,31 +99,31 @@ const routes: Routes = [
         component: NgxDatatableComponent,
       },
       {
-        path:'material-datatable',
-        component: MaterialDatatableComponent
-      }
-    ]
+        path: 'material-datatable',
+        component: MaterialDatatableComponent,
+      },
+    ],
   },
   {
-    path:'download',
-    component: DownloadExampleComponent
+    path: 'download',
+    component: DownloadExampleComponent,
   },
   {
-    path:'indeterminate-checkbox',
-    component: CheckboxExamplesComponent
+    path: 'indeterminate-checkbox',
+    component: CheckboxExamplesComponent,
   },
   {
-    path:'grid-layout',
-    component: GridlayoutexampleComponent
+    path: 'grid-layout',
+    component: GridlayoutexampleComponent,
   },
   {
-    path:'accordian-example',
-    component: AccordianExampleComponent
+    path: 'accordian-example',
+    component: AccordianExampleComponent,
   },
   {
-    path:'multistep-form',
-    component:MultistepFormLayoutComponent
-  }
+    path: 'multistep-form',
+    component: MultistepFormLayoutComponent,
+  },
 ];
 
 @NgModule({

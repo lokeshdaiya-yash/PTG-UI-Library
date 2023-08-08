@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -9,7 +9,7 @@
  * @author Bhanu Prakash Sharma
  * @Component ptg-ui-dragexample2;
  * @description This component for drag and drop example2
-**/
+ **/
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '@ptg-angular-app/auth/services/auth.service';
@@ -19,8 +19,8 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { Subject, takeUntil } from 'rxjs';
-import { resources } from "../../../../resource/resource";
-import { USERSDATA } from "../../../mock/mocks";
+import { resources } from '../../../../resource/resource';
+import { USERSDATA } from '../../../mock/mocks';
 
 @Component({
   selector: 'ptg-ui-dragexample2',
@@ -31,17 +31,17 @@ export class Dragexample2Component implements OnInit, OnDestroy {
   public personaldetails: any = [];
   loading = false;
   unsubscribe: Subject<any> = new Subject();
-  resources=resources;
+  resources = resources;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loading = true;
     // this.getUsers()
-    this.getuserMock()
+    this.getuserMock();
     this.loading = false;
   }
-  getuserMock(){
+  getuserMock() {
     this.personaldetails = USERSDATA.filter((res: any) => {
       if (res.role.type === 'admin') {
         return res;
@@ -67,7 +67,7 @@ export class Dragexample2Component implements OnInit, OnDestroy {
   //     error: (err) => {
   //       this.loading = false;
   //     },
-  //     complete: () => console.info('complete') 
+  //     complete: () => console.info('complete')
   //   });
   // }
 
@@ -88,7 +88,7 @@ export class Dragexample2Component implements OnInit, OnDestroy {
       );
     }
   }
-  
+
   ngOnDestroy(): void {
     this.unsubscribe.next(0);
     this.unsubscribe.complete();

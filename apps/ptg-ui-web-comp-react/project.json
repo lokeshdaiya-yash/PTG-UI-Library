@@ -22,7 +22,8 @@
         ],
         "styles": ["apps/ptg-ui-web-comp-react/src/styles.scss"],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "webpackConfig": "apps/ptg-ui-web-comp-react/webpack.config.js",
+        "isolatedConfig": true
       },
       "configurations": {
         "development": {
@@ -65,15 +66,15 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/ptg-ui-web-comp-react/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ptg-ui-web-comp-react"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/ptg-ui-web-comp-react"],
       "options": {
         "jestConfig": "apps/ptg-ui-web-comp-react/jest.config.ts",
         "passWithNoTests": true

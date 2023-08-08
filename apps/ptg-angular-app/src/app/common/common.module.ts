@@ -1,11 +1,11 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 
 /**
  * @since March 2022
  * @author Bhanu Prakash Sharma
  * @Module AllCommonModule;
  * @description This module for all common module
-**/
+ **/
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -28,8 +28,6 @@ import { DirectiveModule } from './directive/directive.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { DemoPtgUiNgModule } from './demo-ptg-ui-ng/demo-ptg-ui-ng.module';
 
-
-
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -39,7 +37,7 @@ import { DemoPtgUiNgModule } from './demo-ptg-ui-ng/demo-ptg-ui-ng.module';
     SidenavComponent,
     LayoutComponent,
     ShowForRolesDirective,
-    ShowForLoginUsersDirective
+    ShowForLoginUsersDirective,
   ],
   imports: [
     HttpClientModule,
@@ -50,7 +48,7 @@ import { DemoPtgUiNgModule } from './demo-ptg-ui-ng/demo-ptg-ui-ng.module';
     PtgPipesModule,
     DirectiveModule,
     TranslateModule,
-    DemoPtgUiNgModule
+    DemoPtgUiNgModule,
   ],
   exports: [
     HeaderComponent,
@@ -61,7 +59,7 @@ import { DemoPtgUiNgModule } from './demo-ptg-ui-ng/demo-ptg-ui-ng.module';
     ShowForRolesDirective,
     ShowForLoginUsersDirective,
     PtgPipesModule,
-    DirectiveModule
+    DirectiveModule,
   ],
   providers: [
     {
@@ -69,6 +67,6 @@ import { DemoPtgUiNgModule } from './demo-ptg-ui-ng/demo-ptg-ui-ng.module';
       useClass: TokenInterceptor,
       multi: true,
     },
-  ]
+  ],
 })
-export class AllCommonModule { }
+export class AllCommonModule {}

@@ -1,4 +1,4 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 /**
  * @since March 2022
  * @author Bhanu Prakash Sharma
@@ -58,7 +58,7 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatButtonModule } from '@angular/material/button';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule} from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
 import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-ptg-ui-ng.module';
 
 @NgModule({
@@ -117,7 +117,7 @@ import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-p
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    DemoPtgUiNgModule
+    DemoPtgUiNgModule,
   ],
 })
 export class DashboardModule {}

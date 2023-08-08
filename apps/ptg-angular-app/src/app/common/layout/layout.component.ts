@@ -1,4 +1,4 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 /* eslint-disable no-constant-condition */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
@@ -8,20 +8,19 @@
  * @author Bhanu Prakash Sharma
  * @Component ptg-ui-layout;
  * @description This component for layout
-**/
+ **/
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { NavigationData } from '@ptg-angular-app/dashboard/contants';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
-
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'ptg-ui-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit, OnDestroy {
   menuItems = NavigationData;
@@ -41,7 +40,10 @@ export class LayoutComponent implements OnInit, OnDestroy {
     const path = this.location.path();
     return path;
   }
-  constructor(breakpointObserver: BreakpointObserver, private location: Location) {
+  constructor(
+    breakpointObserver: BreakpointObserver,
+    private location: Location
+  ) {
     breakpointObserver
       .observe([
         Breakpoints.XSmall,
@@ -51,22 +53,21 @@ export class LayoutComponent implements OnInit, OnDestroy {
         Breakpoints.XLarge,
       ])
       .pipe(takeUntil(this.destroyed))
-      .subscribe(result => {
+      .subscribe((result) => {
         for (const query of Object.keys(result.breakpoints)) {
           if (result.breakpoints[query]) {
-            this.currentScreenSize = this.displayNameMap.get(query) ?? 'Unknown';
+            this.currentScreenSize =
+              this.displayNameMap.get(query) ?? 'Unknown';
           }
         }
       });
   }
 
-
-
   ngOnInit(): void {
     // console.log('this.currentScreenSize', this.currentScreenSize);
   }
 
-  isMenuToggle(){
+  isMenuToggle() {
     this.isMenuOpen = !this.isMenuOpen;
   }
 

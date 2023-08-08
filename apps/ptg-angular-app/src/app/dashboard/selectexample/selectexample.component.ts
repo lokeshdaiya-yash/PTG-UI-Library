@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/no-host-metadata-property */
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+/* eslint-disable @nx/enforce-module-boundaries */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 /* eslint-disable @typescript-eslint/no-empty-function */
@@ -29,7 +29,10 @@ export class SelectexampleComponent implements OnInit {
   cityList = CITY_LIST;
   resources = resources;
 
-  constructor(private formBuilder: FormBuilder, private cdr:ChangeDetectorRef) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.selectForm = this.formBuilder.group({
@@ -52,17 +55,14 @@ export class SelectexampleComponent implements OnInit {
         autocomplete: 'given-name',
         'aria-label': 'given-label',
       });
-      
     }
-   
-    this.cdr.detectChanges()
+
+    this.cdr.detectChanges();
   }
 
   setAttributes(elements: any, attributes: any) {
-    
     Object.keys(attributes).forEach(function (name) {
       elements.setAttribute(name, attributes[name]);
     });
   }
-  
 }

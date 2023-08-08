@@ -1,10 +1,11 @@
 {
+  "name": "ptg-ui-apps-backend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/ptg-ui-apps-backend/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:webpack",
+      "executor": "@nrwl/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/ptg-ui-apps-backend",
@@ -15,7 +16,9 @@
         "assets": [
           "apps/ptg-ui-apps-backend/src/assets",
           "apps/ptg-ui-apps-backend/src/index.html"
-        ]
+        ],
+        "compiler": "tsc",
+        "target": "node"
       },
       "configurations": {
         "production": {
@@ -33,7 +36,7 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/node:node",
+      "executor": "@nx/js:node",
       "options": {
         "buildTarget": "ptg-ui-apps-backend:build"
       },
@@ -44,15 +47,15 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/ptg-ui-apps-backend/**/*.ts"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ptg-ui-apps-backend"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/ptg-ui-apps-backend"],
       "options": {
         "jestConfig": "apps/ptg-ui-apps-backend/jest.config.ts",
         "passWithNoTests": true
