@@ -1,0 +1,122 @@
+{
+  "name": "mfe-angular-popup-remote",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "org",
+  "sourceRoot": "apps/mfe-angular-popup-remote/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/mfe-angular-popup-remote",
+        "index": "apps/mfe-angular-popup-remote/src/index.html",
+        "main": "apps/mfe-angular-popup-remote/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/mfe-angular-popup-remote/tsconfig.app.json",
+        "assets": [
+          "apps/mfe-angular-popup-remote/src/favicon.ico",
+          "apps/mfe-angular-popup-remote/src/assets"
+        ],
+        "styles": ["apps/mfe-angular-popup-remote/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/mfe-angular-popup-remote/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/mfe-angular-popup-remote/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:webpack-dev-server",
+      "options": {
+        "port": 4203,
+        "publicHost": "http://localhost:4203"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "mfe-angular-popup-remote:build:production"
+        },
+        "development": {
+          "browserTarget": "mfe-angular-popup-remote:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "mfe-angular-popup-remote:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/mfe-angular-popup-remote/**/*.ts",
+          "apps/mfe-angular-popup-remote/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/mfe-angular-popup-remote/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "mfe-angular-popup-remote:build",
+        "port": 4203,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "mfe-angular-popup-remote:build:development"
+        },
+        "production": {
+          "buildTarget": "mfe-angular-popup-remote:build:production"
+        }
+      }
+    }
+  }
+}

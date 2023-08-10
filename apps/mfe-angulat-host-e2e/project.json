@@ -1,0 +1,33 @@
+{
+  "name": "mfe-angulat-host-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/mfe-angulat-host-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/mfe-angulat-host-e2e/cypress.config.ts",
+        "devServerTarget": "mfe-angulat-host:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "mfe-angulat-host:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "mfe-angulat-host:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/mfe-angulat-host-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["mfe-angulat-host"]
+}
