@@ -11,7 +11,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import usersReducer from "./Features/Users";
 
 
-const store = configureStore({ 
+const store = configureStore({
   reducer: {
     users: usersReducer,
   },
@@ -23,9 +23,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <StrictMode>
     <BrowserRouter>
-    <Provider store={store}>
-    <App />
-    </Provider>
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </StrictMode>
 );

@@ -42,6 +42,7 @@ module.exports = {
             exposes: { // which exposes
               "./Header": "./src/app",  // a module 'Header' from './src/App'
               "./Footer":"./src/app",
+              
             },
             shared: {  // and shared
               ...dependencies,  // some other dependencies

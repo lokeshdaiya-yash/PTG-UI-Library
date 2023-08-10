@@ -4,18 +4,15 @@ import Header from './Header';
 import styles from './app.module.scss';
 import NxWelcome from './nx-welcome';
 import React, { useState } from "react";
-import { Login } from "./Login";
-import { Register } from "./Register";
+
+
 import './App.css';
 
 import { Route, Routes, Link } from 'react-router-dom';
 
 export function App() {
-  const [currentForm, setCurrentForm] = useState('login');
-
-  const toggleForm = (formName) => {
-    setCurrentForm(formName);
-  }
+  
+  
   return (
     <>
     <Header/>
@@ -23,11 +20,7 @@ export function App() {
  
 
 
-  <div className="App">
-    {
-      currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />
-    }
-  </div>
+ 
 
       {/* <NxWelcome title="ptg-ui-module-federation-shell" /> */}
       <div />
@@ -70,6 +63,6 @@ export function App() {
       {/* END: routes */}
     </>
   );
-}
+        }
 
 export default App;

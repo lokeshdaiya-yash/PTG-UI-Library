@@ -1,14 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-
+    const navigate=useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
+        navigate("/crudApp")
     }
-
     return (
         <div className="auth-form-container">
             <h2>Login</h2>
@@ -23,3 +23,4 @@ export const Login = (props) => {
         </div>
     )
 }
+export default Login;
