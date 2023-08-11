@@ -1,8 +1,8 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Card } from "./components/card/card";
-import { Login } from "./components/login/login";
-import ProtectedRoute from "./components/login/protected";
-import { UserAuthContextProvider } from "./components/login/userAuthControl";
+import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import { Card } from "./component/card/card";
+import { Login } from "./component/login/login";
+import ProtectedRoute from "./component/login/protected";
+import { UserAuthContextProvider } from "./component/login/userAuthControl";
 export default function Root() {
   return (
     <>

@@ -2,6 +2,11 @@
   "name": "ptg-ui-angular-lib",
   "version": "0.0.5",
   "license": "MIT",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js",
@@ -142,6 +147,7 @@
     "react-loading-dot": "^1.0.6",
     "react-redux": "8.0.5",
     "react-router-dom": "6.11.2",
+    "react-scripts": "^5.0.1",
     "react-select": "^5.5.0",
     "react-select-event": "^5.5.0",
     "react-table": "^7.8.0",
@@ -248,6 +254,8 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.1.4",
+    "webpack-config-single-spa-react": "^4.0.0",
+    "webpack-dev-server": "^4.0.0",
     "webpack-merge": "^5.8.0"
   },
   "description": "This project was generated using [Nx](https://nx.dev).",

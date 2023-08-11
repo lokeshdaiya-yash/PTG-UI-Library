@@ -1,0 +1,49 @@
+.main {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #0a205c;
+}
+.main_div {
+  height: 100vh;
+}
+.shadow {
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+}
+.underline {
+  position: relative;
+}
+.underline::before {
+  position: absolute;
+  content: "";
+  height: 4px;
+  width: 33px;
+  bottom: 8px;
+  left: 0;
+  border-radius: 5px;
+  margin-left: 8px;
+  background: linear-gradient(to right, #0a5dda 0%, #83a8e0 100%);
+}
+.container-fluid .loginform {
+  margin: auto;
+}
+.input_div {
+  min-height: 90px !important;
+}
+.container-fluid .loginform .input-box {
+  height: 100%;
+  width: 100%;
+  font-weight: 500;
+  font-size: 16px;
+}
+p {
+  font-size: 13px;
+  margin-top: none !important;
+}
+.loginbutton {
+  font-size: 20px !important;
+  background-color: #425eab !important;
+  font-weight: 600 !important;
+  color: white;
+}

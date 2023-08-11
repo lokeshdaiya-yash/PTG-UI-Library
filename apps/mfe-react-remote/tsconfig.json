@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "target": "es6",
+    "lib": ["DOM", "ES6", "DOM.Iterable"],
     "jsx": "react-jsx",
     "allowJs": false,
     "esModuleInterop": false,
