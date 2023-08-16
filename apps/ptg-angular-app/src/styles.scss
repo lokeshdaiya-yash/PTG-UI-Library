@@ -32,5 +32,8 @@
 @import "~bootstrap/scss/helpers";
 @import "~bootstrap/scss/utilities/api";
 @import "./app/app.theme.scss";
+
 // include other modules mixin here
 @include app-theme();
+
+@import "~bootstrap/scss/bootstrap";
