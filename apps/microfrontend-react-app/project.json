@@ -1,0 +1,86 @@
+{
+  "name": "microfrontend-react-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/microfrontend-react-app/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/microfrontend-react-app",
+        "index": "apps/microfrontend-react-app/src/index.html",
+        "baseHref": "/",
+        "main": "apps/microfrontend-react-app/src/main.js",
+        "polyfills": "apps/microfrontend-react-app/src/polyfills.js",
+        "tsConfig": "apps/microfrontend-react-app/tsconfig.app.json",
+        "assets": [
+          "apps/microfrontend-react-app/src/favicon.ico",
+          "apps/microfrontend-react-app/src/assets"
+        ],
+        "styles": ["apps/microfrontend-react-app/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/microfrontend-react-app/src/environments/environment.js",
+              "with": "apps/microfrontend-react-app/src/environments/environment.prod.js"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "microfrontend-react-app:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "microfrontend-react-app:build:development"
+        },
+        "production": {
+          "buildTarget": "microfrontend-react-app:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/microfrontend-react-app/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/microfrontend-react-app"],
+      "options": {
+        "jestConfig": "apps/microfrontend-react-app/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

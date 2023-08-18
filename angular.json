@@ -2,6 +2,10 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "microfrontend-angular-app": "apps/microfrontend-angular-app",
+    "microfrontend-angular-app-e2e": "apps/microfrontend-angular-app-e2e",
+    "microfrontend-react-app": "apps/microfrontend-react-app",
+    "microfrontend-react-app-e2e": "apps/microfrontend-react-app-e2e",
     "ptg-angular-app": "apps/ptg-angular-app",
     "ptg-angular-app-e2e": "apps/ptg-angular-app-e2e",
     "ptg-angular-doc-process": "apps/ptg-angular-doc-process",
