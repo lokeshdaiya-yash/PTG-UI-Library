@@ -1,20 +1,27 @@
 import styles from './app.module.scss';
-import { useState, lazy, Suspense   } from 'react';
+
 import { Route, Routes, Link, BrowserRouter } from 'react-router-dom';
-import { Register } from './components/Register';
-import Login from './components/Login';
+import { Register } from './components/Register/Register';
+import Login from './components/Login/Login';
 import './App.css';
 import { CrudApp } from './components/CrudApp';
-
+import { useState } from 'react';
 
 export function App() {
+  const [mydata, setMydata] = useState();
+
+  const getInput = (data: any) => {
+    setMydata(data);
+  };
+
+  console.log(mydata);
 
   return (
-      <div>
+    <div style={{ marginTop: 15 }}>
       <Routes>
-        <Route path="/" element={<Login />} />  
-        <Route path="/register" element={<Register />} />
-        <Route path="/crudApp" element={<CrudApp />} />  
+        <Route path="/" element={<Login finaldata={mydata} />} />
+        <Route path="/register" element={<Register fn={getInput} />} />
+        <Route path="/crudApp" element={<CrudApp finaldata={mydata} />} />
       </Routes>
     </div>
   );

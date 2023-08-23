@@ -1,10 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-
-import { UsersData } from "../FakeData";
+import { UsersData } from '../FakeData';
 
 export const userSlice = createSlice({
-  name: "users",
+  name: 'users',
   initialState: { value: UsersData },
   reducers: {
     addUser: (state, action) => {
@@ -21,8 +20,8 @@ export const userSlice = createSlice({
           user.name = action.payload.name;
         }
         if (user.id === action.payload.id) {
-            user.email = action.payload.email;
-          }
+          user.email = action.payload.email;
+        }
       });
     },
   },

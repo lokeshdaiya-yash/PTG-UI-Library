@@ -1,24 +1,25 @@
 import styles from './app.module.scss';
 
-import { useState, lazy, Suspense } from 'react';
+import { useState, lazy, Suspense, useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Route, Routes, Link } from 'react-router-dom';
 
 import { addUser, deleteUser, updateUsername } from '../../Features/Users';
+import { ShellComponent } from './ShellComponent';
+import './CrudApp.css';
 
-const Header = lazy(
-  () => import('../../../../ptg-ui-module-federation-shell/src/app/Header.js')
-);
-const Footer = lazy(
-  () => import('../../../../ptg-ui-module-federation-shell/src/app/Footer.js')
-);
+const Header = lazy(() => import('HeaderApp/Header'));
+const Footer = lazy(() => import('HeaderApp/Footer'));
 
-export const CrudApp = () => {
+export const CrudApp = ({ finaldata }) => {
   const dispatch = useDispatch();
 
   const userList = useSelector((state: any) => state.users.value);
+
+  const [query, setQuery] = useState('');
+  const [users, setUsers] = useState<any>([]);
 
   const [name, setName] = useState('');
 
@@ -28,14 +29,75 @@ export const CrudApp = () => {
 
   const [newEmail, setNewEmail] = useState('');
 
+  useEffect(() => {
+    fetch('https://dummyjson.com/products')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setUsers(data.products);
+      });
+  }, []);
+
   return (
-    <div>
+    <div className="wrapper">
       <div>
         <Suspense fallback={<div>Loading Header...</div>}>
           <Header />
           <Footer />
         </Suspense>
       </div>
+      <div>
+        <h4> Hi {finaldata}</h4>
+        <div>
+          <h3
+            style={{
+              textAlign: 'center',
+              color: 'darkviolet',
+              fontFamily: 'fantasy',
+              marginTop: '10px',
+            }}
+          >
+            Product list
+          </h3>
+          <div className="container mt-3 mb-3">
+            <table className="table table-bordered table table-light table-striped table-hover">
+              <thead className="table-dark">
+                <tr>
+                  <th> ID </th>
+                  <th> Title </th>
+                  <th> Price </th>
+                  <th> Rating </th>
+                  <th> Brand </th>
+                  <th> Category </th>
+                </tr>
+              </thead>
+              <tbody>
+                {users
+                  .filter(
+                    (user) =>
+                      user.title.toLowerCase().includes(query) ||
+                      user.price.toString().includes(query) ||
+                      user.rating.toString().includes(query) ||
+                      user.brand.toLowerCase().includes(query) ||
+                      user.category.toLowerCase().includes(query)
+                  )
+                  .map((user) => (
+                    <tr key={user.id}>
+                      <td>{user.id}</td>
+                      <td>{user.title}</td>
+                      <td>{user.price}</td>
+                      <td>{user.rating}</td>
+                      <td>{user.brand}</td>
+                      <td>{user.category}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
       <div className="container mt-4">
         <div className="container mt-3 mb-3">
           <input
