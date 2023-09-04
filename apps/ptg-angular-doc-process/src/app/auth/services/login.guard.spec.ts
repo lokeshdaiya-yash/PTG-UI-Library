@@ -2,7 +2,6 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AdminComponent } from '@ptg-angular-app/admin/admin/admin.component';
 import { LoginComponent } from '../login/login.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
@@ -18,7 +17,6 @@ describe('LoginGuard', () => {
     TestBed.configureTestingModule({
       imports:[HttpClientTestingModule, RouterTestingModule.withRoutes([
         { path: 'login', component: LoginComponent },
-        { path: 'admin', component: AdminComponent },
       ]),],
       providers: [{ provide: AuthService }, AuthService],
     });
@@ -38,7 +36,7 @@ describe('LoginGuard', () => {
   });
   it('should return true if logged in', () => {
     authService.setToken(JSON.stringify(loginData))
-    let role = JSON.parse(authService.getToken()).user?.role?.type    
+    let role = JSON.parse(authService.getToken()).user?.role?.type
     expect(role).toBe('admin');
     let status = guard.canActivate(new ActivatedRouteSnapshot(), <RouterStateSnapshot>{ url: '/' });
     expect(router.navigate).toHaveBeenCalledWith(['/']);

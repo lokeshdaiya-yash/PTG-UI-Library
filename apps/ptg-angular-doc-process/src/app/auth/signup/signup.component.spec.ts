@@ -1,3 +1,4 @@
+import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, getTestBed, TestBed } from '@angular/core/testing';
@@ -5,7 +6,6 @@ import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angu
 import { Router, Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { DashboardComponent } from '@ptg-angular-app/dashboard/dashboard/dashboard.component';
 import { ButtonComponent } from '@ptg-ui/libs/ptg-angular/src/lib/ptg-ui/button/button/button.component';
 import { CalendarComponent } from '@ptg-ui/libs/ptg-angular/src/lib/ptg-ui/calendar/calendar/calendar.component';
 import { ChecksComponent } from '@ptg-ui/libs/ptg-angular/src/lib/ptg-ui/checks/checks/checks.component';
@@ -30,8 +30,8 @@ describe('SignupComponent', () => {
   const routes: Routes = [
     {path: '', component: DashboardComponent},
   ];
-  
-  
+
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports:[
@@ -59,7 +59,7 @@ describe('SignupComponent', () => {
     component = fixture.componentInstance;
     injector = getTestBed();
     httpTestingController = injector.inject(HttpTestingController);
-    
+
     router.initialNavigation();
     component.signupForm = formBuilder.group({
       username: ['', [Validators.required]],
@@ -77,7 +77,7 @@ describe('SignupComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  
+
   it('Should get controls', ()=>{
     expect(component.f).toBeTruthy;
   })
@@ -111,7 +111,7 @@ describe('SignupComponent', () => {
       return of(res.token).pipe(delay(300));
     })
     const req = httpTestingController.expectOne('http://20.114.244.229:1337/auth/local/register');
-    req.flush({ 
+    req.flush({
       jwt: 'test token',
       user: {
         role:{
@@ -140,9 +140,9 @@ describe('SignupComponent', () => {
     };
     component.userSignup(payload);
     expect(component.loading).toBe(true);
-    const service = fixture.debugElement.injector.get(AuthService);    
+    const service = fixture.debugElement.injector.get(AuthService);
     const req = httpTestingController?.expectOne('http://20.114.244.229:1337/auth/local/register');
-    req.flush({ 
+    req.flush({
       error:{
         error:'error'
       }

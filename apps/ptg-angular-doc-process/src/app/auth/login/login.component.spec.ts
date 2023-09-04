@@ -1,3 +1,4 @@
+import { DashboardComponent } from './../../dashboard/dashboard.component';
 import { ComponentFixture, getTestBed, TestBed } from '@angular/core/testing';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginComponent } from './login.component';
@@ -12,8 +13,6 @@ import { NgxLoadingModule } from 'ngx-loading';
 import { AuthService } from '../services/auth.service';
 import { delay, of } from 'rxjs';
 import { Router, Routes } from '@angular/router';
-import { DashboardComponent } from '@ptg-angular-app/dashboard/dashboard/dashboard.component';
-import { AdminComponent } from '@ptg-angular-app/admin/admin/admin.component';
 import { TemplateRef } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -25,11 +24,10 @@ fdescribe('LoginComponent', () => {
   let httpTestingController: HttpTestingController;
   let router: Router
   const routes: Routes = [
-    {path: '', component: DashboardComponent},
-    {path: 'admin', component: AdminComponent},
+    {path: 'dashboard', component: DashboardComponent},
   ];
   let template: TemplateRef<any>
-  
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports:[
@@ -119,7 +117,7 @@ fdescribe('LoginComponent', () => {
       return of(res.token).pipe(delay(300));
     })
     const req = httpTestingController.expectOne('http://20.114.244.229:1337/auth/local');
-    req.flush({ 
+    req.flush({
       jwt: 'test token',
       user: {
         role:{
@@ -151,12 +149,12 @@ fdescribe('LoginComponent', () => {
     };
     component.userLogin(payload);
     expect(component.loading).toBe(true);
-    const service = fixture.debugElement.injector.get(AuthService);    
+    const service = fixture.debugElement.injector.get(AuthService);
     jest.spyOn(service, 'logIn').mockImplementation((res:any) => {
       return of(res.token).pipe(delay(300));
     })
     const req = httpTestingController.expectOne('http://20.114.244.229:1337/auth/local');
-    req.flush({ 
+    req.flush({
       error:{
         errorMessag: 'Invalid email or password',
           loadin: false
