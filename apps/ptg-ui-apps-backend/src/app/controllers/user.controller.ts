@@ -20,7 +20,7 @@ var filePath="";
 if (process.env.NODE_ENV !== 'production') { 
      filePath = "./apps/ptg-ui-apps-backend/src/assets/"
    }else{
-     filePath = "/assets/"
+     filePath = "./assets/"
 } 
 
 
