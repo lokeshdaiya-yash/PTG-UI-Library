@@ -1,5 +1,5 @@
+import { authClass } from "../auth/services/auth.service";
 
-import { authClass } from "@ptg-react-app/auth/services/auth.service";
 export const restPost = async (url:string,data:any) => {
     const response = await fetch(url, {
       method: "POST",

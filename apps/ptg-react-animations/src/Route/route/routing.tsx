@@ -5,7 +5,6 @@
 */
 {/*--Import Components for routing using lazy loading--*/ }
 import { lazy } from "react";
-const PtgUiHome = lazy(() => import("@ptg-react-app/home/Home"))
 const Object3d = lazy(()=> import("../../app/components/object3d/Object3d"));
 const Object3d1 = lazy(()=> import("../../app/components/object3d1/Object3d1"));
 const ObjectMove = lazy(()=> import("../../app/components/objectMove/ObjectMove"));

@@ -1,5 +1,5 @@
+import { AuthService } from '../../auth/services/auth.service';
 import { getTestBed, inject, TestBed } from '@angular/core/testing';
-import { AuthService } from '@ptg-angular-app/auth/services/auth.service';
 
 import { TokenInterceptor } from './token-interceptor.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
@@ -54,7 +54,7 @@ describe('TokenInterceptor', () => {
         response = responseHandle;
       }
     };
-    
+
     authService.setToken(JSON.stringify(loginData))
     let token: any = authService.getToken()
     const request: HttpRequest<any> = new HttpRequest<any>("GET", `${API_URL}`);
