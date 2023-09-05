@@ -135,8 +135,10 @@
     "react-select": "^5.5.0",
     "react-select-event": "^5.5.0",
     "react-table": "^7.8.0",
+    "react-text": "^3.2.5",
     "regenerator-runtime": "0.13.7",
     "rxjs": "~7.5.0",
+    "socket.io": "^4.3.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

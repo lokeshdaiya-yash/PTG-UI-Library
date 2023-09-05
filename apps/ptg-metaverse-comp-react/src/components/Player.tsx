@@ -46,7 +46,7 @@ const directionOffset = ({ forward, backward, left, right }: direction) => {
 const Player = () => {
     // const [ref] = usePlane(() => ({ rotation: [-Math.PI / 2, 0, 0], ...props }))
     const { forward, backward, left, right, jump, shift, openDoor } = useInput();
-    const [ autoWalk, setAutoWalk ] = useState(false)
+    const [ autoWalk, setAutoWalk ] = useState(true)
     const time = useRef(0);
     const showroomRef = useRef();
     const reactRef:any = useRef();
@@ -232,7 +232,7 @@ const Player = () => {
                     allCalculations();
                     camera.getWorldDirection(walkDirection)
                     setCrossedDoor(true)
-                    setAutoWalk(false)
+                    setAutoWalk(true)
                     //   pos.set(0,0,0)
                     //   time.current = 0;
                     }
