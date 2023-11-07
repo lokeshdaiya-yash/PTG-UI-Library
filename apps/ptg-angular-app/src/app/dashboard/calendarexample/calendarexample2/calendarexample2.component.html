@@ -10,7 +10,7 @@
                                     <label [innerHTML]="resources.MIN_DATE"></label>
                                 </div>
                                 <div class="col-12">
-                                    <ptg-ui-calendar class="w-100" [id]="'startDate1'" formControlName='startDate'>
+                                    <ptg-ui-calendar class="w-100" [placeholder]="resources.SELECT_DATE" [id]="'startDate1'" formControlName='startDate'>
                                     </ptg-ui-calendar>
                                 </div>
                             </div>
@@ -19,7 +19,7 @@
                                     <label [innerHTML]="resources.MAX_DATE"></label>
                                 </div>
                                 <div class="col-12">
-                                    <ptg-ui-calendar [minDate]="endMinDate" class="w-100"
+                                    <ptg-ui-calendar [minDate]="endMinDate" [placeholder]="resources.SELECT_DATE" class="w-100"
                                         formControlName='endDate' [id]="'endDate1'">
                                     </ptg-ui-calendar>
                                 </div>
@@ -33,8 +33,8 @@
                             </label>
                             <div class="row mb-3">
                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                                    <ptg-ui-calendar (calendarValueChange)="onDateChange($event)"
-                                        formControlName='calendar2Value'  [id]="'maxEndDate1'"> 
+                                    <ptg-ui-calendar [placeholder]="resources.SELECT_DATE" (calendarValueChange)="onDateChange($event)"
+                                        formControlName='calendar2Value'  [id]="'maxEndDate1'">
                                     </ptg-ui-calendar>
                                     <p class="text-danger"
                                         *ngIf="f['calendar2Value'].invalid && f['calendar2Value'].touched"

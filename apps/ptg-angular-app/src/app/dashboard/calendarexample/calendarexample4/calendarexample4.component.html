@@ -8,7 +8,7 @@
                             <div class="row mb-3">
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-3">
                                     <label [innerHTML]="resources.MIN_DATE"></label>
-                                    <ptg-ui-calendar [minDate]="minDate" class="w-100" [id]="'startDate3'"
+                                    <ptg-ui-calendar [placeholder]="resources.SELECT_DATE" [minDate]="minDate" class="w-100" [id]="'startDate3'"
                                         formControlName='startDate' (calendarValueChange)="onStartDateChange($event)">
                                     </ptg-ui-calendar>
                                 </div>
@@ -20,7 +20,7 @@
                                     </label>
                                     <div class="row mb-3">
                                         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                                            <ptg-ui-calendar (calendarValueChange)="onDateChange($event)"
+                                            <ptg-ui-calendar [placeholder]="resources.SELECT_DATE" (calendarValueChange)="onDateChange($event)"
                                                 formControlName='calendar2Value' [disabled]="isDisabled" [id]="'endDate3'">
                                             </ptg-ui-calendar>
                                             <p class="text-danger"

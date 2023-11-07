@@ -10,7 +10,7 @@
                                     <label [innerHTML]="resources.MIN_DATE"></label>
                                 </div>
                                 <div class="col-12">
-                                    <ptg-ui-calendar class="w-100" [id]="'startDate'" formControlName='startDate'
+                                    <ptg-ui-calendar class="w-100" [id]="'startDate'" [placeholder]="resources.SELECT_DATE" formControlName='startDate'
                                         (calendarValueChange)="onStartDateChange($event)">
                                     </ptg-ui-calendar>
                                 </div>
@@ -20,7 +20,7 @@
                                     <label  [innerHTML]="resources.MAX_DATE"></label>
                                 </div>
                                 <div class="col-12">
-                                    <ptg-ui-calendar [minDate]="endMinDate" class="w-100"
+                                    <ptg-ui-calendar [minDate]="endMinDate" [placeholder]="resources.SELECT_DATE" class="w-100"
                                         formControlName='endDate' [id]="'endDate'" (calendarValueChange)="onEndDateChange($event)">
                                     </ptg-ui-calendar>
                                 </div>
@@ -32,7 +32,7 @@
                             </label>
                             <div class="row mb-3">
                                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                                    <ptg-ui-calendar [minDate]="startDate" [maxDate]="endDate" class=""
+                                    <ptg-ui-calendar [minDate]="startDate" [placeholder]="resources.SELECT_DATE" [maxDate]="endDate" class=""
                                         formControlName='calendar1Value' [id]="'maxEndDate'">
                                     </ptg-ui-calendar>
                                 </div>
