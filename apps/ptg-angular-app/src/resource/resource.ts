@@ -44,6 +44,7 @@ export const resources = {
   CALENDAR_EXAMPLE_4: 'Calendar Example 4',
   MIN_DATE: 'Min Date',
   MAX_DATE: 'Max Date',
+  SELECT_DATE: "Select Date",
   DATE_VALIDATOR_TEXT: 'Calender -Start & End Date Validator',
   START_DATE_TEXT: 'Start Date',
   START_DATE_VALIDATOR: 'Calender -Start Date Validator',

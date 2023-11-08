@@ -12,7 +12,7 @@
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { NavigationData } from '@ptg-angular-app/dashboard/contants';
+import { NavigationData } from '@ptg-angular-app/dashboard/constants';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';

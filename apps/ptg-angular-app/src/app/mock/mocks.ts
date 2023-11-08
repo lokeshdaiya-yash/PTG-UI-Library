@@ -2,7 +2,7 @@
  * @since March 2022
  * @author Bhanu Prakash Sharma
  * @Mock mock data;
- * @description This file for mock data 
+ * @description This file for mock data
 **/
 
 import { TreeviewItem } from "ngx-treeview";
@@ -83,7 +83,7 @@ export const CHECKBOX_ARRAY = new TreeviewItem({
     {
       text: 'Programming', value: 91, children: [{
         text: 'Frontend', value: 911, children: [
-          { text: 'Angular 1', value: 9111 },
+          { text: 'Angular JS', value: 9111 },
           { text: 'Angular 2', value: 9112 },
           { text: 'ReactJS', value: 9113}
         ]
@@ -103,7 +103,7 @@ export const CHECKBOX_ARRAY = new TreeviewItem({
     }
   ]
 });
-// table and dropdown data for download functionlity 
+// table and dropdown data for download functionlity
 export const TABLE_DATA = {
   columnsData:['SN', 'NAME', 'DESIGNATION', 'DEPARTMENT'],
   rowsData: [

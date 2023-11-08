@@ -1,7 +1,7 @@
 /**
  * @since March 2022
  * @author Bhanu Prakash Sharma
- * @used Used for navigation config 
+ * @used Used for navigation config
 **/
 
 export const NavigationData = [
@@ -13,8 +13,8 @@ export const NavigationData = [
     label: 'CALENDER',
     disabled: false,
   },
-  
-  // Charts routing 
+
+  // Charts routing
   {
     id:"2",
     label: 'CHARTS',
@@ -36,7 +36,7 @@ export const NavigationData = [
       }
     ],
   },
-  // Datatable routing 
+  // Datatable routing
   {
     id:"3",
     label: 'DATA_TABLE',
@@ -90,7 +90,7 @@ export const NavigationData = [
     id:"7",
     path: '/indeterminate-checkbox',
     icon: 'fas fa-square-check',
-    label: 'INDETETERMINATE',
+    label: 'INDETERMINATE',
     disabled: false,
   },
   {
@@ -114,7 +114,7 @@ export const NavigationData = [
     icon: 'fa-solid fa-check-to-slot',
     label: 'SELECT',
     disabled: false,
-  }, 
+  },
   {
     id:"11",
     path: '/accessibility',
@@ -122,7 +122,7 @@ export const NavigationData = [
     icon: 'fa-solid fa-keyboard',
     label: 'WEB_ACCESSIBILITY',
     disabled: false,
-  }, 
+  },
   {
     id:"12",
     path: '/multistep-form',
@@ -130,33 +130,5 @@ export const NavigationData = [
     icon: 'fa-solid fa-file',
     label: 'MULTI_FORMS',
     disabled: false,
-  }, 
-  {
-    id:"13",
-    label: 'DATA_TABLE',
-    icon: 'far fa-star',
-    pages: [
-      {
-        label!: 'AG_GRID',
-        path: '/datatable/ag-grid',
-        id: 'ag-grid',
-        disabled: false,
-        parentId:"13"
-      },
-      {
-        label!: 'NGX_DATATABLE',
-        path: '/datatable/ngx-datatable',
-        id: 'ngx-table',
-        disabled: false,
-        parentId:"13"
-      },
-      {
-        label!: 'MATERIAL',
-        path: '/datatable/material-datatable',
-        id: 'material',
-        disabled:false,
-        parentId:"13"
-      },
-    ],
-  },
+  }
 ];

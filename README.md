@@ -1,5 +1,3 @@
-
-
 # PtgUiLibrary
 
 This project was generated using [Nx](https://nx.dev).
@@ -57,7 +55,15 @@ Libraries are shareable across libraries and applications. They can be imported 
 
 ## Development server
 
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+#### Install the nx and node_modules by following commands:
+
+```shell
+* npm install -g nx
+* npm install
+```
+
+Run `npm start` or `npm run start:ptg-angular` for a dev server. Navigate to http://localhost:4200/.
+The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -86,11 +92,6 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-
-
-
-
 
 ## ☁ Nx Cloud
 
