@@ -60,6 +60,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input'
 import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-ptg-ui-ng.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -117,7 +118,8 @@ import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-p
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    DemoPtgUiNgModule
+    DemoPtgUiNgModule,
+    MatSnackBarModule
   ],
 })
 export class DashboardModule {}

@@ -43,6 +43,23 @@
                     </div>
                 </form>
             </div>
+            <accordion class="pb-2">
+                <accordion-group
+                    heading="Show Code"
+                >
+                    <i [cdkCopyToClipboard]="htmlCode" title="Copy HTML" (click)="openSnackBar()" class="fa-regular fa-copy"></i>
+                    <strong>HTML</strong>
+                    <pre><code>
+                        {{htmlCode}}
+                    </code></pre>
+
+                    <strong>Component</strong>
+                    <pre><code>
+                        {{ tsCode }}
+                    </code></pre>
+                </accordion-group>
+            </accordion>
         </div>
     </section>
 </div>
+
