@@ -180,7 +180,7 @@ export default function ForgotPassword() {
                         {t('FORGOT_PASSWORD')}
                       </PtgUiButton>
                     </div>
-                    <div className="col-3 col-lg-4 col-md-4 col-sm-3 col-xs-3">
+                    <div className="col-3 col-lg-4 col-md-4 col-sm-3 col-xs-3 text-md-end">
                       <PtgUiButton
                         type="submit"
                         variant="secondary"
