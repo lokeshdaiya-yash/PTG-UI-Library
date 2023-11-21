@@ -4,7 +4,7 @@
  * @desc Indeterminate checkbox example using indeterminate checkbox reusable component
  */
 
-import './indeterminate-checkbox.module.scss';
+import  style from './indeterminate-checkbox.module.scss';
 import { CHECKBOX_DATA } from '../../mock/mocks';
 import { PtgUiIndeterminateCheckbox } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
@@ -22,8 +22,10 @@ export function IndeterminateCheckbox(props: IndeterminateCheckboxProps) {
       </div>
       <div className="row">
         <div className="col-10 mb-3">
+          <div className={style['checkbox-list']}>
           {/*-----Usable component PtgUiIndeterminateCheckbox for Indeterminate Checkbox-----*/}
           <PtgUiIndeterminateCheckbox items={CHECKBOX_DATA} />
+        </div>
         </div>
       </div>
     </section>
