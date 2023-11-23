@@ -1,8 +1,28 @@
 <div class="wrapper">
     <section>
         <div class="row">
-            <div class="col-12 mb-3">
+            <div class="col-12 mb-3 parent-block">
                 <h4 [innerHTML]="'CALENDAR_EXAMPLE_1' | translate"></h4>
+                <div [title]="isCollapsed ? 'Hide Code' : 'View Code'" class="icon-block">
+                    <i class="fa-solid fa-code fa-lg" (click)="isCollapsed = !isCollapsed"
+                    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic"></i>
+                </div>
+                <div id="collapseBasic" [collapse]="!isCollapsed">
+                    <tabset>
+                        <tab heading="HTML">
+                            <i [cdkCopyToClipboard]="htmlCode" title="Copy HTML" placement="bottom" (click)="openSnackBar()" class="fa-regular fa-copy fa-lg"></i>
+                            <pre><code>
+                                {{htmlCode}}
+                            </code></pre>
+                        </tab>
+                        <tab heading="TS">
+                            <i [cdkCopyToClipboard]="tsCode" title="Copy TS" (click)="openSnackBar()" class="fa-regular fa-copy"></i>
+                            <pre><code>
+                                {{ tsCode }}
+                            </code></pre>
+                        </tab>
+                    </tabset>
+                </div>
             </div>
         </div>
         <div class="row">

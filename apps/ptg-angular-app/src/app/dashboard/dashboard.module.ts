@@ -30,6 +30,7 @@ import { ChartComponent } from './charts/chart-layout/chart.component';
 import { D3ChartsComponent } from './charts/d3-charts/d3-charts.component';
 import { HighChartsComponent } from './charts/high-charts/high-charts.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { RoleBasedDirectiveComponent } from './role-based-directive/role-based-directive.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { WebaccessibilityComponent } from './webaccessibility/webaccessibility.component';
@@ -109,6 +110,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DragDropModule,
     MatCheckboxModule,
     AccordionModule.forRoot(),
+    CollapseModule.forRoot(),
     MatTableModule,
     NgxDatatableModule,
     TranslateModule,
