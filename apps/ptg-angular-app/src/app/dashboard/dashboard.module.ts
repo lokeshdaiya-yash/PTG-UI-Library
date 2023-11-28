@@ -43,25 +43,27 @@ import { Pipeexamples1Component } from './pipeexamples/pipeexamples1/pipeexample
 import { Pipeexamples2Component } from './pipeexamples/pipeexamples2/pipeexamples2.component';
 import { Pipeexamples3Component } from './pipeexamples/pipeexamples3/pipeexamples3.component';
 import { CheckboxExamplesComponent } from './checkbox-examples/checkbox-examples.component';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DownloadExampleComponent } from './download-example/download-example.component';
 import { GridlayoutexampleComponent } from './gridlayoutexample/gridlayoutexample.component';
 import { ActionButtonComponent } from './datatables/action-button/action-button.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { MatTableModule } from '@angular/material/table';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { TranslateModule } from '@ngx-translate/core';
 import { AccordianExampleComponent } from './accordian-example/accordian-example.component';
 import { MultistepFormLayoutComponent } from './multistep-form/multistep-form-layout/multistep-form-layout.component';
+
+import { ToggleCodeComponent } from './toggle-code/toggle-code.component';
+// Material Module
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatIconModule } from '@angular/material/icon';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatButtonModule } from '@angular/material/button';
-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input'
-import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-ptg-ui-ng.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-ptg-ui-ng.module';
 
 @NgModule({
   declarations: [
@@ -97,6 +99,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ActionButtonComponent,
     AccordianExampleComponent,
     MultistepFormLayoutComponent,
+    ToggleCodeComponent
   ],
 
   bootstrap: [MultistepFormLayoutComponent],
