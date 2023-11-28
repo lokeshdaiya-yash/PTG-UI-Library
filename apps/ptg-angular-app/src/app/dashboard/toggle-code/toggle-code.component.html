@@ -5,14 +5,14 @@
 <div id="collapseBasic" [collapse]="!isCollapsed">
   <tabset>
     <tab heading="HTML">
-      <i [cdkCopyToClipboard]="htmlCode" title="Copy HTML" placement="bottom" class="fa-regular fa-copy fa-lg"></i>
-      <pre><code>
+      <i [cdkCopyToClipboard]="htmlCode" title="Copy HTML" placement="bottom" class="copy-icon fa-regular fa-copy fa-lg"></i>
+      <pre><code #htmlCodeBlock>
         {{ htmlCode }}
       </code></pre>
     </tab>
     <tab heading="TypeScript">
-      <i [cdkCopyToClipboard]="tsCode" title="Copy TS" class="fa-regular fa-copy"></i>
-      <pre><code>
+      <i [cdkCopyToClipboard]="tsCode" title="Copy TS" class="copy-icon fa-regular fa-copy fa-lg"></i>
+      <pre><code #typeScriptCode>
         {{ tsCode }}
       </code></pre>
     </tab>

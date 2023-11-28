@@ -25,8 +25,8 @@ export class CalendarexampleComponent implements AfterViewInit {
   resources=resources;
   isCollapsed = false;
   htmlCode = `
-    <ptg-ui-calendar [minDate]="minDate" [maxDate]="endDate" placeholder='MM-DD-YYYY' className='' id=''
-                     [disabled]='false' [readOnly]="false" (calendarValueChange)="onDateChange($event)">
+    <ptg-ui-calendar [minDate]="minDate" [maxDate]="endDate" placeholder='MM-DD-YYYY' [disabled]='false'
+                     [readOnly]="false" (calendarValueChange)="onDateChange($event)">
     </ptg-ui-calendar>`;
 
   tsCode =
