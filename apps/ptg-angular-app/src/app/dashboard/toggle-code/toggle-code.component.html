@@ -6,13 +6,13 @@
   <tabset>
     <tab heading="HTML">
       <i [cdkCopyToClipboard]="htmlCode" title="Copy HTML" placement="bottom" class="copy-icon fa-regular fa-copy fa-lg"></i>
-      <pre><code #htmlCodeBlock>
+      <pre><code ptgUiHighlight>
         {{ htmlCode }}
       </code></pre>
     </tab>
     <tab heading="TypeScript">
       <i [cdkCopyToClipboard]="tsCode" title="Copy TS" class="copy-icon fa-regular fa-copy fa-lg"></i>
-      <pre><code #typeScriptCode>
+      <pre><code ptgUiHighlight>
         {{ tsCode }}
       </code></pre>
     </tab>
