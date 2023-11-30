@@ -11,20 +11,21 @@
  * @description This component for calendarexample1
 **/
 
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { calendarValidator } from '@ptg-angular-app/common/utils/validators';
 import { resources } from "../../../../resource/resource";
+
 @Component({
   selector: 'ptg-ui-calendarexample1',
   templateUrl: './calendarexample1.component.html',
   styleUrls: ['./calendarexample1.component.scss']
 })
-export class Calendarexample1Component implements OnInit {
+export class Calendarexample1Component implements OnInit, AfterViewInit {
   calendarForm!: FormGroup;
-  startDate!:any;
-  endDate!:any;
-  endMinDate!:any;
+  startDate!: Date;
+  endDate!: Date;
+  endMinDate = new Date();
   resources=resources
   submitted = false
 
@@ -49,7 +50,7 @@ export class Calendarexample1Component implements OnInit {
     },
     );
     this.cdr.detectChanges()
-    
+
   }
 
   ngAfterViewInit(){
@@ -59,9 +60,9 @@ export class Calendarexample1Component implements OnInit {
   onStartDateChange(event:any){
     this.startDate = event;
     this.endMinDate = event;
-    
+
     if(this.endDateDetail?.value < event){
-      this.endDateDetail?.reset();      
+      this.endDateDetail?.reset();
     }
     const calendar1Control = this.f['calendar1Value'];
     if(calendar1Control?.value < event){
@@ -72,7 +73,7 @@ export class Calendarexample1Component implements OnInit {
   onEndDateChange(event:any){
     this.endDate = event;
     const calendar1Control = this.f['calendar1Value'];
-    
+
     if(calendar1Control?.value > event){
       calendar1Control?.reset();
     }

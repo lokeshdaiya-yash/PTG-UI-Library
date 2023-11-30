@@ -11,7 +11,7 @@
 
 import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 import { resources } from "../../../resource/resource";
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'ptg-ui-calendarexample',
@@ -23,10 +23,39 @@ import { resources } from "../../../resource/resource";
 })
 export class CalendarexampleComponent implements AfterViewInit {
   resources=resources;
-  constructor(private cdr: ChangeDetectorRef){
+  isCollapsed = false;
+  htmlCode = `
+    <ptg-ui-calendar [minDate]="minDate" [maxDate]="endDate" placeholder='MM-DD-YYYY' [disabled]='false'
+                     [readOnly]="false" (calendarValueChange)="onDateChange($event)">
+    </ptg-ui-calendar>`;
+
+  tsCode =
+    `
+    import { Component } from '@angular/core';
+
+    @Component({
+      selector: 'demo-calendar-component',
+      templateUrl: './demo-calendar.component.html'
+    })
+    export class DemoCalendarComponent {
+      minDate = new Date();
+      maxDate = new Date();
+
+      constructor() {
+        this.maxDate.setDate(this.minDate.getDate() + 30);
+      }
+    }`
+  constructor(private cdr: ChangeDetectorRef, private _snackbar: MatSnackBar){
   }
 
   ngAfterViewInit(){
     this.cdr.detectChanges();
+  }
+
+  openSnackBar() {
+    this._snackbar.open('Code Copied', '', {
+      verticalPosition: 'bottom',
+      horizontalPosition: 'center'
+    })
   }
 }
