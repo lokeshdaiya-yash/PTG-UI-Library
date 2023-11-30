@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class ToggleCodeComponent {
   @Input() htmlCode = '';
   @Input() tsCode = '';
+  @Input() cssCode = '';
 
   isCollapsed = false;
 }

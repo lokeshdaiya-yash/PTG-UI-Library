@@ -4,16 +4,22 @@
 </div>
 <div id="collapseBasic" [collapse]="!isCollapsed">
   <tabset>
-    <tab heading="HTML">
+    <tab heading="HTML" *ngIf="htmlCode">
       <i [cdkCopyToClipboard]="htmlCode" title="Copy HTML" placement="bottom" class="copy-icon fa-regular fa-copy fa-lg"></i>
       <pre><code ptgUiHighlight>
         {{ htmlCode }}
       </code></pre>
     </tab>
-    <tab heading="TypeScript">
+    <tab heading="TypeScript" *ngIf="tsCode">
       <i [cdkCopyToClipboard]="tsCode" title="Copy TS" class="copy-icon fa-regular fa-copy fa-lg"></i>
       <pre><code ptgUiHighlight>
         {{ tsCode }}
+      </code></pre>
+    </tab>
+    <tab heading="CSS" *ngIf="cssCode">
+      <i [cdkCopyToClipboard]="cssCode" title="Copy CSS" class="copy-icon fa-regular fa-copy fa-lg"></i>
+      <pre><code ptgUiHighlight>
+        {{ cssCode }}
       </code></pre>
     </tab>
   </tabset>
