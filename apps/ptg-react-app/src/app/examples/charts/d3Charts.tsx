@@ -153,6 +153,59 @@ export function D3Charts(props: D3ChartsProps) {
     <div className="d3_bar">
     </div>
   `
+  const cssCodeBarChart = `
+  div#layout {
+    text-align: center;
+  }
+  .d3_container {
+    width: 1000px;
+    height: 600px;
+    margin: auto;
+  }
+  .bar {
+    fill: #80cbc4;
+  }
+  text {
+    font-size: 0.75rem;
+    fill: rgb(7, 0, 0);
+  }
+  .d3_line path {
+    stroke: gray;
+  }
+  line {
+    stroke: gray;
+  }
+  line#limit {
+    stroke: #FED966;
+    stroke-width: 3;
+    stroke-dasharray: 3 6;
+  }
+  .grid path {
+    stroke-width: 0;
+  }
+  .grid .tick line {
+    stroke: #9FAAAE;
+    stroke-opacity: 0.3;
+  }
+  text.divergence {
+    font-size: 0.625rem;
+    fill: #2F4A6D;
+  }
+  text.value {
+    font-size: 0.625rem;
+  }
+  text.title {
+    font-size: 1.375rem;
+    font-weight: 600;
+  }
+  text.label {
+    font-size: 0.875;
+    font-weight: 400;
+  }
+  text.source {
+    font-size: 0.625rem;
+  }
+  `
 
   const componentCodePieChart = `
 
@@ -261,6 +314,7 @@ export default PtgUiD3Pie;`
   <div className="d3_pie">
   </div>
   `
+
   const componentCodeLineChart = `
 
   import './line.scss';
@@ -349,7 +403,7 @@ export default PtgUiD3Pie;`
   const htmlCodeLineChart = `
   <div className="d3_line"></div>`
 
- 
+
   return (
     <Container fluid>
         <Row>
@@ -364,7 +418,7 @@ export default PtgUiD3Pie;`
           {!barChartCode ? (
            <PtgUiD3Bar {...d3BarData} />
           ): (
-           <ShowCodeComponent componentCode={componentCodeBarChart} htmlCode={htmlCodeBarChart} />
+           <ShowCodeComponent isCssCode={true} componentCode={componentCodeBarChart} htmlCode={htmlCodeBarChart} cssCode={cssCodeBarChart} />
           )}
         </Row>
 
@@ -379,7 +433,7 @@ export default PtgUiD3Pie;`
         {!pieChartCode ? (
           <PtgUiD3Pie {...d3PieData} />
         ): (
-          <ShowCodeComponent componentCode={componentCodePieChart} htmlCode={htmlCodePieChart} />
+          <ShowCodeComponent isCssCode={false} componentCode={componentCodePieChart} htmlCode={htmlCodePieChart} />
         )}
         
         </Row>
@@ -394,7 +448,7 @@ export default PtgUiD3Pie;`
         {!lineChartCode ? (
           <PtgUiD3Line {...d3LineData} />
         ): (
-          <ShowCodeComponent componentCode={componentCodeLineChart} htmlCode={htmlCodeLineChart}/> 
+          <ShowCodeComponent isCssCode={false} componentCode={componentCodeLineChart} htmlCode={htmlCodeLineChart} /> 
         )}
          
         </Row>

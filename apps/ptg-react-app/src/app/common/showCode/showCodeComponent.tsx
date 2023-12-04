@@ -6,7 +6,9 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 export interface ShowCodeComponentProps {
     componentCode : string,
-    htmlCode : string
+    htmlCode : string,
+    cssCode? : string,
+    isCssCode : boolean
 }
 
 export function ShowCodeComponent(props: ShowCodeComponentProps) {
@@ -30,23 +32,41 @@ export function ShowCodeComponent(props: ShowCodeComponentProps) {
             </div>
             </div>
           </Tab>
-  
+          
           <Tab eventKey="example2" title="HTML">
-          <div className='row'>
-          <div className="col-lg-11">
-            <SyntaxHighlighter language="javascript" className="syntax-highlighter">
-              {props.htmlCode}
-            </SyntaxHighlighter>
-          </div>
-          <div className="col-lg-1 mt-5">
-            <CopyToClipboard text={props.htmlCode} className="copy-to-clipboard">
-            <ContentCopyIcon fontSize="small"/>
-            </CopyToClipboard>
-          </div>
-          </div>
+            <div className='row'>
+            <div className="col-lg-11">
+              <SyntaxHighlighter language="javascript" className="syntax-highlighter">
+                {props.htmlCode}
+              </SyntaxHighlighter>
+            </div>
+            <div className="col-lg-1 mt-5">
+              <CopyToClipboard text={props.htmlCode} className="copy-to-clipboard">
+              <ContentCopyIcon fontSize="small"/>
+              </CopyToClipboard>
+            </div>
+            </div>
           </Tab>
-  
-          </Tabs>
+
+          {props.isCssCode && 
+            <Tab eventKey="example3" title="CSS">
+            <div className='row'>
+            <div className="col-lg-11">
+              <SyntaxHighlighter language="javascript" className="syntax-highlighter">
+                {props.cssCode}
+              </SyntaxHighlighter>
+            </div>
+            <div className="col-lg-1 mt-5">
+              <CopyToClipboard text={props.cssCode} className="copy-to-clipboard">
+              <ContentCopyIcon fontSize="small"/>
+              </CopyToClipboard>
+            </div>
+            </div>
+            </Tab>
+          }
+      
+        
+        </Tabs>
         </div>
       </div>
     </section>

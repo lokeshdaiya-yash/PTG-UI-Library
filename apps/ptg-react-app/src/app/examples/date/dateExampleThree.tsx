@@ -130,7 +130,7 @@ export function ExampleThree(props: ExampleThreeProps) {
             </div>
           </div>
       ) : (
-          <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
+          <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} isCssCode={false} />
       )}
   
       </div>
