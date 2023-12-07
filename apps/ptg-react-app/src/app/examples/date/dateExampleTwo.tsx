@@ -191,7 +191,7 @@ export function ExampleTwo(props: ExampleTwoProps) {
            </div>
          </div>
         ) : (
-          <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} isCssCode={false} />
+          <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
         )}
         </div>
       </section>

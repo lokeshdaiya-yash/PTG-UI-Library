@@ -172,7 +172,7 @@ export function ExampleOne(props: ExampleOneProps) {
                </div>
              </div>
         ): (
-            <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} isCssCode={false}/>
+            <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
         )}
      
       </div>
