@@ -8,6 +8,7 @@ import {
   PtgUiRadio,
   PtgUiDatePicker,
   PtgUiTextArea,
+  PtguseFetch
 } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 
@@ -27,6 +28,71 @@ export const StepTwo = ({
   handleBlur,
 }: any) => {
   const [isDisabled, setIsDisabled] = useState(true);
+  const [genders, setGenders] = useState([])
+  const [contriesList, setContriesList] = useState([])
+  const [stateList, setStateList] = useState([])
+  const [salutationList, setSalutationList] = useState([])
+  const {data:apiData} = PtguseFetch('http://localhost:1337/api/gender-lists') as any
+const fetchApi = ()=>{
+  const data = apiData.map(item=>{
+    return{
+    label:item.attributes.name,
+    value: item.attributes.value,
+    name:'Gender',
+
+    }
+   })
+   setGenders(data)
+  }
+useEffect(()=>{
+  fetchApi()
+},[apiData])
+  const {data:contriesListData} = PtguseFetch('http://localhost:1337/api/country-lists') as any
+const fetchApicontriesListData = ()=>{
+  const data = contriesListData.map(item=>{
+    return{
+    label:item.attributes.label,
+    value: item.attributes.value,
+    name:item.attributes.name,
+
+    }
+   })
+   setContriesList(data)
+  }
+useEffect(()=>{
+  fetchApicontriesListData()
+},[contriesListData])
+
+const {data:stateListData} = PtguseFetch('http://localhost:1337/api/state-lists') as any
+const fetchApistateListData = ()=>{
+  const data = stateListData.map(item=>{
+    return{
+    label:item.attributes.label,
+    value: item.attributes.value,
+    name:item.attributes.name,
+
+    }
+   })
+   setStateList(data)
+  }
+useEffect(()=>{
+  fetchApistateListData()
+},[stateListData])
+const {data:apisalutationListData} = PtguseFetch('http://localhost:1337/api/salutation-lists') as any
+const fetchApisalutationListData = ()=>{
+  const data = apisalutationListData.map(item=>{
+    return{
+    label:item.attributes.label,
+    value: item.attributes.value,
+    name:item.attributes.name,
+
+    }
+   })
+   setSalutationList(data)
+  }
+useEffect(()=>{
+  fetchApisalutationListData()
+},[apisalutationListData])
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -55,7 +121,7 @@ export const StepTwo = ({
           <label htmlFor="inputGreeting">{t('GREETING')} </label>
           <PtgUiSelect
             name="Greeting"
-            list={SALUTATION_LIST}
+            list={salutationList}
             id="inputGreeting"
             data-testid="city"
             className={`sel-placeholder w-100 bg_0 ${
@@ -71,7 +137,7 @@ export const StepTwo = ({
           <label htmlFor="inputGender">{t('GENDER')} </label>
           <PtgUiSelect
             name="Gender"
-            list={GENDER_LIST_SELECT}
+            list={genders}
             id="inputGender"
             data-testid="city"
             className={`sel-placeholder w-100 bg_0 ${
@@ -156,7 +222,7 @@ export const StepTwo = ({
           <label htmlFor="inputState">{t('STATE')} </label>
           <PtgUiSelect
             name="state"
-            list={STATE_LIST}
+            list={stateList}
             id="inputState"
             data-testid="city"
             className={`sel-placeholder w-100 bg_0 ${
@@ -186,7 +252,7 @@ export const StepTwo = ({
         <label htmlFor="inputContry">{t('COUNTRY')} </label>
         <PtgUiSelect
           name="country"
-          list={COUNTRY_LIST}
+          list={contriesList}
           id="inputContry"
           data-testid="city"
           className={`sel-placeholder w-100 bg_0 ${

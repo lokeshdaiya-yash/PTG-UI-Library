@@ -40,7 +40,6 @@ function CheckboxList  ({items,getStateForId,idsToRender = [],indentLevel = 0,on
       />
     );
   };
-
   return (
     <ul className="list" style={{ paddingLeft: indentLevel * 20 }}>
       {idsToRender.map((id) => {
@@ -53,8 +52,10 @@ function CheckboxList  ({items,getStateForId,idsToRender = [],indentLevel = 0,on
                 onClick={() => onClick(item.id)}
                 isChecked={checkboxState === CheckboxState.CHECKED}
                 indeterminate={checkboxState === CheckboxState.INDETERMINATE}
+                labelId={item.name+"_"+item.id}
+                
               />
-              <label className="align-text-bottom">{item.name}</label>
+              {/* <label className="align-text-bottom">{item.name}</label> */}
             </li>
             {getChildNodes(item.id)}
           </React.Fragment>

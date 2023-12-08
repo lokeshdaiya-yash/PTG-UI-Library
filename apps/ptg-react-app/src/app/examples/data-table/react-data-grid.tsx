@@ -6,7 +6,7 @@
 */
 import {useEffect, useState} from 'react';
 import './data-table.scss';
-import { PtgUiReactDataGrid } from '@ptg-ui/react';
+import { PtgUiReactDataGrid , PtguseFetch} from '@ptg-ui/react';
 import { PtgUiButton } from '@ptg-ui/react';
 import { GRID_Data } from '@ptg-react-app/mock/grid-data';
 import { useTranslation } from 'react-i18next';
@@ -21,14 +21,35 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
       alert("Button Clicked")
   }
   const [gridData, setGridData] = useState([]);
-  useEffect(() => {
-    authClass
-      .gridData()
-      .then((res: any) => {
-        setGridData(res.data);
-      })
-      .catch((err: any) => console.log(err));
-  }, []);
+  const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/table-lists') as any
+  const fetchApi = ()=>{
+    const data = apiData.map(item=>{
+      return{
+        id:item.id,
+        age: item.attributes.age,
+        athlete:item.attributes.athlete,
+        country:item.attributes.country,
+      date:item.attributes.date,
+      gold:item.attributes.gold,
+      silver:item.attributes.silver,
+      sport:item.attributes.sport,
+      total:item.attributes.total,
+      year:item.attributes.year,
+      }
+     })
+     setGridData(data)
+    }
+  useEffect(()=>{
+    fetchApi()
+  },[apiData])
+  // useEffect(() => {
+  //   authClass
+  //     .gridData()
+  //     .then((res: any) => {
+  //       setGridData(res.data);
+  //     })
+  //     .catch((err: any) => console.log(err));
+  // }, []);
   const columns = [
     { name: 'athlete', header: 'Athlete', width: 200 },
     { name: 'age', header: 'Age',  width: 100 },

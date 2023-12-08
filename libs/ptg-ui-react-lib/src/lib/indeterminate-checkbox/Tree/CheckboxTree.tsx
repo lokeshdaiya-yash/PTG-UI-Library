@@ -4,7 +4,7 @@
  * @uses Reusable Component for Indeterminate Checkbox
  */
 
-import { useCallback, useState,useLayoutEffect } from "react";
+import { useCallback, useState,useLayoutEffect, useEffect } from "react";
 import CheckboxList from "../CheckboxList/CheckboxList";
 import { updateItemStates } from "./updateItemStates";
 
@@ -24,27 +24,32 @@ export interface PtgUiIndeterminateCheckboxProps {
 }
 
 export function PtgUiIndeterminateCheckbox({items}: PtgUiIndeterminateCheckboxProps){
-  const defaultItemStates: ItemState[] = items.map((i:any) => ({
-    id: i.id,
-    state: CheckboxState.UNCHECKED,
-  }));
-  const [itemStates, setItemStates] = useState<ItemState[]>(defaultItemStates);
+  // const defaultItemStates: ItemState[] = items.map((i:any) => ({
+  //   id: i.id,
+  //   state: CheckboxState.UNCHECKED,
+  // }));
+  const [itemStates, setItemStates] = useState<ItemState[]>([]);
   const getStateForId = useCallback(
     (id: number) => {
       const tempItem:any= itemStates.find((i:any) => i.id === id);
-      return tempItem.state;
+      return tempItem?.state;
     },
     [itemStates]
   );
   const clickHandler = useCallback((id: any) => {
-    //console.log('itemStates:',itemStates);
     setItemStates(updateItemStates(itemStates, items, id))
-  
   }, [itemStates]);
 
-  useLayoutEffect(()=>{
+  useEffect(()=>{
+    const defaultItemStates: ItemState[] = items.map((i:any) => ({
+      id: i.id,
+      state: CheckboxState.UNCHECKED,
+    }));
+    setItemStates(defaultItemStates)
+  },[items])
 
-    console.log('itemStates:',itemStates);
+
+  useLayoutEffect(()=>{
   },[itemStates]);
 
   return <CheckboxList items={items} onClick={clickHandler} getStateForId={getStateForId} />;
