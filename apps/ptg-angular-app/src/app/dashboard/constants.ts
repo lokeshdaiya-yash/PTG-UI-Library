@@ -7,6 +7,14 @@
 export const NavigationData = [
   {
     id:"1",
+    path: '/accordian-example',
+    // icon: 'home-icon',
+    icon: 'fa-solid fa-chevron-down',
+    label: 'ACCORDIAN',
+    disabled: false,
+  },
+  {
+    id:"2",
     path: '/calendar',
     // icon: 'home-icon',
     icon: 'fa-solid fa-calendar',
@@ -16,7 +24,7 @@ export const NavigationData = [
 
   // Charts routing
   {
-    id:"2",
+    id:"3",
     label: 'CHARTS',
     icon: 'fas fa-chart-line',
     pages: [
@@ -25,20 +33,20 @@ export const NavigationData = [
         path: '/charts/d3-charts',
         id: 'd3-chart',
         disabled: false,
-        parentId:"2"
+        parentId:"3"
       },
       {
         label!: 'HIGH_CHARTS',
         path: '/charts/high-charts',
         id: 'high-chart',
         disabled: false,
-        parentId:"2"
+        parentId:"3"
       }
     ],
   },
   // Datatable routing
   {
-    id:"3",
+    id:"4",
     label: 'DATA_TABLE',
     icon: 'far fa-star',
     pages: [
@@ -47,68 +55,68 @@ export const NavigationData = [
         path: '/datatable/ag-grid',
         id: 'ag-grid',
         disabled: false,
-        parentId:"3"
+        parentId:"4"
       },
       {
         label!: 'NGX_DATATABLE',
         path: '/datatable/ngx-datatable',
         id: 'ngx-table',
         disabled: false,
-        parentId:"3"
+        parentId:"4"
       },
       {
         label!: 'MATERIAL',
         path: '/datatable/material-datatable',
         id: 'material',
         disabled:false,
-        parentId:"3"
+        parentId:"4"
       },
     ],
   },
   {
-    id:"4",
+    id:"5",
     path: '/draganddrop',
     icon: 'fas fa-grip-vertical',
     label: 'DRAG_AND_DROP',
     disabled: false,
   },
   {
-    id:"5",
+    id:"6",
     path: '/download',
     icon: 'fas fa-download',
     label: 'DOWNLOAD',
     disabled: false,
   },
   {
-    id:"6",
+    id:"7",
     path: '/grid-layout',
     icon: 'fa-solid fa-border-all',
     label: 'GRID_LAYOUT',
     disabled: false,
   },
   {
-    id:"7",
+    id:"8",
     path: '/indeterminate-checkbox',
     icon: 'fas fa-square-check',
     label: 'INDETERMINATE',
     disabled: false,
   },
   {
-    id:"8",
+    id:"9",
     path: '/pipes',
     icon: 'fa-solid fa-p',
     label: 'PIPES',
     disabled: false,
   },
   {
-    id:"9",
+    id:"10",
     path: '/role',
     icon: 'fas fa-lock',
     label: 'ROLE_BASED',
     disabled: false,
   },
   {
-    id:"10",
+    id:"11",
     path: '/select',
     // icon: 'home-icon',
     icon: 'fa-solid fa-check-to-slot',
@@ -116,7 +124,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id:"11",
+    id:"12",
     path: '/accessibility',
     // icon: 'home-icon',
     icon: 'fa-solid fa-keyboard',
@@ -124,7 +132,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id:"12",
+    id:"13",
     path: '/multistep-form',
     // icon: 'home-icon',
     icon: 'fa-solid fa-file',

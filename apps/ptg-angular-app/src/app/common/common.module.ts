@@ -27,8 +27,7 @@ import { PtgPipesModule } from './pipes/pipes.module';
 import { DirectiveModule } from './directive/directive.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { DemoPtgUiNgModule } from './demo-ptg-ui-ng/demo-ptg-ui-ng.module';
-
-
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -50,7 +49,8 @@ import { DemoPtgUiNgModule } from './demo-ptg-ui-ng/demo-ptg-ui-ng.module';
     PtgPipesModule,
     DirectiveModule,
     TranslateModule,
-    DemoPtgUiNgModule
+    DemoPtgUiNgModule,
+    ClipboardModule
   ],
   exports: [
     HeaderComponent,
@@ -61,7 +61,8 @@ import { DemoPtgUiNgModule } from './demo-ptg-ui-ng/demo-ptg-ui-ng.module';
     ShowForRolesDirective,
     ShowForLoginUsersDirective,
     PtgPipesModule,
-    DirectiveModule
+    DirectiveModule,
+    ClipboardModule
   ],
   providers: [
     {
