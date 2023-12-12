@@ -7,7 +7,7 @@
 
 import './date.scss';
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import DateExampleOne from './dateExampleOne';
 import DateExampleTwo from './dateExampleTwo';
 import DateExampleThree from './dateExampleThree';

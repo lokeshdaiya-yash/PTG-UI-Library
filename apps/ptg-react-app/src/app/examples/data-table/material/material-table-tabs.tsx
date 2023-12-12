@@ -9,7 +9,7 @@ import { Tabs, Tab } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import PtgUiMaterialTableExample from './material-table';
 import PtgUiMaterialTableButtonExample from './material-table-button';
-import CodeIcon from '@mui/icons-material/Code';
+
 
 
 /* eslint-disable-next-line */

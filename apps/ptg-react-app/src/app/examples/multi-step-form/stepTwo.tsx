@@ -10,7 +10,7 @@ import {
   PtgUiTextArea,
 } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
-import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+
 
 import {
   COUNTRY_LIST,
