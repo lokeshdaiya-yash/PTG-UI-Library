@@ -13,6 +13,7 @@ import DateExampleTwo from './dateExampleTwo';
 import DateExampleThree from './dateExampleThree';
 import DateExampleFour from './dateExampleFour';
 import CodeIcon from '@mui/icons-material/Code';
+import Example from '@ptg-react-app/common/tooltip/example';
 
 
 export interface PtgUiDateExampleProps { 
@@ -65,6 +66,7 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
         <div className="row">
           <div className="col-9 mb-3">
             <h4>{t('CALENDAR_EXAMPLE_1')}</h4>
+            <Example/>
           </div>
           <div className='col-3 mr-5'>
             <CodeIcon onClick={() =>ShowExampleCode()} fontSize="medium" className='show-code-icon'></CodeIcon>
