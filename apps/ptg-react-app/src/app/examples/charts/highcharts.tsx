@@ -5,11 +5,11 @@
  * @uses Example using 3D highcharts as reusable component.
  * 
 */
-import { useState } from 'react';
+import {useState, useEffect} from 'react'
 import PtgUiHCLine from './highcharts/line/line';
 import PtgUiHCLineBar from './highcharts/linebar/linebar';
 import PtgUiHCSColumn from './highcharts/stackedColumn/stackedColumn';
-import { PtgUiColumn, PtgUiPie, PtgUi3dLine, PtgUi3dColumn, PtgUi3dPie } from '@ptg-ui/react';
+import { PtgUiColumn, PtgUiPie, PtgUi3dLine, PtgUi3dColumn, PtgUi3dPie, PtguseFetch } from '@ptg-ui/react';
 import { highchartsLineData, highchartsPieData, highchartsColumnData, line3DOptions, column3DOptions, pie3dData } from '@ptg-react-app/mock/mocks';
 import { Tabs, Tab } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
@@ -19,9 +19,16 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 
 /* eslint-disable-next-line */
 export interface HighchartsProps { }
-
+export interface PtgUiD3BarProps {
+  data?:[],
+  series?:[]
+}
 export function Highcharts(props: HighchartsProps) {
   const { t } = useTranslation();
+
+  const [highchartsPieDataList, setHighchartsPieDataList] = useState<PtgUiD3BarProps>()
+  const [highchartsLineDataList, setHighchartsLineDataList] = useState<PtgUiD3BarProps>(highchartsLineData)
+  const {data:apiDataPieChart} = PtguseFetch('http://localhost:1337/api/higher-charts-pie-lists') as any
 
   const [barChartCode, setBarChartCode] = useState(false);
   const [pieChartCode, setPieChartCode] = useState(false);
@@ -332,6 +339,40 @@ export function Highcharts(props: HighchartsProps) {
      <PtgUi3dLine {...line3DOptions} />
   `
 
+
+
+   const fetchApiPieChart = ()=>{
+    const data = apiDataPieChart.map(item=>{
+      return{
+        id:item.id, 
+        name: item.attributes.name,
+        y:item.attributes.y,
+        sliced:item.attributes.sliced,
+        selected:item.attributes.selected,
+      }
+     })
+     
+     setHighchartsPieDataList(
+      {
+        ...highchartsPieDataList,
+        data:data
+    })
+    }
+    useEffect(()=>{
+      fetchApiPieChart()
+    },[apiDataPieChart])
+
+    const {data:apiDataLineChart} = PtguseFetch('http://localhost:1337/api/high-charts-line-lists') as any
+   const fetchApiLineChart = ()=>{
+    const data = apiDataLineChart.map(item=>Number(item.attributes.series))
+const dataList = {...highchartsLineData}
+dataList.remainingOptions.series[0].data = data
+    setHighchartsLineDataList(dataList)
+    }
+    useEffect(()=>{
+      fetchApiLineChart()
+    },[apiDataLineChart])
+
   return (
     <div className="w-77">
       <Tabs defaultActiveKey="2d">
@@ -363,12 +404,12 @@ export function Highcharts(props: HighchartsProps) {
           </div>
           
           {!pieChartCode ? (
-            <PtgUiPie {...highchartsPieData} />
+            <PtgUiPie {...highchartsPieDataList} />
           ):(
             <ShowCodeComponent componentCode={pieChartComponentCode} htmlCode={pieChartHtmlCode}/>
           )}
           
-          <PtgUiHCLine {...highchartsLineData} />
+          <PtgUiHCLine {...highchartsLineDataList} />
 
           <div className='row'>
           <div className="col-11 mb-3">

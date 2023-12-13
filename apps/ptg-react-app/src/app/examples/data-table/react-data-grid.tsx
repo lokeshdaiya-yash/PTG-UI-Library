@@ -6,13 +6,12 @@
 */
 import {useEffect, useState} from 'react';
 import './data-table.scss';
-import { PtgUiReactDataGrid } from '@ptg-ui/react';
+import { PtgUiReactDataGrid , PtguseFetch} from '@ptg-ui/react';
 import { PtgUiButton } from '@ptg-ui/react';
-import { GRID_Data } from '@ptg-react-app/mock/grid-data';
 import { useTranslation } from 'react-i18next';
-import { authClass } from '@ptg-react-app/auth/services/auth.service';
+import { authClass } from '../../auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
-import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 /* eslint-disable-next-line */
 export interface PtgUiReactDataGridExampleProps {}
 
@@ -41,6 +40,27 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
       })
       .catch((err: any) => console.log(err));
   }, []);
+  const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/table-lists') as any
+  const fetchApi = ()=>{
+    const data = apiData.map(item=>{
+      return{
+        id:item.id,
+        age: item.attributes.age,
+        athlete:item.attributes.athlete,
+        country:item.attributes.country,
+      date:item.attributes.date,
+      gold:item.attributes.gold,
+      silver:item.attributes.silver,
+      sport:item.attributes.sport,
+      total:item.attributes.total,
+      year:item.attributes.year,
+      }
+     })
+     setGridData(data)
+    }
+  useEffect(()=>{
+    fetchApi()
+  },[apiData])
   const columns = [
     { name: 'athlete', header: 'Athlete', width: 200 },
     { name: 'age', header: 'Age',  width: 100 },
@@ -51,7 +71,7 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
     { name: 'silver', header: 'Silver',width: 100},
     { name: 'total', header: 'Total',width: 100 },
     { name: '', header: '', width: 100,
-    render: ({})=><PtgUiButton onClick={onClick} className="btn-sm">{t('CLICK_HERE')}</PtgUiButton>
+    render: ()=><PtgUiButton onClick={onClick} className="btn-sm">{t('CLICK_HERE')}</PtgUiButton>
   },
   ]
   const filterValue = [

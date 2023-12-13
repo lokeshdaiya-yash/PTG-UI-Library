@@ -123,14 +123,17 @@ export function PtgUiHCLine(props: PtgUiHCLineProps) {
   return (
     <>
       <div className='row'>
-      <div className="col-11 mb-3">
-      <h4 className="m-3">{t('SINGLE_LINE_CHART')}</h4>
-      </div>
+        <div className="col-11 mb-3">
+          <h4 className="m-3">{t('SINGLE_LINE_CHART')}</h4>
+        </div>
   
-      <div className='col-1 mr-5 mt-3'>
-        <CodeIcon onClick={ShowLineChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+        <div className='col-1 mr-5 mt-3'>
+          <CodeIcon onClick={ShowLineChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+        </div>
       </div>
-      </div>
+      <PtgUiLine {...props[0]} />
+      <h4 className="m-3">{t('MULTIPLE_LINE_CHART')}</h4>
+      <PtgUiLine {...highchartsMultiLineData} />
 
       {!showLineChartCode ? (
         <PtgUiLine {...highchartsLineData} />
@@ -139,13 +142,13 @@ export function PtgUiHCLine(props: PtgUiHCLineProps) {
       )}
    
       <div className='row'>
-      <div className="col-11 mb-3">
-      <h4 className="m-3">{t('MULTIPLE_LINE_CHART')}</h4>
-      </div>
+        <div className="col-11 mb-3">
+          <h4 className="m-3">{t('MULTIPLE_LINE_CHART')}</h4>
+        </div>
 
-      <div className='col-1 mr-5 mt-3'>
-        <CodeIcon onClick={ShowMultiLineChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
-      </div>
+        <div className='col-1 mr-5 mt-3'>
+          <CodeIcon onClick={ShowMultiLineChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+        </div>
       </div>
 
       {!showMultiLineChartCode ? (

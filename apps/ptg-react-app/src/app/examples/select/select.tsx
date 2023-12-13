@@ -5,9 +5,9 @@
  */
 
 import './select.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CITY_LIST } from '../../mock/mocks';
-import { PtgUiMultiSelectbox } from '@ptg-ui/react';
+import { PtgUiMultiSelectbox, PtguseFetch } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
@@ -15,6 +15,21 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 export interface MultiSelectCheckboxProps {}
 
 export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
+  const [cityList, setCityList]= useState([])
+  const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/city-lists') as any
+  const fetchApi = ()=>{
+    const data = apiData.map(item=>{
+      return{
+      value: item.attributes.value,
+      name:item.attributes.name,
+      label:item.attributes.label
+      }
+     })
+     setCityList(data)
+    }
+  useEffect(()=>{
+    fetchApi()
+  },[apiData])
   /*-----onSelect method -----*/
   const { t } = useTranslation();
   const [showCode, setShowCode] = useState(false);
@@ -86,8 +101,33 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
         </div>
         <div className="col-1">
           <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+            {/*-----Usable component PtgUiMultiSelectbox single select-----*/}
+          <PtgUiMultiSelectbox
+            name="city"
+            list={cityList}
+            onSelect={onSelect}
+            showCheckbox={true}
+            singleSelect={true}
+            placeholder={t('SELECT_PLACEHOLDER')}/>
         </div>
       </div>
+      <hr />
+      <section>
+        <div className="row">
+          <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 multi-select">
+            <h4>{t('MULTI_SELECT_TEXT')}</h4>
+            {/*-----Usable component PtgUiMultiSelectbox multi select-----*/}
+            <PtgUiMultiSelectbox
+              name="city"
+              list={cityList}
+              onSelect={onSelect}
+              showCheckbox={true}
+              singleSelect={false}
+              placeholder={t('SELECT_PLACEHOLDER')}
+            />
+          </div>
+        </div>
+      </section>
     
   
     {/*-----Usable component PtgUiMultiSelectbox single select-----*/}

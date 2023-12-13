@@ -17,6 +17,7 @@ import {
   PtgUiCheckbox,
   PtgUiRadio,
   PtgUiDatePicker,
+  PtguseFetch
 } from '@ptg-ui/react';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
@@ -28,6 +29,36 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 /* eslint-disable-next-line */
 export interface WebAccessibilityProps {}
 export function WebAccessibility(props: WebAccessibilityProps) {
+  const [cityList, setCityList]= useState([])
+  const [genders, setGenders]= useState([])
+  const {data:apiData} = PtguseFetch('http://localhost:1337/api/city-lists') as any
+  const fetchApi = ()=>{
+    const data = apiData.map(item=>{
+      return{
+      value: item.attributes.value,
+      name:item.attributes.name,
+      label:item.attributes.label
+      }
+     })
+     setCityList(data)
+    }
+  useEffect(()=>{
+    fetchApi()
+  },[apiData])
+  const {data:apiDataGender} = PtguseFetch('http://localhost:1337/api/gender-lists') as any
+  const fetchGenders = ()=>{
+    const dataList = apiDataGender.map(item=>{
+      return{
+      value: item.attributes.value,
+      name:item.attributes.name,
+      label:item.attributes.label
+      }
+     })
+     setGenders(dataList)
+    }
+  useEffect(()=>{
+    fetchGenders()
+  },[apiDataGender])
    const { t } = useTranslation();
   const startRef: any = useRef();
 
@@ -641,7 +672,7 @@ const htmlCode = `
                           </label>
                           <PtgUiSelect
                             name="city"
-                            list={CITY_LIST}
+                            list={cityList}
                             id="inputCity"
                             data-testid="city"
                             // className={`sel-placeholder w-100`}
@@ -669,7 +700,7 @@ const htmlCode = `
                                 name="gender"
                                 htmlFor="radioinputForGender"
                                 id="radioinputForGender"
-                                list={GENDER_LIST}
+                                list={genders}
                                 // accessKey="g"
                                 onChange={handleChange}
                                 value={user.gender}

@@ -1,4 +1,4 @@
-import { PtgUiButton, PtgUiInput, PtgUiSelect } from '@ptg-ui/react';
+import { PtgUiButton, PtgUiInput, PtgUiSelect, PtguseFetch } from '@ptg-ui/react';
 import { CARD_LIST } from '@ptg-react-app/mock/mocks';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,18 +12,34 @@ export const StepThree = ({
   handleBlur,
 }: any) => {
   const [isDisabled, setIsDisabled] = useState(true)
+  const [cardData, setCardData] = useState([])
   const { t } = useTranslation();
   useEffect(()=>{
     setIsDisabled(!(details.cardType && details.cardNumber && !error.cardNumber && details.cvc && !error.cvc && details.expiration && details.cardHolder))
   },[details,error])
-
+  const {data:apiData} = PtguseFetch('http://localhost:1337/api/card-lists') as any
+  const fetchApi = ()=>{
+    const data = apiData.map(item=>{
+      return{
+      label:item.attributes.label,
+      value: item.attributes.value,
+      name:item.attributes.name,
+  
+      }
+     })
+     setCardData(data)
+    }
+  useEffect(()=>{
+    fetchApi()
+  },[apiData])
+  console.log('apiData', apiData)
   return (
     <div className="p-2">
       <div className="col-md-12 mb-2">
         <label htmlFor="inputCardType">{t('CARD_TYPE')} </label>
         <PtgUiSelect
           name="cardType"
-          list={CARD_LIST}
+          list={cardData}
           id="inputCardType"
           data-testid="city"
           className={`sel-placeholder w-100 bg_0 ${

@@ -1,12 +1,27 @@
 
-import { PtgUiMultiSelectbox, PtgUiSelect } from '@ptg-ui/react';
-import { useState } from 'react';
+import { PtgUiMultiSelectbox, PtgUiSelect, PtguseFetch } from '@ptg-ui/react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Lang_LIST } from '../../mock/mocks';
 import './multi-lang.scss';
 
 export interface MultiLangProps {}
 export function MultiLang({}: MultiLangProps) {
+  const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/lang-lists') as any
+  const [languages, setLanguages] = useState([])
+  const fetchApi = ()=>{
+    const data = apiData?.map(item=>{
+      return{
+      value: item.attributes.value,
+      name:item.attributes.name,
+      label:item.attributes.label
+      }
+     })
+     setLanguages(data)
+    }
+  useEffect(()=>{
+    fetchApi()
+  },[apiData])
   const { i18n } = useTranslation();
   const [selectedLang, setSelectedLang] = useState('en');
  
@@ -20,7 +35,7 @@ export function MultiLang({}: MultiLangProps) {
       <label htmlFor="multiLang" tabIndex={0} aria-label="multi" hidden>Select Lang</label>
       <PtgUiSelect
         name="multiLang"
-        list={Lang_LIST}
+        list={languages}
         id="multiLang"
         data-testid="lang"
         // className={`sel-placeholder w-100`}

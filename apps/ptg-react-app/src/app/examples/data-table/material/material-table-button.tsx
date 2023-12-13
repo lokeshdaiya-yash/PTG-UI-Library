@@ -12,7 +12,7 @@ import { ExportCsv, ExportPdf } from '@material-table/exporters';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
-import { PtgUiButton } from '@ptg-ui/react';
+import { PtgUiButton, PtguseFetch } from '@ptg-ui/react';
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
@@ -73,14 +73,34 @@ export interface PtgUiMaterialTableButtonExampleProps {
 export function PtgUiMaterialTableButtonExample(props: PtgUiMaterialTableButtonExampleProps) {
   const { t } = useTranslation();
   const [gridData, setGridData] = useState([]);
-  useEffect(() => {
-    authClass
-      .gridData()
-      .then((res: any) => {
-        setGridData(res.data);
-      })
-      .catch((err: any) => console.log(err));
-  }, []);
+  const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/table-lists') as any
+  const fetchApi = ()=>{
+    const data = apiData.map(item=>{
+      return{
+          age: item.attributes.age,
+          athlete:item.attributes.athlete,
+          country:item.attributes.country,
+          date:item.attributes.date,
+          gold:item.attributes.gold,
+          silver:item.attributes.silver,
+          sport:item.attributes.sport,
+          total:item.attributes.total,
+          year:item.attributes.year,
+        }
+     })
+     setGridData(data)
+    }
+  useEffect(()=>{
+    fetchApi()
+  },[apiData])
+  // useEffect(() => {
+  //   authClass
+  //     .gridData()
+  //     .then((res: any) => {
+  //       setGridData(res.data);
+  //     })
+  //     .catch((err: any) => console.log(err));
+  // }, []);
   const Columns:any = [
     { title: "Athlete",field: "athlete"},
     { title: "Age",field: "age",filtering: false },

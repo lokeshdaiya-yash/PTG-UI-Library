@@ -146,7 +146,7 @@ export const createOverlayComponent = <
       await this.overlay.present();
     }
 
-    override render() {
+    render() {
       /**
        * Continue to render the component even when
        * overlay is dismissing otherwise component
