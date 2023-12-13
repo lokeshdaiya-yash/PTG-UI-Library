@@ -11,12 +11,11 @@ import PrivateRoute from './route/private-route';
 import PublicRoute from './route/public-route';
 import Layout from '../app/common/layout/Layout';
 import PtgUiResetPassword from './auth/resetpassword/ResetPassword';
-
 export function App() {
   return (
     <div>
-      <Routes>
         {/*-----Public routes-----*/}
+      <Routes>
         <Route path="/login" element={<PublicRoute><PtgUiLogin /></PublicRoute>} />
         <Route path="/signup" element={<PtgUiSignup />} />
         <Route path="/reset-password" element={<PtgUiResetPassword />} />

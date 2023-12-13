@@ -6,12 +6,28 @@
 
 import './select.scss';
 import { CITY_LIST } from '../../mock/mocks';
-import { PtgUiMultiSelectbox } from '@ptg-ui/react';
+import { PtgUiMultiSelectbox, PtguseFetch } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
+import {useState, useEffect} from 'react';
 /* eslint-disable-next-line */
 export interface MultiSelectCheckboxProps {}
 
 export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
+  const [cityList, setCityList]= useState([])
+  const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/city-lists') as any
+  const fetchApi = ()=>{
+    const data = apiData.map(item=>{
+      return{
+      value: item.attributes.value,
+      name:item.attributes.name,
+      label:item.attributes.label
+      }
+     })
+     setCityList(data)
+    }
+  useEffect(()=>{
+    fetchApi()
+  },[apiData])
   /*-----onSelect method -----*/
   const { t } = useTranslation();
   const onSelect: any = (event: any) => {
@@ -26,7 +42,7 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
             {/*-----Usable component PtgUiMultiSelectbox single select-----*/}
             <PtgUiMultiSelectbox
               name="city"
-              list={CITY_LIST}
+              list={cityList}
               onSelect={onSelect}
               showCheckbox={true}
               singleSelect={true}
@@ -42,7 +58,7 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
             {/*-----Usable component PtgUiMultiSelectbox multi select-----*/}
             <PtgUiMultiSelectbox
               name="city"
-              list={CITY_LIST}
+              list={cityList}
               onSelect={onSelect}
               showCheckbox={true}
               singleSelect={false}

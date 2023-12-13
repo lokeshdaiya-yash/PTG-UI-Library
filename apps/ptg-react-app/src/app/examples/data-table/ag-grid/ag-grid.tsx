@@ -5,7 +5,7 @@
  * 
 */
 import '../data-table.scss';
-import { PtgUiAgGrid, PtgUiAccordian } from '@ptg-ui/react';
+import { PtgUiAgGrid, PtgUiAccordian, PtguseFetch } from '@ptg-ui/react';
 import { useEffect, useMemo, useState } from 'react';
 import { GRID_Data } from '@ptg-react-app/mock/grid-data';
 import { AggridButton } from './aggrid-button';
@@ -17,14 +17,35 @@ export interface PtgUiAgGridExampleProps {}
 
 export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
   const [gridData, setGridData] = useState([]);
-  useEffect(() => {
-    authClass
-      .gridData()
-      .then((res: any) => {
-        setGridData(res.data);
-      })
-      .catch((err: any) => console.log(err));
-  }, []);
+  const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/table-lists') as any
+  const fetchApi = ()=>{
+    const data = apiData.map(item=>{
+      return{
+        id:item.id, 
+        age: item.attributes.age,
+        athlete:item.attributes.athlete,
+        country:item.attributes.country,
+      date:item.attributes.date,
+      gold:item.attributes.gold,
+      silver:item.attributes.silver,
+      sport:item.attributes.sport,
+      total:item.attributes.total,
+      year:item.attributes.year,
+      }
+     })
+     setGridData(data)
+    }
+  useEffect(()=>{
+    fetchApi()
+  },[apiData])
+  // useEffect(() => {
+  //   authClass
+  //     .gridData()
+  //     .then((res: any) => {
+  //       setGridData(res.data);
+  //     })
+  //     .catch((err: any) => console.log(err));
+  // }, []);
   const { t } = useTranslation();
   const autoGroupColumnDef = useMemo(() => ({
     field: "athlete", 

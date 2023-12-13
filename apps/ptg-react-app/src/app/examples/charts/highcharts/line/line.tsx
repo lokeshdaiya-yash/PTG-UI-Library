@@ -11,7 +11,7 @@ export function PtgUiHCLine(props: PtgUiHCLineProps) {
   return (
     <>
       <h4 className="m-3">{t('SINGLE_LINE_CHART')}</h4>
-      <PtgUiLine {...highchartsLineData} />
+      <PtgUiLine {...props[0]} />
       <h4 className="m-3">{t('MULTIPLE_LINE_CHART')}</h4>
       <PtgUiLine {...highchartsMultiLineData} />
     </>
