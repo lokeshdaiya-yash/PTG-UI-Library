@@ -2,11 +2,11 @@
  * @since April 2022
  * @author Aakash Patidar
  * @Mock Grid mock data;
- * @description This file for grid mock data 
+ * @description This file for grid mock data
 **/
 
 export const GRID_DATA:any= [
-    { 
+    {
       "id":1,
       "athlete": "Michael Phelps",
       "age": 23,
@@ -30,7 +30,7 @@ export const GRID_DATA:any= [
       "silver": 2,
       "total": 8
     },
-    { 
+    {
       "id":3,
       "athlete": "Michael Phelps",
       "age": 27,

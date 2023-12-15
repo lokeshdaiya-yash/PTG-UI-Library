@@ -12,7 +12,7 @@
  * @description This component for selectexample
  **/
 
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CITY_LIST } from '@ptg-angular-app/mock/mocks';
 import { resources } from '../../../resource/resource';
@@ -24,10 +24,111 @@ import { resources } from '../../../resource/resource';
     class: 'w-100',
   },
 })
-export class SelectexampleComponent implements OnInit {
+export class SelectexampleComponent implements OnInit, AfterViewInit {
   selectForm!: FormGroup;
   cityList = CITY_LIST;
   resources = resources;
+  selectHtmlCode = `
+  <ptg-ui-select
+    class="class-name-here"
+    [id]="'singleSelect'"
+    [items]="cityList"
+    [isMultiple]="false"
+    [closeOnSelect]="true"
+    [placeholder]="'SELECT CITY'">
+  </ptg-ui-select>
+  `;
+  selectTsCode = `
+    import { Component } from '@angular/core';
+
+    @Component({
+      selector: 'select-component',
+      templateUrl: './select-component.html'
+    })
+    export class SelectComponent {
+      // Array of Object of City List for Dropdown list
+      cityList: [
+        {
+          id: '1',
+          name: 'Indore',
+        },
+        {
+          id: '2',
+          name: 'Bhopal',
+        },
+        {
+          id: '3',
+          name: 'Neemuch',
+        },
+        {
+          id: '4',
+          name: 'Pune',
+        },
+        {
+          id: '5',
+          name: 'Bangalore',
+        },
+        {
+          id: '6',
+          name: 'Nagpur',
+        },
+        {
+          id: '7',
+          name: 'Delhi',
+        },
+        {
+          id: '8',
+          name: 'Hyderabad',
+        },
+        {
+          id: '9',
+          name: 'Ahmedabad',
+        },
+        {
+          id: '10',
+          name: 'Kanpur',
+        },
+        {
+          id: '11',
+          name: 'Agra',
+        },
+        {
+          id: '12',
+          name: 'Nashik',
+        }
+      ]
+    }
+  `;
+
+  multiSelectHtmlCode = `
+  // isMultiple prop should be true for multi select dropdown
+
+  <ptg-ui-select
+    formControlName="city1"
+    class="w-100"
+    [id]="'multiSelect'"
+    [items]="cityList"
+    [isMultiple]="true"
+    [closeOnSelect]="false"
+    [placeholder]="'SELECT CITY'">
+  </ptg-ui-select>
+  `;
+
+  multiSelectCountHtmlCode = `
+  // isMultiple prop should be true for multi select dropdown
+  // For select item count, need to provde itemCount as prop
+
+  <ptg-ui-select
+    [itemCount]="2"
+    formControlName="city1"
+    class="w-100"
+    [id]="'multiSelect'"
+    [items]="cityList"
+    [isMultiple]="true"
+    [closeOnSelect]="false"
+    [placeholder]="'SELECT CITY'">
+  </ptg-ui-select>
+  `;
 
   constructor(private formBuilder: FormBuilder, private cdr:ChangeDetectorRef) { }
 
@@ -52,17 +153,13 @@ export class SelectexampleComponent implements OnInit {
         autocomplete: 'given-name',
         'aria-label': 'given-label',
       });
-      
     }
-   
     this.cdr.detectChanges()
   }
 
   setAttributes(elements: any, attributes: any) {
-    
     Object.keys(attributes).forEach(function (name) {
       elements.setAttribute(name, attributes[name]);
     });
   }
-  
 }
