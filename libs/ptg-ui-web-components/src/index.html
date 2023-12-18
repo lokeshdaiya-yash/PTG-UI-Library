@@ -12,9 +12,14 @@
     <script nomodule src="/build/ptg-ui-web-components.js"></script>
   </head>
   <body>
-    <my-component
-      first="Stencil"
+    <ptg-button
+      text="Stencil"
       last="'Don't call me a framework' JS"
-    ></my-component>
+    ></ptg-button>
+    <ptg-breadcrumbs datalist="data"></ptg-breadcrumbs>
+    <script>
+      let breadcrumbs = document.querySelector('ptg-breadcrumbs')
+      breadcrumbs.datalist =  [{title:'home', link:'/home'}, {title:'about', link:'/about'}, {title:'contact', link:'/contact'}]
+    </script>
   </body>
 </html>

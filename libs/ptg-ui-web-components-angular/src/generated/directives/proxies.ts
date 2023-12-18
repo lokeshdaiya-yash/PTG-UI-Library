@@ -71,6 +71,27 @@ export class PtgAlert {
 }
 
 
+export declare interface PtgBreadcrumbs extends Components.PtgBreadcrumbs {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['datalist']
+})
+@Component({
+  selector: 'ptg-breadcrumbs',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['datalist']
+})
+export class PtgBreadcrumbs {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface PtgButton extends Components.PtgButton {}
 
 @ProxyCmp({

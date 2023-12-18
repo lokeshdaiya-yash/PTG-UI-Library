@@ -124,5 +124,11 @@ export const NavigationData = [
     icon: 'fa fa-lock',
     label: 'WEB ACCESSIBILTY',
     disabled: false,
-  }
-];
+  },
+  {
+    path: '/breadcrumbs',
+    icon: 'fa fa-lock',
+    label: 'BREADCRUMBS',
+    disabled: false,
+  } 
+];  

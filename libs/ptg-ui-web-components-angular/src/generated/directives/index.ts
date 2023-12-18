@@ -5,6 +5,7 @@ export const DIRECTIVES = [
   d.MyComponent,
   d.PtgAccordion,
   d.PtgAlert,
+  d.PtgBreadcrumbs,
   d.PtgButton,
   d.PtgCalender,
   d.PtgCheckbox,

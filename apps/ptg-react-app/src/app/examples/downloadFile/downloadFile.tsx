@@ -53,6 +53,8 @@ import { downloadFileData } from '../../mock/mocks';
 import {
   PtguseFetch
 } from '@ptg-ui/react';
+
+
 const DownloadFileExample = () => {
   const [gridData, setGridData] = useState([]);
   const {data:apiData} = PtguseFetch('http://localhost:1337/api/download-file-lists') as any
@@ -72,6 +74,7 @@ const DownloadFileExample = () => {
   },[apiData])
   console.log(gridData)
     return (
+      <>
     <PtgUiDownload
       columns={downloadFileData.columns}
       dataToDownload={gridData}

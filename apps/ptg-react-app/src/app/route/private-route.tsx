@@ -6,7 +6,7 @@ const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   const isAuthenticated = authClass.getToken();
 
   return (
-    !isAuthenticated
+    isAuthenticated
     ? children
     : <Navigate to="/login" state={{ from: location }} />
 );

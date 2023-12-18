@@ -31,6 +31,9 @@ export namespace Components {
         "buttoncss": string;
         "texed": string;
     }
+    interface PtgBreadcrumbs {
+        "datalist": any;
+    }
     interface PtgButton {
         "appearance": string;
         "text": string;
@@ -202,6 +205,12 @@ declare global {
         prototype: HTMLPtgAlertElement;
         new (): HTMLPtgAlertElement;
     };
+    interface HTMLPtgBreadcrumbsElement extends Components.PtgBreadcrumbs, HTMLStencilElement {
+    }
+    var HTMLPtgBreadcrumbsElement: {
+        prototype: HTMLPtgBreadcrumbsElement;
+        new (): HTMLPtgBreadcrumbsElement;
+    };
     interface HTMLPtgButtonElement extends Components.PtgButton, HTMLStencilElement {
     }
     var HTMLPtgButtonElement: {
@@ -302,6 +311,7 @@ declare global {
         "my-component": HTMLMyComponentElement;
         "ptg-accordion": HTMLPtgAccordionElement;
         "ptg-alert": HTMLPtgAlertElement;
+        "ptg-breadcrumbs": HTMLPtgBreadcrumbsElement;
         "ptg-button": HTMLPtgButtonElement;
         "ptg-calender": HTMLPtgCalenderElement;
         "ptg-checkbox": HTMLPtgCheckboxElement;
@@ -345,6 +355,9 @@ declare namespace LocalJSX {
         "appreanced"?: string;
         "buttoncss"?: string;
         "texed"?: string;
+    }
+    interface PtgBreadcrumbs {
+        "datalist"?: any;
     }
     interface PtgButton {
         "appearance"?: string;
@@ -492,6 +505,7 @@ declare namespace LocalJSX {
         "my-component": MyComponent;
         "ptg-accordion": PtgAccordion;
         "ptg-alert": PtgAlert;
+        "ptg-breadcrumbs": PtgBreadcrumbs;
         "ptg-button": PtgButton;
         "ptg-calender": PtgCalender;
         "ptg-checkbox": PtgCheckbox;
@@ -517,6 +531,7 @@ declare module "@stencil/core" {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "ptg-accordion": LocalJSX.PtgAccordion & JSXBase.HTMLAttributes<HTMLPtgAccordionElement>;
             "ptg-alert": LocalJSX.PtgAlert & JSXBase.HTMLAttributes<HTMLPtgAlertElement>;
+            "ptg-breadcrumbs": LocalJSX.PtgBreadcrumbs & JSXBase.HTMLAttributes<HTMLPtgBreadcrumbsElement>;
             "ptg-button": LocalJSX.PtgButton & JSXBase.HTMLAttributes<HTMLPtgButtonElement>;
             "ptg-calender": LocalJSX.PtgCalender & JSXBase.HTMLAttributes<HTMLPtgCalenderElement>;
             "ptg-checkbox": LocalJSX.PtgCheckbox & JSXBase.HTMLAttributes<HTMLPtgCheckboxElement>;

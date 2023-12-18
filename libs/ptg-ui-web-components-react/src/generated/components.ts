@@ -11,6 +11,7 @@ defineCustomElements();
 export const MyComponent = /*@__PURE__*/createReactComponent<JSX.MyComponent, HTMLMyComponentElement>('my-component');
 export const PtgAccordion = /*@__PURE__*/createReactComponent<JSX.PtgAccordion, HTMLPtgAccordionElement>('ptg-accordion');
 export const PtgAlert = /*@__PURE__*/createReactComponent<JSX.PtgAlert, HTMLPtgAlertElement>('ptg-alert');
+export const PtgBreadcrumbs = /*@__PURE__*/createReactComponent<JSX.PtgBreadcrumbs, HTMLPtgBreadcrumbsElement>('ptg-breadcrumbs');
 export const PtgButton = /*@__PURE__*/createReactComponent<JSX.PtgButton, HTMLPtgButtonElement>('ptg-button');
 export const PtgCalender = /*@__PURE__*/createReactComponent<JSX.PtgCalender, HTMLPtgCalenderElement>('ptg-calender');
 export const PtgCheckbox = /*@__PURE__*/createReactComponent<JSX.PtgCheckbox, HTMLPtgCheckboxElement>('ptg-checkbox');
