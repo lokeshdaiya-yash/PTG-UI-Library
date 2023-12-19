@@ -33,7 +33,7 @@ export class PtgModal {
     return (
       <div>
         <div>
-          <ptg-button text={this.btnName} appearance="primary" onClick={this.openModal}></ptg-button>
+          <ptg-button text={this.btnName} data-testid="openButton" appearance="primary" onClick={this.openModal}></ptg-button>
         </div>
         <div class={this.isOpen ? 'modal-wrapper isOpen' : 'modal-wrapper'} data-backdrop="static">
           <div class="modal-overlay">
@@ -41,7 +41,7 @@ export class PtgModal {
               {this.showHeader &&
                 <div class="header">
                   <h6>{this.modalHeaderName}</h6>
-                  <div class="close" onClick={this.closeModule}>
+                  <div class="close" data-testid="closeButton" onClick={this.closeModule}>
                     ×
                   </div>
                 </div>
