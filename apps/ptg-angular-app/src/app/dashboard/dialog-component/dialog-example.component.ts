@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class DialogExampleComponent {
   htmlCode = `
   <ptg-modal :btn-name="buttonName" :modal-header-name="modalHeaderName" confirm-button-name="Okay"
-  (onModalClose)="modalClosed()" (onConfirmClose)="onConfirmation()">
+  (modalClose)="modalClosed()" (confirmClose)="onConfirmation()">
     <div slot="body-block">
       <h2>Angular Slot for Body</h2>
     </div>
@@ -17,7 +17,7 @@ export class DialogExampleComponent {
 
   htmlCodeToHideFooter = `
   <ptg-modal btn-name="Hide Footer in Modal" :show-footer="false" :modal-header-name="modalHeaderName" confirm-button-name="Okay"
-  (onModalClose)="modalClosed()" (onConfirmClose)="onConfirmation()">
+  (modalClose)="modalClosed()" (confirmClose)="onConfirmation()">
     <div slot="body-block"> // Slot Name should be 'body-block'
       <h2>In Angular</h2>
     </div>

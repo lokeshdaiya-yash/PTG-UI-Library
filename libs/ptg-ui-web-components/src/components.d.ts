@@ -416,8 +416,8 @@ declare namespace LocalJSX {
         "isOpen"?: boolean;
         "modalHeaderName"?: string;
         "modalSize"?: string;
-        "onOnConfirmClose"?: (event: PtgModalCustomEvent<boolean>) => void;
-        "onOnModalClose"?: (event: PtgModalCustomEvent<boolean>) => void;
+        "onConfirmClose"?: (event: PtgModalCustomEvent<boolean>) => void;
+        "onModalClose"?: (event: PtgModalCustomEvent<boolean>) => void;
         "showFooter"?: boolean;
         "showHeader"?: boolean;
     }

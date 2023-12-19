@@ -33,7 +33,7 @@ const DialogExample = () => {
     console.log('Modal Closed successfully', event.returnValue);
   }
 
-  const onConfirmClicked = (event) => {
+  const confirmClicked = (event) => {
     console.log('Confirm Button Clicked', event.returnValue);
   }
 
@@ -51,8 +51,8 @@ const DialogExample = () => {
       modal-header-name="Header Name Here"
       show-header='false' // true/false to display/hide the header of dialog
       show-footer='false' // true/false to display/hide the footer of dialog
-      onOnModalClose={modalClosed} // Event name: onOnModalClose
-      onOnConfirmClose={onConfirmClicked}> // Event name: onOnConfirmClose
+      onModalClose={modalClosed} // Event name: onModalClose
+      onConfirmClose={confirmClicked}> // Event name: onConfirmClose
       <div slot="body-block"> // Slot
         <h2>React Slot for Body</h2>
       </div>

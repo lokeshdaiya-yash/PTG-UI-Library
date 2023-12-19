@@ -15,15 +15,15 @@ export class PtgModal {
   @Prop() showHeader : boolean = true;
   @Prop() showFooter : boolean = true;
   // Event emitter
-  @Event() onModalClose: EventEmitter<boolean>;
-  @Event() onConfirmClose: EventEmitter<boolean>;
+  @Event() modalClose: EventEmitter<boolean>;
+  @Event() confirmClose: EventEmitter<boolean>;
 
   private closeModule = () =>{
     this.isOpen = false;
-    this.onModalClose.emit(true);
+    this.modalClose.emit(true);
   }
   private confirmEvent=()=>{
-    this.onConfirmClose.emit(true);
+    this.confirmClose.emit(true);
   }
   private openModal=()=>{
     this.isOpen = true;
