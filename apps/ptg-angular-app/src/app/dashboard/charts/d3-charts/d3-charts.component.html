@@ -1,6 +1,6 @@
 <div class="d3-charts">
   <!-- Bar chart block  -->
-  <div class="mb-2 overflow-auto">
+  <div class="mb-2 overflow-auto" *ngIf="barChartData.data.length">
     <h4 [innerHTML]="'BAR_CHART_TEXT' | translate"></h4>
     <ptg-ui-toggle-code
       [htmlCode]="barChartHtmlCode"
@@ -17,7 +17,7 @@
   </div>
 
   <!-- Pie chart block  -->
-  <div class="overflow-auto mb-2">
+  <div class="overflow-auto mb-2" *ngIf="pieChartData.data.length">
     <h4 [innerHTML]="'PIE_CHART_TEXT' | translate"></h4>
     <ptg-ui-toggle-code
       [htmlCode]="pieChartHtml"
@@ -30,7 +30,7 @@
   </div>
 
   <!-- Line chart block  -->
-  <div class="overflow-auto mb-2">
+  <div class="overflow-auto mb-2" *ngIf="lineChartData.data.length">
     <h4 [innerHTML]="'LINE_CHART_TEXT' | translate"></h4>
     <ptg-ui-toggle-code
       [htmlCode]="lineChartHtml"
@@ -43,4 +43,5 @@
       [height]="lineChartData.height"
     ></ptg-ui-line-chart>
   </div>
+</div>
 </div>

@@ -9,7 +9,7 @@
  * @author Bhanu Prakash Sharma
  * @Component ptg-ui-dragexample2;
  * @description This component for drag and drop example2
-**/
+ **/
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '@ptg-angular-app/auth/services/auth.service';
@@ -19,8 +19,8 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { Subject, takeUntil } from 'rxjs';
-import { resources } from "../../../../resource/resource";
-import { USERSDATA } from "../../../mock/mocks";
+import { resources } from '../../../../resource/resource';
+import { mocksService } from '@ptg-angular-app/common/data-services/mocks.service';
 
 @Component({
   selector: 'ptg-ui-dragexample2',
@@ -31,7 +31,8 @@ export class Dragexample2Component implements OnInit, OnDestroy {
   public personaldetails: any = [];
   loading = false;
   unsubscribe: Subject<any> = new Subject();
-  resources=resources;
+  resources = resources;
+  USERSDATA: any = [];
 
   dragAndDropHtmlCode = `
   <div cdkDropList #personList="cdkDropList" [cdkDropListData]="userDetails"
@@ -66,21 +67,36 @@ export class Dragexample2Component implements OnInit, OnDestroy {
   }
   `;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private mocksApiService: mocksService
+  ) {}
 
   ngOnInit(): void {
     this.loading = true;
     // this.getUsers()
-    this.getuserMock()
+    // this.getuserMock()
+
     this.loading = false;
-  }
-  getuserMock(){
-    this.personaldetails = USERSDATA.filter((res: any) => {
-      if (res.role.type === 'admin') {
-        return res;
-      }
+    this.mocksApiService.getUserList().subscribe((response) => {
+      this.USERSDATA = response?.data[0].attributes.users.filter((res: any) => {
+        if (res.role.type === 'admin') {
+          return res;
+        }
+      });
+      this.personaldetails = this.USERSDATA;
     });
   }
+  // getuserMock(){
+  //   if(this.USERSDATA.length>0){
+  //   this.personaldetails = this.USERSDATA.filter((res: any) => {
+  //     if (res.role.type === 'admin') {
+  //       return res;
+  //     }
+
+  //   });
+  // }
+  // }
   // getUsers(){
   //   this.authService
   //   .getUser()
