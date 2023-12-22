@@ -71,7 +71,7 @@ const DialogExample = () => {
       )}
         <PtgModal
           modal-size='lg' modal-header-name="Header Name Here"
-          confirm-button-name="Okay" onOnModalClose={modalClosed}>
+          confirm-button-name="Okay" onModalClose={modalClosed}>
           <div slot="body-block">
             <h2>React Slot for Body</h2>
           </div>

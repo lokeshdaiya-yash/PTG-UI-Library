@@ -28,6 +28,7 @@ import { GridlayoutexampleComponent } from './gridlayoutexample/gridlayoutexampl
 import { AccordianExampleComponent } from './accordian-example/accordian-example.component';
 import { MultistepFormLayoutComponent } from './multistep-form/multistep-form-layout/multistep-form-layout.component';
 import { DialogExampleComponent } from './dialog-component/dialog-example.component';
+import { CarouselExampleComponent } from './carousel-component/carousel-example.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'calendar',
     component: CalendarexampleComponent,
+  },
+  {
+    path: 'carousel',
+    component: CarouselExampleComponent,
   },
   {
     path: 'select',

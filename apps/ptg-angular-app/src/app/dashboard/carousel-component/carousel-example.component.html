@@ -1,0 +1,18 @@
+<section class="carousel-parent pt-2">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="mb-3" [innerHTML]="'CAROUSEL_EXAMPLE' | translate"></h4>
+        <ptg-ui-toggle-code
+          [htmlCode]="htmlCode"
+          [tsCode]="tsCode"
+        ></ptg-ui-toggle-code>
+        <ptg-ui-carousel
+          [images]="sampleImages"
+          imgWidth="500"
+          imgHeight="300"
+        ></ptg-ui-carousel>
+      </div>
+    </div>
+  </div>
+</section>
