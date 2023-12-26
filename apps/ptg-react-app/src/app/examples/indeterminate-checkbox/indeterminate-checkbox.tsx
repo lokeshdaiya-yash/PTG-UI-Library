@@ -6,7 +6,6 @@
 
 import {useState, useEffect} from 'react'
 import  style from './indeterminate-checkbox.module.scss';
-import { useState } from 'react';
 import { CHECKBOX_DATA } from '../../mock/mocks';
 import { PtgUiIndeterminateCheckbox, PtguseFetch } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';

@@ -145,6 +145,34 @@ export class PtgCalender {
 }
 
 
+export declare interface PtgCard extends Components.PtgCard {
+  /**
+   *  
+   */
+  handleClick: EventEmitter<CustomEvent<any>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['cardContent', 'cardId', 'cardTitle', 'src']
+})
+@Component({
+  selector: 'ptg-card',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['cardContent', 'cardId', 'cardTitle', 'src']
+})
+export class PtgCard {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['handleClick']);
+  }
+}
+
+
 export declare interface PtgCheckbox extends Components.PtgCheckbox {
   /**
    *  
@@ -247,11 +275,11 @@ export declare interface PtgModal extends Components.PtgModal {
   /**
    *  
    */
-  onModalClose: EventEmitter<CustomEvent<boolean>>;
+  modalClose: EventEmitter<CustomEvent<boolean>>;
   /**
    *  
    */
-  onConfirmClose: EventEmitter<CustomEvent<boolean>>;
+  confirmClose: EventEmitter<CustomEvent<boolean>>;
 
 }
 
@@ -270,7 +298,7 @@ export class PtgModal {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['onModalClose', 'onConfirmClose']);
+    proxyOutputs(this, this.el, ['modalClose', 'confirmClose']);
   }
 }
 

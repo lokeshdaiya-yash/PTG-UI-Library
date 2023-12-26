@@ -130,5 +130,11 @@ export const NavigationData = [
     icon: 'fa fa-lock',
     label: 'BREADCRUMBS',
     disabled: false,
-  } 
+  },
+  {
+    path: '/cards',
+    icon: 'fa fa-lock',
+    label: 'CARDS',
+    disabled: false,
+  }
 ];  

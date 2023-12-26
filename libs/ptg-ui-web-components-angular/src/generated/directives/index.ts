@@ -8,6 +8,7 @@ export const DIRECTIVES = [
   d.PtgBreadcrumbs,
   d.PtgButton,
   d.PtgCalender,
+  d.PtgCard,
   d.PtgCheckbox,
   d.PtgFooter,
   d.PtgHeader,

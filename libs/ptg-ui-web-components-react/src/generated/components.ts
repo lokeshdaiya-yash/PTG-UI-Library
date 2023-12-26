@@ -14,6 +14,7 @@ export const PtgAlert = /*@__PURE__*/createReactComponent<JSX.PtgAlert, HTMLPtgA
 export const PtgBreadcrumbs = /*@__PURE__*/createReactComponent<JSX.PtgBreadcrumbs, HTMLPtgBreadcrumbsElement>('ptg-breadcrumbs');
 export const PtgButton = /*@__PURE__*/createReactComponent<JSX.PtgButton, HTMLPtgButtonElement>('ptg-button');
 export const PtgCalender = /*@__PURE__*/createReactComponent<JSX.PtgCalender, HTMLPtgCalenderElement>('ptg-calender');
+export const PtgCard = /*@__PURE__*/createReactComponent<JSX.PtgCard, HTMLPtgCardElement>('ptg-card');
 export const PtgCheckbox = /*@__PURE__*/createReactComponent<JSX.PtgCheckbox, HTMLPtgCheckboxElement>('ptg-checkbox');
 export const PtgFooter = /*@__PURE__*/createReactComponent<JSX.PtgFooter, HTMLPtgFooterElement>('ptg-footer');
 export const PtgHeader = /*@__PURE__*/createReactComponent<JSX.PtgHeader, HTMLPtgHeaderElement>('ptg-header');

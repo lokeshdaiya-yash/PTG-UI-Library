@@ -27,7 +27,6 @@ function DragExampleFour(props : DragExampleFourProps) {
 
   
   return (
-    <>
       <div className="mt-3 tree-view">
         <Tree
           tree={treeData}
@@ -45,7 +44,6 @@ function DragExampleFour(props : DragExampleFourProps) {
           )}
         />
       </div>
-    </>
   );
 }
 

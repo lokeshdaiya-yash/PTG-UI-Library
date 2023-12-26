@@ -34,7 +34,8 @@ const PtgUiDialog = lazy(()=> import ("../examples/dialog/dialog"));
 const GridLayout = lazy(()=> import ("@ptg-react-app/examples/grid-layout/grid-layout"));
 const Indeterminate =  lazy(()=> import ("@ptg-react-app/examples/indeterminate-checkbox/indeterminate-checkbox"));
 const PtgUiReactTable =  lazy(()=> import ("@ptg-react-app/examples/data-table/react-table"));
-const Breadcrumbs =  lazy(()=> import ("@ptg-react-app/examples/breadcrumbs/breadcrumbs"));
+const Breadcrumbs =  lazy(()=> import ("../examples/breadcrumbs/breadcrumbs"));
+const Cards =  lazy(()=> import ("../examples/cards/cards"));
 {/*--Declare routes and component for dynamic load--*/ }
 const routing = [
   // {
@@ -152,6 +153,10 @@ const routing = [
   {
     path: '/breadcrumbs',
     component: Breadcrumbs,
+  },
+  {
+    path: '/cards',
+    component: Cards,
   },
 ];
 export default routing;

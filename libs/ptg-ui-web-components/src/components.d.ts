@@ -45,6 +45,12 @@ export namespace Components {
         "showFillDays": boolean;
         "startDate": any;
     }
+    interface PtgCard {
+        "cardContent": string;
+        "cardId": number;
+        "cardTitle": string;
+        "src": string;
+    }
     interface PtgCheckbox {
         "callback"?: (val: any) => void;
         /**
@@ -170,6 +176,10 @@ export interface PtgCalenderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPtgCalenderElement;
 }
+export interface PtgCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPtgCardElement;
+}
 export interface PtgCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPtgCheckboxElement;
@@ -222,6 +232,12 @@ declare global {
     var HTMLPtgCalenderElement: {
         prototype: HTMLPtgCalenderElement;
         new (): HTMLPtgCalenderElement;
+    };
+    interface HTMLPtgCardElement extends Components.PtgCard, HTMLStencilElement {
+    }
+    var HTMLPtgCardElement: {
+        prototype: HTMLPtgCardElement;
+        new (): HTMLPtgCardElement;
     };
     interface HTMLPtgCheckboxElement extends Components.PtgCheckbox, HTMLStencilElement {
     }
@@ -314,6 +330,7 @@ declare global {
         "ptg-breadcrumbs": HTMLPtgBreadcrumbsElement;
         "ptg-button": HTMLPtgButtonElement;
         "ptg-calender": HTMLPtgCalenderElement;
+        "ptg-card": HTMLPtgCardElement;
         "ptg-checkbox": HTMLPtgCheckboxElement;
         "ptg-footer": HTMLPtgFooterElement;
         "ptg-header": HTMLPtgHeaderElement;
@@ -371,6 +388,13 @@ declare namespace LocalJSX {
         "onMonthChanged"?: (event: PtgCalenderCustomEvent<any>) => void;
         "showFillDays"?: boolean;
         "startDate"?: any;
+    }
+    interface PtgCard {
+        "cardContent"?: string;
+        "cardId"?: number;
+        "cardTitle"?: string;
+        "onHandleClick"?: (event: PtgCardCustomEvent<any>) => void;
+        "src"?: string;
     }
     interface PtgCheckbox {
         "callback"?: (val: any) => void;
@@ -508,6 +532,7 @@ declare namespace LocalJSX {
         "ptg-breadcrumbs": PtgBreadcrumbs;
         "ptg-button": PtgButton;
         "ptg-calender": PtgCalender;
+        "ptg-card": PtgCard;
         "ptg-checkbox": PtgCheckbox;
         "ptg-footer": PtgFooter;
         "ptg-header": PtgHeader;
@@ -534,6 +559,7 @@ declare module "@stencil/core" {
             "ptg-breadcrumbs": LocalJSX.PtgBreadcrumbs & JSXBase.HTMLAttributes<HTMLPtgBreadcrumbsElement>;
             "ptg-button": LocalJSX.PtgButton & JSXBase.HTMLAttributes<HTMLPtgButtonElement>;
             "ptg-calender": LocalJSX.PtgCalender & JSXBase.HTMLAttributes<HTMLPtgCalenderElement>;
+            "ptg-card": LocalJSX.PtgCard & JSXBase.HTMLAttributes<HTMLPtgCardElement>;
             "ptg-checkbox": LocalJSX.PtgCheckbox & JSXBase.HTMLAttributes<HTMLPtgCheckboxElement>;
             "ptg-footer": LocalJSX.PtgFooter & JSXBase.HTMLAttributes<HTMLPtgFooterElement>;
             "ptg-header": LocalJSX.PtgHeader & JSXBase.HTMLAttributes<HTMLPtgHeaderElement>;
