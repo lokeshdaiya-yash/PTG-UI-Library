@@ -7,12 +7,14 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type     | Default     |
-| ------------- | -------------- | ----------- | -------- | ----------- |
-| `cardContent` | `card-content` |             | `string` | `''`        |
-| `cardId`      | `card-id`      |             | `number` | `undefined` |
-| `cardTitle`   | `card-title`   |             | `string` | `''`        |
-| `src`         | `src`          |             | `string` | `''`        |
+| Property         | Attribute          | Description | Type      | Default     |
+| ---------------- | ------------------ | ----------- | --------- | ----------- |
+| `cardButtonText` | `card-button-text` |             | `string`  | `'select'`  |
+| `cardContent`    | `card-content`     |             | `string`  | `''`        |
+| `cardId`         | `card-id`          |             | `number`  | `undefined` |
+| `cardTitle`      | `card-title`       |             | `string`  | `''`        |
+| `isCardAction`   | `is-card-action`   |             | `boolean` | `false`     |
+| `src`            | `src`              |             | `string`  | `''`        |
 
 
 ## Events

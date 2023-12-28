@@ -6,11 +6,13 @@ import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
   shadow: true,
 })
 export class PtgCard {
-  @Prop() src :string=''; 
+  @Prop() src:string=''; 
   @Prop() cardTitle:string='';
   @Prop() cardContent:string='';
   @Prop() cardId:number;
-  @Event() handleClick: EventEmitter;
+  @Prop() isCardAction:boolean=false;
+  @Prop() cardButtonText:string='select'
+  @Event() handleClick?: EventEmitter;
 
   clickbutn(event){
     this.handleClick.emit(event)
@@ -26,9 +28,9 @@ export class PtgCard {
             {this.cardTitle && <h2 class="ptg-card-heading">{this.cardTitle}</h2>}
            {this.cardContent && <div class="ptg-card-content">{this.cardContent}</div>}
           </div>}
-          <div class="ptg-card-footer">
-          <ptg-button text="button" onClick={()=>this.clickbutn(this.cardId)}></ptg-button>
-          </div>
+          {this.isCardAction && <div class="ptg-card-footer">
+          <ptg-button text={this.cardButtonText} onClick={()=>this.clickbutn(this.cardId)}></ptg-button>
+          </div>}
         </div>
     );
   }

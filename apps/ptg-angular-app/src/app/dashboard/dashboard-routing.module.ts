@@ -28,6 +28,8 @@ import { GridlayoutexampleComponent } from './gridlayoutexample/gridlayoutexampl
 import { AccordianExampleComponent } from './accordian-example/accordian-example.component';
 import { MultistepFormLayoutComponent } from './multistep-form/multistep-form-layout/multistep-form-layout.component';
 import { DialogExampleComponent } from './dialog-component/dialog-example.component';
+import { CardExampleComponent } from './card-component/card-example.component';
+import { BreadcrumbsExampleComponent } from './breadcrumbs-component/breadcrumbs-example.component';
 
 const routes: Routes = [
   {
@@ -128,6 +130,14 @@ const routes: Routes = [
   {
     path:'multistep-form',
     component:MultistepFormLayoutComponent
+  },
+  {
+    path:'card',
+    component:CardExampleComponent
+  },
+  {
+    path:'breadcrumbs',
+    component:BreadcrumbsExampleComponent
   }
 ];
 

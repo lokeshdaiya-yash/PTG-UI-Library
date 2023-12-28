@@ -145,5 +145,21 @@ export const NavigationData = [
     icon: 'fa-solid fa-file',
     label: 'MULTI_FORMS',
     disabled: false,
+  },
+  {
+    id:"15",
+    path: '/card',
+    // icon: 'home-icon',
+    icon: 'fa-solid fa-file',
+    label: 'CARDS',
+    disabled: false,
+  },
+  {
+    id:"16",
+    path: '/breadcrumbs',
+    // icon: 'home-icon',
+    icon: 'fa-solid fa-file',
+    label: 'BREADCRUMBS',
+    disabled: false,
   }
 ];

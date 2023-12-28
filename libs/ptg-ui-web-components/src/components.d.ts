@@ -46,9 +46,11 @@ export namespace Components {
         "startDate": any;
     }
     interface PtgCard {
+        "cardButtonText": string;
         "cardContent": string;
         "cardId": number;
         "cardTitle": string;
+        "isCardAction": boolean;
         "src": string;
     }
     interface PtgCheckbox {
@@ -390,9 +392,11 @@ declare namespace LocalJSX {
         "startDate"?: any;
     }
     interface PtgCard {
+        "cardButtonText"?: string;
         "cardContent"?: string;
         "cardId"?: number;
         "cardTitle"?: string;
+        "isCardAction"?: boolean;
         "onHandleClick"?: (event: PtgCardCustomEvent<any>) => void;
         "src"?: string;
     }

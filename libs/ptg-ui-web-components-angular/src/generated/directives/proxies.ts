@@ -155,13 +155,13 @@ export declare interface PtgCard extends Components.PtgCard {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['cardContent', 'cardId', 'cardTitle', 'src']
+  inputs: ['cardButtonText', 'cardContent', 'cardId', 'cardTitle', 'isCardAction', 'src']
 })
 @Component({
   selector: 'ptg-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['cardContent', 'cardId', 'cardTitle', 'src']
+  inputs: ['cardButtonText', 'cardContent', 'cardId', 'cardTitle', 'isCardAction', 'src']
 })
 export class PtgCard {
   protected el: HTMLElement;
