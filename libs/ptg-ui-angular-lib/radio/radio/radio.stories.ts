@@ -1,4 +1,3 @@
-import { ItemsList } from '@ng-select/ng-select/lib/items-list';
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { RadioComponent } from './radio.component';
 

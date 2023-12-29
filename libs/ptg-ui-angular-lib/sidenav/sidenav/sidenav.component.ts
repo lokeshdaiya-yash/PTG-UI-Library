@@ -64,6 +64,9 @@ export class SidenavComponent{
       this.customScss()
     });
   }
+
+
+  
   toggle(): void {
     this.hidden = !this.hidden; 
   }

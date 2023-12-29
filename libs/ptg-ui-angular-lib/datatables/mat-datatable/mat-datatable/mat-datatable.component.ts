@@ -8,6 +8,7 @@
 import { OnInit, Component, EventEmitter, Input, Output, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { GRID_DATA } from '@ptg-angular-app/mock/grid-data';
 
 // created interface for table dataSource 
 export interface PeriodicElement {}
@@ -25,6 +26,7 @@ export class MatDatatableComponent implements OnInit{
   // Basic
   // it will take data in array formate
   @Input() data: any = [];
+  dataColumns:any;
   dataSource: any;
   
   // it will take every key name of element to create column
@@ -51,11 +53,14 @@ export class MatDatatableComponent implements OnInit{
   }
   
   ngOnInit(){
+    this.data = GRID_DATA;
+    this.dataColumns = ['athlete', 'age', 'country', 'year', 'date', 'sport', 'silver','total'];
     this.dataSource = new MatTableDataSource<PeriodicElement>(this.data);
       //  filter works for specific value 
       // this.dataSource.filterPredicate = function (record:any,filter:any) {
       //   return record.name.toLocaleLowerCase() == filter.toLocaleLowerCase();
       // }
+     console.log(this.columns) 
   }
 
   getRow(row:any){
@@ -76,6 +81,10 @@ export class MatDatatableComponent implements OnInit{
   applyFilter(event:any){
     const filterValue = event.target.value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  getValue(){
+    alert('Button Clicked')
   }
 
 }

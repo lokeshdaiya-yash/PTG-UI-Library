@@ -1,0 +1,238 @@
+import { Meta, Story, ArgsTable, Canvas , Preview} from '@storybook/addon-docs';
+
+import * as PtgNgxDatatableComponents from './ptg-ngx-datatable.stories.ts'
+
+import PtgNgxDatatableComponent from './ptg-ngx-datatable.component';
+
+ <Meta title="Component/PtgNgxDatatableComponent/PtgNgxDatatableDocs" component={ PtgNgxDatatableComponent }    />
+
+
+
+ # PtgNgxDatatable Component
+
+ ---
+
+ngx-datatable is a Angular component for presenting large and complex data.
+
+It has all the features you would expect from any other table but in a light package with no external dependencies. 
+
+The table was designed to be extremely flexible and light; it doesn't make any assumptions about your data .
+
+
+ We can import the PtgNgxDatatable using the following importation : 
+
+```
+    import { PtgNgxDatatableModule } from ' @ptg-ui/angular'
+```    
+
+ Types of controls supported by PtgNgxDatatable:
+
+ - scrollbarV
+ - scrollbarH
+ - headerHeight
+ - footerHeight
+ - rowHeight
+ - loaderShowWhen
+ - offset
+ - limit
+ - externalSorting
+ - rowClass
+ - showFiter
+ - showActionButton
+ - actionButtonLabel
+ - actionButtonHeaderLabel
+
+
+ 
+ ## Quick Start
+ 
+ we can create a PtgNgxDatatable using the following HTML Tag: 
+
+
+```
+<ptg-ui-ptg-ngx-datatable
+  [scrollbarV]="false"
+  [scrollbarH]="false"
+  [headerHeight]="50"
+  [footerHeight]="100"
+  [rows]="rows"
+  [columns]="columns"
+  rowHeight="auto"
+  [loaderShowWhen]="false"
+  [offset]="0"
+  [limit]="4"
+  [externalSorting]="false"
+  rowClass=""
+  [showFiter]="true"
+  [selected]="selected"
+  [showActionButton]="false"
+  actionButtonLabel="Click Here"
+  actionButtonHeaderLabel="Action"
+></ptg-ui-ptg-ngx-datatable>
+
+```
+
+
+Following are some controls with their explanation :
+
+
+1] scrollbarV :
+
+scrollbarV is used to hide and show the vertical scrollbar.
+
+scrollbarV control have two values : 
+
+a] True - scrollbar is hide and also data is hide.
+
+b] False - scrollbar and data is visible.
+
+
+<Canvas><Story id="component-ptgngxdatatablecomponent--scrollbar-v" /></Canvas>
+
+
+
+2] scrollbarH : 
+
+scrollbarH is used to hide and show the horizontal scrollbar.
+
+scrollbarH control have two values : 
+
+a] True - scrollbar is hide .
+
+b] False - scrollbar is visible.
+
+
+<Canvas><Story id="component-ptgngxdatatablecomponent--scrollbar-h" /></Canvas>
+
+
+
+3] headerHeight : 
+
+we can adjust the height of header using the header height control.
+
+by default , the header height is 50px. 
+
+
+<Canvas><Story id="component-ptgngxdatatablecomponent--header-height" /></Canvas>
+
+
+
+4] footerHeight : 
+
+we can adjust the height of footer using the footer height control.
+
+by default , the header height is 100px. 
+
+
+<Canvas><Story id="component-ptgngxdatatablecomponent--footer-height" /></Canvas>
+
+
+
+5] rowHeight : 
+
+we can adjust the height of row using the row height control.
+
+by default , the row height is auto. 
+
+
+<Canvas><Story id="component-ptgngxdatatablecomponent--row-height" /></Canvas>
+
+
+6] loaderShowWhen : 
+
+Basically Loader is used to show the loading state of data in application.
+
+loaderShowWhen control have two values :
+
+a] True - loader is shown.
+
+b] False - loader is not visible.
+
+
+<Canvas><Story id="component-ptgngxdatatablecomponent--loader-show-when" /></Canvas>
+
+
+
+7] limit : 
+
+
+limit control is used to set the number of rows on page.
+
+<Canvas><Story id="component-ptgngxdatatablecomponent--limit" /></Canvas>
+
+
+8] externalSorting :
+
+By default, the sorting order will be as ascending or descending or none. 
+
+When first click a column Athlete it sorts the column in ascending. 
+
+Again click the same column Athlete, it will sort the column in descending.
+
+Same for numbers also in sorting. All the columns sorting in ascending and descending order.
+
+externalSorting control have two values :
+
+a] True - we can do the sorting for the table.
+
+b] False - we can not do the sorting for the table.
+
+<Canvas><Story id="component-ptgngxdatatablecomponent--external-sorting" /></Canvas>
+
+
+9] rowClass :
+
+The rowClass  is used to specify a class for an  element.
+
+The rowClass is often used to point to a class name in a style sheet. It can also be used by a other languages and manipulate elements with the specific class name.
+
+Multiple HTML elements can share the same class.
+
+<Canvas><Story id="component-ptgngxdatatablecomponent--row-class" /></Canvas>
+
+
+10] showFiter : 
+
+showFiter control is used to hide and show the filter.
+
+showFiter control have two values -
+
+a] True - showFiter is visible.
+
+b] False - showFiter is not visible.
+
+<Canvas><Story id="component-ptgngxdatatablecomponent--show-fiter" /></Canvas>
+
+
+
+11] showActionButton :
+ 
+showActionButton control adds the new column of action.
+
+Under that column it will show the Click here button.
+
+showActionButton control have two values -
+
+a] True - add new column of button.
+
+b] False - remains same.
+
+<Canvas><Story id="component-ptgngxdatatablecomponent--show-action-button" /></Canvas>
+
+
+12] actionButtonLabel :
+
+actionButtonLabel shows the label for the button.
+
+we can change the label for the button.
+
+<Canvas><Story id="component-ptgngxdatatablecomponent--action-button-label" /></Canvas>
+
+
+13] actionButtonHeaderLabel :
+
+actionButtonHeaderLabel control shows the label for the newly added column using showActionButton control.
+
+we can change the label for the column.
+
+<Canvas><Story id="component-ptgngxdatatablecomponent--action-button-header-label" /></Canvas>

@@ -21,7 +21,7 @@ import PtgAgGridDatatableComponent from './ptg-ag-grid-datatable.component';
  We can import the datatable using the following importation : 
 
 ```
-    import { PtgAgGridDatatableComponent } from ' @ptg-ui/angular'
+    import { PtgAgGridDatatableModule } from ' @ptg-ui/angular'
 ```    
 
  Types of controls supported by datatable:
@@ -34,7 +34,9 @@ import PtgAgGridDatatableComponent from './ptg-ag-grid-datatable.component';
  - rowSelection
  - pagination
  - paginationLimit
+ - enableCustomFilter
  - customPaginationClass
+
 
 
  
@@ -127,9 +129,9 @@ Multiple elements can share the same class.
 
 6] rowSelection - 
 
- Type of row selection, set to either 'single' or 'multiple' to enable selection. 
+Type of row selection, set to either 'single' or 'multiple' to enable selection. 
  
- 'single' will use single row selection, such that when you select a row, any previously selected row gets unselected. 'multiple' allows multiple rows to be selected.
+'single' will use single row selection, such that when you select a row, any previously selected row gets unselected. 'multiple' allows multiple rows to be selected.
 
 
 <Canvas><Story id="component-ptgaggriddatatablecomponent--row-selection" /></Canvas>
@@ -137,22 +139,38 @@ Multiple elements can share the same class.
 
 7] pagination - 
 
-  Pagination allows the grid to paginate rows, removing the need for a vertical scroll to view more data.
+Pagination allows the grid to paginate rows, removing the need for a vertical scroll to view more data.
 
-  <Canvas><Story id="component-ptgaggriddatatablecomponent--pagination" /></Canvas>  
+<Canvas><Story id="component-ptgaggriddatatablecomponent--pagination" /></Canvas>  
 
 
 8] paginationLimit -
   
-  PaginationLimit allows you to set the number of rows on the page.
+PaginationLimit allows you to set the number of rows on the page.
 
-  <Canvas><Story id="component-ptgaggriddatatablecomponent--pagination-limit" /></Canvas>   
+<Canvas><Story id="component-ptgaggriddatatablecomponent--pagination-limit" /></Canvas>   
 
 
-9] customPaginationClass -
+9] enableCustomFilter - 
 
-We can set the class for the pagination.
+enableCustomFilter control is used to hide and show the customPaginationClass.  
+  
+enableCustomFilter control have two value :
+
+a] True - customPagination is visible .
+
+b] False - customPagination is hide .
+
+
+<Canvas><Story id="component-ptgaggriddatatablecomponent--enable-custom-filter" /></Canvas>
+
+
+
+10] customPaginationClass -
+
+  We can set the customPaginationClass for the pagination.
+
+  When we open DATATABLE_WITH_ACCORDIAN we can see the  customPaginationClass class.
  
-The class attribute is often used to point to a class name in a style sheet. It can also be used by a other languages and manipulate elements with the specific class name.
- 
-  <Canvas><Story id="component-ptgaggriddatatablecomponent--custom-pagination-class" /></Canvas>   
+
+ <Canvas><Story id="component-ptgaggriddatatablecomponent--custom-pagination-class" /></Canvas>   
