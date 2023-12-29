@@ -66,12 +66,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule} from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-ptg-ui-ng.module';
 
 import { WebComponentsAngularModule } from '@ptg-ui/ptg-ui-web-components-angular';
 import { defineCustomElements } from '@ptg-ui/ptg-ui-web-components/loader';
+import { TooltipComponent } from './tooltip-component/tooltip.component';
 defineCustomElements();
 
 @NgModule({
@@ -112,7 +113,8 @@ defineCustomElements();
     DialogExampleComponent,
     CardExampleComponent,
     BreadcrumbsExampleComponent,
-    CarouselExampleComponent
+    CarouselExampleComponent,
+    TooltipComponent,
   ],
 
   bootstrap: [MultistepFormLayoutComponent],
@@ -138,7 +140,7 @@ defineCustomElements();
     MatInputModule,
     DemoPtgUiNgModule,
     MatSnackBarModule,
-    WebComponentsAngularModule
+    WebComponentsAngularModule,
   ],
 })
 export class DashboardModule {}

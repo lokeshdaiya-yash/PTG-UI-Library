@@ -3,8 +3,8 @@
  * @author Sunil Bhawsar
  * @desc Layout and Routing for reusable components
 */
-{/*--Import Components for routing using lazy loading--*/ }
 import { lazy } from "react";
+{/*--Import Components for routing using lazy loading--*/ }
 const Example3 = lazy(() => import('@ptg-react-app/examples/multi-step-form/Example3'));
 const PtgUiHome = lazy(() => import("@ptg-react-app/home/Home"))
 const PtgUiAdminHome = lazy(() => import("@ptg-react-app/admin/AdminHome"))
@@ -34,6 +34,7 @@ const PtgUiDialog = lazy(()=> import ("../examples/dialog/dialog"));
 const Breadcrumbs =  lazy(()=> import ("../examples/breadcrumbs/breadcrumbs"));
 const Cards =  lazy(()=> import ("../examples/cards/cards"));
 const PtgUiCarousel = lazy(()=> import ("../examples/carousel/carousel"));
+const PtgUiTooltip = lazy(()=> import ("../examples/tooltip/tooltip"));
 const GridLayout = lazy(()=> import ("../examples/grid-layout/grid-layout"));
 const Indeterminate =  lazy(()=> import ("../examples/indeterminate-checkbox/indeterminate-checkbox"));
 const PtgUiReactTable =  lazy(()=> import ("../examples/data-table/react-table"));
@@ -122,6 +123,10 @@ const routing = [
   {
     path: '/dialog',
     component: PtgUiDialog,
+  },
+  {
+    path: '/tooltip',
+    component: PtgUiTooltip,
   },
   {
     path:'/downloadFile',

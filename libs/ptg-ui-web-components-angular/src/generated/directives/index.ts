@@ -1,4 +1,3 @@
-
 import * as d from './proxies';
 
 export const DIRECTIVES = [
@@ -23,5 +22,6 @@ export const DIRECTIVES = [
   d.PtgTable,
   d.PtgTextarea,
   d.PtgToast,
-  d.PtgUiCarousel
+  d.PtgUiCarousel,
+  d.PtgTooltip,
 ];
