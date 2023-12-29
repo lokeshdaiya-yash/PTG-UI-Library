@@ -32,34 +32,40 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
       setShowCode(false);
     }
   };
+  // useEffect(() => {
+  //   authClass
+  //     .gridData()
+  //     .then((res: any) => {
+  //       setGridData(res.data);
+  //     })
+  //     .catch((err: any) => console.log(err));
+  // }, []);
+  const {data:apiData, isLoading, error} = PtguseFetch('https://ptguistrapi.azurewebsites.net/api/table-lists') as any
+  // const fetchApi = ()=>{
+  //   const data = apiData.map(item=>{
+  //     return{
+  //       id:item.id,
+  //       age: item.attributes.age,
+  //       athlete:item.attributes.athlete,
+  //       country:item.attributes.country,
+  //     date:item.attributes.date,
+  //     gold:item.attributes.gold,
+  //     silver:item.attributes.silver,
+  //     sport:item.attributes.sport,
+  //     total:item.attributes.total,
+  //     year:item.attributes.year,
+  //     }
+  //    })
+  //    setGridData(data)
+  //   }
+  // useEffect(()=>{
+  //   fetchApi()
+  // },[apiData])
   useEffect(() => {
-    authClass
-      .gridData()
-      .then((res: any) => {
-        setGridData(res.data);
-      })
-      .catch((err: any) => console.log(err));
-  }, []);
-  const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/table-lists') as any
-  const fetchApi = ()=>{
-    const data = apiData.map(item=>{
-      return{
-        id:item.id,
-        age: item.attributes.age,
-        athlete:item.attributes.athlete,
-        country:item.attributes.country,
-      date:item.attributes.date,
-      gold:item.attributes.gold,
-      silver:item.attributes.silver,
-      sport:item.attributes.sport,
-      total:item.attributes.total,
-      year:item.attributes.year,
-      }
-     })
-     setGridData(data)
+ 
+    if(apiData[0]?.attributes?.grid){
+      setGridData(apiData[0]?.attributes?.grid)
     }
-  useEffect(()=>{
-    fetchApi()
   },[apiData])
   const columns = [
     { name: 'athlete', header: 'Athlete', width: 200 },

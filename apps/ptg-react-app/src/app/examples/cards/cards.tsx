@@ -69,7 +69,7 @@ export default function Card() {
         )}
         {cardDataObj.map((card) => {
           return (
-            <div className="col-md-3">
+            <div className="col-md-4">
               <PtgCard {...card} 
               cardButtonText="select"
               isCardAction={true}

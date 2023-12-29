@@ -29,7 +29,7 @@ export class PtgCard {
            {this.cardContent && <div class="ptg-card-content">{this.cardContent}</div>}
           </div>}
           {this.isCardAction && <div class="ptg-card-footer">
-          <ptg-button text={this.cardButtonText} onClick={()=>this.clickbutn(this.cardId)}></ptg-button>
+          <ptg-button appearance="primary" text={this.cardButtonText} onClick={()=>this.clickbutn(this.cardId)}></ptg-button>
           </div>}
         </div>
     );

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class BreadcrumbsExampleComponent {
   dataList: any = [
     { title: 'home', link: '/home' },
-    { title: 'about', link: '/about' },
+    { title: 'about', link: '/card' },
     { title: 'contact', link: '/contact' },
   ];
   htmlCode = `

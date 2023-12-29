@@ -30,6 +30,7 @@ import { MultistepFormLayoutComponent } from './multistep-form/multistep-form-la
 import { DialogExampleComponent } from './dialog-component/dialog-example.component';
 import { CardExampleComponent } from './card-component/card-example.component';
 import { BreadcrumbsExampleComponent } from './breadcrumbs-component/breadcrumbs-example.component';
+import { CarouselExampleComponent } from './carousel-component/carousel-example.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: 'calendar',
     component: CalendarexampleComponent,
+  },
+  {
+    path: 'carousel',
+    component: CarouselExampleComponent,
   },
   {
     path: 'select',

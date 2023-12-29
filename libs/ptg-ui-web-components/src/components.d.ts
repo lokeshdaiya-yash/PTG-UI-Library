@@ -173,6 +173,11 @@ export namespace Components {
         "open": boolean;
         "type": string;
     }
+    interface PtgUiCarousel {
+        "images": Array<string>;
+        "imgHeight": string;
+        "imgWidth": string;
+    }
 }
 export interface PtgCalenderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -325,6 +330,12 @@ declare global {
         prototype: HTMLPtgToastElement;
         new (): HTMLPtgToastElement;
     };
+    interface HTMLPtgUiCarouselElement extends Components.PtgUiCarousel, HTMLStencilElement {
+    }
+    var HTMLPtgUiCarouselElement: {
+        prototype: HTMLPtgUiCarouselElement;
+        new (): HTMLPtgUiCarouselElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "ptg-accordion": HTMLPtgAccordionElement;
@@ -347,6 +358,7 @@ declare global {
         "ptg-table": HTMLPtgTableElement;
         "ptg-textarea": HTMLPtgTextareaElement;
         "ptg-toast": HTMLPtgToastElement;
+        "ptg-ui-carousel": HTMLPtgUiCarouselElement;
     }
 }
 declare namespace LocalJSX {
@@ -529,6 +541,11 @@ declare namespace LocalJSX {
         "open"?: boolean;
         "type"?: string;
     }
+    interface PtgUiCarousel {
+        "images"?: Array<string>;
+        "imgHeight"?: string;
+        "imgWidth"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "ptg-accordion": PtgAccordion;
@@ -551,6 +568,7 @@ declare namespace LocalJSX {
         "ptg-table": PtgTable;
         "ptg-textarea": PtgTextarea;
         "ptg-toast": PtgToast;
+        "ptg-ui-carousel": PtgUiCarousel;
     }
 }
 export { LocalJSX as JSX };
@@ -578,6 +596,7 @@ declare module "@stencil/core" {
             "ptg-table": LocalJSX.PtgTable & JSXBase.HTMLAttributes<HTMLPtgTableElement>;
             "ptg-textarea": LocalJSX.PtgTextarea & JSXBase.HTMLAttributes<HTMLPtgTextareaElement>;
             "ptg-toast": LocalJSX.PtgToast & JSXBase.HTMLAttributes<HTMLPtgToastElement>;
+            "ptg-ui-carousel": LocalJSX.PtgUiCarousel & JSXBase.HTMLAttributes<HTMLPtgUiCarouselElement>;
         }
     }
 }

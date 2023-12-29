@@ -21,10 +21,18 @@ export const NavigationData = [
     label: 'CALENDER',
     disabled: false,
   },
+  {
+    id:"3",
+    path: '/carousel',
+    // icon: 'home-icon',
+    icon: 'fas fa-solid fa-slideshare',
+    label: 'CAROUSEL',
+    disabled: false,
+  },
 
   // Charts routing
   {
-    id:"3",
+    id:"4",
     label: 'CHARTS',
     icon: 'fas fa-chart-line',
     pages: [
@@ -46,7 +54,7 @@ export const NavigationData = [
   },
   // Datatable routing
   {
-    id:"4",
+    id:"5",
     label: 'DATA_TABLE',
     icon: 'far fa-star',
     pages: [
@@ -74,56 +82,56 @@ export const NavigationData = [
     ],
   },
   {
-    id:"5",
+    id:"6",
     path: '/dialog',
-    icon: 'fas fa-grip-vertical',
+    icon: 'fas fa-window-maximize',
     label: 'DIALOG',
     disabled: false,
   },
   {
-    id:"6",
+    id:"7",
     path: '/draganddrop',
     icon: 'fas fa-grip-vertical',
     label: 'DRAG_AND_DROP',
     disabled: false,
   },
   {
-    id:"7",
+    id:"8",
     path: '/download',
     icon: 'fas fa-download',
     label: 'DOWNLOAD',
     disabled: false,
   },
   {
-    id:"8",
+    id:"9",
     path: '/grid-layout',
     icon: 'fa-solid fa-border-all',
     label: 'GRID_LAYOUT',
     disabled: false,
   },
   {
-    id:"9",
+    id:"10",
     path: '/indeterminate-checkbox',
     icon: 'fas fa-square-check',
     label: 'INDETERMINATE',
     disabled: false,
   },
   {
-    id:"10",
+    id:"11",
     path: '/pipes',
     icon: 'fa-solid fa-p',
     label: 'PIPES',
     disabled: false,
   },
   {
-    id:"11",
+    id:"12",
     path: '/role',
     icon: 'fas fa-lock',
     label: 'ROLE_BASED',
     disabled: false,
   },
   {
-    id:"12",
+    id:"13",
     path: '/select',
     // icon: 'home-icon',
     icon: 'fa-solid fa-check-to-slot',
@@ -131,7 +139,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id:"13",
+    id:"14",
     path: '/accessibility',
     // icon: 'home-icon',
     icon: 'fa-solid fa-keyboard',
@@ -139,7 +147,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id:"14",
+    id:"15",
     path: '/multistep-form',
     // icon: 'home-icon',
     icon: 'fa-solid fa-file',

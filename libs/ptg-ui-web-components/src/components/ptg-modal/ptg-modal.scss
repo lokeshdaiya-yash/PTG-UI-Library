@@ -96,6 +96,9 @@
 .modal-wrapper .modal .footer my-buttons{
   margin: 0 6px;
 }
+.modal-wrapper .modal .footer ptg-button + ptg-button{
+  margin-left: 8px;
+}
 
 .isOpen{
   opacity: 1;
@@ -110,3 +113,5 @@
 .isOpen .modal{
   transform: translate(-50%,90px);
 }
+
+

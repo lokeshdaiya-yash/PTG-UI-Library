@@ -18,6 +18,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/carousel',
+    icon: 'fa-solid fa-calendar',
+    label: 'Carousel',
+    disabled: false,
+  },
+  {
     label: 'CHARTS',
     icon: 'fas fa-chart-line',
     pages: [

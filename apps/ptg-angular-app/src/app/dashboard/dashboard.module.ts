@@ -55,6 +55,7 @@ import { DialogExampleComponent } from './dialog-component/dialog-example.compon
 import { CardExampleComponent } from './card-component/card-example.component';
 import { BreadcrumbsExampleComponent } from './breadcrumbs-component/breadcrumbs-example.component';
 
+import { CarouselExampleComponent } from './carousel-component/carousel-example.component';
 
 import { ToggleCodeComponent } from './toggle-code/toggle-code.component';
 // Material Module
@@ -110,7 +111,8 @@ defineCustomElements();
     ToggleCodeComponent,
     DialogExampleComponent,
     CardExampleComponent,
-    BreadcrumbsExampleComponent
+    BreadcrumbsExampleComponent,
+    CarouselExampleComponent
   ],
 
   bootstrap: [MultistepFormLayoutComponent],

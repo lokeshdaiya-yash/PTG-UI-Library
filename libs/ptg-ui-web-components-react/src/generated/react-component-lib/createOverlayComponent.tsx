@@ -63,13 +63,13 @@ export const createOverlayComponent = <
       return displayName;
     }
 
-    componentDidMount() {
+    override componentDidMount() {
       if (this.props.isOpen) {
         this.present();
       }
     }
 
-    componentWillUnmount() {
+    override componentWillUnmount() {
       if (this.overlay) {
         this.overlay.dismiss();
       }
@@ -82,7 +82,7 @@ export const createOverlayComponent = <
       setRef(this.props.forwardedRef, null)
     }
 
-    shouldComponentUpdate(nextProps: Props) {
+    override shouldComponentUpdate(nextProps: Props) {
       // Check if the overlay component is about to dismiss
       if (this.overlay && nextProps.isOpen !== this.props.isOpen && nextProps.isOpen === false) {
         isDismissing = true;
@@ -91,7 +91,7 @@ export const createOverlayComponent = <
       return true;
     }
 
-    async componentDidUpdate(prevProps: Props) {
+    override async componentDidUpdate(prevProps: Props) {
       if (this.overlay) {
         attachProps(this.overlay, this.props, prevProps);
       }
@@ -146,7 +146,7 @@ export const createOverlayComponent = <
       await this.overlay.present();
     }
 
-    render() {
+    override render() {
       /**
        * Continue to render the component even when
        * overlay is dismissing otherwise component
