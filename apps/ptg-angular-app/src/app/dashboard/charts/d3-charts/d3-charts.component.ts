@@ -8,7 +8,6 @@ import { chartService } from '@ptg-angular-app/common/data-services/chart.servic
   styleUrls: ['./d3-charts.component.scss'],
 })
 export class D3ChartsComponent implements OnInit {
-  constructor(private chartApiService: chartService) {}
   title = 'angular-d3';
   resources = resources;
   barChartHtmlCode = `
@@ -111,47 +110,48 @@ export class D3ChartsComponent implements OnInit {
   lineChartData: any = {
     data: [],
   };
+  constructor(private chartApiService: chartService) {}
 
   ngOnInit(): void {
     this.chartApiService.getD3BarList().subscribe((response) => {
-      let data1 = response?.data[0].attributes.data;
-      if (data1.length) {
+      const result = response?.data[0].attributes;
+      if (result?.data.length) {
         this.barChartData = {
           margin: 50,
           start: 0,
           end: 160000,
-          height: response?.data[0].attributes.height,
-          width: response?.data[0].attributes.width,
-          title: response?.data[0].attributes.title,
-          source: response?.data[0].attributes.source,
-          x_title: response?.data[0].attributes.x_title,
-          y_title: response?.data[0].attributes.y_title,
-          data: data1,
+          height: result.height,
+          width: result.width,
+          title: result.title,
+          source: result.source,
+          x_title: result.x_title,
+          y_title: result.y_title,
+          data: result.data,
         };
       }
     });
 
     //pie chart
     this.chartApiService.getD3PieList().subscribe((response) => {
-      let piechartdata = response?.data[0].attributes.piedata;
-      let color = response?.data[0].attributes.colors.split(',');
-      if (piechartdata.length) {
+      const pieChartData = response?.data[0].attributes;
+      const color = pieChartData.colors.split(',');
+      if (pieChartData?.piedata.length) {
         this.pieChartData = {
-          height: response?.data[0].attributes.height,
-          width: response?.data[0].attributes.width,
-          title: response?.data[0].attributes.title,
-          source: response?.data[0].attributes.source,
-          x_title: response?.data[0].attributes.x_title,
-          y_title: response?.data[0].attributes.y_title,
+          height: pieChartData.height,
+          width: pieChartData.width,
+          title: pieChartData.title,
+          source: pieChartData.source,
+          x_title: pieChartData.x_title,
+          y_title: pieChartData.y_title,
           colors: color,
-          data: piechartdata,
+          data: pieChartData.piedata,
         };
       }
     });
 
     //line chart
     this.chartApiService.getD3LineChart().subscribe((response) => {
-      let data1 = response?.data[0].attributes.data.map((e) => ({
+      const data1 = response?.data[0].attributes.data.map((e) => ({
         date: new Date(e.date),
         value: e.value,
       }));

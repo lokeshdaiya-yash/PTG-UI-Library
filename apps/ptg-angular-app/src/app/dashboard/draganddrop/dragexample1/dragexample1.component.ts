@@ -138,7 +138,7 @@ export class Dragexample1Component implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private mocksApiService: mocksService
   ) {
-    this.prepareDragDrop(this.nodes);
+    // this.prepareDragDrop(this.nodes);
   }
   ngOnInit(): void {
     this.mocksApiService.getDemoData().subscribe((response) => {
