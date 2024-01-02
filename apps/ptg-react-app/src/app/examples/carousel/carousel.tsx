@@ -32,20 +32,39 @@ const CarouselExample = () => {
 
   const htmlCode = `
       <PtgUiCarousel images={sampleImages} img-width='500' img-height='400'></PtgUiCarousel>`
-    return (
-    <div className='row'>
-      <div className="col-11">
-        <h5 className="font-weight-bold">Carousel</h5>
-      </div>
-      <div className='col-1 mr-5 mb-3'>
-        <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
-      </div>
 
-      {showCode && (
-        <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
-      )}
-        <PtgUiCarousel images={sampleImages} img-width='500' img-height='400'></PtgUiCarousel>
-    </div>
+  const htmlCodeWithIndicators = `
+      <PtgUiCarousel images={sampleImages} show-indicators="false" img-width='500' img-height='400'></PtgUiCarousel>`
+    return (
+      <div>
+        <div className='row'>
+          <div className="col-11">
+            <h5 className="font-weight-bold">Carousel</h5>
+          </div>
+          <div className='col-1 mr-5 mb-3'>
+            <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          </div>
+
+          {showCode && (
+            <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
+          )}
+            <PtgUiCarousel images={sampleImages}></PtgUiCarousel>
+        </div>
+        <hr />
+        <div className='row'>
+          <div className="col-11">
+            <h5 className="font-weight-bold">Carousel example to hide Indicators</h5>
+          </div>
+          <div className='col-1 mr-5 mb-3'>
+            <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          </div>
+
+          {showCode && (
+            <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCodeWithIndicators} />
+          )}
+            <PtgUiCarousel images={sampleImages} show-indicators="false" img-width='400' img-height='300'></PtgUiCarousel>
+        </div>
+      </div>
   );
 };
 

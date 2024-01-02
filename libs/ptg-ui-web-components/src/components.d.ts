@@ -177,6 +177,7 @@ export namespace Components {
         "images": Array<string>;
         "imgHeight": string;
         "imgWidth": string;
+        "showIndicators": boolean;
     }
 }
 export interface PtgCalenderCustomEvent<T> extends CustomEvent<T> {
@@ -545,6 +546,7 @@ declare namespace LocalJSX {
         "images"?: Array<string>;
         "imgHeight"?: string;
         "imgWidth"?: string;
+        "showIndicators"?: boolean;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;

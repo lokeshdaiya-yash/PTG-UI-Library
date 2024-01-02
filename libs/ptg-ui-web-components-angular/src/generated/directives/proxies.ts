@@ -507,13 +507,13 @@ export declare interface PtgUiCarousel extends Components.PtgUiCarousel {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['images', 'imgHeight', 'imgWidth']
+  inputs: ['images', 'imgHeight', 'imgWidth', 'showIndicators']
 })
 @Component({
   selector: 'ptg-ui-carousel',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['images', 'imgHeight', 'imgWidth']
+  inputs: ['images', 'imgHeight', 'imgWidth', 'showIndicators']
 })
 export class PtgUiCarousel {
   protected el: HTMLElement;
