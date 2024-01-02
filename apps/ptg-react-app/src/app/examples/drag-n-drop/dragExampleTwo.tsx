@@ -10,9 +10,9 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { PtguseFetch } from '@ptg-ui/react';
 import './drag-n-drop.scss';
-
+ 
 export interface DragExampleTwoProps {}
-
+ 
 /* istanbul ignore next */
 const onDragEnd = (result: any, columns: any, setColumns: any) => {
   if (!result.destination) return;
@@ -49,20 +49,20 @@ const onDragEnd = (result: any, columns: any, setColumns: any) => {
     });
   }
 };
-
+ 
 export function DragExampleTwo(props: DragExampleTwoProps) {
   const [data, setData] = useState<any>([]);
   const {
     data: apiData,
     isLoading,
     error,
-  } = PtguseFetch('http://localhost:1337/api/todo-lists') as any;
+  } = PtguseFetch('todo-lists') as any;
   const columnsFromBackend = {
     right: {
       name: 'To do',
       items: data,
     },
-
+ 
     left: {
       name: 'Done',
       items: [],
@@ -130,5 +130,5 @@ export function DragExampleTwo(props: DragExampleTwoProps) {
     </div>
   );
 }
-
+ 
 export default DragExampleTwo;

@@ -5,15 +5,23 @@
  *
 */
 
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import PtgUiDownload from '@ptg-ui/libs/ptg-ui-react-lib/src/lib/download-file/downloadFile';
 import { downloadFileData } from '../../mock/mocks';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import { PtguseFetch } from '@ptg-ui/react';
 
 const DownloadFileExample = () => {
-
+  const [gridData, setGridData] = useState([]);
   const [showCode, setShowCode] = useState(false);
+  const {data:apiData} = PtguseFetch('download-file-lists') as any
+
+  useEffect(() => {
+     if(apiData[0]){
+      setGridData(apiData[0]?.attributes?.data?.data)
+     }
+  },[apiData])
 
   const ShowExampleCode = () => {
     if(!showCode){
@@ -92,7 +100,7 @@ const DownloadFileExample = () => {
       {!showCode ? (
         <PtgUiDownload
         columns={downloadFileData.columns}
-        dataToDownload={downloadFileData.data}
+        dataToDownload={gridData}
         />
       ):(
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />

@@ -29,72 +29,41 @@ export const StepTwo = ({
   handleBlur,
 }: any) => {
   const [isDisabled, setIsDisabled] = useState(true);
-  const [genders, setGenders] = useState([])
+  const [genderList, setGenderList] = useState([])
   const [contriesList, setContriesList] = useState([])
   const [stateList, setStateList] = useState([])
   const [salutationList, setSalutationList] = useState([])
-  const {data:apiData} = PtguseFetch('http://localhost:1337/api/gender-lists') as any
-const fetchApi = ()=>{
-  const data = apiData.map(item=>{
-    return{
-    label:item.attributes.name,
-    value: item.attributes.value,
-    name:'Gender',
-
-    }
-   })
-   setGenders(data)
-  }
-useEffect(()=>{
-  fetchApi()
-},[apiData])
-  const {data:contriesListData} = PtguseFetch('http://localhost:1337/api/country-lists') as any
-const fetchApicontriesListData = ()=>{
-  const data = contriesListData.map(item=>{
-    return{
-    label:item.attributes.label,
-    value: item.attributes.value,
-    name:item.attributes.name,
-
-    }
-   })
-   setContriesList(data)
-  }
-useEffect(()=>{
-  fetchApicontriesListData()
-},[contriesListData])
-
-const {data:stateListData} = PtguseFetch('http://localhost:1337/api/state-lists') as any
-const fetchApistateListData = ()=>{
-  const data = stateListData.map(item=>{
-    return{
-    label:item.attributes.label,
-    value: item.attributes.value,
-    name:item.attributes.name,
-
-    }
-   })
-   setStateList(data)
-  }
-useEffect(()=>{
-  fetchApistateListData()
-},[stateListData])
-const {data:apisalutationListData} = PtguseFetch('http://localhost:1337/api/salutation-lists') as any
-const fetchApisalutationListData = ()=>{
-  const data = apisalutationListData.map(item=>{
-    return{
-    label:item.attributes.label,
-    value: item.attributes.value,
-    name:item.attributes.name,
-
-    }
-   })
-   setSalutationList(data)
-  }
-useEffect(()=>{
-  fetchApisalutationListData()
-},[apisalutationListData])
+  const {data:apiDataGender} = PtguseFetch('gender-lists') as any
+  const {data:contriesListData} = PtguseFetch('country-lists') as any
+  const {data:stateListData} = PtguseFetch('state-lists') as any
+  const {data:apisalutationListData} = PtguseFetch('salutation-lists') as any
+  
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if(apiDataGender[0]){
+      setGenderList(apiDataGender[0].attributes?.gender)
+    }
+  },[apiDataGender])
+
+  useEffect(() => {
+    if(contriesListData[0]){
+      setContriesList(contriesListData[0].attributes?.country)
+    }
+  },[contriesListData])
+
+  useEffect(() => {
+    if(stateListData[0]){
+      setStateList(stateListData[0].attributes?.state)
+    }
+  },[stateListData])
+
+
+  useEffect(() => {
+  if(apisalutationListData[0]){
+    setSalutationList(apisalutationListData[0].attributes?.salutation)
+  }
+  },[apisalutationListData])
 
   useEffect(() => {
     setIsDisabled(
@@ -139,7 +108,7 @@ useEffect(()=>{
           <label htmlFor="inputGender">{t('GENDER')} </label>
           <PtgUiSelect
             name="Gender"
-            list={genders}
+            list={genderList}
             id="inputGender"
             data-testid="city"
             className={`sel-placeholder w-100 bg_0 ${

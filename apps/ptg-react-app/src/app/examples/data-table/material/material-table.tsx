@@ -6,7 +6,6 @@
 */
 import '../data-table.scss';
 import { PtgUiMaterialTable, PtguseFetch } from '@ptg-ui/react';
-import { GRID_Data } from '@ptg-react-app/mock/grid-data';
 import { useEffect, useState } from 'react';
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
@@ -18,6 +17,13 @@ export interface PtgUiMaterialTableExampleProps {
 export function PtgUiMaterialTableExample(props: PtgUiMaterialTableExampleProps) {
 const [gridData, setGridData] = useState([]);
 const [showCode, setShowCode] = useState(false);
+const { data:apiData } = PtguseFetch('table-lists') as any
+
+useEffect(() => {
+  if(apiData[0]){
+    setGridData(apiData[0]?.attributes?.grid)
+  }
+},[apiData])
   
 const ShowExampleCode = () => {
   if(!showCode){
@@ -28,14 +34,14 @@ const ShowExampleCode = () => {
   }
 };
 
-useEffect(() => {
-  authClass
-    .gridData()
-    .then((res: any) => {
-      setGridData(res.data);
-    })
-    .catch((err: any) => console.log(err));
-}, []);
+// useEffect(() => {
+//   authClass
+//     .gridData()
+//     .then((res: any) => {
+//       setGridData(res.data);
+//     })
+//     .catch((err: any) => console.log(err));
+// }, []);
   const Columns = [
     { title: "Athlete",field: "athlete" ,width:"20%"},
     { title: "Age",field: "age",filtering: false },

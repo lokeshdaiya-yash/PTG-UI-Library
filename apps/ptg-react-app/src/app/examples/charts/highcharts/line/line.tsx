@@ -1,6 +1,6 @@
 import './line.scss';
-import { PtgUiLine } from '@ptg-ui/react';
-import { useState } from 'react';
+import { PtgUiLine, PtguseFetch } from '@ptg-ui/react';
+import { useState, useEffect } from 'react';
 import { highchartsLineData, highchartsMultiLineData } from '@ptg-react-app/mock/mocks';
 import { useTranslation } from 'react-i18next';
 import CodeIcon from '@mui/icons-material/Code';
@@ -15,6 +15,18 @@ export function PtgUiHCLine(props: PtgUiHCLineProps) {
   
   const [showLineChartCode, setShowLineChartCode] = useState(false);
   const [showMultiLineChartCode, setShowMultiLineChartCode] = useState(false);
+  const [high2DMultiLine, setHigh2DMultiLine] = useState<any[]>([]);
+ 
+  const {data:apiHigh2DMultiLine} = PtguseFetch('high-chart-multi-line-lists') as any
+
+  useEffect(()=>{
+    const multiLineChart : any  = {
+      title : apiHigh2DMultiLine[0]?.attributes?.chart?.title,
+      data: [],
+      remainingOptions: apiHigh2DMultiLine[0]?.attributes?.chart?.remainingOptions
+    }
+    setHigh2DMultiLine(multiLineChart)
+  },[apiHigh2DMultiLine])
   
   const ShowLineChartCode = () => {
     if(!showLineChartCode){
@@ -121,6 +133,7 @@ export function PtgUiHCLine(props: PtgUiHCLineProps) {
     <PtgUiLine {...highchartsMultiLineData} /> 
   `
   return (
+
     <>
       <div className='row'>
         <div className="col-11 mb-3">
@@ -131,9 +144,9 @@ export function PtgUiHCLine(props: PtgUiHCLineProps) {
           <CodeIcon onClick={ShowLineChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
         </div>
       </div>
-      <PtgUiLine {...props[0]} />
+      <PtgUiLine {...highchartsLineData} />
       <h4 className="m-3">{t('MULTIPLE_LINE_CHART')}</h4>
-      <PtgUiLine {...highchartsMultiLineData} />
+      <PtgUiLine {...high2DMultiLine} />
 
       {!showLineChartCode ? (
         <PtgUiLine {...highchartsLineData} />

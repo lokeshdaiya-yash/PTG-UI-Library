@@ -2,7 +2,7 @@
  * @since March 2022
  * @author Harsha Zalawa
  * @uses Example using React Data Grid as reusable component.
- * 
+ *
 */
 import {useEffect, useState} from 'react';
 import './data-table.scss';
@@ -14,7 +14,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 /* eslint-disable-next-line */
 export interface PtgUiReactDataGridExampleProps {}
-
+ 
 export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps) {
   const { t } = useTranslation();
   /* istanbul ignore next */
@@ -40,29 +40,9 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
   //     })
   //     .catch((err: any) => console.log(err));
   // }, []);
-  const {data:apiData, isLoading, error} = PtguseFetch('https://ptguistrapi.azurewebsites.net/api/table-lists') as any
-  // const fetchApi = ()=>{
-  //   const data = apiData.map(item=>{
-  //     return{
-  //       id:item.id,
-  //       age: item.attributes.age,
-  //       athlete:item.attributes.athlete,
-  //       country:item.attributes.country,
-  //     date:item.attributes.date,
-  //     gold:item.attributes.gold,
-  //     silver:item.attributes.silver,
-  //     sport:item.attributes.sport,
-  //     total:item.attributes.total,
-  //     year:item.attributes.year,
-  //     }
-  //    })
-  //    setGridData(data)
-  //   }
-  // useEffect(()=>{
-  //   fetchApi()
-  // },[apiData])
+  const {data:apiData, isLoading, error} = PtguseFetch('table-lists') as any
+
   useEffect(() => {
- 
     if(apiData[0]?.attributes?.grid){
       setGridData(apiData[0]?.attributes?.grid)
     }
@@ -171,5 +151,6 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
     </div>
   );
 }
-
+ 
 export default PtgUiReactDataGridExample;
+ 

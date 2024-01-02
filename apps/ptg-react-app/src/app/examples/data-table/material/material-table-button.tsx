@@ -5,12 +5,8 @@
  * 
 */
 import '../data-table.scss';
-import { GRID_Data } from '@ptg-react-app/mock/grid-data';
 import MaterialTable from "@material-table/core";
-import CheckSharpIcon from '@mui/icons-material/CheckSharp';
-import { ExportCsv, ExportPdf } from '@material-table/exporters';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { PtgUiButton, PtguseFetch } from '@ptg-ui/react';
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
@@ -34,14 +30,23 @@ export function PtgUiMaterialTableButtonExample(props: PtgUiMaterialTableButtonE
       setShowCode(false);
     }
   };
+  const {data:apiData} = PtguseFetch('table-lists') as any
+
   useEffect(() => {
-    authClass
-      .gridData()
-      .then((res: any) => {
-        setGridData(res.data);
-      })
-      .catch((err: any) => console.log(err));
-  }, []);
+    if(apiData[0]){
+      setGridData(apiData[0]?.attributes?.grid)
+    }
+  },[apiData])
+
+  // useEffect(() => {
+  //   authClass
+  //     .gridData()
+  //     .then((res: any) => {
+  //       setGridData(res.data);
+  //     })
+  //     .catch((err: any) => console.log(err));
+  // }, []);
+  
   const Columns:any = [
     { title: "Athlete",field: "athlete"},
     { title: "Age",field: "age",filtering: false },

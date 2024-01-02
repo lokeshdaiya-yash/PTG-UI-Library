@@ -17,22 +17,14 @@ export const StepThree = ({
   useEffect(()=>{
     setIsDisabled(!(details.cardType && details.cardNumber && !error.cardNumber && details.cvc && !error.cvc && details.expiration && details.cardHolder))
   },[details,error])
-  const {data:apiData} = PtguseFetch('http://localhost:1337/api/card-lists') as any
-  const fetchApi = ()=>{
-    const data = apiData.map(item=>{
-      return{
-      label:item.attributes.label,
-      value: item.attributes.value,
-      name:item.attributes.name,
-  
-      }
-     })
-     setCardData(data)
+  const {data:apiData} = PtguseFetch('card-lists') as any
+
+  useEffect(() => {
+    if(apiData[0]){
+      setCardData(apiData[0].attributes?.card)
     }
-  useEffect(()=>{
-    fetchApi()
   },[apiData])
-  console.log('apiData', apiData)
+
   return (
     <div className="p-2">
       <div className="col-md-12 mb-2">

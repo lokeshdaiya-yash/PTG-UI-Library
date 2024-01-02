@@ -1,34 +1,27 @@
 
-import { PtgUiMultiSelectbox, PtgUiSelect, PtguseFetch } from '@ptg-ui/react';
+import { PtgUiSelect, PtguseFetch } from '@ptg-ui/react';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Lang_LIST } from '../../mock/mocks';
 import './multi-lang.scss';
 
 export interface MultiLangProps {}
 export function MultiLang({}: MultiLangProps) {
-  const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/lang-lists') as any
+
   const [languages, setLanguages] = useState([])
-  const fetchApi = ()=>{
-    const data = apiData?.map(item=>{
-      return{
-      value: item.attributes.value,
-      name:item.attributes.name,
-      label:item.attributes.label
-      }
-     })
-     setLanguages(data)
-    }
-  useEffect(()=>{
-    fetchApi()
-  },[apiData])
-  const { i18n } = useTranslation();
   const [selectedLang, setSelectedLang] = useState('en');
- 
+
+  const {data:apiData} = PtguseFetch('lang-lists') as any
+
+  const { i18n } = useTranslation();
+
   const changeLanguage = (event:any) => {
     setSelectedLang(event.target.value);
     i18n.changeLanguage(event.target.value);
   }
+
+  useEffect(() => {
+    setLanguages(apiData[0]?.attributes?.language)
+  },[apiData])
  
   return (
     <div className="form-group me-2">
