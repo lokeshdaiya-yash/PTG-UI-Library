@@ -2,18 +2,17 @@
  * @since March 2022
  * @author Harsha Zalawa
  * @uses Example using React Data Grid as reusable component.
- * 
+ *
 */
 import {useEffect, useState} from 'react';
 import './data-table.scss';
 import { PtgUiReactDataGrid , PtguseFetch} from '@ptg-ui/react';
 import { PtgUiButton } from '@ptg-ui/react';
-import { GRID_Data } from '@ptg-react-app/mock/grid-data';
 import { useTranslation } from 'react-i18next';
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
 /* eslint-disable-next-line */
 export interface PtgUiReactDataGridExampleProps {}
-
+ 
 export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps) {
   const { t } = useTranslation();
   /* istanbul ignore next */
@@ -21,27 +20,7 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
       alert("Button Clicked")
   }
   const [gridData, setGridData] = useState([]);
-  const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/table-lists') as any
-  const fetchApi = ()=>{
-    const data = apiData.map(item=>{
-      return{
-        id:item.id,
-        age: item.attributes.age,
-        athlete:item.attributes.athlete,
-        country:item.attributes.country,
-      date:item.attributes.date,
-      gold:item.attributes.gold,
-      silver:item.attributes.silver,
-      sport:item.attributes.sport,
-      total:item.attributes.total,
-      year:item.attributes.year,
-      }
-     })
-     setGridData(data)
-    }
-  useEffect(()=>{
-    fetchApi()
-  },[apiData])
+
   // useEffect(() => {
   //   authClass
   //     .gridData()
@@ -50,6 +29,14 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
   //     })
   //     .catch((err: any) => console.log(err));
   // }, []);
+  const {data:apiData, isLoading, error} = PtguseFetch('table-lists') as any
+
+  useEffect(() => {
+    if(apiData[0]?.attributes?.grid){
+      setGridData(apiData[0]?.attributes?.grid)
+    }
+  },[apiData])
+
   const columns = [
     { name: 'athlete', header: 'Athlete', width: 200 },
     { name: 'age', header: 'Age',  width: 100 },
@@ -68,9 +55,10 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
     { name: 'age', operator: 'gte', type: 'number', value: '' },
     { name: 'country', operator: 'startsWith', type: 'string', value: '' },
   ];
-  return (
+   return (
     <div className="w-100">
       <h4>{t('REACT_DATA_GRID')}</h4>
+
       <PtgUiReactDataGrid
         data={[...gridData]}
         columns={columns}
@@ -81,8 +69,10 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
         nativeScroll={false}
         editable={true}
       />
-    </div>
+      
+     </div>
   );
 }
-
+ 
 export default PtgUiReactDataGridExample;
+ 

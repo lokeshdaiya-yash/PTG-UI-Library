@@ -7,7 +7,6 @@
 import {useState, useEffect} from  'react'
 import { PtgUiD3Line, PtgUiD3Bar, PtgUiD3Pie, PtguseFetch } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
-import { d3BarData, d3LineData, d3PieData } from '@ptg-react-app/mock/mocks';
 import { Container, Row } from 'react-bootstrap';
 
 /* eslint-disable-next-line */
@@ -21,68 +20,53 @@ export function D3Charts(props: D3ChartsProps) {
   const [apiDataBarChartData, setapiDataBarChartData] = useState<PtgUiD3BarProps>();
   const [apiDataPieChartData, setapiDataPieChartData] = useState<PtgUiD3BarProps>();
   const [apiDataLineChartData, setapiDataLineChartData] = useState<PtgUiD3BarProps>();
-  const {data:apiDataBarChart} = PtguseFetch('http://localhost:1337/api/d3-bar-lists') as any
+  const {data:apiDataBarChart} = PtguseFetch('d3-bar-lists') as any
+  const {data:apiDataPieChart} = PtguseFetch('d3-pie-r-lists') as any
+  const {data:apiDataLineChart} = PtguseFetch('d3-line-lists') as any
 
-  const fetchApiBarChart = ()=>{
-    const data = apiDataBarChart.map(item=>{
-      return{
-        id:item.id, 
-        Framework: item.attributes.Framework,
-        Stars:item.attributes.Stars,
-        Released:item.attributes.Released,
-        color:item.attributes.color,
-      }
-     })
-     setapiDataBarChartData({
-      ...apiDataBarChartData, 
-      data:data,
-     })
-    }
-    const {data:apiDataPieChart} = PtguseFetch('http://localhost:1337/api/d3-pie-lists') as any
-   
-
-    const fetchApiPieChart = ()=>{
-      const data = apiDataPieChart.map(item=>{
-        return{
-          id:item.id, 
-          Framework: item.attributes.Framework,
-          Stars:item.attributes.Stars,
-          Released:item.attributes.Released,
-          color:item.attributes.color,
-        }
-       })
-       
-       setapiDataPieChartData(
-        {
-          ...apiDataPieChartData,
-          data:data
-      })
-      }
-      const {data:apiDataLineChart} = PtguseFetch('http://localhost:1337/api/d3-line-lists') as any
-    const fetchApiLineChart = ()=>{
-      const data = apiDataLineChart.map(item=>{
-        return{
-          id:item.id, 
-          date: new Date(item.attributes.date),
-          value:item.attributes.value,
-        }
-       })
-       
-       setapiDataLineChartData({
-        ...d3LineData,
-        data
-       })
-      }
-  useEffect(()=>{
-    fetchApiBarChart()
-  },[apiDataBarChart])
-  useEffect(()=>{
-    fetchApiPieChart()
-  },[apiDataPieChart])
-  useEffect(()=>{
-    fetchApiLineChart()
-  },[apiDataLineChart])
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const heightValue = Number(apiDataPieChart[0]?.attributes?.height)
+    const widthValue = Number(apiDataPieChart[0]?.attributes?.width)
+    const innerRadiusValue = Number(apiDataPieChart[0]?.attributes?.innerRadius)
+    const outerRadiusValue = Number(apiDataPieChart[0]?.attributes?.outerRadius)
+
+    const d3PieChart : any = {
+      height : heightValue,
+      width  : widthValue,
+      innerRadius : innerRadiusValue,
+      outerRadius : outerRadiusValue,
+      data : apiDataPieChart[0]?.attributes?.data
+    }
+      setapiDataPieChartData(d3PieChart)
+  },[apiDataPieChart])
+
+  
+  useEffect(() => {
+    const d3LineChart : any = {
+      data : apiDataLineChart[0]?.attributes?.data.map((item) => { 
+        return {...item , date : new Date(item.date)}
+      })
+    }
+    setapiDataLineChartData(d3LineChart)
+  },[apiDataLineChart])
+
+  useEffect(() => {
+    const heightValue = Number(apiDataBarChart[0]?.attributes?.height)
+    const widthValue = Number( apiDataBarChart[0]?.attributes?.width)
+    const d3BarChart : any = {
+      height : heightValue,
+      width : widthValue,
+      title : apiDataBarChart[0]?.attributes?.title,
+      source : apiDataBarChart[0]?.attributes?.source,
+      x_title : apiDataBarChart[0]?.attributes?.x_title,
+      y_title :  apiDataBarChart[0]?.attributes?.y_title,
+      data : apiDataBarChart[0]?.attributes?.data
+    }
+      setapiDataBarChartData(d3BarChart)
+    },[apiDataBarChart])
+
   return (
     <Container fluid>
         <Row>

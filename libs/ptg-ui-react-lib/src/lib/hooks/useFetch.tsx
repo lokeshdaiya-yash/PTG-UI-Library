@@ -7,7 +7,7 @@ export function PtguseFetch(url:any) {
   const fetchApi = async () => {
     setIsLoading(true);
     try {
-      const apiData = await fetch(url);
+      const apiData = await fetch("https://ptguistrapi.azurewebsites.net/api/" + url);
       const apiJsonData = await apiData.json();
       if(!apiData.ok){
         setError(apiData.status);

@@ -5,7 +5,6 @@
  */
 
 import './select.scss';
-import { CITY_LIST } from '../../mock/mocks';
 import { PtgUiMultiSelectbox, PtguseFetch } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import {useState, useEffect} from 'react';
@@ -14,20 +13,14 @@ export interface MultiSelectCheckboxProps {}
 
 export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
   const [cityList, setCityList]= useState([])
-  const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/city-lists') as any
-  const fetchApi = ()=>{
-    const data = apiData.map(item=>{
-      return{
-      value: item.attributes.value,
-      name:item.attributes.name,
-      label:item.attributes.label
-      }
-     })
-     setCityList(data)
+  const { data:apiData } = PtguseFetch('city-lists') as any
+
+  useEffect(() => {
+    if(apiData[0]){
+      setCityList(apiData[0]?.attributes?.city)
     }
-  useEffect(()=>{
-    fetchApi()
   },[apiData])
+
   /*-----onSelect method -----*/
   const { t } = useTranslation();
   const onSelect: any = (event: any) => {

@@ -9,7 +9,6 @@
 import './web-accessibility.scss';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { CITY_LIST, GENDER_LIST } from '../../mock/mocks';
 import {
   PtgUiButton,
   PtgUiInput,
@@ -28,37 +27,6 @@ export interface WebAccessibilityProps {}
 export function WebAccessibility(props: WebAccessibilityProps) {
   const [cityList, setCityList]= useState([])
   const [genders, setGenders]= useState([])
-  const {data:apiData} = PtguseFetch('http://localhost:1337/api/city-lists') as any
-  const fetchApi = ()=>{
-    const data = apiData.map(item=>{
-      return{
-      value: item.attributes.value,
-      name:item.attributes.name,
-      label:item.attributes.label
-      }
-     })
-     setCityList(data)
-    }
-  useEffect(()=>{
-    fetchApi()
-  },[apiData])
-  const {data:apiDataGender} = PtguseFetch('http://localhost:1337/api/gender-lists') as any
-  const fetchGenders = ()=>{
-    const dataList = apiDataGender.map(item=>{
-      return{
-      value: item.attributes.value,
-      name:item.attributes.name,
-      label:item.attributes.label
-      }
-     })
-     setGenders(dataList)
-    }
-  useEffect(()=>{
-    fetchGenders()
-  },[apiDataGender])
-   const { t } = useTranslation();
-  const startRef: any = useRef();
-
   const [user, setUser]: any = useState({
     isLoading: false,
     username: '',
@@ -77,6 +45,26 @@ export function WebAccessibility(props: WebAccessibilityProps) {
     city: false,
     password: false,
   });
+
+  const {data:apiData} = PtguseFetch('city-lists') as any
+  const {data:apiDataGender} = PtguseFetch('gender-lists') as any
+  
+  const startRef: any = useRef();
+
+  const { t } = useTranslation();
+  
+  useEffect(() => {
+    if(apiData[0]){
+      setCityList(apiData[0].attributes?.city)
+    }
+  },[apiData])
+
+  useEffect(() => {
+    if(apiDataGender[0]){
+      setGenders(apiDataGender[0].attributes?.gender)
+    }
+  },[apiDataGender])
+
   const setState: any = (field: string, value: any) => {
     setUser((preState: any) => {
       return {
@@ -95,8 +83,6 @@ export function WebAccessibility(props: WebAccessibilityProps) {
   };
   const handleChange: any = (e: any) => {
     const { name, value } = e.target;
-    console.log('name' + name);
-    console.log('value' + value);
     validate(name, value);
     setUser((preState: any) => {
       return {

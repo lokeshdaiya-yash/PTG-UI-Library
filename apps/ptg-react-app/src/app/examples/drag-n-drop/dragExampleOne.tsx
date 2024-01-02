@@ -4,29 +4,40 @@
  * @desc Drag and Drop example using react-beautiful-dnd library
  */
 
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import {
   DragDropContext,
   Draggable,
   Droppable,
   DropResult,
 } from 'react-beautiful-dnd';
-import { USERS } from '@ptg-react-app/mock/drag-n-drop';
+import { PtguseFetch } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import './drag-n-drop.scss';
 
-export interface DragExampleOneProps {}
+export interface DragExampleOneProps {
+}
 
 export function DragExampleOne(props: DragExampleOneProps) {
-  const [user, setUser] = useState(USERS);
+  // const [user, setUser] = useState(USERS);
+  const [dataList, setDataList] = useState(null || []);
+  const { data:apiData } = PtguseFetch('drag-drop-lists') as any
+
+  useEffect(() => {
+    setDataList(apiData[0]?.attributes?.dragdrop)
+  },[apiData])
+ 
+  
   /* istanbul ignore next */
   const onDragEnd = (result: DropResult) => {
+   
     const { source, destination } = result;
     if (!destination) return;
-    const users = Array.from(user);
-    const [newOrder] = users.splice(source.index, 1);
-    users.splice(destination.index, 0, newOrder);
-    setUser(users);
+    // const users = Array.from(user);
+    const [newOrder] = dataList.splice(source.index, 1);
+    dataList.splice(destination.index, 0, newOrder);
+    // setUser(users);
   };
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="todo">
@@ -36,7 +47,7 @@ export function DragExampleOne(props: DragExampleOneProps) {
             {...provided.droppableProps}
             ref={provided.innerRef}
           >
-            {user.map(({ id, name }, index) => {
+            {dataList?.map(({ id, text }, index) => {
               return (
                 <Draggable key={id} draggableId={id} index={index}>
                   {(provided) => (
@@ -62,7 +73,7 @@ export function DragExampleOne(props: DragExampleOneProps) {
                         </div>
                         <div>
                           <p className="m-0">
-                            {index + 1} - {name}
+                            {index + 1} - {text}
                           </p>
                         </div>
                         <div>

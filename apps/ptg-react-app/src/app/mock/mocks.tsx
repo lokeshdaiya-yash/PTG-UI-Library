@@ -182,7 +182,7 @@ export const highchartsLineData:any ={
   title:'my Charts',
   data: [],
   remainingOptions:{
-    xAxis: {
+xAxis: {
       lineColor: 'transparent',
       tickLength: 0
   },
@@ -194,7 +194,7 @@ export const highchartsLineData:any ={
   },
   series:[{
     name: 'Installation',
-    data: []
+    data: [43934,52503,57177,69658,97031,119931,137133,154175]
 }],
   }
 }

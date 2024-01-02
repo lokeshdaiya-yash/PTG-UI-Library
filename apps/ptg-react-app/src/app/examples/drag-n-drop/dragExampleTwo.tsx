@@ -4,25 +4,14 @@
  * @UpdatedBy Harsha Zalawa
  * @desc Drag and Drop example using react-beautiful-dnd library
  */
-
-import { useState } from 'react';
+ 
+import { useState, useEffect } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import { TODO } from '../../mock/drag-n-drop';
+import { PtguseFetch } from '@ptg-ui/react';
 import './drag-n-drop.scss';
-
+ 
 export interface DragExampleTwoProps {}
-const columnsFromBackend = {
-  right: {
-    name: 'To do',
-    items: TODO,
-  },
-
-  left: {
-    name: 'Done',
-    items: [],
-  },
-};
-
+ 
 /* istanbul ignore next */
 const onDragEnd = (result: any, columns: any, setColumns: any) => {
   if (!result.destination) return;
@@ -59,9 +48,32 @@ const onDragEnd = (result: any, columns: any, setColumns: any) => {
     });
   }
 };
-
+ 
 export function DragExampleTwo(props: DragExampleTwoProps) {
+  const [data, setData] = useState<any>([]);
+  const {
+    data: apiData,
+    isLoading,
+    error,
+  } = PtguseFetch('todo-lists') as any;
+  const columnsFromBackend = {
+    right: {
+      name: 'To do',
+      items: data,
+    },
+ 
+    left: {
+      name: 'Done',
+      items: [],
+    },
+  };
   const [columns, setColumns] = useState(columnsFromBackend);
+  useEffect(() => {
+    if (apiData[0]) {
+      setData(apiData[0].attributes.todo);
+      setColumns(columnsFromBackend);
+    }
+  }, [apiData]);
   return (
     <div className=" p-0 mt-3 d-flex justify-content-center ">
       <DragDropContext
@@ -117,5 +129,5 @@ export function DragExampleTwo(props: DragExampleTwoProps) {
     </div>
   );
 }
-
+ 
 export default DragExampleTwo;

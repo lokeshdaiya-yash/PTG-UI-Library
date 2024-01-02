@@ -4,29 +4,36 @@
  * @desc Drag and Drop example using react-dnd-treeview library
  */
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Tree } from '@minoru/react-dnd-treeview';
-import { DRAG_DROP } from '../../mock/drag-n-drop';
+import { PtguseFetch } from '@ptg-ui/libs/ptg-ui-react-lib/src';
+
 
 function DragExampleFour() {
   
-  const [treeData, setTreeData] = useState(DRAG_DROP);
-  const handleDrop = (newTreeData: any) => setTreeData(newTreeData);
+  const [dataList, setDataList] = useState<any[]>([]);
+  
+  const { data:apiData } = PtguseFetch('drag-drop-lists') as any
 
+  useEffect(() => {
+    if (apiData[0]) {
+    setDataList(apiData[0]?.attributes?.dragdrop)
+    }
+  },[apiData])
+  
+  const handleDrop = (newTreeData: any) => setDataList(newTreeData);
 
   const checkChildExists = (id:any)=>{
-      let arr = treeData.filter((item,index)=>{
-        return id===item.parent;
-      });
-
-      return arr.length> 0 ? true:false;
+    let arr = dataList?.filter((item,index)=>{
+      return id === item.parent;
+    });
+    return arr?.length> 0 ? true : false;
   } 
 
-  
   return (
     <div className="mt-3 tree-view">
       <Tree
-        tree={treeData}
+        tree={dataList}
         rootId={0}
         onDrop={handleDrop}
         render={(node, { depth, isOpen, onToggle }) => (

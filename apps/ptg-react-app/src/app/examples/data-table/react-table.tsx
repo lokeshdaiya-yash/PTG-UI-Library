@@ -16,27 +16,14 @@ export interface PtgUiReactTableExampleProps {}
 export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
   const { t } = useTranslation();
   const [gridData, setGridData] = useState([]);
-  const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/table-lists') as any
-  const fetchApi = ()=>{
-    const data = apiData.map(item=>{
-      return{
-        id:item.id,
-        age: item.attributes.age,
-        athlete:item.attributes.athlete,
-        country:item.attributes.country,
-      date:item.attributes.date,
-      gold:item.attributes.gold,
-      silver:item.attributes.silver,
-      sport:item.attributes.sport,
-      total:item.attributes.total,
-      year:item.attributes.year,
-      }
-     })
-     setGridData(data)
+  const { data:apiData } = PtguseFetch('table-lists') as any
+
+  useEffect(() => {
+    if(apiData[0]){
+      setGridData(apiData[0]?.attributes?.grid)
     }
-  useEffect(()=>{
-    fetchApi()
   },[apiData])
+
   // useEffect(() => {
   //   authClass
   //     .gridData()
