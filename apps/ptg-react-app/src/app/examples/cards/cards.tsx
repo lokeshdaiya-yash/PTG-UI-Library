@@ -24,8 +24,11 @@ export default function Card() {
   const htmlCode = `
   {cardDataObj.map(card=>{
     return(
-      <PtgCard {...card} onHandleClick={handleClick}  cardButtonText="selected"
-      isCardAction={true}/>
+      <PtgCard {...card} 
+        cardButtonText="select"
+        isCardAction={true}
+         cardContentLength={150}
+         onHandleClick={handleClick} />
     )
   })}
   `;
@@ -74,6 +77,7 @@ export default function Card() {
               <PtgCard {...card} 
               cardButtonText="select"
               isCardAction={true}
+              cardContentLength={150}
                onHandleClick={handleClick} />
             </div>
           );
