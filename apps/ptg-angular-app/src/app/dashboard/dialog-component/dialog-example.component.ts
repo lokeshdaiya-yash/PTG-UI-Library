@@ -3,12 +3,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'ptg-ui-dialog-component',
   templateUrl: './dialog-example.component.html',
-  styleUrls: ['./dialog-example.component.scss']
+  styleUrls: ['./dialog-example.component.scss'],
 })
 export class DialogExampleComponent {
   htmlCode = `
   <ptg-modal :btn-name="buttonName" :modal-header-name="modalHeaderName" confirm-button-name="Okay"
-  (modalClose)="modalClosed()" (confirmClose)="onConfirmation()">
+  (modalClose)="modalClosed()" (confirmClose)="onConfirmation()" :closeOutsideClick="true">
     <div slot="body-block">
       <h2>Angular Slot for Body</h2>
     </div>
@@ -24,8 +24,7 @@ export class DialogExampleComponent {
   </ptg-modal>
   `;
 
-  tsCode =
-    `
+  tsCode = `
     // All of the above props are optional and default values are provided
     // You can hide header/footer by using the props options
     // showHeader = false, It will remove the Header from dialog
@@ -49,9 +48,9 @@ export class DialogExampleComponent {
       onConfirmation() {
         console.log('Confirm Button Clicked');
       }
-    }`
+    }`;
 
-    modalClosed() {
-      console.log('Modal Closed');
-    }
+  modalClosed() {
+    console.log('Modal Closed');
+  }
 }
