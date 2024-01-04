@@ -51,6 +51,7 @@ const DialogExample = () => {
       modal-header-name="Header Name Here"
       show-header='false' // true/false to display/hide the header of dialog
       show-footer='false' // true/false to display/hide the footer of dialog
+      close-outside-click='false'
       onModalClose={modalClosed} // Event name: onModalClose
       onConfirmClose={confirmClicked}> // Event name: onConfirmClose
       <div slot="body-block"> // Slot
