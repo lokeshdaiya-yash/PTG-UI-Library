@@ -144,6 +144,11 @@
   "ACCOUNT_INFO":"Informations de compte",
   "PERSONAL_INFO":"Renseignements personnels",
   "PAYMENT_DETAILS":"Détails de paiement",
-  "CONFIRM_DETAILS":"Confirmez vos coordonnées"
+  "CONFIRM_DETAILS":"Confirmez vos coordonnées",
+  "BREADCRUMBS": "Chapelure",
+  "HOME": "Maison",
+  "ABOUT_US" : "À propos Nous",
+  "CONTACT_US" : "Contact Nous"
+ 
 }
 
