@@ -16,19 +16,19 @@
 // @import '~ngx-toastr/toastr';
 
 // // // ng-select style
-@import "~@ng-select/ng-select/themes/default.theme.css";  
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 // /* Importing Datepicker SCSS file. */
 // @import "~ngx-bootstrap/datepicker/bs-datepicker.css";
- 
 
-// // Ag-grid datatable 
+
+// // Ag-grid datatable
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
 
-// // Ngx datatable 
+// // Ngx datatable
 @import '~@swimlane/ngx-datatable/index.css';
-@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/themes/material.css';
 @import '~@swimlane/ngx-datatable/assets/icons.css';
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
@@ -42,7 +42,7 @@ nav {
   .logo{
     img{
       height: 30px;
-      margin-left: 50px !important; 
+      margin-left: 50px !important;
     }
   }
 }
@@ -61,7 +61,7 @@ nav {
   .navbar-brand.logo{
     margin-left: 3rem !important;
   }
-  
+
 }
 
 @media (min-width: 600px) and (max-width: 959.98px) {
@@ -73,7 +73,7 @@ nav {
 
 
 @media (max-width: 959.98px) {
-  
+
 nav {
   height: 10vh;
   border-bottom-width: 0px;
@@ -84,10 +84,10 @@ nav {
   .logo{
       img{
         height: 30px;
-        margin-left: 10px !important; 
+        margin-left: 10px !important;
       }
     }
 }
 
-  
+
 }
