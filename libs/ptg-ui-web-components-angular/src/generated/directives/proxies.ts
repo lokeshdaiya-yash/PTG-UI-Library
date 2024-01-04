@@ -71,6 +71,27 @@ export class PtgAlert {
 }
 
 
+export declare interface PtgBreadcrumbs extends Components.PtgBreadcrumbs {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['datalist']
+})
+@Component({
+  selector: 'ptg-breadcrumbs',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['datalist']
+})
+export class PtgBreadcrumbs {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface PtgButton extends Components.PtgButton {}
 
 @ProxyCmp({
@@ -120,6 +141,34 @@ export class PtgCalender {
     c.detach();
     this.el = r.nativeElement;
     proxyOutputs(this, this.el, ['dayChanged', 'monthChanged']);
+  }
+}
+
+
+export declare interface PtgCard extends Components.PtgCard {
+  /**
+   *  
+   */
+  handleClick: EventEmitter<CustomEvent<any>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['cardButtonText', 'cardContent', 'cardId', 'cardTitle', 'isCardAction', 'src']
+})
+@Component({
+  selector: 'ptg-card',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['cardButtonText', 'cardContent', 'cardId', 'cardTitle', 'isCardAction', 'src']
+})
+export class PtgCard {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['handleClick']);
   }
 }
 
@@ -226,11 +275,11 @@ export declare interface PtgModal extends Components.PtgModal {
   /**
    *  
    */
-  onModalClose: EventEmitter<CustomEvent<boolean>>;
+  modalClose: EventEmitter<CustomEvent<boolean>>;
   /**
    *  
    */
-  onConfirmClose: EventEmitter<CustomEvent<boolean>>;
+  confirmClose: EventEmitter<CustomEvent<boolean>>;
 
 }
 
@@ -249,7 +298,7 @@ export class PtgModal {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['onModalClose', 'onConfirmClose']);
+    proxyOutputs(this, this.el, ['modalClose', 'confirmClose']);
   }
 }
 
@@ -446,6 +495,27 @@ export declare interface PtgToast extends Components.PtgToast {}
   inputs: ['appearance', 'discription', 'id1', 'open', 'type']
 })
 export class PtgToast {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PtgUiCarousel extends Components.PtgUiCarousel {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['images', 'imgHeight', 'imgWidth', 'showIndicators']
+})
+@Component({
+  selector: 'ptg-ui-carousel',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['images', 'imgHeight', 'imgWidth', 'showIndicators']
+})
+export class PtgUiCarousel {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();

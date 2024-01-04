@@ -4,23 +4,73 @@
  * @uses Example using 3D charts as reusable component.
  * 
 */
-import { useState } from 'react';
-import { PtgUiD3Line, PtgUiD3Bar, PtgUiD3Pie } from '@ptg-ui/react';
+import {useState, useEffect} from  'react'
+import { PtgUiD3Line, PtgUiD3Bar, PtgUiD3Pie, PtguseFetch } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
-import { d3BarData, d3LineData, d3PieData } from '@ptg-react-app/mock/mocks';
 import { Container, Row } from 'react-bootstrap';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 
 /* eslint-disable-next-line */
+
+export interface PtgUiD3BarProps {
+  data?:[],
+}
 export interface D3ChartsProps { }
 
 export function D3Charts(props: D3ChartsProps) {
-  const { t } = useTranslation();
+  const [apiDataBarChartData, setapiDataBarChartData] = useState<PtgUiD3BarProps>();
+  const [apiDataPieChartData, setapiDataPieChartData] = useState<PtgUiD3BarProps>();
+  const [apiDataLineChartData, setapiDataLineChartData] = useState<PtgUiD3BarProps>();
   const [barChartCode, setBarChartCode] = useState(false);
   const [pieChartCode, setPieChartCode] = useState(false);
   const [lineChartCode, setLineChartCode] = useState(false);
+  const {data:apiDataBarChart} = PtguseFetch('d3-bar-lists') as any
+  const {data:apiDataPieChart} = PtguseFetch('d3-pie-r-lists') as any
+  const {data:apiDataLineChart} = PtguseFetch('d3-line-lists') as any
 
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    const heightValue = Number(apiDataPieChart[0]?.attributes?.height)
+    const widthValue = Number(apiDataPieChart[0]?.attributes?.width)
+    const innerRadiusValue = Number(apiDataPieChart[0]?.attributes?.innerRadius)
+    const outerRadiusValue = Number(apiDataPieChart[0]?.attributes?.outerRadius)
+
+    const d3PieChart : any = {
+      height : heightValue,
+      width  : widthValue,
+      innerRadius : innerRadiusValue,
+      outerRadius : outerRadiusValue,
+      data : apiDataPieChart[0]?.attributes?.data
+    }
+      setapiDataPieChartData(d3PieChart)
+  },[apiDataPieChart])
+
+  
+  useEffect(() => {
+    const d3LineChart : any = {
+      data : apiDataLineChart[0]?.attributes?.data.map((item) => { 
+        return {...item , date : new Date(item.date)}
+      })
+    }
+    setapiDataLineChartData(d3LineChart)
+  },[apiDataLineChart])
+
+  useEffect(() => {
+    const heightValue = Number(apiDataBarChart[0]?.attributes?.height)
+    const widthValue = Number( apiDataBarChart[0]?.attributes?.width)
+    const d3BarChart : any = {
+      height : heightValue,
+      width : widthValue,
+      title : apiDataBarChart[0]?.attributes?.title,
+      source : apiDataBarChart[0]?.attributes?.source,
+      x_title : apiDataBarChart[0]?.attributes?.x_title,
+      y_title :  apiDataBarChart[0]?.attributes?.y_title,
+      data : apiDataBarChart[0]?.attributes?.data
+    }
+      setapiDataBarChartData(d3BarChart)
+    },[apiDataBarChart])
   const ShowExampleCode = () => {
     if(!barChartCode){
       setBarChartCode(true);
@@ -143,9 +193,9 @@ export function D3Charts(props: D3ChartsProps) {
             <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
           </div>
           
-          {!barChartCode ? (
-           <PtgUiD3Bar {...d3BarData} />
-          ): (
+          {!barChartCode ? 
+           (apiDataBarChartData && apiDataBarChartData?.data?.length ? <PtgUiD3Bar {...apiDataBarChartData} /> :null)
+          : (
            <ShowCodeComponent componentCode={componentCodeBarChart} htmlCode={htmlCodeBarChart} />
           )}
         </Row>
@@ -159,7 +209,7 @@ export function D3Charts(props: D3ChartsProps) {
         </div>
 
         {!pieChartCode ? (
-          <PtgUiD3Pie {...d3PieData} />
+          apiDataPieChartData && apiDataPieChartData?.data?.length ? <PtgUiD3Pie {...apiDataPieChartData} /> : null
         ): (
           <ShowCodeComponent componentCode={componentCodePieChart} htmlCode={htmlCodePieChart} />
         )}
@@ -174,7 +224,7 @@ export function D3Charts(props: D3ChartsProps) {
           <CodeIcon onClick={ShowExampleCodeThree} fontSize="medium" className='show-code-icon'></CodeIcon>
         </div>
         {!lineChartCode ? (
-          <PtgUiD3Line {...d3LineData} />
+          apiDataLineChartData && apiDataLineChartData?.data?.length ? <PtgUiD3Line {...apiDataLineChartData} /> :null
         ): (
           <ShowCodeComponent componentCode={componentCodeLineChart} htmlCode={htmlCodeLineChart} /> 
         )}

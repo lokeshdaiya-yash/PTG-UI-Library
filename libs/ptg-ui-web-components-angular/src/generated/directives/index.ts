@@ -5,8 +5,10 @@ export const DIRECTIVES = [
   d.MyComponent,
   d.PtgAccordion,
   d.PtgAlert,
+  d.PtgBreadcrumbs,
   d.PtgButton,
   d.PtgCalender,
+  d.PtgCard,
   d.PtgCheckbox,
   d.PtgFooter,
   d.PtgHeader,
@@ -20,5 +22,6 @@ export const DIRECTIVES = [
   d.PtgSpinner,
   d.PtgTable,
   d.PtgTextarea,
-  d.PtgToast
+  d.PtgToast,
+  d.PtgUiCarousel
 ];

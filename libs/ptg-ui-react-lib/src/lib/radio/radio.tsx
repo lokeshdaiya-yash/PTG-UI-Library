@@ -30,7 +30,7 @@ export function PtgUiRadio({
 }: PtgUiRadioProps) {
   return (
     <>
-      {list.map((item) => (
+      {list?.map((item) => (
         <div className="form-check mx-1" key={item.id}>
           <input
             className="form-check-input"

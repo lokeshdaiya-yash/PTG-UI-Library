@@ -142,5 +142,6 @@
   "ACCOUNT_INFO": "Account Info",
   "PERSONAL_INFO": "Personal Information",
   "PAYMENT_DETAILS": "Payment Details",
-  "CONFIRM_DETAILS": "Confirm Your Details"
+  "CONFIRM_DETAILS": "Confirm Your Details",
+  "BREADCRUMBS":"Breadcrumbs"
 }

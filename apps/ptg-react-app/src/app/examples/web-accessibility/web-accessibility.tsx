@@ -9,7 +9,6 @@
 import './web-accessibility.scss';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { CITY_LIST, GENDER_LIST } from '../../mock/mocks';
 import {
   PtgUiButton,
   PtgUiInput,
@@ -17,6 +16,7 @@ import {
   PtgUiCheckbox,
   PtgUiRadio,
   PtgUiDatePicker,
+  PtguseFetch
 } from '@ptg-ui/react';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
@@ -28,9 +28,8 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 /* eslint-disable-next-line */
 export interface WebAccessibilityProps {}
 export function WebAccessibility(props: WebAccessibilityProps) {
-   const { t } = useTranslation();
-  const startRef: any = useRef();
-
+  const [cityList, setCityList]= useState([])
+  const [genders, setGenders]= useState([])
   const [user, setUser]: any = useState({
     isLoading: false,
     username: '',
@@ -51,7 +50,24 @@ export function WebAccessibility(props: WebAccessibilityProps) {
   });
 
   const [showCode, setShowCode] = useState(false);
+  const {data:apiData} = PtguseFetch('city-lists') as any
+  const {data:apiDataGender} = PtguseFetch('gender-lists') as any
   
+  const startRef: any = useRef();
+
+  const { t } = useTranslation();
+  
+  useEffect(() => {
+    if(apiData[0]){
+      setCityList(apiData[0].attributes?.city)
+    }
+  },[apiData])
+
+  useEffect(() => {
+    if(apiDataGender[0]){
+      setGenders(apiDataGender[0].attributes?.gender)
+    }
+  },[apiDataGender])
   const ShowExampleCode = () => {
     if(!showCode){
       setShowCode(true);
@@ -79,8 +95,6 @@ export function WebAccessibility(props: WebAccessibilityProps) {
   };
   const handleChange: any = (e: any) => {
     const { name, value } = e.target;
-    console.log('name' + name);
-    console.log('value' + value);
     validate(name, value);
     setUser((preState: any) => {
       return {
@@ -641,7 +655,7 @@ const htmlCode = `
                           </label>
                           <PtgUiSelect
                             name="city"
-                            list={CITY_LIST}
+                            list={cityList}
                             id="inputCity"
                             data-testid="city"
                             // className={`sel-placeholder w-100`}
@@ -669,7 +683,7 @@ const htmlCode = `
                                 name="gender"
                                 htmlFor="radioinputForGender"
                                 id="radioinputForGender"
-                                list={GENDER_LIST}
+                                list={genders}
                                 // accessKey="g"
                                 onChange={handleChange}
                                 value={user.gender}

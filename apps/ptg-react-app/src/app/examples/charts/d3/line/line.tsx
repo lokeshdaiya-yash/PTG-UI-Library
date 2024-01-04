@@ -6,7 +6,6 @@ import { d3LineData} from '@ptg-react-app/mock/mocks';
 export interface PtgUId3LineProps {}
 
 export function PtgUid3LineDummy(props: PtgUId3LineProps) {
-  console.log('d3linedata:',d3LineData);
   return (
     <PtgUiD3Line {...d3LineData}/>
   );

@@ -24,7 +24,9 @@ export interface PtgUiReactDataGridProps {
     silver: number;
     bronze: number;
     total: number;
+   
   }[];
+  // data : any ;
   columns: any;
   filterValue: any;
   minHeight: number;
@@ -49,6 +51,7 @@ export function PtgUiReactDataGrid({
   checkboxColumn,
 }: PtgUiReactDataGridProps) {
   const [rowData, setRowData] = useState(data);
+
 
   /* istanbul ignore next */
   const onEditComplete = useCallback(
