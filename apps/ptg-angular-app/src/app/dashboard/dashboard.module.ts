@@ -30,6 +30,7 @@ import { ChartComponent } from './charts/chart-layout/chart.component';
 import { D3ChartsComponent } from './charts/d3-charts/d3-charts.component';
 import { HighChartsComponent } from './charts/high-charts/high-charts.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { RoleBasedDirectiveComponent } from './role-based-directive/role-based-directive.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { WebaccessibilityComponent } from './webaccessibility/webaccessibility.component';
@@ -42,24 +43,33 @@ import { Pipeexamples1Component } from './pipeexamples/pipeexamples1/pipeexample
 import { Pipeexamples2Component } from './pipeexamples/pipeexamples2/pipeexamples2.component';
 import { Pipeexamples3Component } from './pipeexamples/pipeexamples3/pipeexamples3.component';
 import { CheckboxExamplesComponent } from './checkbox-examples/checkbox-examples.component';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DownloadExampleComponent } from './download-example/download-example.component';
 import { GridlayoutexampleComponent } from './gridlayoutexample/gridlayoutexample.component';
 import { ActionButtonComponent } from './datatables/action-button/action-button.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { MatTableModule } from '@angular/material/table';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { TranslateModule } from '@ngx-translate/core';
 import { AccordianExampleComponent } from './accordian-example/accordian-example.component';
 import { MultistepFormLayoutComponent } from './multistep-form/multistep-form-layout/multistep-form-layout.component';
+import { DialogExampleComponent } from './dialog-component/dialog-example.component';
+
+
+import { ToggleCodeComponent } from './toggle-code/toggle-code.component';
+// Material Module
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatIconModule } from '@angular/material/icon';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { MatButtonModule } from '@angular/material/button';
-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-ptg-ui-ng.module';
+
+import { WebComponentsAngularModule } from '@ptg-ui/ptg-ui-web-components-angular';
+import { defineCustomElements } from '@ptg-ui/ptg-ui-web-components/loader';
+defineCustomElements();
 
 @NgModule({
   declarations: [
@@ -95,6 +105,8 @@ import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-p
     ActionButtonComponent,
     AccordianExampleComponent,
     MultistepFormLayoutComponent,
+    ToggleCodeComponent,
+    DialogExampleComponent
   ],
 
   bootstrap: [MultistepFormLayoutComponent],
@@ -108,6 +120,7 @@ import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-p
     DragDropModule,
     MatCheckboxModule,
     AccordionModule.forRoot(),
+    CollapseModule.forRoot(),
     MatTableModule,
     NgxDatatableModule,
     TranslateModule,
@@ -117,7 +130,9 @@ import { DemoPtgUiNgModule } from '@ptg-angular-app/common/demo-ptg-ui-ng/demo-p
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    DemoPtgUiNgModule
+    DemoPtgUiNgModule,
+    MatSnackBarModule,
+    WebComponentsAngularModule
   ],
 })
 export class DashboardModule {}

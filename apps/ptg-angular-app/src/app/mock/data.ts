@@ -3,12 +3,12 @@ export interface TreeNode {
     children: TreeNode[];
     isExpanded?:boolean;
   }
-  
+
   export interface DropInfo {
       targetId: string;
       action?: string;
   }
-  
+
   export const demoData: TreeNode[] = [
     {
       id: 'item 1',

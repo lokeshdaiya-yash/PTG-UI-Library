@@ -11,7 +11,6 @@
 
 import {
   Component,
-  OnInit,
   ViewChild,
   forwardRef,
   Input,
@@ -48,7 +47,7 @@ import {
     },
   ],
 })
-export class CalendarComponent implements OnInit, ControlValueAccessor {
+export class CalendarComponent implements ControlValueAccessor {
   @ViewChild(BsDatepickerDirective, { static: false })
   datepicker?: BsDatepickerDirective;
   @ViewChild('datePicker', { static: true }) datePicker!: ElementRef;
@@ -62,16 +61,12 @@ export class CalendarComponent implements OnInit, ControlValueAccessor {
   @Input() maxDate?: Date;
   @Input() disabled = false;
   @Input() isReadOnly = false;
-  @Input() accessKey = '';
   @Input() aria_placeholder = 'MM-DD-YYYY';
   @Input() aria_label = 'given-name';
   @Output() calendarValueChange = new EventEmitter<any>();
   inputDate: any;
 
   constructor(private _changeDetectorRef: ChangeDetectorRef) { }
-
-  ngOnInit(): void {
-  }
 
   onChange = (_: any) => { };
   onTouched = () => { };
