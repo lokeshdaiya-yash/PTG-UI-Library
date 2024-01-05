@@ -44,7 +44,7 @@ export function PtgUi3dLine({title,xTitle,yTitle,data,categories,remainingOption
         alpha: 15,
         beta: 15,
         depth: 50,
-        viewDistance: 50
+        viewDistance: 100
       },
     },
     plotOptions: {

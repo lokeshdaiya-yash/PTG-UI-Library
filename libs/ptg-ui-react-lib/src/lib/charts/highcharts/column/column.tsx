@@ -29,7 +29,7 @@ const defaultProps: PtgUiColumnProps =
 
 
 export function PtgUiColumn({title,data,remainingOptions,...rest}: PtgUiColumnProps) {
-  let graphOptions:any = {
+    let graphOptions:any = {
     title:title,
     series:[{
       type:'column',

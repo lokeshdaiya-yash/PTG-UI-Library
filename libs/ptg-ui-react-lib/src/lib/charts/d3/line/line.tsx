@@ -35,7 +35,6 @@ const defaultProps: PtgUiD3LineProps =
 
 
 export function PtgUiD3Line({data,height,width}: PtgUiD3LineProps) {
-
   const createGraph = () => {
 
     // set the dimensions and margins of the graph

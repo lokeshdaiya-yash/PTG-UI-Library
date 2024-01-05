@@ -17,11 +17,13 @@
 
 ### Used by
 
+ - [ptg-card](../ptg-card)
  - [ptg-modal](../ptg-modal)
 
 ### Graph
 ```mermaid
 graph TD;
+  ptg-card --> ptg-button
   ptg-modal --> ptg-button
   style ptg-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

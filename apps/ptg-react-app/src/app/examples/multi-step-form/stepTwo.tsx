@@ -8,6 +8,7 @@ import {
   PtgUiRadio,
   PtgUiDatePicker,
   PtgUiTextArea,
+  PtguseFetch
 } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 
@@ -28,7 +29,41 @@ export const StepTwo = ({
   handleBlur,
 }: any) => {
   const [isDisabled, setIsDisabled] = useState(true);
+  const [genderList, setGenderList] = useState([])
+  const [contriesList, setContriesList] = useState([])
+  const [stateList, setStateList] = useState([])
+  const [salutationList, setSalutationList] = useState([])
+  const {data:apiDataGender} = PtguseFetch('gender-lists') as any
+  const {data:contriesListData} = PtguseFetch('country-lists') as any
+  const {data:stateListData} = PtguseFetch('state-lists') as any
+  const {data:apisalutationListData} = PtguseFetch('salutation-lists') as any
+  
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if(apiDataGender[0]){
+      setGenderList(apiDataGender[0].attributes?.gender)
+    }
+  },[apiDataGender])
+
+  useEffect(() => {
+    if(contriesListData[0]){
+      setContriesList(contriesListData[0].attributes?.country)
+    }
+  },[contriesListData])
+
+  useEffect(() => {
+    if(stateListData[0]){
+      setStateList(stateListData[0].attributes?.state)
+    }
+  },[stateListData])
+
+
+  useEffect(() => {
+  if(apisalutationListData[0]){
+    setSalutationList(apisalutationListData[0].attributes?.salutation)
+  }
+  },[apisalutationListData])
 
   useEffect(() => {
     setIsDisabled(
@@ -57,7 +92,7 @@ export const StepTwo = ({
           <label htmlFor="inputGreeting">{t('GREETING')} </label>
           <PtgUiSelect
             name="Greeting"
-            list={SALUTATION_LIST}
+            list={salutationList}
             id="inputGreeting"
             data-testid="city"
             className={`sel-placeholder w-100 bg_0 ${
@@ -73,7 +108,7 @@ export const StepTwo = ({
           <label htmlFor="inputGender">{t('GENDER')} </label>
           <PtgUiSelect
             name="Gender"
-            list={GENDER_LIST_SELECT}
+            list={genderList}
             id="inputGender"
             data-testid="city"
             className={`sel-placeholder w-100 bg_0 ${
@@ -158,7 +193,7 @@ export const StepTwo = ({
           <label htmlFor="inputState">{t('STATE')} </label>
           <PtgUiSelect
             name="state"
-            list={STATE_LIST}
+            list={stateList}
             id="inputState"
             data-testid="city"
             className={`sel-placeholder w-100 bg_0 ${
@@ -188,7 +223,7 @@ export const StepTwo = ({
         <label htmlFor="inputContry">{t('COUNTRY')} </label>
         <PtgUiSelect
           name="country"
-          list={COUNTRY_LIST}
+          list={contriesList}
           id="inputContry"
           data-testid="city"
           className={`sel-placeholder w-100 bg_0 ${

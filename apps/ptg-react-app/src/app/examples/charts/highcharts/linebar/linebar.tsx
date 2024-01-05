@@ -1,14 +1,30 @@
 //import './line.scss';
-import {PtgUiLineBar} from '@ptg-ui/react';
-import { highchartsLineBarData} from '@ptg-react-app/mock/mocks';
+import {useEffect, useState} from 'react'
+import {PtgUiLineBar, PtguseFetch} from '@ptg-ui/react';
 
 /* eslint-disable-next-line */
 export interface PtgUiHCLineBarProps {}
 
 export function PtgUiHCLineBar(props: PtgUiHCLineBarProps) {
+  const [highchartsLineBar, setHighchartsLineBar] = useState<any[]>([]);
+  const {data:apiDataLineChart} = PtguseFetch('line-bar-lists') as any
+
+  useEffect(()=>{
+    const categoryArray = apiDataLineChart[0]?.attributes?.categories.split(",");
+    const lineBarChartData : any = {
+      title : apiDataLineChart[0]?.attributes?.title,
+      subtitle : apiDataLineChart[0]?.attributes?.subtitle,
+      categories : categoryArray,
+      remainingOptions : {
+        series : apiDataLineChart[0]?.attributes?.series
+        }
+      }
+    setHighchartsLineBar(lineBarChartData)
+  },[apiDataLineChart])
+
   return (
     <>
-  <PtgUiLineBar {...highchartsLineBarData} />
+      <PtgUiLineBar {...highchartsLineBar} />
     </>
   
   );

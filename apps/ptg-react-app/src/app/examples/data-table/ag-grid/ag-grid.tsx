@@ -5,9 +5,8 @@
  * 
 */
 import '../data-table.scss';
-import { PtgUiAgGrid, PtgUiAccordian } from '@ptg-ui/react';
+import { PtgUiAgGrid, PtgUiAccordian, PtguseFetch } from '@ptg-ui/react';
 import { useEffect, useMemo, useState } from 'react';
-import { GRID_Data } from '@ptg-react-app/mock/grid-data';
 import { AggridButton } from './aggrid-button';
 import { useTranslation } from 'react-i18next';
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
@@ -37,7 +36,33 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
       })
       .catch((err: any) => console.log(err));
   }, []);
+
+  const {data:apiData} = PtguseFetch('table-lists') as any
+  // useEffect(() => {
+  //   authClass
+  //     .gridData()
+  //     .then((res: any) => {
+  //       setGridData(res.data);
+  //     })
+  //     .catch((err: any) => console.log(err));
+  // }, []);
   const { t } = useTranslation();
+  
+  useEffect(() => {
+    if(apiData[0]){
+      setGridData(apiData[0]?.attributes?.grid)
+    }
+  },[apiData])
+
+  // useEffect(() => {
+  //   authClass
+  //     .gridData()
+  //     .then((res: any) => {
+  //       setGridData(res.data);
+  //     })
+  //     .catch((err: any) => console.log(err));
+  // }, []);
+
   const autoGroupColumnDef = useMemo(() => ({
     field: "athlete", 
     cellRendererParams: {

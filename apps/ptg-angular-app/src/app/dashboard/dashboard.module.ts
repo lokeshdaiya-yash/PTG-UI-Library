@@ -52,7 +52,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AccordianExampleComponent } from './accordian-example/accordian-example.component';
 import { MultistepFormLayoutComponent } from './multistep-form/multistep-form-layout/multistep-form-layout.component';
 import { DialogExampleComponent } from './dialog-component/dialog-example.component';
+import { CardExampleComponent } from './card-component/card-example.component';
+import { BreadcrumbsExampleComponent } from './breadcrumbs-component/breadcrumbs-example.component';
 
+import { CarouselExampleComponent } from './carousel-component/carousel-example.component';
 
 import { ToggleCodeComponent } from './toggle-code/toggle-code.component';
 // Material Module
@@ -106,7 +109,10 @@ defineCustomElements();
     AccordianExampleComponent,
     MultistepFormLayoutComponent,
     ToggleCodeComponent,
-    DialogExampleComponent
+    DialogExampleComponent,
+    CardExampleComponent,
+    BreadcrumbsExampleComponent,
+    CarouselExampleComponent
   ],
 
   bootstrap: [MultistepFormLayoutComponent],

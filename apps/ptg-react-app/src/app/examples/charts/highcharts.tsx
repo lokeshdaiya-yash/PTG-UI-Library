@@ -5,11 +5,11 @@
  * @uses Example using 3D highcharts as reusable component.
  * 
 */
-import { useState } from 'react';
+import {useState, useEffect} from 'react'
 import PtgUiHCLine from './highcharts/line/line';
 import PtgUiHCLineBar from './highcharts/linebar/linebar';
 import PtgUiHCSColumn from './highcharts/stackedColumn/stackedColumn';
-import { PtgUiColumn, PtgUiPie, PtgUi3dLine, PtgUi3dColumn, PtgUi3dPie } from '@ptg-ui/react';
+import { PtgUiColumn, PtgUiPie, PtgUi3dLine, PtgUi3dColumn, PtgUi3dPie, PtguseFetch } from '@ptg-ui/react';
 import { highchartsLineData, highchartsPieData, highchartsColumnData, line3DOptions, column3DOptions, pie3dData } from '@ptg-react-app/mock/mocks';
 import { Tabs, Tab } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
@@ -19,9 +19,89 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 
 /* eslint-disable-next-line */
 export interface HighchartsProps { }
-
+export interface PtgUiD3BarProps {
+  data?:[],
+  series?:[]
+}
 export function Highcharts(props: HighchartsProps) {
-  const { t } = useTranslation();
+const [highchartsPieDataList, setHighchartsPieDataList] = useState<PtgUiD3BarProps>()
+const [high2DBarData, setHigh2DBarData] = useState<any[]>([]);
+const [high3DBarData, setHigh3DBarData] = useState<any[]>([]);
+const [high3DPieData, setHigh3DPieData] = useState<any[]>([]);
+const [high3DPieDataTitle, setHigh3DPieDataTitle] = useState<any[]>([]);
+const [high3DLineData, setHigh3DLineData] = useState<any[]>([]);
+const [high3DLineCat, setHigh3DLineCat] = useState<any[]>([]);
+const [high3DLineName, setHigh3DLineName] = useState<any[]>([]);
+const [high2DSingleLineChart, setHigh2DSingleLineChart] = useState<any[]>([]);
+
+const {data:apiDataPieChart} = PtguseFetch('higher-charts-pie-lists') as any
+const {data:apiHigh2DBarChart} = PtguseFetch('high-chart-column-lists') as any
+const {data:apiHigh3DBarChart} = PtguseFetch('bar-chart-3ds') as any
+const {data:apiHigh3DPieChart} = PtguseFetch('higher-charts-pie-lists') as any
+const {data:apiHigh3DLineChart} = PtguseFetch('bar-chart-3ds') as any
+const {data:api2DSingleLineChart} = PtguseFetch('high-charts-line-lists') as any
+
+const { t } = useTranslation();
+
+useEffect(()=>{
+
+  const singleLineChart : any = {
+    title : api2DSingleLineChart[0]?.attributes?.chart?.title,
+    data : api2DSingleLineChart[0]?.attributes?.chart?.data,
+    remainingOptions : api2DSingleLineChart[0]?.attributes?.chart?.remainingOptions
+  }
+ 
+  if(api2DSingleLineChart[0]){
+    setHigh2DSingleLineChart(singleLineChart)
+  }
+ },[api2DSingleLineChart])
+
+useEffect(()=>{
+  const highPieChart : any = {
+    title : apiDataPieChart[0]?.attributes?.title,
+    data : apiDataPieChart[0]?.attributes?.data
+  }
+  setHighchartsPieDataList(highPieChart)
+},[apiDataPieChart])
+
+  useEffect(()=>{
+    const dataArray = apiHigh2DBarChart[0]?.attributes?.categories.split(",");
+    const value = apiHigh2DBarChart[0]?.attributes?.data;
+ 
+    const barChartData : any  = {
+      title : apiHigh2DBarChart[0]?.attributes?.title,
+      data : value && JSON.parse(value),
+      remainingOptions:{
+        xAxis: {
+          categories: dataArray
+        },
+      }
+    }
+
+    if(apiHigh2DBarChart[0]){
+      setHigh2DBarData(barChartData)
+    }
+  },[apiHigh2DBarChart])
+
+  useEffect(()=>{
+    const arrayCat = apiHigh3DBarChart[0]?.attributes?.categories.split(",")
+    const barChart3d : any = {
+      data : apiHigh3DBarChart[0]?.attributes?.data,
+      categories: arrayCat
+    }
+    setHigh3DBarData(barChart3d)
+  },[apiHigh3DBarChart])
+
+  useEffect(() => {
+    setHigh3DPieData(apiHigh3DPieChart[0]?.attributes?.data)
+    setHigh3DPieDataTitle(apiHigh3DPieChart[0]?.attributes?.title)
+  },[apiHigh3DPieChart])
+
+  useEffect(() => {
+    setHigh3DLineData(apiHigh3DLineChart[0]?.attributes?.data)
+    const categoryArray = apiHigh3DLineChart[0]?.attributes?.categories.split(",");
+    setHigh3DLineCat(categoryArray)
+  },[apiHigh3DLineChart])
 
   const [barChartCode, setBarChartCode] = useState(false);
   const [pieChartCode, setPieChartCode] = useState(false);
@@ -332,6 +412,10 @@ export function Highcharts(props: HighchartsProps) {
      <PtgUi3dLine {...line3DOptions} />
   `
 
+
+
+
+
   return (
     <div className="w-77">
       <Tabs defaultActiveKey="2d">
@@ -347,7 +431,7 @@ export function Highcharts(props: HighchartsProps) {
           </div>
           
           {!barChartCode ? (
-            <PtgUiColumn {...highchartsColumnData} />
+            <PtgUiColumn {...high2DBarData} />
           ):(
             <ShowCodeComponent componentCode={barChartComponentCode} htmlCode={barChartHtmlCode}/>
           )}
@@ -363,12 +447,12 @@ export function Highcharts(props: HighchartsProps) {
           </div>
           
           {!pieChartCode ? (
-            <PtgUiPie {...highchartsPieData} />
+            <PtgUiPie {...highchartsPieDataList} />
           ):(
             <ShowCodeComponent componentCode={pieChartComponentCode} htmlCode={pieChartHtmlCode}/>
           )}
           
-          <PtgUiHCLine {...highchartsLineData} />
+          <PtgUiHCLine {...[high2DSingleLineChart]} />
 
           <div className='row'>
           <div className="col-11 mb-3">
@@ -415,7 +499,7 @@ export function Highcharts(props: HighchartsProps) {
           </div>
           </div>
           {!bar3DCode ? (
-            <PtgUi3dColumn {...column3DOptions} />
+          <PtgUi3dColumn {...high3DBarData} />
           ):(
             <ShowCodeComponent componentCode={bar3DComponentCode} htmlCode={bar3DHtmlCode}/>
           )}
@@ -430,7 +514,7 @@ export function Highcharts(props: HighchartsProps) {
           </div>
           </div>
           {!pie3DCode ? (
-            <PtgUi3dPie {...pie3dData} />
+            <PtgUi3dPie data={high3DPieData} title={high3DPieDataTitle} />
           ):(
             <ShowCodeComponent componentCode={pie3DComponentCode} htmlCode={pie3DHtmlCode}/>
           )}
@@ -445,14 +529,14 @@ export function Highcharts(props: HighchartsProps) {
           </div>
           </div>
           {!line3DCode ? (
-            <PtgUi3dLine {...line3DOptions} />
+           <PtgUi3dLine data={high3DLineData} categories={high3DLineCat} title={high3DLineName} />
           ):(
             <ShowCodeComponent componentCode={line3DComponentCode} htmlCode={line3DHtmlCode}/>
           )}
          
         </Tab>
       </Tabs>
-    </div>
+    </div> 
   );
 }
 

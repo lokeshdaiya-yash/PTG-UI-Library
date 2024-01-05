@@ -102,7 +102,7 @@ export function PtgUiD3Pie({data,height,width,innerRadius,outerRadius,colorsArra
   const createColors:any=()=> {
     const colors = d3
       .scaleOrdinal()
-      .domain(data.map((d: any) => d.Stars.toString()))
+      .domain(data?.map((d: any) => d.Stars.toString()))
       .range(colorsArray);
       return colors;
   }

@@ -1,0 +1,33 @@
+<section class="pt-2">
+  <div class="container-fluid">
+    <div class="row carousel-parent">
+      <div class="col-12">
+        <h4 class="mb-5" [innerHTML]="'CAROUSEL_EXAMPLE' | translate"></h4>
+        <ptg-ui-toggle-code
+          [htmlCode]="htmlCode"
+          [tsCode]="tsCode"
+        ></ptg-ui-toggle-code>
+        <ptg-ui-carousel [images]="sampleImages"></ptg-ui-carousel>
+      </div>
+    </div>
+    <hr />
+    <div class="row carousel-parent">
+      <div class="col-12">
+        <h4
+          class="mb-5"
+          [innerHTML]="'CAROUSEL_EXAMPLE_WITH_INDICATOR' | translate"
+        ></h4>
+        <ptg-ui-toggle-code
+          [htmlCode]="htmlCodeWithIndicators"
+          [tsCode]="tsCode"
+        ></ptg-ui-toggle-code>
+        <ptg-ui-carousel
+          [images]="sampleImages"
+          :show-indicators="false"
+          img-width="400"
+          img-height="300"
+        ></ptg-ui-carousel>
+      </div>
+    </div>
+  </div>
+</section>
