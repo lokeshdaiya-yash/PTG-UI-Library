@@ -226,11 +226,11 @@ export declare interface PtgModal extends Components.PtgModal {
   /**
    *  
    */
-  onModalClose: EventEmitter<CustomEvent<boolean>>;
+  modalClose: EventEmitter<CustomEvent<boolean>>;
   /**
    *  
    */
-  onConfirmClose: EventEmitter<CustomEvent<boolean>>;
+  confirmClose: EventEmitter<CustomEvent<boolean>>;
 
 }
 
@@ -249,7 +249,7 @@ export class PtgModal {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['onModalClose', 'onConfirmClose']);
+    proxyOutputs(this, this.el, ['modalClose', 'confirmClose']);
   }
 }
 

@@ -6,9 +6,9 @@ const PrivateRoute = ({ children }: { children: JSX.Element }) => {
   const isAuthenticated = authClass.getToken();
 
   return (
-    isAuthenticated
-    ? children
-    : <Navigate to="/login" state={{ from: location }} />
-);
+    !isAuthenticated
+      ? children
+      : <Navigate to="/login" state={{ from: location }} />
+  );
 };
 export default PrivateRoute;

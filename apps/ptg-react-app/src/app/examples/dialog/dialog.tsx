@@ -15,7 +15,7 @@ const DialogExample = () => {
   const [showCode, setShowCode] = useState(false);
 
   const ShowExampleCode = () => {
-    if(!showCode) {
+    if (!showCode) {
       setShowCode(true);
     } else {
       setShowCode(false);
@@ -57,7 +57,7 @@ const DialogExample = () => {
         <h2>React Slot for Body</h2>
       </div>
     </PtgModal>`
-    return (
+  return (
     <div className='row'>
       <div className="col-11">
         <h5 className="font-weight-bold">Dialog/Modal</h5>
@@ -67,15 +67,15 @@ const DialogExample = () => {
       </div>
 
       {showCode && (
-        <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} cssCode={cssCode}/>
+        <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} cssCode={cssCode} />
       )}
-        <PtgModal
-          modal-size='lg' modal-header-name="Header Name Here"
-          confirm-button-name="Okay" onOnModalClose={modalClosed}>
-          <div slot="body-block">
-            <h2>React Slot for Body</h2>
-          </div>
-        </PtgModal>
+      <PtgModal
+        modal-size='lg' modal-header-name="Header Name Here"
+        confirm-button-name="Okay" onModalClose={modalClosed}>
+        <div slot="body-block">
+          <h2>React Slot for Body</h2>
+        </div>
+      </PtgModal>
     </div>
   );
 };
