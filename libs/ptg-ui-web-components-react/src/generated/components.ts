@@ -11,8 +11,10 @@ defineCustomElements();
 export const MyComponent = /*@__PURE__*/createReactComponent<JSX.MyComponent, HTMLMyComponentElement>('my-component');
 export const PtgAccordion = /*@__PURE__*/createReactComponent<JSX.PtgAccordion, HTMLPtgAccordionElement>('ptg-accordion');
 export const PtgAlert = /*@__PURE__*/createReactComponent<JSX.PtgAlert, HTMLPtgAlertElement>('ptg-alert');
+export const PtgBreadcrumbs = /*@__PURE__*/createReactComponent<JSX.PtgBreadcrumbs, HTMLPtgBreadcrumbsElement>('ptg-breadcrumbs');
 export const PtgButton = /*@__PURE__*/createReactComponent<JSX.PtgButton, HTMLPtgButtonElement>('ptg-button');
 export const PtgCalender = /*@__PURE__*/createReactComponent<JSX.PtgCalender, HTMLPtgCalenderElement>('ptg-calender');
+export const PtgCard = /*@__PURE__*/createReactComponent<JSX.PtgCard, HTMLPtgCardElement>('ptg-card');
 export const PtgCheckbox = /*@__PURE__*/createReactComponent<JSX.PtgCheckbox, HTMLPtgCheckboxElement>('ptg-checkbox');
 export const PtgFooter = /*@__PURE__*/createReactComponent<JSX.PtgFooter, HTMLPtgFooterElement>('ptg-footer');
 export const PtgHeader = /*@__PURE__*/createReactComponent<JSX.PtgHeader, HTMLPtgHeaderElement>('ptg-header');
@@ -27,3 +29,4 @@ export const PtgSpinner = /*@__PURE__*/createReactComponent<JSX.PtgSpinner, HTML
 export const PtgTable = /*@__PURE__*/createReactComponent<JSX.PtgTable, HTMLPtgTableElement>('ptg-table');
 export const PtgTextarea = /*@__PURE__*/createReactComponent<JSX.PtgTextarea, HTMLPtgTextareaElement>('ptg-textarea');
 export const PtgToast = /*@__PURE__*/createReactComponent<JSX.PtgToast, HTMLPtgToastElement>('ptg-toast');
+export const PtgUiCarousel = /*@__PURE__*/createReactComponent<JSX.PtgUiCarousel, HTMLPtgUiCarouselElement>('ptg-ui-carousel');

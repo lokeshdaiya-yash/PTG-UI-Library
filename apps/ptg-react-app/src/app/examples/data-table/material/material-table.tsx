@@ -5,8 +5,7 @@
  * 
 */
 import '../data-table.scss';
-import { PtgUiMaterialTable } from '@ptg-ui/react';
-import { GRID_Data } from '@ptg-react-app/mock/grid-data';
+import { PtgUiMaterialTable, PtguseFetch } from '@ptg-ui/react';
 import { useEffect, useState } from 'react';
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
@@ -18,6 +17,13 @@ export interface PtgUiMaterialTableExampleProps {
 export function PtgUiMaterialTableExample(props: PtgUiMaterialTableExampleProps) {
 const [gridData, setGridData] = useState([]);
 const [showCode, setShowCode] = useState(false);
+const { data:apiData } = PtguseFetch('table-lists') as any
+
+useEffect(() => {
+  if(apiData[0]){
+    setGridData(apiData[0]?.attributes?.grid)
+  }
+},[apiData])
   
 const ShowExampleCode = () => {
   if(!showCode){
@@ -28,14 +34,14 @@ const ShowExampleCode = () => {
   }
 };
 
-useEffect(() => {
-  authClass
-    .gridData()
-    .then((res: any) => {
-      setGridData(res.data);
-    })
-    .catch((err: any) => console.log(err));
-}, []);
+// useEffect(() => {
+//   authClass
+//     .gridData()
+//     .then((res: any) => {
+//       setGridData(res.data);
+//     })
+//     .catch((err: any) => console.log(err));
+// }, []);
   const Columns = [
     { title: "Athlete",field: "athlete" ,width:"20%"},
     { title: "Age",field: "age",filtering: false },
@@ -60,15 +66,36 @@ export interface PtgUiMaterialTableExampleProps {
 }
 
 export function PtgUiMaterialTableExample(props: PtgUiMaterialTableExampleProps) {
-const [gridData, setGridData] = useState([]);
-useEffect(() => {
-  authClass
-    .gridData()
-    .then((res: any) => {
-      setGridData(res.data);
-    })
-    .catch((err: any) => console.log(err));
-}, []);
+  const [gridData, setGridData] = useState([]);
+  const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/table-lists') as any
+  const fetchApi = ()=>{
+    const data = apiData.map(item=>{
+      return{
+        id:item.id,
+        age: item.attributes.age,
+        athlete:item.attributes.athlete,
+        country:item.attributes.country,
+      date:item.attributes.date,
+      gold:item.attributes.gold,
+      silver:item.attributes.silver,
+      sport:item.attributes.sport,
+      total:item.attributes.total,
+      year:item.attributes.year,
+      }
+     })
+     setGridData(data)
+    }
+  useEffect(()=>{
+    fetchApi()
+  },[apiData])
+// useEffect(() => {
+//   authClass
+//     .gridData()
+//     .then((res: any) => {
+//       setGridData(res.data);
+//     })
+//     .catch((err: any) => console.log(err));
+// }, []);
   const Columns = [
     { title: "Athlete",field: "athlete" ,width:"20%"},
     { title: "Age",field: "age",filtering: false },

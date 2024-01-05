@@ -43,7 +43,7 @@ export function PtgUiSelect({
           <option value="" className="d-none" disabled selected>
             Select
           </option>
-          {list.map((item, key) => (
+          {list?.map((item, key) => (
             <option key={key} value={item.value}>
               {item.label}
             </option>

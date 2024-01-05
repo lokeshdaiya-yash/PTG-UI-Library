@@ -2,20 +2,19 @@
  * @since March 2022
  * @author Harsha Zalawa
  * @uses Example using React Data Grid as reusable component.
- * 
+ *
 */
 import {useEffect, useState} from 'react';
 import './data-table.scss';
-import { PtgUiReactDataGrid } from '@ptg-ui/react';
+import { PtgUiReactDataGrid , PtguseFetch} from '@ptg-ui/react';
 import { PtgUiButton } from '@ptg-ui/react';
-import { GRID_Data } from '@ptg-react-app/mock/grid-data';
 import { useTranslation } from 'react-i18next';
-import { authClass } from '@ptg-react-app/auth/services/auth.service';
+import { authClass } from '../../auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
-import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 /* eslint-disable-next-line */
 export interface PtgUiReactDataGridExampleProps {}
-
+ 
 export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps) {
   const { t } = useTranslation();
   /* istanbul ignore next */
@@ -33,14 +32,21 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
       setShowCode(false);
     }
   };
+  // useEffect(() => {
+  //   authClass
+  //     .gridData()
+  //     .then((res: any) => {
+  //       setGridData(res.data);
+  //     })
+  //     .catch((err: any) => console.log(err));
+  // }, []);
+  const {data:apiData, isLoading, error} = PtguseFetch('table-lists') as any
+
   useEffect(() => {
-    authClass
-      .gridData()
-      .then((res: any) => {
-        setGridData(res.data);
-      })
-      .catch((err: any) => console.log(err));
-  }, []);
+    if(apiData[0]?.attributes?.grid){
+      setGridData(apiData[0]?.attributes?.grid)
+    }
+  },[apiData])
   const columns = [
     { name: 'athlete', header: 'Athlete', width: 200 },
     { name: 'age', header: 'Age',  width: 100 },
@@ -51,7 +57,7 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
     { name: 'silver', header: 'Silver',width: 100},
     { name: 'total', header: 'Total',width: 100 },
     { name: '', header: '', width: 100,
-    render: ({})=><PtgUiButton onClick={onClick} className="btn-sm">{t('CLICK_HERE')}</PtgUiButton>
+    render: ()=><PtgUiButton onClick={onClick} className="btn-sm">{t('CLICK_HERE')}</PtgUiButton>
   },
   ]
   const filterValue = [
@@ -145,5 +151,6 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
     </div>
   );
 }
-
+ 
 export default PtgUiReactDataGridExample;
+ 

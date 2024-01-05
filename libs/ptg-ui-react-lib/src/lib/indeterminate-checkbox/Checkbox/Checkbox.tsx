@@ -10,19 +10,21 @@ interface checkboxProps{
   isChecked?: boolean;
   indeterminate?: any;
   onClick?: () => void;
+  labelId:string,
 };
 
-function Checkbox({ isChecked = false, onClick,indeterminate= false }:checkboxProps) {
+function Checkbox({ isChecked = false, onClick,indeterminate= false, labelId, }:checkboxProps) {
+  const splitId = labelId.split("_")
   return (
     <>
-    <label><span className="indeterminatespan">{'.'}</span>
     <input 
       className={`checkbox ${indeterminate ? 'isIndeterminate' : ''}`}
       type="checkbox"
+      id={labelId}
       checked={isChecked}
       onClick={onClick}
     />
-    </label>
+    <label htmlFor={labelId}><span className="indeterminatespan">{splitId[0]}</span></label>
     </>
   );
 };

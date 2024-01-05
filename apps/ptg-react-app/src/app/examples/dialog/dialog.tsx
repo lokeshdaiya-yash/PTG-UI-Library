@@ -51,6 +51,7 @@ const DialogExample = () => {
       modal-header-name="Header Name Here"
       show-header='false' // true/false to display/hide the header of dialog
       show-footer='false' // true/false to display/hide the footer of dialog
+      close-outside-click='false'
       onModalClose={modalClosed} // Event name: onModalClose
       onConfirmClose={confirmClicked}> // Event name: onConfirmClose
       <div slot="body-block"> // Slot
@@ -69,13 +70,13 @@ const DialogExample = () => {
       {showCode && (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} cssCode={cssCode} />
       )}
-      <PtgModal
-        modal-size='lg' modal-header-name="Header Name Here"
-        confirm-button-name="Okay" onModalClose={modalClosed}>
-        <div slot="body-block">
-          <h2>React Slot for Body</h2>
-        </div>
-      </PtgModal>
+       <PtgModal
+          modal-size='lg' modal-header-name="Header Name Here"
+          confirm-button-name="Okay" onModalClose={modalClosed}>
+          <div slot="body-block">
+            <h2>React Slot for Body</h2>
+          </div>
+        </PtgModal>
     </div>
   );
 };

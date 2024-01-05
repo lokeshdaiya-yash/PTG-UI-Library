@@ -6,8 +6,7 @@
 */
 import React, { useEffect, useState } from 'react';
 import './data-table.scss';
-import { PtgUiReactTable } from '@ptg-ui/react';
-import { GRID_Data } from '@ptg-react-app/mock/grid-data';
+import { PtgUiReactTable, PtguseFetch } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
@@ -35,6 +34,19 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
       .then((res: any) => {setGridData(res.data);console.log(res.data)})
       .catch((err: any) => console.log(err));
   }, []);
+   const { data:apiData } = PtguseFetch('table-lists') as any
+   useEffect(() => {
+    if(apiData[0]){
+      setGridData(apiData[0]?.attributes?.grid)
+    }
+  },[apiData])
+
+  // useEffect(() => {
+  //   authClass
+  //     .gridData()
+  //     .then((res: any) => {setGridData(res.data);console.log(res.data)})
+  //     .catch((err: any) => console.log(err));
+  // }, []);
   const columns = React.useMemo(
     () => [
       {
@@ -90,11 +102,17 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
   const [gridData, setGridData] = useState([]);
 
   useEffect(() => {
-    authClass
-      .gridData()
-      .then((res: any) => {setGridData(res.data);console.log(res.data)})
-      .catch((err: any) => console.log(err));
-  }, []);
+    if(apiData[0]){
+      setGridData(apiData[0]?.attributes?.grid)
+    }
+  },[apiData])
+
+  // useEffect(() => {
+  //   authClass
+  //     .gridData()
+  //     .then((res: any) => {setGridData(res.data);console.log(res.data)})
+  //     .catch((err: any) => console.log(err));
+  // }, []);
   const columns = React.useMemo(
     () => [
       {

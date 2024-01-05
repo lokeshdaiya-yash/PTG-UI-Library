@@ -170,5 +170,9 @@
   "LABEL_EXPIRY_MONTH": "Expiry Month",
   "LABEL_EXPIRY_YEAR": "Expiry Year",
   "LABEL_CVV": "CVV",
-  "MULTI_FORMS": "Multi Form"
+  "MULTI_FORMS": "Multi Form",
+  "BREADCRUMBS": "Breadcrumbs",
+  "CARDS": "Cards",
+  "CAROUSEL_EXAMPLE": "Carousel Example",
+  "CAROUSEL_EXAMPLE_WITH_INDICATOR": "Example to hide indicator and use minimum height, width"
 }

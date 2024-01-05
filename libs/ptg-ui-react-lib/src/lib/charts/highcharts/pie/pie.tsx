@@ -25,8 +25,8 @@ const defaultProps: PtgUiPieProps =
   } 
 
 export function PtgUiPie({title,data,remainingOptions,...rest}: PtgUiPieProps) {
-  
-  let graphOptions:any = {
+
+    let graphOptions:any = {
     title:title,
     chart:{
       type:'pie'

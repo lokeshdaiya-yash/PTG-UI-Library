@@ -14,6 +14,7 @@ export class PtgModal {
   @Prop() modalSize: string = 'md';
   @Prop() showHeader : boolean = true;
   @Prop() showFooter : boolean = true;
+  @Prop() closeOutsideClick : boolean = false;
   // Event emitter
   @Event() modalClose: EventEmitter<boolean>;
   @Event() confirmClose: EventEmitter<boolean>;
@@ -35,29 +36,34 @@ export class PtgModal {
         <div>
           <ptg-button text={this.btnName} data-testid="openButton" appearance="primary" onClick={this.openModal}></ptg-button>
         </div>
-        <div class={this.isOpen ? 'modal-wrapper isOpen' : 'modal-wrapper'} data-backdrop="static">
-          <div class="modal-overlay">
-            <div class={`modal ${this.modalSize == 'lg' ? 'lg' : (this.modalSize == 'sm' ? 'sm' : 'md') }`}>
-              {this.showHeader &&
-                <div class="header">
-                  <h6>{this.modalHeaderName}</h6>
-                  <div class="close" data-testid="closeButton" onClick={this.closeModule}>
-                    ×
+        {this.isOpen &&
+          <div class={this.isOpen ? 'modal-wrapper isOpen' : 'modal-wrapper'} data-backdrop="static">
+
+              <div class={`modal-body modal ${this.modalSize == 'lg' ? 'lg' : (this.modalSize == 'sm' ? 'sm' : 'md') }`}>
+                {this.showHeader &&
+                  <div class="header">
+                    <h6>{this.modalHeaderName}</h6>
+                    <div class="close" data-testid="closeButton" onClick={this.closeModule}>
+                      ×
+                    </div>
                   </div>
+                }
+                <div class="body">
+                  <slot name="body-block"/>
                 </div>
-              }
-              <div class="body">
-                <slot name="body-block"/>
+                {this.showFooter &&
+                  <div class="footer">
+                    <ptg-button text={this.confirmButtonName} appearance="primary" onClick={this.confirmEvent}></ptg-button>
+                    <ptg-button text="Cancel" appearance="danger" onClick={this.closeModule}></ptg-button>
+                  </div>
+                }
               </div>
-              {this.showFooter &&
-                <div class="footer">
-                  <ptg-button text={this.confirmButtonName} appearance="primary" onClick={this.confirmEvent}></ptg-button>
-                  <ptg-button text="Cancel" appearance="danger" onClick={this.closeModule}></ptg-button>
-                </div>
-              }
-            </div>
           </div>
-        </div>
+        }
+        {this.isOpen &&
+          <div class="modal-overlay1" onClick={this.closeOutsideClick && this.closeModule}>
+          </div>
+        }
       </div>
     );
   }

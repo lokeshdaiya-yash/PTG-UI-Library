@@ -31,6 +31,9 @@ export namespace Components {
         "buttoncss": string;
         "texed": string;
     }
+    interface PtgBreadcrumbs {
+        "datalist": any;
+    }
     interface PtgButton {
         "appearance": string;
         "text": string;
@@ -41,6 +44,14 @@ export namespace Components {
         "monthNames": string[];
         "showFillDays": boolean;
         "startDate": any;
+    }
+    interface PtgCard {
+        "cardButtonText": string;
+        "cardContent": string;
+        "cardId": number;
+        "cardTitle": string;
+        "isCardAction": boolean;
+        "src": string;
     }
     interface PtgCheckbox {
         "callback"?: (val: any) => void;
@@ -90,6 +101,7 @@ export namespace Components {
     }
     interface PtgModal {
         "btnName": string;
+        "closeOutsideClick": boolean;
         "confirmButtonName": string;
         "isOpen": boolean;
         "modalHeaderName": string;
@@ -162,10 +174,20 @@ export namespace Components {
         "open": boolean;
         "type": string;
     }
+    interface PtgUiCarousel {
+        "images": Array<string>;
+        "imgHeight": string;
+        "imgWidth": string;
+        "showIndicators": boolean;
+    }
 }
 export interface PtgCalenderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPtgCalenderElement;
+}
+export interface PtgCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPtgCardElement;
 }
 export interface PtgCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -202,6 +224,12 @@ declare global {
         prototype: HTMLPtgAlertElement;
         new (): HTMLPtgAlertElement;
     };
+    interface HTMLPtgBreadcrumbsElement extends Components.PtgBreadcrumbs, HTMLStencilElement {
+    }
+    var HTMLPtgBreadcrumbsElement: {
+        prototype: HTMLPtgBreadcrumbsElement;
+        new (): HTMLPtgBreadcrumbsElement;
+    };
     interface HTMLPtgButtonElement extends Components.PtgButton, HTMLStencilElement {
     }
     var HTMLPtgButtonElement: {
@@ -213,6 +241,12 @@ declare global {
     var HTMLPtgCalenderElement: {
         prototype: HTMLPtgCalenderElement;
         new (): HTMLPtgCalenderElement;
+    };
+    interface HTMLPtgCardElement extends Components.PtgCard, HTMLStencilElement {
+    }
+    var HTMLPtgCardElement: {
+        prototype: HTMLPtgCardElement;
+        new (): HTMLPtgCardElement;
     };
     interface HTMLPtgCheckboxElement extends Components.PtgCheckbox, HTMLStencilElement {
     }
@@ -298,12 +332,20 @@ declare global {
         prototype: HTMLPtgToastElement;
         new (): HTMLPtgToastElement;
     };
+    interface HTMLPtgUiCarouselElement extends Components.PtgUiCarousel, HTMLStencilElement {
+    }
+    var HTMLPtgUiCarouselElement: {
+        prototype: HTMLPtgUiCarouselElement;
+        new (): HTMLPtgUiCarouselElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "ptg-accordion": HTMLPtgAccordionElement;
         "ptg-alert": HTMLPtgAlertElement;
+        "ptg-breadcrumbs": HTMLPtgBreadcrumbsElement;
         "ptg-button": HTMLPtgButtonElement;
         "ptg-calender": HTMLPtgCalenderElement;
+        "ptg-card": HTMLPtgCardElement;
         "ptg-checkbox": HTMLPtgCheckboxElement;
         "ptg-footer": HTMLPtgFooterElement;
         "ptg-header": HTMLPtgHeaderElement;
@@ -318,6 +360,7 @@ declare global {
         "ptg-table": HTMLPtgTableElement;
         "ptg-textarea": HTMLPtgTextareaElement;
         "ptg-toast": HTMLPtgToastElement;
+        "ptg-ui-carousel": HTMLPtgUiCarouselElement;
     }
 }
 declare namespace LocalJSX {
@@ -346,6 +389,9 @@ declare namespace LocalJSX {
         "buttoncss"?: string;
         "texed"?: string;
     }
+    interface PtgBreadcrumbs {
+        "datalist"?: any;
+    }
     interface PtgButton {
         "appearance"?: string;
         "text"?: string;
@@ -358,6 +404,15 @@ declare namespace LocalJSX {
         "onMonthChanged"?: (event: PtgCalenderCustomEvent<any>) => void;
         "showFillDays"?: boolean;
         "startDate"?: any;
+    }
+    interface PtgCard {
+        "cardButtonText"?: string;
+        "cardContent"?: string;
+        "cardId"?: number;
+        "cardTitle"?: string;
+        "isCardAction"?: boolean;
+        "onHandleClick"?: (event: PtgCardCustomEvent<any>) => void;
+        "src"?: string;
     }
     interface PtgCheckbox {
         "callback"?: (val: any) => void;
@@ -412,6 +467,7 @@ declare namespace LocalJSX {
     }
     interface PtgModal {
         "btnName"?: string;
+        "closeOutsideClick"?: boolean;
         "confirmButtonName"?: string;
         "isOpen"?: boolean;
         "modalHeaderName"?: string;
@@ -488,12 +544,20 @@ declare namespace LocalJSX {
         "open"?: boolean;
         "type"?: string;
     }
+    interface PtgUiCarousel {
+        "images"?: Array<string>;
+        "imgHeight"?: string;
+        "imgWidth"?: string;
+        "showIndicators"?: boolean;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "ptg-accordion": PtgAccordion;
         "ptg-alert": PtgAlert;
+        "ptg-breadcrumbs": PtgBreadcrumbs;
         "ptg-button": PtgButton;
         "ptg-calender": PtgCalender;
+        "ptg-card": PtgCard;
         "ptg-checkbox": PtgCheckbox;
         "ptg-footer": PtgFooter;
         "ptg-header": PtgHeader;
@@ -508,6 +572,7 @@ declare namespace LocalJSX {
         "ptg-table": PtgTable;
         "ptg-textarea": PtgTextarea;
         "ptg-toast": PtgToast;
+        "ptg-ui-carousel": PtgUiCarousel;
     }
 }
 export { LocalJSX as JSX };
@@ -517,8 +582,10 @@ declare module "@stencil/core" {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "ptg-accordion": LocalJSX.PtgAccordion & JSXBase.HTMLAttributes<HTMLPtgAccordionElement>;
             "ptg-alert": LocalJSX.PtgAlert & JSXBase.HTMLAttributes<HTMLPtgAlertElement>;
+            "ptg-breadcrumbs": LocalJSX.PtgBreadcrumbs & JSXBase.HTMLAttributes<HTMLPtgBreadcrumbsElement>;
             "ptg-button": LocalJSX.PtgButton & JSXBase.HTMLAttributes<HTMLPtgButtonElement>;
             "ptg-calender": LocalJSX.PtgCalender & JSXBase.HTMLAttributes<HTMLPtgCalenderElement>;
+            "ptg-card": LocalJSX.PtgCard & JSXBase.HTMLAttributes<HTMLPtgCardElement>;
             "ptg-checkbox": LocalJSX.PtgCheckbox & JSXBase.HTMLAttributes<HTMLPtgCheckboxElement>;
             "ptg-footer": LocalJSX.PtgFooter & JSXBase.HTMLAttributes<HTMLPtgFooterElement>;
             "ptg-header": LocalJSX.PtgHeader & JSXBase.HTMLAttributes<HTMLPtgHeaderElement>;
@@ -533,6 +600,7 @@ declare module "@stencil/core" {
             "ptg-table": LocalJSX.PtgTable & JSXBase.HTMLAttributes<HTMLPtgTableElement>;
             "ptg-textarea": LocalJSX.PtgTextarea & JSXBase.HTMLAttributes<HTMLPtgTextareaElement>;
             "ptg-toast": LocalJSX.PtgToast & JSXBase.HTMLAttributes<HTMLPtgToastElement>;
+            "ptg-ui-carousel": LocalJSX.PtgUiCarousel & JSXBase.HTMLAttributes<HTMLPtgUiCarouselElement>;
         }
     }
 }
