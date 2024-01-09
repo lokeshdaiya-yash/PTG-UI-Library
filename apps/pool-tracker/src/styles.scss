@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+
+// =================== nav bar css============
+.navbar {
+  padding: 24px;
+  position: static;
+  background-color: #1976d2;
+  font-size: 20px;
+  margin-right: 20px;
+
+  & > a {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+// =============add master data component css
+.addMasterData {
+  width: 50%;
+  margin: 70px auto;
+  text-align: center;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+
+  & > div {
+    width: 100%;
+    margin: 20px;
+
+    & > input,
+    button {
+      width: 65%;
+      font-size: 16px;
+      padding: 10px;
+    }
+    & > 
+    button {
+        background-color: #1976d2;
+        border: none;
+    }
+  }
+}
+
+// =================== view Master Data css============
+.viewMastertable table{
+  width: 96%;
+  padding: 15px;
+  color: gray;
+  border: 1px solid;
+  margin: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  & > th, td{
+    padding: 10px;
+  }
+
+}
