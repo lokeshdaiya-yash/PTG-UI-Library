@@ -33,6 +33,7 @@ const PtgUiDownloadFile = lazy(()=> import ("@ptg-react-app/examples/downloadFil
 const PtgUiDialog = lazy(()=> import ("../examples/dialog/dialog"));
 const Breadcrumbs =  lazy(()=> import ("../examples/breadcrumbs/breadcrumbs"));
 const Cards =  lazy(()=> import ("../examples/cards/cards"));
+const Accordian = lazy(()=> import("../examples/Accordian/accordian"));
 const PtgUiCarousel = lazy(()=> import ("../examples/carousel/carousel"));
 const GridLayout = lazy(()=> import ("../examples/grid-layout/grid-layout"));
 const Indeterminate =  lazy(()=> import ("../examples/indeterminate-checkbox/indeterminate-checkbox"));
@@ -162,6 +163,10 @@ const routing = [
   {
     path: '/cards',
     component: Cards,
+  },
+  {
+    path: '/accordian',
+    component: Accordian,
   },
 ];
 export default routing;

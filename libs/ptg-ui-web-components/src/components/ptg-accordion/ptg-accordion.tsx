@@ -1,4 +1,4 @@
-import { Component, h, Prop, State } from '@stencil/core';
+import { Component, h, Prop, State} from '@stencil/core';
 
 @Component({
   tag: 'ptg-accordion',
@@ -12,9 +12,10 @@ export class PtgAccordion {
 
   @Prop() description: string;
 
-  @Prop() width: string;
+  @Prop() width: string= '80%';
 
-  @Prop() color: string;
+  @Prop() color: string = 'pink';
+
 
   toggleComponent() {
     this.toggle = !this.toggle;
@@ -38,8 +39,14 @@ export class PtgAccordion {
           class={`content-box ${this.toggle ? 'open' : 'close'}`}
           style={{ width: this.width }}
         >
-          <p>{this.description}</p>
+          {
+            this.description ? (<p>{this.description}</p>) :
+            (<div class="body">
+            <slot name="body-block"/>
+         </div>)      
+          }
         </div>
+       
       </div>
     );
   }
