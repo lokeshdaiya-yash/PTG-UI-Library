@@ -27,7 +27,7 @@ export default function Accordian() {
   return (
     <div className="row mt-3">
       <div className="col-md-10">
-        <h3 className="font-weight-bold">Accordian</h3>
+        <h3 className="font-weight-bold">Accordion</h3>
       </div>
       <div className="col-2">
         <CodeIcon

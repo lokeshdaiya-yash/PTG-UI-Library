@@ -14,7 +14,7 @@ export const NavigationData = [
   {
     path: '/accordian',
     icon: 'fa fa-lock',
-    label: 'ACCORDIAN',
+    label: 'ACCORDION',
     disabled: false,
   },
   {
