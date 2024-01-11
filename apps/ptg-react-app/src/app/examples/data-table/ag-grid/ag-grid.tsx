@@ -223,7 +223,7 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
           paginationPageSize={8}
           customPagination={true}
           />
-          <h4>{t('DATATABLE_WITH_ACCORDIAN')}</h4>
+          <h4>{t('DATATABLE_WITH_ACCORDION')}</h4>
           <PtgUiAccordian stories={accordian_array}/>
         </>
       ):(

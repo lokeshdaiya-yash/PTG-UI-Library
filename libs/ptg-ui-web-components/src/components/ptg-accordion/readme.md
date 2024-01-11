@@ -9,10 +9,10 @@
 
 | Property      | Attribute     | Description | Type     | Default     |
 | ------------- | ------------- | ----------- | -------- | ----------- |
-| `color`       | `color`       |             | `string` | `undefined` |
+| `color`       | `color`       |             | `string` | `'white'`   |
 | `description` | `description` |             | `string` | `undefined` |
 | `label`       | `label`       |             | `string` | `undefined` |
-| `width`       | `width`       |             | `string` | `undefined` |
+| `width`       | `width`       |             | `string` | `'80%'`     |
 
 
 ----------------------------------------------

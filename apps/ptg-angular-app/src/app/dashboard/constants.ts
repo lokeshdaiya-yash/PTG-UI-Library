@@ -10,7 +10,7 @@ export const NavigationData = [
     path: '/accordian-example',
     // icon: 'home-icon',
     icon: 'fa-solid fa-chevron-down',
-    label: 'ACCORDIAN',
+    label: 'ACCORDION',
     disabled: false,
   },
   {

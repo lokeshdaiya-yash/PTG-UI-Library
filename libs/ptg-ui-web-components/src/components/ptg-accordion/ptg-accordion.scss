@@ -2,21 +2,21 @@
   display: block;
 }
 
-
 .accordion {
-    cursor: pointer;
-    padding: 18px;
-    text-align: left;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    outline: 0;
-    span {
-        float: right;
-    }
+  border: 1px solid #ccc;
+  color: #212529;
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-size: 1rem;
+  outline: 0;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease;
+  span {
+    float: right;
+  }
 }
- 
-.accordion .body{
+
+.accordion .body {
   color: var(--mono-50);
   font-size: 14px;
   height: auto;
@@ -26,15 +26,16 @@
   padding: 16px;
 }
 
- .open {
-    display: block;
-    height: auto;
-    border-radius: 10px;
-    border: 0.5px solid rgb(199, 197, 197);
-    padding: 18px;
-    box-sizing: border-box;
+.open {
+  border: 0.5px solid rgb(199, 197, 197);
+  box-sizing: border-box;
+  display: block;
+  height: auto;
+  overflow: hidden;
+  padding: 1rem 1.25rem;
+  transition-delay: all 1s;
  }
 
- .close {
-    display: none;
- }
+.close {
+  display: none;
+}
