@@ -53,18 +53,18 @@ export const NavigationData = [
     icon: 'fas fa-chart-line',
     pages: [
       {
-        label!: 'D3_CHARTS',
+        label: 'D3_CHARTS',
         path: '/charts/d3-charts',
         id: 'd3-chart',
         disabled: false,
-        parentId:"3"
+        parentId:"6"
       },
       {
-        label!: 'HIGH_CHARTS',
+        label: 'HIGH_CHARTS',
         path: '/charts/high-charts',
         id: 'high-chart',
         disabled: false,
-        parentId:"3"
+        parentId:"6"
       }
     ],
   },
@@ -75,25 +75,25 @@ export const NavigationData = [
     icon: 'far fa-star',
     pages: [
       {
-        label!: 'AG_GRID',
+        label: 'AG_GRID',
         path: '/datatable/ag-grid',
         id: 'ag-grid',
         disabled: false,
-        parentId:"4"
+        parentId:"7"
       },
       {
-        label!: 'NGX_DATATABLE',
+        label: 'NGX_DATATABLE',
         path: '/datatable/ngx-datatable',
         id: 'ngx-table',
         disabled: false,
-        parentId:"4"
+        parentId:"7"
       },
       {
-        label!: 'MATERIAL',
+        label: 'MATERIAL',
         path: '/datatable/material-datatable',
         id: 'material',
         disabled:false,
-        parentId:"4"
+        parentId:"7"
       },
     ],
   },

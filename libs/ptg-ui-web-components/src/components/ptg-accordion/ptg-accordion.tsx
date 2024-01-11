@@ -14,7 +14,7 @@ export class PtgAccordion {
 
   @Prop() width: string= '80%';
 
-  @Prop() color: string = 'pink';
+  @Prop() color: string = 'white';
 
 
   toggleComponent() {
