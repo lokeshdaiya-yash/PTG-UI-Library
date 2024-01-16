@@ -16,6 +16,11 @@ export class PtgAccordion {
 
   @Prop() color: string = 'white';
 
+  @Prop() defaultOpened: boolean =false;
+
+  componentWillLoad(){
+    this.toggle = this.defaultOpened;
+  }
 
   toggleComponent() {
     this.toggle = !this.toggle;
@@ -25,7 +30,7 @@ export class PtgAccordion {
     return (
       <div>
         <button
-          class="accordion"
+          class={`accordion ${this.toggle ? 'active' : ''}`}
           style={{
             width: this.width,
             backgroundColor: this.color,
@@ -33,7 +38,10 @@ export class PtgAccordion {
           onClick={() => this.toggleComponent()}
         >
           {this.label}
-          {this.toggle ? <span>&#9650;</span> : <span>&#9660;</span>}
+          { 
+            this.toggle ? <span class="triangle_up"></span> :
+            <span class="triangle_down"></span>
+          }
         </button>
         <div
           class={`content-box ${this.toggle ? 'open' : 'close'}`}
