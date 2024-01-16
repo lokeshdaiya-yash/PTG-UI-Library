@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-// import autoIncrement from "mongoose-auto-increment"
-// import autoIncrement from 'mongoose-auto-increment';
+
 
 
 const masterDataSchema = mongoose.Schema({
@@ -18,8 +17,7 @@ const masterDataSchema = mongoose.Schema({
   clientName: String,
 })
 
-// autoIncrement.initialize(mongoose.connection);
-// masterDataSchema.plugin(autoIncrement.plugin, 'masterdata');
+
 
 const masterdata = mongoose.model('masterdata', masterDataSchema);
 export default masterdata;

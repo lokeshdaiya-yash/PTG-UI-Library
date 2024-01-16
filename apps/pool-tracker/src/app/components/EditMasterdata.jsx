@@ -38,7 +38,7 @@ const EditMasterdata = () => {
 
   const editMasterDetails = async () => {
     await editMasterdata(masterData, id);
-    navigate("/all");
+    navigate("/masterData");
   };
 
 

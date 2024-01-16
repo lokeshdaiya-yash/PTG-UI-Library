@@ -5,6 +5,7 @@ import cors from 'cors';
 import bodyParser from "body-parser";
 
 import Routes from "./routes/route.js";
+// import UserRoutes from "./routes/userroute.js";
 
 import Connection from "./database/db.js";
 
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({extended:true }));
 
 app.use(cors());
 app.use('/', Routes);
+// app.use('/user/', UserRoutes);
 
 const PORT = 5000;
 

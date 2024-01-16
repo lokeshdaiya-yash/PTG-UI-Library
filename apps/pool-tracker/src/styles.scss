@@ -2,20 +2,66 @@
 
 // =================== nav bar css============
 .navbar {
-  padding: 24px;
   position: static;
   background-color: #1976d2;
   font-size: 20px;
-  margin-right: 20px;
+  display: flex;
+  align-items:center;
 
   & > a {
-    padding: 10px;
+    padding: 10px 20px;
     color: white;
     text-decoration: none;
   }
 }
 
 // =============add master data component css
+.ptg-table-addData {
+  width: 50%;
+  margin: 70px auto;
+  // text-align: center;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  & > input,
+  label,
+  button {
+    width: 65%;
+    font-size: 16px;
+    padding: 10px;
+    margin: 0 auto;
+  }
+  & > button {
+    background-color: #1976d2;
+    border: none;
+    margin-top: 35px;
+    width: 68%;
+  }
+  & > h3 {
+    text-align: center;
+  }
+}
+.searchWrapper {
+  border: 1px solid #ccc;
+  border-radius: none !important;
+  min-height: 22px;
+  padding: 10px !important;
+  position: relative;
+  width: 68%;
+  margin: 0 auto;
+}
+.optionListContainer {
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 1px;
+  position: absolute !important;
+  left: 120px;
+  width: 68% !important;
+  margin: 0 auto !important;
+  z-index: 0 !important;
+}
 .addMasterData {
   width: 50%;
   margin: 70px auto;
@@ -34,24 +80,50 @@
       font-size: 16px;
       padding: 10px;
     }
-    & > 
-    button {
-        background-color: #1976d2;
-        border: none;
+    & > button {
+      background-color: #1976d2;
+      border: none;
     }
   }
 }
 
 // =================== view Master Data css============
-.viewMastertable table{
-  width: 96%;
+.viewMastertable table {
+  width: 98%;
   padding: 15px;
-  color: gray;
-  border: 1px solid;
-  margin: 20px;
+  color: black;
+  margin: 6px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  & > th, td{
-    padding: 10px;
+  & > tr > th {
+    background-color: #1976d2 !important;
   }
 
+  & > tr > th,
+  td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid black;
+  }
+}
+
+.viewMastertable button{
+  background-color: #1976d2;
+  padding: 10px;
+  margin: 20px;
+  font-size: 16px;
+  border: none;
+  & > a {
+    color: white;
+    text-decoration: none;
+    border: none;
+  }
+}
+
+.viewMastertable > table > tr > th {
+  background-color: #1976d2 !important;
+}
+.viewMastertable .css-d5sp9s-MuiTableCell-root {
+  background-color: #1976d2 !important;
+  color: white;
+  text-align: center;
 }
