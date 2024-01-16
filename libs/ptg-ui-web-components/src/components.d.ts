@@ -22,6 +22,7 @@ export namespace Components {
     }
     interface PtgAccordion {
         "color": string;
+        "defaultOpened": boolean;
         "description": string;
         "label": string;
         "width": string;
@@ -380,6 +381,7 @@ declare namespace LocalJSX {
     }
     interface PtgAccordion {
         "color"?: string;
+        "defaultOpened"?: boolean;
         "description"?: string;
         "label"?: string;
         "width"?: string;
