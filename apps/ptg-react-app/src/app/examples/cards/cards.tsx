@@ -47,7 +47,6 @@ export default function Card() {
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!',
       src: 'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     },
-    
   ];
   const handleClick = (data) => {
     console.log(data.detail);
@@ -74,11 +73,13 @@ export default function Card() {
         {cardDataObj.map((card) => {
           return (
             <div className="col-md-4">
-              <PtgCard {...card} 
-              cardButtonText="select"
-              isCardAction={true}
-              cardContentLength={150}
-               onHandleClick={handleClick} />
+              <PtgCard
+                {...card}
+                cardButtonText="select"
+                isCardAction={true}
+                cardContentLength={150}
+                onHandleClick={handleClick}
+              />
             </div>
           );
         })}
