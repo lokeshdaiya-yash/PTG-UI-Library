@@ -33,13 +33,13 @@ export declare interface PtgAccordion extends Components.PtgAccordion {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['color', 'defaultOpened', 'description', 'label', 'width']
+  inputs: ['color', 'description', 'label', 'width']
 })
 @Component({
   selector: 'ptg-accordion',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['color', 'defaultOpened', 'description', 'label', 'width']
+  inputs: ['color', 'description', 'label', 'width']
 })
 export class PtgAccordion {
   protected el: HTMLElement;
