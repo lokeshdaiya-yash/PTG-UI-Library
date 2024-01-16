@@ -7,7 +7,7 @@
  * @author Bhanu Prakash Sharma
  * @Component ptg-ui-dragexample3;
  * @description This component for drag and drop example3
-**/
+ **/
 
 import { Component, OnInit } from '@angular/core';
 import {
@@ -15,18 +15,19 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { DONE, TODO } from '@ptg-angular-app/mock/mocks';
-import { resources } from "../../../../resource/resource";
+import { resources } from '../../../../resource/resource';
+import { mocksService } from '@ptg-angular-app/common/data-services/mocks.service';
 
 @Component({
   selector: 'ptg-ui-dragexample3',
   templateUrl: './dragexample3.component.html',
-  styleUrls: ['./dragexample3.component.scss']
+  styleUrls: ['./dragexample3.component.scss'],
 })
 export class Dragexample3Component implements OnInit {
-  todo = TODO;
-  done = DONE;
-  resources=resources;
+  todo: any = [];
+  done: any;
+
+  resources = resources;
 
   dragAndDropHtmlCode = `
     // TODO List
@@ -78,14 +79,21 @@ export class Dragexample3Component implements OnInit {
     }
   `;
 
-  constructor() { }
+  constructor(private mocksApiService: mocksService) {}
 
   ngOnInit(): void {
+    //todo list
+    this.mocksApiService.getTodoList().subscribe((response) => {
+      this.todo = response?.data[0].attributes.todo.split(',');
+    });
+    //done list
+    this.mocksApiService.getDoneList().subscribe((response) => {
+      this.done = response?.data[0].attributes.done.split(',');
+    });
   }
 
   // Drop method for example 2
   drop(event: CdkDragDrop<string[]> | any) {
-
     console.log('drop', event);
     if (event.previousContainer === event.container) {
       moveItemInArray(
@@ -102,5 +110,4 @@ export class Dragexample3Component implements OnInit {
       );
     }
   }
-
 }

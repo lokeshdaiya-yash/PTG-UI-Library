@@ -2,7 +2,7 @@
   <tab heading="2D Charts">
     <div class="pt-3">
       <!-- Bar chart block  -->
-      <div class="mb-3 parent-block">
+      <div class="mb-3 parent-block" *ngIf="barChart3d.data.length">
         <h4 class="mb-4" [innerHTML]="'BAR_CHART_TEXT' | translate"></h4>
         <ptg-ui-toggle-code
           [htmlCode]="barChart2dHtmlCode"
@@ -13,7 +13,7 @@
       </div>
 
       <!-- Pie chart block  -->
-      <div class="mb-3 parent-block">
+      <div class="mb-3 parent-block" *ngIf="pieChart3d.data.length">
         <h4 class="mb-4" [innerHTML]="'PIE_CHART_TEXT' | translate"></h4>
         <ptg-ui-toggle-code
           [htmlCode]="pieChart2dHtmlCode"
@@ -24,7 +24,7 @@
       </div>
 
       <!-- Line chart block  -->
-      <div class="mb-3 parent-block">
+      <div class="mb-3 parent-block" *ngIf="lineChart3d.data.length">
         <h4 class="mb-4" [innerHTML]="'SINGLE_LINE_CHART' | translate"></h4>
         <ptg-ui-toggle-code
           [htmlCode]="sLineChart2dHtmlCode"
@@ -38,7 +38,7 @@
         ></ptg-ui-high-line-chart>
       </div>
 
-      <div class="mb-3 parent-block">
+      <div class="mb-3 parent-block" *ngIf="multiLineChart3d.data.length">
         <h4 class="mb-4" [innerHTML]="'MULTIPLE_LINE_CHART' | translate"></h4>
         <ptg-ui-toggle-code
           [htmlCode]="mLineChart2dHtmlCode"
@@ -53,7 +53,7 @@
       </div>
 
       <!-- LineBar Chart  -->
-      <div class="mb-3 parent-block">
+      <div class="mb-3 parent-block" *ngIf="lineBarChart.categories.length">
         <h4 class="mb-4" [innerHTML]="'LINE_BAR_CHART' | translate"></h4>
         <ptg-ui-toggle-code
           [htmlCode]="lineBarChart2dHtmlCode"
@@ -70,7 +70,7 @@
       </div>
 
       <!-- Stacked Chart  -->
-      <div class="mb-3 parent-block">
+      <div class="mb-3 parent-block" *ngIf="stackedColumn.categories.length">
         <h4 class="mb-4" [innerHTML]="'STACKED_CHART' | translate"></h4>
         <ptg-ui-toggle-code
           [htmlCode]="stackedChart2dHtmlCode"
@@ -90,7 +90,7 @@
   <tab heading="3D Charts">
     <div class="pt-3">
       <!-- Bar chart block  -->
-      <div class="mb-3 parent-block">
+      <div class="mb-3 parent-block" *ngIf="barChart3d.data.length">
         <h4 class="mb-4" [innerHTML]="'BAR_CHART_TEXT' | translate"></h4>
         <ptg-ui-toggle-code
           [htmlCode]="barChart3dHtmlCode"
@@ -105,7 +105,7 @@
       </div>
 
       <!-- Single Line chart block  -->
-      <div class="mb-3 parent-block">
+      <div class="mb-3 parent-block" *ngIf="lineChart3d.data.length">
         <h4 class="mb-4" [innerHTML]="'SINGLE_LINE_CHART' | translate"></h4>
         <ptg-ui-toggle-code
           [htmlCode]="sLineChart3dHtmlCode"
@@ -121,7 +121,7 @@
       </div>
 
       <!-- Multi Line chart block  -->
-      <div class="mb-3 parent-block">
+      <div class="mb-3 parent-block" *ngIf="multiLineChart3d.data.length">
         <h4 class="mb-4" [innerHTML]="'MULTIPLE_LINE_CHART' | translate"></h4>
         <ptg-ui-toggle-code
           [htmlCode]="mLineChart3dHtmlCode"
@@ -136,7 +136,7 @@
       </div>
 
       <!-- Pie chart block  -->
-      <div class="mb-3 parent-block">
+      <div class="mb-3 parent-block" *ngIf="pieChart3d.data.length">
         <h4 class="mb-4" [innerHTML]="'PIE_CHART' | translate"></h4>
         <ptg-ui-toggle-code
           [htmlCode]="pieChart3dHtmlCode"
