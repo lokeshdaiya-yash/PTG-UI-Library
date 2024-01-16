@@ -34,12 +34,12 @@ export class TokenInterceptor implements HttpInterceptor {
     if (!(URLToExclude.findIndex((url) =>getLastItem(request.url).includes(url)) > -1)) 
     {
       const tokenType = 'Bearer';
-      const token = JSON.parse(this.authService.getToken())?.jwt;
-      request = request.clone({
+      const token = JSON.parse(this.authService.getToken())?.jwt||"";
+      request = token ? request.clone({
         setHeaders: {
           Authorization: `${tokenType} ${token}`,
         },
-      });
+      }):request.clone({})
     }
 
     return next.handle(request);

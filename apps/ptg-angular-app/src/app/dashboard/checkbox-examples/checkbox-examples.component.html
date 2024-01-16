@@ -1,7 +1,7 @@
 <section>
   <div class="container ptg-treeview-container">
     <div class="row">
-      <div class="col-12 parent-block">
+      <div class="col-12 parent-block" *ngIf="checkBoxData?.children.length">
         <h4 [innerHTML]="'INTERMEDIATE_CHECKBOX_TEXT' | translate"></h4>
         <ptg-ui-toggle-code
           [htmlCode]="treeViewHtmlCode"

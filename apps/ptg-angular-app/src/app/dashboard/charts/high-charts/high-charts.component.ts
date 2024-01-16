@@ -1,23 +1,32 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { Component } from '@angular/core';
-import { BAR_CHART_3D, LINE_BAR_DATA, LINE_CHART_2D, MULTI_LINE_CHART_2D, PIE_CHART_3D, STACKED_COLUMN_DATA } from '@ptg-angular-app/mock/chart';
-import { resources } from "../../../../resource/resource";
+import { Component, OnInit } from '@angular/core';
+import { resources } from '../../../../resource/resource';
+import { chartService } from '@ptg-angular-app/common/data-services/chart.service';
 
 @Component({
   selector: 'ptg-ui-high-charts',
   templateUrl: './high-charts.component.html',
-  styleUrls: ['./high-charts.component.scss']
+  styleUrls: ['./high-charts.component.scss'],
 })
-export class HighChartsComponent {
-  barChart3d = BAR_CHART_3D;
-  lineChart3d = LINE_CHART_2D;
-  multiLineChart3d = MULTI_LINE_CHART_2D;
-  pieChart3d = PIE_CHART_3D;
-  lineBarChart = LINE_BAR_DATA;
-  stackedColumn = STACKED_COLUMN_DATA;
-  resources=resources;
+export class HighChartsComponent implements OnInit {
+  constructor(private chartApiService: chartService) {}
+  lineChart3d: any = {
+    data: [],
+  };
+  barChart3d: any = {
+    data: [],
+  };
+  multiLineChart3d: any = {
+    data: [],
+  };
+  pieChart3d: any = {
+    data: [],
+  };
+  lineBarChart: any = { categories: [] };
+  stackedColumn: any = { categories: [] };
 
+  resources = resources;
   barChart2dHtmlCode = `
   <ptg-ui-high-bar-chart [data]="barData"></ptg-ui-high-bar-chart>`;
 
@@ -220,4 +229,76 @@ export class HighChartsComponent {
   pieChart3dHtmlCode = `
   <ptg-ui-high-3d-pie-chart [data]="pieData"></ptg-ui-high-3d-pie-chart>`;
 
+  ngOnInit(): void {
+    // linechart2D
+    this.chartApiService.getLineChart2D().subscribe((response) => {
+      const chartData = response?.data[0]?.attributes;
+      const category = chartData?.categories.split(',');
+      if (chartData.data.length) {
+        this.lineChart3d = {
+          data: chartData.data,
+          categories: category,
+        };
+      }
+    });
+    // barchart3D
+    this.chartApiService.getBarChart3D().subscribe((response) => {
+      const barChartData = response?.data[0]?.attributes;
+      const category = barChartData?.categories.split(',');
+      if (barChartData?.data.length) {
+        this.barChart3d = {
+          data: barChartData.data,
+          categories: category,
+        };
+      }
+    });
+    // multilinechart2d
+    this.chartApiService.getMultiLineChart2D().subscribe((response) => {
+      const lineChartData = response?.data[0]?.attributes;
+      const category = lineChartData?.categories.split(',');
+      if (lineChartData.data.length) {
+        this.multiLineChart3d = {
+          data: lineChartData.data,
+          categories: category,
+        };
+      }
+    });
+
+    // lineBarChart
+    this.chartApiService.getLineBarChart().subscribe((response) => {
+      const lineData = response?.data[0]?.attributes;
+      const category = lineData?.categories.split(',');
+      this.lineBarChart = {
+        title: lineData.title,
+        subtitle: lineData.subtitle,
+        categories: category,
+        remainingOptions: {
+          series: lineData.series,
+        },
+      };
+    });
+
+    // stackedColumn
+    this.chartApiService.getStackedColumnData().subscribe((response) => {
+      const stackedSeries = response?.data[0]?.attributes;
+      const category = stackedSeries.categories.split(',');
+      this.stackedColumn = {
+        title: stackedSeries.title,
+        categories: category,
+        remainingOptions: {
+          series: stackedSeries.series,
+        },
+      };
+    });
+
+    // pieChart3d
+    this.chartApiService.getPieChart3D().subscribe((response) => {
+      const data1 = response?.data[0].attributes.data.data;
+      if (data1.length) {
+        this.pieChart3d = {
+          data: data1,
+        };
+      }
+    });
+  }
 }
