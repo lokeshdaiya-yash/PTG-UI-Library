@@ -8,7 +8,7 @@ import { useRef, useState } from 'react';
 import './downloadFile.scss';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import { ExportToCsv } from 'export-to-csv';
+import { mkConfig, generateCsv, download as donld } from 'export-to-csv';
 import { PtgUiSelect } from '../select/select';
 
 interface PtgUiDownloadFileProps {
@@ -68,21 +68,14 @@ const PtgUiDownload = ({
         break;
     }
   };
-
   const downloadExcel = (data: any) => {
     const options = {
-      fieldSeparator: ',',
-      quoteStrings: '"',
-      decimalSeparator: '.',
-      showLabels: true,
-      showTitle: false,
-      useTextFile: false,
-      useBom: true,
-      useKeysAsHeaders: false,
-      headers: head,
+      useKeysAsHeaders: true,
+      showColumnHeaders: false,
     };
-    const csvExporter = new ExportToCsv();
-    csvExporter.generateCsv([head, ...data]);
+    const csvConfig = mkConfig(options);
+    const csv = generateCsv(csvConfig)([head, ...data]);
+    donld(csvConfig)(csv);
   };
 
   const generateBlob = (data: any, type: any) => {
