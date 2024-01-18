@@ -2,11 +2,11 @@
  * @since March 2022
  * @author Bhanu Prakash Sharma
  * @used Used for navigation config
-**/
+ **/
 
 export const NavigationData = [
   {
-    id:"1",
+    id: '1',
     path: '/accordian-example',
     // icon: 'home-icon',
     icon: 'fa-solid fa-chevron-down',
@@ -14,7 +14,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id:"2",
+    id: '2',
     path: '/calendar',
     // icon: 'home-icon',
     icon: 'fa-solid fa-calendar',
@@ -22,7 +22,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id:"3",
+    id: '3',
     path: '/carousel',
     // icon: 'home-icon',
     icon: 'fas fa-solid fa-slideshare',
@@ -32,7 +32,7 @@ export const NavigationData = [
 
   // Charts routing
   {
-    id:"4",
+    id: '4',
     label: 'CHARTS',
     icon: 'fas fa-chart-line',
     pages: [
@@ -41,20 +41,20 @@ export const NavigationData = [
         path: '/charts/d3-charts',
         id: 'd3-chart',
         disabled: false,
-        parentId:"3"
+        parentId: '4',
       },
       {
         label: 'HIGH_CHARTS',
         path: '/charts/high-charts',
         id: 'high-chart',
         disabled: false,
-        parentId:"3"
-      }
+        parentId: '4',
+      },
     ],
   },
   // Datatable routing
   {
-    id:"5",
+    id: '5',
     label: 'DATA_TABLE',
     icon: 'far fa-star',
     pages: [
@@ -63,68 +63,68 @@ export const NavigationData = [
         path: '/datatable/ag-grid',
         id: 'ag-grid',
         disabled: false,
-        parentId:"4"
+        parentId: '5',
       },
       {
         label: 'NGX_DATATABLE',
         path: '/datatable/ngx-datatable',
         id: 'ngx-table',
         disabled: false,
-        parentId:"4"
+        parentId: '5',
       },
       {
         label: 'MATERIAL',
         path: '/datatable/material-datatable',
         id: 'material',
-        disabled:false,
-        parentId:"4"
+        disabled: false,
+        parentId: '5',
       },
     ],
   },
   {
-    id:"6",
+    id: '6',
     path: '/dialog',
     icon: 'fas fa-window-maximize',
     label: 'DIALOG',
     disabled: false,
   },
   {
-    id:"7",
+    id: '7',
     path: '/draganddrop',
     icon: 'fas fa-grip-vertical',
     label: 'DRAG_AND_DROP',
     disabled: false,
   },
   {
-    id:"8",
+    id: '8',
     path: '/download',
     icon: 'fas fa-download',
     label: 'DOWNLOAD',
     disabled: false,
   },
   {
-    id:"9",
+    id: '9',
     path: '/grid-layout',
     icon: 'fa-solid fa-border-all',
     label: 'GRID_LAYOUT',
     disabled: false,
   },
   {
-    id:"10",
+    id: '10',
     path: '/indeterminate-checkbox',
     icon: 'fas fa-square-check',
     label: 'INDETERMINATE',
     disabled: false,
   },
   {
-    id:"11",
+    id: '11',
     path: '/pipes',
     icon: 'fa-solid fa-p',
     label: 'PIPES',
     disabled: false,
   },
   {
-    id:"12",
+    id: '12',
     path: '/role',
     icon: 'fas fa-lock',
     label: 'ROLE_BASED',
@@ -176,5 +176,5 @@ export const NavigationData = [
     icon: 'fa-solid fa-file',
     label: 'BREADCRUMBS',
     disabled: false,
-  }
+  },
 ];

@@ -1,0 +1,84 @@
+{
+  "name": "pool-tracker",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/pool-tracker/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/pool-tracker",
+        "index": "apps/pool-tracker/src/index.html",
+        "baseHref": "/",
+        "main": "apps/pool-tracker/src/main.tsx",
+        "polyfills": "apps/pool-tracker/src/polyfills.ts",
+        "tsConfig": "apps/pool-tracker/tsconfig.app.json",
+        "assets": [
+          "apps/pool-tracker/src/favicon.ico",
+          "apps/pool-tracker/src/assets"
+        ],
+        "styles": ["apps/pool-tracker/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/pool-tracker/src/environments/environment.ts",
+              "with": "apps/pool-tracker/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "pool-tracker:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "pool-tracker:build:development"
+        },
+        "production": {
+          "buildTarget": "pool-tracker:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/pool-tracker/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/pool-tracker"],
+      "options": {
+        "jestConfig": "apps/pool-tracker/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

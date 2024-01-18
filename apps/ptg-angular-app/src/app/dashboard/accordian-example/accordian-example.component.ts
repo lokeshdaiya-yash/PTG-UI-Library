@@ -1,18 +1,16 @@
-import { Component } from '@angular/core';
-import { ACCORDIAN_DATA } from '@ptg-angular-app/mock/mocks';
+import { Component, OnInit } from '@angular/core';
+import { mocksService } from '@ptg-angular-app/common/data-services/mocks.service';
 
 @Component({
   selector: 'ptg-ui-accordian-example',
   templateUrl: './accordian-example.component.html',
-  styleUrls: ['./accordian-example.component.scss']
+  styleUrls: ['./accordian-example.component.scss'],
 })
-export class AccordianExampleComponent {
-  data= ACCORDIAN_DATA;
+export class AccordianExampleComponent implements OnInit {
   htmlCode = `
   <ptg-ui-accordian [listData]="data"></ptg-ui-accordian>`;
 
-  tsCode =
-    `
+  tsCode = `
     import { Component } from '@angular/core';
 
     @Component({
@@ -24,6 +22,14 @@ export class AccordianExampleComponent {
         {title: 'Static Header', description: 'Accordian Content Area'},
         {title: 'Header 2', description: 'Content Description'}
       ]
-    }`
+    }`;
 
+  accordianData: any;
+  constructor(private mocksApiService: mocksService) {}
+
+  ngOnInit(): void {
+    this.mocksApiService.getAccordianData().subscribe((response) => {
+      this.accordianData = response?.data[0].attributes.data;
+    });
+  }
 }

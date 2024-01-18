@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "pool-tracker": "apps/pool-tracker",
+    "pool-tracker-e2e": "apps/pool-tracker-e2e",
     "ptg-angular-app": "apps/ptg-angular-app",
     "ptg-angular-app-e2e": "apps/ptg-angular-app-e2e",
     "ptg-angular-doc-process": "apps/ptg-angular-doc-process",

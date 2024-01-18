@@ -1,17 +1,15 @@
-import { Component } from '@angular/core';
-import { BAR_CHART_D3, LINE_CHART_D3, PIE_CHART_D3 } from '@ptg-angular-app/mock/chart';
-import { resources } from "../../../../resource/resource";
+import { Component, OnInit } from '@angular/core';
+
+import { resources } from '../../../../resource/resource';
+import { chartService } from '@ptg-angular-app/common/data-services/chart.service';
 @Component({
   selector: 'ptg-ui-d3-charts',
   templateUrl: './d3-charts.component.html',
-  styleUrls: ['./d3-charts.component.scss']
+  styleUrls: ['./d3-charts.component.scss'],
 })
-export class D3ChartsComponent {
+export class D3ChartsComponent implements OnInit {
   title = 'angular-d3';
-  barChartData = BAR_CHART_D3;
-  pieChartData = PIE_CHART_D3;
-  lineChartData = LINE_CHART_D3;
-  resources=resources;
+  resources = resources;
   barChartHtmlCode = `
   <ptg-ui-bar-chart [data]="data" [width]="width" [height]="height" [margin]="margin"
                     [start]="start" [end]="end">
@@ -102,4 +100,69 @@ export class D3ChartsComponent {
         { Framework: 'Ember', Stars: '121471', Released: '2011', color: 'pink' },
       ]
     }`;
+
+  barChartData: any = {
+    data: [],
+  };
+  pieChartData: any = {
+    data: [],
+  };
+  lineChartData: any = {
+    data: [],
+  };
+  constructor(private chartApiService: chartService) {}
+
+  ngOnInit(): void {
+    this.chartApiService.getD3BarList().subscribe((response) => {
+      const result = response?.data[0].attributes;
+      if (result?.data.length) {
+        this.barChartData = {
+          margin: 50,
+          start: 0,
+          end: 160000,
+          height: result.height,
+          width: result.width,
+          title: result.title,
+          source: result.source,
+          x_title: result.x_title,
+          y_title: result.y_title,
+          data: result.data,
+        };
+      }
+    });
+
+    //pie chart
+    this.chartApiService.getD3PieList().subscribe((response) => {
+      const pieChartData = response?.data[0].attributes;
+      const color = pieChartData.colors.split(',');
+      if (pieChartData?.piedata.length) {
+        this.pieChartData = {
+          height: pieChartData.height,
+          width: pieChartData.width,
+          title: pieChartData.title,
+          source: pieChartData.source,
+          x_title: pieChartData.x_title,
+          y_title: pieChartData.y_title,
+          colors: color,
+          data: pieChartData.piedata,
+        };
+      }
+    });
+
+    //line chart
+    this.chartApiService.getD3LineChart().subscribe((response) => {
+      const data1 = response?.data[0].attributes.data.map((e) => ({
+        date: new Date(e.date),
+        value: e.value,
+      }));
+      if (data1.length) {
+        this.lineChartData = {
+          data: data1,
+          margin: { top: 20, right: 20, bottom: 50, left: 70 },
+          width: 860,
+          height: 400,
+        };
+      }
+    });
+  }
 }
