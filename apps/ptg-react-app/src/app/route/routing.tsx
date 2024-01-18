@@ -34,6 +34,7 @@ const PtgUiDialog = lazy(()=> import ("../examples/dialog/dialog"));
 const Breadcrumbs =  lazy(()=> import ("../examples/breadcrumbs/breadcrumbs"));
 const Cards =  lazy(()=> import ("../examples/cards/cards"));
 const PtgUiCarousel = lazy(()=> import ("../examples/carousel/carousel"));
+const PtgUiProgressBar = lazy(()=> import ("../examples/progress-bar/progress-bar"));
 const GridLayout = lazy(()=> import ("../examples/grid-layout/grid-layout"));
 const Indeterminate =  lazy(()=> import ("../examples/indeterminate-checkbox/indeterminate-checkbox"));
 const PtgUiReactTable =  lazy(()=> import ("../examples/data-table/react-table"));
@@ -118,6 +119,10 @@ const routing = [
   {
     path: '/carousel',
     component: PtgUiCarousel,
+  },
+  {
+    path: '/progress-bar',
+    component: PtgUiProgressBar,
   },
   {
     path: '/dialog',

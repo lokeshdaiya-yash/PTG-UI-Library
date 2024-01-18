@@ -201,6 +201,27 @@ export class PtgCheckbox {
 }
 
 
+export declare interface PtgCircularDynamicProgressBar extends Components.PtgCircularDynamicProgressBar {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['color', 'fontSize', 'progressEndValue', 'size']
+})
+@Component({
+  selector: 'ptg-circular-dynamic-progress-bar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['color', 'fontSize', 'progressEndValue', 'size']
+})
+export class PtgCircularDynamicProgressBar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface PtgFooter extends Components.PtgFooter {}
 
 @ProxyCmp({
@@ -516,6 +537,153 @@ export declare interface PtgUiCarousel extends Components.PtgUiCarousel {}
   inputs: ['images', 'imgHeight', 'imgWidth', 'showIndicators']
 })
 export class PtgUiCarousel {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PtgUiCircularProgressBar extends Components.PtgUiCircularProgressBar {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['fontSize', 'progressAmount', 'progressColor', 'size']
+})
+@Component({
+  selector: 'ptg-ui-circular-progress-bar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['fontSize', 'progressAmount', 'progressColor', 'size']
+})
+export class PtgUiCircularProgressBar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PtgUiConditionalCircularProgressBar extends Components.PtgUiConditionalCircularProgressBar {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['fontSize', 'progressAmount', 'size']
+})
+@Component({
+  selector: 'ptg-ui-conditional-circular-progress-bar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['fontSize', 'progressAmount', 'size']
+})
+export class PtgUiConditionalCircularProgressBar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PtgUiConditionalProgressBar extends Components.PtgUiConditionalProgressBar {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['value', 'width']
+})
+@Component({
+  selector: 'ptg-ui-conditional-progress-bar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['value', 'width']
+})
+export class PtgUiConditionalProgressBar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PtgUiProgressBar extends Components.PtgUiProgressBar {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['color', 'value', 'width']
+})
+@Component({
+  selector: 'ptg-ui-progress-bar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['color', 'value', 'width']
+})
+export class PtgUiProgressBar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PtgUiProgressBarFive extends Components.PtgUiProgressBarFive {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['progressValue', 'width']
+})
+@Component({
+  selector: 'ptg-ui-progress-bar-five',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['progressValue', 'width']
+})
+export class PtgUiProgressBarFive {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PtgUiProgressBarFour extends Components.PtgUiProgressBarFour {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['width']
+})
+@Component({
+  selector: 'ptg-ui-progress-bar-four',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['width']
+})
+export class PtgUiProgressBarFour {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PtgUiProgressGradientBar extends Components.PtgUiProgressGradientBar {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['value', 'width']
+})
+@Component({
+  selector: 'ptg-ui-progress-gradient-bar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['value', 'width']
+})
+export class PtgUiProgressGradientBar {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();

@@ -37,14 +37,14 @@ export const NavigationData = [
     icon: 'fas fa-chart-line',
     pages: [
       {
-        label!: 'D3_CHARTS',
+        label: 'D3_CHARTS',
         path: '/charts/d3-charts',
         id: 'd3-chart',
         disabled: false,
         parentId:"3"
       },
       {
-        label!: 'HIGH_CHARTS',
+        label: 'HIGH_CHARTS',
         path: '/charts/high-charts',
         id: 'high-chart',
         disabled: false,
@@ -59,21 +59,21 @@ export const NavigationData = [
     icon: 'far fa-star',
     pages: [
       {
-        label!: 'AG_GRID',
+        label: 'AG_GRID',
         path: '/datatable/ag-grid',
         id: 'ag-grid',
         disabled: false,
         parentId:"4"
       },
       {
-        label!: 'NGX_DATATABLE',
+        label: 'NGX_DATATABLE',
         path: '/datatable/ngx-datatable',
         id: 'ngx-table',
         disabled: false,
         parentId:"4"
       },
       {
-        label!: 'MATERIAL',
+        label: 'MATERIAL',
         path: '/datatable/material-datatable',
         id: 'material',
         disabled:false,
@@ -132,6 +132,13 @@ export const NavigationData = [
   },
   {
     id:"13",
+    path: '/progress-bar',
+    icon: 'fas fa-lock',
+    label: 'PROGRESS BAR',
+    disabled: false,
+  },
+  {
+    id:"14",
     path: '/select',
     // icon: 'home-icon',
     icon: 'fa-solid fa-check-to-slot',
@@ -139,7 +146,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id:"14",
+    id:"15",
     path: '/accessibility',
     // icon: 'home-icon',
     icon: 'fa-solid fa-keyboard',
@@ -147,7 +154,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id:"15",
+    id:"16",
     path: '/multistep-form',
     // icon: 'home-icon',
     icon: 'fa-solid fa-file',
@@ -155,7 +162,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id:"15",
+    id:"17",
     path: '/card',
     // icon: 'home-icon',
     icon: 'fa-solid fa-file',
@@ -163,7 +170,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id:"16",
+    id:"18",
     path: '/breadcrumbs',
     // icon: 'home-icon',
     icon: 'fa-solid fa-file',
