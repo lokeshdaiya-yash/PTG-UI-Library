@@ -1,0 +1,21 @@
+<section class="infinite pt-2">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h4 class="mb-3" [innerHTML]="'Infinite Scroll' | translate"></h4>
+          <ptg-ui-toggle-code
+            [htmlCode]="htmlCode"
+            [tsCode]="tsCode"
+          ></ptg-ui-toggle-code>
+            <ptg-infinite-scroll  [items]="items" [fetchData]="fetchDataFunction" [setPage]="setPage" 
+                               [height]="height" [hasData]="hasData">
+                <ul *ngIf="items && items.length > 0">
+                    <li *ngFor="let i of items; let key= index">
+                        <span>{{i.id}} &nbsp; </span>{{i.title}}
+                    </li>
+                </ul>
+            </ptg-infinite-scroll>
+        </div>
+    </div>
+  </div>
+</section>

@@ -133,6 +133,13 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    id:"12",
+    path: '/infinite-scroll',
+    icon: 'fas fa-square-check',
+    label: 'INFINITE SCROLL',
+    disabled: false,
+  },
+  {
     id:"13",
     path: '/multistep-form',
     // icon: 'home-icon',
