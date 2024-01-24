@@ -121,6 +121,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/infinite-scroll',
+    icon: 'fa-solid fa-check-square',
+    label: 'INFINITE SCROLL',
+    disabled: false,
+  },
+  {
     path: '/multistep',
     icon: 'fa fa-brands fa-wpforms',
     label: 'MULTI_STEP_FORM_NAV',
