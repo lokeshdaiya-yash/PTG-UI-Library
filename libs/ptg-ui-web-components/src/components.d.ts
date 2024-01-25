@@ -123,7 +123,7 @@ export namespace Components {
         "value": string;
     }
     interface PtgRadiobuton {
-        "id": string;
+        "ids": string;
         "name": string;
         "sender": string;
         "type": string;
@@ -493,7 +493,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface PtgRadiobuton {
-        "id"?: string;
+        "ids"?: string;
         "name"?: string;
         "sender"?: string;
         "type"?: string;
