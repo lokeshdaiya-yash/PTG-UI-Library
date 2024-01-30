@@ -4,7 +4,7 @@
  * @author Bhanu Prakash Sharma
  * @Module dashboardRoutingModule;
  * @description This module for dashboard routing
-**/
+ **/
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -31,6 +31,7 @@ import { DialogExampleComponent } from './dialog-component/dialog-example.compon
 import { CardExampleComponent } from './card-component/card-example.component';
 import { BreadcrumbsExampleComponent } from './breadcrumbs-component/breadcrumbs-example.component';
 import { CarouselExampleComponent } from './carousel-component/carousel-example.component';
+import { TooltipComponent } from './tooltip-component/tooltip.component';
 
 const routes: Routes = [
   {
@@ -55,23 +56,23 @@ const routes: Routes = [
     component: SelectexampleComponent,
   },
   {
-    path:'charts',
-    component:ChartComponent,
-    children:[
+    path: 'charts',
+    component: ChartComponent,
+    children: [
       {
-        path:'',
-        redirectTo:'d3-charts',
-        pathMatch:'full'
+        path: '',
+        redirectTo: 'd3-charts',
+        pathMatch: 'full',
       },
       {
-        path:'d3-charts',
-        component:D3ChartsComponent
+        path: 'd3-charts',
+        component: D3ChartsComponent,
       },
       {
-        path:'high-charts',
-        component:HighChartsComponent
-      }
-    ]
+        path: 'high-charts',
+        component: HighChartsComponent,
+      },
+    ],
   },
   {
     path: 'draganddrop',
@@ -107,43 +108,47 @@ const routes: Routes = [
         component: NgxDatatableComponent,
       },
       {
-        path:'material-datatable',
-        component: MaterialDatatableComponent
-      }
-    ]
+        path: 'material-datatable',
+        component: MaterialDatatableComponent,
+      },
+    ],
   },
   {
     path: 'dialog',
-    component: DialogExampleComponent
+    component: DialogExampleComponent,
   },
   {
-    path:'download',
-    component: DownloadExampleComponent
+    path: 'tooltip',
+    component: TooltipComponent,
   },
   {
-    path:'indeterminate-checkbox',
-    component: CheckboxExamplesComponent
+    path: 'download',
+    component: DownloadExampleComponent,
   },
   {
-    path:'grid-layout',
-    component: GridlayoutexampleComponent
+    path: 'indeterminate-checkbox',
+    component: CheckboxExamplesComponent,
   },
   {
-    path:'accordian-example',
-    component: AccordianExampleComponent
+    path: 'grid-layout',
+    component: GridlayoutexampleComponent,
   },
   {
-    path:'multistep-form',
-    component:MultistepFormLayoutComponent
+    path: 'accordian-example',
+    component: AccordianExampleComponent,
   },
   {
-    path:'card',
-    component:CardExampleComponent
+    path: 'multistep-form',
+    component: MultistepFormLayoutComponent,
   },
   {
-    path:'breadcrumbs',
-    component:BreadcrumbsExampleComponent
-  }
+    path: 'card',
+    component: CardExampleComponent,
+  },
+  {
+    path: 'breadcrumbs',
+    component: BreadcrumbsExampleComponent,
+  },
 ];
 
 @NgModule({

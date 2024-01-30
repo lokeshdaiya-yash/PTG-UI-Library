@@ -133,7 +133,6 @@ export const NavigationData = [
   {
     id: '13',
     path: '/select',
-    // icon: 'home-icon',
     icon: 'fa-solid fa-check-to-slot',
     label: 'SELECT',
     disabled: false,
@@ -141,7 +140,6 @@ export const NavigationData = [
   {
     id: '14',
     path: '/accessibility',
-    // icon: 'home-icon',
     icon: 'fa-solid fa-keyboard',
     label: 'WEB_ACCESSIBILITY',
     disabled: false,
@@ -149,25 +147,28 @@ export const NavigationData = [
   {
     id: '15',
     path: '/multistep-form',
-    // icon: 'home-icon',
     icon: 'fa-solid fa-file',
     label: 'MULTI_FORMS',
     disabled: false,
   },
   {
-    id: '15',
+    id: '16',
     path: '/card',
-    // icon: 'home-icon',
     icon: 'fa-solid fa-file',
     label: 'CARDS',
     disabled: false,
   },
   {
-    id: '16',
+    id: '17',
     path: '/breadcrumbs',
-    // icon: 'home-icon',
     icon: 'fa-solid fa-file',
     label: 'BREADCRUMBS',
+  },
+  {
+    id: '18',
+    path: '/tooltip',
+    icon: 'fas fa-grip-vertical',
+    label: 'TOOLTIP',
     disabled: false,
   },
 ];
