@@ -2,11 +2,11 @@
  * @since March 2022
  * @author Bhanu Prakash Sharma
  * @used Used for navigation config
-**/
+ **/
 
 export const NavigationData = [
   {
-    id:"1",
+    id: '1',
     path: '/accordian-example',
     // icon: 'home-icon',
     icon: 'fa-solid fa-chevron-down',
@@ -133,14 +133,14 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id:"12",
+    id:"13",
     path: '/infinite-scroll',
     icon: 'fas fa-square-check',
     label: 'INFINITE SCROLL',
     disabled: false,
   },
   {
-    id:"13",
+    id:"14",
     path: '/multistep-form',
     // icon: 'home-icon',
     icon: 'fa-solid fa-file',
@@ -148,21 +148,21 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id:"14",
+    id:"15",
     path: '/pipes',
     icon: 'fa-solid fa-p',
     label: 'PIPES',
     disabled: false,
   },
   {
-    id:"15",
+    id:"16",
     path: '/role',
     icon: 'fas fa-lock',
     label: 'ROLE_BASED',
     disabled: false,
   },
   {
-    id:"16",
+    id:"17",
     path: '/select',
     // icon: 'home-icon',
     icon: 'fa-solid fa-check-to-slot',
@@ -170,14 +170,11 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id:"17",
+    id:"18",
     path: '/accessibility',
     // icon: 'home-icon',
     icon: 'fa-solid fa-keyboard',
     label: 'WEB_ACCESSIBILITY',
     disabled: false,
   },
-  
-  
- 
 ];

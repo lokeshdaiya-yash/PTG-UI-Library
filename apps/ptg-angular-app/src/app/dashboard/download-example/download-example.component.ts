@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
-import { TABLE_DATA } from '@ptg-angular-app/mock/mocks';
-import { resources } from "../../../resource/resource";
+import { Component, OnInit } from '@angular/core';
+import { resources } from '../../../resource/resource';
+import { mocksService } from '@ptg-angular-app/common/data-services/mocks.service';
 @Component({
   selector: 'ptg-ui-download-example',
   templateUrl: './download-example.component.html',
-  styleUrls: ['./download-example.component.scss']
+  styleUrls: ['./download-example.component.scss'],
 })
-export class DownloadExampleComponent {
-  tableData = TABLE_DATA
-  resources=resources;
-
+export class DownloadExampleComponent implements OnInit {
+  tableData: any = {};
+  resources = resources;
   fileDownloadHtmlCode = `
   <ptg-ui-file-download [tableData]="tableData"></ptg-ui-file-download>
   `;
@@ -47,6 +46,16 @@ export class DownloadExampleComponent {
         "total": 8
       },
     ]
+  }`;
+  constructor(private mocksApiService: mocksService) {}
+
+  ngOnInit(): void {
+    this.tableData = {};
+    this.mocksApiService.getTableData().subscribe((response) => {
+      this.tableData = {
+        rowsData: response?.data[0].attributes.data.data,
+        columnsData: response?.data[0].attributes.data.columns,
+      };
+    });
   }
-  `;
 }

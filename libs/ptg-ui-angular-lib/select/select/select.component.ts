@@ -64,10 +64,10 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   //   return this.parentForm?.get(this.fieldname) as FormControl;
   // }
 
-  constructor(private _changeDetectorRef: ChangeDetectorRef) { }
+  constructor(private _changeDetectorRef: ChangeDetectorRef) {}
 
-  onChange = (_: any) => { };
-  onTouched = () => { };
+  onChange = (_: any) => {};
+  onTouched = () => {};
 
   writeValue(obj: any): void {
     this.selectedValue = obj;
@@ -80,7 +80,6 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit(): void {
-
     // this.selectedValue = [this.items[0].name]
     // this.selectedValue = this.items[0].name;
   }
@@ -88,18 +87,15 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   onchangeSelection(event: any) {
     this.change.emit(event);
     // this.onChange(event);
-    console.log(this.isMultiple)
-    if (this.isMultiple==false) {
+    if (!this.isMultiple) {
       this.onChange(event?.name);
-      console.log(!this.isMultiple)
-    } else if (this.isMultiple==true && !event?.target) {
-      const selected = event && event.map((item: { [x: string]: any }) => item['name']);
+    } else if (this.isMultiple && !event?.target) {
+      const selected =
+        event && event.map((item: { [x: string]: any }) => item['name']);
       this.onChange(selected);
-      console.log(this.isMultiple)
     }
   }
-  inputChange() {
-  }
+  inputChange() {}
 
   selectUnselectAll(
     isChecked: any,

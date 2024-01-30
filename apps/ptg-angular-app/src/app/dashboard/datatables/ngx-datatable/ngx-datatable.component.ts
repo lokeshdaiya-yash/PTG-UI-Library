@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GRID_DATA } from '../../../mock/grid-data';
 import { SelectionType } from '@swimlane/ngx-datatable';
 import { resources } from "../../../../resource/resource";
+import { mocksService } from '@ptg-angular-app/common/data-services/mocks.service';
 
 @Component({
   selector: 'ptg-ui-ngx-datatable',
@@ -9,7 +9,8 @@ import { resources } from "../../../../resource/resource";
   styleUrls: ['./ngx-datatable.component.scss']
 })
 export class NgxDatatableComponent implements OnInit {
-  rows = GRID_DATA;
+  constructor(private mocksApiService: mocksService,) {}
+  ngxdata:any
   columns:any;
   offset: number = 0;
   rowClass: string = '';
@@ -99,7 +100,7 @@ export class NgxDatatableComponent implements OnInit {
   }`;
 
   ngOnInit(): void {
-    this.temp = this.rows;
+    this.temp = this.ngxdata;
     this.columns = [
       { name: "Athlete", field: "athlete", frozenLeft: true},
       { name: "Age",field: "age",filtering: true },
@@ -111,6 +112,9 @@ export class NgxDatatableComponent implements OnInit {
       { name: "Silver",field: "silver" ,filtering: false},
       { name: "Total",field: "total" ,filtering: false},
     ];
+    this.mocksApiService.getTableList().subscribe((response) => {
+      this.ngxdata = response?.data[0].attributes.grid;
+       });
   }
 
   // Filter functions
@@ -123,7 +127,7 @@ export class NgxDatatableComponent implements OnInit {
     });
 
     // update the rows
-    this.rows = temp;
+    this.ngxdata = temp;
     // Whenever the filter changes, always go back to the first page
     this.offset = 0;
   }
