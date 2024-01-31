@@ -82,13 +82,7 @@ export function Pipes(props: PipesProps) {
     phoneNumber: '',
   });
 
-  const [oldValue, setOldValues] = useState({
-    cname: '',
-    inr: '',
-    dollar: '',
-    truncateStr: '',
-    phoneNumber: '',
-  });
+  
   const handleChange: any = (e: any) => {
     const { name, value } = e.target;
     setValue((values) => {
