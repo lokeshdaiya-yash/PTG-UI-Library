@@ -38,6 +38,9 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
   const onSelect: any = (event: any) => {
     console.log('Select Values,onSelect', event);
   };
+  const onRemove: any = (event: any) => {
+    console.log('  Values,onRemove', event);
+  };
 
 
   const componentCode = `
@@ -62,6 +65,9 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
       const onSelect: any = (event: any) => {
         console.log('Select Values,onSelect', event);
       };
+      const onRemove: any = (event: any) => {
+        console.log('  Values,onRemove', event);
+      };
      export default MultiSelectCheckbox;`
 
   const htmlCode = `
@@ -84,6 +90,7 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
       showCheckbox={true}
       singleSelect={false}
       placeholder={t('SELECT_PLACEHOLDER')}
+      onRemove={onRemove}
     /> `
   return (
      <section>
@@ -106,6 +113,7 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
           showCheckbox={true}
           singleSelect={true}
           placeholder={t('SELECT_PLACEHOLDER')}/>
+         
         </div>
       <hr />
         <div className="row">
@@ -119,6 +127,7 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
               showCheckbox={true}
               singleSelect={false}
               placeholder={t('SELECT_PLACEHOLDER')}
+              onRemove={onRemove}
             />
           </div>
         </div>

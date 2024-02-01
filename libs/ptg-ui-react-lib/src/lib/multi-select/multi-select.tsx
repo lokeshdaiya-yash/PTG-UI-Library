@@ -16,10 +16,11 @@ export interface PtgUiMultiSelectProps {
   showCheckbox?: boolean,
   singleSelect?: boolean,
   onSelect?:any,
-  placeholder?:string
+  placeholder?:string,
+  onRemove?:any
 }
 
-export function PtgUiMultiSelectbox({id,className,selectedValues,list,showCheckbox,singleSelect,onSelect,placeholder}: PtgUiMultiSelectProps) {
+export function PtgUiMultiSelectbox({id,className,selectedValues,list,showCheckbox,singleSelect,onSelect,placeholder, onRemove}: PtgUiMultiSelectProps) {
   return (
     <Multiselect
     options={list}
@@ -31,6 +32,7 @@ export function PtgUiMultiSelectbox({id,className,selectedValues,list,showCheckb
     onSelect={onSelect}
     placeholder={placeholder}
     selectedValues={selectedValues}
+    onRemove={onRemove}
   />
   );
 }
