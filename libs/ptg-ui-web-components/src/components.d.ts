@@ -48,6 +48,7 @@ export namespace Components {
     interface PtgCard {
         "cardButtonText": string;
         "cardContent": string;
+        "cardContentLength"?: number;
         "cardId": number;
         "cardTitle": string;
         "isCardAction": boolean;
@@ -408,6 +409,7 @@ declare namespace LocalJSX {
     interface PtgCard {
         "cardButtonText"?: string;
         "cardContent"?: string;
+        "cardContentLength"?: number;
         "cardId"?: number;
         "cardTitle"?: string;
         "isCardAction"?: boolean;
