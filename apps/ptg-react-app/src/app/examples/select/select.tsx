@@ -39,7 +39,7 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
     console.log('Select Values,onSelect', event);
   };
   const onRemove: any = (event: any) => {
-    console.log('  Values,onRemove', event);
+    console.log('Values,onRemove', event);
   };
 
 
@@ -113,7 +113,6 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
           showCheckbox={true}
           singleSelect={true}
           placeholder={t('SELECT_PLACEHOLDER')}/>
-         
         </div>
       <hr />
         <div className="row">
