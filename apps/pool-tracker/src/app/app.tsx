@@ -8,8 +8,9 @@ import Skills from './components/Skills';
 import EditSkill from './components/EditSkill';
 import AddSkill from './components/AddSkill';
 import User from './components/User';
-import PrivateRout from './components/PrivateRout';
+// import PrivateRout from './components/PrivateRout';
 import Login from './components/Login';
+import Chart from './components/Chart';
 
 export function App() {
   return (
@@ -20,17 +21,19 @@ export function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/user" element={<User />} />
+          <Route path="/chart" element={<Chart />} />
+          
 
           {/* <Route element={<PrivateRout />}> */}
-            {/* Masterdata Routes*/}
-            <Route path="/addMasterdata" element={<AddMasterdata />} />
-            <Route path="/masterData" element={<ViewMasterdata />} />
-            <Route path="/edit/:id" element={<EditMasterdata />} />
+          {/* Masterdata Routes*/}
+          <Route path="/addMasterdata" element={<AddMasterdata />} />
+          <Route path="/masterData" element={<ViewMasterdata />} />
+          <Route path="/editMasterdata/:id" element={<EditMasterdata />} />
 
-            {/* skills Routes*/}
-            <Route path="/skills" element={<Skills />} />
-            <Route path="addSkill" element={<AddSkill />} />
-            <Route path="/editskill/:id" element={<EditSkill />} />
+          {/* skills Routes*/}
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/addSkill" element={<AddSkill />} />
+          <Route path="/editskill/:id" element={<EditSkill />} />
           {/* </Route> */}
         </Routes>
         {/* <Footer/> */}

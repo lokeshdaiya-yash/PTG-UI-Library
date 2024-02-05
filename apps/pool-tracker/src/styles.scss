@@ -1,3 +1,5 @@
+@import '../../../libs/ptg-ui-web-components/src/global/global.css';
+
 /* You can add global styles to this file, and also import other style files */
 
 // =================== nav bar css============
@@ -27,7 +29,7 @@
   flex-direction: column;
   & > input,
   label,
-  button {
+  button, textarea, select {
     width: 65%;
     font-size: 16px;
     padding: 10px;
@@ -42,6 +44,10 @@
   & > h3 {
     text-align: center;
   }
+  // & > div > select {
+  //   width: 100%;
+  //   padding: 10px;
+  // }
 }
 .searchWrapper {
   border: 1px solid #ccc;
@@ -100,25 +106,32 @@
 
   & > tr > th,
   td {
-    padding: 15px;
+    padding: 0px;
     text-align: center;
-    border: 1px solid black;
+    border-bottom: 1px solid darkgray;
+  }
+  & > .masterdataBtn{
+    display: flex;
   }
 }
 
-.viewMastertable button{
+.masterdataBtn{
+  display: flex;
+
+ button{
   background-color: #1976d2;
   padding: 10px;
-  margin: 20px;
+  margin: 10px;
   font-size: 16px;
   border: none;
+  cursor: pointer;
   & > a {
     color: white;
     text-decoration: none;
     border: none;
   }
 }
-
+}
 .viewMastertable > table > tr > th {
   background-color: #1976d2 !important;
 }
@@ -126,4 +139,53 @@
   background-color: #1976d2 !important;
   color: white;
   text-align: center;
+}
+
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+}
+ 
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+ 
+.active,
+.accordion:hover {
+  background-color: #ccc;
+}
+ 
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+}
+ 
+.panel.active {
+  display: block;
+  max-height: 200px; /* Set an appropriate max height */
+}
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
 }

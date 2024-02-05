@@ -21,11 +21,7 @@ const EditMasterdata = () => {
     const navigate = useNavigate();
     const { id } = useParams();
 
-  const onValueChange = (e) => {
-    console.log(e.target.name, e.target.value);
-    setMasterdata({ ...masterData, [e.target.name]: e.target.value });
-    console.log(masterData);
-  };
+ 
 
   useEffect(() => {
     loadUserDetails();
@@ -34,6 +30,12 @@ const EditMasterdata = () => {
   const loadUserDetails = async () => {
     const response = await getData(id);
     setMasterdata(response.data);
+  };
+  
+  const onValueChange = (e) => {
+    console.log(e.target.name, e.target.value);
+    setMasterdata({ ...masterData, [e.target.name]: e.target.value });
+    console.log(masterData);
   };
 
   const editMasterDetails = async () => {

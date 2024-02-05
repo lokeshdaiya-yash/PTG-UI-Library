@@ -94,7 +94,9 @@ export const deleteSkill = async (id) => {
 
 export const loginUser = async (data) => {
   try {
+    console.log(data);
     return await axios.post(`${URL}/user/login`, data);
+    
   } catch (error) {
     console.log("error while calling login user api", error);
   }
@@ -118,7 +120,7 @@ export const getUsers = async () => {
 
 export const getUser = async (id) => {
   try {
-    return await axios.get(`${URL}/${id}`);
+    return await axios.get(`${URL}/user/${id}`);
   } catch (error) {
     console.log("error while calling get user api", error);
   }
@@ -126,7 +128,7 @@ export const getUser = async (id) => {
 
 export const editUser = async (user, id)=>{
     try {
-       return await axios.post(`${URL}/${id}`, user)
+       return await axios.post(`${URL}/user/${id}`, user)
     } catch (error) {
         console.log("error while calling get user api", error);
     }
@@ -134,7 +136,7 @@ export const editUser = async (user, id)=>{
 
 export const deleteUser = async (id) => {
     try {
-        return await axios.delete(`${URL}/${id}`);
+        return await axios.delete(`${URL}/user/${id}`);
     } catch (error) {
         console.log("error while calling delete user api", error);
         
