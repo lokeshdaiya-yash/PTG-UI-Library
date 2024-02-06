@@ -33,7 +33,6 @@ const EditSkill = () => {
 
   return (
     <div>
-      <div>EditSkill</div>
       <div className="addMasterData">
         <h3>Edit Skill Data</h3>
         <div className="inputBox">

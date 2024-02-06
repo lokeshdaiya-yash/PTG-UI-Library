@@ -304,7 +304,7 @@ const AddMasterdata = () => {
       </div>
       {/* =============================================================================== */}
 
-      <div className="addMasterData">
+      {/* <div className="addMasterData">
         <div className="inputBox">
           <input
             placeholder="Enter Name"
@@ -396,18 +396,18 @@ const AddMasterdata = () => {
         <div>
           <button onClick={() => addMasterDetails()}> Add Master Data</button>
         </div>
+      </div> */}
 
-        {/* <PtgUiDatePicker
+
+      {/* <PtgUiDatePicker
         // disabled={disabled}
         // selected={selected}
         // className={className}
-
         onChange={(e) => onValueChange(e)}
         maxDate={date.endDate === null ? date.endDate : new Date(date.endDate)}
         // onKeyDown={onKeyDown}
         />
         {date.errorMsg && <p>DATE_ERROR_TEXT</p>} */}
-      </div>
     </div>
   );
 };

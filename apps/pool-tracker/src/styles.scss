@@ -1,5 +1,15 @@
 @import '../../../libs/ptg-ui-web-components/src/global/global.css';
 
+// @import '../../styles/variables';
+@import "../../ptg-react-animations/src/styles/variables";
+
+.MuiStepIcon-completed,.MuiStepIcon-active{
+    color: $main !important;
+}
+.MuiStepIcon-root.Mui-error {
+    color: $error !important;
+}
+
 /* You can add global styles to this file, and also import other style files */
 
 // =================== nav bar css============
@@ -17,7 +27,7 @@
   }
 }
 
-// =============add master data component css
+// =============add master data component css==============
 .ptg-table-addData {
   width: 50%;
   margin: 70px auto;
@@ -140,7 +150,10 @@
   color: white;
   text-align: center;
 }
-
+.viewMastertable  a{
+  color: white;
+  text-decoration: none;
+}
 
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion-container {
@@ -149,7 +162,7 @@
 }
  
 .accordion {
-  background-color: #eee;
+  // background-color: #eee;
   color: #444;
   cursor: pointer;
   padding: 18px;
@@ -160,10 +173,10 @@
   transition: 0.4s;
 }
  
-.active,
-.accordion:hover {
-  background-color: #ccc;
-}
+// .active,
+// .accordion:hover {
+//   background-color: #ccc;
+// }
  
 .panel {
   padding: 0 18px;
@@ -186,6 +199,6 @@
   margin-left: 5px;
 }
 
-.active:after {
-  content: "\2796"; /* Unicode character for "minus" sign (-) */
-}
+// .active:after {
+//   content: "\2796"; /* Unicode character for "minus" sign (-) */
+// }

@@ -26,63 +26,63 @@ const ViewMasterdata = () => {
   };
 
   // ======================card========================================
-  const cardDataObj = [
-    {
-      cardId: 1,
-      cardTitle: 'card title',
-      cardContent:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!',
-      src: 'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    },
-    {
-      cardId: 2,
-      cardTitle: 'Card Title',
-      cardContent:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!',
-      src: 'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    },
-  ];
+  // const cardDataObj = [
+  //   {
+  //     cardId: 1,
+  //     cardTitle: 'card title',
+  //     cardContent:
+  //       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!',
+  //     src: 'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  //   },
+  //   {
+  //     cardId: 2,
+  //     cardTitle: 'Card Title',
+  //     cardContent:
+  //       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!',
+  //     src: 'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  //   },
+  // ];
   const handleClick = (data) => {
     console.log(data.detail);
   };
   // =========================Modal==================
 
-  const modalClosed = (event) => {
-    console.log('Modal Closed successfully', event.returnValue);
-  };
+  // const modalClosed = (event) => {
+  //   console.log('Modal Closed successfully', event.returnValue);
+  // };
 
   // ================Accordion========================================
-  const [activeAccordion, setActiveAccordion] = useState(null);
+  // const [activeAccordion, setActiveAccordion] = useState(null);
 
-  const toggleAccordion = (index) => {
-    setActiveAccordion(activeAccordion === index ? null : index);
-  };
+  // const toggleAccordion = (index) => {
+  //   setActiveAccordion(activeAccordion === index ? null : index);
+  // };
 
   const Columns = [
-    {
-      title: '',
-      field: 'name',
-      filtering: false,
-      width: '2%',
-      render: (_, rowData, index) => (
-        <div className="accordion-container">
-          <button
-            className={`accordion ${activeAccordion === index ? 'active' : ''}`}
-            onClick={() => toggleAccordion(index)}
-          >
-            {/* Section {index + 1} */}
-          </button>
-          <div className={`panel ${activeAccordion === index ? 'active' : ''}`}>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </div>
-        </div>
-      ),
-    },
+    // {
+    //   title: '',
+    //   field: 'name',
+    //   filtering: false,
+    //   width: '2%',
+    //   render: (_, rowData, index) => (
+    //     <div className="accordion-container">
+    //       <button
+    //         className={`accordion ${activeAccordion === index ? 'active' : ''}`}
+    //         onClick={() => toggleAccordion(index)}
+    //       >
+    //         {/* Section {index + 1} */}
+    //       </button>
+    //       <div className={`panel ${activeAccordion === index ? 'active' : ''}`}>
+    //         <p>
+    //           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    //           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+    //           enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    //           nisi ut aliquip ex ea commodo consequat.
+    //         </p>
+    //       </div>
+    //     </div>
+    //   ),
+    // },
     { title: 'name', field: 'name', filtering: false, width: '20%' },
     { title: 'clientInterviews', field: 'clientInterviews', filtering: false },
     { title: 'poolStartDate', field: 'poolStartDate' },
@@ -114,16 +114,16 @@ const ViewMasterdata = () => {
             <PtgUiButton component={Link}>Edit</PtgUiButton>
           </Link>
 
-          <PtgModal
+          {/* <PtgModal
             modal-size="lg"
             modal-header-name="Header Name Here"
             confirm-button-name="Okay"
-            onModalClose={modalClosed}
+            // onModalClose={modalClosed}
           >
             <div slot="body-block">
               <h2>React Slot for Body</h2>
             </div>
-          </PtgModal>
+          </PtgModal> */}
         </div>
       ),
     },
@@ -147,7 +147,7 @@ const ViewMasterdata = () => {
         filterValue={filterValue}
       />
 
-      {cardDataObj.map((masterdata) => {
+      {/* {cardDataObj.map((masterdata) => {
         return (
           <div className="col-md-4">
             <PtgCard
@@ -158,15 +158,9 @@ const ViewMasterdata = () => {
             />
           </div>
         );
-      })}
+      })} */}
      
-      <div className="">
-        <button class="accordion">Section 1</button>
-        <div class="panel">
-          <p>Lorem ipsum...</p>
-        </div>
-      </div>
-    </div>
+       </div>
   );
 };
 
