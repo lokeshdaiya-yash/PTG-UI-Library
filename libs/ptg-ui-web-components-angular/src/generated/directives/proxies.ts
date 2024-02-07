@@ -155,13 +155,13 @@ export declare interface PtgCard extends Components.PtgCard {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['cardButtonText', 'cardContent', 'cardId', 'cardTitle', 'isCardAction', 'src']
+  inputs: ['cardButtonText', 'cardContent', 'cardContentLength', 'cardId', 'cardTitle', 'isCardAction', 'src']
 })
 @Component({
   selector: 'ptg-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['cardButtonText', 'cardContent', 'cardId', 'cardTitle', 'isCardAction', 'src']
+  inputs: ['cardButtonText', 'cardContent', 'cardContentLength', 'cardId', 'cardTitle', 'isCardAction', 'src']
 })
 export class PtgCard {
   protected el: HTMLElement;
@@ -360,13 +360,13 @@ export declare interface PtgRadiobuton extends Components.PtgRadiobuton {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['id', 'name', 'sender', 'type', 'value']
+  inputs: ['ids', 'name', 'sender', 'type', 'value']
 })
 @Component({
   selector: 'ptg-radiobuton',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['id', 'name', 'sender', 'type', 'value']
+  inputs: ['ids', 'name', 'sender', 'type', 'value']
 })
 export class PtgRadiobuton {
   protected el: HTMLElement;

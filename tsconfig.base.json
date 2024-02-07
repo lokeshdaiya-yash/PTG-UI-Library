@@ -63,7 +63,7 @@
       "@ptg-ui/angular/sidenav": ["libs/ptg-ui-angular-lib/sidenav/index.ts"],
       "@ptg-ui/angular/textarea": ["libs/ptg-ui-angular-lib/textarea/index.ts"],
       "@ptg-ui/angular/toasts": ["libs/ptg-ui-angular-lib/toasts/index.ts"],
-      "@ptg-ui/ptg-ui-web-components": ["dist/libs/ptg-ui-web-components"],
+      "@ptg-ui/ptg-ui-web-components": ["libs/ptg-ui-web-components/src/components"],
       "@ptg-ui/ptg-ui-web-components-angular": [
         "libs/ptg-ui-web-components-angular/src/index.ts"
       ],
@@ -71,7 +71,7 @@
         "libs/ptg-ui-web-components-react/src/index.ts"
       ],
       "@ptg-ui/ptg-ui-web-components/loader": [
-        "dist/libs/ptg-ui-web-components/loader"
+        "libs/ptg-ui-web-components/build/loader"
       ],
       "@ptg-ui/react": ["libs/ptg-ui-react-lib/src/index.ts"]
     }

@@ -48,6 +48,7 @@ export namespace Components {
     interface PtgCard {
         "cardButtonText": string;
         "cardContent": string;
+        "cardContentLength"?: number;
         "cardId": number;
         "cardTitle": string;
         "isCardAction": boolean;
@@ -123,7 +124,7 @@ export namespace Components {
         "value": string;
     }
     interface PtgRadiobuton {
-        "id": string;
+        "ids": string;
         "name": string;
         "sender": string;
         "type": string;
@@ -408,6 +409,7 @@ declare namespace LocalJSX {
     interface PtgCard {
         "cardButtonText"?: string;
         "cardContent"?: string;
+        "cardContentLength"?: number;
         "cardId"?: number;
         "cardTitle"?: string;
         "isCardAction"?: boolean;
@@ -493,7 +495,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface PtgRadiobuton {
-        "id"?: string;
+        "ids"?: string;
         "name"?: string;
         "sender"?: string;
         "type"?: string;
