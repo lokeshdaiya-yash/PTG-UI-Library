@@ -1,11 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from 'cors';
-// import bodyParser, { json, urlencoded } from "body-parser";
+
 import bodyParser from "body-parser";
 
 import Routes from "./routes/route.js";
-// import UserRoutes from "./routes/userroute.js";
 
 import Connection from "./database/db.js";
 
@@ -17,9 +16,10 @@ app.use(bodyParser.urlencoded({extended:true }));
 
 app.use(cors());
 app.use('/', Routes);
-// app.use('/user/', UserRoutes);
 
 const PORT = 5000;
+// mongodb://localhost:27017
+// const PORT = 6000;
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;

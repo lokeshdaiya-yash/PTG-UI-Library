@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 
 const Connection = async(username, password )=>{
     
+    // const URL =`mongodb+srv://${username}:${password}@localhost/?authMechanism=DEFAULT`;
     const URL =`mongodb+srv://${username}:${password}@crud-app.mmcrcog.mongodb.net/?retryWrites=true&w=majority`;
     
     try {

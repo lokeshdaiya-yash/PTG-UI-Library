@@ -54,9 +54,3 @@ export const deleteMasterdata = async( request, response ) => {
         
     }
 }
-
-
-// export const addMasterdata= (request, response)=>{
-//     const masterData =request.body
-//     console.log(masterData);
-// }

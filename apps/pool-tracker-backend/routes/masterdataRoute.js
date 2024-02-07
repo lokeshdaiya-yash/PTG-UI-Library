@@ -5,7 +5,7 @@ import { addMasterdata, getMasterdata, getdata, editMasterdata, deleteMasterdata
 const router = express.Router();
 
 router.post("/add", addMasterdata);
-router.get("/all", getMasterdata);
+// router.get("/all", getMasterdata);
 router.get("/:id", getdata);
 router.post("/:id", editMasterdata);
 router.delete("/:id", deleteMasterdata);

@@ -4,10 +4,22 @@ import mongoose from "mongoose";
 
 const skillSchema = mongoose.Schema(
     {
+      value: {
+        type: String,
+        required: true,
+      },
+       label: {
+        type: String,
+        required: true,
+      },
         name: {
-          type: [String],
+          type: String,
           required: true,
         },
+        // name: {
+        //   type: [String],
+        //   required: true,
+        // },
         
       },
       {

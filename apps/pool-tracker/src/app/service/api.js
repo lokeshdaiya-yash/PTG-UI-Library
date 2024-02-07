@@ -59,7 +59,14 @@ export const addSkill = async (data) => {
 
 export const getSkills = async () => {
   try {
-    return await axios.get(`${URL}/skill/all`);
+    const response = await axios.get(`${URL}/skill/all`);
+    const skills = response.data;
+    const transformedSkills = skills.map(skill =>({
+      value: skill._id,
+        label: skill.name,
+        name: skill.name,
+    }));
+    return transformedSkills;
   } catch (error) {
     console.log("error while calling all skill api", error);
   }
@@ -94,7 +101,9 @@ export const deleteSkill = async (id) => {
 
 export const loginUser = async (data) => {
   try {
+    console.log(data);
     return await axios.post(`${URL}/user/login`, data);
+    
   } catch (error) {
     console.log("error while calling login user api", error);
   }
@@ -118,7 +127,7 @@ export const getUsers = async () => {
 
 export const getUser = async (id) => {
   try {
-    return await axios.get(`${URL}/${id}`);
+    return await axios.get(`${URL}/user/${id}`);
   } catch (error) {
     console.log("error while calling get user api", error);
   }
@@ -126,7 +135,7 @@ export const getUser = async (id) => {
 
 export const editUser = async (user, id)=>{
     try {
-       return await axios.post(`${URL}/${id}`, user)
+       return await axios.post(`${URL}/user/${id}`, user)
     } catch (error) {
         console.log("error while calling get user api", error);
     }
@@ -134,10 +143,28 @@ export const editUser = async (user, id)=>{
 
 export const deleteUser = async (id) => {
     try {
-        return await axios.delete(`${URL}/${id}`);
+        return await axios.delete(`${URL}/user/${id}`);
     } catch (error) {
         console.log("error while calling delete user api", error);
         
     }
 
 }
+
+// ================== Designation ========================
+
+export const addDesignation = async (data) => {
+  try {
+    return await axios.post(`${URL}/designation/add`, data);
+  } catch (error) {
+    console.log("error while calling add Skill api", error);
+  }
+};
+
+export const getDesignation = async () => {
+  try {
+    return await axios.get(`${URL}/designation/all`);
+  } catch (error) {
+    console.log("error while calling all user api", error);
+  }
+};
