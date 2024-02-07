@@ -15,6 +15,7 @@ const masterDataSchema = mongoose.Schema({
   bands: String,
   comments: String,
   clientName: String,
+  designations: [String],
 })
 
 

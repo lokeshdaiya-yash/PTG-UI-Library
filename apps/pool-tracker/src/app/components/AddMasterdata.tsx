@@ -13,6 +13,7 @@ import {
 } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 
 import { getSkills } from '../service/api';
+import { getDesignation } from '../service/api';
 
 const defaultValue = {
   name: '',
@@ -26,25 +27,10 @@ const defaultValue = {
   bands: '',
   comments: '',
   clientName: '',
+  designations: '',
 };
 
-const SKILL_LIST = [
-  // { value: '', label: 'Select' },
-  { value: 'pune', label: 'Pune', name: 'city' },
-  { value: 'indore', label: 'Indore', name: 'city' },
-  { value: 'gujarat', label: 'Gujarat', name: 'city' },
-  { value: 'Karnataka', label: 'Karnataka', name: 'city' },
-  { value: 'goa', label: 'Goa', name: 'city' },
-];
-
 const CLIENT_NAME_LIST = [
-  // { value: 'johndear', label: 'Johndear', name:'clientname' },
-  // { value: 'btn', label: 'BTN',name:'clientname' },
-  // { value: 'ktp', label: 'KTP',name:'clientname' },
-  // { value: 'abc', label: 'ABC',name:'clientname' },
-  // { value: 'moto', label: 'Moto',name:'clientname' },
-  // { value: '', label: 'Select' },
-
   { value: 'pune', label: 'Pune', name: 'city' },
   { value: 'indore', label: 'Indore', name: 'city' },
   { value: 'gujarat', label: 'Gujarat', name: 'city' },
@@ -53,43 +39,58 @@ const CLIENT_NAME_LIST = [
 ];
 
 const AddMasterdata = () => {
-
   const [masterData, setMasterdata] = useState(defaultValue);
   const [skills, setSkill] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
+  const skillItems: any = [];
+
+  const [designations, setDesignation] = useState([]);
+  // ==================== designations multiselect===========================================
+
+  useEffect(() => {
+    getAllDesignation();
+  }, []);
+
+  const getAllDesignation = async () => {
+    const response = await getDesignation();
+    setDesignation(response?.data);
+  };
+
+  const onSelect = (e) => {
+    console.log('Select Values, onValueChange', e[0]);
+    setMasterdata({ ...masterData, designations: e[0].value });
+  };
 
   // ==================== multiselect===========================================
-  // useEffect(() => {
-  //   getAllSkills();
-  // }, []);
+  useEffect(() => {
+    getAllSkills();
+  }, []);
 
   const getAllSkills = async () => {
     try {
       const response = await getSkills();
       console.log(response);
-      setSkill(response?.data || []);
+      const skillData = response;
+      const transformedSkills = skillData.map((skill) => ({
+        value: skill._id,
+        label: skill.name,
+        name: skill.name,
+      }));
+      // { value: 'pune', label: 'Pune', name: 'city' },
+      setSkill(transformedSkills);
+      console.log('>>>>>', skillData);
     } catch (error) {
       console.error('error while fetching skills', error);
     }
   };
 
-  const onSelect = (e) => {
-    console.log('Select Values, onValueChange', e[0]);
-    setMasterdata({ ...masterData, clientName: e[0].value });
-  };
- 
-  const onSkillSelect = (e) => {
-    console.log('Select Values, onValueChange', e[0]);
-    setMasterdata({ ...masterData, skills: e[0].name });
+  
+  const onSelectSkills = (e) => {
+    setMasterdata({ ...masterData, skills: e });
   };
 
-  const onSelectSkills = (selectedSkills) => {
-    setMasterdata({ ...masterData, skills: selectedSkills[0].name});
-
-    // setMasterdata({ ...masterData, skills: selectedSkills.map(skill => skill.name).join(', ') });
-  };
-// ========================================================================================================
+  // ========================================================================================================
 
   const onValueChange = (e) => {
     console.log(e);
@@ -97,12 +98,22 @@ const AddMasterdata = () => {
     console.log(masterData);
   };
 
+  // const addMasterDetails = async () => {
+  //   await addMasterdata(masterData);
+  //   navigate('/masterData');
+  // };
 
   const addMasterDetails = async () => {
-    await addMasterdata(masterData);
-    // navigate('/masterData');
-  };
- 
+    try {
+       
+        const designationsArray = Array.isArray(masterData.designations) ? masterData.designations : [masterData.designations];
+        const updatedMasterData = { ...masterData, designations: designationsArray };
+        await addMasterdata(updatedMasterData);
+        navigate('/masterData');
+    } catch (error) {
+        console.error('Error adding master data:', error);
+    }
+};
 
   // ================================Date picker===================================
   const today = new Date();
@@ -221,34 +232,14 @@ const AddMasterdata = () => {
         />
 
         <label htmlFor="inputUsername"> Skills </label>
-       
-        <PtgUiMultiSelectbox
-           name="skills"
-            list={SKILL_LIST}
-           onSelect={onSkillSelect}
-         
-           showCheckbox={true}
-           singleSelect={false}
-        />
-    
-        {/* <PtgUiMultiSelectbox
-        name="skills"
-        list={skills.map(skill => ({ value: skill, label: skill, name:skills }))}
-        onSelect={onSelectSkills}
-        showCheckbox={true}
-        singleSelect={false}
-      /> */}
 
-        {/* <PtgUiSelect
+        <PtgUiMultiSelectbox
           name="skills"
           list={skills}
-          id="inputCardType"
-          data-testid="skills"
-          aria-label="given-name"
-          value={masterData.skills}
-          onChange={(e) => onValueChange(e)}
+          onSelect={onSelectSkills}
+          showCheckbox={true}
+          singleSelect={false}
         />
-         */}
 
         <label htmlFor="inputUsername"> Years of Exp </label>
         <PtgUiInput
@@ -289,6 +280,14 @@ const AddMasterdata = () => {
           onSelect={onSelect}
           showCheckbox={true}
           singleSelect={true}
+        />
+         <label htmlFor="inputUsername"> Designation </label>
+        <PtgUiMultiSelectbox
+          name="designations"
+          list={designations}
+          onSelect={onSelect}
+          showCheckbox={true}
+          singleSelect={false}
         />
 
         <PtgUiButton
@@ -397,7 +396,6 @@ const AddMasterdata = () => {
           <button onClick={() => addMasterDetails()}> Add Master Data</button>
         </div>
       </div> */}
-
 
       {/* <PtgUiDatePicker
         // disabled={disabled}

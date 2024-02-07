@@ -59,7 +59,14 @@ export const addSkill = async (data) => {
 
 export const getSkills = async () => {
   try {
-    return await axios.get(`${URL}/skill/all`);
+    const response = await axios.get(`${URL}/skill/all`);
+    const skills = response.data;
+    const transformedSkills = skills.map(skill =>({
+      value: skill._id,
+        label: skill.name,
+        name: skill.name,
+    }));
+    return transformedSkills;
   } catch (error) {
     console.log("error while calling all skill api", error);
   }
@@ -143,3 +150,21 @@ export const deleteUser = async (id) => {
     }
 
 }
+
+// ================== Designation ========================
+
+export const addDesignation = async (data) => {
+  try {
+    return await axios.post(`${URL}/designation/add`, data);
+  } catch (error) {
+    console.log("error while calling add Skill api", error);
+  }
+};
+
+export const getDesignation = async () => {
+  try {
+    return await axios.get(`${URL}/designation/all`);
+  } catch (error) {
+    console.log("error while calling all user api", error);
+  }
+};
