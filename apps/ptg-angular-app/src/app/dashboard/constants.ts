@@ -131,7 +131,14 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id: '13',
+    id:"13",
+    path: '/progress-bar',
+    icon: 'fas fa-lock',
+    label: 'PROGRESS BAR',
+    disabled: false,
+  },
+  {
+    id:"14",
     path: '/select',
     // icon: 'home-icon',
     icon: 'fa-solid fa-check-to-slot',
@@ -139,7 +146,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id: '14',
+    id:"15",
     path: '/accessibility',
     // icon: 'home-icon',
     icon: 'fa-solid fa-keyboard',
@@ -147,7 +154,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id: '15',
+    id:"16",
     path: '/multistep-form',
     // icon: 'home-icon',
     icon: 'fa-solid fa-file',
@@ -155,7 +162,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id: '15',
+    id:"17",
     path: '/card',
     // icon: 'home-icon',
     icon: 'fa-solid fa-file',
@@ -163,7 +170,7 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    id: '16',
+    id:"18",
     path: '/breadcrumbs',
     // icon: 'home-icon',
     icon: 'fa-solid fa-file',

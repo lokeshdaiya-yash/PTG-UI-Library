@@ -10,6 +10,7 @@ export const DIRECTIVES = [
   d.PtgCalender,
   d.PtgCard,
   d.PtgCheckbox,
+  d.PtgCircularDynamicProgressBar,
   d.PtgFooter,
   d.PtgHeader,
   d.PtgInput,
@@ -23,5 +24,12 @@ export const DIRECTIVES = [
   d.PtgTable,
   d.PtgTextarea,
   d.PtgToast,
-  d.PtgUiCarousel
+  d.PtgUiCarousel,
+  d.PtgUiCircularProgressBar,
+  d.PtgUiConditionalCircularProgressBar,
+  d.PtgUiConditionalProgressBar,
+  d.PtgUiProgressBar,
+  d.PtgUiProgressBarFive,
+  d.PtgUiProgressBarFour,
+  d.PtgUiProgressGradientBar
 ];

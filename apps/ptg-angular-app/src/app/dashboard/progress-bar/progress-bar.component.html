@@ -1,0 +1,90 @@
+<tabset #staticTabs>
+    <tab [heading]="'Linear Progress Bar' | translate">
+        <div class="row">
+<!-- 
+        <div class="col-9 mt-4"> -->
+        <h6 class="m-2">Basic Progress Bar</h6>
+        <!-- </div> -->
+
+        <div class="m-2">
+        <ptg-ui-toggle-code
+        [htmlCode]="htmlCode"
+        [tsCode]="tsCode"
+        ></ptg-ui-toggle-code>
+        </div>
+
+        </div>
+
+        <div class="m-2">
+        <ptg-ui-progress-bar></ptg-ui-progress-bar>
+        </div>
+       
+        
+        <div class="row">
+        <div class="col-11 mt-4">
+        <h6 className="m-2">Gradient Progress Bar</h6>
+        </div>
+
+        <!-- <div class="col-1">
+            <ptg-ui-toggle-code
+            [htmlCode]="gradientHtmlCode"
+            [tsCode]="tsCode"
+            ></ptg-ui-toggle-code>
+        </div> -->
+
+        <div class="m-2">
+        <ptg-ui-progress-gradient-bar value="56"></ptg-ui-progress-gradient-bar>
+        </div>
+        </div>
+
+        <h6 className="m-2">Conditional Progress Bar</h6>
+        <div class="m-2">
+            <ptg-ui-conditional-progress-bar value="22"></ptg-ui-conditional-progress-bar>
+        </div>
+
+        <div class="m-2">
+            <ptg-ui-conditional-progress-bar value="88"></ptg-ui-conditional-progress-bar>
+        </div>
+
+        <div class="m-2">
+            <ptg-ui-conditional-progress-bar value="100"></ptg-ui-conditional-progress-bar>
+        </div>
+
+        <h6 className="m-2">Dynamic Progress Bar</h6>
+        <div class="m-2">
+        <ptg-ui-progress-bar-five value="80"></ptg-ui-progress-bar-five>
+        </div>
+      
+    </tab>
+
+    <tab [heading]="'Circular Progress Bar' | translate">
+        <h6 class="m-2">Basic Progress Bar</h6>
+        <div class="mt-3">
+        <ptg-ui-toggle-code
+        [htmlCode]="htmlCode"
+        [tsCode]="tsCode"
+        ></ptg-ui-toggle-code>
+        </div>
+
+        <div class="m-2">
+            <ptg-ui-circular-progress-bar></ptg-ui-circular-progress-bar>
+        </div>
+       
+        <h6 class="m-2">Conditional Progress Bar</h6>
+        <div class="m-2 col-10">
+        <ptg-ui-conditional-circular-progress-bar progress-amount="35"></ptg-ui-conditional-circular-progress-bar>
+        </div>
+        <div class="m-2 col-10">
+        <ptg-ui-conditional-circular-progress-bar progress-amount="100"></ptg-ui-conditional-circular-progress-bar>
+        </div>
+
+
+  
+        <h6 className="m-2">Dynamic Progress Bar</h6>
+            <div class="m-2 col-10">
+               <ptg-circular-dynamic-progress-bar></ptg-circular-dynamic-progress-bar>
+            </div>
+    </tab>
+
+
+  </tabset>

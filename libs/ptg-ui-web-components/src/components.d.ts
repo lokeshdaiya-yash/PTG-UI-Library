@@ -67,6 +67,12 @@ export namespace Components {
         "indeterminate"?: boolean;
         "label"?: string;
     }
+    interface PtgCircularDynamicProgressBar {
+        "color": string;
+        "fontSize": number;
+        "progressEndValue": number;
+        "size": number;
+    }
     interface PtgFooter {
         "footer": string;
     }
@@ -181,6 +187,37 @@ export namespace Components {
         "imgWidth": string;
         "showIndicators": boolean;
     }
+    interface PtgUiCircularProgressBar {
+        "fontSize": number;
+        "progressAmount": string;
+        "progressColor": string;
+        "size": number;
+    }
+    interface PtgUiConditionalCircularProgressBar {
+        "fontSize": number;
+        "progressAmount": string;
+        "size": number;
+    }
+    interface PtgUiConditionalProgressBar {
+        "value": number;
+        "width": number;
+    }
+    interface PtgUiProgressBar {
+        "color": string;
+        "value": number;
+        "width": number;
+    }
+    interface PtgUiProgressBarFive {
+        "progressValue": number;
+        "width": number;
+    }
+    interface PtgUiProgressBarFour {
+        "width": number;
+    }
+    interface PtgUiProgressGradientBar {
+        "value": number;
+        "width": number;
+    }
 }
 export interface PtgCalenderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -254,6 +291,12 @@ declare global {
     var HTMLPtgCheckboxElement: {
         prototype: HTMLPtgCheckboxElement;
         new (): HTMLPtgCheckboxElement;
+    };
+    interface HTMLPtgCircularDynamicProgressBarElement extends Components.PtgCircularDynamicProgressBar, HTMLStencilElement {
+    }
+    var HTMLPtgCircularDynamicProgressBarElement: {
+        prototype: HTMLPtgCircularDynamicProgressBarElement;
+        new (): HTMLPtgCircularDynamicProgressBarElement;
     };
     interface HTMLPtgFooterElement extends Components.PtgFooter, HTMLStencilElement {
     }
@@ -339,6 +382,48 @@ declare global {
         prototype: HTMLPtgUiCarouselElement;
         new (): HTMLPtgUiCarouselElement;
     };
+    interface HTMLPtgUiCircularProgressBarElement extends Components.PtgUiCircularProgressBar, HTMLStencilElement {
+    }
+    var HTMLPtgUiCircularProgressBarElement: {
+        prototype: HTMLPtgUiCircularProgressBarElement;
+        new (): HTMLPtgUiCircularProgressBarElement;
+    };
+    interface HTMLPtgUiConditionalCircularProgressBarElement extends Components.PtgUiConditionalCircularProgressBar, HTMLStencilElement {
+    }
+    var HTMLPtgUiConditionalCircularProgressBarElement: {
+        prototype: HTMLPtgUiConditionalCircularProgressBarElement;
+        new (): HTMLPtgUiConditionalCircularProgressBarElement;
+    };
+    interface HTMLPtgUiConditionalProgressBarElement extends Components.PtgUiConditionalProgressBar, HTMLStencilElement {
+    }
+    var HTMLPtgUiConditionalProgressBarElement: {
+        prototype: HTMLPtgUiConditionalProgressBarElement;
+        new (): HTMLPtgUiConditionalProgressBarElement;
+    };
+    interface HTMLPtgUiProgressBarElement extends Components.PtgUiProgressBar, HTMLStencilElement {
+    }
+    var HTMLPtgUiProgressBarElement: {
+        prototype: HTMLPtgUiProgressBarElement;
+        new (): HTMLPtgUiProgressBarElement;
+    };
+    interface HTMLPtgUiProgressBarFiveElement extends Components.PtgUiProgressBarFive, HTMLStencilElement {
+    }
+    var HTMLPtgUiProgressBarFiveElement: {
+        prototype: HTMLPtgUiProgressBarFiveElement;
+        new (): HTMLPtgUiProgressBarFiveElement;
+    };
+    interface HTMLPtgUiProgressBarFourElement extends Components.PtgUiProgressBarFour, HTMLStencilElement {
+    }
+    var HTMLPtgUiProgressBarFourElement: {
+        prototype: HTMLPtgUiProgressBarFourElement;
+        new (): HTMLPtgUiProgressBarFourElement;
+    };
+    interface HTMLPtgUiProgressGradientBarElement extends Components.PtgUiProgressGradientBar, HTMLStencilElement {
+    }
+    var HTMLPtgUiProgressGradientBarElement: {
+        prototype: HTMLPtgUiProgressGradientBarElement;
+        new (): HTMLPtgUiProgressGradientBarElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "ptg-accordion": HTMLPtgAccordionElement;
@@ -348,6 +433,7 @@ declare global {
         "ptg-calender": HTMLPtgCalenderElement;
         "ptg-card": HTMLPtgCardElement;
         "ptg-checkbox": HTMLPtgCheckboxElement;
+        "ptg-circular-dynamic-progress-bar": HTMLPtgCircularDynamicProgressBarElement;
         "ptg-footer": HTMLPtgFooterElement;
         "ptg-header": HTMLPtgHeaderElement;
         "ptg-input": HTMLPtgInputElement;
@@ -362,6 +448,13 @@ declare global {
         "ptg-textarea": HTMLPtgTextareaElement;
         "ptg-toast": HTMLPtgToastElement;
         "ptg-ui-carousel": HTMLPtgUiCarouselElement;
+        "ptg-ui-circular-progress-bar": HTMLPtgUiCircularProgressBarElement;
+        "ptg-ui-conditional-circular-progress-bar": HTMLPtgUiConditionalCircularProgressBarElement;
+        "ptg-ui-conditional-progress-bar": HTMLPtgUiConditionalProgressBarElement;
+        "ptg-ui-progress-bar": HTMLPtgUiProgressBarElement;
+        "ptg-ui-progress-bar-five": HTMLPtgUiProgressBarFiveElement;
+        "ptg-ui-progress-bar-four": HTMLPtgUiProgressBarFourElement;
+        "ptg-ui-progress-gradient-bar": HTMLPtgUiProgressGradientBarElement;
     }
 }
 declare namespace LocalJSX {
@@ -429,6 +522,12 @@ declare namespace LocalJSX {
         "indeterminate"?: boolean;
         "label"?: string;
         "onValueChanged"?: (event: PtgCheckboxCustomEvent<string>) => void;
+    }
+    interface PtgCircularDynamicProgressBar {
+        "color"?: string;
+        "fontSize"?: number;
+        "progressEndValue"?: number;
+        "size"?: number;
     }
     interface PtgFooter {
         "footer"?: string;
@@ -552,6 +651,37 @@ declare namespace LocalJSX {
         "imgWidth"?: string;
         "showIndicators"?: boolean;
     }
+    interface PtgUiCircularProgressBar {
+        "fontSize"?: number;
+        "progressAmount"?: string;
+        "progressColor"?: string;
+        "size"?: number;
+    }
+    interface PtgUiConditionalCircularProgressBar {
+        "fontSize"?: number;
+        "progressAmount"?: string;
+        "size"?: number;
+    }
+    interface PtgUiConditionalProgressBar {
+        "value"?: number;
+        "width"?: number;
+    }
+    interface PtgUiProgressBar {
+        "color"?: string;
+        "value"?: number;
+        "width"?: number;
+    }
+    interface PtgUiProgressBarFive {
+        "progressValue"?: number;
+        "width"?: number;
+    }
+    interface PtgUiProgressBarFour {
+        "width"?: number;
+    }
+    interface PtgUiProgressGradientBar {
+        "value"?: number;
+        "width"?: number;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "ptg-accordion": PtgAccordion;
@@ -561,6 +691,7 @@ declare namespace LocalJSX {
         "ptg-calender": PtgCalender;
         "ptg-card": PtgCard;
         "ptg-checkbox": PtgCheckbox;
+        "ptg-circular-dynamic-progress-bar": PtgCircularDynamicProgressBar;
         "ptg-footer": PtgFooter;
         "ptg-header": PtgHeader;
         "ptg-input": PtgInput;
@@ -575,6 +706,13 @@ declare namespace LocalJSX {
         "ptg-textarea": PtgTextarea;
         "ptg-toast": PtgToast;
         "ptg-ui-carousel": PtgUiCarousel;
+        "ptg-ui-circular-progress-bar": PtgUiCircularProgressBar;
+        "ptg-ui-conditional-circular-progress-bar": PtgUiConditionalCircularProgressBar;
+        "ptg-ui-conditional-progress-bar": PtgUiConditionalProgressBar;
+        "ptg-ui-progress-bar": PtgUiProgressBar;
+        "ptg-ui-progress-bar-five": PtgUiProgressBarFive;
+        "ptg-ui-progress-bar-four": PtgUiProgressBarFour;
+        "ptg-ui-progress-gradient-bar": PtgUiProgressGradientBar;
     }
 }
 export { LocalJSX as JSX };
@@ -589,6 +727,7 @@ declare module "@stencil/core" {
             "ptg-calender": LocalJSX.PtgCalender & JSXBase.HTMLAttributes<HTMLPtgCalenderElement>;
             "ptg-card": LocalJSX.PtgCard & JSXBase.HTMLAttributes<HTMLPtgCardElement>;
             "ptg-checkbox": LocalJSX.PtgCheckbox & JSXBase.HTMLAttributes<HTMLPtgCheckboxElement>;
+            "ptg-circular-dynamic-progress-bar": LocalJSX.PtgCircularDynamicProgressBar & JSXBase.HTMLAttributes<HTMLPtgCircularDynamicProgressBarElement>;
             "ptg-footer": LocalJSX.PtgFooter & JSXBase.HTMLAttributes<HTMLPtgFooterElement>;
             "ptg-header": LocalJSX.PtgHeader & JSXBase.HTMLAttributes<HTMLPtgHeaderElement>;
             "ptg-input": LocalJSX.PtgInput & JSXBase.HTMLAttributes<HTMLPtgInputElement>;
@@ -603,6 +742,13 @@ declare module "@stencil/core" {
             "ptg-textarea": LocalJSX.PtgTextarea & JSXBase.HTMLAttributes<HTMLPtgTextareaElement>;
             "ptg-toast": LocalJSX.PtgToast & JSXBase.HTMLAttributes<HTMLPtgToastElement>;
             "ptg-ui-carousel": LocalJSX.PtgUiCarousel & JSXBase.HTMLAttributes<HTMLPtgUiCarouselElement>;
+            "ptg-ui-circular-progress-bar": LocalJSX.PtgUiCircularProgressBar & JSXBase.HTMLAttributes<HTMLPtgUiCircularProgressBarElement>;
+            "ptg-ui-conditional-circular-progress-bar": LocalJSX.PtgUiConditionalCircularProgressBar & JSXBase.HTMLAttributes<HTMLPtgUiConditionalCircularProgressBarElement>;
+            "ptg-ui-conditional-progress-bar": LocalJSX.PtgUiConditionalProgressBar & JSXBase.HTMLAttributes<HTMLPtgUiConditionalProgressBarElement>;
+            "ptg-ui-progress-bar": LocalJSX.PtgUiProgressBar & JSXBase.HTMLAttributes<HTMLPtgUiProgressBarElement>;
+            "ptg-ui-progress-bar-five": LocalJSX.PtgUiProgressBarFive & JSXBase.HTMLAttributes<HTMLPtgUiProgressBarFiveElement>;
+            "ptg-ui-progress-bar-four": LocalJSX.PtgUiProgressBarFour & JSXBase.HTMLAttributes<HTMLPtgUiProgressBarFourElement>;
+            "ptg-ui-progress-gradient-bar": LocalJSX.PtgUiProgressGradientBar & JSXBase.HTMLAttributes<HTMLPtgUiProgressGradientBarElement>;
         }
     }
 }
