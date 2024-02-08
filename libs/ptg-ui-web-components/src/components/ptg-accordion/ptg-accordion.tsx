@@ -1,4 +1,4 @@
-import { Component, h, Prop, State } from '@stencil/core';
+import { Component, h, Prop, State} from '@stencil/core';
 
 @Component({
   tag: 'ptg-accordion',
@@ -12,9 +12,15 @@ export class PtgAccordion {
 
   @Prop() description: string;
 
-  @Prop() width: string;
+  @Prop() width: string= '80%';
 
-  @Prop() color: string;
+  @Prop() color: string = 'white';
+
+  @Prop() defaultOpened: boolean =false;
+
+  componentWillLoad(){
+    this.toggle = this.defaultOpened;
+  }
 
   toggleComponent() {
     this.toggle = !this.toggle;
@@ -24,7 +30,7 @@ export class PtgAccordion {
     return (
       <div>
         <button
-          class="accordion"
+          class={`accordion ${this.toggle ? 'active' : ''}`}
           style={{
             width: this.width,
             backgroundColor: this.color,
@@ -32,14 +38,25 @@ export class PtgAccordion {
           onClick={() => this.toggleComponent()}
         >
           {this.label}
-          {this.toggle ? <span>&#9650;</span> : <span>&#9660;</span>}
+          { 
+            // this.toggle ? <span>&#9650;</span> : <span>&#9660;</span>
+            this.toggle ?
+            <span class="arrow down"></span> : <span class="arrow"></span>
+            }
+            
         </button>
         <div
           class={`content-box ${this.toggle ? 'open' : 'close'}`}
           style={{ width: this.width }}
         >
-          <p>{this.description}</p>
+          {
+            this.description ? (<p>{this.description}</p>) :
+            (<div class="body">
+            <slot name="body-block"/>
+         </div>)      
+          }
         </div>
+       
       </div>
     );
   }
