@@ -1,38 +1,34 @@
-
-
-
- // import { PtgUiButton } from '@ptg-ui/libs/ptg-ui-react-lib/src';
+// import { PtgUiButton } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getMasterdata, deleteMasterdata } from '../service/api';
 import '../app.module.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 
- import { PtgUiInput, PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
- // import { AggridButton } from './aggrid-button';
+import { PtgUiInput, PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
+// import { AggridButton } from './aggrid-button';
 
 const ViewMasterdata = () => {
   const [masterdatas, setMasterdata] = useState([]);
 
- 
- 
   useEffect(() => {
     getAllUsers();
   }, []);
 
   const getAllUsers = async () => {
     let response = await getMasterdata();
-    setMasterdata(response.data);
+    console.log("response", response)
+    setMasterdata(response?.data);
   };
-  const deleteUsersDetails = async (id) =>{
+  const deleteUsersDetails = async (id) => {
     await deleteMasterdata(id);
     getAllUsers();
- }
- const ActionButton = (props)=>{
-  return( 
-  <button>Text</button>
-  )
- }
+  }
+  const ActionButton = (props) => {
+    return (
+      <button>Text</button>
+    )
+  }
 
   const Columns = [
     { title: 'name', field: 'name', filtering: false, width: '20%' },
@@ -46,16 +42,16 @@ const ViewMasterdata = () => {
     { title: 'bands', field: 'bands', filtering: false },
     { title: 'comments', field: 'comments', filtering: false },
     { title: 'clientName', field: 'clientName', filtering: false },
-    {field:'Action', cellRenderer: ActionButton, minWidth: 100},
+    { field: 'Action', cellRenderer: ActionButton, minWidth: 100 },
     // { title: 'action', field: '', filtering: false, cellRenderer: <PtgUiButton  type="submit"variant="primary" onClick={()=>deleteUsersDetails(masterdatas._id)} className="btn-sm">Delete</PtgUiButton>  },
-  //   <PtgUiButton
-  //   type="submit"
-  //   variant="primary"
-  //   data-testid="handleSubmit"
-  //   onClick={handleSubmit}
-  //   // data-testid="forgotButton"
-  //   disabled={values.btnDisable}
-  // >
+    //   <PtgUiButton
+    //   type="submit"
+    //   variant="primary"
+    //   data-testid="handleSubmit"
+    //   onClick={handleSubmit}
+    //   // data-testid="forgotButton"
+    //   disabled={values.btnDisable}
+    // >
   ];
 
   const filterValue = [
@@ -90,21 +86,21 @@ const ViewMasterdata = () => {
 
         actions={[
           {
-            icon: () =>  <PtgUiButton
-                          className="btn-sm">
-                          {('CLICK_HERE')}
-                          </PtgUiButton>,
-                tooltip: 'Click Here',
-                onClick: (event, rowData) => {
-                console.log(event, rowData);
-                alert("Button Clicked");
-                
+            icon: () => <PtgUiButton
+              className="btn-sm">
+              {('CLICK_HERE')}
+            </PtgUiButton>,
+            tooltip: 'Click Here',
+            onClick: (event, rowData) => {
+              console.log(event, rowData);
+              alert("Button Clicked");
+
             }
           }
         ]}
-        
+
       />
-      
+
       {/* {masterdatas.map((masterdata) => (
             <tr key={masterdata._id}>
             

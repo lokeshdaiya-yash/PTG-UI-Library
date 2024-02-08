@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Header from './components/common/header/Header';
+import Footer from './components/common/footer/Footer';
 import EditMasterdata from './components/EditMasterdata';
-// import NxWelcome from './nx-welcome';
-import Nav from './components/Nav';
 import ViewMasterdata from './components/ViewMasterdata';
 import AddMasterdata from './components/AddMasterdata';
 import Skills from './components/Skills';
@@ -10,30 +10,31 @@ import AddSkill from './components/AddSkill';
 import User from './components/User';
 import PrivateRout from './components/PrivateRout';
 import Login from './components/Login';
+import PageNotFound from './components/pageNotFound/PageNotFound';
 
 export function App() {
   return (
     <div>
-      {/* <NxWelcome title="pool-tracker" /> */}
       <BrowserRouter>
-        <Nav />
+        <Header />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/user" element={<User />} />
 
           {/* <Route element={<PrivateRout />}> */}
-            {/* Masterdata Routes*/}
-            <Route path="/addMasterdata" element={<AddMasterdata />} />
-            <Route path="/masterData" element={<ViewMasterdata />} />
-            <Route path="/edit/:id" element={<EditMasterdata />} />
+          {/* Masterdata Routes*/}
+          {/* <Route path="/addMasterdata" element={<AddMasterdata />} /> */}
+          <Route path="/masterData" element={<ViewMasterdata />} />
+          <Route path="/edit/:id" element={<EditMasterdata />} />
 
-            {/* skills Routes*/}
-            <Route path="/skills" element={<Skills />} />
-            <Route path="addSkill" element={<AddSkill />} />
-            <Route path="/editskill/:id" element={<EditSkill />} />
+          {/* skills Routes*/}
+          <Route path="/skills" element={<Skills />} />
+          <Route path="addSkill" element={<AddSkill />} />
+          <Route path="/editskill/:id" element={<EditSkill />} />
           {/* </Route> */}
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
-        {/* <Footer/> */}
+        <Footer />
       </BrowserRouter>
     </div>
   );
