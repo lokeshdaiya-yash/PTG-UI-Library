@@ -31,32 +31,35 @@ export interface PtgUiMaterialTableProps {
     filtering: boolean,
     paging:boolean,
     paginationPosition?:any
-    grouping?:boolean
+    grouping?:boolean,
+    detailForAccordion?: any
 }
 
-export function PtgUiMaterialTable({data,columns,filtering,paging,paginationPosition='bottom',grouping}: PtgUiMaterialTableProps) {  
+export function PtgUiMaterialTable({data,columns,filtering,paging,paginationPosition='bottom',grouping,detailForAccordion}: PtgUiMaterialTableProps) {  
 
-  return (
+  return detailForAccordion?(
     <MaterialTable
       columns={columns}
       data={data}
-      title="Material Table"
-      // options={{
-      //   // defaultOrderByCollection:'',
-      //   exportMenu: [{
-      //     label: 'Export PDF',
-      //     exportFunc: (cols, datas) => ExportPdf(cols, datas, 'pdfFileName')
-      //   }, {
-      //     label: 'Export CSV',
-      //     exportFunc: (cols, datas) => ExportCsv(cols, datas, 'csvFileName')
-      //   }],
-      //   filtering:filtering,
-      //   paging:paging,
-      //   paginationPosition:paginationPosition,
-      //   grouping: grouping
-      // }}
-    />
-  );
+      title={<div style={{display: 'flex', alignItems:'center'}}>
+                <span style={{marginRight:'10px'}}>Material Table With Accordion</span>
+            </div>}
+      detailPanel={rowData => {
+        return (  
+          detailForAccordion(rowData)
+        )
+      }}
+      />
+      
+      )
+      :
+      (
+        <MaterialTable
+          columns={columns}
+          data={data}
+          title="Material Table"
+          />
+      );
 }
 
 export default PtgUiMaterialTable;
