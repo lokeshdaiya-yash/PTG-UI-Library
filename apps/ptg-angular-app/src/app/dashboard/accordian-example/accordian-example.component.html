@@ -1,14 +1,31 @@
-<section class="accordion pt-2">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <h4 class="mb-3" [innerHTML]="'ACCORDIAN_EXAMPLE' | translate"></h4>
-        <ptg-ui-toggle-code
-          [htmlCode]="htmlCode"
-          [tsCode]="tsCode"
-        ></ptg-ui-toggle-code>
-        <ptg-ui-accordian [listData]="accordianData"></ptg-ui-accordian>
+<ng-container *ngIf="isLoaded">
+  <section class="accordion">
+    <div class="container-fluid">
+      <div class="row">
+        <div
+          class="col-12 bg-white rounded justify-content-between align-items-center"
+        >
+          <h3 class="p-3" [innerHTML]="'ACCORDIAN_EXAMPLE' | translate"></h3>
+          <ptg-ui-toggle-code
+            [htmlCode]="htmlCode"
+            [tsCode]="tsCode"
+          ></ptg-ui-toggle-code>
+          <hr class="css-yasiti" />
+          <div
+            class="p-2"
+            *ngIf="accordianData && accordianData.length > 0; else elseNotDone"
+          >
+            <ptg-ui-accordian [listData]="accordianData"></ptg-ui-accordian>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  <ng-template #elseNotDone>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border text-loader m-5" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </ng-template>
+</ng-container>

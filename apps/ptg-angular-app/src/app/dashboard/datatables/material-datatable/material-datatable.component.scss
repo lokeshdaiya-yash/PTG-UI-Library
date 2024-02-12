@@ -1,5 +1,10 @@
 .pt-4 ::ng-deep td.mat-cell, .pt-4 ::ng-deep th, .table-responsive ::ng-deep td.mat-cell, .table-responsive ::ng-deep th {
   padding: 10px;
+  vertical-align: middle;
+  font-size: 14px;
+}
+td.mat-cell{
+  padding: 0.5rem !important;
 }
 
 .parent-block {

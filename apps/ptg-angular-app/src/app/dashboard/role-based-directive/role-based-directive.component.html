@@ -1,8 +1,10 @@
 
 <section class="wraper">
-  <div class="container-fluid">
+  <div class="container-fluid  bg-white p-0 rounded">
     <div class="content">
-      <h4 class="mb-5" [innerHTML]="'ROLE_BASED_EXAMPLE_TEXT' | translate"></h4>
+      <h3 class="p-3" [innerHTML]="'ROLE_BASED_EXAMPLE_TEXT' | translate"></h3>
+      <hr class="css-yasiti" />
+      <div class="p-3">
       <div class="row mb-4 align-items-center">
         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
           <h6 [innerHTML]="'BUTTON_VISIBLE_FOR_ADMIN_ROLE_TEXT' | translate"></h6>
@@ -47,6 +49,7 @@
           </ptg-ui-button>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </section>

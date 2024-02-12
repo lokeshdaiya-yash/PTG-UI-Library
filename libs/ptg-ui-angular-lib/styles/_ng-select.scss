@@ -94,7 +94,6 @@
     &.ng-select-focused:not(.ng-select-opened) {
       .ng-select-container {
         border-color: $red;
-        box-shadow: 0 0 0 $input-focus-width rgba($red, 0.25);
       }
     }
   }
@@ -234,8 +233,6 @@
     width: 20px;
     height: 20px;
     background: url('./check.svg') no-repeat 50%/80% 80%;
-    // background-image: url('/assets/check.svg');
-    // background-size: 50%/50% 50%;
-    // background-repeat:  no-repeat;
+
   }
 }

@@ -1,15 +1,32 @@
 @import 'variables';
 .user-wrapper{
-    .profile-icon{
-      background: $main;
-        border-radius: 50%;
-        display: block;
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        line-height: 30px;
-        text-transform: uppercase;
-    }
+  .profile-icon {
+    filter: brightness(0.3);
+  }
+  .outer-profile{
+   position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: Roboto, sans-serif;
+    line-height: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    user-select: none;
+    color: rgb(3, 16, 28);
+     background: rgb(227, 242, 253) !important;
+    width: 34px;
+    height: 34px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+  .outer-profile:hover {
+    background: rgb(33, 150, 243) !important;
+  }
+  .bginfo{
+    background: rgb(33, 150, 243) !important;
+}
     .user-container{
         position: absolute;
         right: 13px;

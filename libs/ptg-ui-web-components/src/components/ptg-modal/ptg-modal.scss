@@ -38,7 +38,7 @@
   position: fixed;
   top:40%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 90%;
   /* transition: visibility 0s linear 0s,opacity 0.25s 0s,tranform 0.25s; */
   &.lg {
     max-width: 800px;
@@ -63,7 +63,7 @@
   padding: 16px;
 }
 
-.modal-wrapper .modal .header h6{
+.modal-wrapper .modal .header h4{
   font-size: 16px;
   line-height: 1;
   margin: 0px;
@@ -119,6 +119,6 @@
 .close{
   font-size: 33px;
 }
-// .isOpen .modal{
-//   transform: translate(-50%,90px);
-// }
+.isOpen .modal{
+  transform: translate(-50%,154px);
+}

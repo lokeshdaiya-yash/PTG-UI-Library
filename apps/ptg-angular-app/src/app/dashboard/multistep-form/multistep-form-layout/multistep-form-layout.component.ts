@@ -1,8 +1,10 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators,FormGroup } from '@angular/forms';
 
 import { mocksService } from '@ptg-angular-app/common/data-services/mocks.service';
+import { ConfirmPasswordValidator } from '@ptg-angular-app/common/utils/validators';
+
 
 @Component({
   selector: 'ptg-ui-multistep-form-layout',
@@ -17,49 +19,55 @@ export class MultistepFormLayoutComponent implements OnInit {
   titleArray: any = [];
   expMonthList: any = [];
   myForm: Array<string> | any;
-
-  firstFormGroup = this._formBuilder.group({
-    userName: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-    confirm: ['', Validators.required],
-  });
-  secondFormGroup = this._formBuilder.group({
-    title: [null, [Validators.required]],
-    firstName: ['', [Validators.required]],
-    lastName: ['', [Validators.required]],
-    gender: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
-    phoneNo: [
-      '',
-      [Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')],
-    ],
-    zipCode: [
-      '',
-      [Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')],
-    ],
-    state: [null, [Validators.required]],
-    address: ['', [Validators.required]],
-    country: [null, [Validators.required]],
-  });
-  thirdFormGroup = this._formBuilder.group({
-    cardType: [null, [Validators.required]],
-    cardNo: [
-      '',
-      [Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')],
-    ],
-    cvv: ['', [Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')]],
-    name: ['', [Validators.required]],
-    expMonth: [null, [Validators.required]],
-    expyear: [
-      '',
-      [Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')],
-    ],
-  });
+  firstFormGroup!: FormGroup;
+  secondFormGroup!:FormGroup;
+  thirdFormGroup!:FormGroup;
+  submitted = false;
+  submitted1=false;
+  submitted2=false;
+  // firstFormGroup = this._formBuilder.group({
+  //   userName: ['', [Validators.required]],
+  //   email: ['', [Validators.required, Validators.email]],
+  //   password: ['', [Validators.required, Validators.minLength(6)]],
+  //   confirm: ['', Validators.required],
+  // });
+  // secondFormGroup = this._formBuilder.group({
+  //   title: [null, [Validators.required]],
+  //   firstName: ['', [Validators.required]],
+  //   lastName: ['', [Validators.required]],
+  //   gender: ['', [Validators.required]],
+  //   email: ['', [Validators.required, Validators.email]],
+  //   phoneNo: [
+  //     '',
+  //     [Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')],
+  //   ],
+  //   zipCode: [
+  //     '',
+  //     [Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')],
+  //   ],
+  //   state: [null, [Validators.required]],
+  //   address: ['', [Validators.required]],
+  //   country: [null, [Validators.required]],
+  // });
+  // thirdFormGroup = this._formBuilder.group({
+  //   cardType: [null, [Validators.required]],
+  //   cardNo: [
+  //     '',
+  //     [Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')],
+  //   ],
+  //   cvv: ['', [Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')]],
+  //   name: ['', [Validators.required]],
+  //   expMonth: [null, [Validators.required]],
+  //   expyear: [
+  //     '',
+  //     [Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')],
+  //   ],
+  // });
   isLinear = true;
+  isLoaded=true;
   constructor(
     public router: Router,
-    private _formBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
     private cdr: ChangeDetectorRef,
     private mocksApiService: mocksService
   ) {}
@@ -89,7 +97,67 @@ export class MultistepFormLayoutComponent implements OnInit {
     this.mocksApiService.getExpMonthList().subscribe((response) => {
       this.expMonthList = response?.data[0].attributes.data;
     });
+    this.firstFormGroup = this.formBuilder.group({
+      userName: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        confirm: ['', Validators.required]
+    },{
+      validator: ConfirmPasswordValidator("password", "confirm")
+   }
+    );
+    this.secondFormGroup = this.formBuilder.group({
+      title: [null, [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      email: ['', [Validators.required,Validators.email]],
+      phoneNo: ['', [Validators.required,Validators.pattern('[- +()0-9]{10,12}'),Validators.maxLength(10)]],
+      zipCode: ['', [Validators.required,Validators.pattern("^[0-9]*$")]],
+      state: [null, [Validators.required]],
+      address: ['', [Validators.required]],
+      country: [null, [Validators.required]],
+    });
+    this.thirdFormGroup = this.formBuilder.group({
+      cardType: [null, [Validators.required]],
+      cardNo: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      cvv: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      name: ['', [Validators.required]],
+      expMonth: [null, [Validators.required]],
+      expyear: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+    })
   }
+
+  get f() {return this.firstFormGroup.controls; }
+
+ get f2() { 
+   return this.secondFormGroup.controls; }
+ get f3() { return this.thirdFormGroup.controls; }
+
+
+ onSubmit() {
+
+   this.submitted = true;
+
+   if (this.firstFormGroup.invalid) {
+       return;
+   }
+ }
+ onf2submit() {
+   this.submitted1 = true;
+   if (this.secondFormGroup.invalid) {
+       return;
+   }
+ }
+ onf3submit() {
+   this.submitted2 = true;
+   if (this.thirdFormGroup.invalid) {
+       return;
+   }
+ }
+onReset() {
+ this.submitted = false;
+ this.firstFormGroup.reset();
+}
   ngAfterViewInit() {
     this.cdr.detectChanges();
   }

@@ -45,3 +45,38 @@
 .parent-block {
   position: relative;
 }
+
+@media screen and (max-width: 600px) and (min-width: 529px) {
+  .node-title {
+    width: 100% !important;
+    padding: 8px !important;
+    margin: 5px;
+    background: white;
+    cursor: grab;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+}
+
+@media screen and (max-width: 487px) and (min-width: 320px) {
+  .node-title {
+    width: 85% !important;
+    padding: 8px !important;
+    margin: 5px;
+    background: white;
+    cursor: grab;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+}
+@media screen and (max-width: 530px) and (min-width: 500px) {
+  .node-title {
+    width: 93% !important;
+    padding: 8px !important;
+    margin: 5px;
+    background: white;
+    cursor: grab;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+}

@@ -1,7 +1,7 @@
 @import 'variables';
 
     .drag-box-wrapper{
-      border: 1px solid $main;
+      border: 1px solid gray;
         color: $main;
         min-height: 100px;
         margin-bottom: 20px;
@@ -12,26 +12,22 @@
     }
 
     .example-container {
-        width: 400px;
-        max-width: 100%;
-        margin: 0 25px 25px 0;
+      width: 419px;
+      max-width: 100%;
         display: inline-block;
         vertical-align: top;
       }
       
       .example-list {
-        border: solid 1px $main;
         min-height: 60px;
         background: white;
-        border-radius: 4px;
         overflow: hidden;
         display: block;
         padding: 5px;
       }
       
       .example-box {
-        padding: 20px 10px;
-        border-bottom: solid 3px $main;
+        padding: 15px;
         color: rgba(0, 0, 0, 0.87);
         display: flex;
         flex-direction: row;
@@ -41,11 +37,12 @@
         cursor: move;
         background: white;
         font-size: .94rem;
+        border: 1px solid gray;
+        border-radius: 10px;
+        margin-bottom: 5px;
       }
 
-      .example-box:last-child {
-        border: none;
-      }   
+      
       
       .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
         transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
@@ -66,4 +63,25 @@
       .cdk-drag-animating {
         transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
       }
+      @media screen and (max-width: 724px) and (min-width: 320px) {
+        .example-container {
+          width: 80%;
+          max-width: 100%;
+          margin: 0px 25px 0px 0;
+          display: inline-block;
+          vertical-align: top;
+        }
+       
+              
+      }
       
+            @media screen and (max-width: 1218px) and (min-width: 600px) {
+              .example-list {
+                min-height: 60px;
+                background: white;
+                overflow: hidden;
+                display: block;
+                padding: 5px;
+                margin-top: 20px;
+              }
+            }

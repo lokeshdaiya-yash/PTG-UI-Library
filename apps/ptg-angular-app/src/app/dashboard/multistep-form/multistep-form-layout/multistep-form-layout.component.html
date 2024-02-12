@@ -1,118 +1,83 @@
-<!-- <section class="multistep-form">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div direction="vertical" height="800px" class="stepper">
-                    <div class="step"
-                    [ngClass]="router.url.includes('step-1') ? 'step-active' : ''">
-                        <div>
-                            <div class="circle"><i class="fa fa-lock"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="title">Account Information
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step " [ngClass]="router.url.includes('step-2') ? 'step-active' : ''">
-                        <div>
-                            <div class="circle"><i class="fa fa-user"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="title">Personal Information
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step" [ngClass]="router.url.includes('step-3') ? 'step-active' : ''">
-                        <div>
-                            <div class="circle"><i class="fa fa-credit-card-alt"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="title">Payment Information
-                            </div>
-                        </div>
-                    </div>
-                    <div class="step" [ngClass]="router.url.includes('step-4') ? 'step-active' : ''">
-                        <div>
-                            <div class="circle"><i class="fa fa-file-text"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="title">Confirm Your Details
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
-    </div>
-
-</section> -->
-
-<mat-stepper orientation="horizontal" [linear]="isLinear" #stepper>
+<ng-container *ngIf="isLoaded">
+<div class="bg-white rounded">
+    <h3
+    class="p-3"
+    [innerHTML]="'MULTI_FORMS' | translate"
+  ></h3>
+  <hr class="css-yasiti" />
+<mat-stepper class="my-stepper" orientation="horizontal" [linear]="isLinear" #stepper *ngIf="stateList && stateList.length > 0; else elseNotDone">
     <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Account Information</ng-template>
+        <ng-template matStepLabel>Account Information</ng-template>
+
+     <div class="pt-2" #stepper>
+        <form [formGroup]="firstFormGroup" (ngSubmit)="onSubmit()">
             <div class="col-md-6">
                 <div class="pt-2" #stepper>
-                    <form [formGroup]="firstFormGroup">
                         <div class="form-group required mb-2">
                             <label tabindex="0" for="user_name" aria-label="User Name"
                                 [innerHTML]="'USER_NAME' | translate"></label>
                             <ptg-ui-input [id]="'user_name'" class="w-100" type="text" formControlName='userName'
-                                className="form-control bg_0" [placeholder]="'USER_NAME_PLACEHOLDER' | translate"
-                                aria_placeholder="Enter User Name">
+                                className="form-control bg-red" [placeholder]="'USER_NAME_PLACEHOLDER' | translate"
+                                aria_placeholder="Enter User Name" [ngClass]="{ 'is-invalid':submitted || f.userName.touched}">
                             </ptg-ui-input>
+                            <div class=" invalid-feedback errormsg">
+                                <div *ngIf="f.userName?.errors?.['required']">User Name is required</div>
+                            </div>
                         </div>
                         <div class="form-group required mb-2">
                             <label tabindex="0" for="email" aria-label="User Name"
                                 [innerHTML]="'LABEL_EMAIL' | translate"></label>
                             <ptg-ui-input [id]="'email'" class="w-100" type="text" formControlName='email'
                                 className="form-control bg_0" [placeholder]="'INPUT_PLACEHOLDER_EMAIL' | translate"
-                                aria_placeholder="Enter User Name">
+                                aria_placeholder="Enter User Name" [ngClass]="{ 'is-invalid': submitted || f.email.touched}">
                             </ptg-ui-input>
+                            <div class=" invalid-feedback errormsg">
+                                <div *ngIf="f.email?.errors?.['required']">Email is required</div>
+                                <div *ngIf="f.email?.errors?.email">Email must be a valid email address</div>
+                            </div>
                         </div>
                         <div class="form-group required mb-2">
                             <label tabindex="0" for="inputPassword" aria-label="Password"
                                 [innerHTML]="'LABEL_PASSWORD' | translate"></label>
                             <ptg-ui-input class="w-100" [id]="'inputPassword'" type="password"
                                 formControlName='password' className="form-control bg_0"
-                                [placeholder]="'INPUT_PLACEHOLDER_PASSWORD' | translate">
+                                [placeholder]="'INPUT_PLACEHOLDER_PASSWORD' | translate" [ngClass]="{ 'is-invalid': submitted || f.password.touched }">
                             </ptg-ui-input>
+                            <div class=" invalid-feedback errormsg">
+                                <div *ngIf="f.password.errors?.['required']">Password required</div>
+                                <div *ngIf="f.password.errors?.minlength">Password must be at least 6 characters</div>
+                            </div>
                         </div>
                         <div class="form-group required mb-2">
                             <label tabindex="0" for="inputConfirmPassword" aria-label="Confirm password"
                                 [innerHTML]="'CONFIRM_PASSWORD_LABEL' | translate"></label>
                             <ptg-ui-input class="w-100" [id]="'inputConfirmPassword'" type="password"
                                 formControlName='confirm' className="form-control bg_0"
-                                [placeholder]="'CONFIRM_PASSWORD_PLACEHOLDERE' | translate">
+                                [placeholder]="'CONFIRM_PASSWORD_PLACEHOLDERE' | translate" [ngClass]="{ 'is-invalid': submitted || f.confirm.touched }">
                             </ptg-ui-input>
+                            <div class=" invalid-feedback errormsg">
+                                <div *ngIf="f.confirm.errors?.['required']"> Confirm password required</div>
+                                  <div *ngIf="f.confirm?.errors?.['confirmPasswordValidator']">
+                                    Passwords did not match
+                                  </div>
+                            </div>
                         </div>
-                        <!-- <div class="row">
-                        <div class="col-md-12 text-end">
-                            <ptg-ui-button class="mt-2" btnStyleType="primary" [isDisable]='!firstFormGroup.valid' type="submit" >Submit</ptg-ui-button>
-                            
                         </div>
-            
-                    </div> -->
-                    </form>
-                </div>
+                    
+                    </div>
 
-            </div>
             <div class="">
-                <button mat-button matStepperNext class="btn btn-primary" style="float: right;">Next</button>
+                <button mat-button matStepperNext  class="btn btn-primary me-2"style="float: right;">Next</button>
             </div>
         </form>
+     </div>
+
+
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
         <ng-template matStepLabel>Personal Information</ng-template>
         <div #stepper class="pt-2">
-            <form [formGroup]="secondFormGroup">
+            <form [formGroup]="secondFormGroup" (ngSubmit)="onf2submit()">
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-6">
@@ -120,8 +85,11 @@
                                 <label tabindex="0" aria-label="title" [innerHTML]="'TITLE' | translate"></label>
                                 <ptg-ui-select class="w-100" formControlName='title' [items]='titleArray'
                                     [isMultiple]="false" [closeOnSelect]="true"
-                                    [placeholder]="'SELECT_PLACEHOLDER' | translate">
+                                    [placeholder]="'SELECT_PLACEHOLDER' | translate" [ngClass]="{ 'is-invalid': submitted1 || f2.title.touched }">
                                 </ptg-ui-select>
+                                <div *ngIf="f2.title?.touched || submitted1 && !f2.title.valid || f2.title?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f2.title?.errors?.['required']">Title is required</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 ">
@@ -129,7 +97,7 @@
                                 <fieldset>
                                     <legend tabindex="0" [innerHTML]="'GENDER' | translate" class="legend-tag">
                                     </legend>
-                                    <ptg-ui-radio formControlName='firstName' [items]='genderList'
+                                    <ptg-ui-radio formControlName='gender' [items]='genderList'
                                         [name]="'gender-radio-btn'">
                                     </ptg-ui-radio>
                                 </fieldset>
@@ -144,20 +112,26 @@
                             <div class="form-group required mb-2">
                                 <label tabindex="0" for="firstname" aria-label="First Name"
                                     [innerHTML]="'LABEL_FIRST_NAME' | translate"></label>
-                                <ptg-ui-input [id]="'firstname'" formControlName='lastName' class="w-100" type="text"
+                                <ptg-ui-input [id]="'firstname'" formControlName='firstName' class="w-100" type="text"
                                     className="form-control bg_0" [placeholder]="'FIRSTNAME_PLACEHOLDER' | translate"
-                                    aria_placeholder="Enter First Name">
+                                    aria_placeholder="Enter First Name" [ngClass]="{ 'is-invalid': submitted1 || f2.firstName.touched }">
                                 </ptg-ui-input>
+                                <div *ngIf="f2.firstName?.touched || submitted1 && !f2.firstName.valid || f2.firstName?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f2.firstName.errors?.['required']">First Name is required</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 ">
                             <div class="form-group required mb-2">
                                 <label tabindex="0" for="lastname" aria-label="Last Name"
                                     [innerHTML]="'LABEL_LAST_NAME' | translate"></label>
-                                <ptg-ui-input [id]="'lastname'" formControlName='gender' class="w-100" type="text"
+                                <ptg-ui-input [id]="'lastname'" formControlName='lastName' class="w-100" type="text"
                                     className="form-control bg_0" [placeholder]="'LASTNAME_PLACEHOLDER' | translate"
-                                    aria_placeholder="Enter User Name">
+                                    aria_placeholder="Enter User Name" [ngClass]="{ 'is-invalid': submitted1 || f2.lastName.touched }">
                                 </ptg-ui-input>
+                                <div *ngIf="f2.lastName?.touched || submitted1 && !f2.lastName.valid || f2.lastName?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f2.lastName.errors?.['required']">Last Name is required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -169,17 +143,26 @@
                                 <label tabindex="0" for="email" aria-label="Password"
                                     [innerHTML]="'LABEL_EMAIL' | translate"></label>
                                 <ptg-ui-input class="w-100" [id]="'email'" formControlName='email' type="email"
-                                    className="form-control bg_0" [placeholder]="'INPUT_PLACEHOLDER_EMAIL' | translate">
+                                    className="form-control bg_0" [placeholder]="'INPUT_PLACEHOLDER_EMAIL' | translate" [ngClass]="{ 'is-invalid': submitted1  || f2.email.touched }">
                                 </ptg-ui-input>
+                                <div *ngIf="f2.email?.touched || submitted1 && !f2.email.valid || f2.email?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f2.email.errors?.['required']">email is required</div>
+                                    <div *ngIf="f2.email?.errors?.email">Email must be a valid email address</div>
+
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group required mb-2">
-                                <label tabindex="0" for="phone" aria-label="Password"
+                                <label tabindex="0" for="phone" aria-label="phonno"
                                     [innerHTML]="'LABEL_PHONE' | translate"></label>
                                 <ptg-ui-input class="w-100" [id]="'phone'" formControlName='phoneNo' type="text"
-                                    className="form-control bg_0" [placeholder]="'PHONE_PLACEHOLDER' | translate">
+                                required pattern="[- +()0-9]{10,12}"   className="form-control bg_0" [placeholder]="'PHONE_PLACEHOLDER' | translate" [ngClass]="{ 'is-invalid': submitted1 || f2.phoneNo.touched}">
                                 </ptg-ui-input>
+                                <div *ngIf="f2.phoneNo?.touched || submitted1 && !f2.phoneNo.valid || f2.phoneNo?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f2.phoneNo.errors?.['required']">Phone no is required</div>
+                                    <div *ngIf="f2.phoneNo.errors?.['pattern']">Invalid phone number.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -191,10 +174,15 @@
                             <div class="form-group required mb-2">
                                 <label tabindex="0" for="zipCode" aria-label="Zip Code"
                                     [innerHTML]="'LABEL_ZIP_CODE' | translate"></label>
-                                <ptg-ui-input [id]="'zipCode'" class="w-100" type="text" className="form-control bg_0"
+                                <ptg-ui-input [id]="'zipCode'" class="w-100" type="text" className="form-control bg_0" required
                                     formControlName='zipCode' [placeholder]="'LABEL_ZIP_CODE' | translate"
-                                    aria_placeholder="Enter Zip Code">
+                                    aria_placeholder="Enter Zip Code" [class.is-invalid]=" submitted1 || f2.zipCode.touched">
                                 </ptg-ui-input>
+                                <div *ngIf="f2.zipCode?.touched || submitted1 && !f2.zipCode.valid || f2.zipCode?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f2.zipCode.errors?.['required']">Zip code is required</div>
+                                    <div *ngIf="f2.zipCode.errors?.['pattern']">Invalid zip code number.</div>
+
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 ">
@@ -202,8 +190,11 @@
                                 <label tabindex="0" aria-label="City" [innerHTML]="'LABEL_STATE' | translate"></label>
                                 <ptg-ui-select class="w-100" [items]='stateList' [isMultiple]="false"
                                     [closeOnSelect]="true" formControlName='state'
-                                    [placeholder]="'SELECT_PLACEHOLDER' | translate">
+                                    [placeholder]="'SELECT_PLACEHOLDER' | translate" [ngClass]="{ 'is-invalid': submitted1  || f2.state.touched }">
                                 </ptg-ui-select>
+                                <div *ngIf="f2.state?.touched || submitted1 && !f2.state.valid || f2.state?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f2.state.errors?.['required']">State is required</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -211,8 +202,11 @@
                                 <label tabindex="0" aria-label="City" [innerHTML]="'LABEL_COUNTRY' | translate"></label>
                                 <ptg-ui-select class="w-100" [items]='countryList' formControlName='country'
                                     [isMultiple]="false" [closeOnSelect]="true"
-                                    [placeholder]="'SELECT_PLACEHOLDER' | translate">
+                                    [placeholder]="'SELECT_PLACEHOLDER' | translate"  [ngClass]="{ 'is-invalid': submitted1 || f2.country.touched }">
                                 </ptg-ui-select>
+                                <div *ngIf="f2.country?.touched || submitted1 && !f2.country.valid || f2.country?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f2.country.errors?.['required']">Country is required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -222,21 +216,24 @@
                         <label tabindex="0" for="address" aria-label="Address"
                             [innerHTML]="'LABEL_ADDRESS' | translate"></label>
                         <ptg-ui-textarea class="w-100" [id]="'address'" type="text" formControlName='address'
-                            className="form-control bg_0" [placeholder]="'LABEL_ADDRESS' | translate">
+                            className="form-control bg_0" [placeholder]="'LABEL_ADDRESS' | translate" [placeholder]="'LABEL_ADDRESS' | translate"  [ngClass]="{ 'is-invalid': submitted1  || f2.address.touched }">
 
                         </ptg-ui-textarea>
+                        <div *ngIf="f2.address?.touched || submitted1 && !f2.address.valid || f2.address?.errors" class=" invalid-feedback errormsg">
+                            <div *ngIf="f2.address.errors?.['required']">Address is required</div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-6 text-left">
+                        <div class="col-6 text-left">
                             <button mat-button class="btn btn-primary" matStepperPrevious>Back</button>
                             <!-- <ptg-ui-button class="mt-2" btnStyleType="primary" routerLink="/multistep-form/step-1"
                                 type="button">Back</ptg-ui-button> -->
 
                         </div>
-                        <div class="col-md-6 text-end">
+                        <div class="col-6 text-end">
                             <button mat-button class="btn btn-primary" matStepperNext>Next</button>
                             <!-- <ptg-ui-button class="mt-2" btnStyleType="primary" type="submit">Submit
 
@@ -252,7 +249,7 @@
     <mat-step [stepControl]="thirdFormGroup">
         <ng-template matStepLabel>Payment Information</ng-template>
         <div #stepper class="pt-2">
-            <form [formGroup]="thirdFormGroup">
+            <form [formGroup]="thirdFormGroup" (ngSubmit)="onf3submit()">
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-8">
@@ -260,8 +257,11 @@
                                 <label tabindex="0" aria-label="CARD_TYPE"
                                     [innerHTML]="'LABEL_CARD_TYPE' | translate"></label>
                                 <ptg-ui-select class="w-100" [items]='cardList' formControlName='cardType'
-                                    [isMultiple]="false" [closeOnSelect]="true" [placeholder]="'Select' | translate">
+                                    [isMultiple]="false" [closeOnSelect]="true" [placeholder]="'Select' | translate"  [ngClass]="{ 'is-invalid': submitted2 || f3.cardType.touched }">
                                 </ptg-ui-select>
+                                <div *ngIf="f3.cardType?.touched || submitted2 && !f3.cardType.valid || f3.cardType?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f3.cardType.errors?.['required']">Card type is required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -274,8 +274,11 @@
                                     [innerHTML]="'LABEL_CARD_NUMBER' | translate"></label>
                                 <ptg-ui-input [id]="'Card_Number'" class="w-100" formControlName='cardNo' type="text"
                                     className="form-control bg_0" [placeholder]="'LABEL_CARD_NUMBER' | translate"
-                                    aria_placeholder="Enter card number">
+                                    aria_placeholder="Enter card number" [ngClass]="{ 'is-invalid': submitted2  || f3.cardNo.touched }">
                                 </ptg-ui-input>
+                                <div *ngIf="f3.cardNo?.touched || submitted2 && !f3.cardNo.valid || f3.cardNo?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f3.cardNo.errors?.['required']">Card no is required</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -284,8 +287,12 @@
                                     [innerHTML]="'LABEL_CVV' | translate"></label>
                                 <ptg-ui-input [id]="'cvv'" class="w-100" formControlName='cvv' type="text"
                                     className="form-control bg_0" [placeholder]="'LABEL_CVV' | translate"
-                                    aria_placeholder="cvv">
+                                    aria_placeholder="cvv"  [ngClass]="{ 'is-invalid': submitted2  || f3.cvv.touched }" >
                                 </ptg-ui-input>
+                                <div *ngIf="f3.cvv?.touched || submitted2 && !f3.cvv.valid || f3.cvv?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f3.cvv.errors?.['required']">Cvv is required</div>
+                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -297,8 +304,12 @@
                                 <label tabindex="0" for="holder_name" aria-label="card holder name"
                                     [innerHTML]="'LABEL_CARD_HOLDER_NAME' | translate"></label>
                                 <ptg-ui-input class="w-100" formControlName='name' [id]="'holder_name'" type="text"
-                                    className="form-control bg_0" [placeholder]="'LABEL_CARD_HOLDER_NAME' | translate">
+                                    className="form-control bg_0" [placeholder]="'LABEL_CARD_HOLDER_NAME' | translate"
+                                    [ngClass]="{ 'is-invalid': submitted2  || f3.name.touched }" >
                                 </ptg-ui-input>
+                                <div *ngIf="f3.name?.touched || submitted2 && !f3.name.valid || f3.name?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f3.name.errors?.['required']">Card holder name required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -311,8 +322,12 @@
                                 <label tabindex="0" for="exp_month" aria-label="EXPIRY MONTH"
                                     [innerHTML]="'LABEL_EXPIRY_MONTH' | translate"></label>
                                 <ptg-ui-select class="w-100" formControlName='expMonth' [items]='expMonthList'
-                                    [isMultiple]="false" [closeOnSelect]="true" [placeholder]="'Select' | translate">
+                                    [isMultiple]="false" [closeOnSelect]="true" [placeholder]="'Select' | translate"
+                                    [ngClass]="{ 'is-invalid': submitted2  || f3.expMonth.touched }">
                                 </ptg-ui-select>
+                                <div *ngIf="f3.expMonth?.touched || submitted2 && !f3.expMonth.valid || f3.expMonth?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f3.expMonth.errors?.['required']">Exp month is required</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-5">
@@ -321,20 +336,23 @@
                                     [innerHTML]="'LABEL_EXPIRY_YEAR' | translate"></label>
                                 <ptg-ui-input [id]="'exp_year'" class="w-100" formControlName='expyear' type="text"
                                     className="form-control bg_0" [placeholder]="'LABEL_EXPIRY_YEAR' | translate"
-                                    aria_placeholder="Enter expiry year">
+                                    aria_placeholder="Enter expiry year" [ngClass]="{ 'is-invalid': submitted2  || f3.expyear.touched }">
                                 </ptg-ui-input>
+                                <div *ngIf="f3.expyear?.touched || submitted2 && !f3.expyear.valid || f3.expyear?.errors" class=" invalid-feedback errormsg">
+                                    <div *ngIf="f3.expyear.errors?.['required']">Exp year is required</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-6 text-left">
+                        <div class="col-6 text-left">
                             <button mat-button class="btn btn-primary" matStepperPrevious>Back</button>
                             <!-- <ptg-ui-button class="mt-2" btnStyleType="primary" routerLink="/multistep-form/step-2" type="button">Back</ptg-ui-button> -->
 
                         </div>
-                        <div class="col-md-6 text-end">
+                        <div class="col-6 text-end">
                             <button mat-button class="btn btn-primary" matStepperNext>Next</button>
                             <!-- <ptg-ui-button class="mt-2" btnStyleType="primary" [isDisable]='!stepThreeForm.valid' type="submit">Submit -->
 
@@ -382,12 +400,12 @@
             </dl>
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-6 text-left">
+                    <div class="col-6 text-left">
                         <button mat-button class="btn btn-primary" matStepperPrevious>Back</button>
                         <!-- <ptg-ui-button class="mt-2" btnStyleType="primary" routerLink="/multistep-form/step-2" type="button">Back</ptg-ui-button> -->
 
                     </div>
-                    <div class="col-md-6 text-end">
+                    <div class="col-6 text-end">
                         <button mat-button class="btn btn-primary">Submit</button>
                         <!-- <ptg-ui-button class="mt-2" btnStyleType="primary" [isDisable]='!stepThreeForm.valid' type="submit">Submit -->
 
@@ -400,8 +418,12 @@
         </div>
     </mat-step>
 </mat-stepper>
-
-
-<!-- Copyright 2022 Google LLC. All Rights Reserved.
-      Use of this source code is governed by an MIT-style license that
-      can be found in the LICENSE file at https://angular.io/license -->
+</div>
+<ng-template #elseNotDone>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border text-loader m-5" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </ng-template>
+</ng-container>

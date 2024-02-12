@@ -1,10 +1,10 @@
 @import 'variables';
 
 .drag-box-wrapper{
-    border: 1px solid $main;
-      color: $main;
+  border: 1px solid gray;
+  border-radius: 10px;
+        color: $main;
       min-height: 100px;
-      margin-bottom: 20px;
       .icon-btn {
         height: 30px;
         width: 30px;

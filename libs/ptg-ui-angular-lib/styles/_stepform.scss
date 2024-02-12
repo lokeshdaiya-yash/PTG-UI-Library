@@ -1,0 +1,62 @@
+.was-validated :invalid ~ .invalid-feedback, .was-validated :invalid ~ .invalid-tooltip, .is-invalid ~ .invalid-feedback, .is-invalid ~ .invalid-tooltip {
+    visibility: visible !important;
+    display: flex !important;
+}
+
+.invalid-feedback {
+    visibility: hidden !important;
+    display: block !important;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+}
+
+.errormsg{
+height:15px;
+}
+span.cdk-visually-hidden.ng-star-inserted {
+  background: rgb(33, 150, 243);
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 24px;
+  background-image: url(./icons8-check.svg);
+  background-position: center;
+  background-size: 29px 18px;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 99999;
+  margin-left: 16px;
+}
+
+.mat-step-icon .mat-icon {
+  font-size: 16px;
+  height: 16px;
+  width: 16px;
+  visibility: hidden !important;
+}
+.mat-step-icon {
+  background-color: rgb(184, 186, 188);
+  width: 24px;
+  border-radius: 50%;
+  padding: 4px 0px 3px 10px;
+  color: white;
+}
+.my-stepper {
+  .mat-step-icon-selected {
+    width: 24px;
+    border-radius: 50%;
+    padding: 4px 0px 3px 10px;
+    color: white;
+    background-color: rgb(33, 150, 243) !important;
+  }
+}
+
+/* step form */
+@media screen and (max-width: 730px) and (min-width: 320px) {
+  .mat-step-label {
+    display: none !important;
+  }
+}

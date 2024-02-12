@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent{
+  isLoaded=true
 }

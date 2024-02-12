@@ -1,9 +1,7 @@
-<div class="wrapper3 mt-5 pt-3">
-  <div class="row pb-2">
-    <div class="col-5">
-      <h4 [innerHTML]="'DRAG_DROP_EX_3' | translate"></h4>
-    </div>
-    <div class="col-7">
+<div class="wrapper3 mt-2 p-2 bg-white rounded">
+  <div class="row pb-2 text-center">
+
+    <div>
       <button
         id="r_add_manual_btn"
         type="button"
@@ -15,7 +13,7 @@
     </div>
   </div>
   <div
-    class="row drag-box-wrapper"
+    class="drag-box-wrapper"
     [ngClass]="{ 'commitment-scroll': collectionArray.length > 0 }"
     [formGroup]="collectionForm"
     cdkDropList
@@ -26,9 +24,8 @@
         *ngFor="let requirement of collectionArray.controls; let i = index"
         [formGroupName]="i"
       >
-        <div class="drag-box d-flex justify-content-between my-2" cdkDrag>
+        <div class="drag-box d-flex justify-content-between" cdkDrag>
           <div class="d-flex">
-            <!-- <p cdkDragHandle class="px-2"><i class="fa-solid fa-bars" id="r-drag-icon_{{ i }}}"></i></p> -->
             <div class="r-code-section">
               <span>{{ i + 1 }}.</span>
               <input

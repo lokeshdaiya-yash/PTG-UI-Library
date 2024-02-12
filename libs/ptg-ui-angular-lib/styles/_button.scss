@@ -1,22 +1,24 @@
 .btn.btn-primary {
     &:hover, &:focus {
       &:not(:disabled) {
-        background-color: #1c5189;
-      }
+        background: rgb(94, 53, 177);
+        color: white;      }
     }
   }
-
+  .btn.btn-primary {
+    background: rgb(210, 192, 236);
+    border: none;
+    color: black;
+  }
   .btnBlock{
      
     background-color:skyblue ;
       width: 20%;
-    // width: 30%;
     }
 
 
   @media (min-width: 1921px) and (max-width: 2400px) {
     .btn.btn-primary {
-     // height: 40px;
      padding: 8px 20px;
     }
   }

@@ -26,10 +26,13 @@
 }
 
 .node-title {
-  padding: 15px;
+  width: 300px !important;
+  padding: 15px !important;
   margin: 5px;
-  background: #eee;
+  background: white;
   cursor: grab;
+  border: 1px solid gray;
+  border-radius: 10px;
 }
 
 .node-children {
@@ -40,4 +43,15 @@
 .item-notes {
   margin-left: 20px;
   color: #aaa;
+}
+@media screen and (max-width: 520px) and (min-width: 320px) {
+  .node-title {
+    width: 85% !important;
+    padding: 10px !important;
+    margin: 5px;
+    background: white;
+    cursor: grab;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
 }

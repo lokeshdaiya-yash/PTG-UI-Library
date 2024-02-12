@@ -1,8 +1,73 @@
-.nav-tabs:not(.app-tabs) {
-  .nav-link {
-    color: $gray-600;
-    &.active {
-        color: $main;
-    }
-  }
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  border-bottom: 2px solid rgb(33, 150, 243) !important;
+}
+ul.nav.nav-tabs { 
+  background: white !important;
+  border-radius: 5px;
+  padding-left: 1rem;
+
+}
+.nav-tabs {
+  --bs-nav-tabs-border-width: none !important;
+  --bs-nav-tabs-border-color: none !important;
+  border-bottom:none!important;
+}
+@media screen and (max-width: 405px) {
+  ul.nav.nav-tabs {
+    background: white !important;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
+}
+.nav-link {
+  display: table-cell;
+  padding: 8px !important;
+}
+a.nav-link span {
+      flex-wrap: nowrap; 
+      white-space: nowrap; 
+      display: flex; 
+}
+.divlayout {
+  font-size: 12px;
+}
+.node-title {font-size: 12px;}
+.example-box {
+  padding: 10px 6px !important;
+  font-size: 0.76rem !important;
+}
+button#r_add_manual_btn {
+  font-size: 12px;
+}
+}
+
+@media screen and (max-width: 790px) and (min-width: 405px) {
+  ul.nav.nav-tabs {
+    background: white !important;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
+}
+.nav-link {
+  display: table-cell;
+  padding: 10px !important;
+}
+a.nav-link span {
+  flex-wrap: nowrap; 
+  white-space: nowrap; 
+  display: flex; 
+}
+.divlayout {
+  font-size: 13px;
+}
+.node-title {font-size: 13px;}
+.example-box {
+  padding: 12px 8px !important;
+  font-size: 0.80rem !important;
+}
 }

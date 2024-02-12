@@ -1,11 +1,16 @@
 <!-- User profile wrapper start -->
 <div class="user-wrapper">
-  <span class="profile-icon text-white" (click)="toggleUserProfileDiv()">{{shortName}}</span>
+  <div class="outer-profile text-white" (click)="toggleUserProfileDiv()">{{shortName}}
+    <img
+    class="profile-icon"
+    alt="user-images"
+    src="../../../assets/user_icn.png"
+  />
+  </div>
   <div [hidden]="!showProfileIcon" class="user-container">
     <div class="triangle-up"></div>
     <div class="list-group">
       <a class="list-group-item list-group-item-action bg-info text-white border-top-0">{{userName}}</a>
-      <!-- <a (click)="passwordReset(reset)" class="list-group-item list-group-item-action">Reset Password</a> -->
       <a (click)="logout()" class="list-group-item list-group-item-action">{{resources.LOGOUT}}</a>
     </div>
   </div>

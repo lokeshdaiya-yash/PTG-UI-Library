@@ -4,10 +4,12 @@ $width-25: 25vw;
 $width-0: 0vw;
 
 .sidenav-container {
-  width: 15vw;
+  width: 20vw;
   background-color: #f5f6f8;
   height: 100%;
   position: relative;
+  transition: all 0.4s ease-in-out 0s !important;
+
 
   .sidenav {
     width: 100%;
@@ -15,16 +17,30 @@ $width-0: 0vw;
     overflow: auto;
 
     .menu-item {
-      // padding: 6px 8px;
-      padding: 4px 8px;
-      margin: 2px 0;
-      text-decoration: none;
-      font-size: .80rem;
-      display: flex;
-      align-items: center;
-      transition: 0.3s;
+      -webkit-tap-highlight-color: transparent;
+      background-color: transparent;
+      outline: 0px;
+      border: 0px;
+      margin: 0px 0px 4px;
       cursor: pointer;
-      width: 95%;
+      user-select: none;
+      vertical-align: middle;
+      appearance: none;
+      display: flex;
+      flex-grow: 1;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+      text-decoration: none;
+      min-width: 0px;
+      box-sizing: border-box;
+      text-align: left;
+      transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      padding: 10px 16px 10px 24px;
+      color: rgb(54, 65, 82);
+      z-index: 1201;
+      border-radius: 8px;
+      color: rgb(103, 58, 183);
 
       &.parent-item,
       &.disabled {
@@ -37,21 +53,26 @@ $width-0: 0vw;
         width: auto;
         height: auto;
         // font-size: 12px;
+        padding-right: 1rem !important;
+        padding: 4px;
       }
 
       &.child-item {
         // margin-left: 23px;
         // padding-left: 55px;
-        padding-left: 3rem;
+        padding-left: 4rem;
         color: $side-menu-text-color;
         font-size: 12px; //---
+        background-image: url(../../styles/chevron-down.svg) !important;
+        background-repeat: no-repeat !important;
+        background-size: 56px 11px !important;
+        background-position: left !important;
       }
 
       .menu-item-text {
         display: inline-block;
-        margin-left: 10px;
-        // font-size: 18px;
-        // font-size: 12px;
+        margin-left: 15px;
+     
         color: $side-menu-text-color;
       }
     }
@@ -74,11 +95,7 @@ $width-0: 0vw;
     }
   }
 }
-// @media (min-width: 15px) and (max-width: 1499.98px) {
-//   .fixed-button{
-//     top: 12px!important;
-//   }
-// }
+
 
 @media (min-width: 1500px) and (max-width: 1749.98px) {
   .sidenav-container {
@@ -89,15 +106,12 @@ $width-0: 0vw;
       width: 100%
     }
   }
-  // .fixed-button{
-  //   top:18px!important;
-  // }
+
 }
 
 @media (max-width: 959.98px) {
   .sidenav-container {
-    width: 45vw; // $width-45;
-    // position: absolute;
+    width: 45vw; 
     z-index: 1000;
     overflow: hidden;
     transition: width .1s linear .1s;
@@ -106,9 +120,9 @@ $width-0: 0vw;
       width: $width-45;
 
       .menu-item {
-        font-size: .94rem;
-        padding: 4px 8px;
-        margin: 3px 0;
+        font-size: .74rem;
+        padding: 6px 8px;
+        margin: 4px 0;
       }
     }
   }
@@ -117,7 +131,7 @@ $width-0: 0vw;
     width: $width-0;
   }
   .navbar-brand.logo{
-    margin-left: 3rem !important;
+    margin-left: 2rem !important;
   }
 }
 
@@ -152,33 +166,76 @@ $width-0: 0vw;
   // }
 }
 
-@media (min-width: 540px) and (max-width: 599.98px) {
+
+@media (min-width: 10px) and (max-width: 599px) {
   .sidenav-container {
+     width: 0vw;
+     position: relative;
+
     .sidenav {
-      width: 45vw;
+      width: 15vw!important;
+
+      .menu-item {
+        padding: 6px 8px;
+        margin: 4px 0;
+      }
     }
+    .navbar-brand.logo{
+      margin-left: 3rem !important;
+    }
+    
+    
+  }
+
+  .width-0 {
+    width: 0vw;
   }
   .navbar-brand.logo{
     margin-left: 3rem !important;
   }
-  // .fixed-button{
-  //   top: 19px!important;
-  // }
+
+  .sidenav-width{
+    width:8vw !important;
+  &.width-0{
+    width:0 !important
+  }
+  }
 }
-
-
 
 
 .fixed-button{
   position: fixed; 
   top: 12px; 
-  left: 5px; 
+  left: 14rem;
   z-index: 9999;
 }
 .cstm-btn{
   height: 32px;
-  width: 31px;
+  width: 34px;
+  background: rgb(210 192 236);
+    color: black;
+    border: none;
 }
 .fa-angle-up, .fa-angle-down{
   color: $main;
+}
+@media only screen and (max-width: 600px) {
+  .fixed-button{
+ left: 8rem !important;
+
+}
+ 
+}
+
+.fa-2xs {
+  font-size: 0.95em !important;
+  line-height: 0.1em;
+  vertical-align: 0.1em !important;
+}
+
+@media only screen and (max-width: 600px){
+   .child-item{
+    transform: translate(-9px, 0px) !important;
+
+  }
 }

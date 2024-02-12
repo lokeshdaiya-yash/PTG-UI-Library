@@ -1,10 +1,4 @@
-h5{
-  color: #002144;
-padding: 10px;
-border: 1px solid #002144;
-line-height: 2.1;
-font-size: .94rem;
-}
+
 h6 {
   padding: 10px 0px;
   font-weight: bold;
@@ -12,13 +6,8 @@ h6 {
   color: steelblue;
 }
 ptg-ui-button {
-  background-color: #002144;
   box-shadow: 8px 8px 6px #888888;
-  width: 25px;
-}
-ptg-ui-button:hover {
-  background: steelblue;
-  
+  border-radius: 10px;
 }
 .btn-layout {
   display: flex;

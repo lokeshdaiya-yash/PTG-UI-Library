@@ -9,6 +9,7 @@ import { mocksService } from '@ptg-angular-app/common/data-services/mocks.servic
 export class DownloadExampleComponent implements OnInit {
   tableData: any = {};
   resources = resources;
+  isLoaded=true;
   fileDownloadHtmlCode = `
   <ptg-ui-file-download [tableData]="tableData"></ptg-ui-file-download>
   `;

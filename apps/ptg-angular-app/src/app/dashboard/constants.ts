@@ -37,14 +37,14 @@ export const NavigationData = [
     icon: 'fas fa-chart-line',
     pages: [
       {
-        label: 'D3_CHARTS',
+        label: 'D3 CHARTS',
         path: '/charts/d3-charts',
         id: 'd3-chart',
         disabled: false,
         parentId: '4',
       },
       {
-        label: 'HIGH_CHARTS',
+        label: 'HIGH CHARTS',
         path: '/charts/high-charts',
         id: 'high-chart',
         disabled: false,
@@ -55,18 +55,18 @@ export const NavigationData = [
   // Datatable routing
   {
     id: '5',
-    label: 'DATA_TABLE',
+    label: 'DATA TABLE',
     icon: 'far fa-star',
     pages: [
       {
-        label: 'AG_GRID',
+        label: 'AG GRID',
         path: '/datatable/ag-grid',
         id: 'ag-grid',
         disabled: false,
         parentId: '5',
       },
       {
-        label: 'NGX_DATATABLE',
+        label: 'NGX DATATABLE',
         path: '/datatable/ngx-datatable',
         id: 'ngx-table',
         disabled: false,
@@ -92,7 +92,7 @@ export const NavigationData = [
     id: '7',
     path: '/draganddrop',
     icon: 'fas fa-grip-vertical',
-    label: 'DRAG_AND_DROP',
+    label: 'DRAG AND DROP',
     disabled: false,
   },
   {
@@ -106,7 +106,7 @@ export const NavigationData = [
     id: '9',
     path: '/grid-layout',
     icon: 'fa-solid fa-border-all',
-    label: 'GRID_LAYOUT',
+    label: 'GRID LAYOUT',
     disabled: false,
   },
   {
@@ -127,7 +127,7 @@ export const NavigationData = [
     id: '12',
     path: '/role',
     icon: 'fas fa-lock',
-    label: 'ROLE_BASED',
+    label: 'ROLE BASED',
     disabled: false,
   },
   {
@@ -143,7 +143,7 @@ export const NavigationData = [
     path: '/accessibility',
     // icon: 'home-icon',
     icon: 'fa-solid fa-keyboard',
-    label: 'WEB_ACCESSIBILITY',
+    label: 'WEB ACCESSIBILITY',
     disabled: false,
   },
   {
@@ -151,14 +151,14 @@ export const NavigationData = [
     path: '/multistep-form',
     // icon: 'home-icon',
     icon: 'fa-solid fa-file',
-    label: 'MULTI_FORMS',
+    label: 'MULTI FORMS',
     disabled: false,
   },
   {
     id: '15',
     path: '/card',
     // icon: 'home-icon',
-    icon: 'fa-solid fa-file',
+    icon: 'fa-regular fa-square',
     label: 'CARDS',
     disabled: false,
   },
@@ -166,7 +166,7 @@ export const NavigationData = [
     id: '16',
     path: '/breadcrumbs',
     // icon: 'home-icon',
-    icon: 'fa-solid fa-file',
+    icon: 'fa fa-angle-double-right',
     label: 'BREADCRUMBS',
     disabled: false,
   },
