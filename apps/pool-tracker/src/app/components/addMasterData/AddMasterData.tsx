@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { addMasterdata, getSkills, getDesignation, getCompetency, getBand } from '../../service/api';
+import {
+  addMasterdata,
+  getSkills,
+  getDesignation,
+  getCompetency,
+  getBand,
+} from '../../service/api';
 import '../../app.module.scss';
 import './AddMasterData.scss';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -52,9 +58,9 @@ const AddMasterdata = () => {
     getAllCompetency();
     getAllSkills();
   }, []);
-// ==================== bands select===========================================
+  // ==================== bands select===========================================
 
-const getAllBands = async () => {
+  const getAllBands = async () => {
     const response = await getBand();
     setBands(response?.data);
   };
@@ -156,10 +162,10 @@ const getAllBands = async () => {
 
   return (
     <div>
-{/* ===================================================================== */}
+      {/* ===================================================================== */}
       <div className="ptg-table-addData">
-      <h3>Add Master Data</h3>
-{/* ================== name and email========================== */}
+        <h3>Add Master Data</h3>
+        {/* ================== name and email========================== */}
         <div className="masterdatafield">
           <div className="masterdatafield-box">
             <label htmlFor="name"> Name </label>
@@ -184,95 +190,95 @@ const getAllBands = async () => {
             />
           </div>
         </div>
-{/* ================== pool start date and band========================== */}
+        {/* ================== pool start date and band========================== */}
         <div className="masterdatafield">
           <div className="masterdatafield-box">
             <label htmlFor="name"> Pool Start date </label>
-            <PtgUiCalendar  {...startDateProp} />
+            <PtgUiCalendar {...startDateProp} />
           </div>
 
           <div className="masterdatafield-box">
-            <label > Band </label>
+            <label> Band </label>
             <PtgUiMultiSelectbox
-          name="bands"
-          list={bands}
-          onSelect={onBandSelect}
-          showCheckbox={true}
-          singleSelect={true}
-        />
+              name="bands"
+              list={bands}
+              onSelect={onBandSelect}
+              showCheckbox={true}
+              singleSelect={true}
+            />
           </div>
         </div>
-{/* ==================competency and designation======================= ===*/}
-<div className="masterdatafield">
+        {/* ==================competency and designation======================= ===*/}
+        <div className="masterdatafield">
           <div className="masterdatafield-box">
-          <label  > Competancy </label>
-        <PtgUiMultiSelectbox
-          name="competency"
-          list={competency}
-          onSelect={onCompetencySelect}
-          showCheckbox={true}
-          singleSelect={true}
-        />
+            <label> Competancy </label>
+            <PtgUiMultiSelectbox
+              name="competency"
+              list={competency}
+              onSelect={onCompetencySelect}
+              showCheckbox={true}
+              singleSelect={true}
+            />
           </div>
           <div className="masterdatafield-box">
-          <label  > Designation </label>
-        <PtgUiMultiSelectbox
-          name="designations"
-          list={designations}
-          onSelect={onSelect}
-          showCheckbox={true}
-          singleSelect={true}
-        />
-          </div>
-        </div>
-{/*  =====================skills and years of exp================================*/}
-<div className="masterdatafield">
-          <div className="masterdatafield-box">
-          <label  > Skills </label>
-        <PtgUiMultiSelectbox
-          name="skills"
-          list={skills}
-          onSelect={onSelectSkills}
-          showCheckbox={true}
-          singleSelect={false}
-        />
-          </div>
-          <div className="masterdatafield-box">
-          <label> Years of Experience </label>
-        <PtgUiInput
-          className={'w-100 form-control bg_0 '}
-          type="text"
-          name="yearsofExp"
-          value={masterData.yearsofExp}
-          onChange={(e) => onValueChange(e)}
-        />
+            <label> Designation </label>
+            <PtgUiMultiSelectbox
+              name="designations"
+              list={designations}
+              onSelect={onSelect}
+              showCheckbox={true}
+              singleSelect={true}
+            />
           </div>
         </div>
-{/* ====================comment============================== */}
-<div className="masterdatafield">
+        {/*  =====================skills and years of exp================================*/}
+        <div className="masterdatafield">
           <div className="masterdatafield-box">
-          <label  > Comments </label>
-        <PtgUiTextArea
-          rows="2"
-          name="comments"
-          id="inputAddress"
-          value={masterData.comments}
-          onChange={(e) => onValueChange(e)}
-        />
-          </div>       
-        </div>
-{/*=====================================================  */}
-<div className="masterdatafield-box">
-         <PtgUiButton
-          className="mt-2"
-          type="button"
-          onClick={() => addMasterDetails()}
-          aria-label="next"
-          data-testid="next"
-        >
-          Save
-        </PtgUiButton>
+            <label> Skills </label>
+            <PtgUiMultiSelectbox
+              name="skills"
+              list={skills}
+              onSelect={onSelectSkills}
+              showCheckbox={true}
+              singleSelect={false}
+            />
           </div>
+          <div className="masterdatafield-box">
+            <label> Years of Experience </label>
+            <PtgUiInput
+              className={'w-100 form-control bg_0 '}
+              type="text"
+              name="yearsofExp"
+              value={masterData.yearsofExp}
+              onChange={(e) => onValueChange(e)}
+            />
+          </div>
+        </div>
+        {/* ====================comment============================== */}
+        <div className="masterdatafield">
+          <div className="masterdatafield-box">
+            <label> Comments </label>
+            <PtgUiTextArea
+              rows="2"
+              name="comments"
+              id="inputAddress"
+              value={masterData.comments}
+              onChange={(e) => onValueChange(e)}
+            />
+          </div>
+        </div>
+        {/*=====================================================  */}
+        <div className="masterdatafield-box">
+          <PtgUiButton
+            className="mt-2"
+            type="button"
+            onClick={() => addMasterDetails()}
+            aria-label="next"
+            data-testid="next"
+          >
+            Save
+          </PtgUiButton>
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './components/common/header/Header';
-import Footer from './components/common/footer/Footer';
+import Header from '../app/components/common/header/Header';
+import Footer from '../app/components/common/footer/Footer';
 import EditMasterdata from './components/EditMasterdata';
 import ViewMasterdata from './components/ViewMasterdata';
 // import AddMasterdata from './components/AddMasterdata';
@@ -11,13 +11,12 @@ import AddSkill from './components/AddSkill';
 import User from './components/User';
 // import PrivateRout from './components/PrivateRout';
 import Login from './components/Login';
-import PageNotFound from './components/pageNotFound/PageNotFound';
+import PageNotFound from '../app/components/pageNotFound/PageNotFound';
 import AddMasterdata from './components/addMasterData/AddMasterData';
-import Designation from './components/designation/designation'
+import Designation from './components/designation/designation';
 import Config from './components/config/Config';
 import AddDesignation from './components/designation/AddDesignation';
 import EditDesignation from './components/designation/EditDesignation';
-
 
 export function App() {
   return (
@@ -28,7 +27,6 @@ export function App() {
           <Route path="/" element={<Login />} />
           <Route path="/user" element={<User />} />
           {/* <Route path="/chart" element={<Chart />} /> */}
-          
 
           {/* <Route element={<PrivateRout />}> */}
           <Route path="/config" element={<Config />} />

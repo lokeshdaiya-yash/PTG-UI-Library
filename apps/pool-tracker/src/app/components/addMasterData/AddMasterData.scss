@@ -22,27 +22,16 @@
     text-align: center;
   }
 }
-.searchWrapper {
-  border: 1px solid #ccc;
-  border-radius: none !important;
-  min-height: 22px;
-  padding: 3px !important;
-  position: relative;
-  margin: 0 auto;
-}
 .optionListContainer {
   background: #fff;
   border-radius: 4px;
   margin-top: 1px;
   position: absolute !important;
-  left: 120px;
-  width: 68% !important;
   margin: 0 auto !important;
-  z-index: 0 !important;
 }
 .addMasterData {
   width: 100%;
-    margin: 0px auto;
+  margin: 0px auto;
   text-align: center;
   font-size: 16px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -84,7 +73,7 @@ button {
   border: none;
   border-radius: 4px;
 }
-.masterdataBtn{
+.masterdataBtn {
   display: flex;
   width: 100%;
 }

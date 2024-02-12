@@ -69,7 +69,8 @@ const Designation = () => {
       <PtgModal
         modal-size="lg"
         modal-header-name="Add Designation"
-        confirm-button-name="Okay"
+        confirm-button-name="save"
+        btn-name='Skill'
         // onModalClose={modalClosed}
       >
         <div slot="body-block">
