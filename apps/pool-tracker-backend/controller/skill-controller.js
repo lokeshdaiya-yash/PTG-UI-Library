@@ -17,20 +17,6 @@ export const getSkills = async (request, response) => {
   try {
     const skills = await Skill.find({});
     response.status(200).json(skills);
-    // const skills = await Skill
-    // .find({})
-    //   .sort({ createdAt: 'desc' })
-    //   .lean()
-    //   .exec();
-
-    //   if (!skills) {
-    //     response.status(404).json({ message: "skills not found" });
-    //   }
-    //   else{
-    //     response.status(200).json(skills);
-    //   }
-
-    
   } catch (error) {
     response.status(404).json({ message: error.message });
   }

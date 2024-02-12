@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { addMasterdata } from '../service/api';
-import '../app.module.scss';
+import { addMasterdata, getSkills, getDesignation, getCompetency, getBand } from '../../service/api';
+import '../../app.module.scss';
+import './AddMasterData.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   PtgUiButton,
@@ -12,19 +13,16 @@ import {
   PtgUiTextArea,
 } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 
-import { getSkills } from '../service/api';
-import { getDesignation } from '../service/api';
-
 const defaultValue = {
   name: '',
-  clientInterviews: '',
+  email: '',
   poolStartDate: '',
-  poolEndDate: '',
+  bands: '',
+  competency: '',
   ageing: '',
   status: '',
   skills: '',
   yearsofExp: '',
-  bands: '',
   comments: '',
   clientName: '',
   designations: '',
@@ -44,16 +42,40 @@ const AddMasterdata = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const skillItems: any = [];
-
+  const [bands, setBands] = useState([]);
+  const [competency, setCompetency] = useState([]);
   const [designations, setDesignation] = useState([]);
- 
 
   useEffect(() => {
+    getAllBands();
     getAllDesignation();
+    getAllCompetency();
     getAllSkills();
   }, []);
+// ==================== bands select===========================================
 
-   // ==================== designations select===========================================
+const getAllBands = async () => {
+    const response = await getBand();
+    setBands(response?.data);
+  };
+
+  const onBandSelect = (e) => {
+    console.log('Select Values, onValueChange', e[0]);
+    setMasterdata({ ...masterData, bands: e[0].value });
+  };
+  // ==================== Competency select===========================================
+
+  const getAllCompetency = async () => {
+    const response = await getCompetency();
+    setCompetency(response?.data);
+  };
+
+  const onCompetencySelect = (e) => {
+    console.log('Select Values, onValueChange', e[0]);
+    setMasterdata({ ...masterData, competency: e[0].value });
+  };
+
+  // ==================== designations select===========================================
 
   const getAllDesignation = async () => {
     const response = await getDesignation();
@@ -66,9 +88,6 @@ const AddMasterdata = () => {
   };
 
   // ==================== skill multiselect===========================================
-  // useEffect(() => {
-  //   getAllSkills();
-  // }, []);
 
   const getAllSkills = async () => {
     try {
@@ -87,7 +106,6 @@ const AddMasterdata = () => {
     }
   };
 
-  
   const onSelectSkills = (e) => {
     setMasterdata({ ...masterData, skills: e });
   };
@@ -110,23 +128,23 @@ const AddMasterdata = () => {
     navigate('/masterData');
   };
 
-//   const addMasterDetails = async () => {
-//     try {
-       
-//         const designationsArray = Array.isArray(masterData.designations) ? masterData.designations : [masterData.designations];
-//         const updatedMasterData = { ...masterData, designations: designationsArray };
-//         await addMasterdata(updatedMasterData);
-//         navigate('/masterData');
-//     } catch (error) {
-//         console.error('Error adding master data:', error);
-//     }
-// };
+  //   const addMasterDetails = async () => {
+  //     try {
+
+  //         const designationsArray = Array.isArray(masterData.designations) ? masterData.designations : [masterData.designations];
+  //         const updatedMasterData = { ...masterData, designations: designationsArray };
+  //         await addMasterdata(updatedMasterData);
+  //         navigate('/masterData');
+  //     } catch (error) {
+  //         console.error('Error adding master data:', error);
+  //     }
+  // };
 
   // ================================Date picker===================================
   const today = new Date();
   const [date, setStartDate] = useState({
     startDate: null,
-    
+
     errorMsg: false,
   });
   const setDateState: any = (d: any, field: string) => {
@@ -151,20 +169,12 @@ const AddMasterdata = () => {
 
   return (
     <div>
-      <div className="ptg-table-addData">
+     {/* <div className="ptg-table-addData">
         <h3>Add Master Data</h3>
-        {/* <DatePicker
      
-      dateFormat="MM-dd-yyyy"
-      placeholderText="MM-DD-YYYY"
-      onChange={(e) => onValueChange(e)}
-      maxDate={date.endDate === null ? date.endDate : new Date(date.endDate)}
-      isClearable
-    />
-    { date.errorMsg && <p>DATE_ERROR_TEXT</p>} */}
-
         <label htmlFor="name"> Name </label>
         <PtgUiInput
+          className={'w-100 form-control bg_0 '}
           type="text"
           name="name"
           id="inputUsername"
@@ -194,9 +204,6 @@ const AddMasterdata = () => {
 
         <PtgUiCalendar {...startDateProp} />
 
-      
-      
-
         <label htmlFor="inputUsername"> Ageing </label>
         <PtgUiInput
           className={'w-100 form-control bg_0 '}
@@ -218,7 +225,6 @@ const AddMasterdata = () => {
         />
 
         <label htmlFor="inputUsername"> Skills </label>
-
         <PtgUiMultiSelectbox
           name="skills"
           list={skills}
@@ -248,7 +254,6 @@ const AddMasterdata = () => {
         />
 
         <label htmlFor="inputUsername"> Comments </label>
-
         <PtgUiTextArea
           // className={"w-100 form-control bg_0 $"}
           rows="2"
@@ -286,112 +291,131 @@ const AddMasterdata = () => {
         >
           Add Master Data
         </PtgUiButton>
-      </div>
-      {/* =============================================================================== */}
-
-      {/* <div className="addMasterData">
-        <div className="inputBox">
-          <input
-            placeholder="Enter Name"
-            onChange={(e) => onValueChange(e)}
-            name="name"
-          ></input>
-        </div>
-
-        <div>
-          <input
-            placeholder="Enter ClientInterviews"
-            onChange={(e) => onValueChange(e)}
-            name="clientInterviews"
-          ></input>
-        </div>
-
-        <div>
-          <input
-            placeholder="Enter poolStartDate"
-            onChange={(e) => onValueChange(e)}
-            name="poolStartDate"
-          ></input>
-        </div>
-
-        <div>
-          <input
-            placeholder="Enter poolEndDate"
-            onChange={(e) => onValueChange(e)}
-            name="poolEndDate"
-          ></input>
-        </div>
-
-        <div>
-          <input
-            placeholder="Enter ageing"
-            onChange={(e) => onValueChange(e)}
-            name="ageing"
-          ></input>
-        </div>
-
-        <div>
-          <input
-            placeholder="Enter status"
-            onChange={(e) => onValueChange(e)}
-            name="status"
-          ></input>
-        </div>
-
-        <div>
-          <input
-            placeholder="Enter skills"
-            onChange={(e) => onValueChange(e)}
-            name="skills"
-          ></input>
-        </div>
-
-        <div>
-          <input
-            placeholder="Enter yearsofExp"
-            onChange={(e) => onValueChange(e)}
-            name="yearsofExp"
-          ></input>
-        </div>
-
-        <div>
-          <input
-            placeholder="Enter bands"
-            onChange={(e) => onValueChange(e)}
-            name="bands"
-          ></input>
-        </div>
-
-        <div>
-          <input
-            placeholder="Enter comments"
-            onChange={(e) => onValueChange(e)}
-            name="comments"
-          ></input>
-        </div>
-
-        <div>
-          <input
-            placeholder="Enter clientName"
-            onChange={(e) => onValueChange(e)}
-            name="clientName"
-          ></input>
-        </div>
-
-        <div>
-          <button onClick={() => addMasterDetails()}> Add Master Data</button>
-        </div>
       </div> */}
+    
+{/* ===================================================================== */}
+      <div className="ptg-table-addData">
+      <h3>Add Master Data</h3>
+{/* ================== name and email========================== */}
+        <div className="masterdatafield">
+          <div className="masterdatafield-box">
+            <label htmlFor="name"> Name </label>
+            <PtgUiInput
+              className={'form-control '}
+              type="text"
+              name="name"
+              id="inputUsername"
+              value={masterData.name}
+              onChange={(e) => onValueChange(e)}
+            />
+          </div>
+          <div className="masterdatafield-box">
+            <label htmlFor="email"> Email </label>
+            <PtgUiInput
+              className={'form-control'}
+              type="text"
+              name="email"
+              id="email"
+              value={masterData.email}
+              onChange={(e) => onValueChange(e)}
+            />
+          </div>
+        </div>
+{/* ================== pool start date and band========================== */}
+        <div className="masterdatafield">
+          <div className="masterdatafield-box">
+            <label htmlFor="name"> Pool Start date </label>
+            <PtgUiCalendar  {...startDateProp} />
+          </div>
 
-      {/* <PtgUiDatePicker
-        // disabled={disabled}
-        // selected={selected}
-        // className={className}
-        onChange={(e) => onValueChange(e)}
-        maxDate={date.endDate === null ? date.endDate : new Date(date.endDate)}
-        // onKeyDown={onKeyDown}
+          <div className="masterdatafield-box">
+            <label > Band </label>
+            <PtgUiMultiSelectbox
+             
+          name="bands"
+          list={bands}
+          onSelect={onBandSelect}
+          showCheckbox={true}
+          singleSelect={true}
         />
-        {date.errorMsg && <p>DATE_ERROR_TEXT</p>} */}
+          </div>
+        </div>
+{/* ==================competency and designation======================= ===*/}
+<div className="masterdatafield">
+          <div className="masterdatafield-box">
+          <label htmlFor="inputUsername"> Competancy </label>
+        <PtgUiMultiSelectbox
+          name="competency"
+          list={competency}
+          onSelect={onCompetencySelect}
+          showCheckbox={true}
+          singleSelect={true}
+        />
+          </div>
+          <div className="masterdatafield-box">
+          <label htmlFor="inputUsername"> Designation </label>
+        <PtgUiMultiSelectbox
+          name="designations"
+          list={designations}
+          onSelect={onSelect}
+          showCheckbox={true}
+          singleSelect={true}
+        />
+          </div>
+        </div>
+{/*  =====================skills and years of exp================================*/}
+<div className="masterdatafield">
+          <div className="masterdatafield-box">
+          <label htmlFor="inputUsername"> Skills </label>
+        <PtgUiMultiSelectbox
+          name="skills"
+          list={skills}
+          onSelect={onSelectSkills}
+          showCheckbox={true}
+          singleSelect={false}
+        />
+          </div>
+          <div className="masterdatafield-box">
+          <label htmlFor="inputUsername"> Years of Experience </label>
+        <PtgUiInput
+          className={'w-100 form-control bg_0 '}
+          type="text"
+          name="yearsofExp"
+          value={masterData.yearsofExp}
+          // id="inputUsername"
+          onChange={(e) => onValueChange(e)}
+        />
+          </div>
+        </div>
+{/* ====================comment============================== */}
+<div className="masterdatafield">
+          <div className="masterdatafield-box">
+          <label htmlFor="inputUsername"> Comments </label>
+        <PtgUiTextArea
+          // className={"w-100 form-control bg_0 $"}
+          rows="2"
+          name="comments"
+          id="inputAddress"
+          value={masterData.comments}
+          // id="inputUsername"
+          onChange={(e) => onValueChange(e)}
+        />
+          </div>       
+        </div>
+{/*=====================================================  */}
+<div className="masterdatafield-box">
+         <PtgUiButton
+          className="mt-2"
+          type="button"
+          onClick={() => addMasterDetails()}
+          // accessKey="s"
+          aria-label="next"
+          data-testid="next"
+        >
+          Save
+        </PtgUiButton>
+          </div>
+      </div>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
 import { getMasterdata, deleteMasterdata } from '../service/api';
 import '../app.module.scss';
-import { PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { PtgCard, PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
+import { PtgUiInput, PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
+
 
 const ViewMasterdata = () => {
   const [masterdatas, setMasterdata] = useState([]);
@@ -15,48 +15,19 @@ const ViewMasterdata = () => {
 
   const getAllUsers = async () => {
     let response = await getMasterdata();
-    setMasterdata(response.data);
+    console.log("response", response)
+    setMasterdata(response?.data);
   };
-
   const deleteUsersDetails = async (id) => {
-    console.log(id);
     await deleteMasterdata(id);
     alert('Do You Want To Delete');
     getAllUsers();
-  };
-
-  // ======================card========================================
-  // const cardDataObj = [
-  //   {
-  //     cardId: 1,
-  //     cardTitle: 'card title',
-  //     cardContent:
-  //       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!',
-  //     src: 'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  //   },
-  //   {
-  //     cardId: 2,
-  //     cardTitle: 'Card Title',
-  //     cardContent:
-  //       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora velit, nihil expedita sapiente ducimus, vitae qui possimus vero officiis totam itaque maiores perferendis, repellendus amet repellat hic nisi? Blanditiis!',
-  //     src: 'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  //   },
-  // ];
-  const handleClick = (data) => {
-    console.log(data.detail);
-  };
-  // =========================Modal==================
-
-  // const modalClosed = (event) => {
-  //   console.log('Modal Closed successfully', event.returnValue);
-  // };
-
-  // ================Accordion========================================
-  // const [activeAccordion, setActiveAccordion] = useState(null);
-
-  // const toggleAccordion = (index) => {
-  //   setActiveAccordion(activeAccordion === index ? null : index);
-  // };
+  }
+  const ActionButton = (props) => {
+    return (
+      <button>Text</button>
+    )
+  }
 
   const Columns = [
     // {
@@ -83,23 +54,18 @@ const ViewMasterdata = () => {
     //     </div>
     //   ),
     // },
-    { title: 'name', field: 'name', filtering: false, width: '20%' },
+    { title: 'name', field: 'name', filtering: false, width: '10%' },
     { title: 'clientInterviews', field: 'clientInterviews', filtering: false },
     { title: 'poolStartDate', field: 'poolStartDate' },
-    // { title: 'poolEndDate', field: 'poolEndDate', filtering: false },
-    // { title: 'ageing', field: 'ageing', filtering: false },
     { title: 'status', field: 'status', filtering: false },
     { title: 'skills', field: 'skills', filtering: false },
     { title: 'yearsofExp', field: 'yearsofExp', filtering: false },
-    // { title: 'bands', field: 'bands', filtering: false },
-    {
-      title: 'comments',
-      field: 'comments',
-      filtering: false,
-    },
-    // { title: 'clientName', field: 'clientName', filtering: false },
-    {
-      title: 'Action',
+    { title: 'bands', field: 'bands', filtering: false },
+    { title: 'competency', field: 'competency', filtering: false },
+    { title: 'comments', field: 'comments',filtering: false },
+    { title: 'clientName', field: 'clientName', filtering: false },
+    { title: 'designations', field: 'designations', filtering: false },
+    { title: 'Action',
       field: 'Action',
       name: 'action',
       header: '',
@@ -145,7 +111,43 @@ const ViewMasterdata = () => {
         paginationPosition={'bottom'}
         grouping={true}
         filterValue={filterValue}
+        // actions={[
+        //   {
+        //     icon: () =>  <PtgUiButton
+        //                   className="btn-sm">
+        //                   text
+        //                   </PtgUiButton>,
+        //         tooltip: 'Click Here',
+        //         onClick: (event, rowData) => {
+        //         console.log(event, rowData);
+        //         alert("Button Clicked");
+        //     }
+        //   }
+        // ]}
+
+        actions={[
+          {
+            icon: () => <PtgUiButton
+              className="btn-sm">
+              {('CLICK_HERE')}
+            </PtgUiButton>,
+            tooltip: 'Click Here',
+            onClick: (event, rowData) => {
+              console.log(event, rowData);
+              alert("Button Clicked");
+
+            }
+          }
+        ]}
+
       />
+
+      {/* {masterdatas.map((masterdata) => (
+            <tr key={masterdata._id}>
+            
+              <button LinkComponent={Link} to={`/edit/${masterdata._id}`}>Edit</button>
+              <PtgUiButton onClick={()=>deleteUsersDetails(masterdata._id)}>Delete</PtgUiButton>
+              </tr> */}
 
       {/* {cardDataObj.map((masterdata) => {
         return (
