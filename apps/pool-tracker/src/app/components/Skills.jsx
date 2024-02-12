@@ -292,7 +292,7 @@ const Skills = () => {
     <div className="viewMastertable ">
       {/* <NavLink to="/addSkill">Add Skills</NavLink> */}
       <PtgUiButton>
-        <NavLink to="/addSkill">Add Skills</NavLink>
+        <NavLink to="/addSkill">Add Skills123</NavLink>
       </PtgUiButton>
 
       <PtgUiMaterialTable

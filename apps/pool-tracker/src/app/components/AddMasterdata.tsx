@@ -46,11 +46,14 @@ const AddMasterdata = () => {
   const skillItems: any = [];
 
   const [designations, setDesignation] = useState([]);
-  // ==================== designations multiselect===========================================
+ 
 
   useEffect(() => {
     getAllDesignation();
+    getAllSkills();
   }, []);
+
+   // ==================== designations select===========================================
 
   const getAllDesignation = async () => {
     const response = await getDesignation();
@@ -62,10 +65,10 @@ const AddMasterdata = () => {
     setMasterdata({ ...masterData, designations: e[0].value });
   };
 
-  // ==================== multiselect===========================================
-  useEffect(() => {
-    getAllSkills();
-  }, []);
+  // ==================== skill multiselect===========================================
+  // useEffect(() => {
+  //   getAllSkills();
+  // }, []);
 
   const getAllSkills = async () => {
     try {
@@ -77,7 +80,6 @@ const AddMasterdata = () => {
         label: skill.name,
         name: skill.name,
       }));
-      // { value: 'pune', label: 'Pune', name: 'city' },
       setSkill(transformedSkills);
       console.log('>>>>>', skillData);
     } catch (error) {
@@ -90,6 +92,11 @@ const AddMasterdata = () => {
     setMasterdata({ ...masterData, skills: e });
   };
 
+  const onSelectClientName = (e) => {
+    console.log('Select Values, onValueChange', e[0]);
+    setMasterdata({ ...masterData, clientName: e[0].value });
+  };
+
   // ========================================================================================================
 
   const onValueChange = (e) => {
@@ -98,38 +105,33 @@ const AddMasterdata = () => {
     console.log(masterData);
   };
 
-  // const addMasterDetails = async () => {
-  //   await addMasterdata(masterData);
-  //   navigate('/masterData');
-  // };
-
   const addMasterDetails = async () => {
-    try {
+    await addMasterdata(masterData);
+    navigate('/masterData');
+  };
+
+//   const addMasterDetails = async () => {
+//     try {
        
-        const designationsArray = Array.isArray(masterData.designations) ? masterData.designations : [masterData.designations];
-        const updatedMasterData = { ...masterData, designations: designationsArray };
-        await addMasterdata(updatedMasterData);
-        navigate('/masterData');
-    } catch (error) {
-        console.error('Error adding master data:', error);
-    }
-};
+//         const designationsArray = Array.isArray(masterData.designations) ? masterData.designations : [masterData.designations];
+//         const updatedMasterData = { ...masterData, designations: designationsArray };
+//         await addMasterdata(updatedMasterData);
+//         navigate('/masterData');
+//     } catch (error) {
+//         console.error('Error adding master data:', error);
+//     }
+// };
 
   // ================================Date picker===================================
   const today = new Date();
   const [date, setStartDate] = useState({
     startDate: null,
-    endDate: null,
+    
     errorMsg: false,
   });
   const setDateState: any = (d: any, field: string) => {
     console.log(d, field);
     setStartDate((preState: any) => {
-      if (field === 'endDate' && date && date.startDate && date.startDate > d) {
-        date.errorMsg = true;
-      } else {
-        date.errorMsg = false;
-      }
       return {
         ...preState,
         [field]: d,
@@ -143,14 +145,6 @@ const AddMasterdata = () => {
     startDate: today,
     poolEndDate: null,
     disabled: false,
-  };
-
-  const endDateProp = {
-    selected: date.endDate,
-    className: 'form-control w-100',
-    // onChange: (d: any) => setDateState(d, 'poolEndDate'),
-    onChange: (e: any) => setDateState(e, 'endDate'),
-    poolEndDate: null,
   };
 
   // ==========================================================================
@@ -200,16 +194,8 @@ const AddMasterdata = () => {
 
         <PtgUiCalendar {...startDateProp} />
 
-        <label htmlFor="inputUsername"> Pool End tDate </label>
-        <PtgUiInput
-          className={'w-100 form-control bg_0 '}
-          type="text"
-          name="poolEndDate"
-          id="inputUsername"
-          value={masterData.poolEndDate}
-          onChange={(e) => onValueChange(e)}
-        />
-        <PtgUiCalendar {...endDateProp} />
+      
+      
 
         <label htmlFor="inputUsername"> Ageing </label>
         <PtgUiInput
@@ -277,7 +263,7 @@ const AddMasterdata = () => {
         <PtgUiMultiSelectbox
           name="clientName"
           list={CLIENT_NAME_LIST}
-          onSelect={onSelect}
+          onSelect={onSelectClientName}
           showCheckbox={true}
           singleSelect={true}
         />
@@ -287,7 +273,7 @@ const AddMasterdata = () => {
           list={designations}
           onSelect={onSelect}
           showCheckbox={true}
-          singleSelect={false}
+          singleSelect={true}
         />
 
         <PtgUiButton
