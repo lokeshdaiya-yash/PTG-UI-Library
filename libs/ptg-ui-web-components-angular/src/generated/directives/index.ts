@@ -21,7 +21,9 @@ export const DIRECTIVES = [
   d.PtgSidenav,
   d.PtgSpinner,
   d.PtgTable,
+  d.PtgTabs,
   d.PtgTextarea,
   d.PtgToast,
-  d.PtgUiCarousel
+  d.PtgUiCarousel,
+  d.StaticTabs
 ];

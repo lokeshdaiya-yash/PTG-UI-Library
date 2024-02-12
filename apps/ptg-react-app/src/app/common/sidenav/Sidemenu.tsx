@@ -84,6 +84,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/tabs',
+    icon: 'fa fa-lock',
+    label: 'Tabs',
+    disabled: false,
+  },
+  {
     path: '/downloadFile',
     icon: 'fa-solid fa-download',
     label: 'DOWNLOAD',

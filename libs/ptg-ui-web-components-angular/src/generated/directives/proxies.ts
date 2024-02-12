@@ -461,6 +461,27 @@ export class PtgTable {
 }
 
 
+export declare interface PtgTabs extends Components.PtgTabs {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['backgroundColor', 'showScroll', 'tabLabelArray']
+})
+@Component({
+  selector: 'ptg-tabs',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['backgroundColor', 'showScroll', 'tabLabelArray']
+})
+export class PtgTabs {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface PtgTextarea extends Components.PtgTextarea {}
 
 @ProxyCmp({
@@ -516,6 +537,27 @@ export declare interface PtgUiCarousel extends Components.PtgUiCarousel {}
   inputs: ['images', 'imgHeight', 'imgWidth', 'showIndicators']
 })
 export class PtgUiCarousel {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface StaticTabs extends Components.StaticTabs {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['backgroundColor', 'tabLabelFour', 'tabLabelOne', 'tabLabelThree', 'tabLabelTwo']
+})
+@Component({
+  selector: 'static-tabs',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['backgroundColor', 'tabLabelFour', 'tabLabelOne', 'tabLabelThree', 'tabLabelTwo']
+})
+export class StaticTabs {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();

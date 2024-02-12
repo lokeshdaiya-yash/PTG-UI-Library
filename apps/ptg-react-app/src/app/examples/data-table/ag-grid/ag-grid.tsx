@@ -54,14 +54,6 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
     }
   },[apiData])
 
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {
-  //       setGridData(res.data);
-  //     })
-  //     .catch((err: any) => console.log(err));
-  // }, []);
 
   const autoGroupColumnDef = useMemo(() => ({
     field: "athlete", 
@@ -88,7 +80,7 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
     { field: "gold", minWidth: 50 },
     { field: "silver", minWidth: 50},
     { field: "total", minWidth: 50},
-    { field: "Action",cellRenderer: AggridButton,minWidth: 100},
+    { field: "Action",cellRenderer: AggridButton, minWidth: 100},
   ]);
 
   const defaultColDef = {
@@ -101,7 +93,7 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
 
   const accordian_array:any = [{
     title: t('AG_GRID_ACCORDION'),
-    content:   <PtgUiAgGrid
+    content:    <PtgUiAgGrid
                   data={gridData}
                   autoGroupColumnDef={autoGroupColumnDef}
                   columnDefs={columnDefs}
@@ -117,7 +109,6 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
   const componentCode = `
     import { PtgUiAgGrid, PtgUiAccordian } from '@ptg-ui/react';
     import { useEffect, useMemo, useState } from 'react';
-    import { GRID_Data } from '@ptg-react-app/mock/grid-data';
     import { AggridButton } from './aggrid-button';
     import { authClass } from '@ptg-react-app/auth/services/auth.service';
     
@@ -171,7 +162,6 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
       }
     
       const accordian_array:any = [{
-        title: t('AG_GRID_ACCORDION'),
         content:   <PtgUiAgGrid
                       data={gridData}
                       autoGroupColumnDef={autoGroupColumnDef}
@@ -196,8 +186,8 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
     pagination={true}
     paginationPageSize={8}
     customPagination={true}
-  />
-  <PtgUiAccordian stories={accordian_array}/>
+    />
+    <PtgUiAccordian stories={accordian_array}/>
   `
 
   return (
@@ -210,7 +200,7 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
           <CodeIcon onClick={ShowExampleCode} fontSize="medium"  className='show-code-icon'></CodeIcon>
         </div>
       </div>
-      {!showCode ? (
+        {!showCode ? (
           <>
           <PtgUiAgGrid
           data={gridData}
@@ -226,9 +216,9 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
           <h4>{t('DATATABLE_WITH_ACCORDIAN')}</h4>
           <PtgUiAccordian stories={accordian_array}/>
         </>
-      ):(
-        <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
-      )}
+        ):(
+          <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
+        )}
     </>
   );
 }

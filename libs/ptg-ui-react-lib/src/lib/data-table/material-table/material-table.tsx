@@ -29,18 +29,20 @@ export interface PtgUiMaterialTableProps {
     field: string,
   }[];
     filtering: boolean,
+    title: string,
     paging:boolean,
     paginationPosition?:any
     grouping?:boolean
 }
 
-export function PtgUiMaterialTable({data,columns,filtering,paging,paginationPosition='bottom',grouping}: PtgUiMaterialTableProps) {  
+export function PtgUiMaterialTable({data,columns,title,filtering,paging,paginationPosition='bottom',grouping}: PtgUiMaterialTableProps) {  
 
   return (
     <MaterialTable
       columns={columns}
       data={data}
-      title="Material Table"
+      title={title}
+      // title="Table"
       // options={{
       //   // defaultOrderByCollection:'',
       //   exportMenu: [{

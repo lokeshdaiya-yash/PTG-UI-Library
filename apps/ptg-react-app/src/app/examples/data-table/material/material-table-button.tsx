@@ -64,19 +64,17 @@ import { GRID_Data } from '@ptg-react-app/mock/grid-data';
 import MaterialTable from "@material-table/core";
 import CheckSharpIcon from '@mui/icons-material/CheckSharp';
 import { ExportCsv, ExportPdf } from '@material-table/exporters';
-import { useTranslation } from 'react-i18next';
 import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { PtgUiButton } from '@ptg-ui/react';
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
-import CodeIcon from '@mui/icons-material/Code';
+
 
 /* eslint-disable-next-line */
 export interface PtgUiMaterialTableButtonExampleProps {
 }
 
 export function PtgUiMaterialTableButtonExample(props: PtgUiMaterialTableButtonExampleProps) {
-  const { t } = useTranslation();
   const [gridData, setGridData] = useState([]);
   const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/table-lists') as any
   const fetchApi = ()=>{
@@ -124,7 +122,6 @@ const htmlCode = `
 <MaterialTable
 columns={Columns}
 data={gridData}
-title="Material Table"
 actions={[
     {
       icon: () =>  <PtgUiButton
