@@ -39,7 +39,6 @@ export class PtgAccordion {
         >
           {this.label}
           {
-            // this.toggle ? <span>&#9650;</span> : <span>&#9660;</span>
             this.toggle ?
             <span class="arrow down"></span> : <span class="arrow"></span>
             }

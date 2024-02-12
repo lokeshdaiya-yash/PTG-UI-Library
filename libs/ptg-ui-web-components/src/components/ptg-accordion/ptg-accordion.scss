@@ -30,8 +30,6 @@
   border: 0.5px solid rgb(199, 197, 197);
   padding: 18px;
   border-radius: 10px;
-  // max-height: 400px;
-  // overflow-y: auto;
 }
 .content-box{
   overflow: hidden;
@@ -43,7 +41,6 @@
 }
 }
 
-
  .arrow {
   position: absolute;
   top: 60%;
@@ -52,7 +49,6 @@
   width: 10px;
   height: 10px;
 }
-
 
 .arrow::before,
 .arrow::after {
@@ -69,13 +65,11 @@
   transform: rotate(45deg);
 }
 
-
 .arrow::after {
   left: 7px;
   bottom: 2px;
   transform: rotate(-45deg);
 }
-
 
 .arrow.down{
   transform: translateY(-50%) rotate(180deg);
