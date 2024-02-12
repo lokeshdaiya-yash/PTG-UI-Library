@@ -128,23 +128,10 @@ const getAllBands = async () => {
     navigate('/masterData');
   };
 
-  //   const addMasterDetails = async () => {
-  //     try {
-
-  //         const designationsArray = Array.isArray(masterData.designations) ? masterData.designations : [masterData.designations];
-  //         const updatedMasterData = { ...masterData, designations: designationsArray };
-  //         await addMasterdata(updatedMasterData);
-  //         navigate('/masterData');
-  //     } catch (error) {
-  //         console.error('Error adding master data:', error);
-  //     }
-  // };
-
   // ================================Date picker===================================
   const today = new Date();
   const [date, setStartDate] = useState({
     startDate: null,
-
     errorMsg: false,
   });
   const setDateState: any = (d: any, field: string) => {
@@ -169,130 +156,6 @@ const getAllBands = async () => {
 
   return (
     <div>
-     {/* <div className="ptg-table-addData">
-        <h3>Add Master Data</h3>
-     
-        <label htmlFor="name"> Name </label>
-        <PtgUiInput
-          className={'w-100 form-control bg_0 '}
-          type="text"
-          name="name"
-          id="inputUsername"
-          value={masterData.name}
-          onChange={(e) => onValueChange(e)}
-        />
-
-        <label htmlFor="clientInterviews"> Client Interviews </label>
-        <PtgUiInput
-          className={'w-100 form-control bg_0 '}
-          type="text"
-          name="clientInterviews"
-          id="clientInterviews"
-          value={masterData.clientInterviews}
-          onChange={(e) => onValueChange(e)}
-        />
-
-        <label htmlFor="poolStartDate"> Pool Start Date </label>
-        <PtgUiInput
-          className={'w-100 form-control bg_0 '}
-          type="text"
-          name="poolStartDate"
-          id="poolStartDate"
-          value={masterData.poolStartDate}
-          onChange={(e) => onValueChange(e)}
-        />
-
-        <PtgUiCalendar {...startDateProp} />
-
-        <label htmlFor="inputUsername"> Ageing </label>
-        <PtgUiInput
-          className={'w-100 form-control bg_0 '}
-          type="text"
-          name="ageing"
-          id="inputUsername"
-          value={masterData.ageing}
-          onChange={(e) => onValueChange(e)}
-        />
-
-        <label htmlFor="inputUsername"> Status </label>
-        <PtgUiInput
-          className={'w-100 form-control bg_0 '}
-          type="text"
-          name="status"
-          // id="inputUsername"
-          value={masterData.status}
-          onChange={(e) => onValueChange(e)}
-        />
-
-        <label htmlFor="inputUsername"> Skills </label>
-        <PtgUiMultiSelectbox
-          name="skills"
-          list={skills}
-          onSelect={onSelectSkills}
-          showCheckbox={true}
-          singleSelect={false}
-        />
-
-        <label htmlFor="inputUsername"> Years of Exp </label>
-        <PtgUiInput
-          className={'w-100 form-control bg_0 '}
-          type="text"
-          name="yearsofExp"
-          value={masterData.yearsofExp}
-          // id="inputUsername"
-          onChange={(e) => onValueChange(e)}
-        />
-
-        <label htmlFor="inputUsername"> Bands </label>
-        <PtgUiInput
-          className={'w-100 form-control bg_0 '}
-          type="text"
-          name="bands"
-          // id="inputUsername"
-          value={masterData.bands}
-          onChange={(e) => onValueChange(e)}
-        />
-
-        <label htmlFor="inputUsername"> Comments </label>
-        <PtgUiTextArea
-          // className={"w-100 form-control bg_0 $"}
-          rows="2"
-          name="comments"
-          id="inputAddress"
-          value={masterData.comments}
-          // id="inputUsername"
-          onChange={(e) => onValueChange(e)}
-        />
-
-        <label htmlFor="inputUsername"> Client Name </label>
-        <PtgUiMultiSelectbox
-          name="clientName"
-          list={CLIENT_NAME_LIST}
-          onSelect={onSelectClientName}
-          showCheckbox={true}
-          singleSelect={true}
-        />
-         <label htmlFor="inputUsername"> Designation </label>
-        <PtgUiMultiSelectbox
-          name="designations"
-          list={designations}
-          onSelect={onSelect}
-          showCheckbox={true}
-          singleSelect={true}
-        />
-
-        <PtgUiButton
-          className="w-100 mt-2"
-          type="button"
-          onClick={() => addMasterDetails()}
-          // accessKey="s"
-          aria-label="next"
-          data-testid="next"
-        >
-          Add Master Data
-        </PtgUiButton>
-      </div> */}
-    
 {/* ===================================================================== */}
       <div className="ptg-table-addData">
       <h3>Add Master Data</h3>
@@ -331,7 +194,6 @@ const getAllBands = async () => {
           <div className="masterdatafield-box">
             <label > Band </label>
             <PtgUiMultiSelectbox
-             
           name="bands"
           list={bands}
           onSelect={onBandSelect}
@@ -343,7 +205,7 @@ const getAllBands = async () => {
 {/* ==================competency and designation======================= ===*/}
 <div className="masterdatafield">
           <div className="masterdatafield-box">
-          <label htmlFor="inputUsername"> Competancy </label>
+          <label  > Competancy </label>
         <PtgUiMultiSelectbox
           name="competency"
           list={competency}
@@ -353,7 +215,7 @@ const getAllBands = async () => {
         />
           </div>
           <div className="masterdatafield-box">
-          <label htmlFor="inputUsername"> Designation </label>
+          <label  > Designation </label>
         <PtgUiMultiSelectbox
           name="designations"
           list={designations}
@@ -366,7 +228,7 @@ const getAllBands = async () => {
 {/*  =====================skills and years of exp================================*/}
 <div className="masterdatafield">
           <div className="masterdatafield-box">
-          <label htmlFor="inputUsername"> Skills </label>
+          <label  > Skills </label>
         <PtgUiMultiSelectbox
           name="skills"
           list={skills}
@@ -376,13 +238,12 @@ const getAllBands = async () => {
         />
           </div>
           <div className="masterdatafield-box">
-          <label htmlFor="inputUsername"> Years of Experience </label>
+          <label> Years of Experience </label>
         <PtgUiInput
           className={'w-100 form-control bg_0 '}
           type="text"
           name="yearsofExp"
           value={masterData.yearsofExp}
-          // id="inputUsername"
           onChange={(e) => onValueChange(e)}
         />
           </div>
@@ -390,14 +251,12 @@ const getAllBands = async () => {
 {/* ====================comment============================== */}
 <div className="masterdatafield">
           <div className="masterdatafield-box">
-          <label htmlFor="inputUsername"> Comments </label>
+          <label  > Comments </label>
         <PtgUiTextArea
-          // className={"w-100 form-control bg_0 $"}
           rows="2"
           name="comments"
           id="inputAddress"
           value={masterData.comments}
-          // id="inputUsername"
           onChange={(e) => onValueChange(e)}
         />
           </div>       
@@ -408,7 +267,6 @@ const getAllBands = async () => {
           className="mt-2"
           type="button"
           onClick={() => addMasterDetails()}
-          // accessKey="s"
           aria-label="next"
           data-testid="next"
         >
