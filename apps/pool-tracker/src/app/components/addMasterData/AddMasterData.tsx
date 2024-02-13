@@ -84,7 +84,7 @@ const AddMasterdata = () => {
   // ==================== designations select===========================================
 
   const getAllDesignation = async () => {
-    const response = await getDesignation();
+    const response = await getDesignation(); 
     setDesignation(response?.data);
   };
 
