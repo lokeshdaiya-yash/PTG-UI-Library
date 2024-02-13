@@ -185,13 +185,6 @@ export namespace Components {
         "imgWidth": string;
         "showIndicators": boolean;
     }
-    interface StaticTabs {
-        "backgroundColor": string;
-        "tabLabelFour": string;
-        "tabLabelOne": string;
-        "tabLabelThree": string;
-        "tabLabelTwo": string;
-    }
 }
 export interface PtgCalenderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -356,12 +349,6 @@ declare global {
         prototype: HTMLPtgUiCarouselElement;
         new (): HTMLPtgUiCarouselElement;
     };
-    interface HTMLStaticTabsElement extends Components.StaticTabs, HTMLStencilElement {
-    }
-    var HTMLStaticTabsElement: {
-        prototype: HTMLStaticTabsElement;
-        new (): HTMLStaticTabsElement;
-    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "ptg-accordion": HTMLPtgAccordionElement;
@@ -386,7 +373,6 @@ declare global {
         "ptg-textarea": HTMLPtgTextareaElement;
         "ptg-toast": HTMLPtgToastElement;
         "ptg-ui-carousel": HTMLPtgUiCarouselElement;
-        "static-tabs": HTMLStaticTabsElement;
     }
 }
 declare namespace LocalJSX {
@@ -581,13 +567,6 @@ declare namespace LocalJSX {
         "imgWidth"?: string;
         "showIndicators"?: boolean;
     }
-    interface StaticTabs {
-        "backgroundColor"?: string;
-        "tabLabelFour"?: string;
-        "tabLabelOne"?: string;
-        "tabLabelThree"?: string;
-        "tabLabelTwo"?: string;
-    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "ptg-accordion": PtgAccordion;
@@ -612,7 +591,6 @@ declare namespace LocalJSX {
         "ptg-textarea": PtgTextarea;
         "ptg-toast": PtgToast;
         "ptg-ui-carousel": PtgUiCarousel;
-        "static-tabs": StaticTabs;
     }
 }
 export { LocalJSX as JSX };
@@ -642,7 +620,6 @@ declare module "@stencil/core" {
             "ptg-textarea": LocalJSX.PtgTextarea & JSXBase.HTMLAttributes<HTMLPtgTextareaElement>;
             "ptg-toast": LocalJSX.PtgToast & JSXBase.HTMLAttributes<HTMLPtgToastElement>;
             "ptg-ui-carousel": LocalJSX.PtgUiCarousel & JSXBase.HTMLAttributes<HTMLPtgUiCarouselElement>;
-            "static-tabs": LocalJSX.StaticTabs & JSXBase.HTMLAttributes<HTMLStaticTabsElement>;
         }
     }
 }

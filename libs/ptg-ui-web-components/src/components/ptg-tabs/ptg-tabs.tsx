@@ -9,50 +9,7 @@ import { Component, h, Prop} from '@stencil/core';
 export class PtgTabs {
     @Prop() backgroundColor : string = 'white';
     @Prop() showScroll : boolean = false;
-    @Prop() tabLabelArray : { label: string, content: any, checked : boolean }[] = 
-    [
-    { 
-        "label" : "One",
-        "content" : "In publishing and graphic design, Lorem ipsum is a placeholder. In publishing and graphic design",
-        "checked" : true
-    }, 
-    {
-        "label" : "Two",
-        "content" : "In publishing and graphic design, Lorem ipsum is a placeholder. In publishing",
-        "checked" : false
-    },
-    {
-        "label" : "Three",
-        "content" : <div><input></input><br/><input></input></div>,
-        "checked" : false
-    },
-    {
-        "label" : "Four",
-        "content" : <div><form method="get"><label htmlFor="fname">First name:</label><input type="text" id="fname" name="fname"/><br/><label htmlFor="lname">Last name:</label><input type="text" id="lname" name="lname"/><br/><input type="submit" value="Submit"/> </form></div>,
-        "checked" : false
-    },
-    { 
-        "label" : "One",
-        "content" : "In publishing and graphic design, Lorem ipsum is a placeholder. In publishing and graphic design",
-        "checked" : true
-    }, 
-    {
-        "label" : "Two",
-        "content" : "In publishing and graphic design, Lorem ipsum is a placeholder. In publishing",
-        "checked" : false
-    },
-    {
-        "label" : "Three",
-        "content" : <div><input></input><br/><input></input></div>,
-        "checked" : false
-    },
-    {
-        "label" : "Four",
-        "content" : <div><form method="get"><label htmlFor="fname">First name:</label><input type="text" id="fname" name="fname"/><br/><label htmlFor="lname">Last name:</label><input type="text" id="lname" name="lname"/><br/><input type="submit" value="Submit"/> </form></div>,
-        "checked" : false
-    },
-  ]
-
+    @Prop() tabLabelArray : { label: string, content: any, checked : boolean }[] = []
 
     private tabSection : HTMLDivElement;
   
@@ -72,7 +29,6 @@ export class PtgTabs {
     
     render() {
   
-
     return(
         <div class="tabs"  style={{backgroundColor : `${this.backgroundColor}`}}>
             <div class="label-div" ref={(el)=>(this.tabSection = el)}>
@@ -106,9 +62,7 @@ export class PtgTabs {
 
         </div>
 
-                
-
-{/* 
+        {/* 
         {this.tabCount >= 8  && ( */}
             {/* <div>
             <div class="right-shift" onClick={() => this.dragging()}>
@@ -129,13 +83,6 @@ export class PtgTabs {
                 </div>
             )
         })} */}
-
-
-
-
-
- 
-     
         </div>
     );
   }

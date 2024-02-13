@@ -27,8 +27,6 @@
   .tabs__content {
     order: 1;
     max-width: 90%;
-    // min-width: 30%;
-    // margin-left : 18%;
     display: none;
     
   }
@@ -70,21 +68,15 @@
   cursor: pointer;
   position: absolute;
   margin-top: -10px;
-  // margin-top: 90px;
-
 }
 
 .right {
-  // position: absolute;
   margin-left: 700px;
-  
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
 
 .left {
-  // margin-top: 90px;
-  // position: absolute;
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }

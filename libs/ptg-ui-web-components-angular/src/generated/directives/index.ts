@@ -24,6 +24,5 @@ export const DIRECTIVES = [
   d.PtgTabs,
   d.PtgTextarea,
   d.PtgToast,
-  d.PtgUiCarousel,
-  d.StaticTabs
+  d.PtgUiCarousel
 ];

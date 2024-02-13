@@ -31,4 +31,3 @@ export const PtgTabs = /*@__PURE__*/createReactComponent<JSX.PtgTabs, HTMLPtgTab
 export const PtgTextarea = /*@__PURE__*/createReactComponent<JSX.PtgTextarea, HTMLPtgTextareaElement>('ptg-textarea');
 export const PtgToast = /*@__PURE__*/createReactComponent<JSX.PtgToast, HTMLPtgToastElement>('ptg-toast');
 export const PtgUiCarousel = /*@__PURE__*/createReactComponent<JSX.PtgUiCarousel, HTMLPtgUiCarouselElement>('ptg-ui-carousel');
-export const StaticTabs = /*@__PURE__*/createReactComponent<JSX.StaticTabs, HTMLStaticTabsElement>('static-tabs');

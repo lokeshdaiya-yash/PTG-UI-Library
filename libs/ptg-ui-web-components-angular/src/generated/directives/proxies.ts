@@ -543,24 +543,3 @@ export class PtgUiCarousel {
     this.el = r.nativeElement;
   }
 }
-
-
-export declare interface StaticTabs extends Components.StaticTabs {}
-
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['backgroundColor', 'tabLabelFour', 'tabLabelOne', 'tabLabelThree', 'tabLabelTwo']
-})
-@Component({
-  selector: 'static-tabs',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['backgroundColor', 'tabLabelFour', 'tabLabelOne', 'tabLabelThree', 'tabLabelTwo']
-})
-export class StaticTabs {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-  }
-}
