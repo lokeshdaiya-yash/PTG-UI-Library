@@ -1,5 +1,5 @@
-import { Component, h, Prop, State} from '@stencil/core';
- 
+import { Component, h, Prop, State } from '@stencil/core';
+
 @Component({
   tag: 'ptg-accordion',
   styleUrl: 'ptg-accordion.scss',
@@ -7,25 +7,20 @@ import { Component, h, Prop, State} from '@stencil/core';
 })
 export class PtgAccordion {
   @State() toggle: boolean = false;
- 
   @Prop() label: string;
- 
   @Prop() description: string;
- 
-  @Prop() width: string= '80%';
- 
+  @Prop() width: string = '80%';
   @Prop() color: string = 'white';
- 
-  @Prop() defaultOpened: boolean =false;
- 
-  componentWillLoad(){
+  @Prop() defaultOpened: boolean = false;
+
+  componentWillLoad() {
     this.toggle = this.defaultOpened;
   }
- 
+
   toggleComponent() {
     this.toggle = !this.toggle;
   }
- 
+
   render() {
     return (
       <div>
@@ -35,30 +30,27 @@ export class PtgAccordion {
             width: this.width,
             backgroundColor: this.color,
           }}
-          onClick={() => this.toggleComponent()}
-        >
+          onClick={() => this.toggleComponent()}>
           {this.label}
-          {
-            this.toggle ?
-            <span class="arrow down"></span> : <span class="arrow"></span>
-            }
-           
+          {this.toggle ? (
+            <span class="arrow down"></span>
+          ) : (
+            <span class="arrow"></span>
+          )}
         </button>
- 
         <div
           class={`content-box ${this.toggle ? 'open' : 'close'}`}
-          style={{ width: this.width }}
-        >
-          <div class='content-box-inner'>
-          {
-            this.description ? (<p>{this.description}</p>) :
-            (<div class="body">
-            <slot name="body-block"/>
-         </div>)      
-          }
+          style={{ width: this.width }}>
+          <div class="content-box-inner">
+            {this.description ? (
+              <p>{this.description}</p>
+            ) : (
+              <div class="body">
+                <slot name="body-block" />
+              </div>
+            )}
+          </div>
         </div>
-        </div>
-       
       </div>
     );
   }
