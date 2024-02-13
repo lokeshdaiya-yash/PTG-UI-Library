@@ -5,7 +5,7 @@ import { addSkill, getSkills, getSingleSkill, editSkill, deleteSkill } from "../
 const router = express.Router();
 
 router.post("/add", addSkill);
-router.get("/all", getSkills);
+// router.get("/all", getSkills);
 router.get("/:id", getSingleSkill);
 router.post("/:id", editSkill);
 router.delete("/:id", deleteSkill);

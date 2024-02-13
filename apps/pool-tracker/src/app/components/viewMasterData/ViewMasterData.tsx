@@ -6,6 +6,8 @@ import './ViewMasterData.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { PtgUiInput, PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
+import { PtgModal } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
+import AddMasterdata from '../../components/addMasterData/AddMasterData';
 // import { AggridButton } from './aggrid-button';
 
 const ViewMasterdata = () => {
@@ -16,7 +18,7 @@ const ViewMasterdata = () => {
     }, []);
 
     const getAllUsers = async () => {
-        let response = await getMasterdata();
+        const response = await getMasterdata();
         console.log("response", response)
         setMasterdata(response?.data);
     };
@@ -63,7 +65,18 @@ const ViewMasterdata = () => {
     return (
         <div className="viewMastertable">
             <h2 className="table-title">View Master Data</h2>
-            <div className='addMasterDataModal'>Add Master Data</div>
+            {/* <div className='addMasterDataModal'>Add Master Data</div> */}
+            <PtgModal
+                className='addModalBtn'
+                modal-size="lg"
+                modal-header-name="Add Master Data"
+                confirm-button-name="Save"
+            // onModalClose={modalClosed}
+            >
+                <div slot="body-block">
+                    <AddMasterdata />
+                </div>
+            </PtgModal>
             <PtgUiMaterialTable
                 data={masterdatas}
                 columns={Columns}
@@ -104,11 +117,12 @@ const ViewMasterdata = () => {
             />
 
             {/* {masterdatas.map((masterdata) => (
-            <tr key={masterdata._id}>
-            
-              <button LinkComponent={Link} to={`/edit/${masterdata._id}`}>Edit</button>
-              <PtgUiButton onClick={()=>deleteUsersDetails(masterdata._id)}>Delete</PtgUiButton>
-              </tr> */}
+                <tr key={masterdata._id}>
+
+                    <button LinkComponent={Link} to={`/edit/${masterdata._id}`}>Edit</button>
+                    <PtgUiButton onClick={() => deleteUsersDetails(masterdata._id)}>Delete</PtgUiButton>
+                </tr>
+            ))} */}
 
 
         </div>

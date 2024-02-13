@@ -3,31 +3,61 @@ import User from "../schema/user-schema.js";
 import * as jwt from 'jsonwebtoken';
 
 
-export const addMasterdata= async (request, response)=>{
-  const masterdata =request.body
+// export const addMasterdata= async (request, response)=>{
+//   const masterdata =request.body
 
-  const newMasterData = new Masterdata(masterdata)
-  try {
-      await newMasterData.save();
-      response.status(201).json(newMasterData);
-  } catch (error) {
-      response.status(409).json({ message: error.message });
-  }
+//   const newMasterData = new Masterdata(masterdata)
+//   try {
+//       await newMasterData.save();
+//       response.status(201).json(newMasterData);
+//   } catch (error) {
+//       response.status(409).json({ message: error.message });
+//   }
 
-  console.log(masterdata);
-}
+//   console.log(masterdata);
+// }
 
 
 export const addUser = async (request, response) => {
-  const user = request.body;
-  const newUser = new User(user);
-  try {
-    await newUser.save();
-    response.status(201).json(newUser);
-  } catch (error) {
-    response.status(409).json({ message: error.message });
-  }
-};
+  User.find({username:request.body.username})
+   .exec()
+   .then(user=>{
+    console.log("hello153");
+    if(user.length < 1)
+    {
+      console.log("hello123");
+      response.status(401).json({message: 'user not exist'});
+    }
+
+    bcrypt.compare(request.body.password,user[0].password,(err,result)=>{
+      if(!result)
+      {
+        return response.status(401).json({msg:'password maching fail'})
+      }
+      if(result)
+      {
+
+        const token = jwt.sign({
+          username:user[0].username
+        }, 
+        'this is dummy text',
+        {
+          expiresIn:"24"
+        }
+        );
+        response.status(200).json({
+          username:user[0].username,
+          token:token
+        })
+      }
+    })
+   }
+
+   ).catch(err =>{
+    console.log("hello234");
+    response.status(500).json({err:err})
+   })
+}
 
 
 export const getUsers = async (request, response) => {
@@ -147,14 +177,17 @@ export const getUsers = async (request, response) => {
 //   res.end();
 // }
 
-  export const loginUser = ( request, response)=> {
+  export const loginUser = async ( request, response)=> {
    User.find({username:request.body.username})
    .exec()
    .then(user=>{
+    console.log("hello153");
     if(user.length < 1)
     {
+      console.log("hello123");
       response.status(401).json({message: 'user not exist'});
     }
+
     bcrypt.compare(request.body.password,user[0].password,(err,result)=>{
       if(!result)
       {
@@ -162,6 +195,7 @@ export const getUsers = async (request, response) => {
       }
       if(result)
       {
+
         const token = jwt.sign({
           username:user[0].username
         }, 
@@ -179,6 +213,7 @@ export const getUsers = async (request, response) => {
    }
 
    ).catch(err =>{
+    console.log("hello234");
     response.status(500).json({err:err})
    })
 }

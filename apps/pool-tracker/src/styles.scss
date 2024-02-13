@@ -1,90 +1,53 @@
+@import '../../../libs/ptg-ui-web-components/src/global/global.css';
+
+// @import '../../styles/variables';
+@import "../../ptg-react-animations/src/styles/variables";
+
+.MuiStepIcon-completed,
+.MuiStepIcon-active {
+  color: $main !important;
+}
+
+.MuiStepIcon-root.Mui-error {
+  color: $error !important;
+}
+
 /* You can add global styles to this file, and also import other style files */
 @import '../../../apps/pool-tracker/src/app/styles/variables';
 
 body {
   margin: 0;
   font-family: $font-family-sans-serif !important;
+  padding-bottom: 0;
 }
 
 header+div {
   min-height: calc(100vh - 146px);
 }
 
-// =============add master data component css
-.ptg-table-addData {
-  width: 50%;
-  margin: 70px auto;
-  // text-align: center;
-  font-size: 16px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-
-  &>input,
-  label,
-  button {
-    width: 65%;
-    font-size: 16px;
-    padding: 10px;
-    margin: 0 auto;
-  }
-
-  &>button {
-    background-color: #1976d2;
-    border: none;
-    margin-top: 35px;
-    width: 68%;
-  }
-
-  &>h3 {
-    text-align: center;
-  }
-}
-
-.searchWrapper {
-  border: 1px solid #ccc;
-  border-radius: none !important;
-  min-height: 22px;
-  padding: 10px !important;
+.viewMastertable {
   position: relative;
-  width: 68%;
-  margin: 0 auto;
 }
 
-.optionListContainer {
-  background: #fff;
-  border-radius: 4px;
-  margin-top: 1px;
+.addModalBtn {
   position: absolute !important;
-  left: 120px;
-  width: 68% !important;
-  margin: 0 auto !important;
-  z-index: 0 !important;
+  right: 15px;
+  left: auto !important;
+  top: 15px !important;
+  z-index: 9;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.addMasterData {
-  width: 50%;
-  margin: 70px auto;
-  text-align: center;
-  font-size: 16px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 20px;
+.addModalBtn .hydrated {
+  background: transparent !important;
+  color: #000 !important;
+}
 
-  &>div {
-    width: 100%;
-    margin: 20px;
+.MuiTablePagination-displayedRows {
+  margin: 0;
+}
 
-    &>input,
-    button {
-      width: 65%;
-      font-size: 16px;
-      padding: 10px;
-    }
-
-    &>button {
-      background-color: #1976d2;
-      border: none;
-    }
-  }
+.modal-wrapper .modal {
+  top: 50% !important;
 }
