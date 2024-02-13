@@ -3,8 +3,8 @@ import * as jwt from 'jsonwebtoken';
 import * as config from '../config/auth.config';
 
 
-export let verifyToken = (req, res, next) => {
-  let token = req.headers["x-access-token"];
+export const verifyToken = (req, res, next) => {
+  const token = req.headers["x-access-token"];
 
   if (!token) {
     return res.status(403).send({ message: "No token provided!" });

@@ -1,1 +1,152 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../../../apps/pool-tracker/src/app/styles/variables';
+
+body {
+  margin: 0;
+  font-family: $font-family-sans-serif;
+}
+
+// =============add master data component css
+.ptg-table-addData {
+  width: 50%;
+  margin: 70px auto;
+  // text-align: center;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+  &>input,
+  label,
+  button {
+    width: 65%;
+    font-size: 16px;
+    padding: 10px;
+    margin: 0 auto;
+  }
+
+  &>button {
+    background-color: #1976d2;
+    border: none;
+    margin-top: 35px;
+    width: 68%;
+  }
+
+  &>h3 {
+    text-align: center;
+  }
+}
+
+.searchWrapper {
+  border: 1px solid #ccc;
+  border-radius: none !important;
+  min-height: 22px;
+  padding: 10px !important;
+  position: relative;
+  width: 68%;
+  margin: 0 auto;
+}
+
+.optionListContainer {
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 1px;
+  position: absolute !important;
+  left: 120px;
+  width: 68% !important;
+  margin: 0 auto !important;
+  z-index: 0 !important;
+}
+
+.addMasterData {
+  width: 50%;
+  margin: 70px auto;
+  text-align: center;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+
+  &>div {
+    width: 100%;
+    margin: 20px;
+
+    &>input,
+    button {
+      width: 65%;
+      font-size: 16px;
+      padding: 10px;
+    }
+
+    &>button {
+      background-color: #1976d2;
+      border: none;
+    }
+  }
+}
+
+// =================== view Master Data css============
+.viewMastertable table {
+  // width: 98%;
+  // padding: 15px;
+  // color: black;
+  // margin: 6px;
+  // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  &>tr>th {
+    background-color: #1976d2 !important;
+  }
+
+  &>tr>th,
+  td {
+    padding: 10px 15px;
+    text-align: center;
+    border: 1px solid black;
+    font-size: 14px !important;
+    text-align: left;
+  }
+}
+
+.viewMastertable button {
+  // background-color: #1976d2;
+  padding: 10px;
+  /* margin: 20px; */
+  font-size: 16px;
+  border: none;
+
+  &>a {
+    color: white;
+    text-decoration: none;
+    border: none;
+  }
+}
+
+.viewMastertable>table>tr>th {
+  background-color: #1976d2 !important;
+}
+
+.viewMastertable .css-d5sp9s-MuiTableCell-root {
+  background-color: #b9bc90;
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.viewMastertable {
+  margin: 15px;
+
+  h6 {
+    display: none;
+  }
+}
+
+table {
+  tr {
+    border-bottom: 1px solid #f2f2f2;
+  }
+
+  td {
+    border: 0 !important;
+  }
+}

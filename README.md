@@ -62,7 +62,7 @@ Libraries are shareable across libraries and applications. They can be imported 
 * npm install
 ```
 
-Run `npm start` or `npm run start:ptg-angular` for a dev server. Navigate to http://localhost:4200/.
+Run `npm start` or `npm run start:ptg-angular` for a dev server. Navigate to http://localhost:4201/.
 The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
