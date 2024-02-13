@@ -4,7 +4,8 @@ import Footer from './components/common/footer/Footer';
 import EditMasterdata from './components/EditMasterdata';
 import ViewMasterData from './components/viewMasterData/ViewMasterData';
 // import AddMasterdata from './components/AddMasterdata';
-import Skills from './components/Skills';
+
+
 import EditSkill from './components/EditSkill';
 import AddSkill from './components/AddSkill';
 import User from './components/User';
@@ -16,6 +17,8 @@ import Designation from './components/designation/designation'
 import Config from './components/config/Config';
 import AddDesignation from './components/designation/AddDesignation';
 import EditDesignation from './components/designation/EditDesignation';
+import Skill from './components/skill/Skill';
+
 
 
 export function App() {
@@ -41,7 +44,7 @@ export function App() {
           <Route path="/editMasterdata/:id" element={<EditMasterdata />} />
 
           {/* skills Routes*/}
-          <Route path="/skills" element={<Skills />} />
+          <Route path="/skills" element={<Skill />} />
           <Route path="addSkill" element={<AddSkill />} />
           <Route path="/editskill/:id" element={<EditSkill />} />
           <Route path="*" element={<PageNotFound />} />

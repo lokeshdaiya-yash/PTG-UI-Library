@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { addMasterdata, getSkills, getDesignation, getCompetency, getBand } from '../../service/api';
+import {
+    addMasterdata,
+    getSkills,
+    getDesignation,
+    getCompetency,
+    getBand,
+} from '../../service/api';
 import '../../app.module.scss';
 import './AddMasterData.scss';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -16,7 +22,7 @@ import {
 const defaultValue = {
     name: '',
     email: '',
-    poolStartDate: '',
+    poolStartDate: Date,
     bands: '',
     competency: '',
     ageing: '',
@@ -132,21 +138,26 @@ const AddMasterdata = () => {
     const today = new Date();
     const [date, setStartDate] = useState({
         startDate: null,
-        errorMsg: false,
     });
-    const setDateState: any = (d: any, field: string) => {
-        console.log(d, field);
-        setStartDate((preState: any) => {
-            return {
-                ...preState,
-                [field]: d,
-            };
-        });
-    };
+    // const setDateState: any = (selectedDate: any, field: string) => {
+    //   console.log(selectedDate, field);
+    //   setStartDate((preState: any) => {
+    //     return {
+    //       ...preState,
+    //       [field]: new Date(selectedDate),
+    //     };
+    //   });
+    // };
+
     const startDateProp = {
         selected: date.startDate,
         className: 'form-control w-100',
-        onChange: (e: any) => setDateState(e, 'startDate'),
+        onChange: (date: any) => {
+            console.log(date);
+            console.log(new Date(date));
+            setStartDate(date);
+            setMasterdata({ ...masterData, poolStartDate: date });
+        },
         startDate: today,
         poolEndDate: null,
         disabled: false,
@@ -158,6 +169,7 @@ const AddMasterdata = () => {
         <div>
             {/* ===================================================================== */}
             <div className="ptg-table-addData">
+                <h3>Add Master Data</h3>
                 {/* ================== name and email========================== */}
                 <div className="masterdatafield">
                     <div className="masterdatafield-box">
@@ -187,11 +199,11 @@ const AddMasterdata = () => {
                 <div className="masterdatafield">
                     <div className="masterdatafield-box">
                         <label htmlFor="name"> Pool Start date </label>
-                        <PtgUiCalendar  {...startDateProp} />
+                        <PtgUiCalendar {...startDateProp} />
                     </div>
 
                     <div className="masterdatafield-box">
-                        <label > Band </label>
+                        <label> Band </label>
                         <PtgUiMultiSelectbox
                             name="bands"
                             list={bands}
@@ -204,7 +216,7 @@ const AddMasterdata = () => {
                 {/* ==================competency and designation======================= ===*/}
                 <div className="masterdatafield">
                     <div className="masterdatafield-box">
-                        <label  > Competancy </label>
+                        <label> Competancy </label>
                         <PtgUiMultiSelectbox
                             name="competency"
                             list={competency}
@@ -214,7 +226,7 @@ const AddMasterdata = () => {
                         />
                     </div>
                     <div className="masterdatafield-box">
-                        <label  > Designation </label>
+                        <label> Designation </label>
                         <PtgUiMultiSelectbox
                             name="designations"
                             list={designations}
@@ -227,7 +239,7 @@ const AddMasterdata = () => {
                 {/*  =====================skills and years of exp================================*/}
                 <div className="masterdatafield">
                     <div className="masterdatafield-box">
-                        <label  > Skills </label>
+                        <label> Skills </label>
                         <PtgUiMultiSelectbox
                             name="skills"
                             list={skills}
@@ -250,7 +262,7 @@ const AddMasterdata = () => {
                 {/* ====================comment============================== */}
                 <div className="masterdatafield">
                     <div className="masterdatafield-box">
-                        <label  > Comments </label>
+                        <label> Comments </label>
                         <PtgUiTextArea
                             rows="2"
                             name="comments"

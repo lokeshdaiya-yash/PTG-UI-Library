@@ -1,5 +1,5 @@
 import './header.scss';
-import Logo from '../../../../assets/images/yash-logo-new.svg'
+import Logo from '../../../../assets/images/yash-logo-new.svg';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { PtgUiMultiSelectbox } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 
@@ -7,22 +7,22 @@ export function Header() {
   const navigate = useNavigate();
 
   const config_LIST = [
-    { value: 'designation', label: 'designation', name: 'config' },
-    { value: 'skills', label: 'skills', name: 'config' },
-    { value: 'band', label: 'band', name: 'config' },
-    { value: 'competency', label: 'competency', name: 'config' },
-
+    { value: 'designation', label: 'Designation', name: 'config' },
+    { value: 'skills', label: 'Skills', name: 'config' },
+    { value: 'band', label: 'Band', name: 'config' },
+    { value: 'competency', label: 'Competency', name: 'config' },
   ];
   const onSelect = (e) => {
-    const path = "/" + e[0].value;
+    const path = '/' + e[0].value;
     console.log('Select Values, onValueChange', e[0]);
     navigate(path);
-
   };
   return (
-    <header className='navbar'>
+    <header className="navbar">
       <div>
-        <NavLink to="/masterData"><img src={Logo} alt="Logo" /></NavLink>
+        <NavLink to="/masterData">
+          <img src={Logo} alt="Logo" />
+        </NavLink>
         <span>UI Pool Tracker</span>
       </div>
       <div>
