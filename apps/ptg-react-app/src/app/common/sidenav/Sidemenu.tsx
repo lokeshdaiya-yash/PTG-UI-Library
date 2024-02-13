@@ -86,7 +86,7 @@ export const NavigationData = [
   {
     path: '/tabs',
     icon: 'fa fa-lock',
-    label: 'Tabs',
+    label: 'TABS',
     disabled: false,
   },
   {

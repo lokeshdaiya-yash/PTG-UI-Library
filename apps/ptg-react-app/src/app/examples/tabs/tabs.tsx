@@ -11,10 +11,12 @@ import CodeIcon from '@mui/icons-material/Code';
 import "./tabs.scss";
 import { PtgTabs } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import { useTranslation } from 'react-i18next';
 
 
 const TabExample = () => {
 
+  const { t } = useTranslation();
   const [showCode, setShowCode] = useState(false);
 
   let arrayObject = [
@@ -96,7 +98,7 @@ const TabExample = () => {
       <div>
       <div className="row">
         <div className="col-11 mb-3">
-          <h3>Tabs</h3>
+          <h3>{t('TABS')}</h3>
         </div>
         <div className='col-1 mr-5'>
           <CodeIcon onClick={() =>ShowExampleCode()} fontSize="medium" className='show-code-icon'></CodeIcon>
