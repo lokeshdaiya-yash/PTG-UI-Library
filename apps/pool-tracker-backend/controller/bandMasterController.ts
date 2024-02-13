@@ -1,6 +1,5 @@
 import { request } from "express";
 import Band from "../model/bandMasterSchema.ts";
-
 export const addBand = async (request, response) => {
     const band = request.body;
     console.log(band);
