@@ -3,10 +3,11 @@ import * as bcrypt from "bcryptjs";
 import * as multer from "multer";
 import * as nodemailer from "nodemailer";
 import * as fs from "fs";
+import * as util from 'util'
 // import { environment } from '../../environments/environment.prod';
 // import * as {promisify} from "until";
 // const fs = require('fs')
-const { promisify } = require('util')
+const { promisify } = util
 const unlinkAsync = promisify(fs.unlink)
 import { User } from '../models/user.model'
 import { SaveFile } from "../models/savefile.model";
@@ -15,11 +16,11 @@ import { SaveFile } from "../models/savefile.model";
 // const filePath = "./apps/ptg-ui-apps-backend/src/assets/"
 //const filePath = "/assets/"
  
-var filePath="";
+let filePath="";
 
 if (process.env.NODE_ENV !== 'production') { 
      filePath = "./apps/ptg-ui-apps-backend/src/assets/"
-   }else{
+  }else{
      filePath = "./assets/"
 } 
 
@@ -35,14 +36,14 @@ const storage = multer.diskStorage({
         }
     },
     filename: (req, file, cb) => {
-        let extArray = file.mimetype.split("/");        
-        let extension = extArray[extArray.length - 1];
+        const extArray = file.mimetype.split("/");        
+        const extension = extArray[extArray.length - 1];
         cb(null, file.fieldname + '-' + Date.now() + '.' + extension)
     },
 })
 const uploadStorage = multer({ storage: storage,  limits: { fileSize: "10485760" } })
 
-var transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
     host: "smtp-relay.sendinblue.com",
     port: 587,
     secure: false, // upgrade later with STARTTLS
@@ -99,11 +100,11 @@ export const uploadFile =  [uploadStorage.single("file"), async (req, res) => {
 }]
 
 export const forgetPassword = (req, res) => {
-    let random_password = Math.random().toString(35).substr(2, 6)
-    let update = { password: bcrypt.hashSync(random_password.toString(), 8), isPasswordChange: false };
-    let filter = { email: req.body.email }
+    const random_password = Math.random().toString(35).substr(2, 6)
+    const update = { password: bcrypt.hashSync(random_password.toString(), 8), isPasswordChange: false };
+    const filter = { email: req.body.email }
     User.findOneAndUpdate(filter, update, { new: true }).then(data => {
-        let message = {
+        const message = {
             from: 'document_process@yash.com',
             to: req.body.email,
             subject: 'Updating password',
@@ -128,15 +129,15 @@ export const updatePassword = async (req, res) => {
             res.status(500).send({ message: err });
             return;
         } else {
-            var passwordIsValid = bcrypt.compareSync(req.body.oldPassword, data.password);
+            const passwordIsValid = bcrypt.compareSync(req.body.oldPassword, data.password);
             if (!passwordIsValid) {
                 return res.status(401).send({
                     accessToken: null,
                     message: "Invalid old Password!"
                 });
             } else {
-                let update = { password: bcrypt.hashSync(req.body.newPassword, 8), isPasswordChange: true };
-                let filter = { _id: req.body.userId }
+                const update = { password: bcrypt.hashSync(req.body.newPassword, 8), isPasswordChange: true };
+                const filter = { _id: req.body.userId }
                 User.updateOne(
                     filter,
                     update,
