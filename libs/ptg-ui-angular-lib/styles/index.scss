@@ -1,31 +1,15 @@
 @import "./variables";
-// @import "~bootstrap/scss/bootstrap";
   @import "./button";
   @import "./_intro.scss";
   @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
-  // @import "./bs-datepicker";
-// @import "./checkbox";
-// @import "./datatable";
-// @import "./forms";
-// @import "./fonts";
-// @import "./input";
-// @import "./modal";
-// @import "./ng-select";
-// @import "./tabs";
-// @import "./custom-scss";
-// @import '~ngx-toastr/toastr';
-@import './pagination';
-@import './stepform';
-@import './tabs';
-@import './input';
-@import './fonts';
+  @import './pagination';
+  @import './stepform';
+  @import './tabs';
+  @import './input';
+  @import './fonts';
 
 // // // ng-select style
 @import "~@ng-select/ng-select/themes/default.theme.css";
-
-// /* Importing Datepicker SCSS file. */
-// @import "~ngx-bootstrap/datepicker/bs-datepicker.css";
-
 
 // // Ag-grid datatable
 @import "~ag-grid-community/dist/styles/ag-grid.css";
@@ -41,7 +25,6 @@ nav {
   height: 10vh;
   border-bottom-width: 0px;
   border-bottom-style: solid;
-  // box-shadow: 0px 0px 6px 7px rgba(128, 128, 128, 0.1) !important;
   z-index: 100 !important;
 
   .logo{
@@ -83,7 +66,6 @@ nav {
   height: 10vh;
   border-bottom-width: 0px;
   border-bottom-style: solid;
-  // box-shadow: 0px 0px 6px 7px rgba(128, 128, 128, 0.1) !important;
   z-index: 100 !important;
 
   .logo{
