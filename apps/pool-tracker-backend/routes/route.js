@@ -2,15 +2,33 @@ import express from "express";
 import { addMasterdata, getMasterdata, getdata, editMasterdata, deleteMasterdata } from "../controller/masterdata-controller.js";
 import { addSkill, getSkills, getSingleSkill, editSkill, deleteSkill } from "../controller/skill-controller.js";
 import { addUser, getUsers, getUser, editUser, loginUser } from "../controller/user-controller.js";
-import { addDesignation, getDesignation } from "../controller/designation-controller.js";
-import userRoutes from "./userroute.js";
-import masterdataRoute from "./masterdataRoute.js";
-import skillRoute from "./skillsRoute.js";
+import { addCompetency, getCompetency, getSingleCompetency, editCompetency, deleteCompetency } from "../controller/competency-controller.js";
+import { addDesignation, getDesignation, getSingleDesignation, editDesignation, deleteDesignation } from "../controller/designation-controller.js";
+import { addBand, getBand, getSingleBand, editBand, deleteBand} from "../controller/band-controller.js";
+// import userRoutes from "./userroute.js";
+// import masterdataRoute from "./masterdataRoute.js";
+// import skillRoute from "./skillsRoute.js";
 
+addDesignation
 const router = express.Router();
+
+router.post("/band/add", addBand);
+router.get("/band/all", getBand);
+router.get("/band/:id", getSingleBand);
+router.post("/band/:id", editBand);
+router.delete("/band/:id", deleteBand);
+
+router.post("/competency/add", addCompetency);
+router.get("/competency/all", getCompetency);
+router.get("/competency/:id", getSingleCompetency);
+router.post("/competency/:id", editCompetency);
+router.delete("/competency/:id", deleteCompetency);
 
 router.post("/designation/add", addDesignation);
 router.get("/designation/all", getDesignation);
+router.get("/designation/:id", getSingleDesignation);
+router.post("/designation/:id", editDesignation);
+router.delete("/designation/:id", deleteDesignation);
 
 router.post("/masterdata/add", addMasterdata);
 router.get("/masterdata/all", getMasterdata);

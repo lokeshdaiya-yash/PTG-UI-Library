@@ -6,16 +6,16 @@ const masterDataSchema = mongoose.Schema({
     
   name: String,
   clientInterviews: String,
+  competency: String,
   poolStartDate: String,
-  poolEndDate: String,
   ageing: String,
   status: String,
-  skills: String,
+  skills: [String],
   yearsofExp: String,
   bands: String,
   comments: String,
   clientName: String,
-  designations: [String],
+  designations: String,
 })
 
 

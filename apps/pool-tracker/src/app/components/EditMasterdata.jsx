@@ -15,6 +15,7 @@ const defaultValue = {
     bands: "",
     comments: "",
     clientName: "",
+    designations: "",
   };
 const EditMasterdata = () => {
     const [masterData, setMasterdata] = useState(defaultValue);
@@ -99,6 +100,10 @@ const EditMasterdata = () => {
         <div>
         {/* <label>clientName</label> */}
         <input placeholder='Enter clientName' onChange={(e) => onValueChange(e)} name="clientName" value={masterData.clientName}></input>
+        </div>
+        <div>
+        {/* <label>designation</label> */}
+        <input placeholder='Enter designation' onChange={(e) => onValueChange(e)} name="designations" value={masterData.designations}></input>
         </div>
 
         <div>
