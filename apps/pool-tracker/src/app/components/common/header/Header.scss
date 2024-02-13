@@ -1,0 +1,63 @@
+@import '../../../styles/variables';
+
+.navbar {
+  background: #b2e9e2a1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 15px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+
+  &>div {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-weight: bold;
+      border-left: 1px solid #b0a568;
+      margin-left: 7px;
+      padding: 19px 0 19px 10px;
+      font-size: 16px;
+    }
+  }
+
+  & a {
+    padding: 0px 7px;
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+    font-weight: 500;
+
+    &:hover {
+      color: #f6190d;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    &>img {
+      width: 92px;
+    }
+  }
+}
+
+nav {
+  height: 100%;
+  border-bottom-width: 0px;
+  border-bottom-style: solid;
+  box-shadow: 0px 0px 6px 7px rgba(128, 128, 128, 0.1) !important;
+  z-index: 100 !important;
+
+  .logo {
+    a {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    img {
+      height: 38px;
+    }
+  }
+}
