@@ -26,8 +26,8 @@ const AddDesignation = () => {
   };
 
   return (
-    <div>
-      <div className="ptg-table-addData">
+    <div className="ptg-table-addData form-container">
+      {/* <div className="ptg-table-addData"> */}
         {/* <h3>Add Designation</h3> */}
         <label htmlFor="label"> label </label>
         <PtgUiInput
@@ -57,7 +57,7 @@ const AddDesignation = () => {
         />
 
         <PtgUiButton
-          className="w-100 mt-2"
+          className="mt-2 btn-success btn-position"
           type="button"
           onClick={() => addDesignationDetails()}
           // accessKey="s"
@@ -66,7 +66,7 @@ const AddDesignation = () => {
         >
           Add Designation
         </PtgUiButton>
-      </div>
+      {/* </div> */}
     </div>
   );
 };

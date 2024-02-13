@@ -9,7 +9,6 @@
   flex-direction: column;
   & > input,
   label,
-  button,
   textarea,
   select {
     width: 100%;
@@ -35,10 +34,8 @@
   border-radius: 4px;
   margin-top: 1px;
   position: absolute !important;
-  left: 120px;
-  width: 68% !important;
   margin: 0 auto !important;
-  z-index: 0 !important;
+  z-index: 1 !important;
 }
 .addMasterData {
   width: 100%;
@@ -87,4 +84,32 @@ button {
 .masterdataBtn{
   display: flex;
   width: 100%;
+}
+.form-container{
+  width: 74%;
+  margin: 0px auto;
+  padding: 7px 10px;
+}
+.btn-success{
+  background-color: #1976d2; 
+  border-radius: 7px;
+    border: none;
+    padding: 0px 20px;
+    height: 38px;
+    outline: none;
+    transition: all 0.1s ease-in-out 0s;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    color: white;
+    width: 18%;
+    font-size: 14px;
+}
+.btn-position{
+  position: absolute;
+  z-index: 4;
+  right: 104px;
+  bottom: 16px;
 }

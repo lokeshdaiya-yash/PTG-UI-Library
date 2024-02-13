@@ -95,7 +95,7 @@ const getAllBands = async () => {
       console.log(response);
       const skillData = response;
       const transformedSkills = skillData.map((skill) => ({
-        value: skill._id,
+        value: skill.value,
         label: skill.name,
         name: skill.name,
       }));
@@ -264,7 +264,7 @@ const getAllBands = async () => {
 {/*=====================================================  */}
 <div className="masterdatafield-box">
          <PtgUiButton
-          className="mt-2"
+          className="mt-2 btn-success"
           type="button"
           onClick={() => addMasterDetails()}
           aria-label="next"
