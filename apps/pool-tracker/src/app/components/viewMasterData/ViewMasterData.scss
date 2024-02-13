@@ -1,0 +1,68 @@
+// =================== view Master Data css============
+.viewMastertable {
+    margin: 15px;
+    position: relative;
+
+    .table-title {
+        position: absolute;
+        top: 6px;
+        z-index: 9;
+        left: 14px;
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .addMasterDataModal {
+        position: absolute;
+        right: 15px;
+        top: 25px;
+        z-index: 9;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .MuiTextField-root {
+        margin-right: 115px;
+    }
+
+    h6 {
+        display: none;
+    }
+
+    table {
+        tr {
+            border-bottom: 1px solid #f2f2f2;
+
+            th {
+                font-size: 14px !important;
+                background-color: #b9bc90;
+                color: #000;
+                text-align: center;
+                text-transform: capitalize;
+            }
+
+            td {
+                padding: 10px 15px;
+                font-size: 14px !important;
+                text-align: left;
+                color: #000;
+                border: 0 !important;
+                text-transform: capitalize;
+            }
+        }
+
+        button {
+            // background-color: #1976d2;
+            padding: 10px;
+            /* margin: 20px; */
+            font-size: 16px;
+            border: none;
+
+            &>a {
+                color: white;
+                text-decoration: none;
+                border: none;
+            }
+        }
+    }
+}

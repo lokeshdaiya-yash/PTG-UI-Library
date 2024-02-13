@@ -3,7 +3,11 @@
 
 body {
   margin: 0;
-  font-family: $font-family-sans-serif;
+  font-family: $font-family-sans-serif !important;
+}
+
+header+div {
+  min-height: calc(100vh - 146px);
 }
 
 // =============add master data component css
@@ -82,71 +86,5 @@ body {
       background-color: #1976d2;
       border: none;
     }
-  }
-}
-
-// =================== view Master Data css============
-.viewMastertable table {
-  // width: 98%;
-  // padding: 15px;
-  // color: black;
-  // margin: 6px;
-  // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-  &>tr>th {
-    background-color: #1976d2 !important;
-  }
-
-  &>tr>th,
-  td {
-    padding: 10px 15px;
-    text-align: center;
-    border: 1px solid black;
-    font-size: 14px !important;
-    text-align: left;
-  }
-}
-
-.viewMastertable button {
-  // background-color: #1976d2;
-  padding: 10px;
-  /* margin: 20px; */
-  font-size: 16px;
-  border: none;
-
-  &>a {
-    color: white;
-    text-decoration: none;
-    border: none;
-  }
-}
-
-.viewMastertable>table>tr>th {
-  background-color: #1976d2 !important;
-}
-
-.viewMastertable .css-d5sp9s-MuiTableCell-root {
-  background-color: #b9bc90;
-  color: #000;
-  text-align: center;
-  font-weight: bold;
-  text-transform: capitalize;
-}
-
-.viewMastertable {
-  margin: 15px;
-
-  h6 {
-    display: none;
-  }
-}
-
-table {
-  tr {
-    border-bottom: 1px solid #f2f2f2;
-  }
-
-  td {
-    border: 0 !important;
   }
 }

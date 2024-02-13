@@ -1,8 +1,7 @@
 import './Footer.scss';
-export interface FooterProps { }
 
 // eslint-disable-next-line no-empty-pattern
-export function Footer({ }: FooterProps) {
+export function Footer() {
   return (
     <footer>
       <p>© 2024 - All right reserved.</p>
