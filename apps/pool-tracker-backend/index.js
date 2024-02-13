@@ -4,10 +4,10 @@ import cors from 'cors';
 // import bodyParser, { json, urlencoded } from "body-parser";
 import bodyParser from "body-parser";
 
-import Routes from "./routes/route.js";
+import Routes from "./routes/route";
 // import UserRoutes from "./routes/userroute.js";
 
-import Connection from "./database/db.js";
+import Connection from "./database/db";
 
 const app = express();
 dotenv.config();

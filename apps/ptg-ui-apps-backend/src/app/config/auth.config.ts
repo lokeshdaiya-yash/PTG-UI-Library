@@ -1,3 +1,3 @@
-export let secret= "document-processing-secret-key"
+export const secret= "document-processing-secret-key"
 
   
