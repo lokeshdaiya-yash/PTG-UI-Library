@@ -50,9 +50,9 @@ export class LineChartComponent implements OnInit {
    y.domain([0, ydomain]);
    svg.append("g")
    .attr("transform", `translate(0, ${d3height})`)
-   .call(d3.axisBottom(x));
+   .call(d3.axisBottom(x).ticks(6));
    svg.append("g")
-   .call(d3.axisLeft(y));
+   .call(d3.axisLeft(y).ticks(6));
 
  // add the Line
      let valueLine: any = d3.line()
