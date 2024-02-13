@@ -5,7 +5,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { PtgUiInput, PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
 
-
 const ViewMasterdata = () => {
   const [masterdatas, setMasterdata] = useState([]);
 
@@ -15,45 +14,19 @@ const ViewMasterdata = () => {
 
   const getAllUsers = async () => {
     let response = await getMasterdata();
-    console.log("response", response)
+    console.log('response hasmat>>>>>>>>>>', response);
     setMasterdata(response?.data);
   };
   const deleteUsersDetails = async (id) => {
     await deleteMasterdata(id);
     alert('Do You Want To Delete');
     getAllUsers();
-  }
+  };
   const ActionButton = (props) => {
-    return (
-      <button>Text</button>
-    )
-  }
+    return <button>Text</button>;
+  };
 
   const Columns = [
-    // {
-    //   title: '',
-    //   field: 'name',
-    //   filtering: false,
-    //   width: '2%',
-    //   render: (_, rowData, index) => (
-    //     <div className="accordion-container">
-    //       <button
-    //         className={`accordion ${activeAccordion === index ? 'active' : ''}`}
-    //         onClick={() => toggleAccordion(index)}
-    //       >
-    //         {/* Section {index + 1} */}
-    //       </button>
-    //       <div className={`panel ${activeAccordion === index ? 'active' : ''}`}>
-    //         <p>
-    //           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-    //           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-    //           enim ad minim veniam, quis nostrud exercitation ullamco laboris
-    //           nisi ut aliquip ex ea commodo consequat.
-    //         </p>
-    //       </div>
-    //     </div>
-    //   ),
-    // },
     { title: 'name', field: 'name', filtering: false, width: '10%' },
     { title: 'clientInterviews', field: 'clientInterviews', filtering: false },
     { title: 'poolStartDate', field: 'poolStartDate' },
@@ -62,10 +35,11 @@ const ViewMasterdata = () => {
     { title: 'yearsofExp', field: 'yearsofExp', filtering: false },
     { title: 'bands', field: 'bands', filtering: false },
     { title: 'competency', field: 'competency', filtering: false },
-    { title: 'comments', field: 'comments',filtering: false },
+    { title: 'comments', field: 'comments', filtering: false },
     { title: 'clientName', field: 'clientName', filtering: false },
     { title: 'designations', field: 'designations', filtering: false },
-    { title: 'Action',
+    {
+      title: 'Action',
       field: 'Action',
       name: 'action',
       header: '',
@@ -79,17 +53,6 @@ const ViewMasterdata = () => {
           <Link to={`/editMasterdata/${masterdata._id}`}>
             <PtgUiButton component={Link}>Edit</PtgUiButton>
           </Link>
-
-          {/* <PtgModal
-            modal-size="lg"
-            modal-header-name="Header Name Here"
-            confirm-button-name="Okay"
-            // onModalClose={modalClosed}
-          >
-            <div slot="body-block">
-              <h2>React Slot for Body</h2>
-            </div>
-          </PtgModal> */}
         </div>
       ),
     },
@@ -127,19 +90,16 @@ const ViewMasterdata = () => {
 
         actions={[
           {
-            icon: () => <PtgUiButton
-              className="btn-sm">
-              {('CLICK_HERE')}
-            </PtgUiButton>,
+            icon: () => (
+              <PtgUiButton className="btn-sm">{'CLICK_HERE'}</PtgUiButton>
+            ),
             tooltip: 'Click Here',
             onClick: (event, rowData) => {
               console.log(event, rowData);
-              alert("Button Clicked");
-
-            }
-          }
+              alert('Button Clicked');
+            },
+          },
         ]}
-
       />
 
       {/* {masterdatas.map((masterdata) => (
@@ -161,8 +121,7 @@ const ViewMasterdata = () => {
           </div>
         );
       })} */}
-     
-       </div>
+    </div>
   );
 };
 
