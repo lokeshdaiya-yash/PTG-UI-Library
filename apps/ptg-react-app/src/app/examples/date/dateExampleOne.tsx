@@ -163,7 +163,7 @@ export function ExampleOne(props: ExampleOneProps) {
                  </label>
                   <div className="row mb-3">
                    <div
-                     className="col-lg-5 col-md-12 col-sm-12 col-xs-12"
+                     className="col-lg-8 col-md-12 col-sm-12 col-xs-12"
                      id="react-datepicker_star-end"
                    >
                      <PtgUiCalendar {...dateRangeProp} />

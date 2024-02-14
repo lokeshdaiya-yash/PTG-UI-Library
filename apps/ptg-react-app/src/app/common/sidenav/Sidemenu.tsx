@@ -4,6 +4,57 @@
  * @desc Side bar/navigation list
 */
 {/*--List of sidebar/side navigation--*/}
+
+export const NavigationChildData = [
+  {
+    label: 'CHARTS',
+    icon: 'fas fa-chart-line',
+    pages: [
+      {
+        label: 'D3 CHARTS',
+        path: '/d3charts',
+        id: 'd3charts',
+        disabled: false,
+      },
+      {
+        label: 'HIGHCHARTS',
+        path: '/highcharts',
+        id: 'highchart',
+        disabled: false,
+      }
+    ],
+  },
+  {
+    label: 'DATA TABLE',
+    icon: 'fa fa-table',
+    pages: [
+      {
+        label: 'AG GRID',
+        path: '/datatable/aggrid',
+        id: 'Ag-grid',
+        disabled: false,
+      },
+      {
+        label: 'REACT DATA GRID',
+        path: '/datatable/reactdatagrid',
+        id: 'Ngx-table',
+        disabled: false,
+      },
+      {
+        label: 'MATERIAL',
+        path: '/datatable/materialTable',
+        id: 'Material',
+        disabled: false,
+      },
+            {
+        label: 'REACT TABLE',
+        path: '/datatable/reactTable',
+        id: 'react-table',
+        disabled: false,
+      },
+    ],
+  },
+]
 export const NavigationData = [
   {
     path: '/accordian',
@@ -23,7 +74,7 @@ export const NavigationData = [
     label: 'Carousel',
     disabled: false,
   },
-  {
+ {
     label: 'CHARTS',
     icon: 'fas fa-chart-line',
     pages: [
