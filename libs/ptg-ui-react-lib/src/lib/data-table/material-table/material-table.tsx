@@ -11,7 +11,7 @@ import { ExportCsv, ExportPdf } from '@material-table/exporters';
 
 /* eslint-disable-next-line */
 export interface PtgUiMaterialTableProps {
-  data:{ 
+  data: {
     id: number,
     athlete: string,
     age: number,
@@ -24,42 +24,42 @@ export interface PtgUiMaterialTableProps {
     bronze: number,
     total: number
   }[],
-  columns:{
+  columns: {
     title: string,
     field: string,
   }[];
-    filtering: boolean,
-    paging:boolean,
-    paginationPosition?:any
-    grouping?:boolean,
-    detailForAccordion?: any
+  filtering: boolean,
+  paging: boolean,
+  paginationPosition?: any
+  grouping?: boolean,
+  detailForAccordion?: (rowData: any) => React.ReactNode;
 }
 
-export function PtgUiMaterialTable({data,columns,filtering,paging,paginationPosition='bottom',grouping,detailForAccordion}: PtgUiMaterialTableProps) {  
+export function PtgUiMaterialTable({ data, columns, filtering, paging, paginationPosition = 'bottom', grouping, detailForAccordion }: PtgUiMaterialTableProps) {
 
-  return detailForAccordion?(
+  return detailForAccordion ? (
     <MaterialTable
       columns={columns}
       data={data}
-      title={<div style={{display: 'flex', alignItems:'center'}}>
-                <span style={{marginRight:'10px'}}>Material Table With Accordion</span>
-            </div>}
+      title={<div className='title'>
+        <span className='title-name'>Material Table With Accordion</span>
+      </div>}
       detailPanel={rowData => {
-        return (  
+        return (
           detailForAccordion(rowData)
         )
       }}
+    />
+
+  )
+    :
+    (
+      <MaterialTable
+        columns={columns}
+        data={data}
+        title="Material Table"
       />
-      
-      )
-      :
-      (
-        <MaterialTable
-          columns={columns}
-          data={data}
-          title="Material Table"
-          />
-      );
+    );
 }
 
 export default PtgUiMaterialTable;

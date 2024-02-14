@@ -19,20 +19,20 @@ export function Highcharts(props: HighchartsProps) {
   const { t } = useTranslation();
   return (
     <div>
-    <div className="w-100">
-      <Tabs defaultActiveKey="2d">
-        <Tab eventKey="2d" title={t('REUSABLE_MATERIAL_TABLE')}>
-                 <PtgUiMaterialTableExample/>
-           </Tab>
-        <Tab eventKey="3d" title={t('MATERIAL_TABLE_WITH_ACTION_BTN')}>
+      <div className="w-100">
+        <Tabs defaultActiveKey="2d">
+          <Tab eventKey="2d" title={t('REUSABLE_MATERIAL_TABLE')}>
+            <PtgUiMaterialTableExample />
+          </Tab>
+          <Tab eventKey="3d" title={t('MATERIAL_TABLE_WITH_ACTION_BTN')}>
             <PtgUiMaterialTableButtonExample />
-        </Tab>
-      </Tabs>
+          </Tab>
+        </Tabs>
+      </div>
+      <div className='mt-5'>
+        <PtgUiMaterialTableAccordion />
+      </div>
     </div>
-     <div className='mt-5'>
-     <PtgUiMaterialTableAccordion  />
- </div>
- </div>
   );
 }
 
