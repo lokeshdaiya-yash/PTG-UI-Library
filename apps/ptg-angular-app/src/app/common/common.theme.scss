@@ -19,15 +19,15 @@
       &.active {
         &:not(.parent-item):not(.disabled) {
 
-          background-color: rgb(237, 231, 246) !important;
+          background-color: $side-menu-color !important;
           border-end-end-radius: 5rem;
           border-start-end-radius: 5rem;
-          color: rgb(103, 58, 183) !important;
+          color: $side-menu-label-color !important;
           i{
-            color: rgb(103, 58, 183) !important;
+            color: $side-menu-label-color !important;
           }
-          &.child-item {color:rgb(103, 58, 183) !important;}
-          .menu-item-text{color: rgb(103, 58, 183) !important;}
+          &.child-item {color:$side-menu-label-color !important;}
+          .menu-item-text{color: $side-menu-label-color !important;}
         }
        
       }

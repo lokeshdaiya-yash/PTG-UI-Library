@@ -6,6 +6,9 @@ Override variables defined in boostrap
 $main:#002144;
 $second: #646464 !default;
 $secondDark: #1a222b;
+$menuColor:#EDE7F6;
+$labelcolor:#673AB7;
+
 
 // scss-docs-start theme-color-variables
 $primary: $main !default;
@@ -13,6 +16,10 @@ $primary: $main !default;
 $side-menu-text-color: $main; 
 $form-check-input-checked-color:  $main;
 $form-check-input-checked-bg-color: $main;
+$side-menu-color: $menuColor; 
+$side-menu-label-color:$labelcolor;
+
+
 
 $footer-text: #888b8d;  // #7c7f81
 $multi-select-chip-bg-color: #efefef;
