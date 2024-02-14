@@ -7,20 +7,18 @@ export default function Accordian() {
   const [showCode, setShowCode] = useState(false);
   const label = 'Lorem Ipsum';
   const description = 'Lorem ipsum dolor amet pork chop sausage turkey spare ribs ham hock cupim pork loin capicola bacon ham filet mignon prosciutto boudin turducken. Shank corned beef burgdoggen jowl ribeye. Ham pork pastrami rump meatball buffalo venison andouille picanha fatback pork loin. Venison doner porchetta, chicken leberkas fatback burgdoggen ham andouille landjaeger alcatra. Pork belly pork jerky prosciutto leberkas tail salami tongue frankfurter turducken short loin flank.';
-  const width ='100%';
-  const color ='white';
+  const color = 'white';
   const defaultOpened = false;
 
   const componentCode = `
   import { PtgAccordion } from '@ptg-ui/ptg-ui-web-components-react';
   const label = 'Lorem Ipsum';
   const description = 'Bacon ipsum dolor amet pork chop sausage turkey spare ribs ham hock cupim pork loin capicola bacon ham filet mignon prosciutto boudin turducken. Shank corned beef burgdoggen jowl ribeye. Ham pork pastrami rump meatball buffalo venison andouille picanha fatback pork loin. Venison doner porchetta, chicken leberkas fatback burgdoggen ham andouille landjaeger alcatra. Pork belly pork jerky prosciutto leberkas tail salami tongue frankfurter turducken short loin flank.';
-  const width ='100%';
   const color ='white';
   const defaultOpened = false;
  `;
   const htmlCode = `
-<PtgAccordion label={label} description={description} width={width} color={color} defaultOpened={defaultOpened}>
+<PtgAccordion label={label} description={description} color={color} defaultOpened={defaultOpened}>
   <div slot="body-block">
     <h2>React Slot for Body</h2>
   </div>
@@ -42,11 +40,11 @@ export default function Accordian() {
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
       )}
       <div className="col-md-12">
-      <PtgAccordion label={label} description={description} width={width} color={color} defaultOpened={defaultOpened}>
-        <div slot="body-block">
-          <h2>React Slot for Body</h2>
-        </div>
-      </PtgAccordion>
+        <PtgAccordion label={label} description={description} color={color} defaultOpened={defaultOpened}>
+          <div slot="body-block">
+            <h2>React Slot for Body</h2>
+          </div>
+        </PtgAccordion>
       </div>
     </div>
   );

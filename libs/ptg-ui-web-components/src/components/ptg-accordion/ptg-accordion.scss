@@ -4,19 +4,20 @@
 
 .accordion {
   position: relative;
-    cursor: pointer;
-    padding: 18px;
-    text-align: left;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    border: 0.5px solid rgb(199, 197, 197);
+  cursor: pointer;
+  padding: 18px;
+  text-align: left;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  border: 0.5px solid rgb(199, 197, 197);
+  width: 100%;
 }
 
-.accordion:focus{
+.accordion:focus {
   outline-width: 1px;
 }
 
-.accordion .body{
+.accordion .body {
   color: var(--mono-50);
   font-size: 14px;
   height: auto;
@@ -26,22 +27,24 @@
   padding: 16px;
 }
 
-.content-box-inner{
+.content-box-inner {
   border: 0.5px solid rgb(199, 197, 197);
   padding: 18px;
   border-radius: 10px;
 }
-.content-box{
+
+.content-box {
   overflow: hidden;
   transition: max-height 1s;
   max-height: 0;
-&.open {
-  box-sizing: border-box;
-  max-height: 500px;
-}
+
+  &.open {
+    box-sizing: border-box;
+    max-height: 500px;
+  }
 }
 
- .arrow {
+.arrow {
   position: absolute;
   top: 60%;
   right: 30px;
@@ -71,7 +74,7 @@
   transform: rotate(-45deg);
 }
 
-.arrow.down{
+.arrow.down {
   transform: translateY(-50%) rotate(180deg);
   right: 25px;
   top: 45%;
