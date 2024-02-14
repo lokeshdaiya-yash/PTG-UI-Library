@@ -169,7 +169,6 @@ const AddMasterdata = () => {
         <div>
             {/* ===================================================================== */}
             <div className="ptg-table-addData">
-                <h3>Add Master Data</h3>
                 {/* ================== name and email========================== */}
                 <div className="masterdatafield">
                     <div className="masterdatafield-box">
