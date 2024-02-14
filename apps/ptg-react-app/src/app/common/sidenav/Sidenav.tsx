@@ -5,16 +5,10 @@
  *
  */
 import React from 'react';
-import { NavigationData } from './Sidemenu';
+import { NavigationData ,NavigationChildData} from './Sidemenu';
 import './Sidenav.scss';
 import { useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import AccordionBody from 'react-bootstrap/esm/AccordionBody';
-import AccordionItem from 'react-bootstrap/esm/AccordionItem';
-import AccordionHeader from 'react-bootstrap/esm/AccordionHeader';
-
-import { Accordion } from 'react-bootstrap';
-
 // export interface SidenavProps {}
 // {}: SidenavProps
 export function Sidenav() {
@@ -23,9 +17,9 @@ export function Sidenav() {
   return (
     <div className="sidebar">
       <input id="toggle" type="checkbox" />
-   
-      <div className="sidenav-container">
-        <div className="sidenav">
+
+   <div className="sidenav-container ">
+      <div className="sidenav">
         {
           /*-----Side navigation-----*/
           NavigationData.map((navItem: any, idx: number) => {
@@ -35,7 +29,6 @@ export function Sidenav() {
               <Accordion.Header className={`acc-header ${!navItem.pages ? 'accordion-with-arrow' : ''}`}>
               <React.Fragment key={idx}>
                 {/*-----Parent navigation-----*/}
-                <>
                 <Link
                   to={
                     navItem.path && navItem.pages === undefined

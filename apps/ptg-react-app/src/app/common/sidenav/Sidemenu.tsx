@@ -5,7 +5,60 @@
 */
 {/*--List of sidebar/side navigation--*/}
 
+<<<<<<< HEAD
 
+=======
+export const NavigationChildData = [
+  {
+    label: 'CHARTS',
+    icon: 'fas fa-chart-line',
+    pages: [
+      {
+        label: 'D3 CHARTS',
+        path: '/d3charts',
+        id: 'd3charts',
+        disabled: false,
+      },
+      {
+        label: 'HIGHCHARTS',
+        path: '/highcharts',
+        id: 'highchart',
+        disabled: false,
+      }
+    ],
+  },
+  {
+    label: 'DATA TABLE',
+    icon: 'fa fa-table',
+    pages: [
+      {
+        label: 'AG GRID',
+        path: '/datatable/aggrid',
+        id: 'Ag-grid',
+        disabled: false,
+      },
+      {
+        label: 'REACT DATA GRID',
+        path: '/datatable/reactdatagrid',
+        id: 'Ngx-table',
+        disabled: false,
+      },
+      {
+        label: 'MATERIAL',
+        path: '/datatable/materialTable',
+        id: 'Material',
+        disabled: false,
+      },
+            {
+        label: 'REACT TABLE',
+        path: '/datatable/reactTable',
+        id: 'react-table',
+        disabled: false,
+      },
+    ],
+  },
+]
+>>>>>>> 31f3b55 (UI Changes)
 export const NavigationData = [
   {
     path: '/accordian',
@@ -37,12 +90,15 @@ export const NavigationData = [
     label: 'CARDS',
     disabled: false,
   },
+<<<<<<< HEAD
   {
     path: '/carousel',
     icon: 'fa fa-lock',
     label: 'Carousel',
     disabled: false,
   },
+=======
+>>>>>>> 31f3b55 (UI Changes)
  {
     label: 'CHARTS',
     icon: 'fas fa-chart-line',
