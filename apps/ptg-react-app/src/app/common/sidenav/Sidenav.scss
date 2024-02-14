@@ -6,7 +6,7 @@
 }
 .sidenav-container {
   width: 15vw;
-  background-color: #f5f6f8;
+  background-color: white;
   height: 100%;
   position: relative;
   overflow: auto;
@@ -65,7 +65,7 @@
           margin-top: 0.02rem !important;
         
           i {
-            color: $white !important;
+            color: #D7C9EC  !important;
           }
           &.child-item {
             color: $white !important;
@@ -101,6 +101,13 @@
 #toggle {
   display: none;
 }
+//  MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters
+// .MuiPaper-root{
+// height: 50px !important;
+// font-size: small !important;
+// box-shadow: none !important;
+// }
+
 
 // Responsive styles
 // For screens below 1122px
