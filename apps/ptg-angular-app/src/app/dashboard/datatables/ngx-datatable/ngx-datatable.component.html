@@ -17,4 +17,23 @@
     [showActionButton]="true"
   >
   </ptg-ui-ptg-ngx-datatable>
+
+  <h3 class="mb-3">NGX Datatable with Accordion
+    <button class="btn btn-primary ms-5" type="button" (click)="expandAllRows()" *ngIf="!expandFlag">Expand All</button>
+    <button class="btn btn-primary ms-5" type="button" (click)="expandAllRows()" *ngIf="expandFlag">Collapse All</button>
+  </h3>
+  <ptg-ui-ptg-ngx-datatable
+    [rows]="ngxdata"
+    [columns]="columns"
+    [limit]="10"
+    (getFilterEvent)="updateFilter($event)"
+    [offset]="offset"
+    (getSelectionEvent)="onSelect($event)"
+    [hScroll]="true"
+    (getActionEvent)="getAction($event)"
+    [showActionButton]="true"
+    [displayAccordion] ="displayAccordion"
+    [expandAll]="expandFlag"
+  >
+  </ptg-ui-ptg-ngx-datatable>
 </div>

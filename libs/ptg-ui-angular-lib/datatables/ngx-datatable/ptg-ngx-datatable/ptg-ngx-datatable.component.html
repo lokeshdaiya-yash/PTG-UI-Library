@@ -20,6 +20,7 @@ http://swimlane.github.io/ngx-datatable/
   <!-- datatable start from here  -->
   <div class="table-responsive">
     <ngx-datatable
+      #myTable
       class="material"
       [rows]="rows"
       [columns]="columns"
@@ -45,7 +46,7 @@ http://swimlane.github.io/ngx-datatable/
     >
     <!-- [selectionType]="selectionType" -->
     <!-- (select)="onSelect($event)" -->
-    <ngx-datatable-column *ngIf="selectionType === SelectionType.checkbox"
+    <ngx-datatable-column *ngIf="selectionType === SelectionType.checkbox && !displayAccordion"
             [width]="30"
             [sortable]="false"
             [canAutoResize]="false"
@@ -55,6 +56,21 @@ http://swimlane.github.io/ngx-datatable/
             [checkboxable]="true"
           >
           </ngx-datatable-column>
+          <ngx-datatable-column *ngIf="displayAccordion"
+          [width]="50"
+          [resizeable]="false"
+          [sortable]="false"
+          [draggable]="false"
+          [canAutoResize]="false"
+        >
+          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+            <div [class.datatable-icon-right]="!expanded"
+              [class.datatable-icon-down]="expanded"
+              title="Expand/Collapse Row"
+              (click)="toggleExpandRow(row)"></div>
+          </ng-template>
+        </ngx-datatable-column>
+
       <ngx-datatable-column *ngFor="let column of columns; let i = index" name="{{ column.name }}">
       </ngx-datatable-column>
 
@@ -67,6 +83,12 @@ http://swimlane.github.io/ngx-datatable/
         </ng-template>
       </ngx-datatable-column>
 
+      <ngx-datatable-row-detail [rowHeight]="100" #myDetailRow *ngIf="displayAccordion">
+        <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+          <div [innerHTML]="displayAccordion(row)"></div>
+        </ng-template>
+      </ngx-datatable-row-detail>
+       
       <!-- custom footer if you want to show  -->
       <ngx-datatable-footer *ngIf="false">
         <ng-template
