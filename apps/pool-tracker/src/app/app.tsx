@@ -2,10 +2,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/common/header/Header';
 import Footer from './components/common/footer/Footer';
 import EditMasterdata from './components/EditMasterdata';
-import ViewMasterData from './components/viewMasterData/ViewMasterData';
-// import AddMasterdata from './components/AddMasterdata';
-
-
+import ViewMasterdata from './components/viewMasterData/ViewMasterData';
+import AddMasterdata from './components/AddMasterdata';
+import Skills from './components/Skills';
 import EditSkill from './components/EditSkill';
 import AddSkill from './components/AddSkill';
 import User from './components/User';
