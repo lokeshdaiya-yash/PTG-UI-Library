@@ -16,7 +16,7 @@
     }
 
     .ng-dropdown-panel-items .ng-option {
-      color: #424242 !important; //#646464
+      color: #424242 !important;
       font-weight: 400;
 
       .ng-option-label {
@@ -50,9 +50,6 @@
   }
 
   .ng-select-container {
-    // &:not(.ng-has-value) {
-    //   background-color: $gray-100;
-    // }
     border-color: $gray-300;
 
     input,
@@ -98,8 +95,6 @@
     }
   }
 
-  /*********************/
-
   // add styles when dropdown gets opened
   &.ng-select-opened {
     .ng-select-container {
@@ -114,10 +109,6 @@
       }
     }
   }
-
-  /*********************/
-
- 
 
   .ng-select.ng-select-single .ng-select-container {
     height: 48px;

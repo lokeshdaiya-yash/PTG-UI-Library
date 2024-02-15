@@ -1,6 +1,5 @@
 .post-icon {
   .cal-icon {
-    // background-image: url('../../../../../../../apps/ptg-angular-app/src/assets/Icon-feather-calendar.svg');
     background-size: 100% 100%;
     width: 20px;
     height: 20px;
@@ -15,11 +14,3 @@
 .form-control:focus {
   box-shadow: 0 0 0 0.1rem rgb(0 33 68 / 25%);
 }
-
-// .has-error.ng-touched, .has-error .ng-invalid {
-//   // border: 2px solid rgba(255, 0, 0, 0.25);
-//   border: 1px solid red;
-//   &:focus {
-//     box-shadow: 0 0 0 0.1rem rgba(255, 0, 0, 0.25) !important;
-//   }
-// }

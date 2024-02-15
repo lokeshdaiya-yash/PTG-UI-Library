@@ -8,7 +8,6 @@ export const NavigationData = [
   {
     id: '1',
     path: '/accordian-example',
-    // icon: 'home-icon',
     icon: 'fa-solid fa-chevron-down',
     label: 'ACCORDIAN',
     disabled: false,
@@ -16,7 +15,6 @@ export const NavigationData = [
   {
     id: '2',
     path: '/calendar',
-    // icon: 'home-icon',
     icon: 'fa-solid fa-calendar',
     label: 'CALENDER',
     disabled: false,
@@ -24,7 +22,6 @@ export const NavigationData = [
   {
     id: '3',
     path: '/carousel',
-    // icon: 'home-icon',
     icon: 'fas fa-solid fa-slideshare',
     label: 'CAROUSEL',
     disabled: false,
@@ -133,7 +130,6 @@ export const NavigationData = [
   {
     id: '13',
     path: '/select',
-    // icon: 'home-icon',
     icon: 'fa-solid fa-check-to-slot',
     label: 'SELECT',
     disabled: false,
@@ -141,7 +137,6 @@ export const NavigationData = [
   {
     id: '14',
     path: '/accessibility',
-    // icon: 'home-icon',
     icon: 'fa-solid fa-keyboard',
     label: 'WEB ACCESSIBILITY',
     disabled: false,
@@ -149,7 +144,6 @@ export const NavigationData = [
   {
     id: '15',
     path: '/multistep-form',
-    // icon: 'home-icon',
     icon: 'fa-solid fa-file',
     label: 'MULTI FORMS',
     disabled: false,
@@ -157,7 +151,6 @@ export const NavigationData = [
   {
     id: '15',
     path: '/card',
-    // icon: 'home-icon',
     icon: 'fa-regular fa-square',
     label: 'CARDS',
     disabled: false,
@@ -165,7 +158,6 @@ export const NavigationData = [
   {
     id: '16',
     path: '/breadcrumbs',
-    // icon: 'home-icon',
     icon: 'fa fa-angle-double-right',
     label: 'BREADCRUMBS',
     disabled: false,
