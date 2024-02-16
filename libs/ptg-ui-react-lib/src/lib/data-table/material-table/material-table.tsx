@@ -32,34 +32,17 @@ export interface PtgUiMaterialTableProps {
   paging: boolean,
   paginationPosition?: any
   grouping?: boolean,
-  detailForAccordion?: (rowData: any) => React.ReactNode;
+  detailPanel?: (rowData:any) =>any;
 }
 
-export function PtgUiMaterialTable({ data, columns, filtering, paging, paginationPosition = 'bottom', grouping, detailForAccordion }: PtgUiMaterialTableProps) {
+export function PtgUiMaterialTable(props: PtgUiMaterialTableProps) {
 
-  return detailForAccordion ? (
+  return (
     <MaterialTable
-      columns={columns}
-      data={data}
-      title={<div className='title'>
-        <span className='title-name'>Material Table With Accordion</span>
-      </div>}
-      detailPanel={rowData => {
-        return (
-          detailForAccordion(rowData)
-        )
-      }}
+      {...props}
     />
 
   )
-    :
-    (
-      <MaterialTable
-        columns={columns}
-        data={data}
-        title="Material Table"
-      />
-    );
 }
 
 export default PtgUiMaterialTable;

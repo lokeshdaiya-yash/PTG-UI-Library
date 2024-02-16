@@ -196,7 +196,7 @@ detailForAccordion={detailForAccordion}
             paging={true}
             paginationPosition={'bottom'}
             grouping={true}
-            detailForAccordion={detailForAccordion}
+            detailPanel ={ rowData => {return (detailForAccordion(rowData))}}
           />
         </div>
       ) : (
