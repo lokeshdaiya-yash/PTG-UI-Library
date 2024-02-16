@@ -39,7 +39,6 @@ export const StepTwo = ({
   const {data:apisalutationListData} = PtguseFetch('salutation-lists') as any
   
   const { t } = useTranslation();
-console.log(apisalutationListData, genderList)
   useEffect(() => {
     if(apiDataGender[0]){
       const list = apiDataGender[0].attributes?.gender.map(item=>{
