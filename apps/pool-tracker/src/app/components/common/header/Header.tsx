@@ -1,7 +1,7 @@
-import './header.scss';
 import Logo from '../../../../assets/images/yash-logo-new.svg';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { PtgUiMultiSelectbox } from '@ptg-ui/libs/ptg-ui-react-lib/src';
+import './header.scss';
 export interface HeaderProps {}
 export function Header({}: HeaderProps) {
   const navigate = useNavigate();
@@ -23,9 +23,9 @@ export function Header({}: HeaderProps) {
         <NavLink to="/masterData">
           <img src={Logo} alt="Logo" />
         </NavLink>
-        <span>UI Pool Tracker</span>
+        <span className='app-name ml-20'>UI Pool Tracker</span>
       </div>
-      <div>
+      <div className='links'>
         <NavLink to="/masterData">View Master data</NavLink>
         <NavLink to="/addMasterdata">Master data Entry</NavLink>
         <NavLink to="/chart">Chart/Graph</NavLink>

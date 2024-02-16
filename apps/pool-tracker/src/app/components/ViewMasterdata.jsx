@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { getMasterdata, deleteMasterdata } from '../service/api';
 import '../app.module.scss';
-import { useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { PtgUiInput, PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
+import { PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
+import { dateFormat } from 'highcharts';
 
 const ViewMasterdata = () => {
   const [masterdatas, setMasterdata] = useState([]);
@@ -29,7 +29,7 @@ const ViewMasterdata = () => {
   const Columns = [
     { title: 'name', field: 'name', filtering: false, width: '10%' },
     { title: 'clientInterviews', field: 'clientInterviews', filtering: false },
-    { title: 'poolStartDate', field: 'poolStartDate' },
+    { title: 'poolStartDate', field: 'poolStartDate'},
     { title: 'status', field: 'status', filtering: false },
     { title: 'skills', field: 'skills', filtering: false },
     { title: 'yearsofExp', field: 'yearsofExp', filtering: false },
@@ -74,20 +74,6 @@ const ViewMasterdata = () => {
         paginationPosition={'bottom'}
         grouping={true}
         filterValue={filterValue}
-        // actions={[
-        //   {
-        //     icon: () =>  <PtgUiButton
-        //                   className="btn-sm">
-        //                   text
-        //                   </PtgUiButton>,
-        //         tooltip: 'Click Here',
-        //         onClick: (event, rowData) => {
-        //         console.log(event, rowData);
-        //         alert("Button Clicked");
-        //     }
-        //   }
-        // ]}
-
         actions={[
           {
             icon: () => (
@@ -101,26 +87,6 @@ const ViewMasterdata = () => {
           },
         ]}
       />
-
-      {/* {masterdatas.map((masterdata) => (
-            <tr key={masterdata._id}>
-            
-              <button LinkComponent={Link} to={`/edit/${masterdata._id}`}>Edit</button>
-              <PtgUiButton onClick={()=>deleteUsersDetails(masterdata._id)}>Delete</PtgUiButton>
-              </tr> */}
-
-      {/* {cardDataObj.map((masterdata) => {
-        return (
-          <div className="col-md-4">
-            <PtgCard
-              {...masterdata}
-              cardButtonText="select"
-              isCardAction={true}
-              onHandleClick={getAllUsers}
-            />
-          </div>
-        );
-      })} */}
     </div>
   );
 };

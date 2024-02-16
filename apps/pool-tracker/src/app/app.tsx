@@ -5,7 +5,6 @@ import EditMasterdata from './components/EditMasterdata';
 import ViewMasterdata from './components/ViewMasterdata';
 // import AddMasterdata from './components/AddMasterdata';
 
-
 import EditSkill from './components/EditSkill';
 import AddSkill from './components/AddSkill';
 import User from './components/User';
@@ -13,13 +12,11 @@ import User from './components/User';
 import Login from './components/Login';
 import PageNotFound from './components/pageNotFound/PageNotFound';
 import AddMasterdata from './components/addMasterData/AddMasterData';
-import Designation from './components/designation/designation'
+import Designation from './components/designation/designation';
 import Config from './components/config/Config';
 import AddDesignation from './components/designation/AddDesignation';
 import EditDesignation from './components/designation/EditDesignation';
 import Skill from './components/skill/Skill';
-
-
 
 export function App() {
   return (
@@ -29,8 +26,6 @@ export function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/user" element={<User />} />
-          {/* <Route path="/chart" element={<Chart />} /> */}
-          
 
           {/* <Route element={<PrivateRout />}> */}
           <Route path="/config" element={<Config />} />
@@ -47,6 +42,7 @@ export function App() {
           <Route path="/skills" element={<Skill />} />
           <Route path="addSkill" element={<AddSkill />} />
           <Route path="/editskill/:id" element={<EditSkill />} />
+
           {/* </Route> */}
           <Route path="*" element={<PageNotFound />} />
         </Routes>

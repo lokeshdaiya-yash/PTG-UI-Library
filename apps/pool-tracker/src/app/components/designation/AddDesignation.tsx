@@ -28,44 +28,44 @@ const AddDesignation = () => {
   return (
     <div className="ptg-table-addData form-container">
       {/* <div className="ptg-table-addData"> */}
-        {/* <h3>Add Designation</h3> */}
-        <label htmlFor="label"> label </label>
-        <PtgUiInput
-          type="text"
-          name="label"
-          id="inputUsername"
-          value={designation.label}
-          onChange={(e) => onValueChange(e)}
-        />
+      {/* <h3>Add Designation</h3> */}
+      <label htmlFor="label"> label </label>
+      <PtgUiInput
+        type="text"
+        name="label"
+        id="inputUsername"
+        value={designation.label}
+        onChange={(e) => onValueChange(e)}
+      />
 
-<label htmlFor="value"> Value </label>
-        <PtgUiInput
-          type="text"
-          name="value"
-          id="inputUsername"
-          value={designation.value}
-          onChange={(e) => onValueChange(e)}
-        />
+      <label htmlFor="value"> Value </label>
+      <PtgUiInput
+        type="text"
+        name="value"
+        id="inputUsername"
+        value={designation.value}
+        onChange={(e) => onValueChange(e)}
+      />
 
-<label htmlFor="name"> Name </label>
-        <PtgUiInput
-          type="text"
-          name="name"
-          id="inputUsername"
-          value={designation.name}
-          onChange={(e) => onValueChange(e)}
-        />
+      <label htmlFor="name"> Name </label>
+      <PtgUiInput
+        type="text"
+        name="name"
+        id="inputUsername"
+        value={designation.name}
+        onChange={(e) => onValueChange(e)}
+      />
 
-        <PtgUiButton
-          className="mt-2 btn-success btn-position"
-          type="button"
-          onClick={() => addDesignationDetails()}
-          // accessKey="s"
-          aria-label="next"
-          data-testid="next"
-        >
-          Add Designation
-        </PtgUiButton>
+      <PtgUiButton
+        className="mt-2 btn-primay btn-position"
+        type="button"
+        onClick={() => addDesignationDetails()}
+        // accessKey="s"
+        aria-label="next"
+        data-testid="next"
+      >
+        Add Designation
+      </PtgUiButton>
       {/* </div> */}
     </div>
   );
