@@ -1,3 +1,27 @@
 .parent-block {
   position: relative;
 }
+
+::ng-deep .datatable-container {
+  width: 100%;
+  padding-left: 6%;
+}
+ 
+::ng-deep .datatable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-weight: 400;
+}
+ 
+::ng-deep .datatable td {
+  width: 10rem;
+  padding-top: 1rem;
+  
+}
+ 
+::ng-deep .datatable th{
+  font-weight: 400;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}

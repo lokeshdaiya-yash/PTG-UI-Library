@@ -78,6 +78,7 @@ export class PtgNgxDatatableComponent implements OnChanges {
   @Output() getActionEvent: EventEmitter<any> = new EventEmitter();
   @Input() displayAccordion?: (data: any) => any;
   @Input() expandAll?: any;
+  @Input() showFooter? =true;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.table && changes['expandAll']?.currentValue !== undefined) {

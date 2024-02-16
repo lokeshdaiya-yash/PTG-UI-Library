@@ -241,12 +241,28 @@ export class NgxDatatableComponent implements OnInit {
     // console.log(event);
   }
 
-  displayAccordion(rowData: any): any {
-    return `<div className='mt-3 mb-3'>
-          <h5>Custom Detail Panel</h5>
-          <h6>Total: ${rowData?.total}</h6>
-          <h6>Country: ${rowData?.country}</h6>
-      </div>`;
+  displayAccordion(rowData: any) {
+    const tableData= `<div class="datatable-container">
+    <table class="datatable " style="color: green;" >
+      <thead>
+        <tr>
+          <th>Athlete</th>
+          <th>Country</th>
+          <th>Year</th>
+          <th>Sport</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>${rowData.athlete}</td>
+          <td>${rowData.country}</td>
+          <td>${rowData.year}</td>
+          <td>${rowData.sport}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>`;
+  return tableData;
   }
 
   expandAllRows() {

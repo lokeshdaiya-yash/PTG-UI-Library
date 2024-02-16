@@ -90,7 +90,7 @@ http://swimlane.github.io/ngx-datatable/
       </ngx-datatable-row-detail>
        
       <!-- custom footer if you want to show  -->
-      <ngx-datatable-footer *ngIf="false">
+      <ngx-datatable-footer *ngIf="!showFooter">
         <ng-template
           ngx-datatable-footer-template
           let-rowCount="rowCount"
@@ -101,7 +101,7 @@ http://swimlane.github.io/ngx-datatable/
           let-offset="offset"
         >
           <!-- custom footer   -->
-          <div style="padding: 5px 10px">
+          <div style="padding: 5px 10px" *ngIf="showFooter">
             <div><strong>Summary</strong>: Gender: Female</div>
             <hr style="width: 100%" />
             <div>
@@ -111,7 +111,7 @@ http://swimlane.github.io/ngx-datatable/
             pages - {{ pages }}
           </div>
           <!-- custom pagination  -->
-          <ul class="pagination justify-content-center mt-3">
+          <ul class="pagination justify-content-center mt-3" *ngIf="showFooter">
             <li class="page-item" [ngClass]="{ disabled: currentPage <= 1 }">
               <a class="page-link">To First</a>
             </li>
