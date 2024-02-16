@@ -1,0 +1,102 @@
+@import '../../styles/variables';
+
+.ptg-table-addData {
+  width: 50%;
+  margin: 70px auto;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  & > input,
+  label,
+  textarea,
+  select {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+    margin: 0 auto;
+    font-weight: 600;
+  }
+  & > h4 {
+    text-align: center;
+    color: $main;
+    font-weight: 600;
+  }
+}
+.searchWrapper {
+  border: 1px solid #ccc;
+  border-radius: none !important;
+  min-height: 22px;
+  padding: 3px !important;
+  position: relative;
+  margin: 0 auto;
+}
+.optionListContainer {
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 1px;
+  position: absolute !important;
+  margin: 0 auto !important;
+  z-index: 1 !important;
+}
+.addMasterData {
+  width: 100%;
+  margin: 0px auto;
+  text-align: center;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+  & > div {
+    width: 100%;
+    margin: 20px;
+    & > input,
+    button {
+      width: 65%;
+      font-size: 16px;
+      padding: 10px;
+    }
+    & > button {
+      background-color: #1976d2;
+      border: none;
+    }
+  }
+}
+.react-datepicker__input-container {
+  margin: 0 auto;
+}
+.react-datepicker__input-container .w-100 {
+  width: 70% !important;
+}
+//   ============================
+.masterdatafield {
+  display: flex;
+  justify-content: space-between;
+  & .masterdatafield-box {
+    width: 48%;
+  }
+}
+.react-datepicker__input-container .w-100 {
+  width: 100% !important;
+}
+button {
+  background-color: #1976d2;
+  border: none;
+  border-radius: 4px;
+}
+.masterdataBtn {
+  display: flex;
+  width: 100%;
+}
+.form-container {
+  width: 74%;
+  margin: 0px auto;
+  padding: 7px 10px;
+}
+
+.btn-position {
+  position: absolute;
+  z-index: 4;
+  right: 104px;
+  bottom: 16px;
+}

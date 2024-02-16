@@ -2,7 +2,7 @@ import * as express from "express";
 import * as controller from "../controllers/user.controller";
 import * as authJwt from "../middlewares/authJwt";
 
-const router = express.Router();
+let router = express.Router();
 router.post("/api/user/userData", [authJwt.verifyToken], controller.userData);
 router.post("/api/user/uploadFile", [authJwt.verifyToken], controller.uploadFile);
 router.post("/api/user/forgetPassword", controller.forgetPassword);

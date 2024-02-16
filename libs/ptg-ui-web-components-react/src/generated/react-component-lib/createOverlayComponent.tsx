@@ -91,7 +91,7 @@ export const createOverlayComponent = <
       return true;
     }
 
-    override async componentDidUpdate(prevProps: Props) {
+    override async  componentDidUpdate(prevProps: Props) {
       if (this.overlay) {
         attachProps(this.overlay, this.props, prevProps);
       }
