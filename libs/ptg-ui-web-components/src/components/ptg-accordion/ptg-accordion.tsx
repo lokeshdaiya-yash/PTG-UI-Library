@@ -7,14 +7,14 @@ import { Component, h, Prop, State } from '@stencil/core';
 })
 export class PtgAccordion {
   @State() toggle: boolean = false;
-  @Prop() label: string;
-  @Prop() description: string;
-  @Prop() color: string = 'white';
-  @Prop() defaultOpened: boolean = false;
 
-  componentWillLoad() {
-    this.toggle = this.defaultOpened;
-  }
+  @Prop() label: string;
+
+  @Prop() description: string;
+
+  @Prop() width: string;
+
+  @Prop() color: string;
 
   toggleComponent() {
     this.toggle = !this.toggle;
@@ -24,29 +24,21 @@ export class PtgAccordion {
     return (
       <div>
         <button
-          class={`accordion ${this.toggle ? 'active' : ''}`}
+          class="accordion"
           style={{
+            width: this.width,
             backgroundColor: this.color,
           }}
-          onClick={() => this.toggleComponent()}>
+          onClick={() => this.toggleComponent()}
+        >
           {this.label}
-          {this.toggle ? (
-            <span class="arrow down"></span>
-          ) : (
-            <span class="arrow"></span>
-          )}
+          {this.toggle ? <span>&#9650;</span> : <span>&#9660;</span>}
         </button>
         <div
-          class={`content-box ${this.toggle ? 'open' : 'close'}`}>
-          <div class="content-box-inner">
-            {this.description ? (
-              <p>{this.description}</p>
-            ) : (
-              <div class="body">
-                <slot name="body-block" />
-              </div>
-            )}
-          </div>
+          class={`content-box ${this.toggle ? 'open' : 'close'}`}
+          style={{ width: this.width }}
+        >
+          <p>{this.description}</p>
         </div>
       </div>
     );
