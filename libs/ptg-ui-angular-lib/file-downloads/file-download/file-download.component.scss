@@ -1,3 +1,4 @@
+@import 'variables';
 @media (max-width: 767px){
     table{
         font-size: 12px;
@@ -5,6 +6,6 @@
 }
 
 .textBox {
-    border: 1px solid black;
+    border: 1px solid $dark;
     display: block;
 }

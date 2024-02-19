@@ -1,6 +1,7 @@
+@import "variables";
 .parent-block {
   position: relative;
-  background: white;
+  background: $whiteColor;
 
 }
 .wrapper-grid{

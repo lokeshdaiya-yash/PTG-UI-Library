@@ -1,16 +1,17 @@
+@import 'variables';
 .ptg-ui-accordian--isDisable {
   pointer-events: none;
   opacity: 0.5;
-  color: black;
+  color: $dark;
 }
 
 
 
 .ptg-ui-accordian--isAnimated {
   width: 250px;
-  background-color: yellow;
-  border: 1px solid black;
-  color: red;
+  background-color: $warning;
+  border: 1px solid $dark;
+  color: $dangerColor;
 }
 
 .ptg-ui-accordian--oneAtATime:nth-child(2),

@@ -8,7 +8,7 @@
     flex-shrink: 0;
     border-width: 0px 0px thin;
     border-style: solid;
-    border-color: rgb(213 217 224);
+    border-color: $borderColor;
     opacity: 1;
     margin: 0;
   }
@@ -16,23 +16,22 @@
     display: block;
     font-size: 1rem !important;
     margin-bottom: 0.4rem !important;
-    color: #212529;
+    color: $label-color;
     font-family: sans-serif !important;
   }
   ::placeholder {
     font-size: 15px !important;
-    color: #999 !important;
+    color: $placeholder-color !important;
   }
   .form-control:focus {
-    color: #212529;
-    background-color: #fff !important;
-    border-color: #86b7fe !important;
+    background-color: $whiteColor !important;
+    border-color: $form-control-border!important;
     outline: 0 !important;
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;
+    box-shadow: 0 0 0 0.25rem $form-control-focus !important;
     border-radius: 5px;
   }
   .ng-select .ng-select-container .ng-value-container .ng-placeholder {
-    color: #999 !important;
+    color: $placeholder-color !important;
     font-size: 15px !important;
   }
   
@@ -50,5 +49,5 @@
     }
   }
   .text-loader {
-    color: #c9a8f7!important;
+    color: $text-loader-color!important;
   }

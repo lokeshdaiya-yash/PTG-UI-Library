@@ -1,9 +1,9 @@
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-  border-bottom: 2px solid rgb(33, 150, 243) !important;
+  border-bottom: 2px solid $infoColor!important;
 }
 ul.nav.nav-tabs { 
-  background: white !important;
+  background: $whiteColor !important;
   border-radius: 5px;
   padding-left: 1rem;
 
@@ -15,7 +15,7 @@ ul.nav.nav-tabs {
 }
 @media screen and (max-width: 405px) {
   ul.nav.nav-tabs {
-    background: white !important;
+    background: $whiteColor !important;
     border-radius: 5px;
     padding: 5px;
     font-size: 12px;
@@ -46,7 +46,7 @@ button#r_add_manual_btn {
 
 @media screen and (max-width: 790px) and (min-width: 405px) {
   ul.nav.nav-tabs {
-    background: white !important;
+    background: $whiteColor !important;
     border-radius: 5px;
     padding: 5px;
     font-size: 14px;

@@ -9,14 +9,14 @@
     width: 100%;
     margin-top: 0.25rem;
     font-size: 0.875em;
-    color: #dc3545;
+    color: $dangerColor;
 }
 
 .errormsg{
 height:15px;
 }
 span.cdk-visually-hidden.ng-star-inserted {
-  background: rgb(33, 150, 243);
+  background: $infoColor;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -38,19 +38,19 @@ span.cdk-visually-hidden.ng-star-inserted {
   visibility: hidden !important;
 }
 .mat-step-icon {
-  background-color: rgb(184, 186, 188);
+  background-color: $mat-step-icon-color;
   width: 24px;
   border-radius: 50%;
   padding: 4px 0px 3px 10px;
-  color: white;
+  color: $whiteColor;
 }
 .my-stepper {
   .mat-step-icon-selected {
     width: 24px;
     border-radius: 50%;
     padding: 4px 0px 3px 10px;
-    color: white;
-    background-color: rgb(33, 150, 243) !important;
+    color: $whiteColor;
+    background-color: $infoColor !important;
   }
 }
 

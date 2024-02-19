@@ -1,12 +1,12 @@
-
+@import 'variables';
 h6 {
   padding: 10px 0px;
   font-weight: bold;
   width: 100%;
-  color: steelblue;
+  color: $rolebase-color;
 }
 ptg-ui-button {
-  box-shadow: 8px 8px 6px #888888;
+  box-shadow: 8px 8px 6px $secondary;
   border-radius: 10px;
 }
 .btn-layout {

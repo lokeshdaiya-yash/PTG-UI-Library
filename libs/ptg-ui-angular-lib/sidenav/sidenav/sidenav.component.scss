@@ -5,7 +5,7 @@ $width-0: 0vw;
 
 .sidenav-container {
   width: 20vw;
-  background-color: #f5f6f8;
+  background-color: $sidebgColor;
   height: 100%;
   position: relative;
   transition: all 0.4s ease-in-out 0s !important;
@@ -37,15 +37,14 @@ $width-0: 0vw;
       text-align: left;
       transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
       padding: 10px 16px 10px 24px;
-      color: rgb(54, 65, 82);
       z-index: 1201;
       border-radius: 8px;
-      color: rgb(103, 58, 183);
+      color: $labelcolor;
 
       &.parent-item,
       &.disabled {
         cursor: auto;
-        color: #6f90b8 !important;
+        color: $disabled !important;
       }
 
       i {
@@ -206,8 +205,8 @@ $width-0: 0vw;
 .cstm-btn{
   height: 32px;
   width: 34px;
-  background: rgb(210 192 236);
-    color: black;
+  background: $primaryBtn;
+    color: $dark;
     border: none;
 }
 .fa-angle-up, .fa-angle-down{

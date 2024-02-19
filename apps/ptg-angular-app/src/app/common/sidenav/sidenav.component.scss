@@ -5,7 +5,7 @@ $width-0: 0vw;
 
 .sidenav-container {
   width: 18vw;
-  background-color: #f5f6f8;
+  background-color: $sidebgColor;
   height: 100%;
   position: relative;
 
@@ -28,7 +28,7 @@ $width-0: 0vw;
       &.parent-item,
       &.disabled {
         cursor: pointer;
-        color: #6f90b8 !important;
+        color: $disabled !important;
       }
 
       i {

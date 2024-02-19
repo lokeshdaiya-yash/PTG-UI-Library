@@ -1,3 +1,4 @@
+@import "variables";
 .wrapper{
     width: 100vw;
     height: 100vh;
@@ -5,7 +6,7 @@
         height: 82vh;
         .main-wrapper{
             width: 100%;
-            background-color: rgb(238, 242, 246);
+            background-color: $mainbgcolor;
             margin:21px 15px 12px 21px;
             padding: 17px;
             border-radius: 9px;

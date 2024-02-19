@@ -14,18 +14,17 @@
     border-radius: 50%;
     overflow: hidden;
     user-select: none;
-    color: rgb(3, 16, 28);
-     background: rgb(227, 242, 253) !important;
+    background: $profilebgColor !important;
     width: 34px;
     height: 34px;
     font-size: 1.2rem;
     cursor: pointer;
 }
   .outer-profile:hover {
-    background: rgb(33, 150, 243) !important;
+    background: $infoColor !important;
   }
   .bginfo{
-    background: rgb(33, 150, 243) !important;
+    background: $infoColor !important;
 }
     .user-container{
         position: absolute;
@@ -40,14 +39,5 @@
         border-right: 4px solid transparent;
         border-bottom: 8px solid rgba(var(--bs-info-rgb), var(--bs-bg-opacity)) !important;
         margin-left: 87%;
-      }
-      .user-info{
-        width: 100px;
-        padding: 10px;
-        background: #e2e9f1;
-        text-align: left;
-        color: $main;
-        border-top: 1px solid rgb(111 144 184 / 0.4);
-        width: 173px;
       }
 }

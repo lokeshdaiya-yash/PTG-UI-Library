@@ -6,10 +6,10 @@
 
 .cdk-drag-preview {
   box-sizing: border-box;
-  box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.2),
-    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 3px -2px $box-shadow-h,
+    0 8px 10px 1px $box-shadow-v, 0 3px 14px 2px $box-shadow-blur;
 
-  background: #fff;
+  background:$whiteColor;
   opacity: 0.3;
 }
 
@@ -28,7 +28,6 @@
 .node-title {
   padding: 15px;
   margin: 5px;
-  background: #eee;
   cursor: grab;
 }
 
@@ -39,7 +38,7 @@
 }
 .item-notes {
   margin-left: 20px;
-  color: #aaa;
+  color: $secondary;
 }
 
 .parent-block {
@@ -51,9 +50,9 @@
     width: 100% !important;
     padding: 8px !important;
     margin: 5px;
-    background: white;
+    background: $whiteColor;
     cursor: grab;
-    border: 1px solid gray;
+    border: 1px solid $second;
     border-radius: 10px;
 }
 }
@@ -63,9 +62,9 @@
     width: 85% !important;
     padding: 8px !important;
     margin: 5px;
-    background: white;
+    background: $whiteColor;
     cursor: grab;
-    border: 1px solid gray;
+    border: 1px solid $second;
     border-radius: 10px;
 }
 }
@@ -74,9 +73,9 @@
     width: 93% !important;
     padding: 8px !important;
     margin: 5px;
-    background: white;
+    background: $whiteColor;
     cursor: grab;
-    border: 1px solid gray;
+    border: 1px solid $second;
     border-radius: 10px;
 }
 }
