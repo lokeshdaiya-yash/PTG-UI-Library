@@ -17,6 +17,7 @@ import Config from './components/config/Config';
 import AddDesignation from './components/designation/AddDesignation';
 import EditDesignation from './components/designation/EditDesignation';
 import Skill from './components/skill/Skill';
+import ViewMasterdata from './components/viewMasterData/ViewMasterData';
 
 export function App() {
   return (
@@ -35,7 +36,7 @@ export function App() {
 
           {/* Masterdata Routes*/}
           <Route path="/addMasterdata" element={<AddMasterdata />} />
-          
+          <Route path="/masterData" element={<ViewMasterdata />} />
           <Route path="/editMasterdata/:id" element={<EditMasterdata />} />
 
           {/* skills Routes*/}
