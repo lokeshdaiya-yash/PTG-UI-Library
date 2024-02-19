@@ -1,4 +1,5 @@
 import mongoose,{ Schema, model } from 'mongoose';
+import {conn1} from '../../../database/db'
 const memberProjectSchema =new  mongoose.Schema({
   memberId: [{
     id: {
@@ -27,7 +28,7 @@ const memberProjectSchema =new  mongoose.Schema({
   interviewClientFb: String,
 },{ timestamps: { createdAt: 'createdAt' }});
 
-const memberProject = mongoose.model(
+const memberProject = conn1.model(
   'tblMemberProject',
   memberProjectSchema
 );

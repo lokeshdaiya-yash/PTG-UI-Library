@@ -1,3 +1,8 @@
+@import '../../../libs/ptg-ui-web-components/src/global/global.css';
+
+// @import '../../styles/variables';
+@import '../../ptg-react-animations/src/styles/variables';
+
 /* You can add global styles to this file, and also import other style files */
 @import '../../../apps/pool-tracker/src/app/styles/variables';
 
@@ -6,128 +11,51 @@ body {
   font-family: $font-family-sans-serif;
 }
 
-// =============add master data component css
-.ptg-table-addData {
-  width: 50%;
-  margin: 70px auto;
-  // text-align: center;
-  font-size: 16px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-
-  &>input,
-  label,
-  button {
-    width: 65%;
-    font-size: 16px;
-    padding: 10px;
-    margin: 0 auto;
-  }
-
-  &>button {
-    background-color: #1976d2;
-    border: none;
-    margin-top: 35px;
-    width: 68%;
-  }
-
-  &>h3 {
-    text-align: center;
-  }
+.MuiStepIcon-completed,
+.MuiStepIcon-active {
+  color: $main !important;
 }
-
-.searchWrapper {
-  border: 1px solid #ccc;
-  border-radius: none !important;
-  min-height: 22px;
-  padding: 10px !important;
-  position: relative;
-  width: 68%;
-  margin: 0 auto;
-}
-
-.optionListContainer {
-  background: #fff;
-  border-radius: 4px;
-  margin-top: 1px;
-  position: absolute !important;
-  left: 120px;
-  width: 68% !important;
-  margin: 0 auto !important;
-  z-index: 0 !important;
-}
-
-.addMasterData {
-  width: 50%;
-  margin: 70px auto;
-  text-align: center;
-  font-size: 16px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 20px;
-
-  &>div {
-    width: 100%;
-    margin: 20px;
-
-    &>input,
-    button {
-      width: 65%;
-      font-size: 16px;
-      padding: 10px;
-    }
-
-    &>button {
-      background-color: #1976d2;
-      border: none;
-    }
-  }
+.MuiStepIcon-root.Mui-error {
+  color: $error !important;
 }
 
 // =================== view Master Data css============
 .viewMastertable table {
-  // width: 98%;
-  // padding: 15px;
-  // color: black;
-  // margin: 6px;
-  // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-  &>tr>th {
+  & > tr > th {
     background-color: #1976d2 !important;
   }
 
-  &>tr>th,
+  & > tr > th,
   td {
-    padding: 10px 15px;
-    text-align: center;
-    border: 1px solid black;
-    font-size: 14px !important;
+    padding: 0px;
+    padding-left: 20px;
     text-align: left;
+    border-bottom: 1px solid darkgray;
+  }
+  & > .masterdataBtn {
+    display: flex;
   }
 }
 
 .viewMastertable button {
-  // background-color: #1976d2;
   padding: 10px;
-  /* margin: 20px; */
-  font-size: 16px;
+  font-size: 14px;
   border: none;
 
-  &>a {
+  & > a {
     color: white;
     text-decoration: none;
     border: none;
   }
 }
 
-.viewMastertable>table>tr>th {
+.viewMastertable > table > tr > th {
   background-color: #1976d2 !important;
 }
 
 .viewMastertable .css-d5sp9s-MuiTableCell-root {
   background-color: #b9bc90;
-  color: #000;
+  color: $black;
   text-align: center;
   font-weight: bold;
   text-transform: capitalize;
@@ -149,4 +77,50 @@ table {
   td {
     border: 0 !important;
   }
+}
+
+.error {
+  font-size: 12px;
+  color: $error;
+}
+
+input[type='text']::-webkit-input-placeholder {
+  color: $grey;
+  font-size: 14px;
+}
+
+.action-button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn {
+  border-radius: 7px;
+  border: none;
+  padding: 1rem 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  min-width: 100px;
+  font-size: 16px;
+  letter-spacing: 1.2px;
+}
+
+.btn-primay {
+  background-color: $main !important;
+}
+
+.btn-secondary {
+  background-color: $second !important;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.mt-20 {
+  margin-top: 20px;
 }

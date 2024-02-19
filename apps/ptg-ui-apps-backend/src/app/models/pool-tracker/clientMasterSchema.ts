@@ -1,5 +1,5 @@
 import mongoose,{ Schema, model } from 'mongoose';
-
+import {conn1} from '../../../database/db'
 const ClientMasterSchema = new mongoose.Schema({
   clientName: String,
   createdBy: {
@@ -9,6 +9,7 @@ const ClientMasterSchema = new mongoose.Schema({
   isActive: { type: Number, default: 0 },
   
 });
+const client_master = conn1.model('tblClientMaster', ClientMasterSchema);
 
-const client_master = mongoose.model('tblClientMaster', ClientMasterSchema);
+
 export default client_master;

@@ -143,11 +143,7 @@
   "ACCOUNT_INFO":"Account Info",
   "PERSONAL_INFO":"Personal Information",
   "PAYMENT_DETAILS":"Payment Details",
-  "CONFIRM_DETAILS":"Confirm Your Details",
-  "BREADCRUMBS": "Breadcrumbs",
-  "CARDS": "Cards",
-  "HOME": "Home",
-  "ABOUT_US" : "About Us",
-  "CONTACT_US" : "Contact Us"
+  "CONFIRM_DETAILS":"Confirm Your Details"
+
 }
 

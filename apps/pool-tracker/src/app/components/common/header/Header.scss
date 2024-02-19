@@ -1,43 +1,44 @@
 @import '../../../styles/variables';
+.searchWrapper {
+  border: none;
+}
 
 .navbar {
-  background: #b2e9e2a1;
+  background: $mainlight;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 7px 15px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  padding: 15px;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
 
-  &>div {
+  & > div.links {
     display: flex;
     align-items: center;
-
-    span {
-      font-weight: bold;
-      border-left: 1px solid #b0a568;
-      margin-left: 7px;
-      padding: 19px 0 19px 10px;
-      font-size: 16px;
+    .app-name {
+      color: $white;
+      color: $black;
+      font-weight: 700;
+      font-size: 20px;
     }
   }
 
   & a {
     padding: 0px 7px;
-    color: #000000;
+    color: $black;
     text-decoration: none;
-    font-size: 14px;
-    transition: 0.3s;
-    font-weight: 500;
-
+    font-size: 15px;
+    font-weight: 600;
     &:hover {
-      color: #f6190d;
+      border-bottom: 4px solid $main;
     }
 
     &:last-child {
       padding-right: 0;
     }
 
-    &>img {
+    & > img {
       width: 92px;
     }
   }

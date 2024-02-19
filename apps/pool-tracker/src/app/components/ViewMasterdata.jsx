@@ -1,12 +1,9 @@
-// import { PtgUiButton } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { getMasterdata, deleteMasterdata } from '../service/api';
 import '../app.module.scss';
-import { useNavigate, useParams } from 'react-router-dom';
-
-import { PtgUiInput, PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
-// import { AggridButton } from './aggrid-button';
+import { Link } from 'react-router-dom';
+import { PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
+import { dateFormat } from 'highcharts';
 
 const ViewMasterdata = () => {
   const [masterdatas, setMasterdata] = useState([]);
@@ -17,41 +14,48 @@ const ViewMasterdata = () => {
 
   const getAllUsers = async () => {
     let response = await getMasterdata();
-    console.log("response", response)
+    console.log('response hasmat>>>>>>>>>>', response);
     setMasterdata(response?.data);
   };
   const deleteUsersDetails = async (id) => {
     await deleteMasterdata(id);
+    alert('Do You Want To Delete');
     getAllUsers();
-  }
+  };
   const ActionButton = (props) => {
-    return (
-      <button>Text</button>
-    )
-  }
+    return <button>Text</button>;
+  };
 
   const Columns = [
-    { title: 'name', field: 'name', filtering: false, width: '20%' },
+    { title: 'name', field: 'name', filtering: false, width: '10%' },
     { title: 'clientInterviews', field: 'clientInterviews', filtering: false },
-    { title: 'poolStartDate', field: 'poolStartDate' },
-    { title: 'poolEndDate', field: 'poolEndDate', filtering: false },
-    { title: 'ageing', field: 'ageing', filtering: false },
+    { title: 'poolStartDate', field: 'poolStartDate'},
     { title: 'status', field: 'status', filtering: false },
     { title: 'skills', field: 'skills', filtering: false },
     { title: 'yearsofExp', field: 'yearsofExp', filtering: false },
     { title: 'bands', field: 'bands', filtering: false },
+    { title: 'competency', field: 'competency', filtering: false },
     { title: 'comments', field: 'comments', filtering: false },
     { title: 'clientName', field: 'clientName', filtering: false },
-    { field: 'Action', cellRenderer: ActionButton, minWidth: 100 },
-    // { title: 'action', field: '', filtering: false, cellRenderer: <PtgUiButton  type="submit"variant="primary" onClick={()=>deleteUsersDetails(masterdatas._id)} className="btn-sm">Delete</PtgUiButton>  },
-    //   <PtgUiButton
-    //   type="submit"
-    //   variant="primary"
-    //   data-testid="handleSubmit"
-    //   onClick={handleSubmit}
-    //   // data-testid="forgotButton"
-    //   disabled={values.btnDisable}
-    // >
+    { title: 'designations', field: 'designations', filtering: false },
+    {
+      title: 'Action',
+      field: 'Action',
+      name: 'action',
+      header: '',
+      width: 100,
+      render: (masterdata) => (
+        <div className="masterdataBtn">
+          <PtgUiButton onClick={() => deleteUsersDetails(masterdata._id)}>
+            Delete
+          </PtgUiButton>
+
+          <Link to={`/editMasterdata/${masterdata._id}`}>
+            <PtgUiButton component={Link}>Edit</PtgUiButton>
+          </Link>
+        </div>
+      ),
+    },
   ];
 
   const filterValue = [
@@ -70,45 +74,19 @@ const ViewMasterdata = () => {
         paginationPosition={'bottom'}
         grouping={true}
         filterValue={filterValue}
-        // actions={[
-        //   {
-        //     icon: () =>  <PtgUiButton
-        //                   className="btn-sm">
-        //                   text
-        //                   </PtgUiButton>,
-        //         tooltip: 'Click Here',
-        //         onClick: (event, rowData) => {
-        //         console.log(event, rowData);
-        //         alert("Button Clicked");
-        //     }
-        //   }
-        // ]}
-
         actions={[
           {
-            icon: () => <PtgUiButton
-              className="btn-sm">
-              {('CLICK_HERE')}
-            </PtgUiButton>,
+            icon: () => (
+              <PtgUiButton className="btn-sm">{'CLICK_HERE'}</PtgUiButton>
+            ),
             tooltip: 'Click Here',
             onClick: (event, rowData) => {
               console.log(event, rowData);
-              alert("Button Clicked");
-
-            }
-          }
+              alert('Button Clicked');
+            },
+          },
         ]}
-
       />
-
-      {/* {masterdatas.map((masterdata) => (
-            <tr key={masterdata._id}>
-            
-              <button LinkComponent={Link} to={`/edit/${masterdata._id}`}>Edit</button>
-              <PtgUiButton onClick={()=>deleteUsersDetails(masterdata._id)}>Delete</PtgUiButton>
-              </tr> */}
-
-
     </div>
   );
 };

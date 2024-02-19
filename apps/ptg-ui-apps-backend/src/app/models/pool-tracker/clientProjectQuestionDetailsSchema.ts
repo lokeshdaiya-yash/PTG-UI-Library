@@ -1,5 +1,5 @@
 import mongoose,{ Schema, model } from 'mongoose';
-
+import {conn1} from '../../../database/db'
 const clientProjectQuestionDetailsSchema = new mongoose.Schema({
   question: String,
   questionAns: String,
@@ -24,7 +24,7 @@ const clientProjectQuestionDetailsSchema = new mongoose.Schema({
   isActive: { type: Number, default: 0 },
 });
 
-const clientProjectQuestionDetails = mongoose.model(
+const clientProjectQuestionDetails = conn1.model(
   'tblClientProjectQuestionDetails',
   clientProjectQuestionDetailsSchema
 );
