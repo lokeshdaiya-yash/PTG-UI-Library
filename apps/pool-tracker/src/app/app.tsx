@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/common/header/Header';
 import Footer from './components/common/footer/Footer';
 import EditMasterdata from './components/EditMasterdata';
-import ViewMasterdata from './components/ViewMasterdata';
+
 // import AddMasterdata from './components/AddMasterdata';
 
 import EditSkill from './components/EditSkill';
@@ -35,7 +35,7 @@ export function App() {
 
           {/* Masterdata Routes*/}
           <Route path="/addMasterdata" element={<AddMasterdata />} />
-          <Route path="/masterData" element={<ViewMasterdata />} />
+          
           <Route path="/editMasterdata/:id" element={<EditMasterdata />} />
 
           {/* skills Routes*/}

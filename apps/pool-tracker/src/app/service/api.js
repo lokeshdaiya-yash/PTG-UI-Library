@@ -1,7 +1,8 @@
 
 import axios from "axios";
 
-const URL = "http://localhost:5000";
+import { environment } from "../../environments/environment";
+const URL = environment.baseUrl
 
 // masterData api=========================================
 
