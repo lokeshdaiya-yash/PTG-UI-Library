@@ -1,5 +1,5 @@
 import { request } from 'express';
-import Skill from '../schema/skill-schema.js';
+import Skill from '../../models/pool-tracker/skillMasterSchema';
 
 export const addSkill = async (request, response) => {
   const skill = request.body;
@@ -32,7 +32,7 @@ export const getSingleSkill = async (request, response) => {
 };
 
 export const editSkill = async (request, response) => {
-  let skill = request.body;
+  const skill = request.body;
   const editSkill = new Skill(skill);
   try {
     await Skill.updateOne({ _id: request.params.id }, editSkill);

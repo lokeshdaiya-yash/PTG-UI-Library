@@ -4,10 +4,9 @@ import cors from 'cors';
 
 import bodyParser from "body-parser";
 
-import Routes from "./routes/route";
-// import UserRoutes from "./routes/userroute.js";
+import Routes from "./routes/route.js";
 
-import Connection from "./database/db";
+import Connection from "./database/db.js";
 
 const app = express();
 dotenv.config();

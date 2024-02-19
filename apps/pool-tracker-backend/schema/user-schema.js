@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 // import autoIncrement from 'mongoose-auto-increment';
 
 
-const userSchema =new  mongoose.Schema({
+const userSchema = mongoose.Schema({
    
     username: String,
     email: String,

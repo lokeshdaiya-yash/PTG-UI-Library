@@ -7,7 +7,7 @@ const masterDataSchema = mongoose.Schema({
   name: String,
   clientInterviews: String,
   competency: String,
-  poolEndDate: String,
+  poolStartDate: String,
   ageing: String,
   status: String,
   skills: [String],

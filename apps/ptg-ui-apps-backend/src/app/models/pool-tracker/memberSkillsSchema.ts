@@ -1,4 +1,5 @@
 import mongoose,{ Schema, model } from 'mongoose';
+import {conn1} from '../../../database/db';
 const memberSkillsSchema =new mongoose.Schema({
   memberId:[{
     id: {
@@ -22,5 +23,5 @@ const memberSkillsSchema =new mongoose.Schema({
 });
 
 
-const memberSkills = mongoose.model('tblMemberSkills', memberSkillsSchema);
+const memberSkills = conn1.model('tblMemberSkills', memberSkillsSchema);
 export default memberSkills;

@@ -1,4 +1,5 @@
-// =============add master data component css==============
+@import '../../styles/variables';
+
 .ptg-table-addData {
   width: 50%;
   margin: 70px auto;
@@ -9,7 +10,6 @@
   flex-direction: column;
   & > input,
   label,
-  button,
   textarea,
   select {
     width: 100%;
@@ -18,9 +18,19 @@
     margin: 0 auto;
     font-weight: 600;
   }
-  & > h3 {
+  & > h4 {
     text-align: center;
+    color: $main;
+    font-weight: 600;
   }
+}
+.searchWrapper {
+  border: 1px solid #ccc;
+  border-radius: none !important;
+  min-height: 22px;
+  padding: 3px !important;
+  position: relative;
+  margin: 0 auto;
 }
 .optionListContainer {
   background: #fff;
@@ -28,6 +38,7 @@
   margin-top: 1px;
   position: absolute !important;
   margin: 0 auto !important;
+  z-index: 1 !important;
 }
 .addMasterData {
   width: 100%;
@@ -76,4 +87,16 @@ button {
 .masterdataBtn {
   display: flex;
   width: 100%;
+}
+.form-container {
+  width: 74%;
+  margin: 0px auto;
+  padding: 7px 10px;
+}
+
+.btn-position {
+  position: absolute;
+  z-index: 4;
+  right: 104px;
+  bottom: 16px;
 }

@@ -29,7 +29,7 @@ const EditDesignation = () => {
   };
 
   const editDesignationDetails = async () => {
-    await editDesignation(id);
+    // await editDesignation(id);
     navigate('/designation');
   };
 

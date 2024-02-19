@@ -1,4 +1,5 @@
 import mongoose,{ Schema, model } from 'mongoose';
+import {conn1} from '../../../database/db'
 
 const poolMasterSchema = new mongoose.Schema({
   memberName: {
@@ -29,7 +30,7 @@ const poolMasterSchema = new mongoose.Schema({
   bandList:  [{
     id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'bandMasterSchema',
+      ref: 'tblBandMaster',
     },
     name: {
       type: String,
@@ -46,6 +47,6 @@ const poolMasterSchema = new mongoose.Schema({
 }],
   isActive: { type: Number, default: 0 },
 },{ timestamps: { createdAt: 'createdAt' }});
+const pool_master = conn1.model('tblPoolMaster', poolMasterSchema);
 
-const pool_master = mongoose.model('tblPoolMaster', poolMasterSchema);
 export default pool_master;

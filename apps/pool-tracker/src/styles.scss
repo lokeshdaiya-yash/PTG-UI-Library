@@ -1,14 +1,7 @@
 @import '../../../libs/ptg-ui-web-components/src/global/global.css';
 
 // @import '../../styles/variables';
-@import "../../ptg-react-animations/src/styles/variables";
-
-.MuiStepIcon-completed,.MuiStepIcon-active{
-    color: $main !important;
-}
-.MuiStepIcon-root.Mui-error {
-    color: $error !important;
-}
+@import '../../ptg-react-animations/src/styles/variables';
 
 /* You can add global styles to this file, and also import other style files */
 @import '../../../apps/pool-tracker/src/app/styles/variables';
@@ -18,52 +11,51 @@ body {
   font-family: $font-family-sans-serif;
 }
 
+.MuiStepIcon-completed,
+.MuiStepIcon-active {
+  color: $main !important;
+}
+.MuiStepIcon-root.Mui-error {
+  color: $error !important;
+}
 
 // =================== view Master Data css============
 .viewMastertable table {
-  // width: 98%;
-  // padding: 15px;
-  // color: black;
-  // margin: 6px;
-  // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-  &>tr>th {
+  & > tr > th {
     background-color: #1976d2 !important;
   }
 
-  &>tr>th,
+  & > tr > th,
   td {
     padding: 0px;
     padding-left: 20px;
     text-align: left;
     border-bottom: 1px solid darkgray;
   }
-  & > .masterdataBtn{
+  & > .masterdataBtn {
     display: flex;
   }
 }
 
 .viewMastertable button {
-  // background-color: #1976d2;
   padding: 10px;
-  /* margin: 20px; */
-  font-size: 16px;
+  font-size: 14px;
   border: none;
 
-  &>a {
+  & > a {
     color: white;
     text-decoration: none;
     border: none;
   }
 }
 
-.viewMastertable>table>tr>th {
+.viewMastertable > table > tr > th {
   background-color: #1976d2 !important;
 }
 
 .viewMastertable .css-d5sp9s-MuiTableCell-root {
   background-color: #b9bc90;
-  color: #000;
+  color: $black;
   text-align: center;
   font-weight: bold;
   text-transform: capitalize;
@@ -85,4 +77,50 @@ table {
   td {
     border: 0 !important;
   }
+}
+
+.error {
+  font-size: 12px;
+  color: $error;
+}
+
+input[type='text']::-webkit-input-placeholder {
+  color: $grey;
+  font-size: 14px;
+}
+
+.action-button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn {
+  border-radius: 7px;
+  border: none;
+  padding: 1rem 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  min-width: 100px;
+  font-size: 16px;
+  letter-spacing: 1.2px;
+}
+
+.btn-primay {
+  background-color: $main !important;
+}
+
+.btn-secondary {
+  background-color: $second !important;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.mt-20 {
+  margin-top: 20px;
 }
