@@ -247,17 +247,27 @@ export class NgxDatatableComponent implements OnInit {
       <thead>
         <tr>
           <th>Athlete</th>
+          <th>Age</th>
           <th>Country</th>
           <th>Year</th>
+          <th>Date</th>
           <th>Sport</th>
+          <th>Gold</th>
+          <th>Silver</th>
+          <th>total</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>${rowData.athlete}</td>
+          <td>${rowData.age}</td>
           <td>${rowData.country}</td>
           <td>${rowData.year}</td>
+          <td>${rowData.date}</td>
           <td>${rowData.sport}</td>
+          <td>${rowData.gold}</td>
+          <td>${rowData.silver}</td>
+          <td>${rowData.total}</td>
         </tr>
       </tbody>
     </table>
