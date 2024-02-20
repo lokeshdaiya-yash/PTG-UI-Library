@@ -1,3 +1,4 @@
+@import '../../styles/variables';
 .viewMastertable {
   position: relative;
 
@@ -11,4 +12,17 @@
 }
 .ptg-table-addData {
   box-shadow: none;
+}
+
+.table-action-button {
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 22px;
+  color: #dc3545;
+}
+
+.icon-color {
+  color: $main;
 }

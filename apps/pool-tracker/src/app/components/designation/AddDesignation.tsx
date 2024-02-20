@@ -1,20 +1,43 @@
 import { PtgUiButton, PtgUiInput } from '@ptg-ui/libs/ptg-ui-react-lib/src';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addDesignation } from '../../service/api';
 
-const AddDesignation = () => {
-  const [designation, setDesignation] = useState('');
+const initialFormValue = {
+  name: '',
+  value: '',
+  label: '',
+};
+
+const AddDesignation = (props: any) => {
+  const { designation, btnName } = props;
+  // const { name, value, label } = designation;
+  const [formValue, setFormValue] = useState(initialFormValue);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (btnName !== 'Add Designation') {
+      setFormValue({
+        name: designation.name,
+        value: designation.value,
+        label: designation.label,
+      });
+    }
+  }, []);
+
   const onValueChange = (e) => {
-    const { value } = e.target.value;
-    setDesignation(value);
+    const value = e.target.value;
+    setFormValue({
+      ...formValue,
+      name: value,
+      value: value,
+      label: value,
+    });
   };
 
-  const addDesignationDetails = async () => {
-    await addDesignation(designation);
-    navigate('/designation');
+  const onSubmit = async () => {
+    await addDesignation(formValue);
+    // navigate('/designation');
   };
 
   return (
@@ -24,14 +47,15 @@ const AddDesignation = () => {
         type="text"
         name="name"
         id="name"
-        value={designation}
+        value={formValue.name}
         onChange={(e) => onValueChange(e)}
       />
 
       <PtgUiButton
         className="mt-2 btn-primay btn-position"
         type="button"
-        onClick={() => addDesignationDetails()}
+        disabled={!formValue.value}
+        onClick={() => onSubmit()}
       >
         Add Designation
       </PtgUiButton>

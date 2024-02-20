@@ -7,7 +7,7 @@
 @import '../../../apps/pool-tracker/src/app/styles/variables';
 
 // fontawesome style
-@import "~@fortawesome/fontawesome-free/css/all.css";
+@import '~@fortawesome/fontawesome-free/css/all.css';
 
 body {
   margin: 0;
@@ -27,6 +27,11 @@ body {
   & > tr > th {
     background-color: #1976d2 !important;
   }
+  th:nth-of-type(2) {
+    width: 100% !important;
+    display: flex;
+    justify-content: flex-end;
+  }
 
   & > tr > th,
   td {
@@ -34,6 +39,12 @@ body {
     padding-left: 20px;
     text-align: left;
     border-bottom: 1px solid darkgray;
+  }
+  td:nth-of-type(2) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 30px !important;
   }
   & > .masterdataBtn {
     display: flex;
@@ -126,4 +137,8 @@ input[type='text']::-webkit-input-placeholder {
 
 .mt-20 {
   margin-top: 20px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
