@@ -6,6 +6,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../../../apps/pool-tracker/src/app/styles/variables';
 
+// fontawesome style
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 body {
   margin: 0;
   font-family: $font-family-sans-serif;

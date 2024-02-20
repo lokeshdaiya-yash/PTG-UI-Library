@@ -1,11 +1,6 @@
-// import {
-//   PtgUiButton,
-//   PtgUiInput,
-//   PtgUiMaterialTable,
-// } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useEffect, useState } from 'react';
 import { getDesignation, deleteDesignation } from '../../service/api';
-import { PtgCard, PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
+import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 import AddDesignation from './AddDesignation';
 import './designation.scss';
 import { Link } from 'react-router-dom';
@@ -16,8 +11,7 @@ const Designation = () => {
   const [designations, setDesignation] = useState([]);
 
   const Columns = [
-    { title: 'ID', field: '_id', filtering: false, width: '20%' },
-    { title: 'name', field: 'value', filtering: false, width: '20%' },
+    { title: 'name', field: 'value', filtering: false, width: '50%' },
     {
       title: 'Action',
       field: 'Action',
@@ -32,18 +26,18 @@ const Designation = () => {
             Delete
           </PtgUiButton>
           <PtgModal
-        modal-size="lg"
-        modal-header-name="Edit Designation"
-        confirm-button-name="Okay"
-        // onModalClose={modalClosed}
-      >
-        <div slot="body-block">
-        <EditDesignation />
-        </div>
-      </PtgModal>
+            modal-size="lg"
+            modal-header-name="Edit Designation"
+            confirm-button-name="Okay"
+            // onModalClose={modalClosed}
+          >
+            <div slot="body-block">
+              <EditDesignation />
+            </div>
+          </PtgModal>
 
-            <Link to={`/editdesignation/${designation._id}`}>
-            <PtgUiButton >Edit</PtgUiButton>
+          <Link to={`/editdesignation/${designation._id}`}>
+            <PtgUiButton>Edit</PtgUiButton>
           </Link>
         </div>
       ),
@@ -67,10 +61,10 @@ const Designation = () => {
   return (
     <div className="viewMastertable ">
       <PtgModal
-        modal-size="lg"
+        modal-size="md"
+        btn-name="Add Designation "
         modal-header-name="Add Designation"
         confirm-button-name="Okay"
-        // onModalClose={modalClosed}
       >
         <div slot="body-block">
           <AddDesignation />

@@ -2,8 +2,8 @@ import Logo from '../../../../assets/images/yash-logo-new.svg';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { PtgUiMultiSelectbox } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import './header.scss';
-export interface HeaderProps {}
-export function Header({}: HeaderProps) {
+// export interface HeaderProps {}
+export function Header() {
   const navigate = useNavigate();
 
   const config_LIST = [

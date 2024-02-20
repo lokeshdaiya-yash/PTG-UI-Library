@@ -1,11 +1,14 @@
 .viewMastertable {
-    position: relative;
+  position: relative;
 
-&>.hydrated {
+  & > .hydrated {
     visibility: inherit;
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 16px;
+    top: 13px;
     z-index: 1;
+  }
 }
+.ptg-table-addData {
+  box-shadow: none;
 }
