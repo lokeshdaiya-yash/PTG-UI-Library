@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getDesignation, deleteDesignation } from '../../service/api';
 import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 import AddDesignation from './AddDesignation';
@@ -23,7 +25,7 @@ const Designation = () => {
           <PtgUiButton
             onClick={() => deleteDesignationDetails(designation._id)}
           >
-            Delete
+            <i className="fa-solid fa-trash"></i>
           </PtgUiButton>
           <PtgModal
             modal-size="lg"
@@ -70,6 +72,11 @@ const Designation = () => {
           <AddDesignation />
         </div>
       </PtgModal>
+
+      <i className="fa-thin fa-plus"></i>
+      {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+      </svg> */}
 
       <PtgUiMaterialTable
         data={designations}
