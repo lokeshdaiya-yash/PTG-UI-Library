@@ -23,6 +23,7 @@ export interface PtgUiMultiSelectProps {
 export function PtgUiMultiSelectbox({id,className,selectedValues,list,showCheckbox,singleSelect,onSelect,placeholder, onRemove}: PtgUiMultiSelectProps) {
   return (
     <Multiselect
+    customCloseIcon={singleSelect ? <></> :undefined}
     options={list}
     displayValue="label"
     id={id}
