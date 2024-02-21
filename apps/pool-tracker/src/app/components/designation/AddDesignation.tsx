@@ -7,6 +7,8 @@ const initialFormValue = {
   name: '',
   value: '',
   label: '',
+  _id:'',
+  isActive:''
 };
 
 const AddDesignation = (props: any) => {
@@ -19,6 +21,8 @@ const AddDesignation = (props: any) => {
         name: designation.name,
         value: designation.value,
         label: designation.label,
+        isActive:designation.isActive,
+        _id:designation._id
       });
     }
   }, []);
@@ -30,11 +34,13 @@ const AddDesignation = (props: any) => {
       name: value,
       value: value,
       label: value,
+      
     });
   };
 
   const onSubmit = async () => {
     if (btnName !== 'Add Designation') {
+      // console.log(formValue)
       await editDesignation(formValue, designation._id);
     } else {
       await addDesignation(formValue);
