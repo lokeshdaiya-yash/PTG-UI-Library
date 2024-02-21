@@ -36,6 +36,7 @@ const ViewDesignation = () => {
     heading: string,
     designation?: any
   ) => {
+    console.log(designation)
     return (
       <PtgModal
         modal-size="md"
@@ -63,7 +64,7 @@ const ViewDesignation = () => {
       width: '50%',
       render: (designation: any) => (
         <div className="masterdataBtn table-action-button">
-          {designationModal('Edit', 'Edit Designation', designation)}
+           {designationModal('Edit', 'Edit Designation', designation)}
           <i
             className="fa-solid fa-trash cursor-pointer"
             onClick={() => deleteDesignationDetails(designation._id)}
