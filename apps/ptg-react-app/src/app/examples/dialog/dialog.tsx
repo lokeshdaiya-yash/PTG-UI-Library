@@ -59,12 +59,13 @@ const DialogExample = () => {
       </div>
     </PtgModal>`
   return (
+    <section className='card-section-two bg-white rounded pt-2 pb-2 mt-2'>
     <div className='row'>
       <div className="col-11">
-        <h5 className="font-weight-bold">Dialog/Modal</h5>
+        <h5 className="font-weight-bold example-heading">Dialog/Modal</h5>
       </div>
       <div className='col-1 mr-5 mb-3'>
-        <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+        <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
       </div>
 
       {showCode && (
@@ -78,6 +79,7 @@ const DialogExample = () => {
           </div>
         </PtgModal>
     </div>
+    </section>
   );
 };
 

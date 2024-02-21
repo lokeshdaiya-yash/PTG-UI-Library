@@ -69,10 +69,10 @@ export function RoleBased(props: RoleBasedProps) {
 
        <div className="row">
        <div className="col-11 mb-3">
-         <h4 className="mb-5">{t('ROLE_BASED_EXAMPLE_TEXT')}</h4>
+         <h5 className="mb-5">{t('ROLE_BASED_EXAMPLE_TEXT')}</h5>
        </div>
        <div className="col-1">
-         <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+         <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
        </div>
       </div>
       

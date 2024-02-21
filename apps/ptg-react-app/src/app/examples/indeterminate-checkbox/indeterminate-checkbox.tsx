@@ -77,13 +77,13 @@ export function IndeterminateCheckbox(props: IndeterminateCheckboxProps) {
     <PtgUiIndeterminateCheckbox items={CHECKBOX_DATA} />
   `
   return (
-    <section>
+    <section className="bg-white rounded pt-2 pb-1 mt-4 pb-4">
       <div className="row">
         <div className="col-11 mb-3">
-          <h4>{t('INTERMEDIATE_CHECKBOX_TEXT')}</h4>
+          <h5 className='example-heading'>{t('INTERMEDIATE_CHECKBOX_TEXT')}</h5>
         </div>
         <div className="col-1">
-          <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
       </div>
       {!showCode ? (

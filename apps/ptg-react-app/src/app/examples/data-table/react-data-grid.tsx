@@ -131,7 +131,7 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
            <h4>{t('REACT_DATA_GRID')}</h4>
         </div>
         <div className='col-1 mr-3'>
-          <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
       </div>
       {!showCode ? (

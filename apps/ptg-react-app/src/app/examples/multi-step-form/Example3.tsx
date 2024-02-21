@@ -714,10 +714,10 @@ const Example3 = () => {
     <>
       <div className="row">
       <div className="col-lg-11">
-      <h1 className="text-center">{t('MULTI_STEP_FORM')}</h1>
+      <h4 className="text-center">{t('MULTI_STEP_FORM')}</h4>
       </div>
       <div className="col-lg-1 mt-2">
-        <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+        <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
       </div>
       </div>
 

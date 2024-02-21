@@ -23,38 +23,50 @@ export function DragNDrop(props: DragNDropProps) {
     <div className="w-100">
       <Tabs defaultActiveKey="example1" className="draganddropmain w-100">
         <Tab eventKey="example1" title={t('DRAG_DROP_EX_1')}>
+        <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4">
         <div className="row">
           <div className="col-11 mb-3">
-            <h4 className="m-3">{t('DRAG_DROP_EX_1')}</h4>
+            <h5 className="m-3">{t('DRAG_DROP_EX_1')}</h5>
           </div>
         </div>
-        <DragExampleOne />
+          <DragExampleOne />
+        </div>
         
         </Tab>
+
         <Tab eventKey="example2" title={t('DRAG_DROP_EX_2')}>
+        <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
         <div className="row">
           <div className="col-11 mb-3">
-            <h4 className="m-3">{t('DRAG_DROP_EX_2')}</h4>
+            <h5 className="m-3">{t('DRAG_DROP_EX_2')}</h5>
           </div>
         </div>
           <DragExampleTwo />
+        </div>
         </Tab>
+
         <Tab eventKey="example3" title={t('DRAG_DROP_EX_3')}>
+        <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
         <div className="row">
           <div className="col-11 mb-3">
-            <h4 className="m-3">{t('DRAG_DROP_EX_3')}</h4>
+            <h5 className="m-3">{t('DRAG_DROP_EX_3')}</h5>
           </div>
         </div>
           <DragExampleThree />
+        </div>
+
         </Tab>
         <Tab eventKey="example4" title={t('DRAG_DROP_EX_4')}>
+        <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
         <div className="row">
           <div className="col-11 mb-3">
-            <h4 className="m-3">{t('DRAG_DROP_EX_4')}</h4>
+            <h5 className="m-3">{t('DRAG_DROP_EX_4')}</h5>
           </div>
         </div>
           <DragExampleFour />
+        </div>
         </Tab>
+
       </Tabs>
     </div>
   );

@@ -145,7 +145,7 @@ actions={[
     <div className='row'>
     <div className = 'col-11'></div>
     <div className='col-1 mr-5 mt-2'>
-      <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+      <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
     </div>
     </div>
 
