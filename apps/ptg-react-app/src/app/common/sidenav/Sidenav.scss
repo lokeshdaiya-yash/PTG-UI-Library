@@ -57,9 +57,9 @@
       &.active {
         &:not(.parent-item):not(.disabled) {
           // background-image: url('/assets/Path_bg.svg');
-          background-color: $side-menu-text-color;
-          border-end-end-radius: 5rem;
-          border-start-end-radius: 5rem;
+          background-color: $side-menu-color;
+          // border-end-end-radius: 5rem;
+          // border-start-end-radius: 5rem;
           color: $white;
           background-size: 100% 100%;
           margin-top: 0.02rem !important;
@@ -68,10 +68,10 @@
             color: #D7C9EC  !important;
           }
           &.child-item {
-            color: $white !important;
+            color: $side-menu-text-color !important;
           }
           .menu-item-text {
-            color: $white !important;
+            color: $side-menu-text-color !important;
           }
         }
       }
@@ -101,14 +101,39 @@
 #toggle {
   display: none;
 }
-//  MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters
-// .MuiPaper-root{
-// height: 50px !important;
-// font-size: small !important;
-// box-shadow: none !important;
-// }
 
 
+.acc-header{
+  font-size: small !important;
+  .accordion-button{
+    background-color: white !important;
+    border: none !important;
+    height : 35px !important;
+    font-size: small !important;
+    box-shadow: none !important;
+    margin-top: 10px;
+  }
+ 
+}
+
+.accordion-with-arrow{
+  .accordion-button::after {
+    height: 0 !important;
+  }
+}
+.acc-body{
+  height : 40px;
+  font-size: 8px;
+  margin-top: -10px;
+  margin-left: -36px;
+  margin-bottom: 10px;
+}
+
+.acc{
+  .accordion-item{
+    border: none !important;
+  }
+}
 // Responsive styles
 // For screens below 1122px
 @media only screen and (max-width: 942px) {

@@ -8,7 +8,7 @@ export const StepFour = ({ resetForm, details, submitForm, showPrevious }: any) 
   return (
     <div>
       <div className="border border-2 border-dark pb-2 p-2">
-        <h4 className="text-center my-2">Confirm Details</h4>
+        <h5 className="text-center my-2">Confirm Details</h5>
         <div className="form-group  text-break">
           <div className="row ms-3 text-wrap">
             <div className=" col-5 form-text">{t('USER_NAME')} </div>

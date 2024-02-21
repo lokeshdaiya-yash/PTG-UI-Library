@@ -47,19 +47,21 @@ export function PipeTabs(props: PipeTabsProps) {
     <div className="w-100">
       <Tabs defaultActiveKey="2d">
         <Tab eventKey="2d" title={t('PIPE')}>
+          <div className="bg-white rounded pt-2 pb-1 mt-4 pb-4">
           <div className="row">
           <div className='col-11'></div>
           <div className='col-1 mr-5 mt-2'>
-            <CodeIcon onClick={ShowPipeCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+            <CodeIcon onClick={ShowPipeCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           </div>
           <Pipes showPipeCode={showPipeCode}/>
+          </div>
         </Tab>
         <Tab eventKey="3d" title={t('EVENT')}>
           <div className="row">
           <div className='col-11'></div>
           <div className='col-1 mr-5 mt-2'>
-            <CodeIcon onClick={ShowEventCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+            <CodeIcon onClick={ShowEventCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           </div>
           <PipeEvent showEventCode={showEventCode} />

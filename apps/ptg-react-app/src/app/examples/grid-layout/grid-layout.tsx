@@ -18,9 +18,10 @@ export function GridLayout(props: GridLayoutProps) {
 
   return (
    <>
+   <div className=" bg-white rounded pt-2 pb-1 mt-4 pb-4">
     <div className="row">
         <div className="col-md-11 text-center mb-2 mt-1">
-            <h2 className="text-black">{t('GRID_LAYOUT_EXAMPLE_HEADING')}</h2>
+            <h5 className="text-black">{t('GRID_LAYOUT_EXAMPLE_HEADING')}</h5>
         </div>
     </div>
 
@@ -103,7 +104,7 @@ export function GridLayout(props: GridLayoutProps) {
             </div>
         </div>
         </section>
-
+    </div>
     </>
   );
 }

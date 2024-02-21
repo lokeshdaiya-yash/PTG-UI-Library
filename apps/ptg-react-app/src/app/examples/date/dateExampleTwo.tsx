@@ -153,7 +153,7 @@ export function ExampleTwo(props: ExampleTwoProps) {
         <div className="container-fluid">
         {!props.showCodeTwo ? (
            <div className="row mb-5">
-           <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+           <div className="col-lg-5 col-md-4 col-sm-12 col-xs-12">
              <div className="row mb-3">
                <div className="col-12">
                  <label>{t('MIN_DATE')}</label>
@@ -172,12 +172,10 @@ export function ExampleTwo(props: ExampleTwoProps) {
              </div>
            </div>
            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 offset-md-1 offset-sm-0 offset-xs-0 margin-top-15">
-             <label className="font-weight-bold">
-               <b>{t('DATE_VALIDATOR_TEXT')}</b>
-             </label>
+             <label>{t('DATE_VALIDATOR_TEXT')}</label>
              <div className="row mb-3">
                <div
-                 className="col-lg-8 col-md-12 col-sm-12 col-xs-12"
+                 className="calender-component col-lg-10 col-md-12 col-sm-12 col-xs-12"
                  id="date-range-two"
                >
                  <PtgUiCalendar {...dateRangeProp} />
