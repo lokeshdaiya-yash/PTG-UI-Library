@@ -1,72 +1,64 @@
 import { PtgUiButton, PtgUiInput } from '@ptg-ui/libs/ptg-ui-react-lib/src';
-import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { addSkill, addDesignation } from '../../service/api';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { addDesignation } from '../../service/api';
 
-const defaultValue = {
+const initialFormValue = {
   name: '',
-  label: '',
   value: '',
+  label: '',
 };
 
-const AddDesignation = () => {
-  const [designation, setDesignation] = useState(defaultValue);
+const AddDesignation = (props: any) => {
+  const { designation, btnName } = props;
+  // const { name, value, label } = designation;
+  const [formValue, setFormValue] = useState(initialFormValue);
   const navigate = useNavigate();
-  const { id } = useParams();
+
+  useEffect(() => {
+    if (btnName !== 'Add Designation') {
+      setFormValue({
+        name: designation.name,
+        value: designation.value,
+        label: designation.label,
+      });
+    }
+  }, []);
 
   const onValueChange = (e) => {
-    console.log(e.target.value);
-    setDesignation({ ...designation, [e.target.name]: e.target.value });
-    console.log(designation);
+    const value = e.target.value;
+    setFormValue({
+      ...formValue,
+      name: value,
+      value: value,
+      label: value,
+    });
   };
 
-  const addDesignationDetails = async () => {
-    await addDesignation(designation);
-    navigate('/designation');
+  const onSubmit = async () => {
+    await addDesignation(formValue);
+    // navigate('/designation');
   };
 
   return (
     <div className="ptg-table-addData form-container">
-      {/* <div className="ptg-table-addData"> */}
-      {/* <h3>Add Designation</h3> */}
-      <label htmlFor="label"> label </label>
-      <PtgUiInput
-        type="text"
-        name="label"
-        id="inputUsername"
-        value={designation.label}
-        onChange={(e) => onValueChange(e)}
-      />
-
-      <label htmlFor="value"> Value </label>
-      <PtgUiInput
-        type="text"
-        name="value"
-        id="inputUsername"
-        value={designation.value}
-        onChange={(e) => onValueChange(e)}
-      />
-
-      <label htmlFor="name"> Name </label>
+      <label htmlFor="label"> Name </label>
       <PtgUiInput
         type="text"
         name="name"
-        id="inputUsername"
-        value={designation.name}
+        id="name"
+        value={formValue.name}
         onChange={(e) => onValueChange(e)}
       />
 
       <PtgUiButton
         className="mt-2 btn-primay btn-position"
         type="button"
-        onClick={() => addDesignationDetails()}
-        // accessKey="s"
-        aria-label="next"
-        data-testid="next"
+        disabled={!formValue.value}
+        onClick={() => onSubmit()}
       >
         Add Designation
       </PtgUiButton>
-      {/* </div> */}
     </div>
   );
 };

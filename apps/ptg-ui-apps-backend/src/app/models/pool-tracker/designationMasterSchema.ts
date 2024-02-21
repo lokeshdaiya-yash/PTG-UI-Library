@@ -1,7 +1,9 @@
-import mongoose,{ Schema, model } from 'mongoose';
-import {conn1} from '../../../database/db'
+import mongoose, { Schema, model } from 'mongoose';
+import { conn1 } from '../../../database/db';
 const designationMasterSchema = new mongoose.Schema({
-  designation: String,
+  name: String,
+  value: String,
+  label: String,
   isActive: { type: Number, default: 0 },
 });
 
