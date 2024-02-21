@@ -714,7 +714,6 @@ const Example3 = () => {
   `
 
   return (
-    <>
       <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
       <div className="row">
       <div className="col-10 mt-1">
@@ -727,7 +726,6 @@ const Example3 = () => {
       </div>
 
       {!showCodeOne ? (
-      <>
       <div className="row">
         <div className="col-lg-3 col-md-4 col-sm-12 col-xs-12 mr-5">
           <Stepper activeStep={step} orientation="vertical">
@@ -780,12 +778,10 @@ const Example3 = () => {
           {showStep(step)}
         </div>
       </div>
-      </>
       ):(
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode}/>
       )}
       </section>
-    </>
   );
 };
 export default Example3;

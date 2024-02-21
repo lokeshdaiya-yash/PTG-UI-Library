@@ -539,7 +539,6 @@ const htmlCode = `
 </form>`
 
   return (
-    <>
      <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
       <div className='row'>
         <div className="ms-4 col-6 mb-2 mt-2">
@@ -766,7 +765,6 @@ const htmlCode = `
       <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
     )}
     </section>
-    </>
   );
 }
 export default WebAccessibility;

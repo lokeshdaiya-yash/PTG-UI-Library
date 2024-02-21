@@ -135,6 +135,7 @@ export function ExampleOne(props: ExampleOneProps) {
   `
 
   return (
+    // <div className="wrapper pt-0 pb-0 p-2">
     <section>
           <div className="container-fluid">
           {! props.showCodeOne ? (
@@ -164,11 +165,9 @@ export function ExampleOne(props: ExampleOneProps) {
                  <label>{t('DATE_VALIDATOR_TEXT')}</label>
                   <div className="row mb-3">
                    <div
-<<<<<<< HEAD
+
                      className="col-lg-12 col-md-12 col-sm-12 col-xs-12"
-=======
-                     className="col-lg-8 col-md-12 col-sm-12 col-xs-12"
->>>>>>> 31f3b55 (UI Changes)
+
                      id="react-datepicker_star-end"
                    >
                      <PtgUiCalendar {...dateRangeProp} />
@@ -182,6 +181,7 @@ export function ExampleOne(props: ExampleOneProps) {
      
       </div>
     </section>
+    // </div>
   );
 }
 

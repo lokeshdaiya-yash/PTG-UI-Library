@@ -32,4 +32,3 @@ export * from './lib/data-table/react-table/react-table';
 export * from './lib/accordian/accordian';
 export * from './lib/textarea/textarea';
 export * from './lib/hooks/useFetch';
-

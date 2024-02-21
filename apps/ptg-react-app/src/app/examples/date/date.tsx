@@ -132,9 +132,9 @@ const endDateProp = {
           </div>
           <hr className='horizontal-line'/>
         </div>
-
        
         <DateExampleOne showCodeOne={showCodeOne} />
+        
       </section>
 
       <section className='card-section-two bg-white rounded pt-2 pb-1 mt-4'>

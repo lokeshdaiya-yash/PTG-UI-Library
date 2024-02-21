@@ -13,6 +13,8 @@ nav {
     img {
       height: 40px;
       width : 100px;
+      height: 40px;
+      width : 100px;
     }
   }
 }
@@ -28,3 +30,13 @@ nav {
   }
 }
 
+
+@media (min-width: 300px) and (max-width: 942px) {
+  .logo {
+    img {
+      height: 40px;
+      width: 100px;
+      margin-right: 800px;
+    }
+  }
+}

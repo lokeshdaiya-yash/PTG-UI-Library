@@ -15,7 +15,6 @@ export function GridLayout(props: GridLayoutProps) {
     const { t } = useTranslation();
 
   return (
-   <>
    <div className="card-section-two bg-white rounded pt-2 mb-2 mt-2 pb-4">
     <div className="row">
         <div className="col-md-11 text-center mb-2 mt-1">
@@ -104,7 +103,6 @@ export function GridLayout(props: GridLayoutProps) {
         </div>
         </section>
     </div>
-    </>
   );
 }
 

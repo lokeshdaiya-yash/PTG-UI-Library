@@ -5,9 +5,7 @@
 */
 {/*--List of sidebar/side navigation--*/}
 
-<<<<<<< HEAD
 
-=======
 export const NavigationChildData = [
   {
     label: 'CHARTS',
@@ -58,7 +56,6 @@ export const NavigationChildData = [
     ],
   },
 ]
->>>>>>> 31f3b55 (UI Changes)
 export const NavigationData = [
   {
     path: '/accordian',
@@ -79,26 +76,23 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/breadcrumbs',
+    icon: 'fa fa-link',
+    label: 'BREADCRUMBS',
+    disabled: false,
+  },
+  {
     path: '/calendar',
     icon: 'fa-solid fa-calendar',
     label: 'CALENDAR',
     disabled: false,
   },
   {
-    path: '/cards',
-    icon: 'fa fa-square',
-    label: 'CARDS',
-    disabled: false,
-  },
-<<<<<<< HEAD
-  {
     path: '/carousel',
     icon: 'fa fa-lock',
     label: 'Carousel',
     disabled: false,
   },
-=======
->>>>>>> 31f3b55 (UI Changes)
  {
     label: 'CHARTS',
     icon: 'fas fa-chart-line',
@@ -214,10 +208,15 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    path: '/toaster',
+    path: '/breadcrumbs',
     icon: 'fa fa-lock',
-    label: 'Toaster',
+    label: 'BREADCRUMBS',
+    disabled: false,
+  },
+  {
+    path: '/cards',
+    icon: 'fa fa-lock',
+    label: 'CARDS',
     disabled: false,
   }
-
 ];  
