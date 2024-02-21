@@ -3,12 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { getDesignation, deleteDesignation } from '../../service/api';
 import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 import AddDesignation from './AddDesignation';
-import './designation.scss';
-import { Link } from 'react-router-dom';
-import { PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
-import EditDesignation from './EditDesignation';
+import './Designation.scss';
+import { PtgUiMaterialTable } from '@ptg-ui/react';
 
-const Designation = () => {
+const ViewDesignation = () => {
   const [designations, setDesignation] = useState([]);
 
   useEffect(() => {
@@ -17,7 +15,6 @@ const Designation = () => {
 
   const getAllDesignations = async () => {
     const response = await getDesignation();
-    console.log('getAllDesignations >>>', response);
     setDesignation(response?.data);
   };
 
@@ -25,8 +22,6 @@ const Designation = () => {
     await deleteDesignation(id);
     getAllDesignations();
   };
-
-  // const btnName = <i className="fa-solid fa-pencil"></i>;
 
   const modalClosed = (event) => {
     console.log('Modal Closed successfully', event.returnValue);
@@ -37,13 +32,14 @@ const Designation = () => {
   };
 
   const designationModal = (
-    btnName: any,
+    btnName: string,
     heading: string,
     designation?: any
   ) => {
     return (
       <PtgModal
         modal-size="md"
+        className='btn btn-primaryy'        
         btn-name={btnName}
         modal-header-name={heading}
         confirm-button-name="Save"
@@ -65,24 +61,9 @@ const Designation = () => {
       name: 'action',
       header: '',
       width: '50%',
-      render: (designation) => (
+      render: (designation: any) => (
         <div className="masterdataBtn table-action-button">
           {designationModal('Edit', 'Edit Designation', designation)}
-          {/* <PtgModal
-            modal-size="lg"
-            modal-header-name="Edit Designation"
-            btn-name={btnName}
-            confirm-button-name="Okay"
-          >
-            <div slot="body-block">
-              <EditDesignation />
-            </div>
-          </PtgModal> */}
-
-          {/* <Link to={`/editdesignation/${designation._id}`}>
-            <i className="fa-solid fa-pencil icon-color"></i>
-          </Link> */}
-
           <i
             className="fa-solid fa-trash cursor-pointer"
             onClick={() => deleteDesignationDetails(designation._id)}
@@ -94,20 +75,7 @@ const Designation = () => {
 
   return (
     <div className="viewMastertable ">
-      {/* <PtgModal
-        modal-size="md"
-        btn-name="Add Designation "
-        modal-header-name="Add Designation"
-        confirm-button-name="Okay"
-      >
-        <div slot="body-block">
-          <AddDesignation />
-        </div>
-      </PtgModal> */}
       {designationModal('Add Designation', 'Add Designation')}
-
-      {/* <i className="fa-thin fa-plus"></i> */}
-
       <PtgUiMaterialTable
         data={designations}
         columns={Columns}
@@ -119,4 +87,4 @@ const Designation = () => {
     </div>
   );
 };
-export default Designation;
+export default ViewDesignation;
