@@ -41,12 +41,6 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
     }
   },[apiData])
 
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {setGridData(res.data);console.log(res.data)})
-  //     .catch((err: any) => console.log(err));
-  // }, []);
   const columns = React.useMemo(
     () => [
       {
@@ -165,10 +159,10 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
     <div className="w-100">
        <div className="row">
         <div className="col-11 mb-3">
-          <h4>{t('REACT_TABLE')}</h4>
+          <h5>{t('REACT_TABLE')}</h5>
         </div>
         <div className='col-1 mr-2'>
-          <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
       </div>
       {!showCode ? (

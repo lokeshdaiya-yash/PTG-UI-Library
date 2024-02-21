@@ -422,13 +422,14 @@ useEffect(()=>{
         <Tab eventKey="2d" title="2D graphs">
           <div className='row'>
           <div className="col-11 mb-3">
-          <h4 className="m-3">{t('BAR_CHART_TEXT')}</h4>
+          <h5 className="m-3">{t('BAR_CHART_TEXT')}</h5>
           </div>
 
           <div className='col-1 mr-3 mt-3'>
-          <CodeIcon onClick={ShowBarChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowBarChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           </div>
+          
           
           {!barChartCode ? (
             <PtgUiColumn {...high2DBarData} />
@@ -438,11 +439,11 @@ useEffect(()=>{
           
           <div className='row'>
           <div className="col-11 mb-3">
-          <h4 className="m-3">{t('PIE_CHART_TEXT')}</h4>
+          <h5 className="m-3">{t('PIE_CHART_TEXT')}</h5>
           </div>
 
           <div className='col-1 mr-5 mt-3'>
-          <CodeIcon onClick={ShowPieChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowPieChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           </div>
           
@@ -456,11 +457,11 @@ useEffect(()=>{
 
           <div className='row'>
           <div className="col-11 mb-3">
-          <h4 className="m-3">{t('LINE_BAR_CHART_TEXT')}</h4>
+          <h5 className="m-3">{t('LINE_BAR_CHART_TEXT')}</h5>
           </div>
 
           <div className='col-1 mr-5 mt-3'>
-          <CodeIcon onClick={ShowLineBarChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowLineBarChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           </div>
 
@@ -472,11 +473,11 @@ useEffect(()=>{
 
           <div className='row'>
           <div className="col-11 mb-3">
-          <h4 className="m-3">{t('STACKED_CHART')}</h4>
+          <h5 className="m-3">{t('STACKED_CHART')}</h5>
           </div>
 
           <div className='col-1 mr-5 mt-3'>
-          <CodeIcon onClick={ShowStackBarChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowStackBarChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           </div>
           
@@ -491,11 +492,11 @@ useEffect(()=>{
         <Tab eventKey="3d" title="3D Graphs">
           <div className='row'>
           <div className="col-11 mb-3">
-          <h4 className="m-3">{t('BAR_CHART_TEXT')}</h4>
+          <h5 className="m-3">{t('BAR_CHART_TEXT')}</h5>
           </div>
 
           <div className='col-1 mr-5 mt-3'>
-          <CodeIcon onClick={ShowBar3DCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowBar3DCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           </div>
           {!bar3DCode ? (
@@ -506,11 +507,11 @@ useEffect(()=>{
           
           <div className='row'>
           <div className="col-11 mb-3">
-          <h4 className="m-3">{t('PIE_CHART_TEXT')}</h4>
+          <h5 className="m-3">{t('PIE_CHART_TEXT')}</h5>
           </div>
 
           <div className='col-1 mr-5 mt-3'>
-          <CodeIcon onClick={ShowPie3DCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowPie3DCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           </div>
           {!pie3DCode ? (
@@ -521,11 +522,11 @@ useEffect(()=>{
           
           <div className='row'>
           <div className="col-11 mb-3">
-          <h4 className="m-3">{t('LINE_CHART_TEXT')}</h4>
+          <h5 className="m-3">{t('LINE_CHART_TEXT')}</h5>
           </div>
 
           <div className='col-1 mr-5 mt-3'>
-          <CodeIcon onClick={ShowLine3DCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowLine3DCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           </div>
           {!line3DCode ? (

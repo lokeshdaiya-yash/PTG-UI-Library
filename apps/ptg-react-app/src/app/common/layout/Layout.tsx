@@ -24,11 +24,11 @@ export function Layout({ }: LayoutProps) {
       <Header />
       <div className="main">
         <div className="d-flex h-100">
-          <div className="flex-shrink-1 side-nav-wrapper h-100">
+          <div className="flex-shrink-1 side-nav-wrapper h-100 pt-4">
             <Sidenav />
           </div>
           <div className="main-wrapper">
-            <div className="main-conatiner">
+            <div className="main-conatiner p-2">
               {/*--Start dynamic private routing--*/}
               <Routes>
                 {routing.map((route: any, idx: number) => {

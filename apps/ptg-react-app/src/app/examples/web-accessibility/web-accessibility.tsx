@@ -542,11 +542,11 @@ const htmlCode = `
     <>
       <div className='row'>
         <div className="text-center col-lg-11 mb-3">
-          <h1>{t('WEB_ACCESSIBILITY_TEXT')}</h1>
+          <h5>{t('WEB_ACCESSIBILITY_TEXT')}</h5>
         </div>
 
         <div className="col-lg-1 mb-3 mt-2">
-          <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
       </div>
 
@@ -749,7 +749,7 @@ const htmlCode = `
                 </div>
                 <div className="row mt-5">
                   <div className="col-md-12">
-                    <h2>{t('ACHIEVED_HEADING')}</h2>
+                    <h6>{t('ACHIEVED_HEADING')}</h6>
                         <ol>
                           <li>{t('ACHIEVED_PNT_ONE')}</li>
                           <li>{t('ACHIEVED_PNT_TWO')}</li>

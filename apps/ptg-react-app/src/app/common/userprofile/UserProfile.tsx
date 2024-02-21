@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Reset from '../reset/Reset';
+import PersonIcon from '@mui/icons-material/Person';
 import './UserProfile.scss';
 import './UserProfile.scss';
 
@@ -70,6 +71,7 @@ export default function UserProfile() {
         data-testid="profileIcon"
       >
         {userData.shortname}
+
       </span>
       {toggle && (
         <div className="user-container">

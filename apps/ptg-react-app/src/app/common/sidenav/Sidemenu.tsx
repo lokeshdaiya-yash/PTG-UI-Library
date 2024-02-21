@@ -63,14 +63,26 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/breadcrumbs',
+    icon: 'fa fa-link',
+    label: 'BREADCRUMBS',
+    disabled: false,
+  },
+  {
     path: '/calendar',
     icon: 'fa-solid fa-calendar',
     label: 'CALENDAR',
     disabled: false,
   },
   {
+    path: '/cards',
+    icon: 'fa fa-square',
+    label: 'CARDS',
+    disabled: false,
+  },
+  {
     path: '/carousel',
-    icon: 'fa-solid fa-calendar',
+    icon: 'fa fa-lock',
     label: 'Carousel',
     disabled: false,
   },
@@ -130,7 +142,7 @@ export const NavigationData = [
   },
   {
     path: '/dragnDrop',
-    icon: 'fa fa-lock',
+    icon: 'fa fa-bars',
     label: 'DRAG N DROP',
     disabled: false,
   },
@@ -183,21 +195,10 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    path: '/breadcrumbs',
-    icon: 'fa fa-lock',
-    label: 'BREADCRUMBS',
-    disabled: false,
-  },
-  {
-    path: '/cards',
-    icon: 'fa fa-lock',
-    label: 'CARDS',
-    disabled: false,
-  },
-  {
     path: '/toaster',
     icon: 'fa fa-lock',
     label: 'Toaster',
     disabled: false,
   }
+
 ];  

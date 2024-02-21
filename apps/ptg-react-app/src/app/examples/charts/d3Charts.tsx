@@ -184,13 +184,13 @@ export function D3Charts(props: D3ChartsProps) {
 
   return (
     <Container fluid>
-        <Row>
+        <Row className='bg-white rounded pt-2 pb-1 mb-4'>
           <div className="col-11 mb-3">
-            <h4>{t('BAR_CHART_TEXT')}</h4>
+            <h5>{t('BAR_CHART_TEXT')}</h5>
           </div>
          
           <div className='col-1 mr-5'>
-            <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+            <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           
           {!barChartCode ? 
@@ -200,12 +200,12 @@ export function D3Charts(props: D3ChartsProps) {
           )}
         </Row>
 
-        <Row>
+        <Row className='bg-white rounded pt-2 pb-1 mb-4'>
         <div className="col-11 mb-3">
-          <h4>{t('PIE_CHART_TEXT')}</h4>
+          <h5>{t('PIE_CHART_TEXT')}</h5>
         </div>
         <div className='col-1 mr-5'>
-          <CodeIcon onClick={ShowExampleCodeTwo} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowExampleCodeTwo} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
 
         {!pieChartCode ? (
@@ -215,13 +215,13 @@ export function D3Charts(props: D3ChartsProps) {
         )}
         
         </Row>
-        <Row>
+        <Row className='bg-white rounded pt-2 pb-1 mb-4'>
         <div className="col-11 mb-3">
-          <h4>{t('LINE_CHART_TEXT')}</h4>
+          <h5>{t('LINE_CHART_TEXT')}</h5>
         </div>
 
         <div className='col-1 mr-5'>
-          <CodeIcon onClick={ShowExampleCodeThree} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowExampleCodeThree} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
         {!lineChartCode ? (
           apiDataLineChartData && apiDataLineChartData?.data?.length ? <PtgUiD3Line {...apiDataLineChartData} /> :null

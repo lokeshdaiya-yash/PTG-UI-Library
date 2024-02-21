@@ -52,18 +52,20 @@ export default function Card() {
     console.log(data.detail);
   };
   return (
-    <div className="container mt-3">
+    <section className='card-section-two bg-white rounded'>
+    <div className="container">
       <div className="row">
-        <div className="col-md-10">
-          <h3 className="font-weight-bold">Cards</h3>
+        <div className="col-md-11 mb-2 mt-3">
+          <h5 className="font-weight-bold example-heading">Cards</h5>
         </div>
-        <div className="col-2">
+        <div className="col-1 mb-2 mt-2">
           <CodeIcon
             onClick={() => setShowCode((prev) => !prev)}
-            fontSize="medium"
+            fontSize="large"
             className="show-code-icon"
           ></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
         {showCode && (
           <ShowCodeComponent
             componentCode={componentCode}
@@ -72,7 +74,7 @@ export default function Card() {
         )}
         {cardDataObj.map((card) => {
           return (
-            <div className="col-md-4">
+            <div className="col-md-4 mb-2">
               <PtgCard
                 {...card}
                 cardButtonText="select"
@@ -85,5 +87,6 @@ export default function Card() {
         })}
       </div>
     </div>
+    </section>
   );
 }

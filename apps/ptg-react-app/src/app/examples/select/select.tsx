@@ -96,10 +96,10 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
      <section>
       <div className="row">
         <div className="col-11 mb-3">
-          <h4>{t('SINGLE_SELECT_TEXT')}</h4>
+          <h5>{t('SINGLE_SELECT_TEXT')}</h5>
         </div>
         <div className="col-1">
-          <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
           
             {/*-----Usable component PtgUiMultiSelectbox single select-----*/}
           </div>
@@ -117,7 +117,7 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
       <hr />
         <div className="row">
           <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 multi-select">
-          <h4>{t('MULTI_SELECT_TEXT')}</h4>
+          <h5>{t('MULTI_SELECT_TEXT')}</h5>
             {/*-----Usable component PtgUiMultiSelectbox multi select-----*/}
             <PtgUiMultiSelectbox
               name="city"
