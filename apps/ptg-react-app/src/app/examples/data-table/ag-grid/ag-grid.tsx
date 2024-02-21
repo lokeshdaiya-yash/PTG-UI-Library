@@ -38,14 +38,7 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
   }, []);
 
   const {data:apiData} = PtguseFetch('table-lists') as any
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {
-  //       setGridData(res.data);
-  //     })
-  //     .catch((err: any) => console.log(err));
-  // }, []);
+
   const { t } = useTranslation();
   
   useEffect(() => {

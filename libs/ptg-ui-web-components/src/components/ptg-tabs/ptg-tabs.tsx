@@ -60,29 +60,7 @@ export class PtgTabs {
             )
         })}
 
-        </div>
-
-        {/* 
-        {this.tabCount >= 8  && ( */}
-            {/* <div>
-            <div class="right-shift" onClick={() => this.dragging()}>
-            <p><i class="arrow left"></i></p>
             </div>
-
-            <div  class="left-shift" onClick={() => this.draggingLeft()}>
-            <p><i class="arrow right"></i></p>
-            </div>
-            </div> */}
-        
-        {/* )} */}
-      
-        {/* {this.tabLabelArray.map((list) => {
-            return(
-                <div class="tabs__content tabs-list"  ref={(el)=>(this.tabContent = el)} >
-                    {list.content}
-                </div>
-            )
-        })} */}
         </div>
     );
   }
