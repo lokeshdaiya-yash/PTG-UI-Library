@@ -17,7 +17,7 @@ import {
   PtgUiTextArea,
 } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 
-const formInitialValues = {
+const initialFormValue = {
   name: '',
   email: '',
   poolStartDate: '',
@@ -32,9 +32,11 @@ const formInitialValues = {
   designations: '',
 };
 
-const AddMasterdata = () => {
+const AddMasterdata = (props: any) => {
+  const { masterData, btnName } = props;
   const formErrorsObj: any = {};
-  const [masterData, setMasterdata] = useState(formInitialValues);
+  const [formValue, setFormValue] = useState(initialFormValue);
+  // const [formValue, setFormValue] = useState(formInitialValues);
   const [skills, setSkill] = useState([]);
   const navigate = useNavigate();
   const [bands, setBands] = useState([]);
@@ -59,7 +61,7 @@ const AddMasterdata = () => {
 
   const onBandSelect = (e) => {
     // console.log('Select Values, onValueChange', e[0]);
-    setMasterdata({ ...masterData, bands: e[0].value });
+    setFormValue({ ...formValue, bands: e[0].value });
   };
   // ==================== Competency select===========================================
 
@@ -70,7 +72,7 @@ const AddMasterdata = () => {
 
   const onCompetencySelect = (e) => {
     // console.log('Select Values, onValueChange', e[0]);
-    setMasterdata({ ...masterData, competency: e[0].value });
+    setFormValue({ ...formValue, competency: e[0].value });
   };
 
   // ==================== designations select===========================================
@@ -82,7 +84,7 @@ const AddMasterdata = () => {
 
   const onSelect = (e) => {
     // console.log('Select Values, onValueChange', e[0]);
-    setMasterdata({ ...masterData, designations: e[0].value });
+    setFormValue({ ...formValue, designations: e[0].value });
   };
 
   // ==================== skill multiselect===========================================
@@ -101,12 +103,12 @@ const AddMasterdata = () => {
   };
 
   const onSelectSkills = (e) => {
-    setMasterdata({ ...masterData, skills: e });
+    setFormValue({ ...formValue, skills: e });
   };
 
   const onValueChange = (e) => {
     const { name, value } = e.target;
-    setMasterdata({ ...masterData, [name]: value });
+    setFormValue({ ...formValue, [name]: value });
   };
 
   const today = new Date();
@@ -134,17 +136,17 @@ const AddMasterdata = () => {
     className: 'form-control w-100',
     onChange: (date: any) => {
       setDateState(date, 'startDate');
-      setMasterdata({ ...masterData, poolStartDate: formatDate(date) });
+      setFormValue({ ...formValue, poolStartDate: formatDate(date) });
     },
     startDate: today,
   };
 
   const submitMasterDetails = async () => {
-    setFormErrors(validateFormFields(masterData));
+    setFormErrors(validateFormFields(formValue));
     setIsSubmit(true);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      await addMasterdata(masterData);
-      navigate('/masterData');
+      await addMasterdata(formValue);
+      navigate('/formValue');
     }
   };
   const cancel = () => {
@@ -197,7 +199,7 @@ const AddMasterdata = () => {
               name="name"
               id="name"
               placeholder="Enter Name"
-              value={masterData.name}
+              value={formValue.name}
               onChange={(e) => onValueChange(e)}
             />
             <p className="error">{formErrors.name}</p>
@@ -210,7 +212,7 @@ const AddMasterdata = () => {
               name="email"
               id="email"
               placeholder="Enter Email"
-              value={masterData.email}
+              value={formValue.email}
               onChange={(e) => onValueChange(e)}
             />
             <p className="error">{formErrors.email}</p>
@@ -281,7 +283,7 @@ const AddMasterdata = () => {
               type="text"
               name="yearsofExp"
               placeholder="Enter Experience"
-              value={masterData.yearsofExp}
+              value={formValue.yearsofExp}
               onChange={(e) => onValueChange(e)}
             />
             <p className="error">{formErrors.yearsofExp}</p>
@@ -295,7 +297,7 @@ const AddMasterdata = () => {
               rows="2"
               name="comments"
               id="comments"
-              value={masterData.comments}
+              value={formValue.comments}
               onChange={(e) => onValueChange(e)}
             />
           </div>
