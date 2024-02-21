@@ -1,12 +1,12 @@
 import React from 'react'
 import './Config.scss';
-import Designation from '../designation/designation'
+import ViewDesignation from '../designation/ViewDesignation'
 
 const Config = () => {
   return (
     
     <div>
-        <Designation />
+        <ViewDesignation />
  {/* ==============accordion ============================== */}
       {/* <div className="accordion" id="accordionExample">
         <div className="accordion-item">

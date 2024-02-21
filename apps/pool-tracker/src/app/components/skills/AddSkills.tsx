@@ -1,7 +1,6 @@
 import { PtgUiButton, PtgUiInput } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { addDesignation, editDesignation } from '../../service/api';
+import { addSkill } from '../../service/api';
 
 const initialFormValue = {
   name: '',
@@ -9,16 +8,16 @@ const initialFormValue = {
   label: '',
 };
 
-const AddDesignation = (props: any) => {
-  const { designation, btnName } = props;
+const AddSkills = (props: any) => {
+  const { skill, btnName } = props;
   const [formValue, setFormValue] = useState(initialFormValue);
 
   useEffect(() => {
-    if (btnName !== 'Add Designation') {
+    if (btnName !== 'Add Skill') {
       setFormValue({
-        name: designation.name,
-        value: designation.value,
-        label: designation.label,
+        name: skill.name,
+        value: skill.value,
+        label: skill.label,
       });
     }
   }, []);
@@ -34,12 +33,8 @@ const AddDesignation = (props: any) => {
   };
 
   const onSubmit = async () => {
-    if (btnName !== 'Add Designation') {
-      await editDesignation(formValue, designation._id);
-    } else {
-      await addDesignation(formValue);
-    }
-    // navigate('/designation');
+    console.log(formValue);
+    await addSkill(formValue);
   };
 
   return (
@@ -59,10 +54,10 @@ const AddDesignation = (props: any) => {
         disabled={!formValue.value}
         onClick={() => onSubmit()}
       >
-        Add Designation
+        Add Skill
       </PtgUiButton>
     </div>
   );
 };
 
-export default AddDesignation;
+export default AddSkills;

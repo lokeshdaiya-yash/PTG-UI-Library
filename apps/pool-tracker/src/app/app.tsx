@@ -2,22 +2,17 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/common/header/Header';
 import Footer from './components/common/footer/Footer';
 import EditMasterdata from './components/EditMasterdata';
-
-// import AddMasterdata from './components/AddMasterdata';
-
 import EditSkill from './components/EditSkill';
 import AddSkill from './components/AddSkill';
 import User from './components/User';
-// import PrivateRout from './components/PrivateRout';
 import Login from './components/Login';
 import PageNotFound from './components/pageNotFound/PageNotFound';
 import AddMasterdata from './components/addMasterData/AddMasterData';
-import Designation from './components/designation/designation';
+import ViewDesignation from './components/designation/ViewDesignation';
 import Config from './components/config/Config';
 import AddDesignation from './components/designation/AddDesignation';
-import EditDesignation from './components/designation/EditDesignation';
-import Skill from './components/skill/Skill';
 import ViewMasterdata from './components/viewMasterData/ViewMasterData';
+import ViewSkills from './components/skills/ViewSkills';
 
 export function App() {
   return (
@@ -30,9 +25,8 @@ export function App() {
 
           {/* <Route element={<PrivateRout />}> */}
           <Route path="/config" element={<Config />} />
-          <Route path="/designation" element={<Designation />} />
+          <Route path="/designation" element={<ViewDesignation />} />
           <Route path="/adddesignation" element={<AddDesignation />} />
-          <Route path="/editdesignation" element={<EditDesignation />} />
 
           {/* Masterdata Routes*/}
           <Route path="/addMasterdata" element={<AddMasterdata />} />
@@ -40,7 +34,7 @@ export function App() {
           <Route path="/editMasterdata/:id" element={<EditMasterdata />} />
 
           {/* skills Routes*/}
-          <Route path="/skills" element={<Skill />} />
+          <Route path="/skills" element={<ViewSkills />} />
           <Route path="addSkill" element={<AddSkill />} />
           <Route path="/editskill/:id" element={<EditSkill />} />
 
