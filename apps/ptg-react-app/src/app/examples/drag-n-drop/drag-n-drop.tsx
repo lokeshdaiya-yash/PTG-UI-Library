@@ -25,9 +25,10 @@ export function DragNDrop(props: DragNDropProps) {
         <Tab eventKey="example1" title={t('DRAG_DROP_EX_1')}>
         <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4">
         <div className="row">
-          <div className="col-11 mb-3">
-            <h5 className="m-3">{t('DRAG_DROP_EX_1')}</h5>
+          <div className="col-11 mb-1">
+            <h5 className='m-3'>{t('DRAG_DROP_EX_1')}</h5>
           </div>
+          <hr className='horizontal-line'/>
         </div>
           <DragExampleOne />
         </div>
@@ -37,9 +38,10 @@ export function DragNDrop(props: DragNDropProps) {
         <Tab eventKey="example2" title={t('DRAG_DROP_EX_2')}>
         <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
         <div className="row">
-          <div className="col-11 mb-3">
+          <div className="col-11 mb-1">
             <h5 className="m-3">{t('DRAG_DROP_EX_2')}</h5>
           </div>
+          <hr className='horizontal-line'/>
         </div>
           <DragExampleTwo />
         </div>
@@ -48,9 +50,10 @@ export function DragNDrop(props: DragNDropProps) {
         <Tab eventKey="example3" title={t('DRAG_DROP_EX_3')}>
         <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
         <div className="row">
-          <div className="col-11 mb-3">
+          <div className="col-11 mb-1">
             <h5 className="m-3">{t('DRAG_DROP_EX_3')}</h5>
           </div>
+          <hr className='horizontal-line'/>
         </div>
           <DragExampleThree />
         </div>
@@ -59,9 +62,10 @@ export function DragNDrop(props: DragNDropProps) {
         <Tab eventKey="example4" title={t('DRAG_DROP_EX_4')}>
         <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
         <div className="row">
-          <div className="col-11 mb-3">
+          <div className="col-11 mb-1">
             <h5 className="m-3">{t('DRAG_DROP_EX_4')}</h5>
           </div>
+          <hr className='horizontal-line'/>
         </div>
           <DragExampleFour />
         </div>
