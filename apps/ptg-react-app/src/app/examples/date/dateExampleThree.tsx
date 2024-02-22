@@ -120,8 +120,7 @@ export function ExampleThree(props: ExampleThreeProps) {
                 {/*-----Usable component datepicker-----*/}
                 <PtgUiCalendar {...startDateProp} />
               </div>
-            </div>
-           
+            </div>           
             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
               <div className="form-group mb-2" id="end-date">
                 <label htmlFor="inputDOB">{t('END_DATE_TEXT')}</label>
