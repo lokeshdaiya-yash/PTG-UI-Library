@@ -21,7 +21,7 @@ export function Highcharts(props: HighchartsProps) {
     <div className="w-100">
       <Tabs defaultActiveKey="2d">
         <Tab eventKey="2d" title={t('REUSABLE_MATERIAL_TABLE')}>
-                 <PtgUiMaterialTableExample/>
+            <PtgUiMaterialTableExample/>
            </Tab>
         <Tab eventKey="3d" title={t('MATERIAL_TABLE_WITH_ACTION_BTN')}>
             <PtgUiMaterialTableButtonExample />
