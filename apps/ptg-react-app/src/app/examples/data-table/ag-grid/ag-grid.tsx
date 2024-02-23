@@ -103,13 +103,12 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
     import { PtgUiAgGrid, PtgUiAccordian } from '@ptg-ui/react';
     import { useEffect, useMemo, useState } from 'react';
     import { AggridButton } from './aggrid-button';
-    import { authClass } from '@ptg-react-app/auth/services/auth.service';
     
     export interface PtgUiAgGridExampleProps {}
     
     export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
       const [gridData, setGridData] = useState([]);
-      useEffect(() => {
+            useEffect(() => {
         authClass
           .gridData()
           .then((res: any) => {
