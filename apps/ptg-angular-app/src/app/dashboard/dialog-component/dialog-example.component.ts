@@ -6,22 +6,35 @@ import { Component } from '@angular/core';
   styleUrls: ['./dialog-example.component.scss'],
 })
 export class DialogExampleComponent {
+  isOpen: boolean = false;
+  isFooterOpen: boolean = false;
+  btnName: any = 'Open Modal';
+
   htmlCode = `
-  <ptg-modal :btn-name="buttonName" :modal-header-name="modalHeaderName" confirm-button-name="Okay"
-  (modalClose)="modalClosed()" (confirmClose)="onConfirmation()" :closeOutsideClick="true">
-    <div slot="body-block">
-      <h2>Angular Slot for Body</h2>
-    </div>
-  </ptg-modal>
+  <ptg-button [text]="btnName" data-testid="openButton" appearance="primary" (click)="openFooterModal()"
+  btnIconAlignment='left'>
+  <div slot="btnIcon">
+    <i class="fas fa-window-maximize"></i>
+  </div>
+</ptg-button>
+<ptg-modal [isOpen]="isFooterOpen" modal-size="lg" confirm-button-name="Okay" :closeOutsideClick="true"
+  (modalClose)="modalFooterClosed()" (confirmClose)="confirmFooterClicked()">
+  <div slot="body-block">
+    <h2>Angular Slot for Body</h2>
+  </div>
+</ptg-modal>
   `;
 
   htmlCodeToHideFooter = `
-  <ptg-modal btn-name="Hide Footer in Modal" :show-footer="false" :modal-header-name="modalHeaderName" confirm-button-name="Okay"
-  (modalClose)="modalClosed()" (confirmClose)="onConfirmation()">
-    <div slot="body-block"> // Slot Name should be 'body-block'
-      <h2>In Angular</h2>
-    </div>
-  </ptg-modal>
+  <ptg-button [text]="btnName" data-testid="openButton" appearance="primary" (click)="openModal()">
+  </ptg-button>
+
+<ptg-modal [isOpen]="isOpen" :show-footer="false" btn-name="Hide Footer in Modal" modal-size="md"
+  confirm-button-name="Okay" (modalClose)="modalClosed()" (confirmClose)="confirmClicked()">
+  <div slot="body-block">
+    <h2>In Angular</h2>
+  </div>
+</ptg-modal>
   `;
 
   tsCode = `
@@ -36,21 +49,68 @@ export class DialogExampleComponent {
       templateUrl: './demo-dialog.component.html'
     })
     export class DemoDialogComponent {
-      buttonName = 'Open Modal',
-      modalHeaderName = 'Modal Header',
-
-      // This method will be called when we close or cancel the dialog
-      modalClosed() {
-        console.log('Modal Closed');
+      isFooterOpen: boolean =false;
+      btnName: any = "Open Modal";
+      // This method to open the dialog with footer
+      openFooterModal(){
+        this.isFooterOpen =true;
       }
-
-      // This method will be called when we click on confirm button of dialog
-      onConfirmation() {
-        console.log('Confirm Button Clicked');
+      // This method will be called when we close or cancel the dialog with footer
+      modalFooterClosed() {
+        this.isFooterOpen =false;
+      }
+      // This method will be called when we confirm the dialog with footer
+      confirmFooterClicked(){
+        this.isFooterOpen =false;
       }
     }`;
 
+  tsCodeToHideFooter = `
+    import { Component } from '@angular/core';
+
+    @Component({
+      selector: 'demo-dialog-component',
+      templateUrl: './demo-dialog.component.html'
+    })
+    export class DemoDialogComponent {
+      isOpen:boolean =false;
+      btnName: any = "Open Modal";
+      // This method will be called when we close or cancel the dialog without footer
+      modalClosed() {
+        this.isOpen =false;
+      }  
+      // This method will be called when we confirm the dialog without footer
+      confirmClicked(){
+        this.isOpen =false;
+      }   
+      // This method to open the dialog without footer
+      openModal(){
+        this.isOpen =true;
+      }
+    }
+    `;
+
   modalClosed() {
-    console.log('Modal Closed');
+    this.isOpen = false;
+  }
+
+  confirmClicked() {
+    this.isOpen = false;
+  }
+
+  openModal() {
+    this.isOpen = true;
+  }
+
+  openFooterModal() {
+    this.isFooterOpen = true;
+  }
+
+  modalFooterClosed() {
+    this.isFooterOpen = false;
+  }
+
+  confirmFooterClicked() {
+    this.isFooterOpen = false;
   }
 }
