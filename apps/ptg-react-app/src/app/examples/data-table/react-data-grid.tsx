@@ -9,7 +9,6 @@ import './data-table.scss';
 import { PtgUiReactDataGrid , PtguseFetch} from '@ptg-ui/react';
 import { PtgUiButton } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
-import { authClass } from '../../auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 /* eslint-disable-next-line */
@@ -32,14 +31,7 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
       setShowCode(false);
     }
   };
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {
-  //       setGridData(res.data);
-  //     })
-  //     .catch((err: any) => console.log(err));
-  // }, []);
+ 
   const {data:apiData, isLoading, error} = PtguseFetch('table-lists') as any
 
   useEffect(() => {
@@ -70,8 +62,6 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
     import {useEffect, useState} from 'react';
     import { PtgUiReactDataGrid } from '@ptg-ui/react';
     import { PtgUiButton } from '@ptg-ui/react';
-    import { GRID_Data } from '@ptg-react-app/mock/grid-data';
-    import { authClass } from '@ptg-react-app/auth/services/auth.service';
     
     export interface PtgUiReactDataGridExampleProps {}
     
@@ -82,14 +72,7 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
           alert("Button Clicked")
       }
       const [gridData, setGridData] = useState([]);
-      useEffect(() => {
-        authClass
-          .gridData()
-          .then((res: any) => {
-            setGridData(res.data);
-          })
-          .catch((err: any) => console.log(err));
-      }, []);
+    
       const columns = [
         { name: 'athlete', header: 'Athlete', width: 200 },
         { name: 'age', header: 'Age',  width: 100 },

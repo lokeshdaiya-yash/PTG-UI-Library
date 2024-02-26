@@ -153,6 +153,11 @@ export namespace Components {
         "tabletitle": string;
         "themeColor"?: string;
     }
+    interface PtgTabs {
+        "backgroundColor": string;
+        "showScroll": boolean;
+        "tabLabelArray": { label: string, content: any, checked : boolean }[];
+    }
     interface PtgTextarea {
         "appearance": string;
         "autofocus": boolean;
@@ -321,6 +326,12 @@ declare global {
         prototype: HTMLPtgTableElement;
         new (): HTMLPtgTableElement;
     };
+    interface HTMLPtgTabsElement extends Components.PtgTabs, HTMLStencilElement {
+    }
+    var HTMLPtgTabsElement: {
+        prototype: HTMLPtgTabsElement;
+        new (): HTMLPtgTabsElement;
+    };
     interface HTMLPtgTextareaElement extends Components.PtgTextarea, HTMLStencilElement {
     }
     var HTMLPtgTextareaElement: {
@@ -359,6 +370,7 @@ declare global {
         "ptg-sidenav": HTMLPtgSidenavElement;
         "ptg-spinner": HTMLPtgSpinnerElement;
         "ptg-table": HTMLPtgTableElement;
+        "ptg-tabs": HTMLPtgTabsElement;
         "ptg-textarea": HTMLPtgTextareaElement;
         "ptg-toast": HTMLPtgToastElement;
         "ptg-ui-carousel": HTMLPtgUiCarouselElement;
@@ -524,6 +536,11 @@ declare namespace LocalJSX {
         "tabletitle"?: string;
         "themeColor"?: string;
     }
+    interface PtgTabs {
+        "backgroundColor"?: string;
+        "showScroll"?: boolean;
+        "tabLabelArray"?: { label: string, content: any, checked : boolean }[];
+    }
     interface PtgTextarea {
         "appearance"?: string;
         "autofocus"?: boolean;
@@ -572,6 +589,7 @@ declare namespace LocalJSX {
         "ptg-sidenav": PtgSidenav;
         "ptg-spinner": PtgSpinner;
         "ptg-table": PtgTable;
+        "ptg-tabs": PtgTabs;
         "ptg-textarea": PtgTextarea;
         "ptg-toast": PtgToast;
         "ptg-ui-carousel": PtgUiCarousel;
@@ -600,6 +618,7 @@ declare module "@stencil/core" {
             "ptg-sidenav": LocalJSX.PtgSidenav & JSXBase.HTMLAttributes<HTMLPtgSidenavElement>;
             "ptg-spinner": LocalJSX.PtgSpinner & JSXBase.HTMLAttributes<HTMLPtgSpinnerElement>;
             "ptg-table": LocalJSX.PtgTable & JSXBase.HTMLAttributes<HTMLPtgTableElement>;
+            "ptg-tabs": LocalJSX.PtgTabs & JSXBase.HTMLAttributes<HTMLPtgTabsElement>;
             "ptg-textarea": LocalJSX.PtgTextarea & JSXBase.HTMLAttributes<HTMLPtgTextareaElement>;
             "ptg-toast": LocalJSX.PtgToast & JSXBase.HTMLAttributes<HTMLPtgToastElement>;
             "ptg-ui-carousel": LocalJSX.PtgUiCarousel & JSXBase.HTMLAttributes<HTMLPtgUiCarouselElement>;

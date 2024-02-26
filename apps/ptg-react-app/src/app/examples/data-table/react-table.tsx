@@ -41,12 +41,6 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
     }
   },[apiData])
 
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {setGridData(res.data);console.log(res.data)})
-  //     .catch((err: any) => console.log(err));
-  // }, []);
   const columns = React.useMemo(
     () => [
       {
@@ -91,9 +85,7 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
   const componentCode = `
 import React, { useEffect, useState } from 'react';
 import { PtgUiReactTable } from '@ptg-ui/react';
-import { GRID_Data } from '@ptg-react-app/mock/grid-data';
 import { useTranslation } from 'react-i18next';
-import { authClass } from '@ptg-react-app/auth/services/auth.service';
 
 export interface PtgUiReactTableExampleProps {}
 
@@ -107,12 +99,6 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
     }
   },[apiData])
 
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {setGridData(res.data);console.log(res.data)})
-  //     .catch((err: any) => console.log(err));
-  // }, []);
   const columns = React.useMemo(
     () => [
       {

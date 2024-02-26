@@ -28,6 +28,7 @@ export interface PtgUiMaterialTableProps {
     title: string,
     field: string,
   }[];
+
   filtering: boolean,
   paging: boolean,
   paginationPosition?: any

@@ -5,12 +5,6 @@
 */
 {/*--List of sidebar/side navigation--*/}
 export const NavigationData = [
-  // {
-  //   path: '/home',
-  //   icon: 'fas fa-home',
-  //   label: 'Home',
-  //   disabled: false,
-  // },
   {
     path: '/calendar',
     icon: 'fa-solid fa-calendar',
@@ -81,6 +75,12 @@ export const NavigationData = [
     path: '/dragnDrop',
     icon: 'fa fa-lock',
     label: 'DRAG N DROP',
+    disabled: false,
+  },
+  {
+    path: '/tabs',
+    icon: 'fa fa-lock',
+    label: 'TABS',
     disabled: false,
   },
   {

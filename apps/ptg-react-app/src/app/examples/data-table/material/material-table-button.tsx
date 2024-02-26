@@ -9,7 +9,6 @@ import MaterialTable from "@material-table/core";
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { PtgUiButton, PtguseFetch } from '@ptg-ui/react';
-import { authClass } from '@ptg-react-app/auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 
@@ -38,15 +37,6 @@ export function PtgUiMaterialTableButtonExample(props: PtgUiMaterialTableButtonE
     }
   },[apiData])
 
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {
-  //       setGridData(res.data);
-  //     })
-  //     .catch((err: any) => console.log(err));
-  // }, []);
-  
   const Columns:any = [
     { title: "Athlete",field: "athlete"},
     { title: "Age",field: "age",filtering: false },
@@ -60,23 +50,19 @@ export function PtgUiMaterialTableButtonExample(props: PtgUiMaterialTableButtonE
   ]; 
 
   const componentCode = `
-import { GRID_Data } from '@ptg-react-app/mock/grid-data';
+
 import MaterialTable from "@material-table/core";
 import CheckSharpIcon from '@mui/icons-material/CheckSharp';
 import { ExportCsv, ExportPdf } from '@material-table/exporters';
-import { useTranslation } from 'react-i18next';
 import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { PtgUiButton } from '@ptg-ui/react';
-import { authClass } from '@ptg-react-app/auth/services/auth.service';
-import CodeIcon from '@mui/icons-material/Code';
 
 /* eslint-disable-next-line */
 export interface PtgUiMaterialTableButtonExampleProps {
 }
 
 export function PtgUiMaterialTableButtonExample(props: PtgUiMaterialTableButtonExampleProps) {
-  const { t } = useTranslation();
   const [gridData, setGridData] = useState([]);
   const {data:apiData, isLoading, error} = PtguseFetch('http://localhost:1337/api/table-lists') as any
   const fetchApi = ()=>{
@@ -98,14 +84,7 @@ export function PtgUiMaterialTableButtonExample(props: PtgUiMaterialTableButtonE
   useEffect(()=>{
     fetchApi()
   },[apiData])
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {
-  //       setGridData(res.data);
-  //     })
-  //     .catch((err: any) => console.log(err));
-  // }, []);
+
   const Columns:any = [
     { title: "Athlete",field: "athlete"},
     { title: "Age",field: "age",filtering: false },
@@ -124,7 +103,6 @@ const htmlCode = `
 <MaterialTable
 columns={Columns}
 data={gridData}
-title="Material Table"
 actions={[
     {
       icon: () =>  <PtgUiButton
@@ -154,16 +132,6 @@ actions={[
        columns={Columns}
        data={gridData}
        title="Material Table"
-       // options={{
-       //   exportMenu: [{
-       //     label: 'Export PDF',
-       //     exportFunc: (cols: any, datas: any) => ExportPdf(cols, datas, 'pdfFileName')
-       //   }, {
-       //     label: 'Export CSV',
-       //     exportFunc: (cols: any, datas: any) => ExportCsv(cols, datas, 'csvFileName')
-       //   }],
-       //   actionsColumnIndex: -1
-       // }}
        actions={[
            {
              icon: () =>  <PtgUiButton
