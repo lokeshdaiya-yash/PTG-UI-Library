@@ -55,6 +55,7 @@ export const StepThree = ({
             id="inputCardNumber"
             value={details.cardNumber}
             onChange={handleChange}
+            onBlur={handleBlur}
           />
         </div>
         <div className="col-md-3 mb-2">
@@ -68,6 +69,7 @@ export const StepThree = ({
             id="inputCvc"
             value={details.cvc}
             onChange={handleChange}
+            onBlur={handleBlur}
           />
         </div>
         <div className="col-md-3 mb-2">
@@ -82,6 +84,7 @@ export const StepThree = ({
             placeholder="MM/YY"
             value={details.expiration}
             onChange={handleChange}
+            onBlur={handleBlur}
           />
         </div>
       </div>
@@ -96,6 +99,7 @@ export const StepThree = ({
           id="inputCardHolderName"
           value={details.cardHolder}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
       </div>
       <div className="row">

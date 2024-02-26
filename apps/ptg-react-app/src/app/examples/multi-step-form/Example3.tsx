@@ -100,9 +100,11 @@ const Example3 = () => {
 
   // on blur method
   const handleBlur = (event: any) => {
-    if (!event.target.value) {
-      setError({ ...error, [event.target.name]: true });
+    const {name, value} = event.target
+    if (!value) {
+      setError({ ...error, [name]: true });
     }
+    validate(name, value);
   };
 
   // validating different fields
@@ -187,7 +189,7 @@ const Example3 = () => {
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setDetails({ ...details, [name]: value });
-    validate(name, value);
+   
   };
 
   function showNext() {
@@ -205,6 +207,7 @@ const Example3 = () => {
             details={details}
             handleChange={handleChange}
             error={error}
+            handleBlur={handleBlur}
           />
         );
       case 1:

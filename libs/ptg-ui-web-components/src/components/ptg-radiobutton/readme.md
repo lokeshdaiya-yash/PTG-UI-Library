@@ -9,7 +9,7 @@
 
 | Property | Attribute | Description | Type     | Default     |
 | -------- | --------- | ----------- | -------- | ----------- |
-| `id`     | `id`      |             | `string` | `undefined` |
+| `ids`    | `ids`     |             | `string` | `undefined` |
 | `name`   | `name`    |             | `string` | `undefined` |
 | `sender` | `sender`  |             | `string` | `undefined` |
 | `type`   | `type`    |             | `string` | `undefined` |
