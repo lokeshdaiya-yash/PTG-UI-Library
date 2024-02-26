@@ -24,7 +24,7 @@ export function MultiLang({}: MultiLangProps) {
   },[apiData])
  
   return (
-    <div className="form-group me-2">
+    <div className="form-group me-4">
       <label htmlFor="multiLang" tabIndex={0} aria-label="multi" hidden>Select Lang</label>
       <PtgUiSelect
         name="multiLang"
