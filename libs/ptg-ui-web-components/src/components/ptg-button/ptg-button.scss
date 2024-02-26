@@ -10,7 +10,7 @@
   color: var(--mono-70);
   border-radius: 7px;
   border:none;
-  padding: 0 20px;
+  padding: 0 15px;
   // margin-left: 15px;
   height: 38px;
   outline: none;
@@ -87,9 +87,11 @@
 
 }
 .showLeft {
-  padding-left: 15px;
+  width: 18px;
+  padding-left: 12px;
 }
 
 .showRight {
-  padding-right: 15px;
+  width: 18px;
+  padding-right: 12px;
 }
