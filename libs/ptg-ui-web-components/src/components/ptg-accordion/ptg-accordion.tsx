@@ -30,11 +30,7 @@ export class PtgAccordion {
           }}
           onClick={() => this.toggleComponent()}>
           {this.label}
-          {this.toggle ? (
-            <span class="arrow down"></span>
-          ) : (
-            <span class="arrow"></span>
-          )}
+          <span class={this.toggle? 'arrow down': 'arrow'}></span>
         </button>
         <div
           class={`content-box ${this.toggle ? 'open' : 'close'}`}>

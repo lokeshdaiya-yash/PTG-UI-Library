@@ -41,10 +41,6 @@ const Accordian = lazy(()=> import("../examples/Accordion/accordion"));
 
 {/*--Declare routes and component for dynamic load--*/ }
 const routing = [
-  // {
-  //   path: '/home',
-  //   component: PtgUiHome,
-  // },
   {
     path:'/admin-home',
     component:PtgUiAdminHome
