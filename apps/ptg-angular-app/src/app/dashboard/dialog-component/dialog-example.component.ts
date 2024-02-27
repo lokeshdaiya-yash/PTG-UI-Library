@@ -8,10 +8,9 @@ import { Component } from '@angular/core';
 export class DialogExampleComponent {
   isOpen: boolean = false;
   isFooterOpen: boolean = false;
-  btnName: any = 'Open Modal';
 
   htmlCode = `
-  <ptg-button [text]="btnName" data-testid="openButton" appearance="primary" (click)="openFooterModal()"
+  <ptg-button text="Open Modal" data-testid="openButton" appearance="primary" (click)="openFooterModal()"
   btnIconAlignment='left'>
   <div slot="btnIcon">
     <i class="fas fa-window-maximize"></i>
@@ -26,7 +25,7 @@ export class DialogExampleComponent {
   `;
 
   htmlCodeToHideFooter = `
-  <ptg-button [text]="btnName" data-testid="openButton" appearance="primary" (click)="openModal()">
+  <ptg-button text="Open Modal" data-testid="openButton" appearance="primary" (click)="openModal()">
   </ptg-button>
 
 <ptg-modal [isOpen]="isOpen" :show-footer="false" btn-name="Hide Footer in Modal" modal-size="md"
@@ -50,7 +49,6 @@ export class DialogExampleComponent {
     })
     export class DemoDialogComponent {
       isFooterOpen: boolean =false;
-      btnName: any = "Open Modal";
       // This method to open the dialog with footer
       openFooterModal(){
         this.isFooterOpen =true;

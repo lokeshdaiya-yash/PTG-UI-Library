@@ -13,14 +13,6 @@ export class PtgButton {
   @Element() hostElement: HTMLStencilElement;
   hasbtnIconSlot: boolean;
 
-  private renderLeftButtonIcon() {
-    return <div class='showRight'><slot name="btnIcon" /></div>
-  }
-
-  private renderRightButtonIcon() {
-    return <div class='showLeft'><slot name="btnIcon" /></div>
-  }
-
   componentWillLoad() {
     this.hasbtnIconSlot = !!this.hostElement.querySelector('[slot="btnIcon"]');
   }
@@ -30,14 +22,13 @@ export class PtgButton {
       <button class={`btn ${this.appearance}`} type='button'>
         {
           this.btnIconAlignment === 'left' && this.hasbtnIconSlot && (
-            <span>{this.renderLeftButtonIcon()}</span>
+            <div class='showRight'><slot name="btnIcon" /></div>
           )
         }
         <span> {this.text}</span>
-
         {
           this.btnIconAlignment === 'right' && this.hasbtnIconSlot && (
-            <span>{this.renderRightButtonIcon()}</span>
+            <div class='showLeft'><slot name="btnIcon" /></div>
           )
         }
       </button>

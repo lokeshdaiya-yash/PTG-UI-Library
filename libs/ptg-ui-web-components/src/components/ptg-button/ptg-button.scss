@@ -1,9 +1,6 @@
 :host {
   display: block;
 }
-:host {
-  display: block;
-}
 
 .btn{
   background: var(--mono-10);
@@ -11,7 +8,6 @@
   border-radius: 7px;
   border:none;
   padding: 0 15px;
-  // margin-left: 15px;
   height: 38px;
   outline: none;
   transition: 0.1s ease-in-out;

@@ -12,7 +12,6 @@ import ShowCodeComponent from '../../common/showCode/showCodeComponent';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const DialogExample = () => {
-  const [btnName, setBtnName] = useState("Open Modal");
   const [showCode, setShowCode] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,7 +38,6 @@ const DialogExample = () => {
   const componentCode = `
   import PtgModal from '@ptg-ui/ptg-ui-web-components-react';
   import AddCircleIcon from '@mui/icons-material/AddCircle';
-  const [btnName, setBtnName] = useState("Open Modal");
   const [isOpen, setIsOpen] = useState(false);
 
   const modalClosed = (event) => {
@@ -61,7 +59,7 @@ const DialogExample = () => {
   import '@ptg-ui-web-components/src/global/global.css'`;
 
   const htmlCode = `
-      <PtgButton text={btnName} data-testid="openButton" appearance="primary" onClick={openModal}
+      <PtgButton text="Open Modal" data-testid="openButton" appearance="primary" onClick={openModal}
         btnIconAlignment='left' >
         <div slot="btnIcon">
           <AddCircleIcon />
@@ -87,7 +85,7 @@ const DialogExample = () => {
       {showCode && (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} cssCode={cssCode} />
       )}
-      <PtgButton text={btnName} data-testid="openButton" appearance="primary" onClick={openModal}
+      <PtgButton text="Open Modal" data-testid="openButton" appearance="primary" onClick={openModal}
         btnIconAlignment='left' >
         <div slot="btnIcon">
           <AddCircleIcon />
