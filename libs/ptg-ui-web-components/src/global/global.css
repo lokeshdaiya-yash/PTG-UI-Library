@@ -52,6 +52,7 @@
     font-size: 14px;
     color: var(--mono-70);
     overflow-x: hidden;
+    overflow-y: hidden;
     padding-bottom: 50px;
   }
   

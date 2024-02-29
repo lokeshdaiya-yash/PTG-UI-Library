@@ -24,7 +24,6 @@ export function Header({}: HeaderProps) {
             <img
               src="assets/images/YashLogo.png"
               aria-label="logo"
-              // alt="website logo"
               className="header-logo"
             />
           </a>

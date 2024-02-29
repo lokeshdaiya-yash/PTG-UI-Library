@@ -5,7 +5,6 @@
  */
 
 import './drag-n-drop.scss';
-import { useState } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import DragExampleOne from './dragExampleOne';
 import DragExampleTwo from './dragExampleTwo';
@@ -21,12 +20,12 @@ export function DragNDrop(props: DragNDropProps) {
   
   return (
     <div className="w-100">
-      <Tabs defaultActiveKey="example1" className="draganddropmain w-100">
-        <Tab eventKey="example1" title={t('DRAG_DROP_EX_1')}>
+      <Tabs defaultActiveKey="example1" className="draganddropmain active-tabs w-100">
+        <Tab eventKey="example1" title={t('DRAG_DROP_EX_1')} className='abc'>
         <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4">
         <div className="row">
-          <div className="col-11 mb-1">
-            <h5 className='m-3'>{t('DRAG_DROP_EX_1')}</h5>
+          <div className="col-11 mb-2">
+            <h5 className='example-heading mt-2'>{t('DRAG_DROP_EX_1')}</h5>
           </div>
           <hr className='horizontal-line'/>
         </div>
@@ -38,8 +37,8 @@ export function DragNDrop(props: DragNDropProps) {
         <Tab eventKey="example2" title={t('DRAG_DROP_EX_2')}>
         <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
         <div className="row">
-          <div className="col-11 mb-1">
-            <h5 className="m-3">{t('DRAG_DROP_EX_2')}</h5>
+          <div className="col-11 mb-2">
+            <h5 className='example-heading mt-2'>{t('DRAG_DROP_EX_2')}</h5>
           </div>
           <hr className='horizontal-line'/>
         </div>
@@ -50,8 +49,8 @@ export function DragNDrop(props: DragNDropProps) {
         <Tab eventKey="example3" title={t('DRAG_DROP_EX_3')}>
         <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
         <div className="row">
-          <div className="col-11 mb-1">
-            <h5 className="m-3">{t('DRAG_DROP_EX_3')}</h5>
+          <div className="col-11 mb-2">
+            <h5 className='example-heading mt-2'>{t('DRAG_DROP_EX_3')}</h5>
           </div>
           <hr className='horizontal-line'/>
         </div>
@@ -62,8 +61,8 @@ export function DragNDrop(props: DragNDropProps) {
         <Tab eventKey="example4" title={t('DRAG_DROP_EX_4')}>
         <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
         <div className="row">
-          <div className="col-11 mb-1">
-            <h5 className="m-3">{t('DRAG_DROP_EX_4')}</h5>
+          <div className="col-11 mb-2">
+            <h5 className='example-heading mt-2'>{t('DRAG_DROP_EX_4')}</h5>
           </div>
           <hr className='horizontal-line'/>
         </div>

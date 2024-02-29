@@ -10,9 +10,9 @@ import { useTranslation } from 'react-i18next';
 import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Reset from '../reset/Reset';
-import PersonIcon from '@mui/icons-material/Person';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import './UserProfile.scss';
-import './UserProfile.scss';
+
 
 export default function UserProfile() {
   const { t } = useTranslation();
@@ -34,16 +34,7 @@ export default function UserProfile() {
     /*--Start set logged in user data--*/
   }
   const getUserData = JSON.parse(authClass.getToken());
-  // if (getUserData === null) {
-  //   handleLogout();
-  // } else {
-  //   useEffect(() => {
-  //     getUserData.user.shortname = getUserData.user.username
-  //       ?.match(/\b(\w)/g)
-  //       ?.join('');
-  //     setUserData(getUserData.user);
-  //   }, []);
-  // }
+
   useEffect(() => {
     if (getUserData === null) {
       handleLogout();
@@ -66,10 +57,11 @@ export default function UserProfile() {
     <div className="user-wrapper mt-1">
       {/*--Display user short name--*/}
       <span
-        className="profile-icon text-white"
+        className="profile-icon"
         onClick={() => setToggle(!toggle)}
         data-testid="profileIcon"
       >
+      <AccountCircleIcon fontSize='large'/>
         {userData.shortname}
 
       </span>
@@ -81,9 +73,6 @@ export default function UserProfile() {
             <a className="list-group-item list-group-item-action bg-info text-white border-top-0">
               {userData.username}
             </a>
-            {/* <a className="list-group-item list-group-item-action">
-              {/* <Reset /> */}
-            {/* </a> */}
             <a
               className="list-group-item list-group-item-action"
               onClick={handleLogout}
@@ -97,6 +86,4 @@ export default function UserProfile() {
     </div>
   );
 }
-// function id(id: any): any {
-//   throw new Error('Function not implemented.');
-// }
+

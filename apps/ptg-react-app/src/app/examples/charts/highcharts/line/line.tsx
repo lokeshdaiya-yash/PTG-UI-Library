@@ -133,35 +133,31 @@ export function PtgUiHCLine(props: PtgUiHCLineProps) {
     <PtgUiLine {...highchartsMultiLineData} /> 
   `
   return (
-
     <>
+      <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
       <div className='row'>
-        <div className="col-11 mb-3">
-          <h4 className="m-3">{t('SINGLE_LINE_CHART')}</h4>
+        <div className="col-10 mt-2">
+          <h5 className='example-heading'>{t('SINGLE_LINE_CHART')}</h5>
         </div>
   
-        <div className='col-1 mr-5 mt-3'>
+        <div className='col-2 mr-5 mt-1 mb-2'>
           <CodeIcon onClick={ShowLineChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
       </div>
       <PtgUiLine {...highchartsLineData} />
-      <h4 className="m-3">{t('MULTIPLE_LINE_CHART')}</h4>
-      <PtgUiLine {...high2DMultiLine} />
+    </section>
 
-      {!showLineChartCode ? (
-        <PtgUiLine {...highchartsLineData} />
-      ):(
-        <ShowCodeComponent componentCode={singleLineChartComponentCode} htmlCode={singleLineChartHtmlCode}/>
-      )}
-   
+    <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
       <div className='row'>
-        <div className="col-11 mb-3">
-          <h4 className="m-3">{t('MULTIPLE_LINE_CHART')}</h4>
+        <div className="col-10 mt-2">
+          <h5 className='example-heading'>{t('MULTIPLE_LINE_CHART')}</h5>
         </div>
 
-        <div className='col-1 mr-5 mt-3'>
+        <div className='col-2 mr-5 mt-1 mb-2'>
           <CodeIcon onClick={ShowMultiLineChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
       </div>
 
       {!showMultiLineChartCode ? (
@@ -169,6 +165,7 @@ export function PtgUiHCLine(props: PtgUiHCLineProps) {
       ): (
         <ShowCodeComponent componentCode={mutlipleLineChartComponentCode} htmlCode={multipleLineChartHtmlCode}/>
       )}
+    </section>
     </>
   );
 }

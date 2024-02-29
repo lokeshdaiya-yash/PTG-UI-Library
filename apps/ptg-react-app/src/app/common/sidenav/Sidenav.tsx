@@ -5,13 +5,14 @@
  *
  */
 import React from 'react';
-import { NavigationData ,NavigationChildData} from './Sidemenu';
+import { NavigationData } from './Sidemenu';
 import './Sidenav.scss';
 import { useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import AccordionBody from 'react-bootstrap/esm/AccordionBody';
 import AccordionItem from 'react-bootstrap/esm/AccordionItem';
 import AccordionHeader from 'react-bootstrap/esm/AccordionHeader';
+
 import { Accordion } from 'react-bootstrap';
 
 // export interface SidenavProps {}
@@ -22,6 +23,7 @@ export function Sidenav() {
   return (
     <div className="sidebar">
       <input id="toggle" type="checkbox" />
+   
       <div className="sidenav-container">
         <div className="sidenav">
         {
@@ -53,17 +55,13 @@ export function Sidenav() {
                     // aria-hidden="true"
                   ></i>
                   <span className="menu-item-text">{t(navItem.label)}</span>
-                  
                 </Link>
- 
-       </>
-   
-               
-            
+                </>
               </React.Fragment>
-  </Accordion.Header>
-  {navItem.pages?.map((childItem: any, cidx: number) => {
-      return(
+
+              </Accordion.Header>
+                {navItem.pages?.map((childItem: any, cidx: number) => {
+                  return(
                   <Accordion.Body className='acc-body'>
                   <Link
                      key={cidx}
@@ -81,20 +79,15 @@ export function Sidenav() {
                        {/* <i className={`icon ${childItem.icon}`} aria-hidden="true"></i> */}
                        {childItem.label}
                     </Link> 
-  </Accordion.Body>
-      )})}
-</Accordion.Item>
-</Accordion>
+                  </Accordion.Body>
+                )})}
+                </Accordion.Item>
+              </Accordion>
             );
-            
           })
-        
         }
-        
-   
       </div>
     </div>
-    
     </div>
   );
 }

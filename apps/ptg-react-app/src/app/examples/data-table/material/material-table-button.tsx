@@ -9,7 +9,6 @@ import MaterialTable from "@material-table/core";
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { PtgUiButton, PtguseFetch } from '@ptg-ui/react';
-import { authClass } from '@ptg-react-app/auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 
@@ -138,9 +137,10 @@ const tableOptions ={
 
   return (
     <div className="table-responsive">
+    <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
     <div className='row'>
-    <div className = 'col-11'></div>
-    <div className='col-1 mr-5 mt-2'>
+    <div className = 'col-10'></div>
+    <div className='col-2 mr-5 mt-1 mb-2'>
       <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
     </div>
     </div>
@@ -168,6 +168,7 @@ const tableOptions ={
     ):(
       <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
     )}
+    </section>
   </div>
   );
 }
