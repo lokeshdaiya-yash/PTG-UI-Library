@@ -5,10 +5,8 @@
  */
 
 import './grid-layout.scss';
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import CodeIcon from '@mui/icons-material/Code';
-import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+
 
 /* eslint-disable-next-line */
 export interface GridLayoutProps {}
@@ -18,15 +16,16 @@ export function GridLayout(props: GridLayoutProps) {
 
   return (
    <>
-   <div className=" bg-white rounded pt-2 pb-1 mt-4 pb-4">
+   <div className="card-section-two bg-white rounded pt-2 mb-2 mt-2 pb-4">
     <div className="row">
         <div className="col-md-11 text-center mb-2 mt-1">
             <h5 className="text-black">{t('GRID_LAYOUT_EXAMPLE_HEADING')}</h5>
         </div>
+        <hr className='horizontal-line'/>
     </div>
 
        
-        <section className="bg-dark-primary">
+        <section className="bg-dark-primary m-4">
         <div className="container">
            
             <div className="row">
@@ -73,7 +72,7 @@ export function GridLayout(props: GridLayoutProps) {
             </div>
         </div>
         </section>
-        <section className="bg-image">
+        <section className="bg-image m-4">
         <div className="container">
             <div className="row">
                 <div className="col-md-12 text-center mb-5">

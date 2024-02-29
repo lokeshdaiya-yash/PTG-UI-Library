@@ -68,6 +68,14 @@
   justify-content: space-between;
   align-items: center;
 }
+.draganddropmain {
+  .nav-link.active {
+    border-bottom: 3px solid #CCCCCC !important;
+    background-color: #EEF2F6 !important;
+  }
+}
+
+
 // Responsive styles
 // For screens below 1122px
 @media only screen and (max-width: 450px) {

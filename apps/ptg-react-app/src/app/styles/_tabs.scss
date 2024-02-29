@@ -1,0 +1,7 @@
+.active-tabs {
+    .nav-link.active {
+      border-color: $layout-background-color $layout-background-color $main $layout-background-color !important;
+      border-bottom: 3px solid $main !important;
+      background-color: $layout-background-color!important;
+    }
+  }

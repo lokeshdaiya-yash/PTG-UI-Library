@@ -34,14 +34,6 @@ const ShowExampleCode = () => {
   }
 };
 
-// useEffect(() => {
-//   authClass
-//     .gridData()
-//     .then((res: any) => {
-//       setGridData(res.data);
-//     })
-//     .catch((err: any) => console.log(err));
-// }, []);
   const Columns = [
     { title: "Athlete",field: "athlete" ,width:"20%"},
     { title: "Age",field: "age",filtering: false },
@@ -122,9 +114,10 @@ const htmlCode = `
   
   return (
     <div>
+    <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
     <div className='row'>
-    <div className = 'col-11'></div>
-    <div className='col-1 mr-5 mt-2'>
+    <div className = 'col-10'></div>
+    <div className='col-2 mr-5 mt-1 mb-2'>
       <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
     </div>
     </div>
@@ -142,6 +135,7 @@ const htmlCode = `
     ): (
       <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
     )}
+    </section>
     </div>
   );
 }

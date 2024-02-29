@@ -39,10 +39,10 @@ const CarouselExample = () => {
       <div>
         <section className='card-section-two bg-white rounded pt-2 pb-2 mt-2'>
         <div className='row'>
-          <div className="col-11 mt-1">
+          <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">Carousel</h5>
           </div>
-          <div className='col-1 mr-5 mb-2'>
+          <div className='col-2 mr-5 mb-2'>
             <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           <hr className='horizontal-line'/>
@@ -57,10 +57,10 @@ const CarouselExample = () => {
    
         <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
         <div className='row'>
-          <div className="col-11 mt-1">
+          <div className="col-10 mt-1">
             <h5 className="font-weight-bold example-heading">Carousel example to hide Indicators</h5>
           </div>
-          <div className='col-1 mr-5 mb-2'>
+          <div className='col-2 mr-5 mb-2'>
             <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           <hr className='horizontal-line'/>
