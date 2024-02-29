@@ -136,10 +136,8 @@ const htmlCode = `
     <>
     {!props.showPipeCode ? (
       <div className="wrapper">
-        <section>
           <div className="row">
             <div className="col-lg-4 mb-3 col-sm-6 col-xs-12">
-              {/* <h4>{t('FIRST_LETTER_CAPITAL_TEXT')}</h4> */}
               <label
                 htmlFor="firstLetterCapital"
                 aria-labelledby="firstLetterCapital"
@@ -156,17 +154,14 @@ const htmlCode = `
                 onChange={handleChange}
               />
             </div>
-            <div>
+            <div className='mb-4'>
               {t('OUTPUT_TEXT')}
               {capitalizeFirstLetter(value.cname)}
             </div>
           </div>
-        </section>
-        <hr />
-        <section>
+      
           <div className="row">
             <div className="col-lg-4 mb-3 col-sm-6 col-xs-12">
-              {/* <h4>{t('INR_FORMAT_TEXT')}</h4> */}
               <label
                 htmlFor="inrFormatText"
                 aria-labelledby="inrFormatText"
@@ -183,17 +178,14 @@ const htmlCode = `
                 onChange={handleChange}
               />
             </div>
-            <div>
+            <div className='mb-4'>
               {t('OUTPUT_TEXT')}
               {inrFormat(value.inr)}
             </div>
           </div>
-        </section>
-        <hr />
-        <section>
+       
           <div className="row">
             <div className="col-lg-4 mb-3 col-sm-6 col-xs-12">
-              {/* <h4>{t('TRUNCATE_PIPE_TEXT')}</h4> */}
               <label
                 htmlFor="truncatePipeText"
                 aria-labelledby="truncatePipeText"
@@ -209,18 +201,15 @@ const htmlCode = `
                 value={value.truncateStr}
                 onChange={handleChange}
               />
-              <div>
+              <div className='mt-3 mb-4'>
                 {t('OUTPUT_TEXT')}
                 {truncateString(value.truncateStr)}
               </div>
             </div>
           </div>
-        </section>
-        <hr />
-        <section>
+
           <div className="row">
             <div className="col-lg-4 mb-3 col-sm-6 col-xs-12">
-              {/* <h4>Phone Number Pipes</h4> */}
               <label
                 htmlFor="phoneNumberPipes"
                 aria-labelledby="phoneNumberPipes"
@@ -237,10 +226,9 @@ const htmlCode = `
                 onChange={handleChange}
                 maxlength="10"
               />
-              <div>Output: {phoneNumber(value.phoneNumber)}</div>
+              <div className='mt-3 mb-4'>Output: {phoneNumber(value.phoneNumber)}</div>
             </div>
           </div>
-        </section>
       </div>
     ) : (
       <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />

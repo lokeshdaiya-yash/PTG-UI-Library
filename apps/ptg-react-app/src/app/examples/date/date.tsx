@@ -60,14 +60,13 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
   };
 
   return (
-    <div className="wrapper">
-      <section className='card-section bg-white rounded pt-2 pb-1 pr-3'>
+    <div>
+      <section className='card-section-two bg-white rounded pt-2 pb-1 pr-3'>
         <div className="row">
-          <div className="col-11 mb-2 mt-2">
+          <div className="col-10 mb-2 mt-2">
             <h5 className='example-heading'>{t('CALENDAR_EXAMPLE_1')}</h5>
-          
           </div>
-          <div className='col-1'>
+          <div className='col-2'>
             <CodeIcon onClick={() =>ShowExampleCode()} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           <hr className='horizontal-line'/>
@@ -78,13 +77,13 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
         
       </section>
 
-      <section className='card-section bg-white rounded pt-2 pb-1 mt-4'>
+      <section className='card-section-two bg-white rounded pt-2 pb-1 mt-4'>
         <div className="row">
-          <div className="col-11 mb-2 mt-2">
+          <div className="col-10 mb-2 mt-2">
             <h5 className='example-heading'>{t('CALENDAR_EXAMPLE_2')}</h5>
           </div>
 
-          <div className='col-1'>
+          <div className='col-2'>
               <CodeIcon onClick={ShowExampleCodeTwo} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           <hr className='horizontal-line'/>
@@ -92,13 +91,13 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
         <DateExampleTwo showCodeTwo={showCodeTwo} />
       </section>
   
-        <section className='card-section bg-white rounded pt-2 pb-1 mt-4'>
+        <section className='card-section-two bg-white rounded pt-2 pb-1 mt-4'>
         <div className="row">
-          <div className="col-11 mb-2 mt-2">
+          <div className="col-10 mb-2 mt-2">
           <h5 className='example-heading'>{t('CALENDAR_EXAMPLE_3')}</h5>
           </div>
 
-          <div className='col-1'>
+          <div className='col-2'>
               <CodeIcon onClick={ShowExampleCodeThree} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           <hr className='horizontal-line'/>
@@ -106,13 +105,13 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
         <DateExampleThree showCodeThree={showCodeThree} />
       </section>
 
-      <section className="card-section pb-5 bg-white rounded pt-2 pb-1 mt-4">
+      <section className="card-section-two pb-5 bg-white rounded pt-2 pb-1 mt-4">
         <div className="row">
-          <div className="col-11 mb-2 mt-2">
+          <div className="col-10 mb-2 mt-2">
           <h5 className='example-heading'>{t('CALENDAR_EXAMPLE_4')}</h5>
           </div>
 
-          <div className='col-1'>
+          <div className='col-2'>
               <CodeIcon onClick={ShowExampleCodeFour} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           <hr className='horizontal-line'/>

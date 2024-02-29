@@ -157,19 +157,23 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
   `
   return (
     <div className="w-100">
+      <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
        <div className="row">
-        <div className="col-11 mb-3">
-          <h5>{t('REACT_TABLE')}</h5>
+        <div className="col-10 mb-3">
+          <h5 className='example-heading'>{t('REACT_TABLE')}</h5>
         </div>
-        <div className='col-1 mr-2'>
+        <div className='col-2 mr-2'>
           <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
       </div>
       {!showCode ? (
+        <div className='m-4'>
         <PtgUiReactTable columns={columns} data={gridData} />
+        </div>
       ):(
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
       )}
+      </section>
     </div>
   );
 }

@@ -183,15 +183,16 @@ export function D3Charts(props: D3ChartsProps) {
 
 
   return (
-    <Container fluid>
-        <Row className='bg-white rounded pt-2 pb-1 mb-4'>
-          <div className="col-11 mb-3">
+    <>
+      <Row className='charts-card bg-white rounded pt-2 pb-1 mb-4'>
+          <div className="col-10 mt-2">
             <h5>{t('BAR_CHART_TEXT')}</h5>
           </div>
          
-          <div className='col-1 mr-5'>
+          <div className='col-2 mr-5 mb-2 mt-1'>
             <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
           
           {!barChartCode ? 
            (apiDataBarChartData && apiDataBarChartData?.data?.length ? <PtgUiD3Bar {...apiDataBarChartData} /> :null)
@@ -200,13 +201,14 @@ export function D3Charts(props: D3ChartsProps) {
           )}
         </Row>
 
-        <Row className='bg-white rounded pt-2 pb-1 mb-4'>
-        <div className="col-11 mb-3">
+        <Row className='charts-card bg-white rounded pt-2 pb-1 mb-4'>
+        <div className="col-10 mt-2">
           <h5>{t('PIE_CHART_TEXT')}</h5>
         </div>
-        <div className='col-1 mr-5'>
+        <div className='col-2 mr-5 mb-2 mt-1'>
           <CodeIcon onClick={ShowExampleCodeTwo} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
 
         {!pieChartCode ? (
           apiDataPieChartData && apiDataPieChartData?.data?.length ? <PtgUiD3Pie {...apiDataPieChartData} /> : null
@@ -215,14 +217,15 @@ export function D3Charts(props: D3ChartsProps) {
         )}
         
         </Row>
-        <Row className='bg-white rounded pt-2 pb-1 mb-4'>
-        <div className="col-11 mb-3">
+        <Row className='charts-card bg-white rounded pt-2 pb-1 mb-2'>
+        <div className="col-10 mt-2">
           <h5>{t('LINE_CHART_TEXT')}</h5>
         </div>
 
-        <div className='col-1 mr-5'>
+        <div className='col-2 mr-5 mb-2 mt-1'>
           <CodeIcon onClick={ShowExampleCodeThree} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
         {!lineChartCode ? (
           apiDataLineChartData && apiDataLineChartData?.data?.length ? <PtgUiD3Line {...apiDataLineChartData} /> :null
         ): (
@@ -230,7 +233,7 @@ export function D3Charts(props: D3ChartsProps) {
         )}
          
         </Row>
-      </Container>
+      </>
   );
 }
 

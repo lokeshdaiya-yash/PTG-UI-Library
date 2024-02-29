@@ -712,13 +712,15 @@ const Example3 = () => {
 
   return (
     <>
+      <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
       <div className="row">
-      <div className="col-lg-11">
-      <h4 className="text-center">{t('MULTI_STEP_FORM')}</h4>
+      <div className="col-lg-10 mt-1">
+      <h4 className="example-heading">{t('MULTI_STEP_FORM')}</h4>
       </div>
-      <div className="col-lg-1 mt-2">
+      <div className="col-lg-2 mt-1 mb-2">
         <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
       </div>
+      <hr className='horizontal-line'/>
       </div>
 
       {!showCodeOne ? (
@@ -779,6 +781,7 @@ const Example3 = () => {
       ):(
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode}/>
       )}
+      </section>
     </>
   );
 };

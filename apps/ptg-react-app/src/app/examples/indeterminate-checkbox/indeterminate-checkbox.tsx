@@ -77,18 +77,20 @@ export function IndeterminateCheckbox(props: IndeterminateCheckboxProps) {
     <PtgUiIndeterminateCheckbox items={CHECKBOX_DATA} />
   `
   return (
-    <section className="bg-white rounded pt-2 pb-1 mt-4 pb-4">
+    <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
       <div className="row">
-        <div className="col-11 mb-3">
+        <div className="col-10 mb-2 mt-2">
           <h5 className='example-heading'>{t('INTERMEDIATE_CHECKBOX_TEXT')}</h5>
         </div>
-        <div className="col-1">
+        <div className="col-2">
           <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
       </div>
+      
       {!showCode ? (
         <div className="row">
-          <div className="col-10 mb-3">
+          <div className="col-10 m-3">
             <div className={style['checkbox-list']}>
               {/*-----Usable component PtgUiIndeterminateCheckbox for Indeterminate Checkbox-----*/}
               <PtgUiIndeterminateCheckbox items={checkBoxData} />
