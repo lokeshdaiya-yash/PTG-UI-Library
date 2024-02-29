@@ -5,7 +5,7 @@
  *
  */
 import React from 'react';
-import { NavigationData ,NavigationChildData} from './Sidemenu';
+import { NavigationData } from './Sidemenu';
 import './Sidenav.scss';
 import { useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -49,7 +49,6 @@ export function Sidenav() {
                     // aria-hidden="true"
                   ></i>
                   <span className="menu-item-text">{t(navItem.label)}</span>
-                  
                 </Link>
               </React.Fragment>
 
@@ -78,15 +77,10 @@ export function Sidenav() {
                 </Accordion.Item>
               </Accordion>
             );
-            
           })
-        
         }
-        
-   
       </div>
     </div>
-    
     </div>
   );
 }

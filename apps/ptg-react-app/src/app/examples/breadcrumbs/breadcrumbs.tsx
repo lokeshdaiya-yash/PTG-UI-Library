@@ -33,7 +33,7 @@ export default function Breadcrumb() {
       <div className="col-10 mb-2 mt-2">
         <h5 className="font-weight-bold example-heading">{t('BREADCRUMBS')}</h5>
       </div>
-      <div className="col-lg-1 col-2">
+      <div className="col-2">
         <CodeIcon
           onClick={() => setShowCode((prev) => !prev)}
           fontSize="large"

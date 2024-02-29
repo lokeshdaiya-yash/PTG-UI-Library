@@ -11,15 +11,11 @@
     margin-left: 10%;
 }
 
-// .calender-component{
-//     margin-left: 12%;
- 
-// }
-
-// .cal-heading{
-//     margin-left: 2%;
-// }
-
+@media (min-width : 500px) and (max-width: 768px){
+    .end-date{
+       margin-left: 0.3%;
+    }
+}
 
 
 .end-date{
