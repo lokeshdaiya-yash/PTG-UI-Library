@@ -164,6 +164,17 @@
     margin-left: -19px;
   
   }
+    
+  .navbar .fa.fa-bars {
+    display: block;
+    cursor: pointer;
+  }
+
+  .sidenav-container:hover,
+  #toggle:checked ~ .sidenav-container {
+    position: relative;
+    left: 0;
+  }
 }
 
 
