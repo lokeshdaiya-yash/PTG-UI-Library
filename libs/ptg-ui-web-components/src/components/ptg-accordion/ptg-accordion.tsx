@@ -9,7 +9,7 @@ export class PtgAccordion {
   @State() toggle: boolean = false;
   @Prop() label: string;
   @Prop() description: string;
-  @Prop() color: string = 'white';
+  @Prop() bgColor?: string;
   @Prop() defaultOpened: boolean = false;
 
   componentWillLoad() {
@@ -26,7 +26,7 @@ export class PtgAccordion {
         <button
           class={`accordion ${this.toggle ? 'active' : ''}`}
           style={{
-            backgroundColor: this.color,
+            backgroundColor: this.bgColor,
           }}
           onClick={() => this.toggleComponent()}>
           {this.label}
