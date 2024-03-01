@@ -140,7 +140,19 @@
   .sidenav-container {
     width: 0rem;
   }
+    
+  .navbar .fa.fa-bars {
+    display: block;
+    cursor: pointer;
+  }
+
+  .sidenav-container:hover,
+  #toggle:checked ~ .sidenav-container {
+    position: relative;
+    left: 0;
+  }
 }
+
 
 @media (min-width: 600px) and (max-width: 700px){
   .sidenav-container {
