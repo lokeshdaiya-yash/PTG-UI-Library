@@ -4,8 +4,8 @@ $width-25: 25vw;
 $width-0: 0vw;
 
 .sidenav-container {
-  width: 15vw;
-  background-color: #f5f6f8;
+  width: 18vw;
+  background-color: $sidebgColor;
   height: 100%;
   position: relative;
 
@@ -15,7 +15,6 @@ $width-0: 0vw;
     overflow: auto;
 
     .menu-item {
-      // padding: 6px 8px;
       padding: 4px 8px;
       margin: 2px 0;
       text-decoration: none;
@@ -28,30 +27,28 @@ $width-0: 0vw;
 
       &.parent-item,
       &.disabled {
-        cursor: auto;
-        color: #6f90b8 !important;
+        cursor: pointer;
+        color: $disabled !important;
       }
 
       i {
         color: $side-menu-text-color;
         width: auto;
         height: auto;
-        // font-size: 12px;
+        padding-right: 1rem !important;
       }
 
       &.child-item {
-        // margin-left: 23px;
-        // padding-left: 55px;
+  
         padding-left: 3rem;
         color: $side-menu-text-color;
-        font-size: 12px; //---
+        font-size: 12px;
       }
 
       .menu-item-text {
         display: inline-block;
-        margin-left: 10px;
-        // font-size: 18px;
-        // font-size: 12px;
+        margin-left: 15px;
+        
         color: $side-menu-text-color;
       }
     }
@@ -106,17 +103,10 @@ $width-0: 0vw;
   }
 }
 
-@media (min-width: 540px) and (max-width: 599.98px) {
-  .sidenav-container {
-    .sidenav {
-      width: 45vw;
-    }
-  }
-}
 
 @media (min-width: 1500px) and (max-width: 1749.98px) {
   .sidenav-container {
-    width: 15vw;
+    width: 18vw;
     position: relative;
 
     .sidenav {

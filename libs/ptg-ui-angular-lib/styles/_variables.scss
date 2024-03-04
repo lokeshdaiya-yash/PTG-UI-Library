@@ -6,6 +6,25 @@ Override variables defined in boostrap
 $main:#002144;
 $second: #646464 !default;
 $secondDark: #1a222b;
+$menuColor:#EDE7F6;
+$labelcolor:#673AB7;
+$mainbgcolor:#EEF2F6;
+$sidebgColor:#f5f6f8;
+$disabled:#6f90b8;
+$profilebgColor:#E3F2FD;
+$infoColor:#2196F3;
+$dangerColor:#dc3545;
+$togglecodeColor:#f2f2f2;
+$whiteColor:#FFFF;
+$dark:#000000;
+$warning:#FFFF00;
+$lightgrayColor:#d3d3d3;
+$secondary:#999;
+
+//primary button
+$primaryBtn:#D2C0EC;
+$primarybtnHover:#5D35B1;
+$borderColor:#D5D9E0;
 
 // scss-docs-start theme-color-variables
 $primary: $main !default;
@@ -13,8 +32,25 @@ $primary: $main !default;
 $side-menu-text-color: $main; 
 $form-check-input-checked-color:  $main;
 $form-check-input-checked-bg-color: $main;
+$side-menu-color: $menuColor; 
+$side-menu-label-color:$labelcolor;
+$main-wrapper-bg-color:$mainbgcolor;
+$label-color:#212529;
+$placeholder-color:#999;
+$form-control-border:#86b7fe;
+$text-loader-color:#c9a8f7; 
+$mat-step-icon-color:#B8BABC;
+$option-marked:#efefef;
+$input-border-color:#cacaca;
+$form-control-focus:#0d6efd40;
+$box-shadow-h:#00000033;
+$box-shadow-v:#00000024;
+$secondary-box-shadow:#00000026;
+$box-shadow-blur:#0000001f;
+$rolebase-color:#4682b4;
 
-$footer-text: #888b8d;  // #7c7f81
+
+$footer-text: #888b8d;
 $multi-select-chip-bg-color: #efefef;
 $multi-select-chip-close-bg-color: #bbbbbb;
 $label-hint-text-color: #9f9f9f;
@@ -24,8 +60,4 @@ $font-family-sans-serif: "Poppins", Roboto, "Helvetica Neue", Arial,
   "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
   "Segoe UI Symbol", "Noto Color Emoji";
 $headings-font-weight: 700;
-
-/****************/
-
-/***************/
 

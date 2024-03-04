@@ -15,10 +15,12 @@ export class PtgModal {
   @Prop() showHeader : boolean = true;
   @Prop() showFooter : boolean = true;
   @Prop() closeOutsideClick : boolean = false;
+  @Prop() primaryBtn: string = 'primary';
+  @Prop() cancelBtn: string = 'secondary';
   // Event emitter
   @Event() modalClose: EventEmitter<boolean>;
   @Event() confirmClose: EventEmitter<boolean>;
-
+ 
   private closeModule = () =>{
     this.isOpen = false;
     this.modalClose.emit(true);
@@ -34,7 +36,7 @@ export class PtgModal {
     return (
       <div>
         <div>
-          <ptg-button text={this.btnName} data-testid="openButton" appearance="primary" onClick={this.openModal}></ptg-button>
+          <ptg-button text={this.btnName} data-testid="openButton" appearance="modal" onClick={this.openModal}></ptg-button>
         </div>
         {this.isOpen &&
           <div class={this.isOpen ? 'modal-wrapper isOpen' : 'modal-wrapper'} data-backdrop="static">
@@ -42,7 +44,7 @@ export class PtgModal {
               <div class={`modal-body modal ${this.modalSize == 'lg' ? 'lg' : (this.modalSize == 'sm' ? 'sm' : 'md') }`}>
                 {this.showHeader &&
                   <div class="header">
-                    <h6>{this.modalHeaderName}</h6>
+                    <h4>{this.modalHeaderName}</h4>
                     <div class="close" data-testid="closeButton" onClick={this.closeModule}>
                       ×
                     </div>
@@ -53,8 +55,8 @@ export class PtgModal {
                 </div>
                 {this.showFooter &&
                   <div class="footer">
-                    <ptg-button text={this.confirmButtonName} appearance="primary" onClick={this.confirmEvent}></ptg-button>
-                    <ptg-button text="Cancel" appearance="danger" onClick={this.closeModule}></ptg-button>
+                    <ptg-button text={this.confirmButtonName}  appearance={this.primaryBtn} onClick={this.confirmEvent}></ptg-button>
+                    <ptg-button text={this.confirmButtonName} appearance={this.cancelBtn} onClick={this.closeModule}></ptg-button>
                   </div>
                 }
               </div>

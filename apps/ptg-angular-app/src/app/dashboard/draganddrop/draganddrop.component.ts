@@ -22,4 +22,6 @@ import { Component } from '@angular/core';
     class: 'w-100',
   },
 })
-export class DraganddropComponent {}
+export class DraganddropComponent {
+  isLoaded=true;
+}

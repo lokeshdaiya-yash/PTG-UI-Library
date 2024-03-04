@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./carousel-example.component.scss'],
 })
 export class CarouselExampleComponent {
+  isLoaded=true;
   htmlCode = `
       <ptg-ui-carousel
         [images]="sampleImages">

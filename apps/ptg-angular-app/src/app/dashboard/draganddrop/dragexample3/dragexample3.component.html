@@ -1,13 +1,14 @@
 <!--  Drag and Drop Example 2 Wrapper -->
-<div class="wrapper2 mt-5 pt-3 parent-block">
-  <h4 [innerHTML]="'DRAG_DROP_EX_2' | translate"></h4>
+<div class="wrapper2 mt-2 p-2 bg-white parent-block rounded">
+  <div class="row"> 
   <ptg-ui-toggle-code
     [htmlCode]="dragAndDropHtmlCode"
     [tsCode]="dragAndDropTsCode"
   >
   </ptg-ui-toggle-code>
+  <div class="col-md-5"> 
+
   <div class="example-container">
-    <h2 [innerHTML]="'TO_DO' | translate"></h2>
 
     <div
       cdkDropList
@@ -22,9 +23,9 @@
       </div>
     </div>
   </div>
-
-  <div class="example-container">
-    <h2 [innerHTML]="'DONE_TEXT' | translate"></h2>
+</div>
+<div class="col-md-5">
+ <div class="example-container">
 
     <div
       cdkDropList
@@ -39,5 +40,6 @@
       </div>
     </div>
   </div>
+  </div>
 </div>
-<hr class="my-5" />
+</div>

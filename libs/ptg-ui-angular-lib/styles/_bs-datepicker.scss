@@ -7,7 +7,7 @@
   }
   
   .bs-datepicker-head button:hover {
-    background-color: rgba(215, 215, 215, 0.1);
+    background-color: $lightgrayColor;
   }
   
   .theme-green .bs-datepicker-body table td.week span {
@@ -15,6 +15,6 @@
     display: none;
   }
   .bs-datepicker-body table td span.disabled, .bs-datepicker-body table td.disabled span {
-    color: #c7d3df;
+    color: $lightgrayColor;
   }
   /****************************/

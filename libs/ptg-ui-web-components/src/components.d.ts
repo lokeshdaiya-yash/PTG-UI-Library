@@ -102,11 +102,13 @@ export namespace Components {
     }
     interface PtgModal {
         "btnName": string;
+        "cancelBtn": string;
         "closeOutsideClick": boolean;
         "confirmButtonName": string;
         "isOpen": boolean;
         "modalHeaderName": string;
         "modalSize": string;
+        "primaryBtn": string;
         "showFooter": boolean;
         "showHeader": boolean;
     }
@@ -469,6 +471,7 @@ declare namespace LocalJSX {
     }
     interface PtgModal {
         "btnName"?: string;
+        "cancelBtn"?: string;
         "closeOutsideClick"?: boolean;
         "confirmButtonName"?: string;
         "isOpen"?: boolean;
@@ -476,6 +479,7 @@ declare namespace LocalJSX {
         "modalSize"?: string;
         "onConfirmClose"?: (event: PtgModalCustomEvent<boolean>) => void;
         "onModalClose"?: (event: PtgModalCustomEvent<boolean>) => void;
+        "primaryBtn"?: string;
         "showFooter"?: boolean;
         "showHeader"?: boolean;
     }

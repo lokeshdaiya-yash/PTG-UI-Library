@@ -1,13 +1,18 @@
+<ng-container *ngIf="isLoaded">
 <section>
-  <div class="container ptg-treeview-container">
-    <div class="row">
-      <div class="col-12 parent-block" *ngIf="checkBoxData?.children.length">
-        <h4 [innerHTML]="'INTERMEDIATE_CHECKBOX_TEXT' | translate"></h4>
+  <div class="pt-0 p-2">
+    <div class="row bg-white rounded " >
+      <div class="parent-block justify-content-between align-items-center p-3" >
+        <h3 class="pr-2" [innerHTML]="'INTERMEDIATE_CHECKBOX_TEXT' | translate"></h3>
         <ptg-ui-toggle-code
           [htmlCode]="treeViewHtmlCode"
           [tsCode]="treeViewTsCode"
         >
         </ptg-ui-toggle-code>
+      </div>
+      <hr class="css-yasiti" />
+
+      <div class="pt-3" *ngIf="checkBoxData?.children && checkBoxData?.children.length > 0; else elseNotDone" >
         <ptg-ui-indeterminate-checkboxes
           [checkBoxList]="checkBoxData"
           (onCheckboxValueChanges)="onChanges($event)"
@@ -16,3 +21,11 @@
     </div>
   </div>
 </section>
+<ng-template #elseNotDone>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border text-loader m-5" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>
+</ng-container>

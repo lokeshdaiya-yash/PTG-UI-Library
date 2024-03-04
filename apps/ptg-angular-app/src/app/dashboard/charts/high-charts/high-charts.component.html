@@ -1,65 +1,78 @@
 <tabset #staticTabs>
   <tab heading="2D Charts">
-    <div class="pt-3">
+    <div class="pt-3 wrapper-grid">
       <!-- Bar chart block  -->
-      <div class="mb-3 parent-block" *ngIf="barChart3d.data.length">
-        <h4 class="mb-4" [innerHTML]="'BAR_CHART_TEXT' | translate"></h4>
+      <div class="overflow-auto parent-block rounded col-sm-12 p-3">
+        <h3  [innerHTML]="'BAR_CHART_TEXT' | translate"></h3>
         <ptg-ui-toggle-code
           [htmlCode]="barChart2dHtmlCode"
           [tsCode]="barChart2dTsCode"
         >
         </ptg-ui-toggle-code>
-        <ptg-ui-high-bar-chart [data]="barChart3d.data"></ptg-ui-high-bar-chart>
+        <div class="pt-3"*ngIf="barChart3d.data && barChart3d.data.length > 0; else elseNotDone"> 
+          <ptg-ui-high-bar-chart [data]="barChart3d.data"></ptg-ui-high-bar-chart>
+        </div> 
       </div>
 
       <!-- Pie chart block  -->
-      <div class="mb-3 parent-block" *ngIf="pieChart3d.data.length">
-        <h4 class="mb-4" [innerHTML]="'PIE_CHART_TEXT' | translate"></h4>
+      <div class="overflow-auto parent-block rounded col-sm-12 p-3">
+        <h3 [innerHTML]="'PIE_CHART_TEXT' | translate"></h3>
         <ptg-ui-toggle-code
           [htmlCode]="pieChart2dHtmlCode"
           [tsCode]="pieChart2dTsCode"
         >
         </ptg-ui-toggle-code>
-        <ptg-ui-high-pie-chart [data]="pieChart3d.data"></ptg-ui-high-pie-chart>
+        <div class="pt-3" *ngIf="pieChart3d.data && pieChart3d.data.length > 0; else elseNotDone">
+          <ptg-ui-high-pie-chart [data]="pieChart3d.data"></ptg-ui-high-pie-chart>
+
+        </div>
       </div>
 
       <!-- Line chart block  -->
-      <div class="mb-3 parent-block" *ngIf="lineChart3d.data.length">
-        <h4 class="mb-4" [innerHTML]="'SINGLE_LINE_CHART' | translate"></h4>
+      <div class="overflow-auto parent-block rounded col-sm-12 p-3">
+        <h3  [innerHTML]="'SINGLE_LINE_CHART' | translate"></h3>
         <ptg-ui-toggle-code
           [htmlCode]="sLineChart2dHtmlCode"
           [tsCode]="sLineChart2dTsCode"
         >
         </ptg-ui-toggle-code>
+        <div class="pt-3" *ngIf="lineChart3d.data && lineChart3d.data.length > 0; else elseNotDone">
+
         <ptg-ui-high-line-chart
           [data]="lineChart3d.data"
           chartId="single-line"
           [categories]="lineChart3d.categories"
         ></ptg-ui-high-line-chart>
+        </div>
       </div>
 
-      <div class="mb-3 parent-block" *ngIf="multiLineChart3d.data.length">
-        <h4 class="mb-4" [innerHTML]="'MULTIPLE_LINE_CHART' | translate"></h4>
+      <div class=" overflow-auto parent-block rounded col-sm-12 p-3" >
+        <h3  [innerHTML]="'MULTIPLE_LINE_CHART' | translate"></h3>
         <ptg-ui-toggle-code
           [htmlCode]="mLineChart2dHtmlCode"
           [tsCode]="mLineChart2dTsCode"
         >
         </ptg-ui-toggle-code>
+        <div class="pt-3" *ngIf="multiLineChart3d.data && multiLineChart3d.data.length > 0; else elseNotDone">
+
         <ptg-ui-high-line-chart
           [data]="multiLineChart3d.data"
           chartId="multi-chart-line"
           [categories]="multiLineChart3d.categories"
         ></ptg-ui-high-line-chart>
+        </div>
       </div>
 
       <!-- LineBar Chart  -->
-      <div class="mb-3 parent-block" *ngIf="lineBarChart.categories.length">
-        <h4 class="mb-4" [innerHTML]="'LINE_BAR_CHART' | translate"></h4>
+      <div class="overflow-auto parent-block rounded col-sm-12 p-3" >
+        <h3  [innerHTML]="'LINE_BAR_CHART' | translate"></h3>
         <ptg-ui-toggle-code
           [htmlCode]="lineBarChart2dHtmlCode"
           [tsCode]="lineBarChart2dTsCode"
         >
         </ptg-ui-toggle-code>
+        <div class="pt-3" *ngIf="lineBarChart.categories && lineBarChart.categories.length > 0; else elseNotDone">
+
         <ptg-ui-linebar-chart
           [remainingOptions]="lineBarChart.remainingOptions"
           [categories]="lineBarChart.categories"
@@ -67,16 +80,19 @@
           [subtitle]="lineBarChart.subtitle"
         >
         </ptg-ui-linebar-chart>
+        </div>
       </div>
 
       <!-- Stacked Chart  -->
-      <div class="mb-3 parent-block" *ngIf="stackedColumn.categories.length">
-        <h4 class="mb-4" [innerHTML]="'STACKED_CHART' | translate"></h4>
+      <div class="overflow-auto parent-block rounded col-sm-12 p-3" >
+        <h3 [innerHTML]="'STACKED_CHART' | translate"></h3>
         <ptg-ui-toggle-code
           [htmlCode]="stackedChart2dHtmlCode"
           [tsCode]="stackedChart2dTsCode"
         >
         </ptg-ui-toggle-code>
+        <div class="pt-3" *ngIf="stackedColumn.categories && stackedColumn.categories.length > 0; else elseNotDone">
+
         <ptg-ui-stacked-column-chart
           [remainingOptions]="stackedColumn.remainingOptions"
           [categories]="stackedColumn.categories"
@@ -84,69 +100,87 @@
           [subtitle]="stackedColumn.subtitle"
         >
         </ptg-ui-stacked-column-chart>
+        </div>
       </div>
     </div>
   </tab>
   <tab heading="3D Charts">
-    <div class="pt-3">
+    <div class="pt-3 wrapper-grid">
       <!-- Bar chart block  -->
-      <div class="mb-3 parent-block" *ngIf="barChart3d.data.length">
-        <h4 class="mb-4" [innerHTML]="'BAR_CHART_TEXT' | translate"></h4>
+      <div class="overflow-auto parent-block rounded col-sm-12 p-3" >
+        <h3  [innerHTML]="'BAR_CHART_TEXT' | translate"></h3>
         <ptg-ui-toggle-code
           [htmlCode]="barChart3dHtmlCode"
           [tsCode]="barChart3dTsCode"
         >
         </ptg-ui-toggle-code>
+       <div class="pt-3" *ngIf="barChart3d.data && barChart3d.data.length > 0; else elseNotDone">
         <ptg-ui-high-3d-bar-chart
-          [data]="barChart3d.data"
-          [categories]="barChart3d.categories"
-        >
-        </ptg-ui-high-3d-bar-chart>
+        [data]="barChart3d.data"
+        [categories]="barChart3d.categories"
+      >
+      </ptg-ui-high-3d-bar-chart>
+       </div>
       </div>
 
       <!-- Single Line chart block  -->
-      <div class="mb-3 parent-block" *ngIf="lineChart3d.data.length">
-        <h4 class="mb-4" [innerHTML]="'SINGLE_LINE_CHART' | translate"></h4>
+      <div class="overflow-auto parent-block rounded col-sm-12 p-3" >
+        <h3  [innerHTML]="'SINGLE_LINE_CHART' | translate"></h3>
         <ptg-ui-toggle-code
           [htmlCode]="sLineChart3dHtmlCode"
           [tsCode]="sLineChart2dTsCode"
         >
         </ptg-ui-toggle-code>
+        <!-- </div> -->
+        <div class="pt-3" *ngIf="lineChart3d.data && lineChart3d.data.length > 0; else elseNotDone">
         <ptg-ui-high-3d-line-chart
           [data]="lineChart3d.data"
           [categories]="lineChart3d.categories"
           chartId="single-line-chart"
         >
         </ptg-ui-high-3d-line-chart>
+        </div>
       </div>
+   
 
       <!-- Multi Line chart block  -->
-      <div class="mb-3 parent-block" *ngIf="multiLineChart3d.data.length">
-        <h4 class="mb-4" [innerHTML]="'MULTIPLE_LINE_CHART' | translate"></h4>
+      <div class="overflow-auto parent-block rounded col-sm-12 p-3" >
+        <h3  [innerHTML]="'MULTIPLE_LINE_CHART' | translate"></h3>
         <ptg-ui-toggle-code
           [htmlCode]="mLineChart3dHtmlCode"
           [tsCode]="mLineChart2dTsCode"
         >
         </ptg-ui-toggle-code>
+        <div class="pt-3" *ngIf="multiLineChart3d.data && multiLineChart3d.data.length > 0; else elseNotDone">
         <ptg-ui-high-3d-line-chart
           [data]="multiLineChart3d.data"
           [categories]="multiLineChart3d.categories"
           chartId="multi-line-chart"
         ></ptg-ui-high-3d-line-chart>
+        </div>
       </div>
 
       <!-- Pie chart block  -->
-      <div class="mb-3 parent-block" *ngIf="pieChart3d.data.length">
-        <h4 class="mb-4" [innerHTML]="'PIE_CHART' | translate"></h4>
+      <div class="overflow-auto parent-block rounded col-sm-12 p-3" >
+        <h3  [innerHTML]="'PIE_CHART' | translate"></h3>
         <ptg-ui-toggle-code
           [htmlCode]="pieChart3dHtmlCode"
           [tsCode]="pieChart2dTsCode"
         >
         </ptg-ui-toggle-code>
+        <div class="pt-3" *ngIf="pieChart3d.data && pieChart3d.data.length > 0; else elseNotDone">
         <ptg-ui-high-3d-pie-chart
           [data]="pieChart3d.data"
         ></ptg-ui-high-3d-pie-chart>
+        </div>
       </div>
     </div>
   </tab>
 </tabset>
+<ng-template #elseNotDone>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border text-loader m-5" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>

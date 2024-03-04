@@ -117,21 +117,21 @@ export class SidenavComponent {
     // let btnClass: any = document.getElementsByClassName('fixed-button');
 
     if (!this.isMenuOpen) {
-      x[0].style.width = '0vw';
+      x[0].style.width = '4vw';
     } else {
       if (this.currentScreenSize == 'XSmall') {
-        x[0].style.width = '35vw';
+        x[0].style.width = '0vw';
       } else if (this.currentScreenSize == 'Small') {
         //  btnClass[0].style.top = "35px";
         x[0].style.width = '25vw';
       } else if (this.currentScreenSize == 'Medium') {
         //  btnClass[0].style.top = "35px";
-        x[0].style.width = '15vw';
+        x[0].style.width = '18vw';
       } else if (this.currentScreenSize == 'Large') {
         // btnClass[0].style.top = "15px";
-        x[0].style.width = '15vw';
+        x[0].style.width = '18vw';
       } else if (this.currentScreenSize == 'XLarge') {
-        x[0].style.width = '15vw';
+        x[0].style.width = '18vw';
         //  btnClass[0].style.top = "15px";
       } else {
         // btnClass[0].style.top = "15px";

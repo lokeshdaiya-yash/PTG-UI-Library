@@ -25,6 +25,7 @@ export class AccordianExampleComponent implements OnInit {
     }`;
 
   accordianData: any;
+  isLoaded=true;
   constructor(private mocksApiService: mocksService) {}
 
   ngOnInit(): void {

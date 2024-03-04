@@ -12,6 +12,7 @@ import { mocksService } from '@ptg-angular-app/common/data-services/mocks.servic
 })
 export class AgGridComponent implements OnInit {
   rowData: any = [];
+  isLoaded=true
   columnData: any;
   filterParms = {
     buttons: ['apply', 'reset'],

@@ -1,23 +1,27 @@
-<div class="row pt-2">
-  <div class="col-12 parent-block container-fluid">
-    <h4 class="mb-3" [innerHTML]="'CARDS' | translate"></h4>
-    <ptg-ui-toggle-code
-      [htmlCode]="htmlCode"
-      [tsCode]="tsCode"
-    ></ptg-ui-toggle-code>
-    <div class="row">
-      <div class="col-md-4" *ngFor="let card of cardDataObj">
-        <ptg-card
-          [cardContent]="card.cardContent"
-          [cardId]="card.cardId"
-          [cardTitle]="card.cardTitle"
-          [src]="card.src"
-          [cardContentLength]="150"
-          cardButtonText="Select"
-          isCardAction="true"
-          (handleClick)="handleClick($event)"
-        ></ptg-card>
-      </div>
+<div class="px-2">
+  <div class="row bg-white rounded">
+    <div class="col-12 parent-block  justify-content-between align-items-center">
+      <h3 class="p-3" [innerHTML]="'CARDS' | translate"></h3>
+      <ptg-ui-toggle-code
+        [htmlCode]="htmlCode"
+        [tsCode]="tsCode"
+      ></ptg-ui-toggle-code>
     </div>
+    <hr class="css-yasiti"/>
+     <div class="row p-3">
+        <div class="col-md-4" *ngFor="let card of cardDataObj">
+          <ptg-card
+            [cardContent]="card.cardContent"
+            [cardId]="card.cardId"
+            [cardTitle]="card.cardTitle"
+            [src]="card.src"
+            [cardContentLength]="150"
+            cardButtonText="Select"
+            isCardAction="true"
+            (handleClick)="handleClick($event)"
+          ></ptg-card>
+        </div>
+      </div>
+  
   </div>
 </div>

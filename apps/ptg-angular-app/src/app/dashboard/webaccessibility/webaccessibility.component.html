@@ -7,24 +7,11 @@
         <div class="signup-form-wrapper">
             <div class="form-group">
                 <div class="text-center mb-3">
-                    <h1 [innerHTML]="'WEB_ACCESSIBILITY_TEXT' | translate"></h1>
+                    <h3 [innerHTML]="'WEB_ACCESSIBILITY_TEXT' | translate"></h3>
                 </div>
             </div>
             <div class="row access-wrapper">
-                <!-- <h2>How to access</h2> -->
-                <!-- <div class="col-5 ">
-                    <ol>
-                        <li><strong>Tab </strong> key for forword control</li>
-                        <li><strong>Shift + Tab </strong> key for backword control</li>
-                        <li><strong>Alt + u </strong> key for username</li>
-                        <li><strong>Alt + m </strong> key for email </li>
-                        <li><strong>Alt + c </strong> key for DOB (calendar)</li>
-                        <li><strong>Alt + g </strong> key for gender </li>
-                        <li><strong>Alt + p </strong> key for password</li>
-                        <li><strong>Alt + i </strong> key for checkbox </li>
-                        <li><strong>Alt + s </strong> key for submit button</li>
-                    </ol>
-                </div> -->
+
                 <div class="col-12">
                     <form class="form-login" [formGroup]="signupForm" (ngSubmit)="onSignupSubmit()">
                         <div class="login-form w-75 m-auto">
@@ -78,11 +65,9 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                         <div class="form-group required mb-2">
-                                            <!-- <label tabindex="0" [innerHTML]="'GENDER' | translate"></label> -->
                                             <fieldset>
                                                 <legend tabindex="0" [innerHTML]="'GENDER' | translate" class="legend-tag">
                                                 </legend>
-                                                <!-- <label tabindex="0" [innerHTML]="'GENDER' | translate"></label> -->
                                                 <ptg-ui-radio formControlName='gender' [items]='genderList'
                                                     [name]="'gender-radio-btn'">
                                                 </ptg-ui-radio>
@@ -119,8 +104,6 @@
                                 </div>
                             </div>
                             <div class="new_label text-center mt-3 mb-2">
-                                <!-- <label tabindex="0">If you have already account please click on <a class="signup-btn"
-                                        [routerLink]="['#']">Login</a>.</label> -->
                             </div>
                             <!-- button -->
                             <ptg-ui-button class="w-100" type="submit" btnStyleType="primary" [isBlock]='true'
@@ -130,18 +113,8 @@
                         </div>
                         <div class="row mt-5">
                             <div class="col-md-12">
-                                <!-- <h2 [innerHTML]="'ACHIEVED_IN_WEB_ACCESSIBILITY.HEADING' | translate"></h2>
-                                <div *ngFor="let list of resources.ACHIEVED_IN_WEB_ACCESSIBILITY.ACHIEVED_POINTS; let i=index;">
-                                    <p><b class="me-1">{{i+1}}.</b>{{list}}</p>
-                                </div> -->
-
-                                <h2 [innerHTML]="'ACHIEVED_HEADING' | translate"></h2>
+                                <h3 [innerHTML]="'ACHIEVED_HEADING' | translate"></h3>
                                 <div>
-                                    <!-- <p><b class="me-1">1.</b>{{'ACHIEVED_PNT_ONE' |translate}}</p>
-                                    <p><b class="me-1">2.</b>{{'ACHIEVED_PNT_TWO' |translate}}</p>
-                                    <p><b class="me-1">3.</b>{{'ACHIEVED_PNT_THREE' |translate}}</p>
-                                    <p><b class="me-1">4.</b>{{'ACHIEVED_PNT_FOUR' |translate}}</p>
-                                    <p><b class="me-1">5.</b>{{'ACHIEVED_PNT_FIVE' |translate}}</p> -->
                                     <ol>
                                         <li>{{'ACHIEVED_PNT_ONE' |translate}}</li>
                                         <li>{{'ACHIEVED_PNT_TWO' |translate}}</li>

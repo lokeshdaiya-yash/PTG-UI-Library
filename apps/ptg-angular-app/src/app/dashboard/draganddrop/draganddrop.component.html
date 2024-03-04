@@ -1,3 +1,10 @@
+<ng-container *ngIf="isLoaded">
+
+<div  class="bg-white rounded">
+  <h3 class="p-3" [innerHTML]="'DRAG_DROP' | translate"></h3>
+<hr class="css-yasiti" />
+
+<div class="ml-2">
 <tabset #staticTabs>
   <tab [heading]="'DRAG_DROP_EX_1' | translate">
     <!--  Drag and Drop Example 1 Wrapper -->
@@ -20,3 +27,6 @@
     <ptg-ui-dragexample5></ptg-ui-dragexample5>
   </tab>
 </tabset>
+</div>
+</div>
+</ng-container>
