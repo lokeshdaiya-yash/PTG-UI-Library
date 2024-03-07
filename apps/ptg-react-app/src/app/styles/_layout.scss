@@ -1,3 +1,5 @@
+@import './variables';
+
 .card-section{
     margin-right: 25%;
 }
@@ -14,7 +16,7 @@
 .horizontal-line{
     margin-left: 12px;
     max-width : 97.6%;
-    border-color: #737374;
+    border-color: $horizontal-line-bg-color;
 }
 
 
@@ -33,18 +35,27 @@
 @media (min-width : 400px) and (max-width: 500px){
     .horizontal-line{
         width : 93%;
+        margin-left: 0.9rem;
     }
     }
 
 @media (min-width : 500px) and (max-width: 700px){
     .horizontal-line{
         width : 93%;
+        margin-left: 0.8rem;
     }
     }
 
 @media (min-width : 700px) and (max-width: 900px){
     .horizontal-line{
         width : 94%;
+        margin-left: 1rem;
     }
     }
 
+@media (min-width : 900px) and (max-width: 1100px){
+    .horizontal-line{
+        width : 95%;
+        margin-left: 1rem;
+    }
+    }

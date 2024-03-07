@@ -51,7 +51,7 @@ export function Sidenav() {
                   }`}
                 >
                   <i
-                    className={`icon ${navItem.icon}`}
+                    className={`icon ${navItem.icon} child-icon`}
                     // aria-hidden="true"
                   ></i>
                   <span className="menu-item-text">{t(navItem.label)}</span>
@@ -76,8 +76,8 @@ export function Sidenav() {
                            : 'disabled'
                        }`}
                      >
-                       {/* <i className={`icon ${childItem.icon}`} aria-hidden="true"></i> */}
-                       {childItem.label}
+                       {/* <i className={`icon ${childItem.icon}`}></i> */}
+                       <span>{childItem.label}</span>
                     </Link> 
                   </Accordion.Body>
                 )})}

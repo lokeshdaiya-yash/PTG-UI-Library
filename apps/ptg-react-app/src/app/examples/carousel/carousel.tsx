@@ -68,7 +68,9 @@ const CarouselExample = () => {
           {showCode && (
             <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCodeWithIndicators} />
           )}
-            <PtgUiCarousel images={sampleImages} show-indicators="false" img-width='400' img-height='300'></PtgUiCarousel>
+            <div className='carousel-component'>
+            <PtgUiCarousel  images={sampleImages} show-indicators="false"></PtgUiCarousel>
+            </div>
           </div>
         </div>
         </section>

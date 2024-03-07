@@ -1,5 +1,7 @@
+@import './variables';
+
 .show-code-icon{
-    background-color: rgb(222, 227, 227);
+    background-color: $show-code-icon-bg-color;
     border-radius: 50%;
     height : 40px;
     float: right;
@@ -13,7 +15,7 @@
     .show-code-icon{
        height : 30px;
        width : 30px; 
-       margin-top: 0.3rem;
+       margin-top: 0.1rem;
        }
     }
 
@@ -29,7 +31,7 @@
     .show-code-icon{
        height : 30px;
        width : 30px; 
-       margin-top: 0.1rem;
+       margin-top: 0.2rem;
        }
     }
 @media (min-width : 650px) and (max-width: 725px){

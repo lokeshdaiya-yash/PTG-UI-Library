@@ -90,7 +90,7 @@ export function IndeterminateCheckbox(props: IndeterminateCheckboxProps) {
       
       {!showCode ? (
         <div className="row">
-          <div className="col-10 m-3">
+          <div className="checkbox-component col-10 m-3">
             <div className={style['checkbox-list']}>
               {/*-----Usable component PtgUiIndeterminateCheckbox for Indeterminate Checkbox-----*/}
               <PtgUiIndeterminateCheckbox items={checkBoxData} />
