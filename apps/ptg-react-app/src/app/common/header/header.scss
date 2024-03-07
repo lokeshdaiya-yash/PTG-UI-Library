@@ -7,7 +7,7 @@ nav {
   height: 100%;
   border-bottom-width: 0px;
   border-bottom-style: solid;
-  box-shadow: 0px 0px 6px 7px rgba(128, 128, 128, 0.1) !important;
+  box-shadow: 0px 0px 6px 7px $box-shadow-color !important;
   z-index: 100 !important;
   .logo {
     img {
@@ -17,11 +17,14 @@ nav {
   }
 }
 
-@media (min-width: 300px) and (max-width: 942px) {
+@media (min-width: 300px) and (max-width: 600px) {
   .logo {
-    img {
-      height: 40px;
-      width: 100px;
+    img{
+      height: 10px;
+      width: 70px;
+  
+  
     }
   }
 }
+

@@ -1,8 +1,9 @@
 @import '../../styles/variables';
 
 .droppable {
-  background: $grey;
-  border: 1px solid $main;
+  background: #EEF2F6;
+  border: 2px solid #9dafc1;
+  border-radius: 5px;
   cursor: pointer;
   margin-bottom: 5px;
   padding: 5px;
@@ -25,7 +26,8 @@
   flex-direction: column;
   width: 48%;
   padding: 10px;
-  background-color: $grey;
+  background-color:#EEF2F6;
+  border: 2px solid #9dafc1;
 }
 
 .todos__single {
@@ -55,12 +57,14 @@
 .exampleTwoDroppable {
   border: 2px solid #ccc;
   border-radius: 5px;
-  min-width: 280px;
+  // min-width: 280px;
+  width: 18rem;
   min-height: 300px;
 }
 .exampleTwoDraggable {
   padding: 16px;
   border: 2px solid #ccc;
+  width: 18rem;
 }
 .example-one-list-view {
   width: 100%;
@@ -68,20 +72,13 @@
   justify-content: space-between;
   align-items: center;
 }
-.draganddropmain {
-  .nav-link.active {
-    border-bottom: 3px solid #CCCCCC !important;
-    background-color: #EEF2F6 !important;
-  }
-}
+
 
 
 // Responsive styles
 // For screens below 1122px
 @media only screen and (max-width: 450px) {
-  .exampleTwoDroppable {
-    min-width: 160px;
-  }
+ 
   .main-wrapper {
     width: 100% !important;
   }
@@ -114,3 +111,103 @@
     border: 2px solid $main;
   }
 }
+
+
+@media (min-width : 300px) and (max-width: 400px){
+  .exampleTwoDroppable {
+    width: 5rem;
+    margin-left: 5px;
+    font-size: 10px;
+    
+  }
+
+  .todoHeading {
+
+    margin-left: 1rem;
+  }
+
+  .exampleTwoDraggable {
+   
+    width: 5rem;
+  }
+
+  .example-one-list{
+    width: 92%;
+  }
+
+  .exampleThree {
+    width: 89% !important;
+  }
+  }
+@media (min-width : 400px) and (max-width: 500px){
+  .exampleTwoDroppable {
+ 
+    // min-width: 280px;
+    width: 7rem;
+    margin-left: 5px;
+    font-size: 14px;
+    
+  }
+
+  .exampleTwoDraggable {
+   
+    width: 7rem;
+  }
+  .todoHeading {
+
+    margin-left: 1rem;
+    font-size: 16px;
+  }
+
+  .example-one-list{
+    width: 80%;
+  }
+
+  }
+
+
+
+@media (min-width : 500px) and (max-width: 700px){
+  .exampleTwoDroppable {
+ 
+    // min-width: 280px;
+    width: 9rem;
+    
+  }
+  .exampleTwoDraggable {
+   
+    width: 9rem;
+  }
+  .todoHeading {
+
+    margin-left: 1rem;
+    font-size: 18px;
+  }
+
+  }
+
+@media (min-width : 700px) and (max-width: 800px){
+  .exampleTwoDroppable {
+    width: 12.5rem;
+   }
+  .exampleTwoDraggable {
+     width: 12.5rem;
+  }
+  .todoHeading {
+
+    margin-left: 1rem;
+    font-size: 20px;
+  }
+  }
+
+@media (min-width : 800px) and (max-width: 900px){
+  .exampleTwoDroppable {
+ 
+    width: 15rem;
+    
+  }
+  .exampleTwoDraggable {
+   
+    width: 15rem;
+  }
+  }

@@ -78,6 +78,7 @@ export function DragExampleThree(props: DragExampleThreeProps) {
             >
               {t('INPUT_TODO_PLACEHOLDER')}
           </label>
+        <div className='col-md-12 col-sm-12'>
         <PtgUiInput
           type="text"
           placeholder={t('INPUT_TODO_PLACEHOLDER')}
@@ -87,6 +88,7 @@ export function DragExampleThree(props: DragExampleThreeProps) {
           id="entertodo"
           name="entername"
         />
+        </div>
       </form>
       <TodoList
         todos={todos}

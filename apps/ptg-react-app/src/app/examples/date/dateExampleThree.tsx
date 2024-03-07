@@ -121,7 +121,7 @@ export function ExampleThree(props: ExampleThreeProps) {
                 <PtgUiCalendar {...startDateProp} />
               </div>
             </div>
-            {/* <div className="end-date col-lg-5 col-md-4 col-sm-12 col-xs-12 offset-sm-0 offset-xs-0 mb-4"> */}
+           
             <div className="end-date col-lg-5 col-md-4 col-sm-12 col-xs-12 offset-sm-0 offset-xs-0 mb-4">
               <div className="form-group mb-2" id="end-date">
                 <label htmlFor="inputDOB">{t('END_DATE_TEXT')}</label>
