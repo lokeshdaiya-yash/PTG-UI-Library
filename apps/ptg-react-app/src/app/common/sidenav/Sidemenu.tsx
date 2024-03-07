@@ -14,12 +14,14 @@ export const NavigationChildData = [
       {
         label: 'D3 CHARTS',
         path: '/d3charts',
+        icon: 'fas fa-chart-line',
         id: 'd3charts',
         disabled: false,
       },
       {
         label: 'HIGHCHARTS',
         path: '/highcharts',
+        icon: 'fas fa-chart-line',
         id: 'highchart',
         disabled: false,
       }
@@ -33,23 +35,27 @@ export const NavigationChildData = [
         label: 'AG GRID',
         path: '/datatable/aggrid',
         id: 'Ag-grid',
+        icon: 'fa fa-table',
         disabled: false,
       },
       {
         label: 'REACT DATA GRID',
         path: '/datatable/reactdatagrid',
+        icon: 'fa fa-table',
         id: 'Ngx-table',
         disabled: false,
       },
       {
         label: 'MATERIAL',
         path: '/datatable/materialTable',
+        icon: 'fa fa-table',
         id: 'Material',
         disabled: false,
       },
             {
         label: 'REACT TABLE',
         path: '/datatable/reactTable',
+        icon: 'fa fa-table',
         id: 'react-table',
         disabled: false,
       },
