@@ -93,19 +93,22 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
       onRemove={onRemove}
     /> `
   return (
-     <section>
+    <>
+      <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
       <div className="row">
-        <div className="col-11 mb-3">
-          <h4>{t('SINGLE_SELECT_TEXT')}</h4>
+        <div className="col-10 mb-2 mt-2">
+          <h5 className='example-heading'>{t('SINGLE_SELECT_TEXT')}</h5>
         </div>
-        <div className="col-1">
-          <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+        <div className="col-2">
+          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
           
             {/*-----Usable component PtgUiMultiSelectbox single select-----*/}
-          </div>
+        </div>
+          <hr className='horizontal-line'/>
         </div>
         {showCode && <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />}
-        <div className="col-lg-4 mb-3 col-sm-6 col-xs-12">
+        <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 m-3">
+      
         <PtgUiMultiSelectbox
           name="city"
           list={cityList}
@@ -114,10 +117,21 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
           singleSelect={true}
           placeholder={t('SELECT_PLACEHOLDER')}/>
         </div>
-      <hr />
+      </section>
+
+      <section className="card-section-two bg-white rounded pt-2 mt-4 mb-2 pb-4">
         <div className="row">
-          <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 multi-select">
-          <h4>{t('MULTI_SELECT_TEXT')}</h4>
+        <div className="col-10 mb-2 mt-2">
+        <h5 className='example-heading'>{t('MULTI_SELECT_TEXT')}</h5>
+        </div>
+        <div className="col-2">
+          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
+        </div>
+          <hr className='horizontal-line'/>
+        </div>
+        {showCode && <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />}
+          <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 m-3 multi-select">
+     
             {/*-----Usable component PtgUiMultiSelectbox multi select-----*/}
             <PtgUiMultiSelectbox
               name="city"
@@ -129,8 +143,8 @@ export function MultiSelectCheckbox(props: MultiSelectCheckboxProps) {
               onRemove={onRemove}
             />
           </div>
-        </div>
       </section>
+    </>
   );
 }
 

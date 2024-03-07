@@ -65,15 +65,15 @@ export function RoleBased(props: RoleBasedProps) {
 
   return (
     <>
-    
-
+      <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
        <div className="row">
-       <div className="col-11 mb-3">
-         <h4 className="mb-5">{t('ROLE_BASED_EXAMPLE_TEXT')}</h4>
+       <div className="col-10 mb-2 mt-2">
+         <h5 className="example-heading">{t('ROLE_BASED_EXAMPLE_TEXT')}</h5>
        </div>
-       <div className="col-1">
-         <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+       <div className="col-2">
+         <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
        </div>
+       <hr className='horizontal-line' />
       </div>
       
       {!showCode ? (
@@ -121,7 +121,7 @@ export function RoleBased(props: RoleBasedProps) {
     ): (
       <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
     )}
-     
+     </section>
     </>
   );
 }

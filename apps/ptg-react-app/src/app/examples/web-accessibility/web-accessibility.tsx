@@ -540,14 +540,16 @@ const htmlCode = `
 
   return (
     <>
+     <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
       <div className='row'>
-        <div className="text-center col-lg-11 mb-3">
-          <h1>{t('WEB_ACCESSIBILITY_TEXT')}</h1>
+        <div className="text-center col-lg-10 mb-2 mt-2">
+          <h5>{t('WEB_ACCESSIBILITY_TEXT')}</h5>
         </div>
 
-        <div className="col-lg-1 mb-3 mt-2">
-          <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+        <div className="col-lg-2 mb-2 mt-1">
+          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
       </div>
 
     {!showCode ? (
@@ -579,7 +581,6 @@ const htmlCode = `
                             id="inputUsername"
                             data-testid="username"
                             placeholder={t('USER_NAME_PLACEHOLDER')}
-                            // accessKey="u"
                             value={user.username}
                             onChange={handleChange}
                             className={`w-100 form-control bg_0 ${
@@ -604,7 +605,6 @@ const htmlCode = `
                             id="inputEmail"
                             data-testid="email"
                             placeholder={t('INPUT_PLACEHOLDER_EMAIL')}
-                            //accessKey="m"
                             value={user.email}
                             onChange={handleChange}
                             className={`w-100 form-control bg_0 ${
@@ -634,7 +634,6 @@ const htmlCode = `
                             inputVariant="outlined"
                             value={date}
                             onChange={dateChange}
-                            //accessKey="c"
                             ariaLabel="date"
                             disableRipple={true}
                             disableTouchRipple={true}
@@ -657,7 +656,6 @@ const htmlCode = `
                             list={cityList}
                             id="inputCity"
                             data-testid="city"
-                            // className={`sel-placeholder w-100`}
                             className={`sel-placeholder w-100 ${
                               formErr.city ? 'border-danger' : ''
                             }`}
@@ -683,7 +681,6 @@ const htmlCode = `
                                 htmlFor="radioinputForGender"
                                 id="radioinputForGender"
                                 list={genders}
-                                // accessKey="g"
                                 onChange={handleChange}
                                 value={user.gender}
                               />
@@ -712,7 +709,6 @@ const htmlCode = `
                             id="inputPassword"
                             data-testid="password"
                             placeholder={t('ENTER_PASSWORD_PLACEHOLDER')}
-                            //accessKey="p"
                           />
                         </div>
                       </div>
@@ -728,8 +724,7 @@ const htmlCode = `
                             data-testid="confirm-registration"
                             checked={selectedCheck}
                             onChange={checkHandler}
-                            className={`form-check-input `}
-                            //accessKey="i"
+                            className={`form-check-input`}
                           />
                         </div>
                       </div>
@@ -740,7 +735,6 @@ const htmlCode = `
                     type="button"
                     onClick={handleRegister}
                     disabled={user.disable}
-                    //accessKey="s"
                     aria-label="submit"
                     data-testid="register"
                   >
@@ -749,7 +743,7 @@ const htmlCode = `
                 </div>
                 <div className="row mt-5">
                   <div className="col-md-12">
-                    <h2>{t('ACHIEVED_HEADING')}</h2>
+                    <h6>{t('ACHIEVED_HEADING')}</h6>
                         <ol>
                           <li>{t('ACHIEVED_PNT_ONE')}</li>
                           <li>{t('ACHIEVED_PNT_TWO')}</li>
@@ -768,6 +762,7 @@ const htmlCode = `
     ):(
       <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
     )}
+    </section>
     </>
   );
 }

@@ -4,13 +4,16 @@
  * @desc Side bar/navigation list
 */
 {/*--List of sidebar/side navigation--*/}
+
+
 export const NavigationData = [
-  // {
-  //   path: '/home',
-  //   icon: 'fas fa-home',
-  //   label: 'Home',
-  //   disabled: false,
-  // },
+
+  {
+    path: '/breadcrumbs',
+    icon: 'fa fa-link',
+    label: 'BREADCRUMBS',
+    disabled: false,
+  },
   {
     path: '/calendar',
     icon: 'fa-solid fa-calendar',
@@ -18,12 +21,18 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    path: '/carousel',
-    icon: 'fa-solid fa-calendar',
-    label: 'Carousel',
+    path: '/cards',
+    icon: 'fa fa-square',
+    label: 'CARDS',
     disabled: false,
   },
   {
+    path: '/carousel',
+    icon: 'fa fa-lock',
+    label: 'Carousel',
+    disabled: false,
+  },
+ {
     label: 'CHARTS',
     icon: 'fas fa-chart-line',
     pages: [
@@ -79,7 +88,7 @@ export const NavigationData = [
   },
   {
     path: '/dragnDrop',
-    icon: 'fa fa-lock',
+    icon: 'fa fa-bars',
     label: 'DRAG N DROP',
     disabled: false,
   },
@@ -131,16 +140,5 @@ export const NavigationData = [
     label: 'WEB ACCESSIBILTY',
     disabled: false,
   },
-  {
-    path: '/breadcrumbs',
-    icon: 'fa fa-lock',
-    label: 'BREADCRUMBS',
-    disabled: false,
-  },
-  {
-    path: '/cards',
-    icon: 'fa fa-lock',
-    label: 'CARDS',
-    disabled: false,
-  }
+
 ];  

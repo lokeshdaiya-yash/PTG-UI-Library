@@ -121,15 +121,16 @@ export function DateExampleFour(props: DateExampleFourProps) {
         <div className="container-fluid">
 
         {!props.showCodeFour ? (
-           <div className="row">
-           <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+           <div className='row'>
+           <div className="col-lg-5 col-md-4 col-sm-12 col-xs-12">
                <div className="form-group" id="start-date">
                    <label htmlFor="inputDOB">{t('START_DATE_TEXT')}</label>
                    {/*-----Usable component datepicker-----*/}
                    <PtgUiCalendar {...startDateProp} />
                </div>
            </div>
-           <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 offset-sm-0 offset-xs-0">
+           {/* <div className="col-lg-5 col-md-4 col-sm-12 col-xs-12 offset-sm-0 offset-xs-0 "> */}
+           <div className="end-date col-lg-5 col-md-4 col-sm-12 col-xs-12 offset-sm-0 offset-xs-0 ">
                <div className="form-group" id="end-date">
                    <label htmlFor="inputDOB">{t('END_DATE_TEXT')}</label>
                    {/*-----Usable component datepicker-----*/}

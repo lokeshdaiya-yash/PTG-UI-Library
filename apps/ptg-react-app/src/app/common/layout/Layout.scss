@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .wrapper {
   width: 100vw;
   height: 100vh;
@@ -5,9 +7,13 @@
     height: 82vh;
     .main-wrapper {
       width: 85vw;
-      height: 82vh;
-      overflow: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
+      margin:21px 20px 21px 21px;
+      padding: 17px;
+      border-radius: 9px;
       padding: 10px 20px;
+      background-color: $layout-background-color;
       .main-conatiner {
         display: block;
         width: 100%;

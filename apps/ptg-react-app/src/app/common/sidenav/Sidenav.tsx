@@ -9,6 +9,12 @@ import { NavigationData } from './Sidemenu';
 import './Sidenav.scss';
 import { useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import AccordionBody from 'react-bootstrap/esm/AccordionBody';
+import AccordionItem from 'react-bootstrap/esm/AccordionItem';
+import AccordionHeader from 'react-bootstrap/esm/AccordionHeader';
+
+import { Accordion } from 'react-bootstrap';
+
 // export interface SidenavProps {}
 // {}: SidenavProps
 export function Sidenav() {
@@ -16,17 +22,20 @@ export function Sidenav() {
   const { t } = useTranslation();
   return (
     <div className="sidebar">
-
       <input id="toggle" type="checkbox" />
-
-   <div className="sidenav-container ">
-      <div className="sidenav">
+   
+      <div className="sidenav-container">
+        <div className="sidenav">
         {
           /*-----Side navigation-----*/
           NavigationData.map((navItem: any, idx: number) => {
-            return (
+          return (
+            <Accordion defaultActiveKey="0" className="acc">
+            <Accordion.Item eventKey="0">
+              <Accordion.Header className={`acc-header ${!navItem.pages ? 'accordion-with-arrow' : ''}`}>
               <React.Fragment key={idx}>
                 {/*-----Parent navigation-----*/}
+                <>
                 <Link
                   to={
                     navItem.path && navItem.pages === undefined
@@ -47,28 +56,33 @@ export function Sidenav() {
                   ></i>
                   <span className="menu-item-text">{t(navItem.label)}</span>
                 </Link>
-                {navItem.pages?.map((childItem: any, cidx: number) => {
-                  return (
-                    /*-----Child navigation-----*/
-                    <Link
-                      key={cidx}
-                      to={
-                        childItem.disabled !== undefined ? childItem.path : '#'
-                      }
-                      className={`menu-item child-item ${
-                        selectedPath === childItem.path
-                          ? 'active'
-                          : childItem.disabled === false
-                          ? ''
-                          : 'disabled'
-                      }`}
-                    >
-                      {/* <i className={`icon ${childItem.icon}`} aria-hidden="true"></i> */}
-                      {childItem.label}
-                    </Link>
-                  );
-                })}
+                </>
               </React.Fragment>
+
+              </Accordion.Header>
+                {navItem.pages?.map((childItem: any, cidx: number) => {
+                  return(
+                  <Accordion.Body className='acc-body'>
+                  <Link
+                     key={cidx}
+                     to={
+                       childItem.disabled !== undefined ? childItem.path : '#'
+                     }
+                     className={`menu-item child-item ${
+                       selectedPath === childItem.path
+                         ? 'active'
+                         : childItem.disabled === false
+                         ? ''
+                           : 'disabled'
+                       }`}
+                     >
+                       {/* <i className={`icon ${childItem.icon}`} aria-hidden="true"></i> */}
+                       {childItem.label}
+                    </Link> 
+                  </Accordion.Body>
+                )})}
+                </Accordion.Item>
+              </Accordion>
             );
           })
         }
