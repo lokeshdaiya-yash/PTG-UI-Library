@@ -54,6 +54,7 @@ import { MultistepFormLayoutComponent } from './multistep-form/multistep-form-la
 import { DialogExampleComponent } from './dialog-component/dialog-example.component';
 import { CardExampleComponent } from './card-component/card-example.component';
 import { BreadcrumbsExampleComponent } from './breadcrumbs-component/breadcrumbs-example.component';
+import { InfiniteScrollComponent } from './infinite-scroll/infinite-scroll.component';
 
 import { CarouselExampleComponent } from './carousel-component/carousel-example.component';
 
@@ -112,6 +113,7 @@ defineCustomElements();
     DialogExampleComponent,
     CardExampleComponent,
     BreadcrumbsExampleComponent,
+    InfiniteScrollComponent,
     CarouselExampleComponent
   ],
 

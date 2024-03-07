@@ -2,12 +2,16 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <h4 class="mb-3" [innerHTML]="'ACCORDIAN_EXAMPLE' | translate"></h4>
+        <h4 class="mb-3" [innerHTML]="'ACCORDION_EXAMPLE' | translate"></h4>
         <ptg-ui-toggle-code
           [htmlCode]="htmlCode"
           [tsCode]="tsCode"
         ></ptg-ui-toggle-code>
-        <ptg-ui-accordian [listData]="accordianData"></ptg-ui-accordian>
+        <ptg-accordion [label]="label" [description]="description" [width]="width" [color]="color" [defaultOpened]="defaultOpened">
+          <div slot="body-block">
+            <h2>Angular Slot for Body</h2>
+          </div>
+        </ptg-accordion>
       </div>
     </div>
   </div>
