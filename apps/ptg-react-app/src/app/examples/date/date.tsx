@@ -62,7 +62,7 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
 
   return (
     <div>
-      <section className='card-section-two bg-white rounded pt-2 pb-1 pr-3'>
+      <section className='card-section-two bg-white rounded pt-2 pb-1 pr-3 mt-2'>
         <div className="row">
           <div className="col-10 mb-2 mt-2">
             <h5 className='example-heading'>{t('CALENDAR_EXAMPLE_1')}</h5>
