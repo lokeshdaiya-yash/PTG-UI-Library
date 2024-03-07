@@ -13,6 +13,7 @@ import DateExampleTwo from './dateExampleTwo';
 import DateExampleThree from './dateExampleThree';
 import DateExampleFour from './dateExampleFour';
 import CodeIcon from '@mui/icons-material/Code';
+import LocalDatetime from './localDateTime'
 
 
 export interface PtgUiDateExampleProps { 
@@ -25,6 +26,9 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
   const [showCodeTwo, setShowCodeTwo] = useState(false);
   const [showCodeThree, setShowCodeThree] = useState(false);
   const [showCodeFour, setShowCodeFour] = useState(false);
+  const [showCodeLocalDate, setShowCodeLocalDate] = useState(false);
+  
+  console.log("showCodeLocalDate" , showCodeLocalDate)
   
   const ShowExampleCode = () => {
     if(!showCodeOne){
@@ -110,6 +114,19 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
           </div>
         </div>
         <DateExampleFour showCodeFour={showCodeFour} />
+      </section>
+      <hr />
+      <section>
+      <div className="row">
+          <div className="col-9 mb-3">
+            <h4>{t('CONVERT_TIMEZONE')}</h4>
+          </div>
+
+          <div className='col-3 mr-5'>
+              <CodeIcon onClick={()=>setShowCodeLocalDate(prev=>!prev)} fontSize="medium" className='show-code-icon'></CodeIcon>
+          </div>
+        </div>
+       <LocalDatetime showCodeLocalDate={showCodeLocalDate}/>
       </section>
     </div>
   );
