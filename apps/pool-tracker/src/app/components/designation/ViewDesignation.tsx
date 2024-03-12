@@ -75,7 +75,7 @@ const ViewDesignation = () => {
   ];
 
   return (
-    <div className="viewMastertable ">
+    <div className="viewMastertable viewTable">
       {designationModal('Add Designation', 'Add Designation')}
       <PtgUiMaterialTable
         data={designations}

@@ -14,77 +14,69 @@ import {
 } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 
 const Skill = () => {
-  const [skills, setSkill] = useState([])
-    useEffect(() => {
+  // const [skills, setSkill] = useState([])
+  //   useEffect(() => {
        
-        getAllSkills();
-      }, []);
+  //       getAllSkills();
+  //     }, []);
 
       
         
 
 
-        const Columns = [
-            { title: 'ID', field: 'value', filtering: false, width: '20%' },
-            { title: 'name', field: 'name', filtering: false, width: '20%' },
-            {
-              title: 'Action',
-              field: 'Action',
-              name: 'action',
-              header: '',
-              width: 100,
-              render: (skills) => (
-                <div className="masterdataBtn">
-                  <PtgUiButton
-                    onClick={() => deleteSkillDetails(skills._id)}
-                  >
-                    Delete
-                  </PtgUiButton>
+  //       const Columns = [
+  //           { title: 'ID', field: 'value', filtering: false, width: '20%' },
+  //           { title: 'name', field: 'name', filtering: false, width: '20%' },
+  //           {
+  //             title: 'Action',
+  //             field: 'Action',
+  //             name: 'action',
+  //             header: '',
+  //             width: 100,
+  //             render: (skills) => (
+  //               <div className="masterdataBtn">
+  //                 <PtgUiButton
+  //                   onClick={() => deleteSkillDetails(skills._id)}
+  //                 >
+  //                   Delete
+  //                 </PtgUiButton>
                  
         
-                    <Link to={`/editdesignation/${skills._id}`}>
-                    <PtgUiButton >Edit</PtgUiButton>
-                  </Link> 
-                </div>
-              ),
-            },
-          ];
+  //                   <Link to={`/editdesignation/${skills._id}`}>
+  //                   <PtgUiButton >Edit</PtgUiButton>
+  //                 </Link> 
+  //               </div>
+  //             ),
+  //           },
+  //         ];
 
        // ==================== skill multiselect===========================================
 
-  const getAllSkills = async () => {
-    try {
-      const response = await getSkills();
-      console.log(response);
-      const skillData = response;
-      const transformedSkills = skillData.map((skill) => ({
-        value: skill.value,
-        label: skill.name,
-        name: skill.name,
-      }));
-      setSkill(transformedSkills);
-      console.log('>>>>>', skillData);
-    } catch (error) {
-      console.error('error while fetching skills', error);
-    }
-  };
-  const deleteSkillDetails = async (id) => {
-    await deleteSkill(id);
-    getAllSkills();
-  };
+  // const getAllSkills = async () => {
+  //   try {
+  //     const response = await getSkills();
+  //     console.log(response);
+  //     const skillData = response;
+  //     const transformedSkills = skillData.map((skill) => ({
+  //       value: skill.value,
+  //       label: skill.name,
+  //       name: skill.name,
+  //     }));
+  //     setSkill(transformedSkills);
+  //     console.log('>>>>>', skillData);
+  //   } catch (error) {
+  //     console.error('error while fetching skills', error);
+  //   }
+  // };
+  // const deleteSkillDetails = async (id) => {
+  //   await deleteSkill(id);
+  //   getAllSkills();
+  // };
 
  
   return (
     <div>
-        <PtgUiMaterialTable
-    data={skills}
-    columns={Columns}
-    filtering={true}
-    paging={true}
-    paginationPosition={'bottom'}
-    grouping={true}
     
-  />
   </div>
   )
 }

@@ -1,12 +1,16 @@
 import React from 'react'
 import './Config.scss';
 import ViewDesignation from '../designation/ViewDesignation'
+import ViewSkills from '../skills/ViewSkills';
+import ViewBand from '../band/ViewBand';
 
 const Config = () => {
   return (
     
     <div>
         <ViewDesignation />
+        <ViewSkills />
+        <ViewBand/>
  {/* ==============accordion ============================== */}
       {/* <div className="accordion" id="accordionExample">
         <div className="accordion-item">

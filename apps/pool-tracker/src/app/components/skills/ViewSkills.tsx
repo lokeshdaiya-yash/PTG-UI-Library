@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { getSkills } from '../../service/api';
+import { deleteSkill, getSkills } from '../../service/api';
 import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 import './Skills.scss';
 import { PtgUiMaterialTable } from '@ptg-ui/react';
@@ -18,10 +18,12 @@ const ViewSkills = () => {
     setSkill(response?.data);
   };
 
-  const deleteSkill = async (id) => {
+  const deleteSkills = async (id) => {
     await deleteSkill(id);
     getAllSkills();
   };
+
+  
 
   const skillsModal = (btnName: string, heading: string, skill?: string) => {
     return (
@@ -39,7 +41,7 @@ const ViewSkills = () => {
   };
 
   const Columns = [
-    { title: 'name', field: 'value', filtering: false, width: '50%' },
+    { title: 'name', field: 'name', filtering: false, width: '50%' },
     {
       title: 'Action',
       field: 'Action',
@@ -52,7 +54,7 @@ const ViewSkills = () => {
 
           <i
             className="fa-solid fa-trash cursor-pointer"
-            onClick={() => deleteSkill(skill._id)}
+            onClick={() => deleteSkills(skill._id)}
           ></i>
         </div>
       ),
@@ -60,7 +62,7 @@ const ViewSkills = () => {
   ];
 
   return (
-    <div className="viewMastertable ">
+    <div className="viewMastertable viewTable">
       {skillsModal('Add Skill', 'Add Skill')}
       <PtgUiMaterialTable
         data={skill}

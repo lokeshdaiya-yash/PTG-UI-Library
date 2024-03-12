@@ -3,7 +3,7 @@ import { conn1 } from '../../../database/db';
 
 const poolMasterSchema = new mongoose.Schema(
   {
-    memberName: {
+    name: {
       type: String,
       trim: true,
       required: false,
@@ -19,45 +19,55 @@ const poolMasterSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    designation: [
-      {
-        // id: {
-        //   type: mongoose.Schema.Types.ObjectId,
-        //   ref: 'tblDesignationMaster',
-        // },
-        name: {
-          type: String,
-        },
-        value: {
-          type: String,
-        },
-        label: {
-          type: String,
-        },
-      },
-    ],
-    bandList: [
-      {
-        id: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'tblBandMaster',
-        },
-        name: {
-          type: String,
-        },
-      },
-    ],
-    compatancy: [
+    poolStartDate:Date,
+    comments: String,
+    designations:String,
+    // designations: [
+    //   {
+    //     id: {
+    //       type: mongoose.Schema.Types.ObjectId,
+    //       ref: 'tblDesignationMaster',
+    //     },
+    //     name: {
+    //       type: String,
+    //     },
+    //   },
+    // ],
+    band:String,
+    // band: [
+    //   {
+    //     id: {
+    //       type: mongoose.Schema.Types.ObjectId,
+    //       ref: 'tblBandMaster',
+    //     },
+    //     name: {
+    //       type: String,
+    //     },
+    //   },
+    // ],
+    skills: [
       {
         id: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: 'tblCompatncyMaster',
+          ref: 'tblSkillMaster',
         },
         name: {
           type: String,
         },
       },
     ],
+    competency:String,
+    // competency: [
+    //   {
+    //     id: {
+    //       type: mongoose.Schema.Types.ObjectId,
+    //       ref: 'tblCompatncyMaster',
+    //     },
+    //     name: {
+    //       type: String,
+    //     },
+    //   },
+    // ],
     isActive: { type: Number, default: 0 },
   },
   { timestamps: { createdAt: 'createdAt' } }

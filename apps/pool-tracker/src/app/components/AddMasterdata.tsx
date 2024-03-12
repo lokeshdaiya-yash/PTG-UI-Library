@@ -71,20 +71,20 @@ const AddMasterdata = () => {
   // }, []);
 
   const getAllSkills = async () => {
-    try {
-      const response = await getSkills();
-      console.log(response);
-      const skillData = response;
-      const transformedSkills = skillData.map((skill) => ({
-        value: skill._id,
-        label: skill.name,
-        name: skill.name,
-      }));
-      setSkill(transformedSkills);
-      console.log('>>>>>', skillData);
-    } catch (error) {
-      console.error('error while fetching skills', error);
-    }
+    // try {
+    //   const response = await getSkills();
+    //   console.log(response);
+    //   const skillData = response;
+    //   const transformedSkills = skillData.map((skill) => ({
+    //     value: skill._id,
+    //     label: skill.name,
+    //     name: skill.name,
+    //   }));
+    //   setSkill(transformedSkills);
+    //   console.log('>>>>>', skillData);
+    // } catch (error) {
+    //   console.error('error while fetching skills', error);
+    // }
   };
 
   

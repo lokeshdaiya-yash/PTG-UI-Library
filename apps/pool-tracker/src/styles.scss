@@ -23,29 +23,33 @@ body {
 }
 
 // =================== view Master Data css============
-.viewMastertable table {
-  & > tr > th {
-    background-color: #1976d2 !important;
-  }
-  th:nth-of-type(2) {
-    width: 100% !important;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  & > tr > th,
-  td {
-    padding: 0px;
-    padding-left: 20px;
-    text-align: left;
-    border-bottom: 1px solid darkgray;
-  }
+.viewTable table{
   td:nth-of-type(2) {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding-right: 30px !important;
   }
+}
+.viewMastertable table {
+  & > tr > th {
+    background-color: #1976d2 !important;
+  }
+  // th:nth-of-type(2) {
+  //   width: 100% !important;
+  //   display: flex;
+  //   justify-content: flex-end;
+  // }
+
+  & > tr > th,
+  td {
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+    border-bottom: 1px solid darkgray;
+  }
+  
   & > .masterdataBtn {
     display: flex;
   }

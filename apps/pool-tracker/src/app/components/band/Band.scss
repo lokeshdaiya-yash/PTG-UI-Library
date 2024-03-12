@@ -15,7 +15,7 @@
 }
 
 .table-action-button {
-  // width: 80px;
+  width: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,14 +25,4 @@
 
 .icon-color {
   color: $main;
-}
-.viewMastertable table {
-  & > tr > th {
-    background-color: #1976d2 !important;
-  }
-  // th:nth-of-type(2), td:nth-of-type(2) {
-  //   width: 100% !important;
-  //   display: flex;
-  //   justify-content: flex-start ;
-  // }
 }
