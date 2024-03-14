@@ -27,9 +27,7 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
   const [showCodeThree, setShowCodeThree] = useState(false);
   const [showCodeFour, setShowCodeFour] = useState(false);
   const [showCodeLocalDate, setShowCodeLocalDate] = useState(false);
-  
-  console.log("showCodeLocalDate" , showCodeLocalDate)
-  
+    
   const ShowExampleCode = () => {
     if(!showCodeOne){
       setShowCodeOne(true);
