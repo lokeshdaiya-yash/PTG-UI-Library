@@ -715,7 +715,7 @@ const htmlCode = `
                     </div>
                     <div className="row ms-1 declaration-check">
                       <div className="col-12">
-                        <div className="form-group required mb-2">
+                        <div className="form-group required mb-2 ms-4 me-4">
                           <PtgUiCheckbox
                             label={t('CONFIRM_LABEL')}
                             htmlFor="confirm"

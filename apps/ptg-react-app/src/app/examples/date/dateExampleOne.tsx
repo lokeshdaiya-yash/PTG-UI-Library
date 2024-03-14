@@ -135,7 +135,6 @@ export function ExampleOne(props: ExampleOneProps) {
   `
 
   return (
-    // <div className="wrapper pt-0 pb-0 p-2">
     <section>
           <div className="container-fluid">
           {! props.showCodeOne ? (
@@ -181,7 +180,6 @@ export function ExampleOne(props: ExampleOneProps) {
      
       </div>
     </section>
-    // </div>
   );
 }
 
