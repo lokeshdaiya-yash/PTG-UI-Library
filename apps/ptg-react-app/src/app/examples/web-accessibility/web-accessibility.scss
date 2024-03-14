@@ -40,3 +40,27 @@
   color: $second;
   display: inline-block;
 }
+
+
+@media (min-width : 320px) and (max-width: 650px){
+  .web-accessibitlity-heading{
+     font-size: 18px;
+  }
+}
+
+@media (min-width : 650px) and (max-width: 800px){
+  .web-accessibitlity-heading{
+     font-size: 20px;
+  }
+}
+
+@media (min-width : 300px) and (max-width: 450px){
+  li{
+     font-size: 10px;
+     width : 90%;
+  }
+}
+
+
+
+

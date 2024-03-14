@@ -121,12 +121,13 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
     <div className="w-100">
       <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
        <div className="row">
-        <div className="col-10 mb-3">
+        <div className="col-10 mb-2">
            <h4>{t('REACT_DATA_GRID')}</h4>
         </div>
         <div className='col-2 mr-3'>
           <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
       </div>
       {!showCode ? (
         <PtgUiReactDataGrid

@@ -542,11 +542,11 @@ const htmlCode = `
     <>
      <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
       <div className='row'>
-        <div className="text-center col-lg-10 mb-2 mt-2">
-          <h5>{t('WEB_ACCESSIBILITY_TEXT')}</h5>
+        <div className="ms-4 col-6 mb-2 mt-2">
+          <h5 className='web-accessibitlity-heading '>{t('WEB_ACCESSIBILITY_TEXT')}</h5>
         </div>
 
-        <div className="col-lg-2 mb-2 mt-1">
+        <div className="col mb-2 mt-1">
           <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
         <hr className='horizontal-line'/>
@@ -567,7 +567,7 @@ const htmlCode = `
                   <div className="form-container">
                     <div className="row">
                       <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div className="form-group required mb-2">
+                        <div className="form-group required mb-2 ms-4 me-4">
                           <label
                             htmlFor="inputUsername"
                             tabIndex={0}
@@ -591,7 +591,7 @@ const htmlCode = `
                         </div>
                       </div>
                       <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div className="form-group required mb-2">
+                        <div className="form-group required mb-2 ms-4 me-4">
                           <label
                             htmlFor="inputEmail"
                             tabIndex={0}
@@ -615,7 +615,7 @@ const htmlCode = `
                         </div>
                       </div>
                       <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div className="form-group required mb-2">
+                        <div className="form-group required mb-2 ms-4 me-4">
                           <label
                             htmlFor="inputDOB"
                             tabIndex={0}
@@ -643,7 +643,7 @@ const htmlCode = `
                     </div>
                     <div className="row">
                       <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div className="form-group required mb-2">
+                        <div className="form-group required mb-2 ms-4 me-4">
                           <label
                             htmlFor="inputCity"
                             tabIndex={0}
@@ -667,7 +667,7 @@ const htmlCode = `
                         </div>
                       </div>
                       <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div className="form-group required mb-2">
+                        <div className="form-group required mb-2 ms-4 me-4">
                           <fieldset>
                             <legend className="gender-align">
                               <label tabIndex={0} aria-label="Gender">
@@ -692,7 +692,7 @@ const htmlCode = `
                     <div className="row"></div>
                     <div className="row">
                       <div className="col-12">
-                        <div className="form-group required mb-2">
+                        <div className="form-group required mb-2 ms-4 me-4">
                           <label
                             htmlFor="inputPassword"
                             tabIndex={0}
@@ -715,7 +715,7 @@ const htmlCode = `
                     </div>
                     <div className="row">
                       <div className="col-12">
-                        <div className="form-group required mb-2">
+                        <div className="form-group required mb-2 ms-4 me-4">
                           <PtgUiCheckbox
                             label={t('CONFIRM_LABEL')}
                             htmlFor="confirm"
@@ -743,7 +743,7 @@ const htmlCode = `
                 </div>
                 <div className="row mt-5">
                   <div className="col-md-12">
-                    <h6>{t('ACHIEVED_HEADING')}</h6>
+                    <h6 className='ms-2'>{t('ACHIEVED_HEADING')}</h6>
                         <ol>
                           <li>{t('ACHIEVED_PNT_ONE')}</li>
                           <li>{t('ACHIEVED_PNT_TWO')}</li>

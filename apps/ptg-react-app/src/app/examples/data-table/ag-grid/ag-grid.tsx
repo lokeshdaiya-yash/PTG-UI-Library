@@ -188,12 +188,13 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
     <> 
     <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
       <div className="row">
-        <div className="col-10 mb-3 mt-1">
+        <div className="col-10 mb-2 mt-1">
           <h5 className='example-heading'>{t('AG_GRID_DATATABLE')}</h5>
         </div>
         <div className='col-2 mr-3'>
           <CodeIcon onClick={ShowExampleCode} fontSize="large"  className='show-code-icon'></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
       </div>
       {!showCode ? (
           <>
@@ -210,7 +211,7 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
           customPagination={true}
           />
           </div>
-          <h5>{t('DATATABLE_WITH_ACCORDIAN')}</h5>
+          <h5 className='ms-4'>{t('DATATABLE_WITH_ACCORDIAN')}</h5>
           <PtgUiAccordian stories={accordian_array}/>
         </>
       ):(
