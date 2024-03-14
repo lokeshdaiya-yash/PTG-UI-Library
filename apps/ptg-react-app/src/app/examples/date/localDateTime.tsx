@@ -24,7 +24,6 @@ const LocalDatetime = (props: ExampleOneProps) => {
     const options = { timeZone: timeZone };
     const locale = 'en-US';
     const newDate = new Date(date.toLocaleString(locale, options));
-
     return newDate;
   };
   const onSelect: any = (event: any) => {
