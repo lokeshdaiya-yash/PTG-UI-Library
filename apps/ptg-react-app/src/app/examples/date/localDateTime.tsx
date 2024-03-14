@@ -63,12 +63,11 @@ export interface ExampleOneProps {
 }
 export const timeZoneList = [
   { value: 'America/New_York', label: 'New York', name: 'America/New_York' },
-  { value: 'Europe/London', label: 'London', name: 'Europe/London' },
+  { value: 'Europe/London', label: 'London', name: 'Europe/London'},
 ];
 const LocalDatetime = () => {
   const [selectedDate, setSlectedDate] = useState(new Date());
-  const [datetime24h, setDateTime24h] = useState<Date | null | undefined>(
-    new Date()
+  const [datetime24h, setDateTime24h] = useState<Date | null | undefined>( new Date()
   );
   const [dateTimeUSA, setDateTimeToOtherLocale] = useState<
     Date | null | undefined
@@ -80,7 +79,6 @@ const LocalDatetime = () => {
     const date = new Date(myDate);
     const locale = 'en-US';
     const newDate = new Date(date.toLocaleString(locale, options));
-
     return newDate;
   };
   const handleTime = (e: any) => {
@@ -106,12 +104,12 @@ const LocalDatetime = () => {
   const htmlCode = `
   <PtgUiCalendar {...startDateProp} />
   <PtgUiMultiSelectbox
-                name="time"
-                list={timeZoneList}
-                onSelect={onSelect}
-                singleSelect={true}
-                placeholder={t('SELECT_PLACEHOLDER')}
-              />
+    name="time"
+    list={timeZoneList}
+    onSelect={onSelect}
+    singleSelect={true}
+    placeholder={t('SELECT_PLACEHOLDER')}
+   />
   <PtgUiCalendar {...startDatePropLocal} />
   `;
 

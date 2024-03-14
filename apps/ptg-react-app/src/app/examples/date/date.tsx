@@ -16,8 +16,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import LocalDatetime from './localDateTime'
 
 
-export interface PtgUiDateExampleProps { 
-}
+export interface PtgUiDateExampleProps {}
 
 export function PtgUiDateExample(props: PtgUiDateExampleProps) {
   const { t } = useTranslation();
