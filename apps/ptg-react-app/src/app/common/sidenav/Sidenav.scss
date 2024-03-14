@@ -61,7 +61,7 @@
           margin-top: 0.02rem !important;
         
           i {
-            color: $side-menu-active  !important;
+            color: black !important;
           }
           &.child-item {
             color: $side-menu-text-color !important;
@@ -138,7 +138,7 @@
     position: absolute;
     left: -181px;
   }
-    
+
   .navbar .fa.fa-bars {
     display: block;
     cursor: pointer;
@@ -155,6 +155,7 @@
   }
   .sidenav-container .sidenav .menu-item.active:not(.parent-item):not(.disabled) {
     width: 28px;
+    height: 40px;
   }
 }
 

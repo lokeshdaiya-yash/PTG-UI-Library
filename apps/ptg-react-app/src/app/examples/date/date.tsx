@@ -7,13 +7,15 @@
 
 import './date.scss';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DateExampleOne from './dateExampleOne';
 import DateExampleTwo from './dateExampleTwo';
 import DateExampleThree from './dateExampleThree';
 import DateExampleFour from './dateExampleFour';
 import CodeIcon from '@mui/icons-material/Code';
 import LocalDatetime from './localDateTime'
+import { PtgUiMultiSelectbox, PtgUiCalendar , PtguseFetch } from '@ptg-ui/react';
+
 
 
 export interface PtgUiDateExampleProps {}
@@ -27,6 +29,24 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
   const [showCodeFour, setShowCodeFour] = useState(false);
   const [showCodeLocalDate, setShowCodeLocalDate] = useState(false);
     
+
+  const [cityList, setCityList]= useState([])
+  const { data:apiData } = PtguseFetch('city-lists') as any
+
+  useEffect(() => {
+    if(apiData[0]){
+      setCityList(apiData[0]?.attributes?.city)
+    }
+  },[apiData])
+
+
+  const onSelect: any = (event: any) => {
+    console.log('Select Values,onSelect', event);
+  };
+  const onRemove: any = (event: any) => {
+    console.log('Values,onRemove', event);
+  };
+  
   const ShowExampleCode = () => {
     if(!showCodeOne){
       setShowCodeOne(true);
@@ -58,14 +78,54 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
     }else{
       setShowCodeFour(false)
     }
-  };
+  }; 
+
+  const today = new Date();
+  const [date, setStartDate] = useState({
+    startDate: null,
+    endDate: null,
+    errorMsg:false,
+});
+
+/*-----Set date state-----*/
+const setDateState: any = (d: any, field: string) => {
+    setStartDate((preState: any) => {
+        if (field === 'endDate' && date && date.startDate && date.startDate > d) {
+              date.errorMsg = true
+        } else {
+            date.errorMsg = false
+        }
+        return {
+            ...preState,
+            [field]: d
+        }
+    });
+}
+/*-----props for start datepicker-----*/
+const startDateProp = {
+    selected: date.startDate,
+    className: `form-control w-100`,
+    onChange: (d: any) => setDateState(d, 'startDate'),
+    startDate: today,
+    endDate: null,
+    disabled: false,
+}
+
+/*-----props for end datepicker-----*/
+const endDateProp = {
+    selected: date.endDate,
+    className: `form-control w-100`,
+    onChange: (d: any) => setDateState(d, 'endDate'),
+    endDate: null,
+}
+
 
   return (
     <div>
       <section className='card-section-two bg-white rounded pt-2 pb-1 pr-3 mt-2'>
         <div className="row">
           <div className="col-10 mb-2 mt-2">
-            <h5 className='example-heading'>{t('CALENDAR_EXAMPLE_1')}</h5>
+            <h5 className='example-heading calender-heading'>{t('CALENDAR_EXAMPLE_1')}</h5>
           </div>
           <div className='col-2'>
             <CodeIcon onClick={() =>ShowExampleCode()} fontSize="large" className='show-code-icon'></CodeIcon>
@@ -131,6 +191,39 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
           </div>
         </div>
        <LocalDatetime showCodeLocalDate={showCodeLocalDate}/>
+      </section>
+
+      <section className="card-section-two pb-5 bg-white rounded pt-2 pb-1 mt-4">
+        <div className="row">
+          <div className="col-10 mb-2 mt-2">
+          <h5 className='example-heading'>Calender Example 5</h5>
+          </div>
+
+          <div className='col-2'>
+              <CodeIcon onClick={ShowExampleCodeFour} fontSize="large" className='show-code-icon'></CodeIcon>
+          </div>
+          <hr className='horizontal-line'/>
+        </div>
+
+        <div className='row'>
+
+        <div className='col-lg-5 ms-4'>
+        <PtgUiCalendar {...endDateProp} />
+        </div>
+
+        <div className='col-lg-5 ms-4 me-4'>
+        <PtgUiMultiSelectbox
+          name="city"
+          list={cityList}
+          onSelect={onSelect}
+          showCheckbox={true}
+          singleSelect={true}
+          className='single-select-field'
+          placeholder={t('SELECT_PLACEHOLDER')}
+        />
+        </div>
+
+        </div>
       </section>
     </div>
   );
