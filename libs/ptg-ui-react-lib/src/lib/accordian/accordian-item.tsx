@@ -13,7 +13,7 @@ export function AccordionItem({title,content}: AccordionItemProps) {
   return (
     <div className={className} onClick={() => setOpened(!opened)}>
     <div className="accordion-item__line">
-      <h3 className="accordion-header">{title}</h3>
+      <h6 className="accordion-header ms-4">{title}</h6>
       <span className="accordion-item__icon" />
     </div>
     <div className="accordion-item__inner">

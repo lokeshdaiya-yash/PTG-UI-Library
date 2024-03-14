@@ -717,10 +717,10 @@ const Example3 = () => {
     <>
       <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
       <div className="row">
-      <div className="col-lg-10 mt-1">
-      <h4 className="example-heading">{t('MULTI_STEP_FORM')}</h4>
+      <div className="col-10 mt-1">
+      <h5 className="example-heading multi-step-heading">{t('MULTI_STEP_FORM')}</h5>
       </div>
-      <div className="col-lg-2 mt-1 mb-2">
+      <div className="col-2 mt-1 mb-2">
         <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
       </div>
       <hr className='horizontal-line'/>
