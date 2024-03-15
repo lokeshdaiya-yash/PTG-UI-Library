@@ -33,13 +33,22 @@ export interface PtgUiMaterialTableProps {
   paginationPosition?: any
   grouping?: boolean,
   detailPanel?: (rowData:any) =>any;
+  options?:{
+    emptyRowsWhenPaging: boolean;
+    defaultOrderByCollection?: string[];
+    }
+  }
+
+const tableOptions ={
+  emptyRowsWhenPaging: false,
+  defaultOrderByCollection: []
 }
 
 export function PtgUiMaterialTable(props: PtgUiMaterialTableProps) {
-
   return (
     <MaterialTable
       {...props}
+    options={tableOptions}
     />
 
   )

@@ -38,14 +38,6 @@ export function PtgUiMaterialTableButtonExample(props: PtgUiMaterialTableButtonE
     }
   },[apiData])
 
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {
-  //       setGridData(res.data);
-  //     })
-  //     .catch((err: any) => console.log(err));
-  // }, []);
   
   const Columns:any = [
     { title: "Athlete",field: "athlete"},
@@ -98,14 +90,12 @@ export function PtgUiMaterialTableButtonExample(props: PtgUiMaterialTableButtonE
   useEffect(()=>{
     fetchApi()
   },[apiData])
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {
-  //       setGridData(res.data);
-  //     })
-  //     .catch((err: any) => console.log(err));
-  // }, []);
+ 
+  const tableOptions ={
+    emptyRowsWhenPaging: false,
+    defaultOrderByCollection: []
+  }
+
   const Columns:any = [
     { title: "Athlete",field: "athlete"},
     { title: "Age",field: "age",filtering: false },
@@ -125,6 +115,7 @@ const htmlCode = `
 columns={Columns}
 data={gridData}
 title="Material Table"
+options={tableOptions}
 actions={[
     {
       icon: () =>  <PtgUiButton
@@ -140,6 +131,11 @@ actions={[
   ]}
 />
 `
+const tableOptions ={
+  emptyRowsWhenPaging: false,
+  defaultOrderByCollection: []
+}
+
   return (
     <div className="table-responsive">
     <div className='row'>
@@ -154,16 +150,7 @@ actions={[
        columns={Columns}
        data={gridData}
        title="Material Table"
-       // options={{
-       //   exportMenu: [{
-       //     label: 'Export PDF',
-       //     exportFunc: (cols: any, datas: any) => ExportPdf(cols, datas, 'pdfFileName')
-       //   }, {
-       //     label: 'Export CSV',
-       //     exportFunc: (cols: any, datas: any) => ExportCsv(cols, datas, 'csvFileName')
-       //   }],
-       //   actionsColumnIndex: -1
-       // }}
+       options={tableOptions}
        actions={[
            {
              icon: () =>  <PtgUiButton
