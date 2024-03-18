@@ -5,3 +5,11 @@
       background-color: $layout-background-color!important;
     }
   }
+
+  .active-tabs-copy-code {
+    .nav-link.active {
+      border-color: $white $white $main $white !important;
+      border-bottom: 3px solid $main !important;
+      background-color: $white !important;
+    }
+  }

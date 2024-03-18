@@ -567,7 +567,7 @@ const htmlCode = `
                   <div className="form-container">
                     <div className="row">
                       <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div className="form-group required mb-2 ms-4 me-4">
+                        <div className="form-group required mb-2">
                           <label
                             htmlFor="inputUsername"
                             tabIndex={0}
@@ -583,7 +583,7 @@ const htmlCode = `
                             placeholder={t('USER_NAME_PLACEHOLDER')}
                             value={user.username}
                             onChange={handleChange}
-                            className={`w-100 form-control bg_0 ${
+                            className={`w-100 name-input-field form-control bg_0 ${
                               formErr.username ? 'border-danger' : ''
                             }`}
                             onBlur={user.username === '' ? handleBlur : null}
@@ -591,7 +591,7 @@ const htmlCode = `
                         </div>
                       </div>
                       <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div className="form-group required mb-2 ms-4 me-4">
+                        <div className="form-group required mb-2">
                           <label
                             htmlFor="inputEmail"
                             tabIndex={0}
@@ -615,7 +615,7 @@ const htmlCode = `
                         </div>
                       </div>
                       <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div className="form-group required mb-2 ms-4 me-4">
+                        <div className="form-group required mb-2">
                           <label
                             htmlFor="inputDOB"
                             tabIndex={0}
@@ -685,7 +685,7 @@ const htmlCode = `
                                 value={user.gender}
                               />
                             </div>
-                          </fieldset>
+                         </fieldset>
                         </div>
                       </div>
                     </div>
@@ -730,16 +730,17 @@ const htmlCode = `
                       </div>
                     </div>
                   </div>
-                  <PtgUiButton
-                    className="w-100"
+                  {/* <PtgUiButton
+                    className="w-100 web-button"
                     type="button"
-                    onClick={handleRegister}
-                    disabled={user.disable}
+                  
                     aria-label="submit"
                     data-testid="register"
                   >
-                    {t('SUBMIT')}
-                  </PtgUiButton>
+               
+                  </PtgUiButton> */}
+                  <button type="button" className="w-100 btn btn-primary"  onClick={handleRegister}
+                    disabled={user.disable}>     {t('SUBMIT')}</button>
                 </div>
                 <div className="row mt-5">
                   <div className="col-md-12">

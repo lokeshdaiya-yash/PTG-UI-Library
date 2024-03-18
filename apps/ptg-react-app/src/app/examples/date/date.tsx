@@ -207,11 +207,11 @@ const endDateProp = {
 
         <div className='row'>
 
-        <div className='col-lg-5 ms-4'>
+        <div className='col-lg-5 ms-3'>
         <PtgUiCalendar {...endDateProp} />
         </div>
 
-        <div className='col-lg-5 ms-4 me-4'>
+        <div className='multi-select col-lg-5'>
         <PtgUiMultiSelectbox
           name="city"
           list={cityList}

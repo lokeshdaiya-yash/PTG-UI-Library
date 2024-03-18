@@ -30,7 +30,7 @@ export function Sidenav() {
           /*-----Side navigation-----*/
           NavigationData.map((navItem: any, idx: number) => {
           return (
-            <Accordion defaultActiveKey="0" className="acc">
+            <Accordion  className="acc">
             <Accordion.Item eventKey="0">
               <Accordion.Header className={`acc-header ${!navItem.pages ? 'accordion-with-arrow' : ''}`}>
               <React.Fragment key={idx}>
