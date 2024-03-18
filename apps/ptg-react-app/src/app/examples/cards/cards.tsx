@@ -54,7 +54,7 @@ export default function Card() {
   return (
     <section className='card-section-two bg-white rounded'>
       <div className="row">
-        <div className="col-md-10 mb-2 mt-3">
+        <div className="col-10 mb-2 mt-3">
           <h5 className="font-weight-bold example-heading">Cards</h5>
         </div>
         <div className="col-2 mb-2 mt-2">

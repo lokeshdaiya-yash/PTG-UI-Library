@@ -212,7 +212,9 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
           />
           </div>
           <h5 className='ms-4'>{t('DATATABLE_WITH_ACCORDIAN')}</h5>
+          <div className='me-4 ms-4'>
           <PtgUiAccordian stories={accordian_array}/>
+          </div>
         </>
       ):(
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />

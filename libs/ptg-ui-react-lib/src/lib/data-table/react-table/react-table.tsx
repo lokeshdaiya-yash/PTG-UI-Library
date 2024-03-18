@@ -3,6 +3,7 @@ import './react-table.scss';
 import {useEffect, useState} from 'react';
 import { useTable, usePagination} from 'react-table';
 //import "./react-table-config.d.ts";
+import "./react-table.scss";
 
 export interface PtgUiReactTableProps{
   data?:any;
@@ -83,7 +84,7 @@ export function PtgUiReactTable({columns, data}: PtgUiReactTableProps) {
           return (
             <tr {...row.getRowProps()}>
               {row.cells.map((cell:any) => {
-                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                return <td style={{fontSize : "12px"}}{...cell.getCellProps()}>{cell.render('Cell')}</td>
               })}
             </tr>
           )
