@@ -19,7 +19,7 @@ export function Highcharts(props: HighchartsProps) {
   const { t } = useTranslation();
   return (
     <div className="w-100">
-      <Tabs defaultActiveKey="2d">
+      <Tabs defaultActiveKey="2d" className='active-tabs'>
         <Tab eventKey="2d" title={t('REUSABLE_MATERIAL_TABLE')}>
                  <PtgUiMaterialTableExample/>
            </Tab>

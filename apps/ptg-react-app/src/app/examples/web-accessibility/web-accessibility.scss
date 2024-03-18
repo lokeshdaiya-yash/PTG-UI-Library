@@ -23,6 +23,15 @@
     }
   }
 }
+
+.date-picker{
+
+.MuiOutlinedInput-root {
+  height : 32px;
+  // width: 13rem;
+  margin-top: 1px;
+}
+}
 @media (max-width: 599.98px) {
   .login-form {
     width: 100% !important;
@@ -61,6 +70,12 @@
   }
 }
 
+// .web-button{
+//   width: 30rem;
+// }
 
-
-
+// @media (min-width : 0px) and (max-width: 600px){
+//   .name-input-field{
+      
+//   }
+// }

@@ -134,10 +134,13 @@ actions={[
     <div className="table-responsive">
     <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
     <div className='row'>
-    <div className = 'col-10'></div>
+    <div className = 'col-10'>
+      <h5 className='example-heading mt-2'>Material Table with Button</h5>
+    </div>
     <div className='col-2 mr-5 mt-1 mb-2'>
       <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
     </div>
+    <hr className='horizontal-line'/>
     </div>
 
     {!showCode ? (
@@ -147,10 +150,11 @@ actions={[
        title="Material Table"
        actions={[
            {
-             icon: () =>  <PtgUiButton
-                           className="btn-sm">
-                           {t('CLICK_HERE')}
-                           </PtgUiButton>,
+             icon: () =>   
+                 <button type="button" className="w-75 btn btn-primary btn-sm">
+                {t('CLICK_HERE')}
+                </button>,
+             
                  tooltip: 'Click Here',
                  onClick: (event: any, rowData: any) => {
                  console.log(event, rowData);

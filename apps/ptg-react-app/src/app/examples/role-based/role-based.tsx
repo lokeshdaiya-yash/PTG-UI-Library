@@ -107,7 +107,7 @@ export function RoleBased(props: RoleBasedProps) {
         </>
       )}
       <div className="row align-items-center mb-2">
-        <div className=" col-lg-4 col-md-6 col-sm-6 col-xs-6">
+        <div className="ms-2 col-lg-4 col-md-6 col-sm-6 col-xs-6">
           <h6>{t('BUTTON_VISIBLE_FOR_EVERYONE_TEXT')}</h6>
         </div>
         <div className="col-lg-4 col-md-6 col-sm-6 col-xs-6">
