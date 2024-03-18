@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-cd8d96f6.js');
+const index = require('./index-b272a2a2.js');
 
 const ptgCardCss = ":host{display:block}.ptg-card-wrapper{border:1px solid #dee2e6;border-radius:8px;display:flex;flex-wrap:wrap}.ptg-card-wrapper .ptg-card-img-wrapper{height:200px;width:100%;position:relative;border-radius:8px 8px 0 0;object-fit:cover;overflow:hidden}.ptg-card-wrapper .ptg-card-img-wrapper img{position:absolute;inset:0;width:100%;border-radius:8px 8px 0 0}.ptg-card-wrapper .ptg-card-content-wrapper{width:100%;padding:15px}.ptg-card-wrapper .ptg-card-content-wrapper .ptg-card-heading{padding:0;margin:0;margin-bottom:10px;text-transform:capitalize;font-size:18px}.ptg-card-wrapper .ptg-card-content-wrapper .ptg-card-content{font-size:14px}.ptg-card-wrapper .ptg-card-footer{padding:10px;width:100%}";
 

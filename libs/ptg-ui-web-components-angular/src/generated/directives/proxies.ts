@@ -33,13 +33,13 @@ export declare interface PtgAccordion extends Components.PtgAccordion {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['color', 'description', 'label', 'width']
+  inputs: ['bgColor', 'defaultOpened', 'description', 'label']
 })
 @Component({
   selector: 'ptg-accordion',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['color', 'description', 'label', 'width']
+  inputs: ['bgColor', 'defaultOpened', 'description', 'label']
 })
 export class PtgAccordion {
   protected el: HTMLElement;
@@ -96,13 +96,13 @@ export declare interface PtgButton extends Components.PtgButton {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['appearance', 'text']
+  inputs: ['appearance', 'btnIconAlignment', 'text']
 })
 @Component({
   selector: 'ptg-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['appearance', 'text']
+  inputs: ['appearance', 'btnIconAlignment', 'text']
 })
 export class PtgButton {
   protected el: HTMLElement;
@@ -285,13 +285,13 @@ export declare interface PtgModal extends Components.PtgModal {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['btnName', 'closeOutsideClick', 'confirmButtonName', 'isOpen', 'modalHeaderName', 'modalSize', 'showFooter', 'showHeader']
+  inputs: ['closeOutsideClick', 'confirmButtonName', 'isOpen', 'modalHeaderName', 'modalSize', 'showFooter', 'showHeader']
 })
 @Component({
   selector: 'ptg-modal',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['btnName', 'closeOutsideClick', 'confirmButtonName', 'isOpen', 'modalHeaderName', 'modalSize', 'showFooter', 'showHeader']
+  inputs: ['closeOutsideClick', 'confirmButtonName', 'isOpen', 'modalHeaderName', 'modalSize', 'showFooter', 'showHeader']
 })
 export class PtgModal {
   protected el: HTMLElement;

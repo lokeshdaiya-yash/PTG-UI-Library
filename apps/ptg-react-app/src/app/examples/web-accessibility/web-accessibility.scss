@@ -70,12 +70,55 @@
   }
 }
 
-// .web-button{
-//   width: 30rem;
-// }
+@media (min-width : 300px) and (max-width: 400px){
+  .web-field{
+      width : 60% !important;
+      margin-left: 16%;
+  }
 
-// @media (min-width : 0px) and (max-width: 600px){
-//   .name-input-field{
-      
-//   }
-// }
+  .field{
+    width : 60%;
+    margin-left: 17% !important;
+  }
+  label{
+    font-size: 14px;
+  }
+  ::placeholder{
+    font-size: 14px;
+  }
+ 
+
+  .select-gender{
+    margin-left: 7%;
+  }
+  .declaration-check{
+    width: 95%;
+  }
+  .achieved-heading{
+    width : 95%;
+    margin-left: 1rem;
+  }
+  h6{
+    font-size: 14px;
+  }
+  ol{
+    width : 95%;
+  }
+  .gender-list{
+    font-size: 10px;
+  }
+}
+
+@media (min-width : 400px) and (max-width: 500px){
+  .web-field{
+      width : 87% !important;
+      margin-left: 7%;
+  }
+}
+
+@media (min-width : 500px) and (max-width: 600px){
+  .web-field{
+      width : 87% !important;
+      margin-left: 7%;
+  }
+}

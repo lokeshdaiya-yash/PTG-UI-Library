@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property      | Attribute     | Description | Type     | Default     |
-| ------------- | ------------- | ----------- | -------- | ----------- |
-| `color`       | `color`       |             | `string` | `undefined` |
-| `description` | `description` |             | `string` | `undefined` |
-| `label`       | `label`       |             | `string` | `undefined` |
-| `width`       | `width`       |             | `string` | `undefined` |
+| Property        | Attribute        | Description | Type      | Default     |
+| --------------- | ---------------- | ----------- | --------- | ----------- |
+| `bgColor`       | `bg-color`       |             | `string`  | `undefined` |
+| `defaultOpened` | `default-opened` |             | `boolean` | `false`     |
+| `description`   | `description`    |             | `string`  | `undefined` |
+| `label`         | `label`          |             | `string`  | `undefined` |
 
 
 ----------------------------------------------

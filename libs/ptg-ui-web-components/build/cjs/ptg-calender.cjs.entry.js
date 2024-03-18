@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-cd8d96f6.js');
+const index = require('./index-b272a2a2.js');
 
 // import { CalendarEntry } from './calender-entry';
 class Calendar {

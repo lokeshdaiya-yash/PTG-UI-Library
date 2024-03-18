@@ -68,7 +68,7 @@ export function RoleBased(props: RoleBasedProps) {
       <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
        <div className="row">
        <div className="col-10 mb-2 mt-2">
-         <h5 className="example-heading">{t('ROLE_BASED_EXAMPLE_TEXT')}</h5>
+         <h5 className="example-heading heading">{t('ROLE_BASED_EXAMPLE_TEXT')}</h5>
        </div>
        <div className="col-2">
          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
@@ -107,11 +107,11 @@ export function RoleBased(props: RoleBasedProps) {
         </>
       )}
       <div className="row align-items-center mb-2">
-        <div className="ms-2 col-lg-4 col-md-6 col-sm-6 col-xs-6">
-          <h6>{t('BUTTON_VISIBLE_FOR_EVERYONE_TEXT')}</h6>
+        <div className="ms-4 me-4 col-lg-4 col-md-6 col-sm-6 col-xs-6">
+          <h6 className='view-user-text'>{t('BUTTON_VISIBLE_FOR_EVERYONE_TEXT')}</h6>
         </div>
-        <div className="col-lg-4 col-md-6 col-sm-6 col-xs-6">
-          <PtgUiButton className="w-100">
+        <div className="view-user-button col-lg-4 col-md-6 col-sm-6 col-xs-6">
+          <PtgUiButton className="ms-4 w-100">
             <i className="fa-solid fa-users m-2"></i>
             {t('VIEW_USER_TEXT')}
           </PtgUiButton>

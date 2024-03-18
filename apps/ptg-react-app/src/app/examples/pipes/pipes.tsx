@@ -137,7 +137,7 @@ const htmlCode = `
     {!props.showPipeCode ? (
       <div className="wrapper">
           <div className="row">
-            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12">
+            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-50">
               <label
                 htmlFor="firstLetterCapital"
                 aria-labelledby="firstLetterCapital"
@@ -161,7 +161,7 @@ const htmlCode = `
           </div>
       
           <div className="row">
-            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12">
+            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-50">
               <label
                 htmlFor="inrFormatText"
                 aria-labelledby="inrFormatText"
@@ -185,7 +185,7 @@ const htmlCode = `
           </div>
        
           <div className="row">
-            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12">
+            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-50">
               <label
                 htmlFor="truncatePipeText"
                 aria-labelledby="truncatePipeText"
@@ -209,7 +209,7 @@ const htmlCode = `
           </div>
 
           <div className="row">
-            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12">
+            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-50">
               <label
                 htmlFor="phoneNumberPipes"
                 aria-labelledby="phoneNumberPipes"

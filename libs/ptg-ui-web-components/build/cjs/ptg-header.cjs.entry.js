@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-cd8d96f6.js');
+const index = require('./index-b272a2a2.js');
 
 const ptgHeaderCss = ":host{display:block}.header{width:100vw;height:10vh;inset:0;position:fixed;text-align:center;display:flex;align-items:center;background:#f5f6f8;box-shadow:10px 0px 5px #aaaaaa;z-index:9}.header-logo h2{margin-left:20px;color:var(--white);background-color:var(--headerb-10);padding:10px}";
 

@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
-import { geoStereographicRaw } from 'd3';
+
 /* eslint-disable-next-line */
 export interface PtgUiReactTableExampleProps {}
 
@@ -168,7 +168,7 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
         <hr className='horizontal-line'/>
       </div>
       {!showCode ? (
-        <div className='m-4'>
+        <div className='m-4 react-table-component'>
         <PtgUiReactTable columns={columns} data={gridData} />
         </div>
       ):(

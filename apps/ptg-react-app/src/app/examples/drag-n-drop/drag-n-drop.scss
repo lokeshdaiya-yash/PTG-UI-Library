@@ -121,20 +121,20 @@
 
 @media (min-width : 300px) and (max-width: 400px){
   .exampleTwoDroppable {
-    width: 5rem;
-    margin-left: 5px;
+    width: 4rem;
+    margin-left: 1rem;
     font-size: 10px;
-    
+    min-height: 345px;
   }
 
   .todoHeading {
-
-    margin-left: 1rem;
+    margin-left: 1.8rem;
   }
 
   .exampleTwoDraggable {
-   
-    width: 5rem;
+    width: 3rem;
+    font-size: 7px;
+    margin-left: -0.5rem;
   }
 
   .example-one-list{
@@ -147,20 +147,17 @@
   }
 @media (min-width : 400px) and (max-width: 500px){
   .exampleTwoDroppable {
- 
-    // min-width: 280px;
     width: 7rem;
     margin-left: 5px;
-    font-size: 14px;
-    
+    min-height: 285px;
   }
 
   .exampleTwoDraggable {
-   
-    width: 7rem;
+    width: 6rem;
+    font-size: 9px;
+    margin-left: -0.5rem;
   }
   .todoHeading {
-
     margin-left: 1rem;
     font-size: 16px;
   }
@@ -168,52 +165,48 @@
   .example-one-list{
     width: 80%;
   }
-
-  }
+}
 
 
 
 @media (min-width : 500px) and (max-width: 700px){
   .exampleTwoDroppable {
- 
-    // min-width: 280px;
     width: 9rem;
-    
+    min-height: 293px;
   }
   .exampleTwoDraggable {
-   
-    width: 9rem;
+    width: 8rem;
+    font-size: 11px;
+    margin-left: -0.4rem;
   }
   .todoHeading {
-
     margin-left: 1rem;
     font-size: 18px;
   }
-
-  }
+}
 
 @media (min-width : 700px) and (max-width: 800px){
   .exampleTwoDroppable {
     width: 12.5rem;
-   }
+    min-height: 295px;
+  }
   .exampleTwoDraggable {
-     width: 12.5rem;
+    width: 11rem;
+    margin-left: -0.2rem;
+    font-size: 13px;
   }
   .todoHeading {
-
     margin-left: 1rem;
     font-size: 20px;
   }
-  }
+}
 
 @media (min-width : 800px) and (max-width: 900px){
   .exampleTwoDroppable {
- 
     width: 15rem;
-    
   }
   .exampleTwoDraggable {
-   
-    width: 15rem;
+    width: 13rem;
+    margin-left: 0.1rem;
   }
-  }
+}

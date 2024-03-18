@@ -99,7 +99,7 @@ const DownloadFileExample = () => {
       </div>
       <hr className='horizontal-line'/>
 
-      <div className="mr-2">
+      <div className="me-4">
       {!showCode ? (
         <PtgUiDownload
         columns={downloadFileData.columns}
