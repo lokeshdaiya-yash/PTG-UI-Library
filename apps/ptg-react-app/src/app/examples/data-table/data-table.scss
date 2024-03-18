@@ -4,3 +4,12 @@
 }
 
 .ag-theme-alpine { height: 500px;}
+
+
+
+@media (min-width : 300px) and (max-width: 900px){
+    .react-table-component{
+      overflow-x: auto;
+    }
+}
+

@@ -76,7 +76,7 @@ export function Sidenav() {
                            : 'disabled'
                        }`}
                      >
-                       {/* <i className={`icon ${childItem.icon}`}></i> */}
+                       <i className={`icon child-icon ${childItem.icon}`}></i>
                        <span>{childItem.label}</span>
                     </Link> 
                   </Accordion.Body>
