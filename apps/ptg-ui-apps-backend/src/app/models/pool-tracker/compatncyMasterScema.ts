@@ -1,7 +1,10 @@
 import mongoose,{ Schema, model } from 'mongoose';
 import {conn1} from '../../../database/db'
 const compatncyMasterSchema = new mongoose.Schema({
-  compatncy_name: String,
+  // compatncy_name: String,
+  name: String,
+  value: String,
+  label: String,
   isActive: { type: Number, default: 0 },
 });
 

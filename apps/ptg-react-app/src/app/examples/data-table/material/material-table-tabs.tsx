@@ -9,7 +9,7 @@ import { Tabs, Tab } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import PtgUiMaterialTableExample from './material-table';
 import PtgUiMaterialTableButtonExample from './material-table-button';
-
+import PtgUiMaterialTableAccordion from './material-table-accordion';
 
 
 /* eslint-disable-next-line */
@@ -18,15 +18,20 @@ export interface HighchartsProps { }
 export function Highcharts(props: HighchartsProps) {
   const { t } = useTranslation();
   return (
-    <div className="w-100">
-      <Tabs defaultActiveKey="2d">
-        <Tab eventKey="2d" title={t('REUSABLE_MATERIAL_TABLE')}>
-                 <PtgUiMaterialTableExample/>
-           </Tab>
-        <Tab eventKey="3d" title={t('MATERIAL_TABLE_WITH_ACTION_BTN')}>
+    <div>
+      <div className="w-100">
+        <Tabs defaultActiveKey="2d">
+          <Tab eventKey="2d" title={t('REUSABLE_MATERIAL_TABLE')}>
+            <PtgUiMaterialTableExample />
+          </Tab>
+          <Tab eventKey="3d" title={t('MATERIAL_TABLE_WITH_ACTION_BTN')}>
             <PtgUiMaterialTableButtonExample />
-        </Tab>
-      </Tabs>
+          </Tab>
+        </Tabs>
+      </div>
+      <div className='mt-5'>
+        <PtgUiMaterialTableAccordion />
+      </div>
     </div>
   );
 }

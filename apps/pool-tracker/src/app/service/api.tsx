@@ -58,20 +58,27 @@ export const addSkill = async (data) => {
   }
 };
 
+// export const getSkills = async () => {
+//   try {
+//     const response = await axios.get(`${URL}/skill/all`);
+//     const skills = response.data;
+//     const transformedSkills = skills.map(skill =>({
+//       value: skill.name,
+//         label: skill.name,
+//         name: skill.name,
+//     }));
+//     return transformedSkills;
+//   } catch (error) {
+//     console.log("error while calling all skill api",error);  return; 
+//   }
+// };  
 export const getSkills = async () => {
   try {
-    const response = await axios.get(`${URL}/skill/all`);
-    const skills = response.data;
-    const transformedSkills = skills.map(skill =>({
-      value: skill._id,
-        label: skill.name,
-        name: skill.name,
-    }));
-    return transformedSkills;
+    return await axios.get(`${URL}/skill/all`);
   } catch (error) {
-    console.log("error while calling all skill api",error);  return; 
+    console.log("error while calling all skills api",error);  return; 
   }
-};  
+};
 
 export const getSingleSkill = async (id) => {
   try {

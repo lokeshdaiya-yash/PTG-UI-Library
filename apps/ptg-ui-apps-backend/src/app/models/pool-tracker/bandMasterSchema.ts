@@ -1,7 +1,9 @@
 import mongoose,{ Schema, model } from 'mongoose';
 import {conn1} from '../../../database/db'
 const bandMasterSchema = new mongoose.Schema({
-  bandName: String,
+  name: String,
+  value: String,
+  label: String,
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'tblPoolMaster',

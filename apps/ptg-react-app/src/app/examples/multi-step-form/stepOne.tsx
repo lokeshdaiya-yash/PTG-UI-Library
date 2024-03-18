@@ -6,7 +6,7 @@ import {
 import { useTranslation } from 'react-i18next';
 
 
-export const StepOne = ({ showNext, handleChange, details, error }: any) => {
+export const StepOne = ({ showNext, handleChange, details, error, handleBlur }: any) => {
   const [isDisabled, setIsDisabled] = useState(true);
   const { t } = useTranslation();
   useEffect(() => {
@@ -42,6 +42,7 @@ export const StepOne = ({ showNext, handleChange, details, error }: any) => {
           id="inputUsername"
           value={details.userName}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
       </div>
       <div className="form-group required col-md-12 mb-2">
@@ -55,6 +56,7 @@ export const StepOne = ({ showNext, handleChange, details, error }: any) => {
           id="password"
           value={details.password}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
       </div>
       <div className="form-group required col-md-12 mb-2">
@@ -68,6 +70,7 @@ export const StepOne = ({ showNext, handleChange, details, error }: any) => {
           id="confirmPassword"
           value={details.confirmPassword}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
         {error.confirmPassword && (
           <span className="form-text text-danger">{error.confirmPassword}</span>

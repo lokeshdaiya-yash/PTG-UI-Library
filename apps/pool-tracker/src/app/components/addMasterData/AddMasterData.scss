@@ -4,7 +4,7 @@
   width: 50%;
   margin: 70px auto;
   font-size: 16px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -31,6 +31,9 @@
   padding: 3px !important;
   position: relative;
   margin: 0 auto;
+}
+.masterdata-form-container{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
 }
 .optionListContainer {
   background: #fff;
@@ -99,4 +102,8 @@ button {
   z-index: 4;
   right: 104px;
   bottom: 16px;
+}
+.highlightOption {
+   background: none; 
+   color: #1a222b; 
 }
