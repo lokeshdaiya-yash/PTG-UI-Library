@@ -4,13 +4,16 @@
  * @desc Side bar/navigation list
 */
 {/*--List of sidebar/side navigation--*/}
+
+
 export const NavigationData = [
-  // {
-  //   path: '/home',
-  //   icon: 'fas fa-home',
-  //   label: 'Home',
-  //   disabled: false,
-  // },
+
+  {
+    path: '/breadcrumbs',
+    icon: 'fa fa-link',
+    label: 'BREADCRUMBS',
+    disabled: false,
+  },
   {
     path: '/calendar',
     icon: 'fa-solid fa-calendar',
@@ -18,24 +21,32 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    path: '/carousel',
-    icon: 'fa-solid fa-calendar',
-    label: 'Carousel',
+    path: '/cards',
+    icon: 'fa fa-square',
+    label: 'CARDS',
     disabled: false,
   },
   {
+    path: '/carousel',
+    icon: 'fa fa-lock',
+    label: 'Carousel',
+    disabled: false,
+  },
+ {
     label: 'CHARTS',
     icon: 'fas fa-chart-line',
     pages: [
       {
         label: 'D3 CHARTS',
         path: '/d3charts',
+        icon: 'fas fa-chart-line',
         id: 'd3charts',
         disabled: false,
       },
       {
         label: 'HIGHCHARTS',
         path: '/highcharts',
+        icon: 'fas fa-chart-line',
         id: 'highchart',
         disabled: false,
       }
@@ -49,23 +60,27 @@ export const NavigationData = [
         label: 'AG GRID',
         path: '/datatable/aggrid',
         id: 'Ag-grid',
+        icon: 'fa fa-table',
         disabled: false,
       },
       {
         label: 'REACT DATA GRID',
         path: '/datatable/reactdatagrid',
+        icon: 'fa fa-table',
         id: 'Ngx-table',
         disabled: false,
       },
       {
         label: 'MATERIAL',
         path: '/datatable/materialTable',
+        icon: 'fa fa-table',
         id: 'Material',
         disabled: false,
       },
             {
         label: 'REACT TABLE',
         path: '/datatable/reactTable',
+        icon: 'fa fa-table',
         id: 'react-table',
         disabled: false,
       },
@@ -79,7 +94,7 @@ export const NavigationData = [
   },
   {
     path: '/dragnDrop',
-    icon: 'fa fa-lock',
+    icon: 'fa fa-bars',
     label: 'DRAG N DROP',
     disabled: false,
   },
@@ -131,16 +146,5 @@ export const NavigationData = [
     label: 'WEB ACCESSIBILTY',
     disabled: false,
   },
-  {
-    path: '/breadcrumbs',
-    icon: 'fa fa-lock',
-    label: 'BREADCRUMBS',
-    disabled: false,
-  },
-  {
-    path: '/cards',
-    icon: 'fa fa-lock',
-    label: 'CARDS',
-    disabled: false,
-  }
+
 ];  

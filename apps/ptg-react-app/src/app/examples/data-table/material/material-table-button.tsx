@@ -9,7 +9,6 @@ import MaterialTable from "@material-table/core";
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { PtgUiButton, PtguseFetch } from '@ptg-ui/react';
-import { authClass } from '@ptg-react-app/auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 
@@ -38,15 +37,6 @@ export function PtgUiMaterialTableButtonExample(props: PtgUiMaterialTableButtonE
     }
   },[apiData])
 
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {
-  //       setGridData(res.data);
-  //     })
-  //     .catch((err: any) => console.log(err));
-  // }, []);
-  
   const Columns:any = [
     { title: "Athlete",field: "athlete"},
     { title: "Age",field: "age",filtering: false },
@@ -142,11 +132,15 @@ actions={[
 `
   return (
     <div className="table-responsive">
+    <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
     <div className='row'>
-    <div className = 'col-11'></div>
-    <div className='col-1 mr-5 mt-2'>
-      <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+    <div className = 'col-10'>
+      <h5 className='example-heading mt-2'>Material Table with Button</h5>
     </div>
+    <div className='col-2 mr-5 mt-1 mb-2'>
+      <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
+    </div>
+    <hr className='horizontal-line'/>
     </div>
 
     {!showCode ? (
@@ -154,22 +148,13 @@ actions={[
        columns={Columns}
        data={gridData}
        title="Material Table"
-       // options={{
-       //   exportMenu: [{
-       //     label: 'Export PDF',
-       //     exportFunc: (cols: any, datas: any) => ExportPdf(cols, datas, 'pdfFileName')
-       //   }, {
-       //     label: 'Export CSV',
-       //     exportFunc: (cols: any, datas: any) => ExportCsv(cols, datas, 'csvFileName')
-       //   }],
-       //   actionsColumnIndex: -1
-       // }}
        actions={[
            {
-             icon: () =>  <PtgUiButton
-                           className="btn-sm">
-                           {t('CLICK_HERE')}
-                           </PtgUiButton>,
+             icon: () =>   
+                 <button type="button" className="w-75 btn btn-primary btn-sm">
+                {t('CLICK_HERE')}
+                </button>,
+             
                  tooltip: 'Click Here',
                  onClick: (event: any, rowData: any) => {
                  console.log(event, rowData);
@@ -181,6 +166,7 @@ actions={[
     ):(
       <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
     )}
+    </section>
   </div>
   );
 }

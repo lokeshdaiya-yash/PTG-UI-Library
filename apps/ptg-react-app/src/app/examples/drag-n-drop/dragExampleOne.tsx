@@ -57,15 +57,7 @@ export function DragExampleOne(props: DragExampleOneProps) {
                       {...provided.draggableProps}
                       id={'drag' + id}
                     >
-                      <div
-                        className="example-one-list-view"
-                        // style={{
-                        //   width: '100%',
-                        //   display: 'flex',
-                        //   justifyContent: 'space-between',
-                        //   alignItems: 'center',
-                        // }}
-                      >
+                      <div className="example-one-list-view">
                         <div>
                           <span {...provided.dragHandleProps}>
                             <i className="fa fa-bars" aria-hidden="true"></i>

@@ -12,3 +12,25 @@
         }
     }
 }
+
+@media (min-width : 320px) and (max-width: 350px){
+  ul{
+      font-size: 9px;
+  }
+
+}
+
+@media (min-width : 350px) and (max-width: 400px){
+  ul{
+      font-size: 12px;
+  }
+  
+}
+
+@media (min-width : 400px) and (max-width: 500px){
+  ul{
+      font-size: 14px;
+  }
+  
+}
+

@@ -20,15 +20,14 @@ export function Header({}: HeaderProps) {
           <label htmlFor="toggle" className="fa fa-bars" aria-hidden="true">
             <i className="hiddenContent">.</i>
           </label>
-          <a className="navbar-brand logo px-2" href="#">
+          <a className="navbar-brand logo px-2 me-auto" href="#">
             <img
-              src="assets/logo.png"
+              src="assets/images/YashLogo.png"
               aria-label="logo"
-              alt="website logo"
               className="header-logo"
             />
           </a>
-          <div className="d-flex">
+          <div className="d-flex mt-1">
             <MultiLang />
             <UserProfile />
           </div>

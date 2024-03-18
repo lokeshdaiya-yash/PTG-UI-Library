@@ -10,11 +10,14 @@ export function AggridButton(props: ICellRendererParams) {
   };
 
   return (
-      <PtgUiButton
-      className="btn-sm"
-      onClick={buttonClicked}>
+    <div>
+      <button 
+        type="button" 
+        className="btn btn-primary btn-sm" 
+        onClick={buttonClicked}>
       {t('CLICK_HERE')}
-      </PtgUiButton>
+      </button>
+    </div>
   );
 };
 export default AggridButton;
