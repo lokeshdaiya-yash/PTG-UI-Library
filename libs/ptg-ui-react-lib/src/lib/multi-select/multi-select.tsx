@@ -34,6 +34,7 @@ export function PtgUiMultiSelectbox({id,className,selectedValues,list,showCheckb
     placeholder={placeholder}
     selectedValues={selectedValues}
     onRemove={onRemove}
+    avoidHighlightFirstOption={true}
   />
   );
 }
