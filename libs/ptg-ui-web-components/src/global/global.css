@@ -85,3 +85,8 @@
  li{
   list-style: none;
  }
+
+ .singleSelect .searchBox{  
+  z-index:-1 !important;
+  position: relative;
+}

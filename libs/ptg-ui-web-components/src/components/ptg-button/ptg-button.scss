@@ -1,17 +1,13 @@
 :host {
   display: block;
 }
-:host {
-  display: block;
-}
 
 .btn{
   background: var(--mono-10);
   color: var(--mono-70);
   border-radius: 7px;
   border:none;
-  padding: 0 20px;
-  // margin-left: 15px;
+  padding: 0 15px;
   height: 38px;
   outline: none;
   transition: 0.1s ease-in-out;
@@ -85,4 +81,13 @@
 .btn.dark:hover{
   background : var(--dark-70);
 
+}
+.showLeft {
+  width: 18px;
+  padding-left: 12px;
+}
+
+.showRight {
+  width: 18px;
+  padding-right: 12px;
 }
