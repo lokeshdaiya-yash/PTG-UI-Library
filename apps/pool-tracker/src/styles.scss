@@ -32,9 +32,9 @@ body {
   }
 }
 .viewMastertable table {
-  & > tr > th {
-    background-color: #1976d2 !important;
-  }
+  // & > tr > th {
+  //   background-color: #1976d2 ;
+  // }
   // th:nth-of-type(2) {
   //   width: 100% !important;
   //   display: flex;
@@ -67,9 +67,9 @@ body {
   }
 }
 
-.viewMastertable > table > tr > th {
-  background-color: #1976d2 !important;
-}
+// .viewMastertable > table > tr > th {
+//   background-color: #1976d2 !important;
+// }
 
 .viewMastertable .css-d5sp9s-MuiTableCell-root {
   background-color: #b9bc90;

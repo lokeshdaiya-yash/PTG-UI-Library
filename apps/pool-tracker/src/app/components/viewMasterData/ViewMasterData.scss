@@ -10,10 +10,12 @@
     z-index: 1;
   }
 }
+.viewMastertable table > tr > th {
+  background-color: none !important;
+}
 .ptg-table-addData {
   box-shadow: none;
 }
-
 .table-action-button {
   // width: 80px;
   display: flex;
@@ -26,13 +28,10 @@
 .icon-color {
   color: $main;
 }
-.viewMastertable table {
-  & > tr > th {
-    background-color: #1976d2 !important;
+
+.viewMastertable table{
+  th:nth-of-type(1) {
+    background-color: #b9bc90 ;
   }
-  // th:nth-of-type(2), td:nth-of-type(2) {
-  //   width: 100% !important;
-  //   display: flex;
-  //   justify-content: flex-start ;
-  // }
-}
+}  
+       

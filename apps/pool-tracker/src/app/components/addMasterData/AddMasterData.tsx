@@ -94,7 +94,6 @@ const AddMasterdata = (props: any) => {
       const response = await getSkills();
       const skillData = response?.data;
       const transformedSkills = skillData.map((skill:any) => ({
-        // label: skill.name ? skill.name: '',
         name: skill.name ? skill.name: '',
         value: skill.value ? skill.value : '',
         label: skill.name ? skill.name: '',
@@ -103,15 +102,6 @@ const AddMasterdata = (props: any) => {
       setSkill(transformedSkills);
     } catch (error) {}
   };
-
-  // const onSelectSkills = (e) => {
-  //   const { name, value } = e?.target;
-  //   setFormValue({ ...formValue, [name]: value });
-  // };
-  // const getAllSkills = async () => {
-  //   const response = await getSkills();
-  //   setSkill(response?.data);
-  // };
 
   const onSelectSkills = (e) => {
     setFormValue({ ...formValue, skills: e });
@@ -156,9 +146,7 @@ const AddMasterdata = (props: any) => {
   const submitMasterDetails = async () => {
     setFormErrors(validateFormFields(formValue));
     setIsSubmit(true);
-    debugger
     if (Object.keys(formErrors).length === 0) {
-      // debugger
       await addMasterdata(formValue);
       navigate('/masterData');
     }

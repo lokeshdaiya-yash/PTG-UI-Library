@@ -39,10 +39,15 @@ export const StepTwo = ({
   const {data:apisalutationListData} = PtguseFetch('salutation-lists') as any
   
   const { t } = useTranslation();
-
   useEffect(() => {
     if(apiDataGender[0]){
-      setGenderList(apiDataGender[0].attributes?.gender)
+      const list = apiDataGender[0].attributes?.gender.map(item=>{
+        return{
+          ...item,
+          label:item.name
+        }
+      })
+      setGenderList(list)
     }
   },[apiDataGender])
 
@@ -133,6 +138,7 @@ export const StepTwo = ({
             id="inputFirstName"
             value={details.firstName}
             onChange={handleChange}
+            onBlur={handleBlur}
           />
         </div>
         <div className="col-md-6 mb-2">
@@ -146,6 +152,7 @@ export const StepTwo = ({
             id="inputLastName"
             value={details.lastName}
             onChange={handleChange}
+            onBlur={handleBlur}
           />
         </div>
       </div>
@@ -160,6 +167,7 @@ export const StepTwo = ({
           id="inputEmail"
           value={details.email}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
       </div>
       <div className="form-group required col-md-12 mb-2">
@@ -173,6 +181,7 @@ export const StepTwo = ({
           id="inputPhone"
           value={details.phone}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
       </div>
       <div className="form-group required vrow">
@@ -187,6 +196,7 @@ export const StepTwo = ({
             id="inputZipCode"
             value={details.zipCode}
             onChange={handleChange}
+            onBlur={handleBlur}
           />
         </div>
         <div className="form-group required col-md-8 mb-2">
@@ -217,6 +227,7 @@ export const StepTwo = ({
           id="inputAddress"
           value={details.homeAddress}
           onChange={handleChange}
+          onBlur={handleBlur}
         />
       </div>
       <div className="form-group required col-md-12 mb-2">

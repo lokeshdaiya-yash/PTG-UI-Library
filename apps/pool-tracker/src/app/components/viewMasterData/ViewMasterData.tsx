@@ -1,7 +1,7 @@
 // import { PtgUiButton } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getMasterdata, deleteMasterdata } from '../../service/api';
+import { getMasterdata, deleteMasterdata, getData } from '../../service/api';
 import '../../app.module.scss';
 import './ViewMasterData.scss';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -14,8 +14,13 @@ import { PtgUiAlert } from '@ptg-ui/react';
 
 // import { AggridButton } from './aggrid-button';
 
+// const defaultValue = {
+//   name: '',
+//   emailId: ''
+// };
+
 const ViewMasterData = () => {
-  const [masterdatas, setMasterdata] = useState([]);
+  const [masterdatas, setMasterdata] = useState<any>([]);
 
   useEffect(() => {
     getAllUsers();
@@ -30,6 +35,7 @@ const ViewMasterData = () => {
 alert('Do You Want To Delete');
     getAllUsers();
   };
+
   const ActionButton = (props) => {
     return <button>Text</button>;
   };
@@ -40,6 +46,7 @@ alert('Do You Want To Delete');
   const confirmClicked = (event) => {
     console.log('Confirm Button Clicked', event.returnValue);
   };
+
   const designationModal = (
     btnName: any,
     heading: string,
@@ -61,18 +68,16 @@ alert('Do You Want To Delete');
       </PtgModal>
     );
   };
+ 
 
   const Columns: any = [
-    // { title: 'name', field: 'memberName', filtering: false, width: '10%' },
-    // { title: 'Id', field: '_id', filtering: false },
-    // { title: 'employeeId', field: 'employeeId', filtering: false },
-    { title: 'name', field: 'name', filtering: false },
-    { title: 'emailId', field: 'emailId', filtering: false },
-    { title: 'band', field: 'band', filtering: false },
-    { title: 'competency', field: 'competency', filtering: false },
-    { title: 'designations', field: 'designations', filtering: false },
+    
+    { title: 'Name', field: 'name', filtering: false },
+    { title: 'EmailId', field: 'emailId', filtering: false },
+    { title: 'Band', field: 'band', filtering: false },
+    { title: 'Competency', field: 'competency', filtering: false },
+    { title: 'Designations', field: 'designations', filtering: false },
     { title: 'Pool StartDate', field: 'poolStartDate' },
-    // { title: 'status', field: 'status', filtering: false },
     {
       title: 'skills',
       field: 'skills',
@@ -80,9 +85,13 @@ alert('Do You Want To Delete');
       render: (masterdata: any) =>
         masterdata.skills.map((skill) => ' ' + skill.name).toString(),
     },
+    // { title: 'name', field: 'memberName', filtering: false, width: '10%' },
+    // { title: 'Id', field: '_id', filtering: false },
     // { title: 'yearsofExp', field: 'yearsofExp', filtering: false },
     // { title: 'comments', field: 'comments', filtering: false },
     // { title: 'clientName', field: 'clientName', filtering: false },
+    // { title: 'status', field: 'status', filtering: false },
+
     {
       title: 'Action',
       field: 'Action',
@@ -107,29 +116,31 @@ alert('Do You Want To Delete');
               className="fa-solid fa-trash cursor-pointer"
               onClick={() => deleteUsersDetails(masterdata._id)}
             ></i>
-            <PtgUiAlert message={('ERROR_MSG')} />
+
           </div>
         </div>
       ),
     },
   ];
 
-  const detailForAccordion = () => {
-    return (<div className='ms-4 me-4 mt-2 mb-2'>
-     <h6>Hello</h6>
-    </div>
-    )
-  }
+  const detailForAccordion = (masterdata: any) => {
+    console.log('masterdata:', masterdata.rowData.name);
+  console.log('masterdata.name:', masterdata.rowData.name);
+    return (
+      <div className='ms-4 me-4 mt-2 mb-2'>
+        <p>Name: {masterdata.rowData.name}</p>
+        <p>project Name: Interview Screening</p>
+        <p>Comments: {masterdata.rowData.comments}</p>
+      </div>
+    );
+  };
+ 
+  // const filterValue = [
+  //   { name: 'name', operator: 'name', type: 'string', value: '' },
+  //   { name: 'skills', operator: 'skills', type: 'string', value: '' },
+  //   { name: 'clientName', operator: 'clientName', type: 'string', value: '' },
+  // ];
 
-
-
-  const filterValue = [
-    { name: 'name', operator: 'name', type: 'string', value: '' },
-    { name: 'skills', operator: 'skills', type: 'string', value: '' },
-    { name: 'clientName', operator: 'clientName', type: 'string', value: '' },
-  ];
-
-  
   return (
     <div className="viewMastertable">
       <PtgUiMaterialTable
@@ -139,7 +150,7 @@ alert('Do You Want To Delete');
         paging={true}
         paginationPosition={'bottom'}
         grouping={true}
-         detailForAccordion={detailForAccordion}
+        detailPanel={detailForAccordion}
       />
     </div>
   );
