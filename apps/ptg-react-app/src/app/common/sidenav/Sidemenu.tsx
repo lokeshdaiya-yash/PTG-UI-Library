@@ -142,5 +142,11 @@ export const NavigationData = [
     icon: 'fa fa-lock',
     label: 'CARDS',
     disabled: false,
-  }
+  },
+  {
+    path: '/infinite-scroll',
+    icon: 'fa-solid fa-check-square',
+    label: 'INFINITE SCROLL',
+    disabled: false,
+  },
 ];  

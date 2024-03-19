@@ -31,6 +31,7 @@ import { DialogExampleComponent } from './dialog-component/dialog-example.compon
 import { CardExampleComponent } from './card-component/card-example.component';
 import { BreadcrumbsExampleComponent } from './breadcrumbs-component/breadcrumbs-example.component';
 import { CarouselExampleComponent } from './carousel-component/carousel-example.component';
+import { InfiniteScrollComponent } from './infinite-scroll/infinite-scroll.component';
 
 const routes: Routes = [
   {
@@ -143,7 +144,11 @@ const routes: Routes = [
   {
     path:'breadcrumbs',
     component:BreadcrumbsExampleComponent
-  }
+  },
+  {
+    path:'infinite-scroll',
+    component: InfiniteScrollComponent
+  },
 ];
 
 @NgModule({
