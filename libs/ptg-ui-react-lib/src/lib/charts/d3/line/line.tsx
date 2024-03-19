@@ -35,6 +35,7 @@ const defaultProps: PtgUiD3LineProps =
 
 
 export function PtgUiD3Line({data,height,width}: PtgUiD3LineProps) {
+  const flag = React.useRef(true);
   const createGraph = () => {
 
     // set the dimensions and margins of the graph
@@ -82,7 +83,10 @@ export function PtgUiD3Line({data,height,width}: PtgUiD3LineProps) {
 }
 
 React.useEffect(() => {
- createGraph();
+  if(flag.current){
+    createGraph();
+    flag.current = false;
+  }
 }, []);
 
   return (

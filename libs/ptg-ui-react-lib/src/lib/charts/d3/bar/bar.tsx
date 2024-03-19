@@ -58,6 +58,7 @@ const defaultProps: PtgUiD3BarProps =
 
 
 export function PtgUiD3Bar({data,height,width,source,title,x_title,y_title,start,end}: PtgUiD3BarProps) {
+  const flag = React.useRef(true);
   const createSvg:any =() =>{
     const margin = 60;
 
@@ -119,8 +120,11 @@ export function PtgUiD3Bar({data,height,width,source,title,x_title,y_title,start
 
 
 React.useEffect(() => {
-const svg:any= createSvg();
-drawBars(svg,data);
+  if(flag.current){
+    const svg:any= createSvg();
+    drawBars(svg,data);
+    flag.current = false;
+  }
 },[]);
 
 return (
