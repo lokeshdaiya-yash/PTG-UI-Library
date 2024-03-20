@@ -14,7 +14,6 @@ const ViewMasterdata = () => {
 
   const getAllUsers = async () => {
     let response = await getMasterdata();
-    console.log('response hasmat>>>>>>>>>>', response);
     setMasterdata(response?.data);
   };
   const deleteUsersDetails = async (id) => {
@@ -50,7 +49,7 @@ const ViewMasterdata = () => {
             Delete
           </PtgUiButton>
 
-          <Link to={`/editMasterdata/${masterdata._id}`}>
+          <Link to={`/editMasterData/${masterdata._id}`}>
             <PtgUiButton component={Link}>Edit</PtgUiButton>
           </Link>
         </div>

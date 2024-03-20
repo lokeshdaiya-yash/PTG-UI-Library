@@ -105,11 +105,11 @@ alert('Do You Want To Delete');
             </PtgUiButton> */}
           {/* <>{console.log('>>>>',masterdata.competency.map(compatancys=> compatancys.name).toString())}</> */}
 
-          {/* <Link to={`/editMasterdata/${masterdata._id}`}>
+          <Link to={`/addMasterData/${masterdata._id}`}>
               <PtgUiButton >Edit</PtgUiButton>
-            </Link> */}
+            </Link>
 
-          <div className="masterdataBtn table-action-button">
+          {/* <div className="masterdataBtn table-action-button">
             {designationModal('Edit', 'Edit Masterdata', masterdata)}
 
             <i
@@ -117,7 +117,7 @@ alert('Do You Want To Delete');
               onClick={() => deleteUsersDetails(masterdata._id)}
             ></i>
 
-          </div>
+          </div> */}
         </div>
       ),
     },

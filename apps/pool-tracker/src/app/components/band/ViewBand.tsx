@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { deleteBand, getBand } from '../../service/api';
+import { deleteBand, getBands } from '../../service/api';
 import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 import './Band.scss';
 import { PtgUiAlert, PtgUiMaterialTable } from '@ptg-ui/react';
@@ -15,7 +15,7 @@ const ViewBand = () => {
     }, []);
   
     const getAllBands = async () => {
-      const response = await getBand();
+      const response = await getBands();
       setBand(response?.data);
     };
   

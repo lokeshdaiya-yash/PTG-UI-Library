@@ -29,9 +29,10 @@ export function App() {
           <Route path="/adddesignation" element={<AddDesignation />} />
 
           {/* Masterdata Routes*/}
-          <Route path="/addMasterdata" element={<AddMasterdata />} />
           <Route path="/masterData" element={<ViewMasterdata />} />
-          <Route path="/editMasterdata/:id" element={<EditMasterdata />} />
+          <Route path="/addMasterData" element={<AddMasterdata />} />
+          <Route path="/addMasterData/:id" element={<AddMasterdata />} />          
+          <Route path="/editMasterData/:id" element={<EditMasterdata />} />
           {/* <Route path="/editMasterData/:id" element={<EditMasterData />} /> */}
 
           {/* skills Routes*/}

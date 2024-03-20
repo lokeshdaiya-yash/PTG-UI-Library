@@ -13,37 +13,37 @@ addDesignation
 const router = express.Router();
 
 router.post("/band/add", addBand);
-router.get("/band/all", getBand);
+router.get("/bands", getBand);
 router.get("/band/:id", getSingleBand);
 router.post("/band/:id", editBand);
 router.delete("/band/:id", deleteBand);
 
 router.post("/competency/add", addCompetency);
-router.get("/competency/all", getCompetency);
+router.get("/competency", getCompetency);
 router.get("/competency/:id", getSingleCompetency);
 router.post("/competency/:id", editCompetency);
 router.delete("/competency/:id", deleteCompetency);
 
 router.post("/designation/add", addDesignation);
-router.get("/designation/all", getDesignation);
+router.get("/designations", getDesignation);
 router.get("/designation/:id", getSingleDesignation);
 router.post("/designation/:id", editDesignation);
 router.delete("/designation/:id", deleteDesignation);
 
 router.post("/masterdata/add", addMasterdata);
-router.get("/masterdata/all", getMasterdata);
+router.get("/masterdata", getMasterdata);
 router.get("/masterdata/:id", getdata);
 router.post("/masterdata/:id", editMasterdata);
 router.delete("/masterdata/:id", deleteMasterdata);
 
 router.post("/skill/add", addSkill);
-router.get("/skill/all", getSkills);
+router.get("/skills", getSkills);
 router.get("/skill/:id", getSingleSkill);
 router.post("/skill/:id", editSkill);
 router.delete("/skill/:id", deleteSkill);
 
 router.post("/user/add", addUser);
-router.get("/user/all", getUsers);
+router.get("/users", getUsers);
 router.get("/user/:id", getUser);
 router.post("/user/:id", editUser);
 router.post("/user/login", loginUser);
