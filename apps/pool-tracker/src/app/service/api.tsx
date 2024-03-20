@@ -16,7 +16,7 @@ export const addMasterdata = async (data) => {
 
 export const getMasterdata = async () => {
   try {
-    return await axios.get(`${URL}/masterdata/all`);
+    return await axios.get(`${URL}/masterdata`);
   } catch (error) {
     console.log("error while calling all masterdata api",error);  return; 
   }
@@ -60,7 +60,7 @@ export const addSkill = async (data) => {
 
 // export const getSkills = async () => {
 //   try {
-//     const response = await axios.get(`${URL}/skill/all`);
+//     const response = await axios.get(`${URL}/skills`);
 //     const skills = response.data;
 //     const transformedSkills = skills.map(skill =>({
 //       value: skill.name,
@@ -74,7 +74,7 @@ export const addSkill = async (data) => {
 // };  
 export const getSkills = async () => {
   try {
-    return await axios.get(`${URL}/skill/all`);
+    return await axios.get(`${URL}/skills`);
   } catch (error) {
     console.log("error while calling all skills api",error);  return; 
   }
@@ -127,7 +127,7 @@ export const addUser = async (data) => {
 
 export const getUsers = async () => {
   try {
-    return await axios.get(`${URL}/user/all`);
+    return await axios.get(`${URL}/users/`);
   } catch (error) {
     console.log("error while calling all user api",error);  return; 
   }
@@ -135,6 +135,7 @@ export const getUsers = async () => {
 
 export const getUser = async (id) => {
   try {
+    // http://localhost:5000/masterdata/65f3e4f863ebc9864004788f
     return await axios.get(`${URL}/user/${id}`);
   } catch (error) {
     console.log("error while calling get user api",error);  return; 
@@ -169,9 +170,9 @@ export const addDesignation = async (data) => {
   }
 };
 
-export const getDesignation = async () => {
+export const getDesignations = async () => {
   try {
-    return await axios.get(`${URL}/designation/all`);
+    return await axios.get(`${URL}/designations`);
   } catch (error) {
     console.log("error while calling all designations api",error);  return; 
   }
@@ -215,7 +216,7 @@ export const addCompetency = async (data) => {
 
 export const getCompetency = async () => {
   try {
-    return await axios.get(`${URL}/competency/all`);
+    return await axios.get(`${URL}/competency`);
   } catch (error) {
     console.log("error while calling all competency api",error);  return; 
   }
@@ -254,9 +255,9 @@ export const addBand = async (data) => {
   }
 };
 
-export const getBand = async () => {
+export const getBands = async () => {
   try {
-    return await axios.get(`${URL}/band/all`);
+    return await axios.get(`${URL}/bands`);
   } catch (error) {
     console.log("error while calling all band api",error);  return; 
   }

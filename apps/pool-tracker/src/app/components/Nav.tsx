@@ -8,7 +8,7 @@ const Nav = () => {
       <NavLink to="/masterData">
         <img src={companyLogo} alt="BigCo Inc. logo" />
       </NavLink>
-      <NavLink to="/addMasterdata">Master data Entry</NavLink>
+      <NavLink to="/addMasterData">Master data Entry</NavLink>
       <NavLink to="/masterData">View Master data</NavLink>
       <NavLink to="/chart">Chart/Graph</NavLink>
       <NavLink to="/poolProject"> Pool Project</NavLink>
