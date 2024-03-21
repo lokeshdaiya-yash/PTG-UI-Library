@@ -316,7 +316,6 @@ const AddMasterdata = (props: any) => {
               selectedValues={formValue.skills.map((skill) => {
                 return { lable: skill.name };
               })}
-              // selectedValues={formValue.designations}
             />
             <p className="error">{formErrors.skills}</p>
           </div>

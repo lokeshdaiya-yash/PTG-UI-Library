@@ -1,17 +1,28 @@
-import React from 'react'
+import React from 'react';
 import './Config.scss';
-import ViewDesignation from '../designation/ViewDesignation'
+import ViewDesignation from '../designation/ViewDesignation';
 import ViewSkills from '../skills/ViewSkills';
 import ViewBand from '../band/ViewBand';
 
 const Config = () => {
   return (
-    
-    <div>
-        <ViewDesignation />
-        <ViewSkills />
-        <ViewBand/>
- {/* ==============accordion ============================== */}
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-6">
+          <h2>Designation</h2>
+          <ViewDesignation />
+        </div>
+        <div className="col-6">
+          <h2>Skills</h2>
+          <ViewSkills />
+        </div>
+        <div className="col-6">
+          <h2>Band</h2>
+          <ViewBand />
+        </div>
+      </div>
+
+      {/* ==============accordion ============================== */}
       {/* <div className="accordion" id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingOne">
@@ -102,9 +113,8 @@ const Config = () => {
           </div>
         </div>
       </div> */}
-
     </div>
-  )
-}
+  );
+};
 
-export default Config
+export default Config;

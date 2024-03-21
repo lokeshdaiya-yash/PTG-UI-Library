@@ -1,9 +1,17 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.viewMastertable {
+  margin: 0;
+}
 /* Style the buttons that are used to open and close the accordion panel */
 // .accordion-container {
 //     display: flex;
 //     flex-direction: column;
 //   }
-   
+
 //   .accordion {
 //     // background-color: #eee;
 //     color: #444;
@@ -15,12 +23,12 @@
 //     outline: none;
 //     transition: 0.4s;
 //   }
-   
+
 //   // .active,
 //   // .accordion:hover {
 //   //   background-color: #ccc;
 //   // }
-   
+
 //   .panel {
 //     padding: 0 18px;
 //     background-color: white;
@@ -29,7 +37,7 @@
 //     max-height: 0;
 //     transition: max-height 0.2s ease-out;
 //   }
-   
+
 //   .panel.active {
 //     display: block;
 //     max-height: 200px; /* Set an appropriate max height */
@@ -41,8 +49,7 @@
 //     float: right;
 //     margin-left: 5px;
 //   }
-  
-  // .active:after {
-  //   content: "\2796"; /* Unicode character for "minus" sign (-) */
-  // }
-  
+
+// .active:after {
+//   content: "\2796"; /* Unicode character for "minus" sign (-) */
+// }

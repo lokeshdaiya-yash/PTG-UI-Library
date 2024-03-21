@@ -1,6 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './components/common/header/Header';
-import Footer from './components/common/footer/Footer';
 import EditMasterdata from './components/viewMasterData/EditMasterData';
 import EditSkill from './components/EditSkill';
 import AddSkill from './components/AddSkill';
@@ -13,14 +11,16 @@ import Config from './components/config/Config';
 import AddDesignation from './components/designation/AddDesignation';
 import ViewMasterdata from './components/viewMasterData/ViewMasterData';
 import ViewSkills from './components/skills/ViewSkills';
+import Home from './components/common/home/Home';
 
 export function App() {
   return (
     <div>
       <BrowserRouter>
-        <Header />
+        {/* <Home /> */}
         <Routes>
-          <Route path="/" element={<Login />} />
+          {/* <Route path="/" element={<Login />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="/user" element={<User />} />
 
           {/* <Route element={<PrivateRout />}> */}
@@ -31,7 +31,7 @@ export function App() {
           {/* Masterdata Routes*/}
           <Route path="/masterData" element={<ViewMasterdata />} />
           <Route path="/addMasterData" element={<AddMasterdata />} />
-          <Route path="/addMasterData/:id" element={<AddMasterdata />} />          
+          <Route path="/addMasterData/:id" element={<AddMasterdata />} />
           <Route path="/editMasterData/:id" element={<EditMasterdata />} />
           {/* <Route path="/editMasterData/:id" element={<EditMasterData />} /> */}
 
@@ -43,7 +43,6 @@ export function App() {
           {/* </Route> */}
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-        <Footer />
       </BrowserRouter>
     </div>
   );

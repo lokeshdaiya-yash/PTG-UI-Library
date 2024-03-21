@@ -21,7 +21,6 @@ export function Header() {
         <NavLink to="/masterData">
           <img src={Logo} alt="Logo" />
         </NavLink>
-        <span className="app-name ml-20">UI Pool Tracker</span>
       </div>
       <div className="links">
         <NavLink to="/masterData">View Master data</NavLink>
