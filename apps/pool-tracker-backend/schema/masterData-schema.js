@@ -84,6 +84,10 @@ const masterDataSchema = mongoose.Schema({
   //     },
   //   },
   // ],
+  clientName: String,
+  yearsofExp: String,
+  ageing: String,
+  status: String,
   isActive: { type: Number, default: 0 },
 },
 { timestamps: { createdAt: 'createdAt' } }

@@ -8,7 +8,7 @@ const URL = environment.baseUrl
 
 export const addMasterdata = async (data) => {
   try {
-    return await axios.post(`${URL}/masterdata/add`, data);
+    return await axios.post(`${URL}/masterdata/addmasterdata`, data);
   } catch (error) {
     console.log("error while calling add Master data api",error);  return; 
   }
@@ -16,7 +16,7 @@ export const addMasterdata = async (data) => {
 
 export const getMasterdata = async () => {
   try {
-    return await axios.get(`${URL}/masterdata/all`);
+    return await axios.get(`${URL}/masterdata/allmasterdata`);
   } catch (error) {
     console.log("error while calling all masterdata api",error);  return; 
   }
@@ -52,7 +52,7 @@ export const deleteMasterdata = async (id) => {
 
 export const addSkill = async (data) => {
   try {
-    return await axios.post(`${URL}/skill/add`, data);
+    return await axios.post(`${URL}/skill/addskill`, data);
   } catch (error) {
     console.log("error while calling add Skill api",error);  return; 
   }
@@ -74,7 +74,7 @@ export const addSkill = async (data) => {
 // };  
 export const getSkills = async () => {
   try {
-    return await axios.get(`${URL}/skill/all`);
+    return await axios.get(`${URL}/skill/allskill`);
   } catch (error) {
     console.log("error while calling all skills api",error);  return; 
   }
@@ -163,7 +163,7 @@ export const deleteUser = async (id) => {
 
 export const addDesignation = async (data) => {
   try {
-    return await axios.post(`${URL}/designation/add`, data);
+    return await axios.post(`${URL}/designation/adddesignation`, data);
   } catch (error) {
     console.log("error while calling add designation api",error);  return; 
   }
@@ -171,7 +171,7 @@ export const addDesignation = async (data) => {
 
 export const getDesignation = async () => {
   try {
-    return await axios.get(`${URL}/designation/all`);
+    return await axios.get(`${URL}/designation/alldesignation`);
   } catch (error) {
     console.log("error while calling all designations api",error);  return; 
   }
@@ -207,7 +207,7 @@ export const deleteDesignation = async (id) => {
 
 export const addCompetency = async (data) => {
   try {
-    return await axios.post(`${URL}/competency/add`, data);
+    return await axios.post(`${URL}/competency/addcompetency`, data);
   } catch (error) {
     console.log("error while calling add competency api",error);  return; 
   }
@@ -215,7 +215,7 @@ export const addCompetency = async (data) => {
 
 export const getCompetency = async () => {
   try {
-    return await axios.get(`${URL}/competency/all`);
+    return await axios.get(`${URL}/competency/allcompetency`);
   } catch (error) {
     console.log("error while calling all competency api",error);  return; 
   }
@@ -248,7 +248,7 @@ export const deleteCompetency = async (id) => {
 
 export const addBand = async (data) => {
   try {
-    return await axios.post(`${URL}/band/add`, data);
+    return await axios.post(`${URL}/band/addband`, data);
   } catch (error) {
     console.log("error while calling add band api",error);  return; 
   }
@@ -256,7 +256,7 @@ export const addBand = async (data) => {
 
 export const getBand = async () => {
   try {
-    return await axios.get(`${URL}/band/all`);
+    return await axios.get(`${URL}/band/allband`);
   } catch (error) {
     console.log("error while calling all band api",error);  return; 
   }

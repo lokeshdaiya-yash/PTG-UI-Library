@@ -1,18 +1,18 @@
+
+
 import { PtgUiButton, PtgUiInput } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { addDesignation, editDesignation } from '../../service/api';
+import { addDesignation } from '../../service/api';
 
 const initialFormValue = {
   name: '',
   value: '',
   label: '',
-  _id:'',
-  isActive:''
 };
 
-const AddDesignation = (props: any) => {
-  const { designation, btnName } = props;
+
+const AddDesignation = (props:any) => {
+    const { designation, btnName } = props;
   const [formValue, setFormValue] = useState(initialFormValue);
 
   useEffect(() => {
@@ -21,8 +21,6 @@ const AddDesignation = (props: any) => {
         name: designation.name,
         value: designation.value,
         label: designation.label,
-        isActive:designation.isActive,
-        _id:designation._id
       });
     }
   }, []);
@@ -34,18 +32,12 @@ const AddDesignation = (props: any) => {
       name: value,
       value: value,
       label: value,
-      
     });
   };
 
   const onSubmit = async () => {
-    if (btnName !== 'Add Designation') {
-      // console.log(formValue)
-      await editDesignation(formValue, designation._id);
-    } else {
-      await addDesignation(formValue);
-    }
-    // navigate('/designation');
+    console.log(formValue);
+    await addDesignation(formValue);
   };
 
   return (
@@ -71,4 +63,5 @@ const AddDesignation = (props: any) => {
   );
 };
 
-export default AddDesignation;
+
+export default AddDesignation
