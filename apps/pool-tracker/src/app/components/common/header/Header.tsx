@@ -25,7 +25,7 @@ export function Header() {
       </div>
       <div className="links">
         <NavLink to="/masterData">View Master data</NavLink>
-        <NavLink to="/addMasterdata">Master data Entry</NavLink>
+        <NavLink to="/addMasterData">Master data Entry</NavLink>
         <NavLink to="/chart">Chart/Graph</NavLink>
         <NavLink to="/poolProject">Pool Project</NavLink>
         <NavLink to="/historyPage">Resource History Page</NavLink>

@@ -238,7 +238,7 @@ import { addSkill, getSkills, getSingleSkill, editSkill, deleteSkill } from "../
 
 const router = express.Router();
 router.post("/skill/add", addSkill);
-router.get("/skill/all", getSkills);
+router.get("/skills", getSkills);
 router.get("/skill/:id", getSingleSkill);
 router.post("/skill/:id", editSkill);
 router.delete("/skill/:id", deleteSkill);

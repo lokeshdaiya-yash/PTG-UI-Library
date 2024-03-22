@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { getDesignation, deleteDesignation } from '../../service/api';
+import { getDesignations, deleteDesignation } from '../../service/api';
 import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 import AddDesignation from './AddDesignation';
 import './Designation.scss';
@@ -14,7 +14,7 @@ const ViewDesignation = () => {
   }, []);
 
   const getAllDesignations = async () => {
-    const response = await getDesignation();
+    const response = await getDesignations();
     setDesignation(response?.data);
   };
 
@@ -36,7 +36,6 @@ const ViewDesignation = () => {
     heading: string,
     designation?: any
   ) => {
-    console.log(designation)
     return (
       <PtgModal
         modal-size="md"

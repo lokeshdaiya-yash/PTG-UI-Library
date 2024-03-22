@@ -43,7 +43,7 @@ router.post("/skill/:id", editSkill);
 router.delete("/skill/:id", deleteSkill);
 
 router.post("/user/add", addUser);
-router.get("/user/all", getUsers);
+router.get("/users", getUsers);
 router.get("/user/:id", getUser);
 router.post("/user/:id", editUser);
 router.post("/user/login", loginUser);

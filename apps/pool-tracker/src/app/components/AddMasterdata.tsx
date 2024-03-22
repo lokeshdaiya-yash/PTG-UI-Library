@@ -5,15 +5,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {
   PtgUiButton,
   PtgUiCalendar,
-  PtgUiDatePicker,
   PtgUiInput,
   PtgUiMultiSelectbox,
-  PtgUiSelect,
   PtgUiTextArea,
 } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 
 import { getSkills } from '../service/api';
-import { getDesignation } from '../service/api';
+import { getDesignations } from '../service/api';
 
 const defaultValue = {
   name: '',
@@ -46,17 +44,19 @@ const AddMasterdata = () => {
   const skillItems: any = [];
 
   const [designations, setDesignation] = useState([]);
- 
 
   useEffect(() => {
     getAllDesignation();
     getAllSkills();
+
   }, []);
 
-   // ==================== designations select===========================================
+
+
+  // ==================== designations select===========================================
 
   const getAllDesignation = async () => {
-    const response = await getDesignation();
+    const response = await getDesignations();
     setDesignation(response?.data);
   };
 
@@ -87,7 +87,6 @@ const AddMasterdata = () => {
     // }
   };
 
-  
   const onSelectSkills = (e) => {
     setMasterdata({ ...masterData, skills: e });
   };
@@ -110,23 +109,23 @@ const AddMasterdata = () => {
     navigate('/masterData');
   };
 
-//   const addMasterDetails = async () => {
-//     try {
-       
-//         const designationsArray = Array.isArray(masterData.designations) ? masterData.designations : [masterData.designations];
-//         const updatedMasterData = { ...masterData, designations: designationsArray };
-//         await addMasterdata(updatedMasterData);
-//         navigate('/masterData');
-//     } catch (error) {
-//         console.error('Error adding master data:', error);
-//     }
-// };
+  //   const addMasterDetails = async () => {
+  //     try {
+
+  //         const designationsArray = Array.isArray(masterData.designations) ? masterData.designations : [masterData.designations];
+  //         const updatedMasterData = { ...masterData, designations: designationsArray };
+  //         await addMasterdata(updatedMasterData);
+  //         navigate('/masterData');
+  //     } catch (error) {
+  //         console.error('Error adding master data:', error);
+  //     }
+  // };
 
   // ================================Date picker===================================
   const today = new Date();
   const [date, setStartDate] = useState({
     startDate: null,
-    
+
     errorMsg: false,
   });
   const setDateState: any = (d: any, field: string) => {
@@ -193,9 +192,6 @@ const AddMasterdata = () => {
         />
 
         <PtgUiCalendar {...startDateProp} />
-
-      
-      
 
         <label htmlFor="inputUsername"> Ageing </label>
         <PtgUiInput
@@ -267,7 +263,7 @@ const AddMasterdata = () => {
           showCheckbox={true}
           singleSelect={true}
         />
-         <label htmlFor="inputUsername"> Designation </label>
+        <label htmlFor="inputUsername"> Designation </label>
         <PtgUiMultiSelectbox
           name="designations"
           list={designations}

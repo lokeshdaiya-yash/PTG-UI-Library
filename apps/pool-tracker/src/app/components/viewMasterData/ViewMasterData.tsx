@@ -106,16 +106,17 @@ const ViewMasterData = () => {
             </PtgUiButton> */}
           {/* <>{console.log('>>>>',masterdata.competency.map(compatancys=> compatancys.name).toString())}</> */}
 
-          {/* <Link to={`/editMasterdata/${masterdata._id}`}>
+          {/* <Link to={`/addMasterData/${masterdata._id}`}>
               <PtgUiButton >Edit</PtgUiButton>
             </Link> */}
 
-          <div className="masterdataBtn table-action-button">
+           <div className="masterdataBtn table-action-button">
             {designationModal('Edit', 'Edit Masterdata', masterdata)}
             <i
               className="fa-solid fa-trash cursor-pointer"
               onClick={() => deleteUsersDetails(masterdata._id)}
             ></i>
+
           </div>
         </div>
       ),
