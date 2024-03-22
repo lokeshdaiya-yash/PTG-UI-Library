@@ -12,12 +12,14 @@ import AddDesignation from './components/designation/AddDesignation';
 import ViewMasterdata from './components/viewMasterData/ViewMasterData';
 import ViewSkills from './components/skills/ViewSkills';
 import Home from './components/common/home/Home';
+import Header from './components/common/header/Header';
+import Footer from './components/common/footer/Footer';
 
 export function App() {
   return (
     <div>
       <BrowserRouter>
-        {/* <Home /> */}
+        <Header />
         <Routes>
           {/* <Route path="/" element={<Login />} /> */}
           <Route path="/" element={<Home />} />
@@ -43,6 +45,7 @@ export function App() {
           {/* </Route> */}
           <Route path="*" element={<PageNotFound />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

@@ -23,7 +23,7 @@ function Home() {
           details.
         </div>
         <div className="card-container">
-          <NavLink to="/addMasterData">
+          <NavLink to="/masterData">
             <div className="item-card">
               <img src={data} alt="item-card" />
               <p>Master Data</p>

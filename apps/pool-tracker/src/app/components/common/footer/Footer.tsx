@@ -1,12 +1,20 @@
 import './Footer.scss';
-export interface FooterProps { }
+import { useLocation } from 'react-router-dom';
 
 // eslint-disable-next-line no-empty-pattern
-export function Footer({ }: FooterProps) {
-  return (
-    <footer>
-      <p>© 2024 - All right reserved.</p>
-    </footer>
-  );
+export function Footer() {
+  let template;
+  const location = useLocation();
+  const pathName = location.pathname;
+  if (pathName !== '/') {
+    template = (
+      <footer>
+        <p>© 2024 - All right reserved.</p>
+      </footer>
+    );
+  } else {
+    template = null;
+  }
+  return template;
 }
 export default Footer;

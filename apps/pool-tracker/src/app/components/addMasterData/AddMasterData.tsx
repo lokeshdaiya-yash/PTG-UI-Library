@@ -52,6 +52,7 @@ const AddMasterdata = (props: any) => {
   const { id } = useParams();
   const today = new Date();
   const [date, setStartDate] = useState({ startDate: null });
+ 
 
   useEffect(() => {
     getBandsList();
@@ -176,7 +177,7 @@ const AddMasterdata = (props: any) => {
   };
 
   const cancel = () => {
-    navigate('/');
+    navigate(-1);
   };
 
   // validate form's fields

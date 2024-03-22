@@ -20,11 +20,16 @@ import { PtgUiAlert } from '@ptg-ui/react';
 // };
 
 const ViewMasterData = () => {
+  const navigate = useNavigate();
   const [masterdatas, setMasterdata] = useState<any>([]);
 
   useEffect(() => {
     getAllUsers();
   }, []);
+
+  function handleNavigate() {
+    navigate('/addMasterData');
+  }
 
   const getAllUsers = async () => {
     const response = await getMasterdata();
@@ -32,7 +37,7 @@ const ViewMasterData = () => {
   };
   const deleteUsersDetails = async (id: any) => {
     await deleteMasterdata(id);
-alert('Do You Want To Delete');
+    alert('Do You Want To Delete');
     getAllUsers();
   };
 
@@ -68,10 +73,8 @@ alert('Do You Want To Delete');
       </PtgModal>
     );
   };
- 
 
   const Columns: any = [
-    
     { title: 'Name', field: 'name', filtering: false },
     { title: 'EmailId', field: 'emailId', filtering: false },
     { title: 'Band', field: 'band', filtering: false },
@@ -106,8 +109,8 @@ alert('Do You Want To Delete');
           {/* <>{console.log('>>>>',masterdata.competency.map(compatancys=> compatancys.name).toString())}</> */}
 
           <Link to={`/addMasterData/${masterdata._id}`}>
-              <PtgUiButton >Edit</PtgUiButton>
-            </Link>
+            <PtgUiButton>Edit</PtgUiButton>
+          </Link>
 
           {/* <div className="masterdataBtn table-action-button">
             {designationModal('Edit', 'Edit Masterdata', masterdata)}
@@ -125,16 +128,16 @@ alert('Do You Want To Delete');
 
   const detailForAccordion = (masterdata: any) => {
     console.log('masterdata:', masterdata.rowData.name);
-  console.log('masterdata.name:', masterdata.rowData.name);
+    console.log('masterdata.name:', masterdata.rowData.name);
     return (
-      <div className='ms-4 me-4 mt-2 mb-2'>
+      <div className="ms-4 me-4 mt-2 mb-2">
         <p>Name: {masterdata.rowData.name}</p>
         <p>project Name: Interview Screening</p>
         <p>Comments: {masterdata.rowData.comments}</p>
       </div>
     );
   };
- 
+
   // const filterValue = [
   //   { name: 'name', operator: 'name', type: 'string', value: '' },
   //   { name: 'skills', operator: 'skills', type: 'string', value: '' },
@@ -143,6 +146,7 @@ alert('Do You Want To Delete');
 
   return (
     <div className="viewMastertable">
+      <PtgUiButton onClick={handleNavigate}>Add Master Data</PtgUiButton>
       <PtgUiMaterialTable
         data={masterdatas}
         columns={Columns}
