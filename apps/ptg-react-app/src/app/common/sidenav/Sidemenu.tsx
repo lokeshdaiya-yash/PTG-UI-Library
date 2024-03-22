@@ -5,12 +5,12 @@
 */
 {/*--List of sidebar/side navigation--*/}
 export const NavigationData = [
-  // {
-  //   path: '/home',
-  //   icon: 'fas fa-home',
-  //   label: 'Home',
-  //   disabled: false,
-  // },
+  {
+    path: '/accordian',
+    icon: 'fa fa-lock',
+    label: 'ACCORDION',
+    disabled: false,
+  },
   {
     path: '/calendar',
     icon: 'fa-solid fa-calendar',

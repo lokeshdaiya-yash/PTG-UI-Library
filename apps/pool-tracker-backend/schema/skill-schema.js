@@ -12,13 +12,10 @@ const skillSchema = mongoose.Schema(
       required: true,
     },
     name: {
-      type: String,
-      required: true,
+      type:String,
+      unique:true,
+      required:true
     },
-    // name: {
-    //   type: [String],
-    //   required: true,
-    // },
   },
   {
     timestamps: true,
