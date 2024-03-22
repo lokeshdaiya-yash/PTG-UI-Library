@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+// import uniqueValidator from 'mongoose'
+import uniqueValidator from 'mongoose'
 
 const bandSchema = mongoose.Schema(
   // {
@@ -20,7 +22,11 @@ const bandSchema = mongoose.Schema(
   //   }
 
   {
-    name: String,
+    name: {
+      type:String,
+      unique:true,
+      required:true
+    },
     value: String,
     label: String,
     createdBy: {

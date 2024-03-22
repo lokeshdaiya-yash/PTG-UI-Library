@@ -21,28 +21,6 @@ const masterDataSchema = mongoose.Schema(
       trim: true,
       required: false,
     },
-<<<<<<< HEAD
-  ],
-  competency:String,
-  // competency: [
-  //   {
-  //     id: {
-  //       type: mongoose.Schema.Types.ObjectId,
-  //       ref: 'tblCompatncyMaster',
-  //     },
-  //     name: {
-  //       type: String,
-  //     },
-  //   },
-  // ],
-  clientName: String,
-  yearsofExp: String,
-  ageing: String,
-  status: String,
-  isActive: { type: Number, default: 0 },
-},
-{ timestamps: { createdAt: 'createdAt' } }
-=======
     employeeId: {
       type: String,
       trim: true,
@@ -106,7 +84,6 @@ const masterDataSchema = mongoose.Schema(
     isActive: { type: Number, default: 0 },
   },
   { timestamps: { createdAt: 'createdAt' } }
->>>>>>> ed6c4f6e96e7e8a9e87417b16e7f3786d1bd39ae
 );
 
 const masterdata = mongoose.model('masterdata', masterDataSchema);

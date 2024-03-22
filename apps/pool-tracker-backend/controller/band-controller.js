@@ -1,16 +1,37 @@
 import Bands from '../schema/band-schema.js';
 
 export const addBand = async (request, response) => {
-  const band = request.body;
-  console.log(band);
-  const newBand = new Bands(band);
+  // const band = request.body;
+  // console.log(band);
+  // const newBand = new Bands(band);
   try {
-    await newBand.save();
-    response.status(201).json(newBand);
+    const bands = await Bands.find({});
+    if(bands.length>0 ){
+      let chacking = false;
+      for(let i=0; i<bands.length; i++){
+        if(bands[i]['name'].toLowerCase()===request.body.name.toLowerCase()){
+          chacking=true;
+          break;
+        }
+      }
+      if(chacking==false){
+        debugger
+        const bandName =new Bands(request.body);
+        console.log("bandName",bandName, request.body.name)
+        const bandData = await Bands.save();
+        response.status(200).json(bandData);
+      }
+      else{
+        response.status(209).json({ message: error.message, msg:"this name (" + request.body.name+") is already exist" });
+      }
+    }
   } catch (error) {
     response.status(409).json({ message: error.message });
   }
 };
+
+
+
 export const getBand = async (request, response) => {
     try {
       const bands = await Bands.find({});
