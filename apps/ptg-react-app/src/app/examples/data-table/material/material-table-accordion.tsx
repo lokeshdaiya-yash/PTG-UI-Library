@@ -139,7 +139,7 @@ filtering= {true}
 paging= {true}
 paginationPosition={'bottom'}
 grouping={true}
-detailForAccordion={detailForAccordion}
+detailPanel={detailForAccordion}
 />
 `
   const detailForAccordion = (data) => {

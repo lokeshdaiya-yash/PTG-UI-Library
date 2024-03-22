@@ -37,12 +37,10 @@ const PtgUiCarousel = lazy(()=> import ("../examples/carousel/carousel"));
 const GridLayout = lazy(()=> import ("../examples/grid-layout/grid-layout"));
 const Indeterminate =  lazy(()=> import ("../examples/indeterminate-checkbox/indeterminate-checkbox"));
 const PtgUiReactTable =  lazy(()=> import ("../examples/data-table/react-table"));
+const Accordian = lazy(()=> import("../examples/Accordion/accordion"));
+
 {/*--Declare routes and component for dynamic load--*/ }
 const routing = [
-  // {
-  //   path: '/home',
-  //   component: PtgUiHome,
-  // },
   {
     path:'/admin-home',
     component:PtgUiAdminHome
@@ -163,6 +161,10 @@ const routing = [
     path: '/cards',
     component: Cards,
   },
+  {
+    path: '/accordian',
+    component: Accordian,
+  }
 ];
 export default routing;
 

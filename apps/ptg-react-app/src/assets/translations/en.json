@@ -143,7 +143,17 @@
   "ACCOUNT_INFO":"Account Info",
   "PERSONAL_INFO":"Personal Information",
   "PAYMENT_DETAILS":"Payment Details",
+<<<<<<< HEAD
   "CONFIRM_DETAILS":"Confirm Your Details"
 
+=======
+  "CONFIRM_DETAILS":"Confirm Your Details",
+  "BREADCRUMBS": "Breadcrumbs",
+  "CARDS": "Cards",
+  "HOME": "Home",
+  "ABOUT_US" : "About Us",
+  "CONTACT_US" : "Contact Us",
+  "CONVERT_TIMEZONE":"Convert timezone"
+>>>>>>> 25ad643536da882ad38f4508096db055cdc06adb
 }
 
