@@ -12,32 +12,32 @@ import { addBand, getBand, getSingleBand, editBand, deleteBand} from "../control
 addDesignation
 const router = express.Router();
 
-router.post("/band/add", addBand);
-router.get("/bands", getBand);
+router.post("/band/addband", addBand);
+router.get("/band/allband", getBand);
 router.get("/band/:id", getSingleBand);
 router.post("/band/:id", editBand);
 router.delete("/band/:id", deleteBand);
 
-router.post("/competency/add", addCompetency);
-router.get("/competency", getCompetency);
+router.post("/competency/addcompetency", addCompetency);
+router.get("/competency/allcompetency", getCompetency);
 router.get("/competency/:id", getSingleCompetency);
 router.post("/competency/:id", editCompetency);
 router.delete("/competency/:id", deleteCompetency);
 
-router.post("/designation/add", addDesignation);
-router.get("/designations", getDesignation);
+router.post("/designation/adddesignation", addDesignation);
+router.get("/designation/alldesignation", getDesignation);
 router.get("/designation/:id", getSingleDesignation);
 router.post("/designation/:id", editDesignation);
 router.delete("/designation/:id", deleteDesignation);
 
-router.post("/masterdata/add", addMasterdata);
-router.get("/masterdata", getMasterdata);
+router.post("/masterdata/addmasterdata", addMasterdata);
+router.get("/masterdata/allmasterdata", getMasterdata);
 router.get("/masterdata/:id", getdata);
 router.post("/masterdata/:id", editMasterdata);
 router.delete("/masterdata/:id", deleteMasterdata);
 
-router.post("/skill/add", addSkill);
-router.get("/skills", getSkills);
+router.post("/skill/addskill", addSkill);
+router.get("/skill/allskill", getSkills);
 router.get("/skill/:id", getSingleSkill);
 router.post("/skill/:id", editSkill);
 router.delete("/skill/:id", deleteSkill);

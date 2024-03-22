@@ -5,23 +5,16 @@ import { getMasterdata, deleteMasterdata, getData } from '../../service/api';
 import '../../app.module.scss';
 import './ViewMasterData.scss';
 import { useNavigate, useParams } from 'react-router-dom';
-
 import { PtgUiInput, PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
 import { PtgModal } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
 import AddMasterdata from '../addMasterData/AddMasterData';
 import EditMasterData from './EditMasterData';
 import { PtgUiAlert } from '@ptg-ui/react';
 
-// import { AggridButton } from './aggrid-button';
-
-// const defaultValue = {
-//   name: '',
-//   emailId: ''
-// };
-
 const ViewMasterData = () => {
   const navigate = useNavigate();
   const [masterdatas, setMasterdata] = useState<any>([]);
+  
 
   useEffect(() => {
     getAllUsers();
@@ -34,6 +27,14 @@ const ViewMasterData = () => {
   const getAllUsers = async () => {
     const response = await getMasterdata();
     setMasterdata(response?.data);
+
+    const bandCount= {} 
+    response?.data.forEach(element => {
+      const band = element.band;
+      bandCount[band]=(bandCount[band]||0 )+1
+    }
+    );
+    console.log('band count', bandCount)
   };
   const deleteUsersDetails = async (id: any) => {
     await deleteMasterdata(id);
@@ -67,13 +68,13 @@ const ViewMasterData = () => {
         onConfirmClose={confirmClicked}
       >
         <div slot="body-block">
+        {/* <i className="fa-solid fa-trash cursor-pointer"></i> */}
           <AddMasterdata masterdata={masterdata} btnName={btnName} />
           {/* <EditMasterData masterdata={masterdata} btnName={btnName} /> */}
         </div>
       </PtgModal>
     );
   };
-
   const Columns: any = [
     { title: 'Name', field: 'name', filtering: false },
     { title: 'EmailId', field: 'emailId', filtering: false },
@@ -88,12 +89,14 @@ const ViewMasterData = () => {
       render: (masterdata: any) =>
         masterdata.skills.map((skill) => ' ' + skill.name).toString(),
     },
-    // { title: 'name', field: 'memberName', filtering: false, width: '10%' },
-    // { title: 'Id', field: '_id', filtering: false },
+   
     // { title: 'yearsofExp', field: 'yearsofExp', filtering: false },
     // { title: 'comments', field: 'comments', filtering: false },
     // { title: 'clientName', field: 'clientName', filtering: false },
     // { title: 'status', field: 'status', filtering: false },
+    // { title: 'aging', field: 'aging', filtering: false },
+    // { title: 'projectstartDate', field: 'projectstartDate', filtering: false },
+    // { title: 'projectendDate', field: 'projectendDate', filtering: false },
 
     {
       title: 'Action',
@@ -108,19 +111,18 @@ const ViewMasterData = () => {
             </PtgUiButton> */}
           {/* <>{console.log('>>>>',masterdata.competency.map(compatancys=> compatancys.name).toString())}</> */}
 
-          <Link to={`/addMasterData/${masterdata._id}`}>
-            <PtgUiButton>Edit</PtgUiButton>
-          </Link>
+          {/* <Link to={`/addMasterData/${masterdata._id}`}>
+              <PtgUiButton >Edit</PtgUiButton>
+            </Link> */}
 
-          {/* <div className="masterdataBtn table-action-button">
+           <div className="masterdataBtn table-action-button">
             {designationModal('Edit', 'Edit Masterdata', masterdata)}
-
             <i
               className="fa-solid fa-trash cursor-pointer"
               onClick={() => deleteUsersDetails(masterdata._id)}
             ></i>
 
-          </div> */}
+          </div>
         </div>
       ),
     },
@@ -130,10 +132,27 @@ const ViewMasterData = () => {
     console.log('masterdata:', masterdata.rowData.name);
     console.log('masterdata.name:', masterdata.rowData.name);
     return (
-      <div className="ms-4 me-4 mt-2 mb-2">
-        <p>Name: {masterdata.rowData.name}</p>
-        <p>project Name: Interview Screening</p>
-        <p>Comments: {masterdata.rowData.comments}</p>
+      <div className="ms-4 me-4 mt-2 mb-2 tableAccordion">
+        <div className='d-flex'>
+          <h6>Name:</h6>
+          <p> {masterdata.rowData.name}</p>
+         
+        </div>
+        <div className='d-flex'>
+          
+          <h6>Id:</h6>
+          <p> {masterdata.rowData._id}</p>
+        </div>
+        <div className='d-flex'>
+        <h6>project Name:</h6>
+          <p> Interview Screening</p>
+          
+        </div>
+        <div className='d-flex'>
+        
+          <h6>Comments:</h6>
+          <p> {masterdata.rowData.comments}</p>
+        </div>
       </div>
     );
   };

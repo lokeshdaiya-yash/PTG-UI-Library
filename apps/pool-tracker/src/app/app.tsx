@@ -9,11 +9,15 @@ import AddMasterdata from './components/addMasterData/AddMasterData';
 import ViewDesignation from './components/designation/ViewDesignation';
 import Config from './components/config/Config';
 import AddDesignation from './components/designation/AddDesignation';
-import ViewMasterdata from './components/viewMasterData/ViewMasterData';
 import ViewSkills from './components/skills/ViewSkills';
+import Chart from './components/chart/Chart';
+import CompetancyChart from './components/chart/CompetancyChart';
+import BandChart from './components/chart/BandChart';
+import SkillChart from './components/chart/SkillChart';
 import Home from './components/common/home/Home';
 import Header from './components/common/header/Header';
 import Footer from './components/common/footer/Footer';
+import ViewMasterdata from './components/ViewMasterdata';
 
 export function App() {
   return (
@@ -42,7 +46,14 @@ export function App() {
           <Route path="addSkill" element={<AddSkill />} />
           <Route path="/editskill/:id" element={<EditSkill />} />
 
-          {/* </Route> */}
+          {/* chart Routes*/}
+          <Route path="/chart/" element={<Chart />} >
+            <Route path="bandchart" element={<BandChart />} />
+            <Route path="competancychart" element={<CompetancyChart />} />
+            <Route path="skillchart" element={<SkillChart />} />
+          </Route>
+
+          {/* PageNotFound Routes*/}
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />
