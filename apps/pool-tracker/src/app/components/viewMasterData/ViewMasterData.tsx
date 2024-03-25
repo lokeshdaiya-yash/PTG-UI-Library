@@ -128,26 +128,36 @@ const ViewMasterData = () => {
     console.log('masterdata.name:', masterdata.rowData.name);
     return (
       <div className="ms-4 me-4 mt-2 mb-2 tableAccordion">
-        <div className='d-flex'>
+       <div className='d-flex'>
+       <div>
+       <div className='d-flex'>
           <h6>Name:</h6>
           <p> {masterdata.rowData.name}</p>
-         
-        </div>
-        <div className='d-flex'>
-          
-          <h6>Id:</h6>
-          <p> {masterdata.rowData._id}</p>
         </div>
         <div className='d-flex'>
         <h6>project Name:</h6>
           <p> Interview Screening</p>
-          
         </div>
         <div className='d-flex'>
-        
           <h6>Comments:</h6>
           <p> {masterdata.rowData.comments}</p>
         </div>
+       </div>
+       <div>
+       <div className='d-flex'>
+          <h6>Ageing:</h6>
+          <p> {masterdata.rowData.ageing}</p>
+        </div>
+        <div className='d-flex'>
+          <h6>Status:</h6>
+          <p> {masterdata.rowData.status}</p>
+        </div>
+        <div className='d-flex'>
+          <h6>clientName:</h6>
+          <p> {masterdata.rowData.clientName}</p>
+        </div>
+       </div>
+       </div>
       </div>
     );
   };

@@ -3,6 +3,7 @@ import './Config.scss';
 import ViewDesignation from '../designation/ViewDesignation'
 import ViewSkills from '../skills/ViewSkills';
 import ViewBand from '../band/ViewBand';
+import ViewCompetency from '../competency/ViewCompetency';
 
 const Config = () => {
   return (
@@ -11,6 +12,7 @@ const Config = () => {
         <ViewDesignation />
         <ViewSkills />
         <ViewBand/>
+        <ViewCompetency />
  {/* ==============accordion ============================== */}
       {/* <div className="accordion" id="accordionExample">
         <div className="accordion-item">
