@@ -1,33 +1,33 @@
 import React, { useEffect, useState } from 'react';
 
-import { deleteBand, getBands } from '../../service/api';
+import { deleteCompetency, getCompetency } from '../../service/api';
 import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 // import './Band.scss';
 import { PtgUiAlert, PtgUiMaterialTable } from '@ptg-ui/react';
-// import AddBand from './AddBand';
- import AddBand from '../band/AddBand';
+import AddCompetency from '../competency/AddCompetency';
+// import AddCompetency from './AddCompetency';
 
-const ViewBand = () => {
-    const [band, setBand] = useState([]);
+const ViewCompetency = () => {
+    const [competency, setCompetency] = useState([]);
 
     useEffect(() => {
-      getAllBands();
+      getAllCompetency();
     }, []);
   
-    const getAllBands = async () => {
-      const response = await getBands();
-      setBand(response?.data);
+    const getAllCompetency = async () => {
+      const response = await getCompetency();
+      setCompetency(response?.data);
     };
   
     
-    const deleteBands = async (id: any) => {
-        await deleteBand(id);
+    const deleteCompetencies = async (id: any) => {
+        await deleteCompetency(id);
         // alert('Do You Want To Delete');
-        getAllBands();
+        getAllCompetency();
     }
     
   
-    const bandModal = (btnName: string, heading: string, band?: string) => {
+    const bandModal = (btnName: string, heading: string, competency?: string) => {
       return (
         <PtgModal
           modal-size="md"
@@ -36,7 +36,7 @@ const ViewBand = () => {
           confirm-button-name="Save"
         >
           <div slot="body-block">
-            <AddBand band={band} btnName={btnName} />
+            <AddCompetency competency={competency} btnName={btnName} />
           </div>
         </PtgModal>
       );
@@ -50,13 +50,13 @@ const ViewBand = () => {
         name: 'action',
         header: '',
         width: '50%',
-        render: (band) => (
+        render: (competency) => (
           <div className="masterdataBtn table-action-button">
-            {bandModal('Edit', 'Edit Band', band)}
+            {bandModal('Edit', 'Edit Competency', competency)}
   
             <i
               className="fa-solid fa-trash cursor-pointer"
-              onClick={() => deleteBands(band._id)}
+              onClick={() => deleteCompetencies(competency._id)}
             >
                  
             </i>
@@ -68,9 +68,9 @@ const ViewBand = () => {
   
     return (
       <div className="viewMastertable viewTable">
-        {bandModal('Add Band', 'Add Band')}
+        {bandModal('Add Competency', 'Add Competency')}
         <PtgUiMaterialTable
-          data={band}
+          data={competency}
           columns={Columns}
           filtering={true}
           paging={true}
@@ -81,4 +81,5 @@ const ViewBand = () => {
     );
   };
 
-export default ViewBand
+
+export default ViewCompetency

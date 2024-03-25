@@ -1,3 +1,34 @@
+import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
+import './Chart.scss';
+import SkillChart from './SkillChart';
+
+const Chart = () => {
+  return (
+    <div className="navContainer">
+      <div className='sideNav'>
+        <header className="chartNavbar">
+          <Link to="bandchart">Band Chart</Link>
+          <Link to="skillchart"> Skill Chart</Link>
+          <Link to="competancychart">Competancy Chart</Link>
+          <Link to="Experiencechart">experience Chart</Link>
+          <Link to="agingchart"> Aging Chart</Link>
+
+          <Link to="bandchart">Band Chart</Link>
+          <Link to="skillchart"> Skill Chart</Link>
+          <Link to="competancychart">Competancy Chart</Link>
+          <Link to="Experiencechart">experience Chart</Link>
+          <Link to="agingchart"> Aging Chart</Link>
+        </header>
+      </div>
+      <div className='mainOutlet'>
+        <Outlet />
+      </div>
+    </div>
+  );
+};
+
+export default Chart;
 // import React from 'react';
 // import {PtgUiD3Pie } from '@ptg-ui/react';
 //   import { d3PieData } from '@ptg-react-app/mock/mocks';
@@ -357,34 +388,3 @@
 
 // =============================================================================================
 
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import './Chart.scss';
-import SkillChart from './SkillChart';
-
-const Chart = () => {
-  return (
-    <div className="navContainer">
-      <div className='sideNav'>
-        <header className="chartNavbar">
-          <Link to="bandchart">Band Chart</Link>
-          <Link to="skillchart"> Skill Chart</Link>
-          <Link to="competancychart">Competancy Chart</Link>
-          <Link to="Experiencechart">experience Chart</Link>
-          <Link to="agingchart"> Aging Chart</Link>
-
-          <Link to="bandchart">Band Chart</Link>
-          <Link to="skillchart"> Skill Chart</Link>
-          <Link to="competancychart">Competancy Chart</Link>
-          <Link to="Experiencechart">experience Chart</Link>
-          <Link to="agingchart"> Aging Chart</Link>
-        </header>
-      </div>
-      <div className='mainOutlet'>
-        <Outlet />
-      </div>
-    </div>
-  );
-};
-
-export default Chart;
