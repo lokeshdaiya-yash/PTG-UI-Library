@@ -277,7 +277,9 @@ const AddMasterdata = (props: any) => {
         {/*  ===================== Skills and Exp ================================*/}
         <div className="masterdatafield">
           <div className="masterdatafield-box">
+
             <label htmlFor="skills"> Skills </label>
+            {formValue?.skills?.length==0 ? 
             <PtgUiMultiSelectbox
               name="skills"
               list={skills}
@@ -288,6 +290,20 @@ const AddMasterdata = (props: any) => {
               //   return { lable: skill.name };
               // })}
             />
+            :
+            <PtgUiMultiSelectbox
+            name="skills"
+            list={skills}
+            onSelect={(e) => selectHandler(e, 'skills')}
+            showCheckbox={true}
+            singleSelect={false}
+            selectedValues={formValue.skills?.map(elem=>{
+              return {label:elem.name};
+            })}
+            // selectedValues={formValue.designations}
+          />
+}
+            
             <p className="error">{formErrors.skills}</p>
           </div>
           <div className="masterdatafield-box">
