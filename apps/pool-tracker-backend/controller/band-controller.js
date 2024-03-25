@@ -1,32 +1,31 @@
 import Bands from '../schema/band-schema.js';
 
 export const addBand = async (request, response) => {
-  // const band = request.body;
-  // console.log(band);
-  // const newBand = new Bands(band);
   try {
     const bands = await Bands.find({});
-    if(bands.length>0 ){
-      let chacking = false;
+    if(bands.length > 0 ){
+      let checking = false;
       for(let i=0; i<bands.length; i++){
         if(bands[i]['name'].toLowerCase()===request.body.name.toLowerCase()){
-          chacking=true;
+          checking=true;
           break;
         }
       }
-      if(chacking==false){
-        debugger
-        const bandName =new Bands(request.body);
-        console.log("bandName",bandName, request.body.name)
-        const bandData = await Bands.save();
-        response.status(200).json(bandData);
+      if(checking==false){
+        const band = {};
+        Object.keys(request.body).forEach(key=>{
+          band[key] =request.body[key].toUpperCase();
+        });
+        console.log("band",band);
+        const newBand = new Bands(band);
+         await newBand.save();
+        response.status(200).json({newBand, message: "Band added successfully"});
       }
       else{
-        response.status(209).json({ message: error.message, msg:"this name (" + request.body.name+") is already exist" });
-      }
-    }
+         response.status(404).json({ message:"band (" + request.body.name+") is already exist"  });
+    }}
   } catch (error) {
-    response.status(409).json({ message: error.message });
+    response.status(404).json({ message: error.message });
   }
 };
 

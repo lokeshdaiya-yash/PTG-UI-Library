@@ -6,8 +6,29 @@ export const addSkill = async (request, response) => {
   console.log(skill);
   const newSkill = new Skill(skill);
   try {
-    await newSkill.save();
-    response.status(201).json(newSkill);
+    const skill= await Skill.find({})
+    if(skill.length > 0 ){
+      let checking = false;
+      for(let i=0; i<skill.length; i++){
+        if(skill[i]['name'].toLowerCase()===request.body.name.toLowerCase()){
+          checking=true;
+          break;
+        }
+      }
+      if(checking==false){
+        const skills = {};
+        Object.keys(request.body).forEach(key=>{
+          skills[key] =request.body[key].toUpperCase();
+        });
+        console.log("skills",skills);
+        const newSkill = new Skill(skills);
+         await newSkill.save();
+        response.status(200).json({newSkill, message: "skill added successfully"});
+      }
+      else{
+         response.status(404).json({ message:"skill (" + request.body.name+") is already exist"  });
+    }
+    }
   } catch (error) {
     response.status(409).json({ message: error.message });
   }
