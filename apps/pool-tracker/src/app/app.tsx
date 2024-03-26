@@ -1,6 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './components/common/header/Header';
-import Footer from './components/common/footer/Footer';
 import EditMasterdata from './components/viewMasterData/EditMasterData';
 import EditSkill from './components/EditSkill';
 import AddSkill from './components/AddSkill';
@@ -11,12 +9,15 @@ import AddMasterdata from './components/addMasterData/AddMasterData';
 import ViewDesignation from './components/designation/ViewDesignation';
 import Config from './components/config/Config';
 import AddDesignation from './components/designation/AddDesignation';
-import ViewMasterdata from './components/viewMasterData/ViewMasterData';
 import ViewSkills from './components/skills/ViewSkills';
 import Chart from './components/chart/Chart';
 import CompetancyChart from './components/chart/CompetancyChart';
 import BandChart from './components/chart/BandChart';
 import SkillChart from './components/chart/SkillChart';
+import Header from './components/common/header/Header';
+import Footer from './components/common/footer/Footer';
+import Dashboard from './components/common/dashboard/Dashboard';
+import ViewMasterData from './components/viewMasterData/ViewMasterData';
 
 export function App() {
   return (
@@ -24,7 +25,8 @@ export function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Login />} />
+          {/* <Route path="/" element={<Login />} /> */}
+          <Route path="/" element={<Dashboard />} />
           <Route path="/user" element={<User />} />
 
           {/* <Route element={<PrivateRout />}> */}
@@ -33,9 +35,9 @@ export function App() {
           <Route path="/adddesignation" element={<AddDesignation />} />
 
           {/* Masterdata Routes*/}
-          <Route path="/masterData" element={<ViewMasterdata />} />
+          <Route path="/masterData" element={<ViewMasterData />} />
           <Route path="/addMasterData" element={<AddMasterdata />} />
-          <Route path="/addMasterData/:id" element={<AddMasterdata />} />          
+          <Route path="/addMasterData/:id" element={<AddMasterdata />} />
           <Route path="/editMasterData/:id" element={<EditMasterdata />} />
           {/* <Route path="/editMasterData/:id" element={<EditMasterData />} /> */}
 
@@ -45,7 +47,7 @@ export function App() {
           <Route path="/editskill/:id" element={<EditSkill />} />
 
           {/* chart Routes*/}
-          <Route path="/chart/" element={<Chart />} >
+          <Route path="/chart/" element={<Chart />}>
             <Route path="bandchart" element={<BandChart />} />
             <Route path="competancychart" element={<CompetancyChart />} />
             <Route path="skillchart" element={<SkillChart />} />

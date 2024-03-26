@@ -29,24 +29,13 @@ const ViewMasterData = () => {
       bandCount[band]=(bandCount[band]||0 )+1
     }
     );
-   
+    console.log('band count', bandCount)
   };
   const deleteUsersDetails = async (id: any) => {
     await deleteMasterdata(id);
     alert('Do You Want To Delete');
     getAllUsers();
   };
-
-//   const poolStartDate=new Date(22-1-2345);
-// const addleadingzero = (number)=>{
-//   return number<10 ? "0" +number:number;
-// }
-//   const day = addleadingzero(poolStartDate.getDate());
-//   const month = addleadingzero(poolStartDate.getMonth());
-//   const year = addleadingzero(poolStartDate.getFullYear());
-//   const formattedDate =`${day}-${month}-${year}`
-//   console.log('formattedDate', formattedDate)
-
 
   const ActionButton = (props) => {
     return <button>Text</button>;
@@ -87,14 +76,18 @@ const ViewMasterData = () => {
     { title: 'Band', field: 'band', filtering: false },
     { title: 'Competency', field: 'competency', filtering: false },
     { title: 'Designations', field: 'designations', filtering: false },
-    { title: 'Pool StartDate', field: 'poolStartDate', filtering: false,
+    { title: 'Pool StartDate', field: 'poolStartDate',
     render: (rowData: any) => {
-      const date = new Date(rowData.poolStartDate);
-      const day = date.getDate().toString().padStart(2, '0');
-      const month = (date.getMonth() + 1).toString().padStart(2, '0'); 
-      const year = date.getFullYear(); 
-      return `${day}-${month}-${year}`; 
-  }
+      const poolStartDate = new Date(rowData.poolStartDate);
+
+      const day = poolStartDate.getDate();
+          const month = poolStartDate.getMonth() + 1;
+         const year = poolStartDate.getFullYear();
+        const formattedDate =`${day}-${month}-${year}`;
+      // const formattedDate = `${poolStartDate.getDate()}-${poolStartDate.getMonth() + 1}-${poolStartDate.getFullYear()}`;
+      return formattedDate;
+    }
+  
   },
     {
       title: 'skills',
@@ -125,17 +118,16 @@ const ViewMasterData = () => {
             </PtgUiButton> */}
           {/* <>{console.log('>>>>',masterdata.competency.map(compatancys=> compatancys.name).toString())}</> */}
 
-          {/* <Link to={`/addMasterData/${masterdata._id}`}>
+          {/* <Link to={`/editMasterdata/${masterdata._id}`}>
               <PtgUiButton >Edit</PtgUiButton>
             </Link> */}
 
-           <div className="masterdataBtn table-action-button">
-              {designationModal('Edit', 'Edit Masterdata', masterdata)}
+          <div className="masterdataBtn table-action-button">
+            {designationModal('Edit', 'Edit Masterdata', masterdata)}
             <i
               className="fa-solid fa-trash cursor-pointer"
               onClick={() => deleteUsersDetails(masterdata._id)}
             ></i>
-
           </div>
         </div>
       ),
@@ -147,40 +139,26 @@ const ViewMasterData = () => {
     console.log('masterdata.name:', masterdata.rowData.name);
     return (
       <div className="ms-4 me-4 mt-2 mb-2 tableAccordion">
-       <div className='d-flex'>
-       <div>
-       <div className='d-flex'>
+        <div className='d-flex'>
           <h6>Name:</h6>
           <p> {masterdata.rowData.name}</p>
+         
+        </div>
+        <div className='d-flex'>
+          
+          <h6>Id:</h6>
+          <p> {masterdata.rowData._id}</p>
         </div>
         <div className='d-flex'>
         <h6>project Name:</h6>
           <p> Interview Screening</p>
+          
         </div>
         <div className='d-flex'>
+        
           <h6>Comments:</h6>
           <p> {masterdata.rowData.comments}</p>
         </div>
-         <div className='d-flex'>
-          <h6>Years of Experience:</h6>
-          <p> {masterdata.rowData.yearsofExp}</p>
-        </div>
-       </div>
-       <div>
-       <div className='d-flex'>
-          <h6>Ageing:</h6>
-          <p> {masterdata.rowData.ageing}</p>
-        </div>
-        <div className='d-flex'>
-          <h6>Status:</h6>
-          <p> {masterdata.rowData.status}</p>
-        </div>
-        <div className='d-flex'>
-          <h6>clientName:</h6>
-          <p> {masterdata.rowData.clientName}</p>
-        </div>
-       </div>
-       </div>
       </div>
     );
   };

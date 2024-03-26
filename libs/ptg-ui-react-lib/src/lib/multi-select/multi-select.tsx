@@ -16,10 +16,11 @@ export interface PtgUiMultiSelectProps {
   showCheckbox?: boolean,
   singleSelect?: boolean,
   onSelect?:any,
-  placeholder?:string
+  placeholder?:string,
+  onRemove?: any
 }
 
-export function PtgUiMultiSelectbox({id,className,selectedValues,list,showCheckbox,singleSelect,onSelect,placeholder}: PtgUiMultiSelectProps) {
+export function PtgUiMultiSelectbox({id,className,selectedValues,list,showCheckbox,singleSelect,onSelect,placeholder, onRemove}: PtgUiMultiSelectProps) {
   return (
     <Multiselect
     customCloseIcon={singleSelect}
@@ -32,11 +33,8 @@ export function PtgUiMultiSelectbox({id,className,selectedValues,list,showCheckb
     onSelect={onSelect}
     placeholder={placeholder}
     selectedValues={selectedValues}
-<<<<<<< HEAD
-=======
     onRemove={onRemove}
     avoidHighlightFirstOption={true}
->>>>>>> 25ad643536da882ad38f4508096db055cdc06adb
   />
   );
 }
