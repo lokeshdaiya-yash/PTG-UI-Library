@@ -2,7 +2,7 @@
 .viewMastertable {
   position: relative;
 
-  & > .hydrated , .addNew   {
+  & > .hydrated {
     visibility: inherit;
     position: absolute;
     left: 16px;
@@ -17,7 +17,6 @@
   box-shadow: none;
 }
 .table-action-button {
-  // width: 80px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -37,7 +36,15 @@
 .viewMastertable h6 {
   display: none !important;
   font-weight: 600;
-  /* width: 59%; */
   padding: 5px 30px 5px 59px;
 }
+
+.addButton{
+  visibility: inherit;
+    position: absolute;
+    left: 16px;
+    top: 13px;
+    z-index: 1;
+}
+
        

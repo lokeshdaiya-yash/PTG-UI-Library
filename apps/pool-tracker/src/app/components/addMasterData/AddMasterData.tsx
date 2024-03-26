@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
- 
+
 import {
   addMasterdata,
   editMasterdata,
@@ -11,7 +11,7 @@ import {
   getData,
   checkDuplicateEmail,
 } from '../../service/api';
- 
+
 import {
   PtgUiButton,
   PtgUiCalendar,
@@ -19,10 +19,10 @@ import {
   PtgUiMultiSelectbox,
   PtgUiTextArea,
 } from '@ptg-ui/libs/ptg-ui-react-lib/src';
- 
+
 import '../../app.module.scss';
 import './AddMasterData.scss';
- 
+
 const initialFormValue = {
   name: '',
   emailId: '',
@@ -37,10 +37,10 @@ const initialFormValue = {
   clientName: '',
   designations: '',
 };
- 
+
 const AddMasterdata = (props: any) => {
   const { masterData, btnName } = props;
-  const [duplicateEmail, setDuplicateEmail] = useState('')
+  const [duplicateEmail, setDuplicateEmail] = useState('');
   const formErrorsObj: any = {};
   const [formValue, setFormValue] = useState(initialFormValue);
   // const [formValue, setFormValue] = useState(formInitialValues);
@@ -54,20 +54,20 @@ const AddMasterdata = (props: any) => {
   const { id } = useParams();
   const today = new Date();
   const [date, setStartDate] = useState({ startDate: null });
- 
+
   useEffect(() => {
     getBandsList();
     getDesignationList();
     getCompetencyList();
     getSkillList();
- 
+
     if (id) {
       getUser();
     } else {
       // setFormValue(initialFormValue);
     }
   }, []);
- 
+
   const checkDuplicate = async (e: any) => {
     if (e.target.value && !formErrors.emailId) {
       const response = await checkDuplicateEmail(e.target.value);
@@ -78,8 +78,7 @@ const AddMasterdata = (props: any) => {
       }
     }
   };
- 
- 
+
   //  get user date by ID and patch all the values to the form's fields
   const getUser = async () => {
     const response = await getData(id);
@@ -90,46 +89,46 @@ const AddMasterdata = (props: any) => {
       name: userDetails.name,
       emailId: userDetails.emailId,
       poolStartDate: setDateState(userDetails.poolStartDate, 'startDate'),
- 
+
       band: userDetails.band,
       designations: userDetails.designations,
       competency: userDetails.competency,
- 
+
       skills: userDetails.skills,
       ageing: userDetails.ageing,
       yearsofExp: userDetails.yearsofExp,
       comments: userDetails.comments,
     });
   };
- 
+
   // values handlers
   const selectHandler = (e, field) => {
     setFormValue({ ...formValue, [field]: e[0].value });
   };
- 
+
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setFormValue({ ...formValue, [name]: value });
   };
- 
+
   // getting Band list
   const getBandsList = async () => {
     const response = await getBands();
     setBands(response?.data);
   };
- 
+
   // getting Competency list
   const getCompetencyList = async () => {
     const response = await getCompetency();
     setCompetency(response?.data);
   };
- 
+
   // getting Designation list
   const getDesignationList = async () => {
     const response = await getDesignations();
     setDesignation(response?.data);
   };
- 
+
   // getting Skills list
   const getSkillList = async () => {
     try {
@@ -145,7 +144,7 @@ const AddMasterdata = (props: any) => {
       console.log('error', error);
     }
   };
- 
+
   // select date
   const setDateState: any = (selectedDate: any, field: string) => {
     setStartDate((preState: any) => {
@@ -155,7 +154,7 @@ const AddMasterdata = (props: any) => {
       };
     });
   };
- 
+
   // format date
   const formatDate = (str) => {
     const date = new Date(str),
@@ -163,7 +162,7 @@ const AddMasterdata = (props: any) => {
       day = ('0' + date.getDate()).slice(-2);
     return [mnth, day, date.getFullYear()].join('-');
   };
- 
+
   const startDateProp = {
     selected: date.startDate,
     className: 'form-control w-100',
@@ -173,26 +172,29 @@ const AddMasterdata = (props: any) => {
     },
     startDate: today,
   };
- 
+
   // submit forms data
   const submitMasterDetails = async () => {
     setFormErrors(validateFormFields(formValue));
     setIsSubmit(true);
-    if (Object.keys(formErrors).length === 0 &&Object.values(formValue).every(value => value !== '')) {
+    if (
+      Object.keys(formErrors).length === 0 &&
+      Object.values(formValue).every((value) => value !== '')
+    ) {
       if (!id) {
         await addMasterdata(formValue);
       } else {
         await editMasterdata(formValue, id);
       }
- 
+
       navigate('/masterData');
     }
   };
- 
+
   const cancel = () => {
     navigate('/');
   };
- 
+
   // validate form's fields
   const validateFormFields = (values): any => {
     const errors: any = {};
@@ -225,7 +227,7 @@ const AddMasterdata = (props: any) => {
     }
     return errors;
   };
- 
+
   return (
     <div>
       <div className="ptg-table-addData masterdata-form-container">
@@ -249,7 +251,7 @@ const AddMasterdata = (props: any) => {
             />
             <p className="error">{formErrors.name}</p>
           </div>
- 
+
           <div className="masterdatafield-box">
             <label htmlFor="emailId"> Email </label>
             <PtgUiInput
@@ -268,7 +270,7 @@ const AddMasterdata = (props: any) => {
             <p className="error">{formErrors.emailId}</p>
           </div>
         </div>
- 
+
         {/* ================== Pool start date and Band========================== */}
         <div className="masterdatafield">
           <div className="masterdatafield-box">
@@ -276,10 +278,10 @@ const AddMasterdata = (props: any) => {
             <PtgUiCalendar {...startDateProp} />
             <p className="error">{formErrors.poolStartDate}</p>
           </div>
- 
+
           <div className="masterdatafield-box">
             <label htmlFor="band"> Band </label>
- 
+
             <PtgUiMultiSelectbox
               name="band"
               list={band}
@@ -291,7 +293,7 @@ const AddMasterdata = (props: any) => {
             <p className="error">{formErrors.band}</p>
           </div>
         </div>
- 
+
         {/* ================== Competency and Designation======================= ===*/}
         <div className="masterdatafield">
           <div className="masterdatafield-box">
@@ -306,7 +308,7 @@ const AddMasterdata = (props: any) => {
             />
             <p className="error">{formErrors.competency}</p>
           </div>
- 
+
           <div className="masterdatafield-box">
             <label htmlFor="designation"> Designation </label>
             <PtgUiMultiSelectbox
@@ -320,7 +322,7 @@ const AddMasterdata = (props: any) => {
             <p className="error">{formErrors.designations}</p>
           </div>
         </div>
- 
+
         {/*  ===================== Skills and Exp ================================*/}
         <div className="masterdatafield">
           <div className="masterdatafield-box">
@@ -338,7 +340,7 @@ const AddMasterdata = (props: any) => {
             />
             <p className="error">{formErrors.skills}</p>
           </div>
- 
+
           <div className="masterdatafield-box">
             <label htmlFor="yearsofExp"> Years of Experience </label>
             <PtgUiInput
@@ -352,7 +354,7 @@ const AddMasterdata = (props: any) => {
             <p className="error">{formErrors.yearsofExp}</p>
           </div>
         </div>
- 
+
         {/* ==================== Comments ============================== */}
         <div className="masterdatafield">
           <div className="masterdatafield-box">
@@ -366,7 +368,7 @@ const AddMasterdata = (props: any) => {
             />
           </div>
         </div>
- 
+
         <div className="mt-20 action-button-container">
           <PtgUiButton
             className="btn btn-secondary"
@@ -377,7 +379,7 @@ const AddMasterdata = (props: any) => {
           >
             Cancel
           </PtgUiButton>
- 
+
           <PtgUiButton
             className="ml-20 btn btn-primay"
             type="button"
@@ -392,5 +394,5 @@ const AddMasterdata = (props: any) => {
     </div>
   );
 };
- 
+
 export default AddMasterdata;
