@@ -192,7 +192,7 @@ const AddMasterdata = (props: any) => {
   };
 
   const cancel = () => {
-    navigate('/');
+    navigate(-1);
   };
 
   // validate form's fields

@@ -37,7 +37,7 @@ function Dashboard() {
             </div>
           </NavLink>
 
-          <NavLink to="/masterData">
+          <NavLink to="/chart/bandchart">
             <div className="item-card">
               <img src={dashboard} alt="item-card" />
               <p>Dashboard</p>
