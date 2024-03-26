@@ -1,15 +1,15 @@
 import { PtgUiD3Bar, PtgUiD3Line, PtgUiD3Pie } from '@ptg-ui/react';
-import { d3LineData } from '@ptg-react-app/mock/mocks';
+// import { d3LineData } from '@ptg-react-app/mock/mocks';
 import { useEffect, useState } from 'react';
 import { getMasterdata } from '../../service/api';
 
-export const d3BandLineData: any = {
-  data: [
-    { date: new Date('2022-03-01'), value: 130 },
-    { date: new Date('2022-02-01'), value: 300 },
-    { date: new Date('2022-01-01'), value: 100 },
-  ],
-};
+// export const d3BandLineData: any = {
+//   data: [
+//     { date: new Date('2022-03-01'), value: 130 },
+//     { date: new Date('2022-02-01'), value: 300 },
+//     { date: new Date('2022-01-01'), value: 100 },
+//   ],
+// };
 
 const color = ['green', 'blue', 'orange', 'pink', 'rgb(69, 69, 69)'];
 //  eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -77,17 +77,13 @@ export function BandChart(D3ChartsProps) {
       data: KeyChangeObj,
     };
 
-  setBand(bandgraph);
-    
+    setBand(bandgraph);
   };
   console.log('band', band);
 
   return (
-    <div className="p-4"> 
-      <h3>Hii</h3>
-
-        <PtgUiD3Bar {...band} />
-
+    <div className="p-4">
+      <PtgUiD3Bar {...band} />
     </div>
   );
 }
