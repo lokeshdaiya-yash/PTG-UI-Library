@@ -87,12 +87,14 @@ const DialogExample = () => {
       {showCode && (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} cssCode={cssCode} />
       )}
-      <PtgButton text="Open Modal" data-testid="openButton" appearance="primary" onClick={openModal}
-        btnIconAlignment='left' >
+      <div className='ms-2'>
+      <PtgButton  text="" data-testid="openButton" appearance="primary" onClick={openModal}
+       >
         <div slot="btnIcon">
           <AddCircleIcon />
         </div>
       </PtgButton>
+      </div>
 
       <PtgModal isOpen={isOpen} onConfirmClose={confirmClicked}
         modal-size='lg' modal-header-name="Header Name Here"

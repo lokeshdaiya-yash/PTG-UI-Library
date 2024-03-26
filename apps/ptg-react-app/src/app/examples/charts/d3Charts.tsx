@@ -189,7 +189,7 @@ export function D3Charts(props: D3ChartsProps) {
             <h5>{t('BAR_CHART_TEXT')}</h5>
           </div>
          
-          <div className='col-2 mr-5 mb-2 mt-1'>
+          <div className='col-2 mb-2 mt-1'>
             <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
           <hr className='horizontal-line'/>

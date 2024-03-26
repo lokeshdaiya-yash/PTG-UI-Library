@@ -134,6 +134,7 @@ const htmlCode = `
         paging= {true}
         paginationPosition={'bottom'}
         grouping={true}
+        title=""
       />
       </div>
     ): (

@@ -114,7 +114,7 @@ export function ExampleThree(props: ExampleThreeProps) {
       <div className="container-fluid">
       {!props.showCodeThree ? (
             <div className='row'>
-            <div className="col-lg-5 col-md-4 col-sm-12 col-xs-12">
+            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div className="form-group mb-2" id="start-date">
                 <label htmlFor="inputDOB">{t('START_DATE_TEXT')}</label>
                 {/*-----Usable component datepicker-----*/}
@@ -122,7 +122,7 @@ export function ExampleThree(props: ExampleThreeProps) {
               </div>
             </div>
            
-            <div className="end-date col-lg-5 col-md-4 col-sm-12 col-xs-12 offset-sm-0 offset-xs-0 mb-4">
+            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
               <div className="form-group mb-2" id="end-date">
                 <label htmlFor="inputDOB">{t('END_DATE_TEXT')}</label>
                 {/*-----Usable component datepicker-----*/}

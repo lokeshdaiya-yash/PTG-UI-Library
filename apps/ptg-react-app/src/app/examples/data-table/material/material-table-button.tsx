@@ -152,8 +152,8 @@ const tableOptions ={
        <MaterialTable
        columns={Columns}
        data={gridData}
-       title="Material Table"
        options={tableOptions}
+       title=""
        actions={[
            {
              icon: () =>   
