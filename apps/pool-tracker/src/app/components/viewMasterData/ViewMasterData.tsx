@@ -13,7 +13,7 @@ import { PtgUiAlert } from '@ptg-ui/react';
 
 const ViewMasterData = () => {
   const [masterdatas, setMasterdata] = useState<any>([]);
-  
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllUsers();
@@ -23,18 +23,21 @@ const ViewMasterData = () => {
     const response = await getMasterdata();
     setMasterdata(response?.data);
 
-    const bandCount= {} 
-    response?.data.forEach(element => {
+    const bandCount = {};
+    response?.data.forEach((element) => {
       const band = element.band;
-      bandCount[band]=(bandCount[band]||0 )+1
-    }
-    );
-    console.log('band count', bandCount)
+      bandCount[band] = (bandCount[band] || 0) + 1;
+    });
+    console.log('band count', bandCount);
   };
   const deleteUsersDetails = async (id: any) => {
     await deleteMasterdata(id);
     alert('Do You Want To Delete');
     getAllUsers();
+  };
+
+  const handleNavigate = () => {
+    navigate('/addMasterData');
   };
 
   const ActionButton = (props) => {
@@ -63,7 +66,7 @@ const ViewMasterData = () => {
         onConfirmClose={confirmClicked}
       >
         <div slot="body-block">
-        {/* <i className="fa-solid fa-trash cursor-pointer"></i> */}
+          {/* <i className="fa-solid fa-trash cursor-pointer"></i> */}
           <AddMasterdata masterdata={masterdata} btnName={btnName} />
           {/* <EditMasterData masterdata={masterdata} btnName={btnName} /> */}
         </div>
@@ -76,19 +79,20 @@ const ViewMasterData = () => {
     { title: 'Band', field: 'band', filtering: false },
     { title: 'Competency', field: 'competency', filtering: false },
     { title: 'Designations', field: 'designations', filtering: false },
-    { title: 'Pool StartDate', field: 'poolStartDate',
-    render: (rowData: any) => {
-      const poolStartDate = new Date(rowData.poolStartDate);
+    {
+      title: 'Pool StartDate',
+      field: 'poolStartDate',
+      render: (rowData: any) => {
+        const poolStartDate = new Date(rowData.poolStartDate);
 
-      const day = poolStartDate.getDate();
-          const month = poolStartDate.getMonth() + 1;
-         const year = poolStartDate.getFullYear();
-        const formattedDate =`${day}-${month}-${year}`;
-      // const formattedDate = `${poolStartDate.getDate()}-${poolStartDate.getMonth() + 1}-${poolStartDate.getFullYear()}`;
-      return formattedDate;
-    }
-  
-  },
+        const day = poolStartDate.getDate();
+        const month = poolStartDate.getMonth() + 1;
+        const year = poolStartDate.getFullYear();
+        const formattedDate = `${day}-${month}-${year}`;
+        // const formattedDate = `${poolStartDate.getDate()}-${poolStartDate.getMonth() + 1}-${poolStartDate.getFullYear()}`;
+        return formattedDate;
+      },
+    },
     {
       title: 'skills',
       field: 'skills',
@@ -96,7 +100,7 @@ const ViewMasterData = () => {
       render: (masterdata: any) =>
         masterdata.skills.map((skill) => ' ' + skill.name).toString(),
     },
-   
+
     // { title: 'yearsofExp', field: 'yearsofExp', filtering: false },
     // { title: 'comments', field: 'comments', filtering: false },
     // { title: 'clientName', field: 'clientName', filtering: false },
@@ -118,12 +122,12 @@ const ViewMasterData = () => {
             </PtgUiButton> */}
           {/* <>{console.log('>>>>',masterdata.competency.map(compatancys=> compatancys.name).toString())}</> */}
 
-          {/* <Link to={`/editMasterdata/${masterdata._id}`}>
-              <PtgUiButton >Edit</PtgUiButton>
-            </Link> */}
+          <Link to={`/addMasterData/${masterdata._id}`}>
+            <PtgUiButton>Edit</PtgUiButton>
+          </Link>
 
           <div className="masterdataBtn table-action-button">
-            {designationModal('Edit', 'Edit Masterdata', masterdata)}
+            {/* {designationModal('Edit', 'Edit Masterdata', masterdata)} */}
             <i
               className="fa-solid fa-trash cursor-pointer"
               onClick={() => deleteUsersDetails(masterdata._id)}
@@ -139,23 +143,19 @@ const ViewMasterData = () => {
     console.log('masterdata.name:', masterdata.rowData.name);
     return (
       <div className="ms-4 me-4 mt-2 mb-2 tableAccordion">
-        <div className='d-flex'>
+        <div className="d-flex">
           <h6>Name:</h6>
           <p> {masterdata.rowData.name}</p>
-         
         </div>
-        <div className='d-flex'>
-          
+        <div className="d-flex">
           <h6>Id:</h6>
           <p> {masterdata.rowData._id}</p>
         </div>
-        <div className='d-flex'>
-        <h6>project Name:</h6>
+        <div className="d-flex">
+          <h6>project Name:</h6>
           <p> Interview Screening</p>
-          
         </div>
-        <div className='d-flex'>
-        
+        <div className="d-flex">
           <h6>Comments:</h6>
           <p> {masterdata.rowData.comments}</p>
         </div>
@@ -171,6 +171,9 @@ const ViewMasterData = () => {
 
   return (
     <div className="viewMastertable">
+      <PtgUiButton className="addButton" onClick={handleNavigate}>
+        New Master Data +
+      </PtgUiButton>
       <PtgUiMaterialTable
         data={masterdatas}
         columns={Columns}
