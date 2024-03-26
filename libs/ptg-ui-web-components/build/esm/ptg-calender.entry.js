@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h } from './index-4f6af1ca.js';
+import { r as registerInstance, c as createEvent, h } from './index-e0983af0.js';
 
 // import { CalendarEntry } from './calender-entry';
 class Calendar {

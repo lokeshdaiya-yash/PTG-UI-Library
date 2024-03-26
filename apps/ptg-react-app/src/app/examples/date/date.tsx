@@ -132,10 +132,9 @@ const endDateProp = {
           </div>
           <hr className='horizontal-line'/>
         </div>
-        
+
        
         <DateExampleOne showCodeOne={showCodeOne} />
-        
       </section>
 
       <section className='card-section-two bg-white rounded pt-2 pb-1 mt-4'>
@@ -179,21 +178,22 @@ const endDateProp = {
         </div>
         <DateExampleFour showCodeFour={showCodeFour} />
       </section>
-      <hr />
-      <section>
+ 
+      <section className="card-section-two pb-5 bg-white rounded mt-4">
       <div className="row">
-          <div className="col-9 mb-3">
-            <h4>{t('CONVERT_TIMEZONE')}</h4>
+          <div className="col-10 mb-2 mt-3">
+            <h5 className='example-heading'>{t('CONVERT_TIMEZONE')}</h5>
           </div>
 
-          <div className='col-3 mr-5'>
-              <CodeIcon onClick={()=>setShowCodeLocalDate(prev=>!prev)} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2 mt-2'>
+              <CodeIcon onClick={()=>setShowCodeLocalDate(prev=>!prev)} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
         </div>
        <LocalDatetime showCodeLocalDate={showCodeLocalDate}/>
       </section>
 
-      <section className="card-section-two pb-5 bg-white rounded pt-2 pb-1 mt-4">
+      {/* <section className="card-section-two pb-5 bg-white rounded pt-2 pb-1 mt-4 ps-4 pe-4">
         <div className="row">
           <div className="col-10 mb-2 mt-2">
           <h5 className='example-heading'>Calender Example 5</h5>
@@ -207,11 +207,11 @@ const endDateProp = {
 
         <div className='row'>
 
-        <div className='col-lg-5 ms-3'>
+        <div className='col-lg-6 col-md-6'>
         <PtgUiCalendar {...endDateProp} />
         </div>
 
-        <div className='multi-select col-lg-5'>
+        <div className='multi-select col-lg-6 col-md-6'>
         <PtgUiMultiSelectbox
           name="city"
           list={cityList}
@@ -224,7 +224,7 @@ const endDateProp = {
         </div>
 
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

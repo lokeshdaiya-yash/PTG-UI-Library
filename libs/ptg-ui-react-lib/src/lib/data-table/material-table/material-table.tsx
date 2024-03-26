@@ -32,6 +32,7 @@ export interface PtgUiMaterialTableProps {
   paging: boolean,
   paginationPosition?: any
   grouping?: boolean,
+  title?:string,
   detailPanel?: (rowData:any) =>any;
 }
 

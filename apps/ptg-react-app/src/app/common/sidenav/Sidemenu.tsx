@@ -10,13 +10,19 @@ export const NavigationData = [
   {
     path: '/accordian',
     icon: 'fa fa-lock',
-    label: 'ACCORDION',
+    label: 'Accordion',
     disabled: false,
   },
   {
     path: '/breadcrumbs',
     icon: 'fa fa-link',
     label: 'BREADCRUMBS',
+    disabled: false,
+  },
+  {
+    path: '/button',
+    icon: 'fa-solid fa-mobile-button',
+    label: 'Buttons',
     disabled: false,
   },
   {

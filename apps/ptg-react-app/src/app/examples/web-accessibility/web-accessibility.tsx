@@ -644,7 +644,7 @@ const htmlCode = `
                     </div>
                     <div className="row">
                       <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div className="form-group required mb-2 ms-4 me-4 field">
+                        <div className="form-group required mb-2 field">
                           <label
                             htmlFor="inputCity"
                             tabIndex={0}
@@ -668,7 +668,7 @@ const htmlCode = `
                         </div>
                       </div>
                       <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 select-gender">
-                        <div className="form-group required mb-2 ms-4 me-4">
+                        <div className="form-group required mb-2">
                           <fieldset>
                             <legend className="gender-align">
                               <label tabIndex={0} aria-label="Gender">
@@ -693,7 +693,7 @@ const htmlCode = `
                     <div className="row"></div>
                     <div className="row">
                       <div className="col-12">
-                        <div className="form-group required mb-2 ms-4 me-4 field">
+                        <div className="form-group required mb-2 field">
                           <label
                             htmlFor="inputPassword"
                             tabIndex={0}
@@ -716,7 +716,7 @@ const htmlCode = `
                     </div>
                     <div className="row ms-1 declaration-check">
                       <div className="col-12">
-                        <div className="form-group required mb-2 ms-4 me-4">
+                        <div className="form-group required mb-2">
                           <PtgUiCheckbox
                             label={t('CONFIRM_LABEL')}
                             htmlFor="confirm"
@@ -734,7 +734,6 @@ const htmlCode = `
                   {/* <PtgUiButton
                     className="w-100 web-button"
                     type="button"
-                  
                     aria-label="submit"
                     data-testid="register"
                   >

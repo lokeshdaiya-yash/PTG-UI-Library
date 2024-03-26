@@ -25,21 +25,23 @@ export default function Accordian() {
 </PtgAccordion>
  `;
   return (
-    <div className="row mt-3">
-      <div className="col-md-11">
-        <h3 className="font-weight-bold">Accordion</h3>
+    <section className='card-section-two bg-white rounded pt-2 pb-2 mt-2'>
+    <div className="row">
+      <div className="col-md-11 mt-2 mb-1">
+        <h5 className="font-weight-bold example-heading">Accordion</h5>
       </div>
       <div className="col-1 ps-5">
         <CodeIcon
           onClick={() => setShowCode((prev) => !prev)}
-          fontSize="medium"
+          fontSize="large"
           className="show-code-icon"
         ></CodeIcon>
       </div>
+      <hr className='horizontal-line'/>
       {showCode && (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
       )}
-      <div className="col-md-12">
+      <div className="col-md-12 ms-3 me-3">
         <PtgAccordion label={label} description={description} bgColor={bgColor} defaultOpened={defaultOpened}>
           <div slot="body-block">
             <h2>React Slot for Body</h2>
@@ -47,5 +49,6 @@ export default function Accordian() {
         </PtgAccordion>
       </div>
     </div>
+    </section>
   );
 }

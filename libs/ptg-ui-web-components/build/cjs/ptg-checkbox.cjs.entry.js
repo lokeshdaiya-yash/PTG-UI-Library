@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-cd8d96f6.js');
+const index = require('./index-b272a2a2.js');
 
 const ptgCheckboxCss = ":host{display:block}input[type=radio]{transform:scale(2);margin-left:20px}label{font-size:20px}input[type=radio]{transform:scale(2)}label{font-size:20px}";
 

@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-4f6af1ca.js';
+import { r as registerInstance, h } from './index-e0983af0.js';
 
 function format(first, middle, last) {
   return ((first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : ''));

@@ -21,10 +21,10 @@ export namespace Components {
         "middle": string;
     }
     interface PtgAccordion {
-        "color": string;
+        "bgColor"?: string;
+        "defaultOpened": boolean;
         "description": string;
         "label": string;
-        "width": string;
     }
     interface PtgAlert {
         "appreanced": string;
@@ -36,6 +36,7 @@ export namespace Components {
     }
     interface PtgButton {
         "appearance": string;
+        "btnIconAlignment"?: string;
         "text": string;
     }
     interface PtgCalender {
@@ -101,7 +102,6 @@ export namespace Components {
         "width": string;
     }
     interface PtgModal {
-        "btnName": string;
         "closeOutsideClick": boolean;
         "confirmButtonName": string;
         "isOpen": boolean;
@@ -380,10 +380,10 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface PtgAccordion {
-        "color"?: string;
+        "bgColor"?: string;
+        "defaultOpened"?: boolean;
         "description"?: string;
         "label"?: string;
-        "width"?: string;
     }
     interface PtgAlert {
         "appreanced"?: string;
@@ -395,6 +395,7 @@ declare namespace LocalJSX {
     }
     interface PtgButton {
         "appearance"?: string;
+        "btnIconAlignment"?: string;
         "text"?: string;
     }
     interface PtgCalender {
@@ -468,7 +469,6 @@ declare namespace LocalJSX {
         "width"?: string;
     }
     interface PtgModal {
-        "btnName"?: string;
         "closeOutsideClick"?: boolean;
         "confirmButtonName"?: string;
         "isOpen"?: boolean;

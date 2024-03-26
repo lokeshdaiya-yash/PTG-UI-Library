@@ -147,7 +147,7 @@ actions={[
        <MaterialTable
        columns={Columns}
        data={gridData}
-       title="Material Table"
+       title=""
        actions={[
            {
              icon: () =>   

@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-cd8d96f6.js');
+const index = require('./index-b272a2a2.js');
 
 const ptgInputCss = ":host{display:block}input{padding:12px 20px;margin:8px 10px;display:inline-block;border-radius:10px;box-sizing:border-box}";
 

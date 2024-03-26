@@ -141,7 +141,7 @@ export function PtgUiHCLine(props: PtgUiHCLineProps) {
         </div>
   
         <div className='col-2 mr-5 mt-1 mb-2'>
-          <CodeIcon onClick={ShowLineChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowLineChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
         <hr className='horizontal-line'/>
       </div>
@@ -155,7 +155,7 @@ export function PtgUiHCLine(props: PtgUiHCLineProps) {
         </div>
 
         <div className='col-2 mr-5 mt-1 mb-2'>
-          <CodeIcon onClick={ShowMultiLineChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <CodeIcon onClick={ShowMultiLineChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
         <hr className='horizontal-line'/>
       </div>
