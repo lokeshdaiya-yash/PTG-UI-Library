@@ -3,12 +3,39 @@
   border: none;
 }
 
+.menuToggle {
+  position: fixed;
+  top: 13px;
+  right: 15px;
+  width: 60px;
+  height: 60px;
+  background: rgb(207, 204, 204);
+  box-shadow: 0 25px 35px rgba(0, 0, 0, 0.1);
+  .userBx {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: rgb(207, 204, 204);
+    .imgBx {
+      position: relative;
+      min-width: 60px;
+      height: 60px;
+      background-color: #fff;
+      border: 50%;
+      border: 10px solid rgb(207, 204, 204);;
+    }
+  }
+}
+
 .navbar {
-  background: $mainlight;
+  background: $white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
+  padding: 15px 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
@@ -16,12 +43,12 @@
   & > div {
     display: flex;
     align-items: center;
-    .app-name {
-      color: $white;
-      color: $black;
-      font-weight: 700;
-      font-size: 20px;
-    }
+    // .app-name {
+    //   color: $white;
+    //   color: $black;
+    //   font-weight: 700;
+    //   font-size: 20px;
+    // }
   }
 
   & a {
@@ -30,9 +57,6 @@
     text-decoration: none;
     font-size: 15px;
     font-weight: 600;
-    &:hover {
-      border-bottom: 4px solid $main;
-    }
 
     &:last-child {
       padding-right: 0;

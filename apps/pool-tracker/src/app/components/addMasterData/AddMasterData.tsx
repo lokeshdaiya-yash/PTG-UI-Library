@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+
 import {
   addMasterdata,
+  editMasterdata,
   getSkills,
   getDesignations,
   getCompetency,
   getBands,
+  getData,
 } from '../../service/api';
-import '../../app.module.scss';
-import './AddMasterData.scss';
-import { useNavigate } from 'react-router-dom';
+
 import {
   PtgUiButton,
   PtgUiCalendar,
@@ -17,16 +19,18 @@ import {
   PtgUiTextArea,
 } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 
+import '../../app.module.scss';
+import './AddMasterData.scss';
+
 const initialFormValue = {
   name: '',
-  // memberName: '',
   emailId: '',
   poolStartDate: '',
   band: '',
   competency: '',
   ageing: '',
   status: '',
-  skills: '',
+  skills: [{ name: '' }],
   yearsofExp: '',
   comments: '',
   clientName: '',
@@ -45,78 +49,90 @@ const AddMasterdata = (props: any) => {
   const [designations, setDesignation] = useState([]);
   const [formErrors, setFormErrors] = useState(formErrorsObj);
   const [isSubmit, setIsSubmit] = useState(false);
-  const [count, setCount] = useState(0);
+  const { id } = useParams();
+  const today = new Date();
+  const [date, setStartDate] = useState({ startDate: null });
 
   useEffect(() => {
-    getAllBands();
-    getAllDesignation();
-    getAllCompetency();
-    getAllSkills();
-    // console.log(formErrors);
+    getBandsList();
+    getDesignationList();
+    getCompetencyList();
+    getSkillList();
+
+    if (id) {
+      getUser();
+    } else {
+      // setFormValue(initialFormValue);
+    }
   }, [formErrors]);
-  // ==================== band select================================================
 
-  const getAllBands = async () => {
-    const response = await getBands();
-    setBands(response?.data);
+  //  get user date by ID
+  const getUser = async () => {
+    const response = await getData(id);
+    const userDetails = response?.data;
+    console.log('userDetails >>>', userDetails);
+    setFormValue({
+      ...formValue,
+      name: userDetails.name,
+      emailId: userDetails.emailId,
+      poolStartDate: setDateState(userDetails.poolStartDate, 'startDate'),
+
+      band: userDetails.band,
+      designations: userDetails.designations,
+      competency: userDetails.competency,
+
+      skills: userDetails.skills,
+      ageing: userDetails.ageing,
+      yearsofExp: userDetails.yearsofExp,
+      comments: userDetails.comments,
+    });
   };
 
-  const onBandSelect = (e) => {
-    // console.log('Select Values, onValueChange', e[0]);
-    setFormValue({ ...formValue, band: e[0].value });
-  };
-  // ==================== Competency select===========================================
-
-  const getAllCompetency = async () => {
-    const response = await getCompetency();
-    setCompetency(response?.data);
+  // values handlers
+  const selectHandler = (e, field) => {
+    setFormValue({ ...formValue, [field]: e[0].value });
   };
 
-  const onCompetencySelect = (e) => {
-    setFormValue({ ...formValue, competency: e[0].value });
-  };
-
-  // ==================== designations select===========================================
-
-  const getAllDesignation = async () => {
-    const response = await getDesignations();
-    setDesignation(response?.data);
-  };
-
-  const onSelect = (e) => {
-    setFormValue({ ...formValue, designations: e[0].value });
-  };
-
-  // ==================== skill multiselect===========================================
-
-  const getAllSkills = async () => {
-    try {
-      const response = await getSkills();
-      const skillData = response?.data;
-      const transformedSkills = skillData.map((skill:any) => ({
-        name: skill.name ? skill.name: '',
-        value: skill.value ? skill.value : '',
-        label: skill.name ? skill.name: '',
-        // name: skill.label ? skill.label: '',
-      }));
-      setSkill(transformedSkills);
-    } catch (error) {}
-  };
-
-  const onSelectSkills = (e) => {
-    setFormValue({ ...formValue, skills: e });
-  };
-
-  const onValueChange = (e) => {
+  const changeHandler = (e) => {
     const { name, value } = e.target;
     setFormValue({ ...formValue, [name]: value });
   };
 
-   // ==================== select date ===========================================
-  const today = new Date();
-  const [date, setStartDate] = useState({
-    startDate: null,
-  });
+  // getting Band list
+  const getBandsList = async () => {
+    const response = await getBands();
+    setBands(response?.data);
+  };
+
+  // getting Competency list
+  const getCompetencyList = async () => {
+    const response = await getCompetency();
+    setCompetency(response?.data);
+  };
+
+  // getting Designation list
+  const getDesignationList = async () => {
+    const response = await getDesignations();
+    setDesignation(response?.data);
+  };
+
+  // getting Skills list
+  const getSkillList = async () => {
+    try {
+      const response = await getSkills();
+      const skillData = response?.data;
+      const transformedSkills = skillData.map((skill: any) => ({
+        name: skill.name ? skill.name : '',
+        value: skill.value ? skill.value : '',
+        label: skill.name ? skill.name : '',
+      }));
+      setSkill(transformedSkills);
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+
+  // select date
   const setDateState: any = (selectedDate: any, field: string) => {
     setStartDate((preState: any) => {
       return {
@@ -126,20 +142,13 @@ const AddMasterdata = (props: any) => {
     });
   };
 
+  // format date
   const formatDate = (str) => {
-    const date:any = new Date(str)
-//     console.log(date.toDateString()); // e.g., "Wed Apr 06 2022"
-// console.log(date.toLocaleDateString()); // e.g., "4/6/2022"
-    const mnth = date.toLocaleDateString();
-    return mnth;
-
-      // mnth = ('0' + (date.getMonth() + 1)).slice(-2),
-      // day = ('0' + date.getDate()).slice(-2);
-    // return [mnth, day, date.getFullYear()].join('-');
+    const date = new Date(str),
+      mnth = ('0' + (date.getMonth() + 1)).slice(-2),
+      day = ('0' + date.getDate()).slice(-2);
+    return [mnth, day, date.getFullYear()].join('-');
   };
-//   let date = new Date();
-// console.log(date.toDateString()); // e.g., "Wed Apr 06 2022"
-// console.log(date.toLocaleDateString()); // e.g., "4/6/2022"
 
   const startDateProp = {
     selected: date.startDate,
@@ -151,19 +160,26 @@ const AddMasterdata = (props: any) => {
     startDate: today,
   };
 
+  // submit forms data
   const submitMasterDetails = async () => {
     setFormErrors(validateFormFields(formValue));
     setIsSubmit(true);
     if (Object.keys(formErrors).length === 0) {
-      await addMasterdata(formValue);
+      if (!id) {
+        await addMasterdata(formValue);
+      } else {
+        await editMasterdata(formValue, id);
+      }
+
       navigate('/masterData');
     }
-
   };
+
   const cancel = () => {
     navigate('/');
   };
 
+  // validate form's fields
   const validateFormFields = (values): any => {
     const errors: any = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -198,9 +214,12 @@ const AddMasterdata = (props: any) => {
 
   return (
     <div>
-
       <div className="ptg-table-addData masterdata-form-container">
-        <h4>Add Master Data</h4>
+        {id === undefined ? (
+          <h4>Add Master Data</h4>
+        ) : (
+          <h4>Update Master Data</h4>
+        )}
         {/* ================== Name and Email========================== */}
         <div className="masterdatafield">
           <div className="masterdatafield-box">
@@ -212,10 +231,11 @@ const AddMasterdata = (props: any) => {
               id="name"
               placeholder="Enter Name"
               value={formValue.name}
-              onChange={(e) => onValueChange(e)}
+              onChange={(e) => changeHandler(e)}
             />
             <p className="error">{formErrors.name}</p>
           </div>
+
           <div className="masterdatafield-box">
             <label htmlFor="emailId"> Email </label>
             <PtgUiInput
@@ -225,11 +245,12 @@ const AddMasterdata = (props: any) => {
               id="emailId"
               placeholder="Enter Email"
               value={formValue.emailId}
-              onChange={(e) => onValueChange(e)}
+              onChange={(e) => changeHandler(e)}
             />
             <p className="error">{formErrors.emailId}</p>
           </div>
         </div>
+
         {/* ================== Pool start date and Band========================== */}
         <div className="masterdatafield">
           <div className="masterdatafield-box">
@@ -240,16 +261,19 @@ const AddMasterdata = (props: any) => {
 
           <div className="masterdatafield-box">
             <label htmlFor="band"> Band </label>
+
             <PtgUiMultiSelectbox
               name="band"
               list={band}
-              onSelect={onBandSelect}
+              onSelect={(e) => selectHandler(e, 'band')}
               showCheckbox={false}
               singleSelect={true}
+              selectedValues={[{ label: formValue.band }]}
             />
             <p className="error">{formErrors.band}</p>
           </div>
         </div>
+
         {/* ================== Competency and Designation======================= ===*/}
         <div className="masterdatafield">
           <div className="masterdatafield-box">
@@ -257,53 +281,46 @@ const AddMasterdata = (props: any) => {
             <PtgUiMultiSelectbox
               name="competency"
               list={competency}
-              onSelect={onCompetencySelect}
+              onSelect={(e) => selectHandler(e, 'competency')}
               showCheckbox={true}
               singleSelect={true}
+              selectedValues={[{ label: formValue.competency }]}
             />
             <p className="error">{formErrors.competency}</p>
           </div>
+
           <div className="masterdatafield-box">
             <label htmlFor="designation"> Designation </label>
             <PtgUiMultiSelectbox
               name="designations"
               list={designations}
-              onSelect={onSelect}
+              onSelect={(e) => selectHandler(e, 'designations')}
               showCheckbox={true}
               singleSelect={true}
+              selectedValues={[{ label: formValue.designations }]}
             />
             <p className="error">{formErrors.designations}</p>
           </div>
         </div>
+
         {/*  ===================== Skills and Exp ================================*/}
         <div className="masterdatafield">
           <div className="masterdatafield-box">
-
             <label htmlFor="skills"> Skills </label>
-            {formValue?.skills?.length==0 ? 
             <PtgUiMultiSelectbox
               name="skills"
               list={skills}
-              onSelect={onSelectSkills}
+              onSelect={(e) => selectHandler(e, 'skills')}
               showCheckbox={true}
               singleSelect={false}
+              selectedValues={formValue.skills.map((skill) => {
+                return { lable: skill.name };
+              })}
+              // selectedValues={formValue.designations}
             />
-            :
-            <PtgUiMultiSelectbox
-            name="skills"
-            list={skills}
-            onSelect={(e) => selectHandler(e, 'skills')}
-            showCheckbox={true}
-            singleSelect={false}
-            selectedValues={formValue.skills?.map(elem=>{
-              return {label:elem.name};
-            })}
-            // selectedValues={formValue.designations}
-          />
-}
-            
             <p className="error">{formErrors.skills}</p>
           </div>
+
           <div className="masterdatafield-box">
             <label htmlFor="yearsofExp"> Years of Experience </label>
             <PtgUiInput
@@ -312,11 +329,12 @@ const AddMasterdata = (props: any) => {
               name="yearsofExp"
               placeholder="Enter Experience"
               value={formValue.yearsofExp}
-              onChange={(e) => onValueChange(e)}
+              onChange={(e) => changeHandler(e)}
             />
             <p className="error">{formErrors.yearsofExp}</p>
           </div>
         </div>
+
         {/* ==================== Comments ============================== */}
         <div className="masterdatafield">
           <div className="masterdatafield-box">
@@ -326,7 +344,7 @@ const AddMasterdata = (props: any) => {
               name="comments"
               id="comments"
               value={formValue.comments}
-              onChange={(e) => onValueChange(e)}
+              onChange={(e) => changeHandler(e)}
             />
           </div>
         </div>
@@ -349,7 +367,7 @@ const AddMasterdata = (props: any) => {
             aria-label="save"
             data-testid="save"
           >
-            Save
+            {id ? 'Update' : 'Save'}
           </PtgUiButton>
         </div>
       </div>
