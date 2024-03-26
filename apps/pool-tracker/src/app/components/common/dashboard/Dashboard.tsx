@@ -1,17 +1,17 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../../../../assets/images/yash-logo-new.svg';
-import data from '../../../../assets/images/data.png';
-import config from '../../../../assets/images/config.svg';
-import designation from '../../../../assets/images/designation.png';
-import band from '../../../../assets/images/band.png';
-import competency from '../../../../assets/images/competency.png';
-import dashboard from '../../../../assets/images/dashboard.png';
-import poolHistory from '../../../../assets/images/pool-history.svg';
+import data from '../../../../assets/images/dashboard/data.png';
+import config from '../../../../assets/images/dashboard/config.svg';
+import designation from '../../../../assets/images/dashboard/designation.png';
+import band from '../../../../assets/images/dashboard/band.png';
+import competency from '../../../../assets/images/dashboard/competency.png';
+import dashboard from '../../../../assets/images/dashboard/dashboard.png';
+import poolHistory from '../../../../assets/images/dashboard/pool-history.svg';
 
-import './Home.scss';
+import './Dashboard.scss';
 
-function Home() {
+function Dashboard() {
   return (
     <div className="layout">
       <div className="logo-area">
@@ -69,4 +69,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Dashboard;
