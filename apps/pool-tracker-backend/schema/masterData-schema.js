@@ -34,6 +34,7 @@ const masterDataSchema = mongoose.Schema(
     },
     poolStartDate: Date,
     comments: String,
+    yearsofExp:String,
     designations: String,
     // designations: [
     //   {

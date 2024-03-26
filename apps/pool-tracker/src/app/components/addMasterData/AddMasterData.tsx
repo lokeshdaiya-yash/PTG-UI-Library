@@ -5,6 +5,7 @@ import {
   getDesignations,
   getCompetency,
   getBands,
+  checkDuplicateEmail,
 } from '../../service/api';
 import '../../app.module.scss';
 import './AddMasterData.scss';
@@ -34,6 +35,7 @@ const initialFormValue = {
 };
 
 const AddMasterdata = (props: any) => {
+  const [duplicateEmail, setDuplicateEmail] = useState<any>([]);
   const { masterData, btnName } = props;
   const formErrorsObj: any = {};
   const [formValue, setFormValue] = useState(initialFormValue);
@@ -46,14 +48,29 @@ const AddMasterdata = (props: any) => {
   const [formErrors, setFormErrors] = useState(formErrorsObj);
   const [isSubmit, setIsSubmit] = useState(false);
   const [count, setCount] = useState(0);
+  const today = new Date();
+  const [date, setStartDate] = useState({
+    startDate: null,
+  });
 
   useEffect(() => {
     getAllBands();
     getAllDesignation();
     getAllCompetency();
     getAllSkills();
-    // console.log(formErrors);
-  }, [formErrors]);
+  }, []);
+
+  const checkDuplicate = async (e: any) => {
+    if (e.target.value && !formErrors.emailId) {
+      const response = await checkDuplicateEmail(e.target.value);
+      if (response && response?.data?.message) {
+        setDuplicateEmail(response?.data?.message);
+      } else {
+        setDuplicateEmail('');
+      }
+    }
+  };
+
   // ==================== band select================================================
 
   const getAllBands = async () => {
@@ -93,14 +110,16 @@ const AddMasterdata = (props: any) => {
     try {
       const response = await getSkills();
       const skillData = response?.data;
-      const transformedSkills = skillData.map((skill:any) => ({
-        name: skill.name ? skill.name: '',
+      const transformedSkills = skillData.map((skill: any) => ({
+        name: skill.name ? skill.name : '',
         value: skill.value ? skill.value : '',
-        label: skill.name ? skill.name: '',
+        label: skill.name ? skill.name : '',
         // name: skill.label ? skill.label: '',
       }));
       setSkill(transformedSkills);
-    } catch (error) {}
+    } catch (error) {
+      console.log('error', error)
+    }
   };
 
   const onSelectSkills = (e) => {
@@ -112,11 +131,9 @@ const AddMasterdata = (props: any) => {
     setFormValue({ ...formValue, [name]: value });
   };
 
-   // ==================== select date ===========================================
-  const today = new Date();
-  const [date, setStartDate] = useState({
-    startDate: null,
-  });
+  // ==================== select date ===========================================
+
+
   const setDateState: any = (selectedDate: any, field: string) => {
     setStartDate((preState: any) => {
       return {
@@ -127,19 +144,11 @@ const AddMasterdata = (props: any) => {
   };
 
   const formatDate = (str) => {
-    const date:any = new Date(str)
-//     console.log(date.toDateString()); // e.g., "Wed Apr 06 2022"
-// console.log(date.toLocaleDateString()); // e.g., "4/6/2022"
-    const mnth = date.toLocaleDateString();
-    return mnth;
-
-      // mnth = ('0' + (date.getMonth() + 1)).slice(-2),
-      // day = ('0' + date.getDate()).slice(-2);
-    // return [mnth, day, date.getFullYear()].join('-');
+    const date = new Date(str),
+      mnth = ('0' + (date.getMonth() + 1)).slice(-2),
+      day = ('0' + date.getDate()).slice(-2);
+    return [mnth, day, date.getFullYear()].join('-');
   };
-//   let date = new Date();
-// console.log(date.toDateString()); // e.g., "Wed Apr 06 2022"
-// console.log(date.toLocaleDateString()); // e.g., "4/6/2022"
 
   const startDateProp = {
     selected: date.startDate,
@@ -152,14 +161,19 @@ const AddMasterdata = (props: any) => {
   };
 
   const submitMasterDetails = async () => {
-    setFormErrors(validateFormFields(formValue));
+    const errors = validateFormFields(formValue);
+    setFormErrors(errors);
     setIsSubmit(true);
-    if (Object.keys(formErrors).length === 0) {
-      await addMasterdata(formValue);
+    if (Object.keys(errors).length === 0) {
+      const formattedFormValue = {
+        ...formValue,
+        poolStartDate: formatDate(formValue.poolStartDate),
+      };
+      await addMasterdata(formattedFormValue);
       navigate('/masterData');
     }
-
   };
+
   const cancel = () => {
     navigate('/');
   };
@@ -194,11 +208,62 @@ const AddMasterdata = (props: any) => {
       errors.yearsofExp = 'Years of exp. is required!';
     }
     return errors;
+
+    // const errors: any = {};
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // if (!values.name.trim()) {
+    //   errors.name = 'Name is required!';
+    // }
+
+    // if (!values.emailId.trim()) {
+    //   errors.emailId = 'Email is required!';
+    // } else if (
+    //   !values.emailId.includes('@') ||
+    //   !values.emailId.includes('.com')
+    // ) {
+    //   errors.emailId = 'Invalid email format!';
+    // }
+
+    // if (!values.poolStartDate) {
+    //   errors.poolStartDate = 'Pool Start Date is required!';
+    // }
+
+    // // Validate Band
+    // if (!values.band) {
+    //   errors.band = 'Band is required!';
+    // }
+
+    // // Validate Competency
+    // if (!values.competency) {
+    //   errors.competency = 'Competency is required!';
+    // }
+
+    // // Validate Designations
+    // if (!values.designations) {
+    //   errors.designations = 'Designations are required!';
+    // }
+
+    // // Validate Skills
+    // if (!values.skills || values.skills.length === 0) {
+    //   errors.skills = 'Skills are required!';
+    // }
+
+    // // Validate Years of Experience
+    // if (!values.yearsofExp.trim()) {
+    //   errors.yearsofExp = 'Years of Experience is required!';
+    // } else if (
+    //   isNaN(values.yearsofExp.trim()) ||
+    //   parseInt(values.yearsofExp.trim()) <= 0
+    // ) {
+    //   errors.yearsofExp = 'Invalid Years of Experience!';
+    // }
+
+    // return errors;
   };
 
   return (
     <div>
-
       <div className="ptg-table-addData masterdata-form-container">
         <h4>Add Master Data</h4>
         {/* ================== Name and Email========================== */}
@@ -224,9 +289,13 @@ const AddMasterdata = (props: any) => {
               name="emailId"
               id="emailId"
               placeholder="Enter Email"
+              onBlur={checkDuplicate}
               value={formValue.emailId}
               onChange={(e) => onValueChange(e)}
             />
+            {/* <p className="error">{formErrors.emailId}</p>
+        { duplicateEmail && <p className="error">duplicateEmail</p>} */}
+            {duplicateEmail && <p className="error">{duplicateEmail}</p>}
             <p className="error">{formErrors.emailId}</p>
           </div>
         </div>

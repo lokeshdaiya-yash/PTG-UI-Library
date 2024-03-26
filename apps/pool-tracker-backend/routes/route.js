@@ -1,5 +1,5 @@
 import express from "express";
-import { addMasterdata, getMasterdata, getdata, editMasterdata, deleteMasterdata } from "../controller/masterdata-controller.js";
+import { addMasterdata, getMasterdata, getdata, editMasterdata, deleteMasterdata, checkDuplicateEmail } from "../controller/masterdata-controller.js";
 import { addSkill, getSkills, getSingleSkill, editSkill, deleteSkill } from "../controller/skill-controller.js";
 import { addUser, getUsers, getUser, editUser, loginUser } from "../controller/user-controller.js";
 import { addCompetency, getCompetency, getSingleCompetency, editCompetency, deleteCompetency } from "../controller/competency-controller.js";
@@ -35,6 +35,7 @@ router.get("/masterdata/allmasterdata", getMasterdata);
 router.get("/masterdata/:id", getdata);
 router.post("/masterdata/:id", editMasterdata);
 router.delete("/masterdata/:id", deleteMasterdata);
+router.get("/duplicateemail/:emailId", checkDuplicateEmail);
 
 router.post("/skill/addskill", addSkill);
 router.get("/skill/allskill", getSkills);

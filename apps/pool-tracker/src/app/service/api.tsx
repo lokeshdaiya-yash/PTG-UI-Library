@@ -47,6 +47,15 @@ export const deleteMasterdata = async (id) => {
   }
 
 }
+export const checkDuplicateEmail = async (emailId) => {
+  try {
+      return await axios.get(`${URL}/duplicateemail/${emailId}`);
+  } catch (error) {
+      console.log("error while checking duplicate email id",error);  return; 
+      
+  }
+
+}
 
 // ================skill api======================
 
