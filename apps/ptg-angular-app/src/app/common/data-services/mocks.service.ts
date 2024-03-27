@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class mocksService {
-  apiURL = 'https://ptguistrapi.azurewebsites.net/api/';
+  apiURL = 'http://ptguistrapi.azurewebsites.net/api/';
 
   constructor(private http: HttpClient) {}
 

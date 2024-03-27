@@ -1,11 +1,13 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import * as express from 'express';
 import * as mongoose from 'mongoose';
 import * as cors from 'cors';
 import userRoutes from './app/routers/user.routes';
 import router from './app/routers/auth.routes';
+import ptroutes  from './app/routers/poolTracker.routes'
 import * as path from 'path';
 import * as url from 'url';
-
+import {conn,conn1} from '../../ptg-ui-apps-backend/src/database/db'
 const port = process.env.port || 8080;
 const app = express();
 app.use(cors());
@@ -33,26 +35,35 @@ app.get('/api', (req: any, res: any) => {
 });
 app.use(express.static(path.join(__dirname, 'assets')));
 
-let server = app.listen(port, async () => {
+const server = app.listen(port, async () => {
 });
 
 // using authentication routes
 app.use('/', router);
 app.use('/', userRoutes);
+app.use('/', ptroutes);
 app.use('/files', express.static('assets'));
 app.use(express.static(path.join(__dirname, 'assets')));
 
-const username = encodeURIComponent('priyanshu');
-const password = encodeURIComponent('priyanshu921');
-const dbName = 'test';
-mongoose
-  .connect(
-    `mongodb+srv://${username}:${password}@naruto.sf8tp46.mongodb.net/${dbName}?retryWrites=true&w=majority`
-    // `mongodb+srv://${username}:${password}@atlascluster.27xfa.mongodb.net/${dbName}?retryWrites=true&w=majority`
-  )
-  .then((data) => {
-  })
-  .catch((err) => console.log(err));
+// const username = encodeURIComponent(process.env.PTG_UI_USERNAME);
+// const password = encodeURIComponent(process.env.PTG_UI_PASSWORD);
+// const dbName = 'test';
+// const URL=`mongodb+srv://${username}:${password}@naruto.sf8tp46.mongodb.net/${dbName}?retryWrites=true&w=majority`
+// // const ptURL=`mongodb+srv://${username}:${password}@naruto.sf8tp46.mongodb.net/${dbName}?retryWrites=true&w=majority`
+// // console.log(url)
+// const ptURL =`mongodb+srv://${username}:${password}@crud-app.mmcrcog.mongodb.net/?retryWrites=true&w=majority`;
+// const conn = mongoose.createConnection(URL);
+// const conn2 = mongoose.createConnection(ptURL);
+
+// mongoose
+//   .connect(
+//     URL
+//     // `mongodb+srv://${username}:${password}@atlascluster.27xfa.mongodb.net/${dbName}?retryWrites=true&w=majority`
+//   )
+//   .then((data) => {
+//     console.log(data)
+//   })
+//   .catch((err) => console.log(err));
 
 // fallback when refreshed browser
 app.use('/', express.static(path.join(__dirname, 'public')));
@@ -67,6 +78,7 @@ app.get('*', (req: express.Request, res: express.Response) => {
     'ptg-react-animations': 'ptg-react-animations',
     'ptg-ui-web-comp-angular': 'ptg-ui-web-comp-angular',
     'ptg-ui-web-comp-react': 'ptg-ui-web-comp-react',
+    'pool-tracker':'pool-tracker'
   };
   const projectName = pathArr[1] && apps[pathArr[1]];
   if (projectName) {

@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose';
-export const SaveFile = mongoose.model(
+import {conn} from '../../database/db'
+export const SaveFile = conn.model(
     "SaveFile",
     new mongoose.Schema({
       type: String,

@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
-
-export const User = mongoose.model(
+import {conn} from '../../database/db'
+export const User = conn.model(
   "User",
   new mongoose.Schema({
     name: String,

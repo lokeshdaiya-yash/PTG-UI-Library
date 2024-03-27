@@ -144,6 +144,9 @@
   "ACCOUNT_INFO":"Informations de compte",
   "PERSONAL_INFO":"Renseignements personnels",
   "PAYMENT_DETAILS":"Détails de paiement",
+<<<<<<< HEAD
+  "CONFIRM_DETAILS":"Confirmez vos coordonnées"
+=======
   "CONFIRM_DETAILS":"Confirmez vos coordonnées",
   "BREADCRUMBS": "Chapelure",
   "CARDS": "Cartes",
@@ -152,5 +155,6 @@
   "CONTACT_US" : "Contact Nous",
   "CONVERT_TIMEZONE" : "Convert timezone"
  
+>>>>>>> 25ad643536da882ad38f4508096db055cdc06adb
 }
 

@@ -1,0 +1,49 @@
+@import '../../styles/variables';
+.viewMastertable {
+  position: relative;
+
+  & > .hydrated {
+    visibility: inherit;
+    position: absolute;
+    left: 16px;
+    top: 13px;
+    z-index: 1;
+  }
+}
+.viewMastertable table > tr > th {
+  background-color: none !important;
+}
+.ptg-table-addData {
+  box-shadow: none;
+}
+.table-action-button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+  color: #dc3545;
+}
+
+.icon-color {
+  color: $main;
+}
+
+.viewMastertable table {
+  th:nth-of-type(1) {
+    background-color: #f2f2f2;
+  }
+}
+.viewMastertable h6 {
+  display: none !important;
+  font-weight: 600;
+  padding: 5px 30px 5px 59px;
+}
+
+.addButton {
+  visibility: inherit;
+  position: absolute;
+  left: 16px;
+  top: 13px;
+  z-index: 1;
+  color: #fff;
+}
