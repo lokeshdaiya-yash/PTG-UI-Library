@@ -28,23 +28,22 @@
   color: $main;
 }
 
-.viewMastertable table{
+.viewMastertable table {
   th:nth-of-type(1) {
-    background-color: #b9bc90 ;
+    background-color: #f2f2f2;
   }
-}  
+}
 .viewMastertable h6 {
   display: none !important;
   font-weight: 600;
   padding: 5px 30px 5px 59px;
 }
 
-.addButton{
+.addButton {
   visibility: inherit;
-    position: absolute;
-    left: 16px;
-    top: 13px;
-    z-index: 1;
+  position: absolute;
+  left: 16px;
+  top: 13px;
+  z-index: 1;
+  color: #fff;
 }
-
-       
