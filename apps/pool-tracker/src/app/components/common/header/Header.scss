@@ -1,7 +1,4 @@
 @import '../../../styles/variables';
-.searchWrapper {
-  border: none;
-}
 
 .menuToggle {
   position: fixed;
@@ -29,9 +26,6 @@
 
 .navbar {
   background: $white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 15px 70px;
   display: flex;
   align-items: center;
