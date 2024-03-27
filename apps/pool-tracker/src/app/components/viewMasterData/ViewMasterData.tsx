@@ -51,28 +51,6 @@ const ViewMasterData = () => {
     console.log('Confirm Button Clicked', event.returnValue);
   };
 
-  const designationModal = (
-    btnName: any,
-    heading: string,
-    masterdata?: any
-  ) => {
-    return (
-      <PtgModal
-        modal-size="md"
-        btn-name={btnName}
-        modal-header-name={heading}
-        confirm-button-name="Save"
-        onModalClose={modalClosed}
-        onConfirmClose={confirmClicked}
-      >
-        <div slot="body-block">
-          {/* <i className="fa-solid fa-trash cursor-pointer"></i> */}
-          <AddMasterdata masterdata={masterdata} btnName={btnName} />
-          {/* <EditMasterData masterdata={masterdata} btnName={btnName} /> */}
-        </div>
-      </PtgModal>
-    );
-  };
   const Columns: any = [
     { title: 'Name', field: 'name', filtering: false },
     { title: 'EmailId', field: 'emailId', filtering: false },
@@ -89,7 +67,6 @@ const ViewMasterData = () => {
         const month = poolStartDate.getMonth() + 1;
         const year = poolStartDate.getFullYear();
         const formattedDate = `${day}-${month}-${year}`;
-        // const formattedDate = `${poolStartDate.getDate()}-${poolStartDate.getMonth() + 1}-${poolStartDate.getFullYear()}`;
         return formattedDate;
       },
     },
@@ -101,14 +78,6 @@ const ViewMasterData = () => {
         masterdata.skills.map((skill) => ' ' + skill.name).toString(),
     },
 
-    // { title: 'yearsofExp', field: 'yearsofExp', filtering: false },
-    // { title: 'comments', field: 'comments', filtering: false },
-    // { title: 'clientName', field: 'clientName', filtering: false },
-    // { title: 'status', field: 'status', filtering: false },
-    // { title: 'aging', field: 'aging', filtering: false },
-    // { title: 'projectstartDate', field: 'projectstartDate', filtering: false },
-    // { title: 'projectendDate', field: 'projectendDate', filtering: false },
-
     {
       title: 'Action',
       field: 'Action',
@@ -117,17 +86,10 @@ const ViewMasterData = () => {
       width: 100,
       render: (masterdata: any) => (
         <div className="masterdataBtn">
-          {/* <PtgUiButton onClick={() => deleteUsersDetails(masterdata._id)}>
-              Delete
-            </PtgUiButton> */}
-          {/* <>{console.log('>>>>',masterdata.competency.map(compatancys=> compatancys.name).toString())}</> */}
-
-          <Link to={`/addMasterData/${masterdata._id}`}>
-            <PtgUiButton>Edit</PtgUiButton>
-          </Link>
-
           <div className="masterdataBtn table-action-button">
-            {/* {designationModal('Edit', 'Edit Masterdata', masterdata)} */}
+            <Link to={`/addMasterData/${masterdata._id}`}>
+              <i className="fa-solid fa-pencil cursor-pointer"></i>
+            </Link>
             <i
               className="fa-solid fa-trash cursor-pointer"
               onClick={() => deleteUsersDetails(masterdata._id)}
@@ -139,35 +101,25 @@ const ViewMasterData = () => {
   ];
 
   const detailForAccordion = (masterdata: any) => {
-    console.log('masterdata:', masterdata.rowData.name);
-    console.log('masterdata.name:', masterdata.rowData.name);
     return (
       <div className="ms-4 me-4 mt-2 mb-2 tableAccordion">
-        <div className="d-flex">
-          <h6>Name:</h6>
-          <p> {masterdata.rowData.name}</p>
-        </div>
-        <div className="d-flex">
-          <h6>Id:</h6>
-          <p> {masterdata.rowData._id}</p>
-        </div>
-        <div className="d-flex">
-          <h6>project Name:</h6>
-          <p> Interview Screening</p>
-        </div>
-        <div className="d-flex">
-          <h6>Comments:</h6>
-          <p> {masterdata.rowData.comments}</p>
+        <div className="row">
+          <div className="col-3">
+            <strong>Name</strong>
+            <p className="mt-3"> {masterdata.rowData.name}</p>
+          </div>
+          <div className="col-3">
+            <strong>project Name</strong>
+            <p className="mt-3"> Interview Screening</p>
+          </div>
+          <div className="col-3">
+            <strong>Comments</strong>
+            <p className="mt-3"> {masterdata.rowData.comments}</p>
+          </div>
         </div>
       </div>
     );
   };
-
-  // const filterValue = [
-  //   { name: 'name', operator: 'name', type: 'string', value: '' },
-  //   { name: 'skills', operator: 'skills', type: 'string', value: '' },
-  //   { name: 'clientName', operator: 'clientName', type: 'string', value: '' },
-  // ];
 
   return (
     <div className="viewMastertable">

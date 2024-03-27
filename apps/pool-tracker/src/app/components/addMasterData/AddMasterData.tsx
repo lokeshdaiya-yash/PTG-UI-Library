@@ -29,21 +29,16 @@ const initialFormValue = {
   poolStartDate: '',
   band: '',
   competency: '',
-  ageing: '',
-  status: '',
   skills: [{ name: '', value: '', label: '' }],
   yearsofExp: '',
   comments: '',
-  clientName: '',
   designations: '',
 };
 
 const AddMasterdata = (props: any) => {
-  const { masterData, btnName } = props;
   const [duplicateEmail, setDuplicateEmail] = useState('');
   const formErrorsObj: any = {};
   const [formValue, setFormValue] = useState(initialFormValue);
-  // const [formValue, setFormValue] = useState(formInitialValues);
   const [skills, setSkill] = useState([]);
   const navigate = useNavigate();
   const [band, setBands] = useState([]);
@@ -97,13 +92,10 @@ const AddMasterdata = (props: any) => {
       name: userDetails.name,
       emailId: userDetails.emailId,
       poolStartDate: setDateState(userDetails.poolStartDate, 'startDate'),
-
       band: userDetails.band,
       designations: userDetails.designations,
       competency: userDetails.competency,
-
       skills: transformedSkills,
-      ageing: userDetails.ageing,
       yearsofExp: userDetails.yearsofExp,
       comments: userDetails.comments,
     });
@@ -192,8 +184,8 @@ const AddMasterdata = (props: any) => {
     setFormErrors(validateFormFields(formValue));
     setIsSubmit(true);
     if (
-      Object.keys(formErrors).length === 0
-      // Object.keys(formErrors).length === 0 && Object.values(formValue).every((value) => value !== '')
+      // Object.keys(formErrors).length === 0
+      Object.keys(formErrors).length === 0 && Object.values(formValue).every((value) => value !== '')
     ) {
       if (!id) {
         await addMasterdata(formValue);
