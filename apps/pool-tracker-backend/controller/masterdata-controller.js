@@ -54,16 +54,6 @@ export const deleteMasterdata = async (request, response) => {
 
 export const checkDuplicateEmail = async (request, response) => {
   const requestedEmail = request.params.emailId;
-  // console.log('hasmat', request.params.emailId)
-  // const masterdata =request.body
-  // const newMasterData = new Masterdata(masterdata)
-  // try {
-  //     await newMasterData.save();
-  //     response.status(201).json(newMasterData);
-  // } catch (error) {
-  //     response.status(409).json({ message: error.message });
-  // }
-
   try {
     const record = await Masterdata.findOne({ emailId: requestedEmail });
     if (record) {

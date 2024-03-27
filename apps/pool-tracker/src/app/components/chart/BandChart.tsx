@@ -11,7 +11,12 @@ import { getMasterdata } from '../../service/api';
 //   ],
 // };
 
-const color = ['green', 'blue', 'orange', 'pink', 'rgb(69, 69, 69)'];
+// #7C9D8E	Metallic Green
+// #D4AF37	Metallic Gold
+// #A97142	Metallic Bronze
+// #C4AEAD
+
+const color = ['gray', 'skyblue', 'blue', 'pink', 'rgb(69, 69, 69)'];
 //  eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface D3ChartsProps {}
 // export function SkillChart(props: D3ChartsProps) {
@@ -66,7 +71,7 @@ export function BandChart(D3ChartsProps) {
 
     console.log('KeyChangeObj', ghraphdata, KeyChangeObj);
     const bandgraph: any = {
-      height: 400,
+      height: 300,
       width: 600,
       start: 0,
       end: 10,
@@ -83,7 +88,10 @@ export function BandChart(D3ChartsProps) {
 
   return (
     <div className="p-4">
+      <h5>hello</h5>
+      
       <PtgUiD3Bar {...band} />
+
     </div>
   );
 }

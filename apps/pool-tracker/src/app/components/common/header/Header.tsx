@@ -76,7 +76,7 @@ export function Header() {
             </NavLink>
           </div>
           <div className="links">
-            <NavLink to="/chart">Chart/Graph</NavLink>
+            <NavLink to="/chart/bandchart">Chart/Graph</NavLink>
             <NavLink to="/poolProject">Pool Project</NavLink>
             <NavLink to="/historyPage">Resource History Page</NavLink>
             <NavLink to="/designation">View Designation</NavLink>

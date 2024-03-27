@@ -18,9 +18,9 @@ const Config = () => {
   return (
     
     <div>
+        <ViewBand/>
         <ViewDesignation />
         <ViewSkills />
-        <ViewBand/>
         <ViewCompetency />
  {/* ==============accordion ============================== */}
  <PtgAccordion label={label} description={description} color={bgColor} >

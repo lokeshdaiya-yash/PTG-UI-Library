@@ -43,18 +43,15 @@ export const deleteMasterdata = async (id) => {
       return await axios.delete(`${URL}/masterdata/${id}`);
   } catch (error) {
       console.log("error while calling delete Masterdata api",error);  return; 
-      
   }
-
 }
+
 export const checkDuplicateEmail = async (emailId) => {
   try {
       return await axios.get(`${URL}/duplicateemail/${emailId}`);
   } catch (error) {
       console.log("error while checking duplicate email id",error);  return; 
-      
   }
-
 }
 
 // ================skill api======================
@@ -293,5 +290,13 @@ export const deleteBand = async (id) => {
       return await axios.delete(`${URL}/band/${id}`);
   } catch (error) {
       console.log("error while calling delete band api",error);  return;    
+  }
+}
+
+export const checkDuplicateBand = async (name) => {
+  try {
+      return await axios.get(`${URL}/duplicateband/${name}`);
+  } catch (error) {
+      console.log("error while checking duplicate email id",error);  return; 
   }
 }

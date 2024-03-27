@@ -4,7 +4,7 @@ import { addSkill, getSkills, getSingleSkill, editSkill, deleteSkill } from "../
 import { addUser, getUsers, getUser, editUser, loginUser } from "../controller/user-controller.js";
 import { addCompetency, getCompetency, getSingleCompetency, editCompetency, deleteCompetency } from "../controller/competency-controller.js";
 import { addDesignation, getDesignation, getSingleDesignation, editDesignation, deleteDesignation } from "../controller/designation-controller.js";
-import { addBand, getBand, getSingleBand, editBand, deleteBand} from "../controller/band-controller.js";
+import { addBand, getBand, getSingleBand, editBand, deleteBand, checkDuplicateBand} from "../controller/band-controller.js";
 // import userRoutes from "./userroute.js";
 // import masterdataRoute from "./masterdataRoute.js";
 // import skillRoute from "./skillsRoute.js";
@@ -17,6 +17,7 @@ router.get("/band/allband", getBand);
 router.get("/band/:id", getSingleBand);
 router.post("/band/:id", editBand);
 router.delete("/band/:id", deleteBand);
+router.get("/duplicateband/:name", checkDuplicateBand);
 
 router.post("/competency/addcompetency", addCompetency);
 router.get("/competency/allcompetency", getCompetency);

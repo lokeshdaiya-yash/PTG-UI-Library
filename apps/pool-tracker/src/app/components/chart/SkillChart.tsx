@@ -1,6 +1,6 @@
 
 import {  PtgUiD3Bar, PtgUiD3Pie } from '@ptg-ui/react';
-import { d3BarData } from '@ptg-react-app/mock/mocks';
+// import { d3BarData } from '@ptg-react-app/mock/mocks';
 
 export const d3SkillData:any = {
   height:600,
