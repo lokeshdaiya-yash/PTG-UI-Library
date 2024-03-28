@@ -91,3 +91,7 @@
   z-index:-1 !important;
   position: relative;
 }
+
+.singleSelect{
+  z-index:1 !important;
+}

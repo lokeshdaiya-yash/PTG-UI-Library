@@ -170,4 +170,11 @@ export const NavigationData = [
     label: 'BREADCRUMBS',
     disabled: false,
   },
+  {
+    id:"17",
+    path: '/infinite-scroll',
+    icon: 'fas fa-square-check',
+    label: 'INFINITE SCROLL',
+    disabled: false,
+  },
 ];

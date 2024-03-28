@@ -38,6 +38,7 @@ const GridLayout = lazy(()=> import ("../examples/grid-layout/grid-layout"));
 const Indeterminate =  lazy(()=> import ("../examples/indeterminate-checkbox/indeterminate-checkbox"));
 const PtgUiReactTable =  lazy(()=> import ("../examples/data-table/react-table"));
 const Accordian = lazy(()=> import("../examples/Accordion/accordion"));
+const InfiniteScroll = lazy (() => import("../examples/infinite-scroll/infinite-scroll"));
 
 {/*--Declare routes and component for dynamic load--*/ }
 const routing = [
@@ -164,7 +165,11 @@ const routing = [
   {
     path: '/accordian',
     component: Accordian,
-  }
+  },
+  {
+    path: '/infinite-scroll',
+    component: InfiniteScroll,
+  },
 ];
 export default routing;
 
