@@ -39,12 +39,12 @@ const ViewDesignation = () => {
     return (
       <PtgModal
         modal-size="md"
-        className='btn btn-primaryy'        
         btn-name={btnName}
         modal-header-name={heading}
         confirm-button-name="Save"
         onModalClose={modalClosed}
         onConfirmClose={confirmClicked}
+        style={{ marginRight: '20px' }}
       >
         <div slot="body-block">
           <AddDesignation designation={designation} btnName={btnName} />
@@ -60,10 +60,10 @@ const ViewDesignation = () => {
       field: 'Action',
       name: 'action',
       header: '',
-      width: '50%',
+      width: '20%',
       render: (designation: any) => (
         <div className="masterdataBtn table-action-button">
-           {designationModal('Edit', 'Edit Designation', designation)}
+          {designationModal('Edit', 'Edit Designation', designation)}
           <i
             className="fa-solid fa-trash cursor-pointer"
             onClick={() => deleteDesignationDetails(designation._id)}

@@ -1,9 +1,6 @@
 import Designations from '../schema/designation-schema.js';
 
 export const addDesignation = async (request, response) => {
-  // const designation = request.body;
-  // console.log(designation);
-  // const newDesignation = new Designations(designation);
   try {
     const designations = await Designations.find({});
     if(designations.length > 0 ){

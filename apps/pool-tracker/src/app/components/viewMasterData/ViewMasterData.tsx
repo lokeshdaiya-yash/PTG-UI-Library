@@ -101,6 +101,7 @@ const ViewMasterData = () => {
   ];
 
   const detailForAccordion = (masterdata: any) => {
+    console.log(masterdata);
     return (
       <div className="ms-4 me-4 mt-2 mb-2 tableAccordion">
         <div className="row">
@@ -111,6 +112,10 @@ const ViewMasterData = () => {
           <div className="col-3">
             <strong>project Name</strong>
             <p className="mt-3"> Interview Screening</p>
+          </div>
+          <div className="col-3">
+            <strong>Location</strong>
+            <p className="mt-3"> {masterdata.rowData.locations}</p>
           </div>
           <div className="col-3">
             <strong>Comments</strong>

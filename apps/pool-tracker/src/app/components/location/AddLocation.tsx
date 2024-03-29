@@ -1,6 +1,6 @@
 import { PtgUiButton, PtgUiInput } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useEffect, useState } from 'react';
-import { addBand } from '../../service/api';
+import { addLocation } from '../../service/api';
 
 const initialFormValue = {
   name: '',
@@ -8,16 +8,16 @@ const initialFormValue = {
   label: '',
 };
 
-const AddBand = (props: any) => {
-  const { band, btnName } = props;
+const AddLocation = (props: any) => {
+  const { location, btnName } = props;
   const [formValue, setFormValue] = useState(initialFormValue);
 
   useEffect(() => {
-    if (btnName !== 'Add Band') {
+    if (btnName !== 'Add Location') {
       setFormValue({
-        name: band.name,
-        value: band.value,
-        label: band.label,
+        name: location?.name,
+        value: location?.value,
+        label: location?.label,
       });
     }
   }, []);
@@ -33,13 +33,12 @@ const AddBand = (props: any) => {
   };
 
   const onSubmit = async () => {
-    console.log(formValue);
-    await addBand(formValue);
+    await addLocation(formValue);
   };
 
   return (
     <div className="ptg-table-addData form-container">
-      <label htmlFor="label"> Band Name </label>
+      <label htmlFor="label"> Location Name </label>
       <PtgUiInput
         type="text"
         name="name"
@@ -54,10 +53,10 @@ const AddBand = (props: any) => {
         disabled={!formValue.value}
         onClick={() => onSubmit()}
       >
-        Add Band
+        Add Location
       </PtgUiButton> */}
     </div>
   );
 };
 
-export default AddBand;
+export default AddLocation;

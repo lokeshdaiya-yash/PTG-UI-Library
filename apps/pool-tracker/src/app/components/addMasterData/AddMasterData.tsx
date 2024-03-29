@@ -10,6 +10,7 @@ import {
   getBands,
   getData,
   checkDuplicateEmail,
+  getLocations,
 } from '../../service/api';
 
 import {
@@ -33,6 +34,7 @@ const initialFormValue = {
   yearsofExp: '',
   comments: '',
   designations: '',
+  locations: '',
 };
 
 const AddMasterdata = (props: any) => {
@@ -44,6 +46,7 @@ const AddMasterdata = (props: any) => {
   const [band, setBands] = useState([]);
   const [competency, setCompetency] = useState([]);
   const [designations, setDesignation] = useState([]);
+  const [locations, setLocation] = useState([]);
   const [formErrors, setFormErrors] = useState(formErrorsObj);
   const [isSubmit, setIsSubmit] = useState(false);
   const { id } = useParams();
@@ -53,6 +56,7 @@ const AddMasterdata = (props: any) => {
   useEffect(() => {
     getBandsList();
     getDesignationList();
+    getLocationList();
     getCompetencyList();
     getSkillList();
     if (id) {
@@ -94,6 +98,7 @@ const AddMasterdata = (props: any) => {
       poolStartDate: setDateState(userDetails.poolStartDate, 'startDate'),
       band: userDetails.band,
       designations: userDetails.designations,
+      locations: userDetails.locations,
       competency: userDetails.competency,
       skills: transformedSkills,
       yearsofExp: userDetails.yearsofExp,
@@ -114,7 +119,7 @@ const AddMasterdata = (props: any) => {
     setFormValue({ ...formValue, skills: e });
   };
 
-  const changeHandler = (e) => {
+  const changeHandler = (e: any) => {
     const { name, value } = e.target;
     setFormValue({ ...formValue, [name]: value });
   };
@@ -137,6 +142,12 @@ const AddMasterdata = (props: any) => {
     setDesignation(response?.data);
   };
 
+  // getting Locations list
+  const getLocationList = async () => {
+    const response = await getLocations();
+    setLocation(response?.data);
+  };
+
   // getting Skills list
   const getSkillList = async () => {
     try {
@@ -150,7 +161,7 @@ const AddMasterdata = (props: any) => {
   };
 
   // format date
-  const formatDate = (str) => {
+  const formatDate = (str: string) => {
     const date = new Date(str),
       mnth = ('0' + (date.getMonth() + 1)).slice(-2),
       day = ('0' + date.getDate()).slice(-2);
@@ -174,9 +185,8 @@ const AddMasterdata = (props: any) => {
       console.log('date selection', date);
       setDateState(date, 'startDate');
       setFormValue({ ...formValue, poolStartDate: date });
- 
     },
-    startDate: today,
+    // startDate: today,
   };
 
   // submit forms data
@@ -184,8 +194,8 @@ const AddMasterdata = (props: any) => {
     setFormErrors(validateFormFields(formValue));
     setIsSubmit(true);
     if (
-      // Object.keys(formErrors).length === 0
-      Object.keys(formErrors).length === 0 && Object.values(formValue).every((value) => value !== '')
+      Object.keys(formErrors).length === 0 &&
+      Object.values(formValue).every((value) => value !== '')
     ) {
       if (!id) {
         await addMasterdata(formValue);
@@ -222,7 +232,10 @@ const AddMasterdata = (props: any) => {
       errors.competency = 'Competency is required!';
     }
     if (!values.designations) {
-      errors.designations = 'Designations is required!';
+      errors.designations = 'Designation is required!';
+    }
+    if (!values.locations) {
+      errors.locations = 'Location is required!';
     }
     if (!values.skills) {
       errors.skills = 'Skills are required!';
@@ -270,8 +283,6 @@ const AddMasterdata = (props: any) => {
               disabled={id !== undefined ? true : false}
               onChange={(e) => changeHandler(e)}
             />
-            {/* <p className="error">{formErrors.emailId}</p>
-        { duplicateEmail && <p className="error">duplicateEmail</p>} */}
             {duplicateEmail && <p className="error">{duplicateEmail}</p>}
             <p className="error">{formErrors.emailId}</p>
           </div>
@@ -333,7 +344,37 @@ const AddMasterdata = (props: any) => {
           </div>
         </div>
 
-        {/*  ===================== Skills and Exp ================================*/}
+        {/*  ===================== Exp and Loaction ================================*/}
+
+        <div className="masterdatafield">
+          <div className="masterdatafield-box">
+            <label htmlFor="yearsofExp"> Years of Experience </label>
+            <PtgUiInput
+              className={'w-100 form-control bg_0 '}
+              type="text"
+              name="yearsofExp"
+              placeholder="Enter Experience"
+              value={formValue.yearsofExp}
+              onChange={(e) => changeHandler(e)}
+            />
+            <p className="error">{formErrors.yearsofExp}</p>
+          </div>
+          <div className="masterdatafield-box">
+            <label htmlFor="designation"> Location </label>
+            <PtgUiMultiSelectbox
+              name="location"
+              list={locations}
+              onSelect={(e) => selectHandler(e, 'locations')}
+              showCheckbox={true}
+              singleSelect={true}
+              selectedValues={[{ label: formValue.locations }]}
+            />
+            <p className="error">{formErrors.locations}</p>
+          </div>
+        </div>
+
+        {/* ==================== Skills & Comments ============================== */}
+
         <div className="masterdatafield">
           {id !== undefined ? (
             <div className="masterdatafield-box">
@@ -370,22 +411,6 @@ const AddMasterdata = (props: any) => {
             </div>
           )}
 
-          <div className="masterdatafield-box">
-            <label htmlFor="yearsofExp"> Years of Experience </label>
-            <PtgUiInput
-              className={'w-100 form-control bg_0 '}
-              type="text"
-              name="yearsofExp"
-              placeholder="Enter Experience"
-              value={formValue.yearsofExp}
-              onChange={(e) => changeHandler(e)}
-            />
-            <p className="error">{formErrors.yearsofExp}</p>
-          </div>
-        </div>
-
-        {/* ==================== Comments ============================== */}
-        <div className="masterdatafield">
           <div className="masterdatafield-box">
             <label htmlFor="comments"> Comments </label>
             <PtgUiTextArea
