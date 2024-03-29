@@ -71,30 +71,30 @@ export function Header() {
       <>
         <header className="navbar">
           <div>
-            <NavLink to="/masterData">
+            <NavLink to="/">
               <img src={Logo} alt="Logo" />
             </NavLink>
           </div>
           <div className="links">
             <NavLink to="/chart/bandchart">Chart/Graph</NavLink>
-            <NavLink to="/poolProject">Pool Project</NavLink>
-            <NavLink to="/historyPage">Resource History Page</NavLink>
-            <NavLink to="/designation">View Designation</NavLink>
-            <NavLink to="/config">Config</NavLink>
-            <PtgUiMultiSelectbox
+            {/* <NavLink to="/poolProject">Pool Project</NavLink> */}
+            {/* <NavLink to="/historyPage">Resource History Page</NavLink> */}
+            {/* <NavLink to="/designation">View Designation</NavLink> */}
+            {/* <NavLink to="/config">Config</NavLink> */}
+            {/* <PtgUiMultiSelectbox
               name="config"
               list={CONFIG_LIST}
               onSelect={onSelect}
               showCheckbox={false}
               singleSelect={true}
-            />
+            /> */}
           </div>
-          <div className="navigation">
+          {/* <div className="navigation">
             <div className="userBx">
               <div className="imgBx"></div>
               <div className="menuToggle"></div>
             </div>
-          </div>
+          </div> */}
         </header>
         <div style={bgStyle} className="sub-header">
           Master Data

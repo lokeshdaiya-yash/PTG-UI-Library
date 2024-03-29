@@ -1,7 +1,7 @@
 import { PtgUiD3Bar, PtgUiD3Line, PtgUiD3Pie } from '@ptg-ui/react';
 // import { d3LineData } from '@ptg-react-app/mock/mocks';
 import { useEffect, useState } from 'react';
-import { getMasterdata } from '../../service/api';
+import { getMasterdata } from '../../service/masterData-api';
 
 // export const d3BandLineData: any = {
 //   data: [

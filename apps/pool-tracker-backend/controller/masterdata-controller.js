@@ -6,12 +6,23 @@ export const addMasterdata = async (request, response) => {
   const newMasterData = new Masterdata(masterdata);
   try {
     await newMasterData.save();
-    response.status(201).json(newMasterData);
+    response.status(201).json({ message: 'Added successfully' });
   } catch (error) {
     response.status(409).json({ message: error.message });
   }
 
   console.log(masterdata);
+};
+
+export const editMasterdata = async (request, response) => {
+  let userData = request.body;
+  // const editUser = new Masterdata(masterdata);
+  try {
+    await Masterdata.updateOne({ _id: request.params.id }, userData);
+    response.status(201).json({ message: 'Updated successfully!' });
+  } catch (error) {
+    response.status(409).json({ message: error.message });
+  }
 };
 
 export const getMasterdata = async (request, response) => {
@@ -29,17 +40,6 @@ export const getdata = async (request, response) => {
     response.status(200).json(masterdata);
   } catch (error) {
     response.status(404).json({ message: error.message });
-  }
-};
-
-export const editMasterdata = async (request, response) => {
-  let masterdata = request.body;
-  const editUser = new Masterdata(masterdata);
-  try {
-    await Masterdata.updateOne({ _id: request.params.id }, editUser);
-    response.status(201).json(editUser);
-  } catch (error) {
-    response.status(409).json({ message: error.message });
   }
 };
 

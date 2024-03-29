@@ -32,7 +32,7 @@ const masterDataSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
-    poolStartDate: Date,
+    poolStartDate: String,
     comments: String,
     yearsofExp:String,
     designations: String,

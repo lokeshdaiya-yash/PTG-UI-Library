@@ -2,7 +2,7 @@
 
 import { PtgUiButton, PtgUiInput } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useEffect, useState } from 'react';
-import { addDesignation } from '../../service/api';
+import { addDesignation } from '../../service/designation-api';
 
 const initialFormValue = {
   name: '',

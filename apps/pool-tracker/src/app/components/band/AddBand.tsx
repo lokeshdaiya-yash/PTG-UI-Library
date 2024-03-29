@@ -1,7 +1,7 @@
 import { PtgUiButton, PtgUiInput } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { addBand, checkDuplicateBand } from '../../service/api';
+import { addBand, checkDuplicateBand } from '../../service/band-api';
 
 const initialFormValue = {
   name: '',

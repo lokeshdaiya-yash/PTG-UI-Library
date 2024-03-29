@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { deleteSkill, getSkills } from '../../service/api';
+import { deleteSkill, getSkills } from '../../service/skill-api';
 import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 import './Skills.scss';
 import { PtgUiMaterialTable } from '@ptg-ui/react';

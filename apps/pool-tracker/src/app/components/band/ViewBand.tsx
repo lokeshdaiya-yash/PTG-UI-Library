@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { deleteBand, getBands } from '../../service/api';
+import { deleteBand, getBands } from '../../service/band-api';
 import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 // import './Band.scss';
 import { PtgUiAlert, PtgUiMaterialTable } from '@ptg-ui/react';
