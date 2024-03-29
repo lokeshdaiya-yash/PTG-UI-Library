@@ -47,14 +47,6 @@ export function DragNDrop(props: DragNDropProps) {
         </div>
           <DragExampleThree />
         </Tab>
-        <Tab eventKey="example4" title={t('DRAG_DROP_EX_4')}>
-        <div className="row">
-          <div className="col-11 mb-3">
-            <h4 className="m-3">{t('DRAG_DROP_EX_4')}</h4>
-          </div>
-        </div>
-          <DragExampleFour />
-        </Tab>
       </Tabs>
     </div>
   );

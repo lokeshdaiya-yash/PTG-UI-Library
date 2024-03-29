@@ -10,14 +10,11 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <StrictMode>
-  {/* <BrowserRouter basename="/ptg-react-app"> */}
   <BrowserRouter>
   <Suspense fallback={<span>Loading...</span>}>
     <App />
   </Suspense>
   </BrowserRouter>
-</StrictMode>,
 );
 
 // ReactDOM.render(
