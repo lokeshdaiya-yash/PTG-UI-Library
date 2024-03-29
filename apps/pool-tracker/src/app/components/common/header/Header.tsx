@@ -38,7 +38,7 @@ export function Header() {
           return;
       }
     };
-    // renderSwitch(pathName);
+    renderSwitch(pathName);
   }, [pathName]);
 
   const bgStyle = {

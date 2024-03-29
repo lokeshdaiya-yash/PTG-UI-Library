@@ -2,20 +2,6 @@ import mongoose from 'mongoose';
 
 const masterDataSchema = mongoose.Schema(
   {
-    //   name: String,
-    //   clientInterviews: String,
-    //   competency: String,
-    //   poolStartDate: String,
-    //   ageing: String,
-    //   status: String,
-    //   skills: [String],
-    //   yearsofExp: String,
-    //   bands: String,
-    //   comments: String,
-    //   clientName: String,
-    //   designations: String,
-    // })
-
     name: {
       type: String,
       trim: true,
@@ -34,13 +20,14 @@ const masterDataSchema = mongoose.Schema(
     },
     poolStartDate: String,
     comments: String,
-    yearsofExp:String,
+    yearsofExp: String,
     designations: String,
-    // designations: [
+    locations: String,
+    // locations: [
     //   {
     //     id: {
     //       type: mongoose.Schema.Types.ObjectId,
-    //       ref: 'tblDesignationMaster',
+    //       ref: 'location',
     //     },
     //     name: {
     //       type: String,

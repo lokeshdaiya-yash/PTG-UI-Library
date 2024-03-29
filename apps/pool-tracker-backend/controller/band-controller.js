@@ -1,5 +1,5 @@
 import Bands from '../schema/band-schema.js';
-
+ 
 export const addBand = async (request, response) => {
   try {
     const bands = await Bands.find({});
@@ -19,7 +19,7 @@ export const addBand = async (request, response) => {
         console.log("band",band);
         const newBand = new Bands(band);
          await newBand.save();
-        response.status(200).json({newBand, message: "Band added successfully"});
+        response.status(200).json({message: "Band added successfully"});
       }
       else{
          response.status(404).json({ message:"band (" + request.body.name+") is already exist"  });
@@ -28,14 +28,14 @@ export const addBand = async (request, response) => {
     response.status(404).json({ message: error.message });
   }
 };
-
-
-
+ 
+ 
+ 
 export const getBand = async (request, response) => {
     try {
       const bands = await Bands.find({});
       response.status(200).json(bands);
-      
+     
     } catch (error) {
       response.status(404).json({ message: error.message });
     }
@@ -48,26 +48,44 @@ export const getBand = async (request, response) => {
       response.status(404).json({ message: error.message });
     }
   };
-
+ 
   export const editBand = async ( request, response)=> {
     let band = request.body;
-    const editBand = new Bands(band);
+    // const editBand = new Bands(band);
     try {
-        await Bands.updateOne({_id: request.params.id}, editBand)
-        response.status(201).json(editBand);
-        
+        await Bands.updateOne({_id: request.params.id}, band)
+        response.status(201).json({message: "Band updated successfully"});
+       
     } catch (error) {
     response.status(409).json({ message: error.message });
-        
+       
     }
 }
-
+ 
 export const deleteBand = async( request, response ) => {
     try {
         await Bands.deleteOne({_id: request.params.id});
         response.status(200).json({message: "Bands deleted successfully"});
     } catch (error) {
         response.status(409).json({ message: error.message });
-        
+       
     }
 }
+ 
+export const checkDuplicateBand = async (request, response) => {
+  const requestedName = request.params.name;
+  try {
+    const record = await Bands.findOne({ name: {$regex: new RegExp('^' + requestedName + '$', 'i')} });
+    if (record) {
+      response
+        .status(200)
+        .json({ message: `${requestedName} is already exist` });
+      response.end();
+    } else {
+      response.status(200).json({ message: '' });
+      response.end();
+    }
+  } catch (error) {
+    response.status(409).json({ message: error.message });
+  }
+};

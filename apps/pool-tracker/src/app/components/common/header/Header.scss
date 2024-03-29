@@ -1,25 +1,26 @@
 @import '../../../styles/variables';
 
-.menuToggle {
+.navigation {
   position: fixed;
   top: 13px;
   right: 15px;
   width: 60px;
   height: 60px;
-  background: rgb(207, 204, 204);
+  background: rgb(62, 47, 234);
   box-shadow: 0 25px 35px rgba(0, 0, 0, 0.1);
   .userBx {
     position: relative;
     width: 60px;
     height: 60px;
-    background: rgb(207, 204, 204);
+    background: rgb(7, 216, 133);
     .imgBx {
       position: relative;
       min-width: 60px;
       height: 60px;
-      background-color:rgb(207, 204, 204);
+      background-color: rgb(200, 25, 25);
+      // background-color: rgb(207, 204, 204);
       border: 50%;
-      border: 10px solid rgb(207, 204, 204);;
+      border: 10px solid rgb(207, 204, 204);
     }
   }
 }
