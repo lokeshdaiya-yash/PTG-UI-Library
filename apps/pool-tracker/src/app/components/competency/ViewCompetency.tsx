@@ -34,6 +34,7 @@ const ViewCompetency = () => {
           btn-name={btnName}
           modal-header-name={heading}
           confirm-button-name="Save"
+          style={{ marginRight: '20px' }}
         >
           <div slot="body-block">
             <AddCompetency competency={competency} btnName={btnName} />
@@ -49,7 +50,7 @@ const ViewCompetency = () => {
         field: 'Action',
         name: 'action',
         header: '',
-        width: '50%',
+        width: '20%',
         render: (competency) => (
           <div className="masterdataBtn table-action-button">
             {bandModal('Edit', 'Edit Competency', competency)}

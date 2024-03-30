@@ -1,41 +1,49 @@
 import React, { useEffect, useState } from 'react';
 
-import { deleteSkill, getSkills } from '../../service/skill-api';
+import { deleteLocation, getLocations } from '../../service/api';
 import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
-import './Skills.scss';
 import { PtgUiMaterialTable } from '@ptg-ui/react';
-import AddSkills from './AddSkills';
+import AddLocation from './AddLocation';
 
-const ViewSkills = () => {
-  const [skill, setSkill] = useState([]);
+const ViewLocation = () => {
+  const [location, setLocation] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    getAllSkills();
+    getAllLocations();
   }, []);
 
-  const getAllSkills = async () => {
-    const response = await getSkills();
-    setSkill(response?.data);
+  const getAllLocations = async () => {
+    const response = await getLocations();
+    setLocation(response?.data);
   };
 
-  const deleteSkills = async (id) => {
-    await deleteSkill(id);
-    getAllSkills();
+  const deleteLocations = async (id: any) => {
+    await deleteLocation(id);
+    getAllLocations();
   };
 
-  
+  const modalClosed = (event) => {
+    setIsOpen(false);
+  };
 
-  const skillsModal = (btnName: string, heading: string, skill?: string) => {
+  const locationModal = (
+    btnName: string,
+    heading: string,
+    location?: string
+  ) => {
     return (
       <PtgModal
+        isOpen={isOpen}
         modal-size="md"
         btn-name={btnName}
         modal-header-name={heading}
         confirm-button-name="Save"
+        onModalClose={modalClosed}
         style={{ marginRight: '20px' }}
       >
         <div slot="body-block">
-          <AddSkills skill={skill} btnName={btnName} />
+          <AddLocation location={location} btnName={btnName} />
         </div>
       </PtgModal>
     );
@@ -49,14 +57,15 @@ const ViewSkills = () => {
       name: 'action',
       header: '',
       width: '20%',
-      render: (skill) => (
+      render: (location) => (
         <div className="masterdataBtn table-action-button">
-          {skillsModal('Edit', 'Edit Skill', skill)}
+          {locationModal('Edit', 'Edit Location', location)}
 
           <i
             className="fa-solid fa-trash cursor-pointer"
-            onClick={() => deleteSkills(skill._id)}
+            onClick={() => deleteLocations(location._id)}
           ></i>
+          {/* <PtgUiAlert message={('ERROR_MSG')} /> */}
         </div>
       ),
     },
@@ -64,9 +73,9 @@ const ViewSkills = () => {
 
   return (
     <div className="viewMastertable viewTable">
-      {skillsModal('Add Skill', 'Add Skill')}
+      {locationModal('Add Location', 'Add Location')}
       <PtgUiMaterialTable
-        data={skill}
+        data={location}
         columns={Columns}
         filtering={true}
         paging={true}
@@ -76,4 +85,5 @@ const ViewSkills = () => {
     </div>
   );
 };
-export default ViewSkills;
+
+export default ViewLocation;

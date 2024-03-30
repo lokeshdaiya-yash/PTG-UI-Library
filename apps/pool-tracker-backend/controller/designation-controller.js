@@ -1,9 +1,6 @@
 import Designations from '../schema/designation-schema.js';
 
 export const addDesignation = async (request, response) => {
-  // const designation = request.body;
-  // console.log(designation);
-  // const newDesignation = new Designations(designation);
   try {
     const designations = await Designations.find({});
     if(designations.length > 0 ){
@@ -34,7 +31,7 @@ export const addDesignation = async (request, response) => {
 
 export const getDesignation = async (request, response) => {
   try {
-    const designations = await Designations.find({});
+    const designations = await Designations.find({}).sort({createdAt: -1});
     response.status(200).json(designations);
     
   } catch (error) {

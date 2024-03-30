@@ -1,8 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import EditMasterdata from './components/viewMasterData/EditMasterData';
-import EditSkill from './components/EditSkill';
-import AddSkill from './components/AddSkill';
-import User from './components/User';
 import Login from './components/Login';
 import PageNotFound from './components/pageNotFound/PageNotFound';
 import AddMasterdata from './components/addMasterData/AddMasterData';
@@ -18,6 +15,8 @@ import Header from './components/common/header/Header';
 import Footer from './components/common/footer/Footer';
 import Dashboard from './components/common/dashboard/Dashboard';
 import ViewMasterData from './components/viewMasterData/ViewMasterData';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function App() {
   return (
@@ -27,7 +26,7 @@ export function App() {
         <Routes>
           {/* <Route path="/" element={<Login />} /> */}
           <Route path="/" element={<Dashboard />} />
-          <Route path="/user" element={<User />} />
+          {/* <Route path="/user" element={<User />} /> */}
 
           {/* <Route element={<PrivateRout />}> */}
           <Route path="/config" element={<Config />} />
@@ -43,8 +42,8 @@ export function App() {
 
           {/* skills Routes*/}
           <Route path="/skills" element={<ViewSkills />} />
-          <Route path="addSkill" element={<AddSkill />} />
-          <Route path="/editskill/:id" element={<EditSkill />} />
+          {/* <Route path="addSkill" element={<AddSkill />} />
+          <Route path="/editskill/:id" element={<EditSkill />} /> */}
 
           {/* chart Routes*/}
           <Route path="/chart/" element={<Chart />}>
@@ -57,6 +56,20 @@ export function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+        {/* Same as */}
+        <ToastContainer />
       </BrowserRouter>
     </div>
   );

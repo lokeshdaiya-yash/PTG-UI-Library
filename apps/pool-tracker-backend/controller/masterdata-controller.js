@@ -1,39 +1,40 @@
 import Masterdata from '../schema/masterData-schema.js';
 
+// add a new record
 export const addMasterdata = async (request, response) => {
   const masterdata = request.body;
-
-  const newMasterData = new Masterdata(masterdata);
+  const newEmployee = new Masterdata(masterdata);
   try {
-    await newMasterData.save();
+    await newEmployee.save();
     response.status(201).json({ message: 'Added successfully' });
   } catch (error) {
     response.status(409).json({ message: error.message });
   }
-
-  console.log(masterdata);
 };
 
+// update existing record
 export const editMasterdata = async (request, response) => {
-  let userData = request.body;
-  // const editUser = new Masterdata(masterdata);
+  let employee = request.body;
   try {
-    await Masterdata.updateOne({ _id: request.params.id }, userData);
+    await Masterdata.updateOne({ _id: request.params.id }, employee);
     response.status(201).json({ message: 'Updated successfully!' });
   } catch (error) {
     response.status(409).json({ message: error.message });
   }
 };
 
+// get all records
 export const getMasterdata = async (request, response) => {
   try {
-    const masterdatas = await Masterdata.find({});
+    const masterdatas = await Masterdata.find({}).sort({createdAt: -1});
+    console.log('hasmat', masterdatas);
     response.status(200).json(masterdatas);
   } catch (error) {
     response.status(404).json({ message: error.message });
   }
 };
 
+// get a single record by employee's Id
 export const getdata = async (request, response) => {
   try {
     const masterdata = await Masterdata.findById(request.params.id);
@@ -43,6 +44,7 @@ export const getdata = async (request, response) => {
   }
 };
 
+// delete a single record
 export const deleteMasterdata = async (request, response) => {
   try {
     await Masterdata.deleteOne({ _id: request.params.id });
@@ -52,6 +54,7 @@ export const deleteMasterdata = async (request, response) => {
   }
 };
 
+// checking employee already exist or not
 export const checkDuplicateEmail = async (request, response) => {
   const requestedEmail = request.params.emailId;
   try {
