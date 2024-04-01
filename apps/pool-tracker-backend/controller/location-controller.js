@@ -50,7 +50,7 @@ export const addLocation = async (request, response) => {
 
 export const getLocation = async (request, response) => {
   try {
-    const locations = await Locations.find({});
+    const locations = await Locations.find({}).sort({createdAt: -1});
     response.status(200).json(locations);
   } catch (error) {
     response.status(404).json({ message: error.message });

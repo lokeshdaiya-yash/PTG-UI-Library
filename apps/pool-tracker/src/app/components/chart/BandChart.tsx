@@ -1,6 +1,7 @@
 import { PtgUiD3Bar } from '@ptg-ui/react';
 import { useEffect, useState } from 'react';
-import { getMasterdata, getBands } from '../../service/api';
+import { getMasterdata } from '../../service/masterData-api';
+import { getBands } from '../../service/band-api';
 
 const color = ['green', 'blue', 'orange', 'pink', 'purple'];
 

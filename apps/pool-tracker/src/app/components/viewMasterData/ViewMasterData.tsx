@@ -1,7 +1,7 @@
 // import { PtgUiButton } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getMasterdata, deleteMasterdata, getData } from '../../service/api';
+import { getMasterdata, deleteMasterdata, getData } from '../../service/masterData-api';
 import '../../app.module.scss';
 import './ViewMasterData.scss';
 import { useNavigate, useParams } from 'react-router-dom';

@@ -36,7 +36,7 @@ export const addCompetency = async (request, response) => {
 
 export const getCompetency = async (request, response) => {
   try {
-    const competencies = await Competencies.find({});
+    const competencies = await Competencies.find({}).sort({createdAt: -1});
     response.status(200).json(competencies);
   } catch (error) {
     response.status(404).json({ message: error.message });

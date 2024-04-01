@@ -33,7 +33,7 @@ export const addBand = async (request, response) => {
  
 export const getBand = async (request, response) => {
     try {
-      const bands = await Bands.find({});
+      const bands = await Bands.find({}).sort({createdAt: -1});
       response.status(200).json(bands);
      
     } catch (error) {
@@ -71,7 +71,6 @@ export const deleteBand = async( request, response ) => {
        
     }
 }
- 
 export const checkDuplicateBand = async (request, response) => {
   const requestedName = request.params.name;
   try {

@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import {
-  addMasterdata,
-  editMasterdata,
-  getSkills,
-  getDesignations,
-  getCompetency,
-  getBands,
-  getData,
-  checkDuplicateEmail,
-  getLocations,
-} from '../../service/api';
+import { addMasterdata, editMasterdata, getData, checkDuplicateEmail } from '../../service/masterData-api';
+import { getSkills } from '../../service/skill-api';
+import { getDesignations } from '../../service/designation-api';
+import { getCompetency } from '../../service/competency-api';
+import { getBands } from '../../service/band-api';
+import { getLocations } from '../../service/api';
 
 import {
   PtgUiButton,

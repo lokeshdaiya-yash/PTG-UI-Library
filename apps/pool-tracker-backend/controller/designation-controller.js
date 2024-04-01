@@ -31,7 +31,7 @@ export const addDesignation = async (request, response) => {
 
 export const getDesignation = async (request, response) => {
   try {
-    const designations = await Designations.find({});
+    const designations = await Designations.find({}).sort({createdAt: -1});
     response.status(200).json(designations);
     
   } catch (error) {

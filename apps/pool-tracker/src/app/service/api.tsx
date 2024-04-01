@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 const URL = environment.baseUrl;
 // const URL = "http://localhost:5000";
 
-// masterData api=========================================
+// // masterData api=========================================
 
 export const addMasterdata = async (data) => {
   try {
@@ -78,16 +78,23 @@ export const addSkill = async (data) => {
   }
 };
 
+// // export const getSkills = async () => {
+// //   try {
+// //     const response = await axios.get(`${URL}/skills`);
+// //     const skills = response.data;
+// //     const transformedSkills = skills.map(skill =>({
+// //       value: skill.name,
+// //         label: skill.name,
+// //         name: skill.name,
+// //     }));
+// //     return transformedSkills;
+// //   } catch (error) {
+// //     console.log("error while calling all skill api",error);  return; 
+// //   }
+// // };  
 // export const getSkills = async () => {
 //   try {
-//     const response = await axios.get(`${URL}/skills`);
-//     const skills = response.data;
-//     const transformedSkills = skills.map(skill =>({
-//       value: skill.name,
-//         label: skill.name,
-//         name: skill.name,
-//     }));
-//     return transformedSkills;
+//     return await axios.get(`${URL}/skill/allskill`);
 //   } catch (error) {
 //     console.log("error while calling all skill api",error);  return;
 //   }
@@ -185,7 +192,7 @@ export const deleteUser = async (id) => {
   }
 };
 
-// ================== Designation ========================
+// // ================== Designation ========================
 
 export const addDesignation = async (data) => {
   try {

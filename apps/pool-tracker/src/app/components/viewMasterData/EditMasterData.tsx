@@ -1,6 +1,6 @@
 import React,{ useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { editMasterdata, getData } from "../../service/api";
+import { editMasterdata, getData } from "../../service/masterData-api";
 
 
 const defaultValue = {

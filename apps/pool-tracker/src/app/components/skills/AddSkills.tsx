@@ -1,6 +1,6 @@
 import { PtgUiButton, PtgUiInput } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useEffect, useState } from 'react';
-import { addSkill } from '../../service/api';
+import { addSkill } from '../../service/skill-api';
 
 const initialFormValue = {
   name: '',

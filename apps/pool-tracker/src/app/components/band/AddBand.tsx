@@ -1,63 +1,70 @@
-import { PtgUiButton, PtgUiInput } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useEffect, useState } from 'react';
-import { addBand } from '../../service/api';
+import { PtgUiButton, PtgUiInput } from '@ptg-ui/libs/ptg-ui-react-lib/src';
+import { addBand, editBand } from '../../service/api';
+import { useNavigate } from 'react-router-dom';
 
 const initialFormValue = {
   name: '',
   value: '',
   label: '',
 };
-
-const AddBand = (props: any) => {
-  const { band, btnName } = props;
-  const [formValue, setFormValue] = useState(initialFormValue);
-
+ 
+const AddBand = ({ band, btnName, parentCallback }) => {
+  const [formValue, setFormValue] = useState(band || initialFormValue); 
+ 
   useEffect(() => {
-    if (btnName !== 'Add Band') {
-      setFormValue({
-        name: band.name,
-        value: band.value,
-        label: band.label,
-      });
-    }
-  }, []);
-
+    setFormValue(band || initialFormValue); 
+  }, [band]);
+ 
   const onValueChange = (e) => {
-    const value = e.target.value;
-    setFormValue({
-      ...formValue,
-      name: value,
-      value: value,
-      label: value,
-    });
+    const { name, value } = e.target;
+    setFormValue({ ...formValue, [name]: value });
   };
-
+ 
   const onSubmit = async () => {
-    console.log(formValue);
-    await addBand(formValue);
+    if (btnName === 'Add Band') {
+      await addBand(formValue);
+    } else {
+      await editBand(formValue._id, formValue); 
+    }
+    parentCallback(false);
   };
-
+ 
   return (
     <div className="ptg-table-addData form-container">
-      <label htmlFor="label"> Band Name </label>
+      <label htmlFor="name">Name</label>
       <PtgUiInput
         type="text"
         name="name"
         id="name"
-        value={formValue.name}
+value={formValue.name}
         onChange={(e) => onValueChange(e)}
       />
-
-      {/* <PtgUiButton
+      <label htmlFor="value">Value</label>
+      <PtgUiInput
+        type="text"
+        name="value"
+        id="value"
+        value={formValue.value}
+        onChange={(e) => onValueChange(e)}
+      />
+      <label htmlFor="label">Label</label>
+      <PtgUiInput
+        type="text"
+        name="label"
+        id="label"
+        value={formValue.label}
+        onChange={(e) => onValueChange(e)}
+      />
+      <PtgUiButton
         className="mt-2 btn-primay btn-position"
         type="button"
-        disabled={!formValue.value}
+disabled={!formValue.name || !formValue.value}
         onClick={() => onSubmit()}
       >
-        Add Band
-      </PtgUiButton> */}
+        {btnName}
+      </PtgUiButton>
     </div>
   );
 };
-
-export default AddBand;
+export default AddBand

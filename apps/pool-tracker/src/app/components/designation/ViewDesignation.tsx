@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { getDesignations, deleteDesignation } from '../../service/api';
+import { getDesignations, deleteDesignation } from '../../service/designation-api';
 import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 import AddDesignation from './AddDesignation';
 import './Designation.scss';

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { deleteCompetency, getCompetency } from '../../service/api';
+import { deleteCompetency, getCompetency } from '../../service/competency-api';
 import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 // import './Band.scss';
 import { PtgUiAlert, PtgUiMaterialTable } from '@ptg-ui/react';

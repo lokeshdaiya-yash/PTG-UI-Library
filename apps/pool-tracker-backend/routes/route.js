@@ -48,6 +48,7 @@ import {
   getSingleBand,
   editBand,
   deleteBand,
+  checkDuplicateBand
 } from '../controller/band-controller.js';
 
 addDesignation;
@@ -58,6 +59,7 @@ router.get('/band/allband', getBand);
 router.get('/band/:id', getSingleBand);
 router.post('/band/:id', editBand);
 router.delete('/band/:id', deleteBand);
+router.get("/duplicateband/:name", checkDuplicateBand);
 
 router.post('/competency/addcompetency', addCompetency);
 router.get('/competency/allcompetency', getCompetency);

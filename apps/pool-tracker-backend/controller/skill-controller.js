@@ -38,7 +38,7 @@ export const addSkill = async (request, response) => {
 
 export const getSkills = async (request, response) => {
   try {
-    const skills = await Skill.find({});
+    const skills = await Skill.find({}).sort({createdAt: -1});
     response.status(200).json(skills);
   } catch (error) {
     response.status(404).json({ message: error.message });
