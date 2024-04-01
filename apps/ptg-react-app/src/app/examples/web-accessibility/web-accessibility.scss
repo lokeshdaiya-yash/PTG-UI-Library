@@ -36,6 +36,9 @@
 .achieved-heading{
   margin-left: 6.3rem;
 }
+li{
+  width: 90%;
+}
 
 @media (max-width: 599.98px) {
   .login-form {
@@ -54,54 +57,51 @@
   color: $second;
   display: inline-block;
 }
-
-
-@media (min-width : 320px) and (max-width: 650px){
-  .web-accessibitlity-heading{
-     font-size: 18px;
+.date-picker{
+  .MuiButtonBase-root{
+    margin-top: -4px;
+    margin-right: -15px !important;
+  } 
+  .MuiInputBase-input{
+    margin-top: -4px;
   }
+  // MuiIconButton-root
 }
-
-@media (min-width : 650px) and (max-width: 800px){
-  .web-accessibitlity-heading{
-     font-size: 20px;
-  }
-}
-
-@media (min-width : 300px) and (max-width: 450px){
-  li{
-     font-size: 10px;
-     width : 90%;
-  }
-}
+  
 
 @media (min-width : 300px) and (max-width: 400px){
+  .web-accessibitlity-heading{
+    font-size: 18px;
+ }
   .web-field{
       width : 60% !important;
       margin-left: 16%;
   }
-
   .field{
     width : 60%;
-    margin-left: 17% !important;
-  }
+    margin-left: 16%;
+ }
+ .gender-align{
+      width : 60% !important;
+    margin-left: 16%; 
+ }
+ .gender-list{
+   width : 50% !important;
+    margin-left: 16%; 
+ }
   label{
     font-size: 14px;
   }
   ::placeholder{
     font-size: 14px;
   }
- 
-
-  .select-gender{
-    margin-left: 7%;
-  }
   .declaration-check{
     width: 95%;
   }
   .achieved-heading{
-    width : 95%;
     margin-left: 1rem;
+    font-size: 14px;
+    width: 90%;
   }
   h6{
     font-size: 14px;
@@ -112,18 +112,68 @@
   .gender-list{
     font-size: 10px;
   }
+  li{
+    font-size: 12px;
+    width : 90%;
+    margin-left: -1.3rem;
+ }
 }
 
-@media (min-width : 400px) and (max-width: 500px){
+
+@media (min-width : 400px) and (max-width: 600px){
+  .web-accessibitlity-heading{
+    font-size: 18px;
+ }
   .web-field{
       width : 87% !important;
       margin-left: 7%;
   }
+  .field{
+     width : 87%;
+     margin-left: 7%;
+  }
+  .gender-align{
+       width : 87% !important;
+     margin-left: 7%; 
+  }
+  .gender-list{
+    width : 87% !important;
+     margin-left: 7%; 
+  }
+  li{
+    font-size: 12px;
+    width : 90%;
+    margin-left: -1.3rem;
+ }
+ .achieved-heading{
+  margin-left: 1rem;
+  font-size: 14px;
+  width: 90%;
+}
 }
 
-@media (min-width : 500px) and (max-width: 600px){
-  .web-field{
-      width : 87% !important;
-      margin-left: 7%;
+@media (min-width : 800px) and (max-width: 1000px){
+
+  .achieved-heading{
+    margin-left: 3rem;
+    width: 90%;
+  }
+}
+
+@media (min-width : 1000px) and (max-width: 1400px){
+
+  .achieved-heading{
+    margin-left: 6rem;
+    width: 90%;
+  }
+}
+
+@media (min-width : 650px) and (max-width: 800px){
+  .web-accessibitlity-heading{
+     font-size: 20px;
+  }
+  .achieved-heading{
+    margin-left: 2rem;
+    width: 90%;
   }
 }

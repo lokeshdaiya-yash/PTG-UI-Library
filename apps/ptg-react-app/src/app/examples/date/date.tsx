@@ -182,7 +182,7 @@ const endDateProp = {
       <section className="card-section-two pb-5 bg-white rounded mt-4">
       <div className="row">
           <div className="col-10 mb-2 mt-3">
-            <h5 className='example-heading'>{t('CONVERT_TIMEZONE')}</h5>
+            <h5 className='example-heading covert-timezone'>{t('CONVERT_TIMEZONE')}</h5>
           </div>
 
           <div className='col-2 mt-2'>

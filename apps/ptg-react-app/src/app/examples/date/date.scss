@@ -15,12 +15,22 @@
     .cal-heading {
         margin-top: 1rem;
     }
-}
+ }
+
+@media (min-width : 300px) and (max-width: 350px){
+    .covert-timezone{
+       font-size: 15px;
+    }
+ }
+
 
 
 @media (min-width : 500px) and (max-width: 768px){
     .end-date{
        margin-left: 0.3%;
+    }
+    .cal-heading {
+        margin-top: 1rem;
     }
 }
 

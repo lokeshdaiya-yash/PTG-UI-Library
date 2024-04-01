@@ -676,7 +676,7 @@ const htmlCode = `
                               </label>
                             </legend>
 
-                            <div className="d-flex">
+                            <div className="d-flex gender-list">
                               <PtgUiRadio
                                 name="gender"
                                 htmlFor="radioinputForGender"

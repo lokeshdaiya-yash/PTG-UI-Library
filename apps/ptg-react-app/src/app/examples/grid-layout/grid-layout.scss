@@ -12,3 +12,14 @@ section {
     padding-bottom: 20px;
     position: relative;
 }
+
+@media (min-width : 300px) and (max-width: 345px){
+    .go-somewhere-button {
+        width : 90px
+    }
+}
+@media (min-width : 340px) and (max-width: 355px){
+    .go-somewhere-button {
+        width : 110px
+    }
+}
