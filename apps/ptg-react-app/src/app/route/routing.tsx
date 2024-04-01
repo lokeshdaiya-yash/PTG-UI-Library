@@ -38,6 +38,7 @@ const GridLayout = lazy(()=> import ("../examples/grid-layout/grid-layout"));
 const Indeterminate =  lazy(()=> import ("../examples/indeterminate-checkbox/indeterminate-checkbox"));
 const PtgUiReactTable =  lazy(()=> import ("../examples/data-table/react-table"));
 const Accordian = lazy(()=> import("../examples/Accordion/accordion"));
+const Tabs = lazy(()=> import ("../examples/tabs/tabs"));
 const Toaster =lazy(()=> import ("../examples/Toaster/toaster"));
 
 {/*--Declare routes and component for dynamic load--*/ }
@@ -165,6 +166,10 @@ const routing = [
   {
     path: '/accordian',
     component: Accordian,
+  },
+  {
+    path: '/tabs',
+    component: Tabs,
   },
   {
     path: '/toaster',

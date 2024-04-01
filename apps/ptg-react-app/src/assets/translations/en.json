@@ -149,6 +149,7 @@
   "HOME": "Home",
   "ABOUT_US" : "About Us",
   "CONTACT_US" : "Contact Us",
-  "CONVERT_TIMEZONE":"Convert timezone"
+  "CONVERT_TIMEZONE":"Convert timezone",
+  "TABS" : "Tabs"
 }
 

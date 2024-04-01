@@ -144,6 +144,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/tabs',
+    icon: 'fa fa-lock',
+    label: 'TABS',
+    disabled: false,
+  },
+  {
     path: '/toaster',
     icon: 'fa fa-lock',
     label: 'Toaster',

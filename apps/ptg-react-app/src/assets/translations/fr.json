@@ -150,7 +150,8 @@
   "HOME": "Maison",
   "ABOUT_US" : "À propos Nous",
   "CONTACT_US" : "Contact Nous",
-  "CONVERT_TIMEZONE" : "Convert timezone"
+  "CONVERT_TIMEZONE" : "Convert timezone",
+  "TABS" : "Registerkarten"
  
 }
 

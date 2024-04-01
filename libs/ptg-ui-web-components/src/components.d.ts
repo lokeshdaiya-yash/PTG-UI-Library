@@ -21,10 +21,10 @@ export namespace Components {
         "middle": string;
     }
     interface PtgAccordion {
-        "color": string;
+        "bgColor"?: string;
+        "defaultOpened": boolean;
         "description": string;
         "label": string;
-        "width": string;
     }
     interface PtgAlert {
         "appreanced": string;
@@ -36,6 +36,7 @@ export namespace Components {
     }
     interface PtgButton {
         "appearance": string;
+        "btnIconAlignment"?: string;
         "text": string;
     }
     interface PtgCalender {
@@ -101,7 +102,6 @@ export namespace Components {
         "width": string;
     }
     interface PtgModal {
-        "btnName": string;
         "closeOutsideClick": boolean;
         "confirmButtonName": string;
         "isOpen": boolean;
@@ -152,6 +152,11 @@ export namespace Components {
         "tabledata": any;
         "tabletitle": string;
         "themeColor"?: string;
+    }
+    interface PtgTabs {
+        "backgroundColor": string;
+        "showScroll": boolean;
+        "tabLabelArray": { label: string, content: any, checked : boolean }[];
     }
     interface PtgTextarea {
         "appearance": string;
@@ -321,6 +326,12 @@ declare global {
         prototype: HTMLPtgTableElement;
         new (): HTMLPtgTableElement;
     };
+    interface HTMLPtgTabsElement extends Components.PtgTabs, HTMLStencilElement {
+    }
+    var HTMLPtgTabsElement: {
+        prototype: HTMLPtgTabsElement;
+        new (): HTMLPtgTabsElement;
+    };
     interface HTMLPtgTextareaElement extends Components.PtgTextarea, HTMLStencilElement {
     }
     var HTMLPtgTextareaElement: {
@@ -359,6 +370,7 @@ declare global {
         "ptg-sidenav": HTMLPtgSidenavElement;
         "ptg-spinner": HTMLPtgSpinnerElement;
         "ptg-table": HTMLPtgTableElement;
+        "ptg-tabs": HTMLPtgTabsElement;
         "ptg-textarea": HTMLPtgTextareaElement;
         "ptg-toast": HTMLPtgToastElement;
         "ptg-ui-carousel": HTMLPtgUiCarouselElement;
@@ -380,10 +392,10 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface PtgAccordion {
-        "color"?: string;
+        "bgColor"?: string;
+        "defaultOpened"?: boolean;
         "description"?: string;
         "label"?: string;
-        "width"?: string;
     }
     interface PtgAlert {
         "appreanced"?: string;
@@ -395,6 +407,7 @@ declare namespace LocalJSX {
     }
     interface PtgButton {
         "appearance"?: string;
+        "btnIconAlignment"?: string;
         "text"?: string;
     }
     interface PtgCalender {
@@ -468,7 +481,6 @@ declare namespace LocalJSX {
         "width"?: string;
     }
     interface PtgModal {
-        "btnName"?: string;
         "closeOutsideClick"?: boolean;
         "confirmButtonName"?: string;
         "isOpen"?: boolean;
@@ -524,6 +536,11 @@ declare namespace LocalJSX {
         "tabletitle"?: string;
         "themeColor"?: string;
     }
+    interface PtgTabs {
+        "backgroundColor"?: string;
+        "showScroll"?: boolean;
+        "tabLabelArray"?: { label: string, content: any, checked : boolean }[];
+    }
     interface PtgTextarea {
         "appearance"?: string;
         "autofocus"?: boolean;
@@ -572,6 +589,7 @@ declare namespace LocalJSX {
         "ptg-sidenav": PtgSidenav;
         "ptg-spinner": PtgSpinner;
         "ptg-table": PtgTable;
+        "ptg-tabs": PtgTabs;
         "ptg-textarea": PtgTextarea;
         "ptg-toast": PtgToast;
         "ptg-ui-carousel": PtgUiCarousel;
@@ -600,6 +618,7 @@ declare module "@stencil/core" {
             "ptg-sidenav": LocalJSX.PtgSidenav & JSXBase.HTMLAttributes<HTMLPtgSidenavElement>;
             "ptg-spinner": LocalJSX.PtgSpinner & JSXBase.HTMLAttributes<HTMLPtgSpinnerElement>;
             "ptg-table": LocalJSX.PtgTable & JSXBase.HTMLAttributes<HTMLPtgTableElement>;
+            "ptg-tabs": LocalJSX.PtgTabs & JSXBase.HTMLAttributes<HTMLPtgTabsElement>;
             "ptg-textarea": LocalJSX.PtgTextarea & JSXBase.HTMLAttributes<HTMLPtgTextareaElement>;
             "ptg-toast": LocalJSX.PtgToast & JSXBase.HTMLAttributes<HTMLPtgToastElement>;
             "ptg-ui-carousel": LocalJSX.PtgUiCarousel & JSXBase.HTMLAttributes<HTMLPtgUiCarouselElement>;
