@@ -39,11 +39,11 @@ export function PtgUiD3Line({data,height,width}: PtgUiD3LineProps) {
   const createGraph = () => {
 
     // set the dimensions and margins of the graph
-   let margin = { top: 20, right: 20, bottom: 50, left: 70 },
+   const margin = { top: 20, right: 20, bottom: 50, left: 70 },
    d3width : number= width - margin.left - margin.right,
    d3height:number =height  - margin.top - margin.bottom;
    // append the svg object to the body of the page
-   let svg = d3.select(".d3_line").append("svg")
+   const svg = d3.select(".d3_line").append("svg")
    .attr("width", d3width + margin.left + margin.right)
    .attr("height", d3height + margin.top + margin.bottom)
    .attr("viewBox", [0, 0, d3width + margin.left + margin.right, d3height + margin.top + margin.bottom])
@@ -51,25 +51,43 @@ export function PtgUiD3Line({data,height,width}: PtgUiD3LineProps) {
 
    .append("g")
    .attr("transform", `translate(${margin.left},     ${margin.top})`);
-   
+
     // Add X axis and Y axis
-   var x = d3.scaleTime().range([0, d3width]);
-   var y = d3.scaleLinear().range([d3height, 0]);
-   let xdomain:any = d3.extent(data, (d:any) => { return d.date; });
+   const x = d3.scaleTime().range([0, d3width]);
+   const y = d3.scaleLinear().range([d3height, 0]);
+   const xdomain:any = d3.extent(data, (d:any) => { return d.date; });
    console.log("xdomain:",xdomain);
-   let ydomain: any = d3.max(data, (d:any) => { return d.value; });
+   const ydomain: any = d3.max(data, (d:any) => { return d.value; });
    x.domain(xdomain);
    y.domain([0, ydomain]);
    svg.append("g")
    .attr("transform", `translate(0, ${d3height})`)
    .call(d3.axisBottom(x)).selectAll('text')
    .attr('transform', 'translate(-10,0)rotate(-45)')
-   .style('text-anchor', 'end');;
+   .style('text-anchor', 'end');
+
+    // Append X-axis label
+    svg.append("text")
+    .attr("transform", `translate(${d3width / 2}, ${d3height + margin.top + 30})`) // Adjust the positioning as needed
+        .style("text-anchor", "middle")
+        .style("font-size", "10px")
+        .text("Date");
+
    svg.append("g")
    .call(d3.axisLeft(y));
 
+   // Append Y-axis label
+   svg.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left)
+    .attr("x", 0 - (height / 2))
+    .attr("dy", "1em")
+    .style("text-anchor", "middle")
+    .style("font-size", "10px")
+    .text("Value");
+
  // add the Line
-     let valueLine: any = d3.line()
+     const valueLine: any = d3.line()
                    .x((d:any) => { return x(d.date); })
                    .y((d:any) => { return y(d.value); });
                    console.log('valueLine:',valueLine);

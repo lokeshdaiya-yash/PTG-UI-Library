@@ -91,6 +91,14 @@ export function PtgUiD3Bar({data,height,width,source,title,x_title,y_title,start
       .attr('transform', 'translate(-10,0)rotate(-45)')
       .style('text-anchor', 'end');
 
+    svg.append("text")             
+    .attr("transform",
+          "translate(" + (width/2) + " ," + 
+                         (height + 60) + ")")
+    .style("text-anchor", "middle")
+    .style("font-size", "10px")
+    .text("Frameworks");
+
     // Create the Y-axis band scale
     const y = d3
       .scaleLinear()
@@ -100,7 +108,15 @@ export function PtgUiD3Bar({data,height,width,source,title,x_title,y_title,start
     // Draw the Y-axis on the DOM
     svg.append('g').call(d3.axisLeft(y));
 
-    // Create and fill the bars
+    svg.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - 60) // Adjust as needed for positioning
+    .attr("x", 0 - (height / 2))
+    .attr("dy", "1em") // Adjust as needed for vertical alignment
+    .style("text-anchor", "middle")
+    .style("font-size", "10px")
+    .text("Value");
+
     svg
       .selectAll('bars')
       .data(data)
