@@ -180,3 +180,21 @@ li{
     width: 90%;
   }
 }
+
+@media (min-width : 1000px) and (max-width: 1400px){
+
+  .achieved-heading{
+    margin-left: 6rem;
+    width: 90%;
+  }
+}
+
+@media (min-width : 650px) and (max-width: 800px){
+  .web-accessibitlity-heading{
+     font-size: 20px;
+  }
+  .achieved-heading{
+    margin-left: 2rem;
+    width: 90%;
+  }
+}
