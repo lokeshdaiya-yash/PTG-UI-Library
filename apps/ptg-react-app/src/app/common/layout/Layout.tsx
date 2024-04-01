@@ -13,6 +13,7 @@ import Footer from '../footer/Footer';
 import PrivateRoute from '../../route/private-route';
 import PublicRoute from '../../route/public-route';
 import routing from '../../route/routing';
+import { PtgSpinner } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
 
 export interface LayoutProps { }
 
@@ -34,7 +35,7 @@ export function Layout({ }: LayoutProps) {
                 {routing.map((route: any, idx: number) => {
                   return (<Route key={idx} path={route.path} element={
                     <PrivateRoute>
-                      <Suspense fallback={<div className="tab-panel-placeholder">{t('LOADING')}</div>}>
+                      <Suspense fallback={<div className="tab-panel-placeholder  d-flex justify-content-center align-self-center"><PtgSpinner appearance='secondary'/></div>}>
                         <route.component />
                       </Suspense>
                     </PrivateRoute>} />)

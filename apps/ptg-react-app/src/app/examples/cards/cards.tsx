@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PtgCard } from '@ptg-ui/ptg-ui-web-components-react';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import "./cards.scss";
 export default function Card() {
   const [showCode, setShowCode] = useState(false);
   const componentCode = `
@@ -75,7 +76,7 @@ export default function Card() {
        
         {cardDataObj.map((card) => {
           return (
-            <div className="col-5 m-3">
+            <div className="col-md-5 col-sm-5 card-component m-3">
               <PtgCard
                 {...card}
                 cardButtonText="select"

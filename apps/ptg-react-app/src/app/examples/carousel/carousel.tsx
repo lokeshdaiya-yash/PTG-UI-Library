@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { PtgUiCarousel } from '@ptg-ui/ptg-ui-web-components-react';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import "./carousel.scss";
 
 const CarouselExample = () => {
 

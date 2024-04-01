@@ -35,7 +35,7 @@ export function GridLayout(props: GridLayoutProps) {
                         <div className="card-body">
                             <h5 className="card-title">{t('CARD_TITLE_TEXT')}</h5>
                             <p className="card-text">{t('ADD_SOME_QUICK_EX_TEXT')}</p>
-                            <a href="#" className="btn btn-primary">{t('GO_SOME_WHERE_TEXT')}</a>
+                            <a href="#" className="btn btn-primary go-somewhere-button">{t('GO_SOME_WHERE_TEXT')}</a>
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ export function GridLayout(props: GridLayoutProps) {
                         <div className="card-body">
                             <h5 className="card-title">{t('CARD_TITLE_TEXT')}</h5>
                             <p className="card-text">{t('ADD_SOME_QUICK_EX_TEXT')}</p>
-                            <a href="#" className="btn btn-primary">{t('GO_SOME_WHERE_TEXT')}</a>
+                            <a href="#" className="btn btn-primary go-somewhere-button">{t('GO_SOME_WHERE_TEXT')}</a>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ export function GridLayout(props: GridLayoutProps) {
                         <div className="card-body">
                             <h5 className="card-title">{t('CARD_TITLE_TEXT')}</h5>
                             <p className="card-text">{t('ADD_SOME_QUICK_EX_TEXT')}</p>
-                            <a href="#" className="btn btn-primary">{t('GO_SOME_WHERE_TEXT')}</a>
+                            <a href="#" className="btn btn-primary go-somewhere-button">{t('GO_SOME_WHERE_TEXT')}</a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ export function GridLayout(props: GridLayoutProps) {
                         <div className="card-body">
                             <h5 className="card-title">{t('CARD_TITLE_TEXT')}</h5>
                             <p className="card-text">{t('ADD_SOME_QUICK_EX_TEXT')}</p>
-                            <a href="#" className="btn btn-primary">{t('GO_SOME_WHERE_TEXT')}</a>
+                            <a href="#" className="btn btn-primary go-somewhere-button">{t('GO_SOME_WHERE_TEXT')}</a>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@ export function GridLayout(props: GridLayoutProps) {
                         <div className="card-body">
                             <h5 className="card-title">{t('CARD_TITLE_TEXT')}</h5>
                             <p className="card-text">{t('ADD_SOME_QUICK_EX_TEXT')}</p>
-                            <a href="#" className="btn btn-primary">{t('GO_SOME_WHERE_TEXT')}</a>
+                            <a href="#" className="btn btn-primary go-somewhere-button">{t('GO_SOME_WHERE_TEXT')}</a>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@ export function GridLayout(props: GridLayoutProps) {
                         <div className="card-body">
                             <h5 className="card-title">{t('CARD_TITLE_TEXT')}</h5>
                             <p className="card-text">{t('ADD_SOME_QUICK_EX_TEXT')}</p>
-                            <a href="#" className="btn btn-primary">{t('GO_SOME_WHERE_TEXT')}</a>
+                            <a href="#" className="btn btn-primary go-somewhere-button">{t('GO_SOME_WHERE_TEXT')}</a>
                         </div>
                     </div>
                 </div>

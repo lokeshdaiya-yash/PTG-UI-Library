@@ -41,7 +41,7 @@ export default function Accordian() {
       {showCode && (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
       )}
-      <div className="col-md-12 ms-3 me-3">
+      <div className="accordion-component col-md-11 col-sm-7 ms-3">
         <PtgAccordion label={label} description={description} bgColor={bgColor} defaultOpened={defaultOpened}>
           <div slot="body-block">
             <h2>React Slot for Body</h2>

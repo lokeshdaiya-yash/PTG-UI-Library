@@ -96,7 +96,7 @@ const DialogExample = () => {
       </PtgButton>
       </div>
 
-      <PtgModal isOpen={isOpen} onConfirmClose={confirmClicked}
+      <PtgModal isOpen={isOpen}  onConfirmClose={confirmClicked}
         modal-size='lg' modal-header-name="Header Name Here"
         confirm-button-name="Okay" onModalClose={modalClosed}>
         <div slot="body-block">
