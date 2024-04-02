@@ -35,10 +35,21 @@
 }
 
 .addButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   visibility: inherit;
   position: absolute;
   left: 16px;
   top: 13px;
   z-index: 1;
-  color: #fff;
+  .form-check {
+    margin-left: 20px;
+    label {
+      color: #000 !important;
+    }
+  }
+  .btnColor {
+    color: #fff;
+  }
 }

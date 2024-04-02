@@ -33,7 +33,7 @@
   position: relative;
   margin: 0 auto;
 }
-.masterdata-form-container{
+.masterdata-form-container {
   border: 2px solid #d1d1d1;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
@@ -80,6 +80,11 @@
   justify-content: space-between;
   & .masterdatafield-box {
     width: 48%;
+    .form-check {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 .react-datepicker__input-container .w-100 {
@@ -107,6 +112,6 @@ button {
   bottom: 16px;
 }
 .highlightOption {
-   background: none; 
-   color: #1a222b; 
+  background: none;
+  color: #1a222b;
 }
