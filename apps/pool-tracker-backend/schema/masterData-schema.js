@@ -19,6 +19,7 @@ const masterDataSchema = mongoose.Schema(
       unique: true,
     },
     poolStartDate: String,
+    poolReleaseDate: String,
     comments: String,
     yearsofExp: String,
     designations: String,

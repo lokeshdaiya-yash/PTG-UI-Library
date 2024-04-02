@@ -1,11 +1,20 @@
 // import { PtgUiButton } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getMasterdata, deleteMasterdata, getData } from '../../service/masterData-api';
+import {
+  getMasterdata,
+  deleteMasterdata,
+  getData,
+} from '../../service/masterData-api';
 import '../../app.module.scss';
 import './ViewMasterData.scss';
 import { useNavigate, useParams } from 'react-router-dom';
-import { PtgUiInput, PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
+import {
+  PtgUiInput,
+  PtgUiMaterialTable,
+  PtgUiButton,
+  PtgUiCheckbox,
+} from '@ptg-ui/react';
 import { PtgModal } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
 import AddMasterdata from '../addMasterData/AddMasterData';
 import EditMasterData from './EditMasterData';
@@ -13,15 +22,25 @@ import { PtgUiAlert } from '@ptg-ui/react';
 
 const ViewMasterData = () => {
   const [masterdatas, setMasterdata] = useState<any>([]);
+  const [selectedCheck, setSelectedCheck] = useState<boolean>(false);
+  let poolEmployees: any = [];
+  let poolReleaseEmployees: any = [];
   const navigate = useNavigate();
 
   useEffect(() => {
     getAllUsers();
-  }, []);
+  }, [selectedCheck]);
 
   const getAllUsers = async () => {
     const response = await getMasterdata();
-    setMasterdata(response?.data);
+    poolEmployees = response?.data.filter((emp) => !emp.poolReleaseDate);
+    poolReleaseEmployees = response?.data.filter((emp) => emp.poolReleaseDate);
+    // debugger;
+    if (!selectedCheck) {
+      setMasterdata(poolEmployees);
+    } else {
+      setMasterdata(poolReleaseEmployees);
+    }
 
     const bandCount = {};
     response?.data.forEach((element) => {
@@ -30,6 +49,17 @@ const ViewMasterData = () => {
     });
     console.log('band count', bandCount);
   };
+
+  const checkHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedCheck(event.target.checked);
+    // debugger;
+    if (event.target.checked) {
+      setMasterdata(poolReleaseEmployees);
+    } else {
+      setMasterdata(poolEmployees);
+    }
+  };
+
   const deleteUsersDetails = async (id: any) => {
     await deleteMasterdata(id);
     alert('Do You Want To Delete');
@@ -101,7 +131,7 @@ const ViewMasterData = () => {
   ];
 
   const detailForAccordion = (masterdata: any) => {
-    console.log(masterdata);
+    const poolReleaseDate = new Date(masterdata.rowData.poolReleaseDate);
     return (
       <div className="ms-4 me-4 mt-2 mb-2 tableAccordion">
         <div className="row">
@@ -117,6 +147,12 @@ const ViewMasterData = () => {
             <strong>Location</strong>
             <p className="mt-3"> {masterdata.rowData.locations}</p>
           </div>
+          {selectedCheck && (
+            <div className="col-3">
+              <strong>Pool Release Date</strong>
+              <p className="mt-3"> {poolReleaseDate.toString()}</p>
+            </div>
+          )}
           <div className="col-3">
             <strong>Comments</strong>
             <p className="mt-3"> {masterdata.rowData.comments}</p>
@@ -128,9 +164,23 @@ const ViewMasterData = () => {
 
   return (
     <div className="viewMastertable">
-      <PtgUiButton className="addButton" onClick={handleNavigate}>
-        New Master Data +
-      </PtgUiButton>
+      <div className="addButton">
+        <PtgUiButton className="btnColor" onClick={handleNavigate}>
+          New Master Data +
+        </PtgUiButton>
+
+        <PtgUiCheckbox
+          label={'Show Released Employess'}
+          htmlFor="confirm"
+          checked={selectedCheck}
+          onChange={checkHandler}
+          className={`form-check-input`}
+          name="isReleased"
+          id="isReleased"
+          aria-label="isReleased"
+        />
+      </div>
+
       <PtgUiMaterialTable
         data={masterdatas}
         columns={Columns}
