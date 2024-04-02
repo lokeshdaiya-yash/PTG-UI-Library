@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { addMasterdata, editMasterdata, getData, checkDuplicateEmail } from '../../service/masterData-api';
+import {
+  addMasterdata,
+  editMasterdata,
+  getData,
+  checkDuplicateEmail,
+} from '../../service/masterData-api';
 import { getSkills } from '../../service/skill-api';
 import { getDesignations } from '../../service/designation-api';
 import { getCompetency } from '../../service/competency-api';
@@ -11,6 +16,7 @@ import { getLocations } from '../../service/api';
 import {
   PtgUiButton,
   PtgUiCalendar,
+  PtgUiCheckbox,
   PtgUiInput,
   PtgUiMultiSelectbox,
   PtgUiTextArea,
@@ -30,6 +36,7 @@ const initialFormValue = {
   comments: '',
   designations: '',
   locations: '',
+  poolReleaseDate: '',
 };
 
 const AddMasterdata = (props: any) => {
@@ -45,8 +52,10 @@ const AddMasterdata = (props: any) => {
   const [formErrors, setFormErrors] = useState(formErrorsObj);
   const [isSubmit, setIsSubmit] = useState(false);
   const { id } = useParams();
-  const today = new Date();
+  // const today = new Date();
   const [date, setStartDate] = useState({ startDate: null });
+  const [releaseDate, setReleaseDate] = useState({ endDate: null });
+  const [selectedCheck, setSelectedCheck] = useState<boolean>(false);
 
   useEffect(() => {
     getBandsList();
@@ -86,11 +95,15 @@ const AddMasterdata = (props: any) => {
     const userDetails = response?.data;
     const transformedSkills = transformData(userDetails.skills);
     userDetails.poolStartDate = new Date(userDetails.poolStartDate);
+    userDetails.poolReleaseDate
+      ? setSelectedCheck(true)
+      : setSelectedCheck(false);
     setFormValue({
       ...formValue,
       name: userDetails.name,
       emailId: userDetails.emailId,
       poolStartDate: setDateState(userDetails.poolStartDate, 'startDate'),
+      poolReleaseDate: setReleaseState(userDetails.poolReleaseDate, 'endDate'),
       band: userDetails.band,
       designations: userDetails.designations,
       locations: userDetails.locations,
@@ -105,7 +118,6 @@ const AddMasterdata = (props: any) => {
   const selectHandler = (e: any, field) => {
     if (field === 'skills') {
       setFormValue({ ...formValue, skills: e });
-      console.log(formValue);
     } else {
       setFormValue({ ...formValue, [field]: e[0].value });
     }
@@ -117,6 +129,10 @@ const AddMasterdata = (props: any) => {
   const changeHandler = (e: any) => {
     const { name, value } = e.target;
     setFormValue({ ...formValue, [name]: value });
+  };
+
+  const checkHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedCheck(event.target.checked);
   };
 
   // getting Band list
@@ -177,21 +193,43 @@ const AddMasterdata = (props: any) => {
     selected: date.startDate,
     className: 'form-control w-100',
     onChange: (date: any) => {
-      console.log('date selection', date);
       setDateState(date, 'startDate');
       setFormValue({ ...formValue, poolStartDate: date });
     },
-    // startDate: today,
+  };
+
+  const setReleaseState: any = (selectedDate: any, field: string) => {
+    setReleaseDate((preState: any) => {
+      return {
+        ...preState,
+        [field]: new Date(selectedDate),
+      };
+    });
+  };
+
+  const startReleaseProp = {
+    selected: releaseDate.endDate,
+    className: 'form-control w-100',
+    onChange: (date: any) => {
+      setReleaseState(date, 'endDate');
+      setFormValue({ ...formValue, poolReleaseDate: date });
+    },
+  };
+
+  const checkFormValues = (data: any) => {
+    if (id !== undefined && selectedCheck) {
+      return Object.values(data).every((value) => value !== '');
+    } else {
+      const { poolReleaseDate, ...rest } = formValue;
+      return Object.values(rest).every((value) => value !== '');
+    }
   };
 
   // submit forms data
   const submitMasterDetails = async () => {
     setFormErrors(validateFormFields(formValue));
     setIsSubmit(true);
-    if (
-      Object.keys(formErrors).length === 0 &&
-      Object.values(formValue).every((value) => value !== '')
-    ) {
+    if (Object.keys(formErrors).length === 0 && checkFormValues(formValue)) {
       if (!id) {
         await addMasterdata(formValue);
       } else {
@@ -218,7 +256,10 @@ const AddMasterdata = (props: any) => {
       errors.emailId = 'Invalid format!';
     }
     if (!values.poolStartDate) {
-      errors.poolStartDate = 'Date is required!';
+      errors.poolStartDate = 'Pool Start Date is required!';
+    }
+    if (!values.poolReleaseDate && selectedCheck) {
+      errors.poolReleaseDate = 'Release Date is required!';
     }
     if (!values.band) {
       errors.band = 'Band is required!';
@@ -409,7 +450,7 @@ const AddMasterdata = (props: any) => {
           <div className="masterdatafield-box">
             <label htmlFor="comments"> Comments </label>
             <PtgUiTextArea
-              rows="2"
+              rows="1"
               name="comments"
               id="comments"
               value={formValue.comments}
@@ -417,6 +458,31 @@ const AddMasterdata = (props: any) => {
             />
           </div>
         </div>
+
+        {id !== undefined && (
+          <div className="masterdatafield">
+            <div className="masterdatafield-box">
+              <PtgUiCheckbox
+                label={'Release employee from poll'}
+                htmlFor="confirm"
+                checked={selectedCheck}
+                onChange={checkHandler}
+                className={`form-check-input `}
+                name="isReleased"
+                id="isReleased"
+                aria-label="isReleased"
+              />
+            </div>
+
+            {selectedCheck && (
+              <div className="masterdatafield-box">
+                <label htmlFor="poolReleaseDate"> Pool Released date </label>
+                <PtgUiCalendar {...startReleaseProp} />
+                <p className="error">{formErrors.poolReleaseDate}</p>
+              </div>
+            )}
+          </div>
+        )}
 
         <div className="mt-20 action-button-container">
           <PtgUiButton
