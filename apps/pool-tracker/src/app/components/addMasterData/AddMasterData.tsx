@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+// import { toaster } from '../../service/toaster';
 
 import {
   addMasterdata,
@@ -24,6 +25,7 @@ import {
 
 import '../../app.module.scss';
 import './AddMasterData.scss';
+import toaster from '../../service/toaster';
 
 const initialFormValue = {
   name: '',
@@ -233,7 +235,9 @@ const AddMasterdata = (props: any) => {
       if (!id) {
         await addMasterdata(formValue);
       } else {
-        await editMasterdata(formValue, id);
+        await editMasterdata(formValue, id).then(res=>{
+          toaster.success(res?.data.message);
+        })
       }
       navigate('/masterData');
     }

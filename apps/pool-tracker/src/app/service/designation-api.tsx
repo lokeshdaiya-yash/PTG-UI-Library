@@ -45,3 +45,11 @@ export const addDesignation = async (data) => {
     }
   
   }
+
+  export const checkDuplicateDesignation = async (name) => {
+    try {
+        return await axios.get(`${URL}/duplicatedesignation/${name}`);
+    } catch (error) {
+        console.log("error while checking duplicate designation",error);  return; 
+    }
+  }

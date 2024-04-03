@@ -59,3 +59,10 @@ export const addSkill = async (data) => {
     }
   
   }
+
+  export const checkDuplicateSkill = async (name) => {
+    try {
+        return await axios.get(`${URL}/duplicateskill/${name}`);
+    } catch (error) {
+        console.log("error while checking duplicate skill",error);  return; 
+    }}

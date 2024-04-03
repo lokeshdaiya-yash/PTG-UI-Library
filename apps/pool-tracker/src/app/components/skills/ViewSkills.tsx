@@ -51,7 +51,7 @@ const ViewSkills = () => {
       width: '20%',
       render: (skill) => (
         <div className="masterdataBtn table-action-button">
-          {skillsModal('Edit', 'Edit Skill', skill)}
+          {/* {skillsModal('Edit', 'Edit Skill', skill)} */}
 
           <i
             className="fa-solid fa-trash cursor-pointer"

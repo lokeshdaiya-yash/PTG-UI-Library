@@ -59,7 +59,7 @@ const ViewLocation = () => {
       width: '20%',
       render: (location) => (
         <div className="masterdataBtn table-action-button">
-          {locationModal('Edit', 'Edit Location', location)}
+          {/* {locationModal('Edit', 'Edit Location', location)} */}
 
           <i
             className="fa-solid fa-trash cursor-pointer"

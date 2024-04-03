@@ -1,42 +1,40 @@
+import { PtgUiD3Bar} from '@ptg-ui/react';
 
-import {  PtgUiD3Bar, PtgUiD3Pie } from '@ptg-ui/react';
-// import { d3BarData } from '@ptg-react-app/mock/mocks';
+export const d3SkillData: any = {
+  height: 400,
+  width: 600,
+  start: 0,
 
-export const d3SkillData:any = {
-  height:600,
-  width:800,
-  title:"My Charts",
-  source:'Trending languages',
-  x_title:'Languages',
-  y_title:'Numbers',
+  title: 'skill Chart',
+  x_title: 'skill',
+  y_title: 'Numbers',
   data: [
     { Framework: 'Vuee', Stars: '100000', Released: '2014', color: '#454545' },
     { Framework: 'React', Stars: '120793', Released: '2013', color: 'blue' },
     { Framework: 'Angular', Stars: '92342', Released: '2016', color: 'green' },
-    { Framework: 'Backbone', Stars: '67647', Released: '2010',color: 'orange',},
+    {
+      Framework: 'Backbone',
+      Stars: '67647',
+      Released: '2010',
+      color: 'orange',
+    },
     { Framework: 'Ember', Stars: '121471', Released: '2011', color: 'pink' },
   ],
-}
+};
 
- // eslint-disable-next-line @typescript-eslint/no-empty-interface
-//  export interface D3ChartsProps { }
-// export function SkillChart(props: D3ChartsProps) {
- export function SkillChart() {
-return (
-      
-      <div>
+export function SkillChart() {
+  return (
+    <div>
       <div>
       <PtgUiD3Bar {...d3SkillData} />
+      <h6>Skill Chart</h6>
+        
       </div>
-      <div>
-      <PtgUiD3Pie {...d3SkillData} />
-      </div>
+      
     </div>
-    );
-  }
+  );
+}
 export default SkillChart;
-
-
 
 // ======================================================================================================================
 
@@ -150,4 +148,3 @@ export default SkillChart;
 // }
 // SkillChart.defaultProps = defaultProps;
 // export default SkillChart;
-
