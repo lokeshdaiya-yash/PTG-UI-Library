@@ -38,7 +38,7 @@ const ViewDesignation = () => {
   ) => {
     return (
       <PtgModal
-        modal-size="lg"
+        modal-size="md"
         btn-name={btnName}
         modal-header-name={heading}
         confirm-button-name="Save"
@@ -54,13 +54,13 @@ const ViewDesignation = () => {
   };
 
   const Columns = [
-    { title: 'name', field: 'value', filtering: false, width: '50%' },
+    { title: 'name', field: 'value', filtering: false, width: '90%' },
     {
       title: 'Action',
       field: 'Action',
       name: 'action',
       header: '',
-      width: '20%',
+      width: '10%',
       render: (designation: any) => (
         <div className="masterdataBtn table-action-button">
           {/* {designationModal('Edit', 'Edit Designation', designation)} */}

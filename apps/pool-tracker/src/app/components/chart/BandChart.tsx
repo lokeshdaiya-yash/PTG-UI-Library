@@ -79,9 +79,7 @@ export function BandChart() {
   return (
     <div className="p-4">
       <PtgUiD3Bar {...data} />
-      
       <p>Band Graph</p>
-
     </div>
   );
 }

@@ -50,13 +50,13 @@ const ViewLocation = () => {
   };
 
   const Columns = [
-    { title: 'name', field: 'name', filtering: false, width: '50%' },
+    { title: 'name', field: 'name', filtering: false, width: '90%' },
     {
       title: 'Action',
       field: 'Action',
       name: 'action',
       header: '',
-      width: '20%',
+      width: '10%',
       render: (location) => (
         <div className="masterdataBtn table-action-button">
           {/* {locationModal('Edit', 'Edit Location', location)} */}

@@ -54,9 +54,8 @@ const AddMasterdata = (props: any) => {
   const [formErrors, setFormErrors] = useState(formErrorsObj);
   const [isSubmit, setIsSubmit] = useState(false);
   const { id } = useParams();
-  // const today = new Date();
   const [date, setStartDate] = useState({ startDate: null });
-  const [releaseDate, setReleaseDate] = useState({ endDate: null });
+  const [releaseDate, setReleaseDate] = useState({ startDate: null });
   const [selectedCheck, setSelectedCheck] = useState<boolean>(false);
 
   useEffect(() => {
@@ -97,15 +96,17 @@ const AddMasterdata = (props: any) => {
     const userDetails = response?.data;
     const transformedSkills = transformData(userDetails.skills);
     userDetails.poolStartDate = new Date(userDetails.poolStartDate);
-    userDetails.poolReleaseDate
-      ? setSelectedCheck(true)
-      : setSelectedCheck(false);
+    if (userDetails?.poolReleaseDate) {
+      setSelectedCheck(true);
+      setReleaseState(userDetails.poolReleaseDate, 'startDate');
+    } else {
+      setSelectedCheck(false);
+    }
     setFormValue({
       ...formValue,
       name: userDetails.name,
       emailId: userDetails.emailId,
       poolStartDate: setDateState(userDetails.poolStartDate, 'startDate'),
-      poolReleaseDate: setReleaseState(userDetails.poolReleaseDate, 'endDate'),
       band: userDetails.band,
       designations: userDetails.designations,
       locations: userDetails.locations,
@@ -134,7 +135,11 @@ const AddMasterdata = (props: any) => {
   };
 
   const checkHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedCheck(event.target.checked);
+    const isChecked = event.target.checked;
+    setSelectedCheck(isChecked);
+    if (!isChecked) {
+      setReleaseState('', 'startDate');
+    }
   };
 
   // getting Band list
@@ -191,15 +196,6 @@ const AddMasterdata = (props: any) => {
     });
   };
 
-  const startDateProp = {
-    selected: date.startDate,
-    className: 'form-control w-100',
-    onChange: (date: any) => {
-      setDateState(date, 'startDate');
-      setFormValue({ ...formValue, poolStartDate: date });
-    },
-  };
-
   const setReleaseState: any = (selectedDate: any, field: string) => {
     setReleaseDate((preState: any) => {
       return {
@@ -209,11 +205,21 @@ const AddMasterdata = (props: any) => {
     });
   };
 
-  const startReleaseProp = {
-    selected: releaseDate.endDate,
+  const startDateProp = {
+    selected: date.startDate,
     className: 'form-control w-100',
     onChange: (date: any) => {
-      setReleaseState(date, 'endDate');
+      setDateState(date, 'startDate');
+      setFormValue({ ...formValue, poolStartDate: date });
+    },
+  };
+
+  const startReleaseProp = {
+    selected: releaseDate.startDate,
+    // minDate: new Date().setDate(5),
+    className: 'form-control w-100',
+    onChange: (date: any) => {
+      setReleaseState(date, 'startDate');
       setFormValue({ ...formValue, poolReleaseDate: date });
     },
   };
@@ -233,11 +239,21 @@ const AddMasterdata = (props: any) => {
     setIsSubmit(true);
     if (Object.keys(formErrors).length === 0 && checkFormValues(formValue)) {
       if (!id) {
-        await addMasterdata(formValue);
+        await addMasterdata(formValue)
+          .then((res) => {
+            toaster.success(res?.data.message);
+          })
+          .catch((error) => {
+            toaster.error(error);
+          });
       } else {
-        await editMasterdata(formValue, id).then(res=>{
-          toaster.success(res?.data.message);
-        })
+        await editMasterdata(formValue, id)
+          .then((res) => {
+            toaster.success(res?.data.message);
+          })
+          .catch((error) => {
+            toaster.error(error);
+          });
       }
       navigate('/masterData');
     }
