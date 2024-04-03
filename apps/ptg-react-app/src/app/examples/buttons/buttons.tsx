@@ -43,8 +43,8 @@ export default function Button() {
 
   return (
     <>
-   <section className='card-section-two bg-white rounded pt-2 pb-2 mt-2'>
-    <div className="row">
+    <section className='card-section-two bg-white rounded pt-2 pb-2 mt-2'>
+      <div className="row">
       <div className="col-10 mb-2 mt-2">
         <h5 className="font-weight-bold example-heading">Buttons</h5>
       </div>
@@ -60,7 +60,7 @@ export default function Button() {
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
       )}
       <div className="col-lg-12 col-md-12 col-sm-6 col-xs-2 ms-3 mt-2">
-        <div className='row'>
+        <div className='row me-2'>
 
         <div className='col mb-2'>
         <PtgButton text="Primary" data-testid="openButton" appearance="primary">
@@ -104,7 +104,7 @@ export default function Button() {
         </div>
         </div>
       </div>
-      </section>
+    </section>
     
     <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
     <div className="row">
@@ -154,9 +154,8 @@ export default function Button() {
         </div>
 
       </div>
-      {/* </div> */}
+  
       </section>
-    
     </>  
    
   );
