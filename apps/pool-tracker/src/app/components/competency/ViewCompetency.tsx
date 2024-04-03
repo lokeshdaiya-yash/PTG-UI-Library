@@ -27,7 +27,7 @@ const ViewCompetency = () => {
     }
     
   
-    const bandModal = (btnName: string, heading: string, competency?: string) => {
+    const competencyModal = (btnName: string, heading: string, competency?: string) => {
       return (
         <PtgModal
           modal-size="md"
@@ -53,7 +53,7 @@ const ViewCompetency = () => {
         width: '20%',
         render: (competency) => (
           <div className="masterdataBtn table-action-button">
-            {bandModal('Edit', 'Edit Competency', competency)}
+            {/* {competencyModal('Edit', 'Edit Competency', competency)} */}
   
             <i
               className="fa-solid fa-trash cursor-pointer"
@@ -69,7 +69,7 @@ const ViewCompetency = () => {
   
     return (
       <div className="viewMastertable viewTable">
-        {bandModal('Add Competency', 'Add Competency')}
+        {competencyModal('Add Competency', 'Add Competency')}
         <PtgUiMaterialTable
           data={competency}
           columns={Columns}

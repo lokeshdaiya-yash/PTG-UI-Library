@@ -18,9 +18,9 @@ export function BandChart() {
 
   const getBandsList = async () => {
     const response = await getBands();
-
     setBandList(response?.data);
   };
+
   const getAllUsers = async () => {
     const response = await getMasterdata();
     noOfRecords = response?.data.length;
@@ -78,8 +78,10 @@ export function BandChart() {
 
   return (
     <div className="p-4">
-      <p>Band Graph</p>
       <PtgUiD3Bar {...data} />
+      
+      <p>Band Graph</p>
+
     </div>
   );
 }

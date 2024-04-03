@@ -1,11 +1,11 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Logo from '../../../../assets/images/yash-logo-new.svg';
 import data from '../../../../assets/images/dashboard/data.png';
 import config from '../../../../assets/images/dashboard/config.svg';
-import designation from '../../../../assets/images/dashboard/designation.png';
-import band from '../../../../assets/images/dashboard/band.png';
-import competency from '../../../../assets/images/dashboard/competency.png';
+// import designation from '../../../../assets/images/dashboard/designation.png';
+// import band from '../../../../assets/images/dashboard/band.png';
+// import competency from '../../../../assets/images/dashboard/competency.png';
 import dashboard from '../../../../assets/images/dashboard/dashboard.png';
 import poolHistory from '../../../../assets/images/dashboard/pool-history.svg';
 
@@ -18,7 +18,7 @@ function Dashboard() {
         <img className="yashlogo" src={Logo} alt="Logo" />
         <div className="heading">YASH POOL TRACKER PORTAL</div>
         <div className="content">
-          The Pool tacking application is created to track the employee's status
+          The Pool tracking application is created to track the employee's status
           and their pool history along with their tagged client and interview
           details.
         </div>

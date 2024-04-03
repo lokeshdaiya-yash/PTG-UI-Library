@@ -3,10 +3,11 @@
 //   border: none;
 // }
 .navContainer{
-    display: flex;
-    flex-direction: row;
+    // display: flex;
+    // flex-direction: row;
     width: 100%;
     padding: 10px ;
+    text-align: center;
     & >.sideNav{
         width: 18%;
     }
@@ -65,3 +66,12 @@
 // .d3_pie, .d3_bar{
 //   display: flex;
 // }
+.chartSelect{
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.chartSelectBox{
+  width: 230px;
+}

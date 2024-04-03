@@ -43,3 +43,11 @@ export const addCompetency = async (data) => {
         console.log("error while calling delete competency api",error);  return;    
     }
   }
+
+  export const checkDuplicateCompetency = async (name) => {
+    try {
+        return await axios.get(`${URL}/duplicatecompetency/${name}`);
+    } catch (error) {
+        console.log("error while checking duplicate competency",error);  return; 
+    }
+  }

@@ -47,6 +47,6 @@ export const addBand = async (data) => {
     try {
         return await axios.get(`${URL}/duplicateband/${name}`);
     } catch (error) {
-        console.log("error while checking duplicate email id",error);  return; 
+        console.log("error while checking duplicate band",error);  return; 
     }
   }

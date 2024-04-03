@@ -9,8 +9,8 @@ import { PtgUiAlert, PtgUiMaterialTable } from '@ptg-ui/react';
 
 const ViewBand = () => {
   const [band, setBand] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
-  const [bandToEdit, setBandToEdit] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const [bandToEdit, setBandToEdit] = useState(false);
 
 
   useEffect(() => {
@@ -28,31 +28,31 @@ const ViewBand = () => {
     getAllBands();
   };
 
-  const modalClose = () => {
-    setIsOpen(false);
-  };
+  // const modalClose = () => {
+  //   // setIsOpen(false);
+  // };
 
-  const confirmClicked = () => {
-    setIsOpen(false);
-  };
+  // const confirmClicked = () => {
+  //   // setIsOpen(false);
+  // };
 
-  const openModal = (band) => {
-    setBandToEdit(band)
-    setIsOpen(true);
-  };
+  // const openModal = (band) => {
+  //   // setBandToEdit(band)
+  //   // setIsOpen(true);
+  // };
 
-  const handleCallback = (val) => {
-    console.log('handleclicked', val);
-    setIsOpen(val);
-  };
+  // const handleCallback = (val) => {
+  //   console.log('handleclicked', val);
+  //   // setIsOpen(val);
+  // };
 
   const bandModal = (btnName: string, heading: string, band?: string) => {
     return (
       <>
-        <i
+        {/* <i
           className="fa-solid fa-pencil cursor-pointer"
           onClick={()=>openModal(band)}
-        ></i>
+        ></i> */}
         {/* <PtgModal
         isOpen={isOpen}
           modal-size="md"
@@ -67,18 +67,20 @@ const ViewBand = () => {
         </PtgModal> */}
 
         <PtgModal
-          isOpen={isOpen}
-          onConfirmClose={confirmClicked}
+          // isOpen={isOpen}
+          // onConfirmClose={confirmClicked}
           modal-size="lg"
+          btn-name={btnName}
           modal-header-name={heading}
           confirm-button-name={btnName}
-          onModalClose={modalClose}
+          style={{ marginRight: '20px' }}
+          // onModalClose={modalClose}
         >
           <div slot="body-block">
             <AddBand
               band={band}
               btnName={btnName}
-              parentCallback={handleCallback}
+              // parentCallback={handleCallback}
             />
           </div>
         </PtgModal>
@@ -87,17 +89,17 @@ const ViewBand = () => {
   };
 
   const Columns = [
-    { title: 'id', field: '_id', filtering: false, width: '50%' },
+    // { title: 'id', field: '_id', filtering: false, width: '50%' },
     { title: 'name', field: 'name', filtering: false, width: '50%' },
     {
       title: 'Action',
       field: 'Action',
       name: 'action',
       header: '',
-      width: '50%',
+      width: '20%',
       render: (band) => (
         <div className="masterdataBtn table-action-button">
-          {bandModal('Edit', 'Edit Band', band)}
+          {/* {bandModal('Edit', 'Edit Band', band)} */}
 
           <i
             className="fa-solid fa-trash cursor-pointer"

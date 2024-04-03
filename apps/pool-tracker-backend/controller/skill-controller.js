@@ -73,3 +73,21 @@ export const deleteSkill = async (request, response) => {
     response.status(409).json({ message: error.message });
   }
 };
+
+export const checkDuplicateSkill = async (request, response) => {
+  const requestedName = request.params.name;
+  try {
+    const record = await Skill.findOne({ name: {$regex: new RegExp('^' + requestedName + '$', 'i')} });
+    if (record) {
+      response
+        .status(200)
+        .json({ message: `${requestedName} is already exist` });
+      response.end();
+    } else {
+      response.status(200).json({ message: '' });
+      response.end();
+    }
+  } catch (error) {
+    response.status(409).json({ message: error.message });
+  }
+};
