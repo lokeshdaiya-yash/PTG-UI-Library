@@ -29,8 +29,8 @@
 
 @media (min-width : 520px) and (max-width: 650px){
     .show-code-icon{
-       height : 30px;
-       width : 30px; 
+       height : 33px;
+       width : 33px; 
        margin-top: 0.2rem;
        }
     }
@@ -38,6 +38,7 @@
     .show-code-icon{
        height : 33px;
        width : 33px; 
+       margin-top: 0.2rem;
        }
     }
 
@@ -45,6 +46,7 @@
     .show-code-icon{
        height : 35px;
        width : 35px; 
+       margin-top: 0.1rem;
         }
     }
 
@@ -52,6 +54,12 @@
     .show-code-icon{
        height : 37px;
        width : 37px; 
+       }
+    }
+
+@media (min-width : 900px) and (max-width: 1200px){
+    .show-code-icon{
+       margin-top: 0.1rem;
        }
     }
 
