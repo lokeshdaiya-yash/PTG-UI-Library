@@ -212,6 +212,7 @@ const AddMasterdata = (props: any) => {
   const startReleaseProp = {
     selected: releaseDate.endDate,
     className: 'form-control w-100',
+    endDate: new Date(),
     onChange: (date: any) => {
       setReleaseState(date, 'endDate');
       setFormValue({ ...formValue, poolReleaseDate: date });
