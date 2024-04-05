@@ -19,7 +19,7 @@ export const addSkill = async (request, response) => {
       if (checking == false) {
         const skills = {};
         Object.keys(request.body).forEach((key) => {
-          skills[key] = request.body[key].toUpperCase();
+          skills[key] = request.body[key];
         });
         console.log('skills', skills);
         const newSkill = new Skill(skills);

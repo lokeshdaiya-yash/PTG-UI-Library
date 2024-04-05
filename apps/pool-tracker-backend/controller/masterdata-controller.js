@@ -27,7 +27,7 @@ export const editMasterdata = async (request, response) => {
 // get all records
 export const getMasterdata = async (request, response) => {
   try {
-    const masterdatas = await Masterdata.find({}).sort({createdAt: -1});
+    const masterdatas = await Masterdata.find({}).sort({ updatedAt: -1});
     console.log('hasmat', masterdatas);
     response.status(200).json(masterdatas);
   } catch (error) {

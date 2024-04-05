@@ -5,7 +5,7 @@ import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 // import './Band.scss';
 import { PtgUiAlert, PtgUiMaterialTable } from '@ptg-ui/react';
  import AddBand from './AddBand';
-// import AddBand from '../band/AddBand';
+ import toaster from '../../service/toaster';
 
 const ViewBand = () => {
   const [band, setBand] = useState([]);
@@ -23,8 +23,10 @@ const ViewBand = () => {
   };
 
   const deleteBands = async (id: any) => {
-    await deleteBand(id);
-    // alert('Do You Want To Delete');
+    await deleteBand(id).then(res=>{
+      toaster.success(res?.data.message);
+    })
+    
     getAllBands();
   };
 
