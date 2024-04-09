@@ -37,6 +37,7 @@ export function PtgUiMaterialTableButtonExample(props: PtgUiMaterialTableButtonE
     }
   },[apiData])
 
+  
   const Columns:any = [
     { title: "Athlete",field: "athlete"},
     { title: "Age",field: "age",filtering: false },
@@ -84,6 +85,11 @@ export function PtgUiMaterialTableButtonExample(props: PtgUiMaterialTableButtonE
   useEffect(()=>{
     fetchApi()
   },[apiData])
+ 
+  const tableOptions ={
+    emptyRowsWhenPaging: false,
+    defaultOrderByCollection: []
+  }
 
   const Columns:any = [
     { title: "Athlete",field: "athlete"},
@@ -103,6 +109,8 @@ const htmlCode = `
 <MaterialTable
 columns={Columns}
 data={gridData}
+title="Material Table"
+options={tableOptions}
 actions={[
     {
       icon: () =>  <PtgUiButton
@@ -118,6 +126,11 @@ actions={[
   ]}
 />
 `
+const tableOptions ={
+  emptyRowsWhenPaging: false,
+  defaultOrderByCollection: []
+}
+
   return (
     <div className="table-responsive">
     <div className='row'>
@@ -131,7 +144,8 @@ actions={[
        <MaterialTable
        columns={Columns}
        data={gridData}
-       title="Material Table"
+       title=""
+       options={tableOptions}
        actions={[
            {
              icon: () =>  <PtgUiButton

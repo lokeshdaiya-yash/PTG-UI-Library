@@ -11,7 +11,7 @@ import { ExportCsv, ExportPdf } from '@material-table/exporters';
 
 /* eslint-disable-next-line */
 export interface PtgUiMaterialTableProps {
-  data:{ 
+  data: {
     id: number,
     athlete: string,
     age: number,
@@ -24,41 +24,34 @@ export interface PtgUiMaterialTableProps {
     bronze: number,
     total: number
   }[],
-  columns:{
+  columns: {
     title: string,
     field: string,
   }[];
-    filtering: boolean,
-    title: string,
-    paging:boolean,
-    paginationPosition?:any
-    grouping?:boolean
+  filtering: boolean,
+  paging: boolean,
+  paginationPosition?: any
+  grouping?: boolean,
+  detailPanel?: (rowData:any) =>any;
+  options?:{
+    emptyRowsWhenPaging: boolean;
+    defaultOrderByCollection?: string[];
+    }
+  }
+
+const tableOptions ={
+  emptyRowsWhenPaging: false,
+  defaultOrderByCollection: []
 }
 
-export function PtgUiMaterialTable({data,columns,title,filtering,paging,paginationPosition='bottom',grouping}: PtgUiMaterialTableProps) {  
-
+export function PtgUiMaterialTable(props: PtgUiMaterialTableProps) {
   return (
     <MaterialTable
-      columns={columns}
-      data={data}
-      title={title}
-      // title="Table"
-      // options={{
-      //   // defaultOrderByCollection:'',
-      //   exportMenu: [{
-      //     label: 'Export PDF',
-      //     exportFunc: (cols, datas) => ExportPdf(cols, datas, 'pdfFileName')
-      //   }, {
-      //     label: 'Export CSV',
-      //     exportFunc: (cols, datas) => ExportCsv(cols, datas, 'csvFileName')
-      //   }],
-      //   filtering:filtering,
-      //   paging:paging,
-      //   paginationPosition:paginationPosition,
-      //   grouping: grouping
-      // }}
+      {...props}
+    options={tableOptions}
     />
-  );
+
+  )
 }
 
 export default PtgUiMaterialTable;

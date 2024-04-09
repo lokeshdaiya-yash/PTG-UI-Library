@@ -144,7 +144,13 @@
   "PERSONAL_INFO":"Personal Information",
   "PAYMENT_DETAILS":"Payment Details",
   "CONFIRM_DETAILS":"Confirm Your Details",
-  "TABS" : "Tabs"
+  "TABS" : "Tabs",
 
+  "BREADCRUMBS": "Breadcrumbs",
+  "CARDS": "Cards",
+  "HOME": "Home",
+  "ABOUT_US" : "About Us",
+  "CONTACT_US" : "Contact Us",
+  "CONVERT_TIMEZONE":"Convert timezone"
 }
 

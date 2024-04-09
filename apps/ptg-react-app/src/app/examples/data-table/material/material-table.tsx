@@ -116,7 +116,6 @@ const htmlCode = `
       <div className=" table-responsive">
       <PtgUiMaterialTable 
         data ={gridData}
-        title="Material Table"
         columns= {Columns}  
         filtering= {true}
         paging= {true}

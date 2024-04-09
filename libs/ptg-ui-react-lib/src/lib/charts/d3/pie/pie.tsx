@@ -81,6 +81,7 @@ const defaultProps: PtgUiD3PieProps =
 
 
 export function PtgUiD3Pie({data,height,width,innerRadius,outerRadius,colorsArray}: PtgUiD3PieProps) {
+  const flag = React.useRef(true);
   const createSvg:any =() =>  {
     const svg = d3
       .select('.d3_pie')
@@ -142,9 +143,12 @@ export function PtgUiD3Pie({data,height,width,innerRadius,outerRadius,colorsArra
   }
 
 React.useEffect(() => {
+  if(flag.current){
     const svg:any =createSvg();
     createColors();
     drawChart(svg);
+    flag.current = false;
+  }
 }, []);
 
   return (

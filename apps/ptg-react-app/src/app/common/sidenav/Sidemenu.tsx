@@ -6,6 +6,12 @@
 {/*--List of sidebar/side navigation--*/}
 export const NavigationData = [
   {
+    path: '/accordian',
+    icon: 'fa fa-lock',
+    label: 'ACCORDION',
+    disabled: false,
+  },
+  {
     path: '/calendar',
     icon: 'fa-solid fa-calendar',
     label: 'CALENDAR',
@@ -141,6 +147,12 @@ export const NavigationData = [
     path: '/cards',
     icon: 'fa fa-lock',
     label: 'CARDS',
+    disabled: false,
+  },
+  {
+    path: '/toaster',
+    icon: 'fa fa-lock',
+    label: 'Toaster',
     disabled: false,
   }
 ];  
