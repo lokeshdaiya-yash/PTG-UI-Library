@@ -72,7 +72,7 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
     { field: "gold", minWidth: 50 },
     { field: "silver", minWidth: 50},
     { field: "total", minWidth: 50},
-    { field: "Action",cellRenderer: AggridButton,minWidth: 100},
+    { field: "Action",cellRenderer: AggridButton,minWidth: 130},
   ]);
 
   const defaultColDef = {

@@ -48,6 +48,9 @@ const tableOptions ={
 export function PtgUiMaterialTable(props: PtgUiMaterialTableProps) {
   return (
     <MaterialTable
+    style={{
+      fontSize : "14px"
+    }}
       {...props}
     options={tableOptions}
     />
