@@ -88,7 +88,7 @@ const DialogExample = () => {
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} cssCode={cssCode} />
       )}
       <div className='ms-2'>
-      <PtgButton  text="" data-testid="openButton" appearance="primary" onClick={openModal}
+      <PtgButton  text="Click Here" data-testid="openButton" appearance="primary" onClick={openModal}
        >
         <div slot="btnIcon">
           <AddCircleIcon />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ICellRendererParams } from 'ag-grid-community';
 import { PtgUiButton } from '@ptg-ui/react';
+import { PtgButton } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
 import { useTranslation } from 'react-i18next';
 
 export function AggridButton(props: ICellRendererParams) {
@@ -10,13 +11,8 @@ export function AggridButton(props: ICellRendererParams) {
   };
 
   return (
-    <div>
-      <button 
-        type="button" 
-        className="btn btn-primary btn-sm" 
-        onClick={buttonClicked}>
-      {t('CLICK_HERE')}
-      </button>
+    <div className='mt-1'>
+      <PtgButton appearance="primary" text={t('CLICK_HERE')}  onClick={buttonClicked}></PtgButton>
     </div>
   );
 };

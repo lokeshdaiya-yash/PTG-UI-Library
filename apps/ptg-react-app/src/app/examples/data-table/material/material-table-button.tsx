@@ -9,8 +9,10 @@ import MaterialTable from "@material-table/core";
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { PtgUiButton, PtguseFetch } from '@ptg-ui/react';
+import { PtgButton } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
+
 
 /* eslint-disable-next-line */
 export interface PtgUiMaterialTableButtonExampleProps {
@@ -148,18 +150,19 @@ actions={[
        columns={Columns}
        data={gridData}
        title=""
+       style={{
+        fontSize: "14px"
+       }}
        actions={[
            {
              icon: () =>   
-                 <button type="button" className="w-75 btn btn-primary btn-sm">
-                {t('CLICK_HERE')}
-                </button>,
-             
+                <PtgButton appearance="primary" text={t('CLICK_HERE')}></PtgButton>,
                  tooltip: 'Click Here',
                  onClick: (event: any, rowData: any) => {
                  console.log(event, rowData);
                  alert("Button Clicked");
-             }
+                //  style={{width : "100px"}}
+              }
            }
          ]}
        />
