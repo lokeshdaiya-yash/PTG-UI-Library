@@ -43,9 +43,9 @@ body {
 
   & > tr > th,
   td {
-    padding: 0px;
-    padding-left: 20px;
-    padding-right: 20px;
+    // padding: 0px;
+    // padding-left: 20px;
+    // padding-right: 20px;
     text-align: left;
     border-bottom: 1px solid darkgray;
   }
@@ -57,7 +57,7 @@ body {
 
 .viewMastertable button {
   padding: 10px;
-  font-size: 14px;
+  font-size: 13px;
   border: none;
 
   & > a {
@@ -129,6 +129,7 @@ input[type='text']::-webkit-input-placeholder {
 
 .btn-primay {
   background-color: $main !important;
+  color: #fff;
 }
 
 .btn-secondary {
@@ -151,7 +152,7 @@ input[type='text']::-webkit-input-placeholder {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .fa-trash::before {

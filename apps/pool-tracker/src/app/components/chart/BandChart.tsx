@@ -82,12 +82,7 @@ const band = element.band;
   return (
     <div className="p-4">
       <PtgUiD3Bar {...data} />
-      
-     
       <p className='mt-3'>Band Graph</p>
-      
-      
-
     </div>
   );
 }

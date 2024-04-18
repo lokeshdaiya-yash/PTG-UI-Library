@@ -47,14 +47,14 @@ const AddLocation = (props: any) => {
         onChange={(e) => onValueChange(e)}
       />
 
-      {/* <PtgUiButton
+      <PtgUiButton
         className="mt-2 btn-primay btn-position"
         type="button"
         disabled={!formValue.value}
         onClick={() => onSubmit()}
       >
         Add Location
-      </PtgUiButton> */}
+      </PtgUiButton>
     </div>
   );
 };

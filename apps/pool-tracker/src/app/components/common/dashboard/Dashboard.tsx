@@ -44,7 +44,7 @@ function Dashboard() {
             </div>
           </NavLink>
 
-          <NavLink to="/config">
+          <NavLink to="/projects">
             <div className="item-card">
               <img src={poolHistory} alt="item-card" />
               <p>Pool History</p>

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { addProject, editProject, getSingleProjectData } from '../../service/project-api';
+import {
+  addProject,
+  editProject,
+  getSingleProjectData,
+} from '../../service/project-api';
 import toaster from '../../service/toaster';
 import {
   PtgUiButton,
   PtgUiCalendar,
-  PtgUiCheckbox,
   PtgUiInput,
   PtgUiMultiSelectbox,
   PtgUiTextArea,
@@ -28,18 +31,15 @@ const AddProject = (props: any) => {
   const [formErrors, setFormErrors] = useState(formErrorsObj);
   const [isSubmit, setIsSubmit] = useState(false);
   const [resorce, setResorce] = useState([]);
-  
+
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     getResorceList();
     if (id) {
-        getUser();
-      } else {
-        // setFormValue(initialFormValue);
-      }
-   
+      getPrject();
+    }
   }, []);
 
   // values handlers
@@ -54,35 +54,30 @@ const AddProject = (props: any) => {
 
   const getResorceList = async () => {
     const response = await getMasterdata();
-    setResorce(response?.data?.name);
-   
-    console.log("response?.data", response?.data?.name)
+    const masterData = response?.data;
+    const resourcesName = masterData.map((emp) => {
+      return { name: emp.name, value: emp.name, label: emp.name };
+    });
+    // console.log('resourcesName', resourcesName);
+    setResorce(resourcesName);
+    // console.log('masterData', masterData);
   };
 
-  const getUser = async () => {
+  const getPrject = async () => {
     const response = await getSingleProjectData(id);
-    const userDetails = response?.data;
-   
+    const projectDetails = response?.data;
+
     setFormValue({
       ...formValue,
-      projectName: userDetails.projectName,
-      description: userDetails.description,
-    //   poolStartDate: setDateState(userDetails.poolStartDate, 'startDate'),
-    //   poolReleaseDate: setReleaseState(userDetails.poolReleaseDate, 'endDate'),
-      projectStartDate: userDetails.projectStartDate,
-      status: userDetails.status,
-      projectEndDate: userDetails.projectEndDate,
-      nameOfResorces: userDetails.nameOfResorces,
+      projectName: projectDetails.projectName,
+      description: projectDetails.description,
+      //   poolStartDate: setDateState(userDetails.poolStartDate, 'startDate'),
+      //   poolReleaseDate: setReleaseState(userDetails.poolReleaseDate, 'endDate'),
+      projectStartDate: projectDetails.projectStartDate,
+      status: projectDetails.status,
+      projectEndDate: projectDetails.projectEndDate,
+      nameOfResorces: projectDetails.nameOfResorces,
     });
-  };
-
-
-  // format date
-  const formatDate = (str: string) => {
-    const date = new Date(str),
-      mnth = ('0' + (date.getMonth() + 1)).slice(-2),
-      day = ('0' + date.getDate()).slice(-2);
-    return [mnth, day, date.getFullYear()].join('-');
   };
 
   // select date
@@ -106,47 +101,35 @@ const AddProject = (props: any) => {
 
   const validateFormFields = (values): any => {
     const errors: any = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!values.name) {
-      errors.name = 'Name is required!';
+    if (!values.projectName) {
+      errors.projectName = 'Project name is required!';
     }
-    if (!values.emailId) {
-      errors.emailId = 'Email is required!';
-    } else if (!emailRegex.test(values.emailId)) {
-      errors.emailId = 'Invalid format!';
+    if (!values.nameOfResorces) {
+      errors.nameOfResorces = 'Resource name is required!';
     }
-    if (!values.poolStartDate) {
-      errors.poolStartDate = 'Pool Start Date is required!';
+    if (!values.projectStartDate) {
+      errors.projectStartDate = 'Project start date is required!';
     }
-    if (!values.poolReleaseDate) {
-      errors.poolReleaseDate = 'Release Date is required!';
-    }
-    if (!values.band) {
-      errors.band = 'Band is required!';
-    }
-    if (!values.competency) {
-      errors.competency = 'Competency is required!';
-    }
-    if (!values.designations) {
-      errors.designations = 'Designation is required!';
-    }
-    if (!values.locations) {
-      errors.locations = 'Location is required!';
-    }
-    if (!values.skills) {
-      errors.skills = 'Skills are required!';
-    }
-    if (!values.yearsofExp) {
-      errors.yearsofExp = 'Years of exp. is required!';
+    if (!values.description) {
+      errors.description = 'Description is required!';
     }
     return errors;
   };
 
+  const checkFormValues = (data: any) => {
+    if (id !== undefined) {
+      return Object.values(data).every((value) => value !== '');
+    } else {
+      const { projectEndDate, status, ...rest } = formValue;
+      return Object.values(rest).every((value) => value !== '');
+    }
+  };
+
   // submit forms data
-  const submitMasterDetails = async () => {
+  const submitProjectDetails = async () => {
     setFormErrors(validateFormFields(formValue));
     setIsSubmit(true);
-    if (Object.keys(formErrors).length === 0) {
+    if (Object.keys(formErrors).length === 0 && checkFormValues(formValue)) {
       if (!id) {
         await addProject(formValue);
       } else {
@@ -182,7 +165,31 @@ const AddProject = (props: any) => {
             />
             <p className="error">{formErrors.projectName}</p>
           </div>
+          <div className="masterdatafield-box">
+            <label htmlFor="nameOfResorces"> Name Of Resorces </label>
+            <PtgUiMultiSelectbox
+              name="nameOfResorces"
+              list={resorce}
+              onSelect={(e) => selectHandler(e, 'nameOfResorces')}
+              showCheckbox={false}
+              singleSelect={true}
+              selectedValues={[{ label: formValue.nameOfResorces }]}
+            />
+            <p className="error">{formErrors.nameOfResorces}</p>
+          </div>
+        </div>
 
+        {/* ================== Pool start date and Band========================== */}
+        <div className="masterdatafield">
+          <div className="masterdatafield-box">
+            <label htmlFor="projectStartDate"> Project Start date </label>
+            {id !== undefined ? (
+              <PtgUiCalendar {...startDateProp} disabled />
+            ) : (
+              <PtgUiCalendar {...startDateProp} />
+            )}
+            <p className="error">{formErrors.projectStartDate}</p>
+          </div>
           <div className="masterdatafield-box">
             <label htmlFor="description"> Project Description </label>
             <PtgUiTextArea
@@ -197,60 +204,35 @@ const AddProject = (props: any) => {
           </div>
         </div>
 
-        {/* ================== Pool start date and Band========================== */}
-        <div className="masterdatafield">
-          <div className="masterdatafield-box">
-            <label htmlFor="projectStartDate"> Project Start date </label>
-            {/* {id !== undefined ? (
-              <PtgUiCalendar {...startDateProp} disabled />
-            ) : ( */}
-              <PtgUiCalendar {...startDateProp} />
-             {/* )} */}
-            <p className="error">{formErrors.projectStartDate}</p>
-          </div>
-
-          <div className="masterdatafield-box">
-            <label htmlFor="projectEndDate">Project end date </label>
-            {/* {id !== undefined ? (
-              <PtgUiCalendar {...startDateProp} disabled />
-            ) : ( */}
-              <PtgUiCalendar {...startDateProp} />
-            {/* )} */}
-            <p className="error">{formErrors.projectEndDate}</p>
-          </div>
-        </div>
-
         {/* ================== status and name Of Resorces========================== */}
 
         <div className="masterdatafield">
-          <div className="masterdatafield-box">
-            <label htmlFor="status"> Status </label>
-            <PtgUiInput
-              className={'form-control '}
-              type="text"
-              name="status"
-              id="status"
-              placeholder="Enter Status"
-              value={formValue.status}
-              onChange={(e) => changeHandler(e)}
-            />
-            <p className="error">{formErrors.projectName}</p>
-          </div>
-
-          <div className="masterdatafield-box">
-            <label htmlFor="nameOfResorces"> name Of Resorces </label>
-          
-            <PtgUiMultiSelectbox
-              name="nameOfResorces"
-              list={resorce}
-              onSelect={(e) => selectHandler(e, 'nameOfResorces')}
-              showCheckbox={false}
-              singleSelect={true}
-              selectedValues={[{ label: formValue.nameOfResorces }]}
-            />
-
-            <p className="error">{formErrors.nameOfResorces}</p>
-          </div>
+          {id && (
+            <div className="masterdatafield-box">
+              <label htmlFor="projectEndDate">Project end date </label>
+              {/* {id !== undefined ? (
+              <PtgUiCalendar {...startDateProp} disabled />
+            ) : ( */}
+              <PtgUiCalendar {...startDateProp} />
+              {/* )} */}
+              <p className="error">{formErrors.projectEndDate}</p>
+            </div>
+          )}
+          {false && (
+            <div className="masterdatafield-box">
+              <label htmlFor="status"> Status </label>
+              <PtgUiInput
+                className={'form-control '}
+                type="text"
+                name="status"
+                id="status"
+                placeholder="Enter Status"
+                value={formValue.status}
+                onChange={(e) => changeHandler(e)}
+              />
+              <p className="error">{formErrors.projectName}</p>
+            </div>
+          )}
         </div>
 
         <div className="mt-20 action-button-container">
@@ -267,7 +249,7 @@ const AddProject = (props: any) => {
           <PtgUiButton
             className="ml-20 btn btn-primay"
             type="button"
-            onClick={() => submitMasterDetails()}
+            onClick={() => submitProjectDetails()}
             aria-label="save"
             data-testid="save"
           >

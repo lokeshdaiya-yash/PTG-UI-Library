@@ -1,21 +1,10 @@
-// import { PtgUiButton } from '@ptg-ui/libs/ptg-ui-react-lib/src';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  getProjects,
-  deleteProject,
-  getSingleProjectData,
-} from '../../service/project-api';
+import { getProjects, deleteProject } from '../../service/project-api';
 import '../../app.module.scss';
 import './PoolProject.scss';
-import { useNavigate, useParams } from 'react-router-dom';
-import {
-  PtgUiInput,
-  PtgUiMaterialTable,
-  PtgUiButton,
-  PtgUiCheckbox,
-} from '@ptg-ui/react';
-// import AddProject from './AddProject';
+import { useNavigate } from 'react-router-dom';
+import { PtgUiMaterialTable, PtgUiButton } from '@ptg-ui/react';
 import toaster from '../../service/toaster';
 
 const ViewPoolProject = () => {
@@ -24,11 +13,20 @@ const ViewPoolProject = () => {
 
   useEffect(() => {
     getAllProjects();
-  },[]);
+  }, []);
 
   const getAllProjects = async () => {
     const response = await getProjects();
-    setProject(response?.data);
+    const projectData = response?.data;
+    projectData.map((project) => {
+      if (project.projectStartDate && project.projectEndDate) {
+        project.status = 'Completed';
+      } else {
+        project.status = 'Ongoing';
+      }
+      return project;
+    });
+    setProject(projectData);
   };
 
   const deleteProjectDetails = async (id: any) => {
@@ -43,58 +41,61 @@ const ViewPoolProject = () => {
     navigate('/addProject');
   };
 
-  const Columns = [
+  const columns = [
     {
-      title: 'ProjectName',
+      title: 'Project Name',
       field: 'projectName',
       filtering: false,
-      width: '20%',
+      width: '10%',
     },
     {
-      title: 'description',
+      title: 'Description',
       field: 'description',
       filtering: false,
+      width: '10%',
     },
     {
-      title: 'status',
+      title: 'Status',
       field: 'status',
       filtering: false,
+      width: '5%',
     },
     {
-      title: 'projectStartDate',
+      title: 'Project Start Date',
       field: 'projectStartDate',
       filtering: false,
+      width: '5%',
     },
     {
-      title: 'projectEndDate',
+      title: 'Project End Date',
       field: 'projectEndDate',
       filtering: false,
+      width: '10%',
     },
     {
-      title: 'nameOfResorces',
+      title: 'Name Of Resorces',
       field: 'nameOfResorces',
       filtering: false,
+      width: '20%',
     },
     {
       title: 'Action',
       field: 'Action',
       name: 'action',
       header: '',
-      width: '20%',
+      width: '5%',
       render: (project) => (
         <div className="masterdataBtn">
           <div className="masterdataBtn table-action-button">
             <Link to={`/addProject/${project._id}`}>
               <i className="fa-solid fa-pencil cursor-pointer"></i>
             </Link>
-          <i
-            className="fa-solid fa-trash cursor-pointer"
-            onClick={() => deleteProjectDetails(project._id)}
-          >
-            
-          </i>
-          {/* <PtgUiAlert message={('ERROR_MSG')} /> */}
-        </div>
+            <i
+              className="fa-solid fa-trash cursor-pointer"
+              onClick={() => deleteProjectDetails(project._id)}
+            ></i>
+            {/* <PtgUiAlert message={('ERROR_MSG')} /> */}
+          </div>
         </div>
       ),
     },
@@ -102,14 +103,14 @@ const ViewPoolProject = () => {
 
   return (
     <div className="viewMastertable viewTable">
-     <div className="addButton">
+      <div className="addButton">
         <PtgUiButton className="btnColor" onClick={handleNavigate}>
           New Project +
         </PtgUiButton>
       </div>
       <PtgUiMaterialTable
         data={project}
-        columns={Columns}
+        columns={columns}
         filtering={true}
         paging={true}
         paginationPosition={'bottom'}

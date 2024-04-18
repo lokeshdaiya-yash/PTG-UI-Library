@@ -178,13 +178,13 @@ const ViewMasterData = () => {
 
         <PtgUiCheckbox
           label={'Show Released Employess'}
-          htmlFor="confirm"
+          htmlFor="Show Released Employess"
           checked={selectedCheck}
           onChange={checkHandler}
           className={`form-check-input`}
-          name="isReleased"
-          id="isReleased"
-          aria-label="isReleased"
+          name="Show Released Employess"
+          id="Show Released Employess"
+          aria-label="Show Released Employess"
         />
       </div>
 

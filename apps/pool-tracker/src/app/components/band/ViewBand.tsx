@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { deleteBand, getBands } from '../../service/api';
 import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 // import './Band.scss';
-import { PtgUiAlert, PtgUiMaterialTable } from '@ptg-ui/react';
+import { PtgUiMaterialTable } from '@ptg-ui/react';
  import AddBand from './AddBand';
  import toaster from '../../service/toaster';
 
@@ -11,7 +11,6 @@ const ViewBand = () => {
   const [band, setBand] = useState([]);
   // const [isOpen, setIsOpen] = useState(false);
   // const [bandToEdit, setBandToEdit] = useState(false);
-
 
   useEffect(() => {
     getAllBands();
@@ -50,55 +49,29 @@ const ViewBand = () => {
 
   const bandModal = (btnName: string, heading: string, band?: string) => {
     return (
-      <>
-        {/* <i
-          className="fa-solid fa-pencil cursor-pointer"
-          onClick={()=>openModal(band)}
-        ></i> */}
-        {/* <PtgModal
-        isOpen={isOpen}
-          modal-size="md"
-          modal-header-name={heading}
-          confirm-button-name="Save"
-          onModalClose={modalClose}
-          onConfirmClose={confirmClicked}
-        >
-          <div slot="body-block">
-            <AddBand band={band} btnName={btnName} />
-          </div>
-        </PtgModal> */}
-
-        <PtgModal
-          // isOpen={isOpen}
-          // onConfirmClose={confirmClicked}
-          modal-size="lg"
-          btn-name={btnName}
-          modal-header-name={heading}
-          confirm-button-name={btnName}
-          style={{ marginRight: '20px' }}
-          // onModalClose={modalClose}
-        >
-          <div slot="body-block">
-            <AddBand
-              band={band}
-              btnName={btnName}
-              // parentCallback={handleCallback}
-            />
-          </div>
-        </PtgModal>
-      </>
+      <PtgModal
+        modal-size="md"
+        btn-name={btnName}
+        modal-header-name={heading}
+        confirm-button-name="Save"
+        style={{ marginRight: '20px' }}
+      >
+        <div slot="body-block">
+          <AddBand band={band} btnName={btnName} />
+        </div>
+      </PtgModal>
     );
   };
 
   const Columns = [
     // { title: 'id', field: '_id', filtering: false, width: '50%' },
-    { title: 'name', field: 'name', filtering: false, width: '50%' },
+    { title: 'name', field: 'name', filtering: false, width: '90%' },
     {
       title: 'Action',
       field: 'Action',
       name: 'action',
       header: '',
-      width: '20%',
+      width: '10%',
       render: (band) => (
         <div className="masterdataBtn table-action-button">
           {/* {bandModal('Edit', 'Edit Band', band)} */}

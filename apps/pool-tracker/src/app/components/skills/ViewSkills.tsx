@@ -42,13 +42,13 @@ const ViewSkills = () => {
   };
 
   const Columns = [
-    { title: 'name', field: 'name', filtering: false, width: '50%' },
+    { title: 'name', field: 'name', filtering: false, width: '90%' },
     {
       title: 'Action',
       field: 'Action',
       name: 'action',
       header: '',
-      width: '20%',
+      width: '10%',
       render: (skill) => (
         <div className="masterdataBtn table-action-button">
           {/* {skillsModal('Edit', 'Edit Skill', skill)} */}

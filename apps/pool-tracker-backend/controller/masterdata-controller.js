@@ -15,10 +15,13 @@ export const addMasterdata = async (request, response) => {
 // update existing record
 export const editMasterdata = async (request, response) => {
   let employee = request.body;
-  console.log('updated record with pool release date', employee)
+  console.log('updated record with pool release date', employee);
   try {
     await Masterdata.updateOne({ _id: request.params.id }, employee);
-    response.status(201).json({ message: 'Updated successfully!' });
+    let message = employee.poolReleaseDate
+      ? 'Employee has release successfully !'
+      : 'Updated successfully!';
+    response.status(201).json({ message: message });
   } catch (error) {
     response.status(409).json({ message: error.message });
   }
