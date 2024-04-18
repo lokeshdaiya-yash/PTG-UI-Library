@@ -73,6 +73,8 @@ const masterDataSchema = mongoose.Schema(
     isActive: { type: Number, default: 0 },
   },
   { timestamps: { createdAt: 'createdAt' } }
+
+  // { timestamps: { updatedAt: 'updatedAt' } }
 );
 
 const masterdata = mongoose.model('masterdata', masterDataSchema);

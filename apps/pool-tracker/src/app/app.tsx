@@ -17,6 +17,8 @@ import Dashboard from './components/common/dashboard/Dashboard';
 import ViewMasterData from './components/viewMasterData/ViewMasterData';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ViewPoolProject from './components/project/ViewPoolProject';
+import AddProject from './components/project/AddProject';
 
 export function App() {
   return (
@@ -42,8 +44,12 @@ export function App() {
 
           {/* skills Routes*/}
           <Route path="/skills" element={<ViewSkills />} />
-          {/* <Route path="addSkill" element={<AddSkill />} />
+           {/* <Route path="addSkill" element={<AddSkill />} />
           <Route path="/editskill/:id" element={<EditSkill />} /> */}
+          <Route path="/projects" element={<ViewPoolProject />} />
+          <Route path="/addProject" element={<AddProject />} />
+          <Route path="/addProject/:id" element={<AddProject />} />
+         
 
           {/* chart Routes*/}
           <Route path="/chart/" element={<Chart />}>

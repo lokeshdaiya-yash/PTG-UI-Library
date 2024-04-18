@@ -7,6 +7,8 @@ import {
   deleteMasterdata,
   checkDuplicateEmail,
 } from '../controller/masterdata-controller.js';
+import { addProject, getProjects, editProject, getSingleProjectData, deleteProject } from '../controller/project-controller.js';
+
 import {
   addSkill,
   getSkills,
@@ -101,6 +103,12 @@ router.get('/skill/:id', getSingleSkill);
 router.post('/skill/:id', editSkill);
 router.delete('/skill/:id', deleteSkill);
 router.get('/duplicateskill/:name', checkDuplicateSkill);
+
+router.post('/project/addproject', addProject);
+router.get('/project/allproject', getProjects);
+router.get('/project/:id', getSingleProjectData);
+router.post('/project/:id', editProject);
+router.delete('/project/:id', deleteProject);
 
 
 router.post('/user/add', addUser);

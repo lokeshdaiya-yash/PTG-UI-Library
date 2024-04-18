@@ -1,34 +1,99 @@
 import { PtgUiD3Bar} from '@ptg-ui/react';
+import { useEffect, useState } from 'react';
+import { getMasterdata } from '../../service/masterData-api';
+import { getSkills } from '../../service/skill-api';
 
-export const d3SkillData: any = {
-  height: 400,
-  width: 600,
-  start: 0,
-
-  title: 'skill Chart',
-  x_title: 'skill',
-  y_title: 'Numbers',
-  data: [
-    { Framework: 'Vuee', Stars: '100000', Released: '2014', color: '#454545' },
-    { Framework: 'React', Stars: '120793', Released: '2013', color: 'blue' },
-    { Framework: 'Angular', Stars: '92342', Released: '2016', color: 'green' },
-    {
-      Framework: 'Backbone',
-      Stars: '67647',
-      Released: '2010',
-      color: 'orange',
-    },
-    { Framework: 'Ember', Stars: '121471', Released: '2011', color: 'pink' },
-  ],
-};
+const color = ['green', 'blue', 'orange', 'pink', 'purple'];
 
 export function SkillChart() {
+  const [masterdatas, setMasterdata] = useState<any>([]);
+  const [skillList, setSkillList] = useState<any>([]);
+  const [data, setData] = useState<any>([]);
+  let noOfRecords: number;
+
+  useEffect(() => {
+    getAllUsers();
+    getskillsList();
+  }, []);
+
+  const getskillsList = async () => {
+    const response = await getSkills();
+    setSkillList(response?.data);
+  };
+
+  const getAllUsers = async () => {
+    const response = await getMasterdata();
+    noOfRecords = response?.data.length;
+    setMasterdata(response?.data);
+
+    const graphRawData: any = [];
+    const skillCount = {};
+
+    masterdatas.forEach((element) => {
+      const skills = element.skills;
+
+      console.log("skills", skills);
+
+      skillCount[skills] = (skillCount[skills] || 0) + 1;
+      const randomColor = color[Math.floor(Math.random() * skillList.length)];
+
+      if (graphRawData?.length === 0) {
+        graphRawData.push({
+          skills: element.skills,
+          count: skillCount[skills],
+          color: randomColor,
+          
+        });
+        console.log("element.skills.name", skills)
+        
+      } else if (
+        graphRawData[graphRawData?.length - 1]['skill'] !== element.skill
+      ) {
+        graphRawData.push({
+          skills: element.skills,
+          count: skillCount[skills],
+          color: randomColor,
+        });
+        console.log(">>>>2",skills )
+      } else {
+        graphRawData[graphRawData?.length - 1]['count'] = skillCount[skills];
+      }
+      console.log("graphRawData", graphRawData)
+    });
+
+    const graphData = graphRawData.map((item) => {
+      console.log(">>>>3",item.skills.name )
+      return {
+        Framework: item.skills,
+        Stars: item.count,
+        color: item.color,
+      };
+     
+    }
+    );
+   
+    const skillGraph: any = {
+      height: 400,
+      width: 400,
+      start: 0,
+      end: noOfRecords,
+      title: 'Skill Chart',
+      x_title: 'Skills',
+      y_title: 'Numbers',
+      data: graphData,
+    };
+    console.log("data",graphData )
+    setData(skillGraph);
+  };
+
   return (
     <div>
       <div>
-      <PtgUiD3Bar {...d3SkillData} />
-      <h6>Skill Chart</h6>
-        
+      
+      <PtgUiD3Bar {...data} />
+      <p className='mt-3'>Skill Chart</p>
+      
+      <p className='mt-3'>Skill Chart</p>
       </div>
       
     </div>
@@ -36,115 +101,4 @@ export function SkillChart() {
 }
 export default SkillChart;
 
-// ======================================================================================================================
 
-// import * as React from 'react';
-// import * as d3 from 'd3';
-
-// export interface PtgUiD3BarProps {
-//   data?: any;
-//   height?: any;
-//   width?: any;
-//   source?: any;
-//   title?: any;
-//   x_title: string;
-//   y_title: string;
-//   start?: any;
-//   end?: any;
-// }
-
-// const defaultProps: PtgUiD3BarProps = {
-//   data: [
-//     { Skill: 'Vuee', Employee: '1000', Released: '2014', color: '#454545' },
-//     { Skill: 'React', Employee: '1207', Released: '2013', color: 'blue' },
-//     { Skill: 'Angular', Employee: '923', Released: '2016', color: 'green' },
-//     { Skill: 'Backbone', Employee: '676', Released: '2010', color: 'orange',},
-//     { Skill: 'Ember', Employee: '1214', Released: '2011', color: 'pink' },
-//   ],
-//   height: 400,
-//   width: 600,
-//   source: ' ',
-//   title: '',
-//   x_title: ' ',
-//   y_title: ' ',
-//   start: 0,
-//   end: 2000,
-// };
-
-// export function SkillChart({
-//   data,
-//   height,
-//   width,
-//   source,
-//   title,
-//   x_title,
-//   y_title,
-//   start,
-//   end,
-// }: PtgUiD3BarProps) {
-//   const createSvg: any = () => {
-//     const margin = 60;
-
-//     const svg = d3
-//       .select('.d3_bar')
-//       //returns a selection object that encapsulates the first element in the DOM with a CSS class of "bar"
-//       .append('svg') //Appends a new element of this type (tag name) as the last child of each selected element
-//       .attr('width', width + margin * 2) //Sets the attribute with the specified name to the specified value on the selected elements and returns this selection
-//       .attr('height', height + margin * 2)
-//       .attr('viewBox', [0, 0, width + margin * 2, height + margin * 2])
-//       .attr('style', 'max-width: 100%; height: auto; height: intrinsic;')
-//       .append('g')
-//       .attr('transform', 'translate(' + margin + ',' + margin + ')');
-//     return svg;
-//   };
-
-//   const drawBars: any = (svg: any, data: any[]) => {
-//     // Create the X-axis band scale
-//     const x = d3
-//       .scaleBand()
-//       .range([0, width])
-//       .domain(data.map((d: any) => d.Skill))
-//       .padding(0.2);
-
-//     // Draw the X-axis on the DOM
-//     svg
-//       .append('g') //g element is used to group SVG shapes together
-//       .attr('transform', 'translate(0,' + height + ')')
-//       .call(d3.axisBottom(x))
-//       .selectAll('text')
-//       .attr('transform', 'translate(-10,0)rotate(-45)')
-//       .style('text-anchor', 'end');
-
-//     // Create the Y-axis band scale
-//     const y = d3.scaleLinear().domain([start, end]).range([height, 0]);
-
-//     // Draw the Y-axis on the DOM
-//     svg.append('g').call(d3.axisLeft(y));
-
-//     // Create and fill the bars
-//     svg
-//       .selectAll('bars')
-//       .data(data)
-//       .enter()
-//       .append('rect')
-//       .attr('x', (d: any) => x(d.Skill))
-//       .attr('y', (d: any) => y(d.Employee))
-//       .attr('width', x.bandwidth())
-//       .attr('height', (d: any) => height - y(d.Employee))
-//       .attr('fill', (d: any, i: any) => {
-//         console.log('color', d.color);
-//         return d.color;
-//       });
-//   };
-
-//   React.useEffect(() => {
-//     const svg: any = createSvg();
-//     drawBars(svg, data);
-//   }, []);
-
-//   return (
-//       <div className="d3_bar"></div>
-//   );
-// }
-// SkillChart.defaultProps = defaultProps;
-// export default SkillChart;

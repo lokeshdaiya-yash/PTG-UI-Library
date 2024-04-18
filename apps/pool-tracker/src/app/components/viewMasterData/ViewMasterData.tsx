@@ -19,6 +19,7 @@ import { PtgModal } from '@ptg-ui/libs/ptg-ui-web-components-react/src';
 import AddMasterdata from '../addMasterData/AddMasterData';
 import EditMasterData from './EditMasterData';
 import { PtgUiAlert } from '@ptg-ui/react';
+import toaster from '../../service/toaster';
 
 const ViewMasterData = () => {
   const [masterdatas, setMasterdata] = useState<any>([]);
@@ -61,8 +62,10 @@ const ViewMasterData = () => {
   };
 
   const deleteUsersDetails = async (id: any) => {
-    await deleteMasterdata(id);
-    alert('Do You Want To Delete');
+    await deleteMasterdata(id).then(res=>{
+      toaster.success(res?.data.message);
+    })
+   
     getAllUsers();
   };
 
@@ -132,6 +135,10 @@ const ViewMasterData = () => {
 
   const detailForAccordion = (masterdata: any) => {
     const poolReleaseDate = new Date(masterdata.rowData.poolReleaseDate);
+        const day = poolReleaseDate.getDate();
+        const month = poolReleaseDate.getMonth() + 1;
+        const year = poolReleaseDate.getFullYear();
+        const formattedDate = `${day}-${month}-${year}`;
     return (
       <div className="ms-4 me-4 mt-2 mb-2 tableAccordion">
         <div className="row">
@@ -150,7 +157,7 @@ const ViewMasterData = () => {
           {selectedCheck && (
             <div className="col-3">
               <strong>Pool Release Date</strong>
-              <p className="mt-3"> {poolReleaseDate.toString()}</p>
+              <p className="mt-3"> {formattedDate}</p>
             </div>
           )}
           <div className="col-3">

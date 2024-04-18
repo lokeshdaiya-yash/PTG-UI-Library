@@ -208,6 +208,7 @@ const AddMasterdata = (props: any) => {
   const startDateProp = {
     selected: date.startDate,
     className: 'form-control w-100',
+    endDate: new Date(),
     onChange: (date: any) => {
       setDateState(date, 'startDate');
       setFormValue({ ...formValue, poolStartDate: date });
