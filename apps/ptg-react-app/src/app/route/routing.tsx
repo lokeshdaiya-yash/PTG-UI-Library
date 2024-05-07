@@ -38,11 +38,8 @@ const GridLayout = lazy(()=> import ("../examples/grid-layout/grid-layout"));
 const Indeterminate =  lazy(()=> import ("../examples/indeterminate-checkbox/indeterminate-checkbox"));
 const PtgUiReactTable =  lazy(()=> import ("../examples/data-table/react-table"));
 const Accordian = lazy(()=> import("../examples/Accordion/accordion"));
-<<<<<<< HEAD
 const Toaster =lazy(()=> import ("../examples/Toaster/toaster"));
-=======
 const Button = lazy(()=> import("../examples/buttons/buttons"));
->>>>>>> 648562e (Button Component)
 
 {/*--Declare routes and component for dynamic load--*/ }
 const routing = [
@@ -171,13 +168,11 @@ const routing = [
     component: Accordian,
   },
   {
-<<<<<<< HEAD
     path: '/toaster',
     component: Toaster,
-=======
+  },{
     path: '/button',
     component: Button,
->>>>>>> 648562e (Button Component)
   }
 ];
 export default routing;

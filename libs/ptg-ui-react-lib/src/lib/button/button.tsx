@@ -9,7 +9,7 @@ import { Button, ButtonProps } from 'react-bootstrap';
  *
  */
 
-interface PtgUiButtonProps extends ButtonProps {
+interface PtgUiButtonProps extends ButtonProps {  
   variant?: string;
   value?: string;
   active?: boolean;
