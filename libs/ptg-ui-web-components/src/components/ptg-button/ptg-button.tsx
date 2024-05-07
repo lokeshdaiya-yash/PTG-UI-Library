@@ -14,7 +14,7 @@ export class PtgButton {
   hasbtnIconSlot: boolean;
 
   componentWillLoad() {
-    if(this.text === ""){
+    if(!this.text){
       this.btnIconAlignment = '';
     }
     this.hasbtnIconSlot = !!this.hostElement.querySelector('[slot="btnIcon"]');
