@@ -10,9 +10,9 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
 import { PtguseFetch } from '@ptg-ui/react';
 import './drag-n-drop.scss';
- 
-export interface DragExampleTwoProps {}
- 
+
+export interface DragExampleTwoProps { }
+
 /* istanbul ignore next */
 const onDragEnd = (result: any, columns: any, setColumns: any) => {
   if (!result.destination) return;
@@ -49,7 +49,7 @@ const onDragEnd = (result: any, columns: any, setColumns: any) => {
     });
   }
 };
- 
+
 export function DragExampleTwo(props: DragExampleTwoProps) {
   const [data, setData] = useState<any>([]);
   const {
@@ -58,23 +58,41 @@ export function DragExampleTwo(props: DragExampleTwoProps) {
     error,
   } = PtguseFetch('todo-lists') as any;
   const columnsFromBackend = {
-    right: {
+    left: {
       name: 'To do',
       items: data,
     },
- 
-    left: {
+
+    right: {
       name: 'Done',
       items: [],
     },
   };
+
   const [columns, setColumns] = useState(columnsFromBackend);
   useEffect(() => {
     if (apiData[0]) {
+      apiData[0]?.attributes?.todo?.forEach(item => {
+        item.id = item.id.toString();
+      })
       setData(apiData[0].attributes.todo);
+      const columnsFromBackend = {
+        left: {
+          name: 'To do',
+          items: apiData[0].attributes.todo,
+        },
+
+        right: {
+          name: 'Done',
+          items: [],
+        },
+      };
       setColumns(columnsFromBackend);
     }
+    console.log("data=", data)
+    console.log("col=", columnsFromBackend)
   }, [apiData]);
+
   return (
     <div className=" p-0 mt-3 d-flex justify-content-center ">
       <DragDropContext
@@ -130,5 +148,5 @@ export function DragExampleTwo(props: DragExampleTwoProps) {
     </div>
   );
 }
- 
+
 export default DragExampleTwo;
