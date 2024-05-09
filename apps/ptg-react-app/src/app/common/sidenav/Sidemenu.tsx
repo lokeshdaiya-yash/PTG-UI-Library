@@ -8,6 +8,12 @@
 
 export const NavigationChildData = [
   {
+    path: '/carousel',
+    icon: 'fa fa-lock',
+    label: 'Carousel',
+    disabled: false,
+  },
+ {
     label: 'CHARTS',
     icon: 'fas fa-chart-line',
     pages: [
@@ -219,16 +225,5 @@ export const NavigationData = [
     label: 'WEB ACCESSIBILTY',
     disabled: false,
   },
-  {
-    path: '/breadcrumbs',
-    icon: 'fa fa-lock',
-    label: 'BREADCRUMBS',
-    disabled: false,
-  },
-  {
-    path: '/cards',
-    icon: 'fa fa-lock',
-    label: 'CARDS',
-    disabled: false,
-  }
+
 ];  

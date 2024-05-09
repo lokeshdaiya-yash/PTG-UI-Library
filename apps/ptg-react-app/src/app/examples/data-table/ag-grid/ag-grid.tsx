@@ -185,7 +185,6 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
   `
 
   return (
-
     <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
       <div className="row">
         <div className="col-10 mb-2 mt-1">

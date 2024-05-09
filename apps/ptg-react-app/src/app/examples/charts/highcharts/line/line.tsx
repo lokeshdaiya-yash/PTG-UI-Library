@@ -157,6 +157,7 @@ export function PtgUiHCLine(props: PtgUiHCLineProps) {
         <div className='col-2 mr-5 mt-1 mb-2'>
           <CodeIcon onClick={ShowMultiLineChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
       </div>
       {!showMultiLineChartCode ? (
         <PtgUiLine {...highchartsMultiLineData} />

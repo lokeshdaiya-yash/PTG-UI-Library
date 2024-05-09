@@ -35,6 +35,7 @@ export function DragNDrop(props: DragNDropProps) {
             <DragExampleOne />
           </div>
         </Tab>
+
         <Tab eventKey="example2" title={t('DRAG_DROP_EX_2')}>
           <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
             <div className="row">
@@ -46,18 +47,8 @@ export function DragNDrop(props: DragNDropProps) {
             <DragExampleTwo />
           </div>
         </Tab>
+
         <Tab eventKey="example3" title={t('DRAG_DROP_EX_3')}>
-          <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
-            <div className="row">
-              <div className="col-11 mb-2">
-                <h5 className="example-heading mt-2">{t('DRAG_DROP_EX_3')}</h5>
-              </div>
-              <hr className="horizontal-line" />
-            </div>
-            <DragExampleThree />
-          </div>
-        </Tab>
-        <Tab eventKey="example4" title={t('DRAG_DROP_EX_4')}>
           <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
             <div className="row">
               <div className="col-11 mb-2">
@@ -67,7 +58,29 @@ export function DragNDrop(props: DragNDropProps) {
             </div>
             <DragExampleFour />
           </div>
+        <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
+        <div className="row">
+          <div className="col-11 mb-2">
+            <h5 className='example-heading mt-2'>{t('DRAG_DROP_EX_3')}</h5>
+          </div>
+          <hr className='horizontal-line'/>
+        </div>
+          <DragExampleThree />
+        </div>
+
         </Tab>
+        <Tab eventKey="example4" title={t('DRAG_DROP_EX_4')}>
+        <div className="card-section-two bg-white rounded pt-2 pb-1 mt-4 pb-4">
+        <div className="row">
+          <div className="col-11 mb-2">
+            <h5 className='example-heading mt-2'>{t('DRAG_DROP_EX_4')}</h5>
+          </div>
+          <hr className='horizontal-line'/>
+        </div>
+          <DragExampleFour />
+        </div>
+        </Tab>
+
       </Tabs>
     </div>
   );

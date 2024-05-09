@@ -18,9 +18,9 @@ export function Sidenav() {
   return (
     <div className="sidebar">
       <input id="toggle" type="checkbox" />
-
-   <div className="sidenav-container ">
-      <div className="sidenav">
+   
+      <div className="sidenav-container">
+        <div className="sidenav">
         {
           /*-----Side navigation-----*/
           NavigationData.map((navItem: any, idx: number) => {
