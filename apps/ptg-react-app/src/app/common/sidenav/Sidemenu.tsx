@@ -24,6 +24,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/progress-bar',
+    icon: 'fa fa-lock',
+    label: 'Progress Bar',
+    disabled: false,
+  },
+  {
     label: 'CHARTS',
     icon: 'fas fa-chart-line',
     pages: [
@@ -149,4 +155,5 @@ export const NavigationData = [
     label: 'Toaster',
     disabled: false,
   }
+ 
 ];  
