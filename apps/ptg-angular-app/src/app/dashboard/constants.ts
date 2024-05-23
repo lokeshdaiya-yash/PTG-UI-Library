@@ -170,4 +170,11 @@ export const NavigationData = [
     label: 'BREADCRUMBS',
     disabled: false,
   },
+  {
+    id: '17',
+    path: '/tabs',
+    icon: 'fa-solid fa-file',
+    label: 'TABS',
+    disabled: false
+  }
 ];

@@ -34,6 +34,7 @@ const PtgUiDialog = lazy(()=> import ("../examples/dialog/dialog"));
 const Breadcrumbs =  lazy(()=> import ("../examples/breadcrumbs/breadcrumbs"));
 const Cards =  lazy(()=> import ("../examples/cards/cards"));
 const PtgUiCarousel = lazy(()=> import ("../examples/carousel/carousel"));
+const PtgTabs = lazy(()=> import ("../examples/tabs/tabs"));
 const GridLayout = lazy(()=> import ("../examples/grid-layout/grid-layout"));
 const Indeterminate =  lazy(()=> import ("../examples/indeterminate-checkbox/indeterminate-checkbox"));
 const PtgUiReactTable =  lazy(()=> import ("../examples/data-table/react-table"));
@@ -65,6 +66,10 @@ const routing = [
   {
     path: '/dragnDrop',
     component: PtgUiDragnDrop,
+  },
+  {
+    path: '/tabs',
+    component: PtgTabs,
   },
   {
     path: '/pie',
