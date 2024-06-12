@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/ptg-ui-apps-backend/public/ptg-angular-app",
         "index": "apps/ptg-angular-app/src/index.html",
@@ -15,13 +17,20 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/ptg-angular-app/src/favicon.ico",
-          "apps/ptg-angular-app/src/assets"
+          "apps/ptg-angular-app/src/assets",
+          "apps/ptg-angular-app/src/manifest.webmanifest"
         ],
         "stylePreprocessorOptions": {
-          "includePaths": ["libs/ptg-ui-angular-lib/styles"]
+          "includePaths": [
+            "libs/ptg-ui-angular-lib/styles"
+          ]
         },
-        "styles": ["apps/ptg-angular-app/src/styles.scss"],
-        "scripts": []
+        "styles": [
+          "apps/ptg-angular-app/src/styles.scss"
+        ],
+        "scripts": [],
+        "serviceWorker": true,
+        "ngswConfigPath": "apps/ptg-angular-app/ngsw-config.json"
       },
       "configurations": {
         "production": {
@@ -85,7 +94,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ptg-angular-app"],
+      "outputs": [
+        "coverage/apps/ptg-angular-app"
+      ],
       "options": {
         "jestConfig": "apps/ptg-angular-app/jest.config.ts",
         "passWithNoTests": true
