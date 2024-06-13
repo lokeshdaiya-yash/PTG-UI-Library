@@ -3,18 +3,18 @@ Override variables defined in boostrap
 */
 
 // primary colors
-$main:#002144;
+$main: #002144;
 $second: #646464 !default;
 $secondDark: #1a222b;
 
 // scss-docs-start theme-color-variables
 $primary: $main !default;
 
-$side-menu-text-color: $main; 
-$form-check-input-checked-color:  $main;
+$side-menu-text-color: $main;
+$form-check-input-checked-color: $main;
 $form-check-input-checked-bg-color: $main;
 
-$footer-text: #888b8d;  // #7c7f81
+$footer-text: #888b8d; // #7c7f81
 $multi-select-chip-bg-color: #efefef;
 $multi-select-chip-close-bg-color: #bbbbbb;
 $label-hint-text-color: #9f9f9f;
@@ -28,4 +28,3 @@ $headings-font-weight: 700;
 /****************/
 
 /***************/
-

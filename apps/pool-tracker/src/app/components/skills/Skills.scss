@@ -1,0 +1,20 @@
+@import '../../styles/variables';
+.viewMastertable {
+  position: relative;
+
+  & > .hydrated {
+    visibility: inherit;
+    position: absolute;
+    left: 16px;
+    top: 13px;
+    z-index: 1;
+  }
+}
+// .ptg-table-addData {
+//   box-shadow: none;
+// }
+
+
+.icon-color {
+  color: $main;
+}

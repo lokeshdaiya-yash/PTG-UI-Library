@@ -1,1 +1,160 @@
+@import '../../../libs/ptg-ui-web-components/src/global/global.css';
+
+// @import '../../styles/variables';
+@import '../../ptg-react-animations/src/styles/variables';
+
 /* You can add global styles to this file, and also import other style files */
+@import '../../../apps/pool-tracker/src/app/styles/variables';
+
+// fontawesome style
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+body {
+  margin: 0;
+  font-family: $font-family-sans-serif;
+}
+
+.MuiStepIcon-completed,
+.MuiStepIcon-active {
+  color: $main !important;
+}
+.MuiStepIcon-root.Mui-error {
+  color: $error !important;
+}
+
+// =================== view Master Data css============
+.viewTable table {
+  td:nth-of-type(2) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 30px !important;
+  }
+}
+.viewMastertable table {
+  // & > tr > th {
+  //   background-color: #1976d2 ;
+  // }
+  // th:nth-of-type(2) {
+  //   width: 100% !important;
+  //   display: flex;
+  //   justify-content: flex-end;
+  // }
+
+  & > tr > th,
+  td {
+    // padding: 0px;
+    // padding-left: 20px;
+    // padding-right: 20px;
+    text-align: left;
+    border-bottom: 1px solid darkgray;
+  }
+
+  & > .masterdataBtn {
+    display: flex;
+  }
+}
+
+.viewMastertable button {
+  padding: 10px;
+  font-size: 13px;
+  border: none;
+
+  & > a {
+    color: white;
+    text-decoration: none;
+    border: none;
+  }
+}
+
+// .viewMastertable > table > tr > th {
+//   background-color: #1976d2 !important;
+// }
+
+.viewMastertable .css-d5sp9s-MuiTableCell-root {
+  background-color: #f2f2f2;
+  color: $black;
+  text-align: center;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.viewMastertable {
+  margin: 15px;
+
+  h6 {
+    display: none;
+  }
+}
+
+table {
+  tr {
+    border-bottom: 1px solid #f2f2f2;
+  }
+
+  td {
+    border: 0 !important;
+  }
+}
+
+.error {
+  font-size: 12px;
+  color: $error;
+}
+
+input[type='text']::-webkit-input-placeholder {
+  color: $grey;
+  font-size: 14px;
+}
+
+.action-button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn {
+  border-radius: 7px;
+  border: none;
+  padding: 1rem 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  min-width: 100px;
+  font-size: 16px;
+  letter-spacing: 1.2px;
+}
+
+.btn-primay {
+  background-color: $main !important;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: $second !important;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.table-action-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+
+.fa-trash::before {
+  color: red !important;
+}
