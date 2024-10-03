@@ -6,13 +6,14 @@
 */
 
 import { useState } from 'react';
-import { PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
+import { PtgButton, PtgModal } from '@ptg-ui/ptg-ui-web-components-react';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const DialogExample = () => {
-
   const [showCode, setShowCode] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const ShowExampleCode = () => {
     if (!showCode) {
@@ -23,18 +24,32 @@ const DialogExample = () => {
   };
 
   const modalClosed = (event) => {
-    console.log('Modal Closed successfully', event.returnValue);
+    setIsOpen(false);
+  }
+
+  const confirmClicked = (event) => {
+    setIsOpen(false);
+  }
+
+  const openModal = () => {
+    setIsOpen(true);
   }
 
   const componentCode = `
   import PtgModal from '@ptg-ui/ptg-ui-web-components-react';
+  import AddCircleIcon from '@mui/icons-material/AddCircle';
+  const [isOpen, setIsOpen] = useState(false);
 
   const modalClosed = (event) => {
-    console.log('Modal Closed successfully', event.returnValue);
+    setIsOpen(false);
   }
 
   const confirmClicked = (event) => {
-    console.log('Confirm Button Clicked', event.returnValue);
+    setIsOpen(false);
+  }
+
+  const openModal = () => {
+    setIsOpen(true);
   }
 
   export default DialogExample;
@@ -44,20 +59,20 @@ const DialogExample = () => {
   import '@ptg-ui-web-components/src/global/global.css'`;
 
   const htmlCode = `
-    <PtgModal
-      modal-size='lg' // 'md' || 'sm'
-      confirm-button-name="Okay"
-      btn-name='Open Modal' // Button name to open the dialog
-      modal-header-name="Header Name Here"
-      show-header='false' // true/false to display/hide the header of dialog
-      show-footer='false' // true/false to display/hide the footer of dialog
-      close-outside-click='false'
-      onModalClose={modalClosed} // Event name: onModalClose
-      onConfirmClose={confirmClicked}> // Event name: onConfirmClose
-      <div slot="body-block"> // Slot
-        <h2>React Slot for Body</h2>
-      </div>
-    </PtgModal>`
+      <PtgButton text="Open Modal" data-testid="openButton" appearance="primary" onClick={openModal}
+        btnIconAlignment='left' >
+        <div slot="btnIcon">
+          <AddCircleIcon />
+        </div>
+      </PtgButton>
+
+      <PtgModal isOpen={isOpen} onConfirmClose={confirmClicked}
+        modal-size='lg' modal-header-name="Header Name Here"
+        confirm-button-name="Okay" onModalClose={modalClosed}>
+        <div slot="body-block">
+          <h2>React Slot for Body</h2>
+        </div>
+      </PtgModal>`
   return (
     <div className='row'>
       <div className="col-11">
@@ -70,13 +85,20 @@ const DialogExample = () => {
       {showCode && (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} cssCode={cssCode} />
       )}
-       <PtgModal
-          modal-size='lg' modal-header-name="Header Name Here"
-          confirm-button-name="Okay" onModalClose={modalClosed}>
-          <div slot="body-block">
-            <h2>React Slot for Body</h2>
-          </div>
-        </PtgModal>
+      <PtgButton text="Open Modal" data-testid="openButton" appearance="primary" onClick={openModal}
+        btnIconAlignment='left' >
+        <div slot="btnIcon">
+          <AddCircleIcon />
+        </div>
+      </PtgButton>
+
+      <PtgModal isOpen={isOpen} onConfirmClose={confirmClicked}
+        modal-size='lg' modal-header-name="Header Name Here"
+        confirm-button-name="Okay" onModalClose={modalClosed}>
+        <div slot="body-block">
+          <h2>React Slot for Body</h2>
+        </div>
+      </PtgModal>
     </div>
   );
 };

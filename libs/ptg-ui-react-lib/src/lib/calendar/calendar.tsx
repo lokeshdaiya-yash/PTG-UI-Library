@@ -12,13 +12,15 @@ export interface CalendarProps {
   onChange?: any;
   date?: any;
   selected?: any;
-  className: any;
+  className?: any;
   startDate?: any;
   endDate?: any;
   disabled?: boolean;
   startRef?: any;
   onKeyDown?: any;
   accessKey?: string;
+  showTimeSelect?:boolean;
+  dateFormat?:string;
 }
 
 export function PtgUiCalendar({
@@ -31,6 +33,8 @@ export function PtgUiCalendar({
   startRef,
   onKeyDown,
   accessKey,
+  showTimeSelect,
+  dateFormat="MM-dd-yyyy"
 }: CalendarProps) {
   return (
     <div className="position-relative post-icon">
@@ -38,13 +42,14 @@ export function PtgUiCalendar({
         disabled={disabled}
         selected={selected}
         className={className}
-        dateFormat="MM-dd-yyyy"
+        dateFormat={dateFormat}
         placeholderText="MM-DD-YYYY"
         onChange={onChange}
         minDate={startDate === null ? startDate : new Date(startDate)}
         maxDate={endDate === null ? endDate : new Date(endDate)}
         ref={startRef}
         onKeyDown={onKeyDown}
+        showTimeSelect={showTimeSelect}
       />
       <i className="icon cal-icon"></i>
     </div>

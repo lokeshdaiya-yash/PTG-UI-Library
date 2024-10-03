@@ -1,4 +1,4 @@
-import { Component,  h, Prop, Event, EventEmitter } from '@stencil/core';
+import { Component,  h, Prop, Event, EventEmitter} from '@stencil/core';
 
 @Component({
   tag: 'ptg-modal',
@@ -7,7 +7,6 @@ import { Component,  h, Prop, Event, EventEmitter } from '@stencil/core';
 })
 export class PtgModal {
   // Props
-  @Prop() btnName: string = 'Open Modal';
   @Prop() confirmButtonName: string = 'Confirm';
   @Prop() isOpen : boolean = false;
   @Prop() modalHeaderName: string = 'Modal Header';
@@ -27,9 +26,6 @@ export class PtgModal {
   }
   private confirmEvent=()=>{
     this.confirmClose.emit(true);
-  }
-  private openModal=()=>{
-    this.isOpen = true;
   }
 
   render() {
