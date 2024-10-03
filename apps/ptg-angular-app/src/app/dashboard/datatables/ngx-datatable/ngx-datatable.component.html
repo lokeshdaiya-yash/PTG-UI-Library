@@ -1,20 +1,32 @@
-<div class="parent-block">
-  <h3 class="mb-3" [innerHTML]="'NGX_DATATABLE' | translate"></h3>
+<ng-container *ngIf="isLoaded">
+<div class="parent-block bg-white">
+  <h3 class="pt-4 p-3" [innerHTML]="'NGX_DATATABLE' | translate"></h3>
   <ptg-ui-toggle-code
     [htmlCode]="ngxDatatableHtmlCode"
     [tsCode]="ngxDatatableTsCode"
   >
   </ptg-ui-toggle-code>
-  <ptg-ui-ptg-ngx-datatable
-    [rows]="ngxdata"
-    [columns]="columns"
-    [limit]="10"
-    (getFilterEvent)="updateFilter($event)"
-    [offset]="offset"
-    (getSelectionEvent)="onSelect($event)"
-    [hScroll]="true"
-    (getActionEvent)="getAction($event)"
-    [showActionButton]="true"
-  >
-  </ptg-ui-ptg-ngx-datatable>
+  <hr class="css-yasiti">
+<div class="p-3" *ngIf="ngxdata && ngxdata.length > 0; else elseNotDone" >  <ptg-ui-ptg-ngx-datatable
+  [rows]="ngxdata"
+  [columns]="columns"
+  [limit]="10"
+  (getFilterEvent)="updateFilter($event)"
+  [offset]="offset"
+  (getSelectionEvent)="onSelect($event)"
+  [hScroll]="true"
+  (getActionEvent)="getAction($event)"
+  [showActionButton]="true"
+>
+</ptg-ui-ptg-ngx-datatable>
 </div>
+
+</div>
+<ng-template #elseNotDone>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border text-loader m-5" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>
+</ng-container>

@@ -1,46 +1,61 @@
-<div class="d3-charts">
+<div class="d3-charts wrapper-grid">
   <!-- Bar chart block  -->
-  <div class="mb-2 overflow-auto" *ngIf="barChartData.data.length">
-    <h4 [innerHTML]="'BAR_CHART_TEXT' | translate"></h4>
+  <div class="overflow-auto col-sm-12 bg-white p-3 rounded">
+    <h3 [innerHTML]="'BAR_CHART_TEXT' | translate"></h3>
     <ptg-ui-toggle-code
       [htmlCode]="barChartHtmlCode"
       [tsCode]="barChartTsCode"
     ></ptg-ui-toggle-code>
-    <ptg-ui-bar-chart
-      [data]="barChartData.data"
-      [width]="barChartData.width"
-      [height]="barChartData.height"
-      [margin]="barChartData.margin"
-      [start]="barChartData.start"
-      [end]="barChartData.end"
-    ></ptg-ui-bar-chart>
+<div *ngIf="barChartData.data && barChartData.data.length > 0; else elseNotDone">
+  <ptg-ui-bar-chart
+  [data]="barChartData.data"
+  [width]="barChartData.width"
+  [height]="barChartData.height"
+  [margin]="barChartData.margin"
+  [start]="barChartData.start"
+  [end]="barChartData.end"
+></ptg-ui-bar-chart>
+</div>
   </div>
 
   <!-- Pie chart block  -->
-  <div class="overflow-auto mb-2" *ngIf="pieChartData.data.length">
-    <h4 [innerHTML]="'PIE_CHART_TEXT' | translate"></h4>
+  <div class="overflow-auto  col-sm-12 bg-white p-3 rounded">
+    <h3 [innerHTML]="'PIE_CHART_TEXT' | translate"></h3>
     <ptg-ui-toggle-code
       [htmlCode]="pieChartHtml"
       [tsCode]="pieChartTsCode"
     ></ptg-ui-toggle-code>
+    <div *ngIf="pieChartData.data && pieChartData.data.length > 0; else elseNotDone">
+
     <ptg-ui-pie-chart
       [data]="pieChartData.data"
       [colorsArray]="pieChartData.colors"
     ></ptg-ui-pie-chart>
+    </div>
   </div>
+</div>
 
   <!-- Line chart block  -->
-  <div class="overflow-auto mb-2" *ngIf="lineChartData.data.length">
-    <h4 [innerHTML]="'LINE_CHART_TEXT' | translate"></h4>
+  <div class="overflow-auto bg-white p-3 rounded mt-3">
+    <h3 [innerHTML]="'LINE_CHART_TEXT' | translate"></h3>
     <ptg-ui-toggle-code
       [htmlCode]="lineChartHtml"
       [tsCode]="lineChartTsCode"
     ></ptg-ui-toggle-code>
+    <div *ngIf="lineChartData.data && lineChartData.data.length > 0; else elseNotDone">
+
     <ptg-ui-line-chart
       [data]="lineChartData.data"
       [margin]="lineChartData.margin"
       [width]="lineChartData.width"
       [height]="lineChartData.height"
     ></ptg-ui-line-chart>
-  </div>
+    </div>
 </div>
+<ng-template #elseNotDone>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border text-loader m-5" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>

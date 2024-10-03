@@ -1,18 +1,18 @@
-<div class="wrapper">
+<div class="wrapper p-3">
     <section>
-        <div class="row">
-            <div class="col-12 mt-4 mb-5">
-                <h2 [innerHTML]="'CONVERT_VALUE_USING_DIRECTIVE' | translate"></h2>
+        <div class="row  bg-white">
+            <div class="col-12 mt-3 mb-3">
+                <label [innerHTML]="'CONVERT_VALUE_USING_DIRECTIVE' | translate"></label>
             </div>
         </div>
     </section>
     <section>
-        <div class="row">
-            <div class="col-12 mb-3">
-                <h4 [innerHTML]="'CURRENCY_PIPES' | translate"></h4>
+        <div class="row  bg-white">
+            <div class="col-12">
+                <label [innerHTML]="'CURRENCY_PIPES' | translate"></label>
             </div>
         </div>
-        <div class="row">
+        <div class="row  bg-white">
             <div class="col-12">
                 <div class="form-group mb-2">
                     <ptg-ui-input class="w-100" type="number" [(ngModel)]='value1' className="form-control bg_0" [id]="'numberText'"
@@ -23,16 +23,15 @@
             </div>
         </div>
     </section>
-    <hr />
     <section>
-        <div class="row">
-            <div class="col-12 mb-3">
-                <h4 [innerHTML]="'PHONE_NUMBER_FORMATE_PIPES' | translate"></h4>
+        <div class="row  bg-white">
+            <div class="col-12 ">
+                <label [innerHTML]="'PHONE_NUMBER_FORMATE_PIPES' | translate"></label>
             </div>
         </div>
-        <div class="row">
+        <div class="row  bg-white">
             <div class="col-12">
-                <div class="form-group mb-2">
+                <div class="form-group">
                     <ptg-ui-input class="w-100" maxlength="10" [(ngModel)]='value5' type="number" [id]="'numberFormate'"
                         className="form-control bg_0" [placeholder]="'ENTER_NUMBER_PLACEHOLDER' | translate">
                     </ptg-ui-input>
@@ -41,14 +40,13 @@
             </div>
         </div>
     </section>
-    <hr />
     <section>
-        <div class="row">
-            <div class="col-12 mb-3">
-                <h4 [innerHTML]="'CAPITALIZE_PIPES' | translate"></h4>
+        <div class="row  bg-white">
+            <div class="col-12">
+                <label [innerHTML]="'CAPITALIZE_PIPES' | translate"></label>
             </div>
         </div>
-        <div class="row">
+        <div class="row  bg-white">
             <div class="col-12">
                 <div class="form-group mb-2">
                     <ptg-ui-input class="w-100" [(ngModel)]='value2' type="text" className="form-control bg_0"
@@ -59,14 +57,13 @@
             </div>
         </div>
     </section>
-    <hr />
     <section>
-        <div class="row">
-            <div class="col-12 mb-3">
-                <h4 [innerHTML]="'TRUNCATE_PIPES' | translate"></h4>
+        <div class="row  bg-white">
+            <div class="col-12 ">
+                <label [innerHTML]="'TRUNCATE_PIPES' | translate"></label>
             </div>
         </div>
-        <div class="row">
+        <div class="row  bg-white">
             <div class="col-12">
                 <div class="form-group mb-2">
                     <!-- input -->

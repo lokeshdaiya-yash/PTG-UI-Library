@@ -7,7 +7,7 @@
   color: var(--mono-70);
   border-radius: 7px;
   border:none;
-  padding: 0 15px;
+  padding: 0 20px;
   height: 38px;
   outline: none;
   transition: 0.1s ease-in-out;
@@ -27,7 +27,7 @@
 
 }
 .btn.secondary{
-  background : var(--mono-50);
+  background :gray;
   color: var(--white);
 }
 .btn.secondary:hover{
@@ -82,12 +82,31 @@
   background : var(--dark-70);
 
 }
-.showLeft {
-  width: 18px;
-  padding-left: 12px;
-}
-
-.showRight {
-  width: 18px;
-  padding-right: 12px;
+.btn .modal{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0px;
+  margin: 0px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: Roboto, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  min-width: 64px;
+  padding: 5px 15px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+  box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border: 1px solid rgba(33, 150, 243, 0.5);
+  color: var(--primary-50);
+  font-weight: 500;
+  border-radius: 4px;
 }

@@ -14,6 +14,7 @@ import { TreeviewItem } from 'ngx-treeview';
 export class CheckboxExamplesComponent implements OnInit {
   constructor(private mocksApiService: mocksService,) {}
   checkBoxData: any;
+  isLoaded=true;
   resources = resources
 
   treeViewHtmlCode = `

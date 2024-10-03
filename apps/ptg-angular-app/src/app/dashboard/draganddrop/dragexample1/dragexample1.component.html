@@ -1,5 +1,5 @@
-<ng-template #tmplNode let-node="node">
-  <div class="node-item" [attr.data-id]="node.id" [attr.id]="'node-' + node.id">
+<ng-template #tmplNode let-node="node"  class="bg-white rounded">
+  <div class="node-item bg-white" [attr.data-id]="node.id" [attr.id]="'node-' + node.id">
     <div class="node-title" (click)="node.isExpanded = !node.isExpanded">
       {{
         node.children.length
@@ -41,8 +41,7 @@
   </div>
 </ng-template>
 
-<div class="wrapper3 mt-3 pt-3 parent-block">
-  <h4 [innerHTML]="'DRAG_DROP_EX_4' | translate"></h4>
+<div class="wrapper3 mt-2 p-2 parent-block d-flex">
   <ptg-ui-toggle-code
     [htmlCode]="dragAndDropHtmlCode"
     [tsCode]="dragAndDropTsCode"
@@ -69,6 +68,5 @@
   </div>
 </div>
 
-<hr />
-<p><strong [innerHTML]="'CURRENT_DRAG_DROP_ACTION' | translate"></strong></p>
+<p class="p-2"><strong [innerHTML]="'CURRENT_DRAG_DROP_ACTION' | translate"></strong></p>
 <pre>{{ dropActionTodo | json }}</pre>
