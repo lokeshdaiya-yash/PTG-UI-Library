@@ -20,8 +20,8 @@ const Template: Story<CalendarComponent> = (args: CalendarComponent) => ({
 export const Placeholder = Template.bind({});
 Placeholder.args = {
   placeholder: "MM-DD-YYYY",
-  className: '',
-  id: '',
+  className: 'calendarClass',
+  id: 'calendarId',
   disabled: false,
   // accessKey: '',
   // aria_placeholder: 'MM-DD-YYYY', 
@@ -32,8 +32,8 @@ Placeholder.args = {
 export const ClassName = Template.bind({});
 ClassName.args = {
   placeholder: "MM-DD-YYYY",
-  className: '',
-  id: '',
+  className: 'calendarClass',
+  id: 'calendarId',
   disabled: false,
 };
 
@@ -41,8 +41,8 @@ ClassName.args = {
 export const Id = Template.bind({});
 Id.args = {
   placeholder: "MM-DD-YYYY",
-  className: '',
-  id: '',
+  className: 'calendarClass',
+  id: 'calendarId',
   disabled: false,
 };
 
@@ -50,7 +50,7 @@ Id.args = {
 export const IsDisabled = Template.bind({});
 IsDisabled.args = {
   placeholder: "MM-DD-YYYY",
-  className: '',
-  id: '',
+  className: 'calendarClass',
+  id: 'calendarId',
   disabled: true,
 };

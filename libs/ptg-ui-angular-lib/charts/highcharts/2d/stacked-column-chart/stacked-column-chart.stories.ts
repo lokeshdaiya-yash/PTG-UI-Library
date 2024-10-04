@@ -1,23 +1,8 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { StackedColumnChartComponent } from './stacked-column-chart.component';
-
+import {STACKED_COLUMN_DATA} from './stacked-column-chart';
 import {ChartModule} from '../../../chart.module';
-export const STACKED_COLUMN_DATA:any ={
-  title:"Stacked Column",
-  categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas'],
-  remainingOptions:{
-    series: [{
-      name: 'John',
-      data: [5, 3, 4, 7, 2]
-  }, {
-      name: 'Jane',
-      data: [2, 2, 3, 2, 1]
-  }, {
-      name: 'Joe',
-      data: [3, 4, 4, 2, 5]
-  }]
-  }
-}
+
 
 export default {
   title: 'Component/StackedColumnChartComponent',

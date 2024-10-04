@@ -1,13 +1,13 @@
-<!-- <div [ngClass]="isBlock ? 'btnBlock' : ''">
-     
-  <button #button [type]="type" class="btn btn-primary" [ngClass]="['btn-'+btnStyleType]"
-    [ngStyle]="{ 'background-color': backgroundColor }" , tabindex="0" , [disabled]="isDisable" tabindex="0">
-    <!-- <ng-content></ng-content>
-      {{ label }}  
-  </button>
-</div> -->
-<div [ngClass]="isBlock? 'd-grid gap-2' : ''">
-  <button #button  [type]="type" class='btn' [ngClass]="['btn-'+btnStyleType]" [disabled]="isDisable" tabindex="0">
-      <ng-content></ng-content>
+<div [ngClass]="isBlock ? 'd-grid gap-2 customClass' : ''">
+  <button
+    #button
+    [type]="type"
+    class="btn"
+    [ngClass]="['btn-' + btnStyleType, 'ptg-ui-button--' + size]"
+    [disabled]="isDisable"
+    tabindex="0"
+    [style.background-color]="backgroundColor"
+  >
+    {{ label }}
   </button>
 </div>
