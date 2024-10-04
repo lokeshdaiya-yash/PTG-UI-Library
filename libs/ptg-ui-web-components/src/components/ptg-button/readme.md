@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type     | Default     |
-| ------------ | ------------ | ----------- | -------- | ----------- |
-| `appearance` | `appearance` |             | `string` | `undefined` |
-| `text`       | `text`       |             | `string` | `undefined` |
+| Property           | Attribute            | Description | Type     | Default     |
+| ------------------ | -------------------- | ----------- | -------- | ----------- |
+| `appearance`       | `appearance`         |             | `string` | `undefined` |
+| `btnIconAlignment` | `btn-icon-alignment` |             | `string` | `'right'`   |
+| `text`             | `text`               |             | `string` | `""`        |
 
 
 ## Dependencies
