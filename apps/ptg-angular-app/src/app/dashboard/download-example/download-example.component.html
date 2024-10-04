@@ -1,15 +1,29 @@
+<ng-container *ngIf="isLoaded">
+
 <section>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 parent-block">
-        <h4 [innerHTML]="'FILE_DOWNLOAD' | translate"></h4>
+    <div class="row  bg-white rounded">
+      <div class="col-12 parent-block  p-3 justify-content-between align-items-center">
+        <h3 [innerHTML]="'FILE_DOWNLOAD' | translate"></h3>
         <ptg-ui-toggle-code
           [htmlCode]="fileDownloadHtmlCode"
           [tsCode]="fileDownloadTsCode"
         >
         </ptg-ui-toggle-code>
-        <ptg-ui-file-download [tableData]="tableData"></ptg-ui-file-download>
       </div>
+      <hr class="css-yasiti" />
+
+    <div class="pt-2"  *ngIf="tableData.rowsData && tableData.rowsData.length > 0; else elseNotDone"> 
+      <ptg-ui-file-download [tableData]="tableData"></ptg-ui-file-download>
+   </div>    
     </div>
   </div>
 </section>
+<ng-template #elseNotDone>
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border text-loader m-5" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>
+</ng-container>

@@ -1,20 +1,12 @@
 @import "variables";
 
 .signup-wrapper{
-//   width: 100%;
-//   height: 100%;
-//   // background: $main;
-//   overflow: hidden;
   .signup-container{
     width: 100%;
     .signup-form-wrapper{
-      background: white;
+      background: $whiteColor;
       padding: 3% 5%;
       width: 100%;
-      // max-width: 700px;
-      // -webkit-box-shadow: 5px 4px 7px -1px rgba(69,69,69,1);
-      // -moz-box-shadow: 5px 4px 7px -1px rgba(69,69,69,1);
-      // box-shadow: 5px 4px 7px -1px rgba(69,69,69,1);
       .access-wrapper{
         li{margin: 3% 0;}
         ol{

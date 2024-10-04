@@ -14,6 +14,7 @@
 | `isOpen`            | `is-open`             |             | `boolean` | `false`          |
 | `modalHeaderName`   | `modal-header-name`   |             | `string`  | `'Modal Header'` |
 | `modalSize`         | `modal-size`          |             | `string`  | `'md'`           |
+| `primaryBtn`        | `primary-btn`         |             | `string`  | `'primary'`      |
 | `showFooter`        | `show-footer`         |             | `boolean` | `true`           |
 | `showHeader`        | `show-header`         |             | `boolean` | `true`           |
 

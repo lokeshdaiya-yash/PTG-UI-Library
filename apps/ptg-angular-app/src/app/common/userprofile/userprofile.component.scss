@@ -1,15 +1,31 @@
 @import 'variables';
 .user-wrapper{
-    .profile-icon{
-      background: $main;
-        border-radius: 50%;
-        display: block;
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        line-height: 30px;
-        text-transform: uppercase;
-    }
+  .profile-icon {
+    filter: brightness(0.3);
+  }
+  .outer-profile{
+   position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: Roboto, sans-serif;
+    line-height: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    user-select: none;
+    background: $profilebgColor !important;
+    width: 34px;
+    height: 34px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+  .outer-profile:hover {
+    background: $infoColor !important;
+  }
+  .bginfo{
+    background: $infoColor !important;
+}
     .user-container{
         position: absolute;
         right: 13px;
@@ -23,14 +39,5 @@
         border-right: 4px solid transparent;
         border-bottom: 8px solid rgba(var(--bs-info-rgb), var(--bs-bg-opacity)) !important;
         margin-left: 87%;
-      }
-      .user-info{
-        width: 100px;
-        padding: 10px;
-        background: #e2e9f1;
-        text-align: left;
-        color: $main;
-        border-top: 1px solid rgb(111 144 184 / 0.4);
-        width: 173px;
       }
 }

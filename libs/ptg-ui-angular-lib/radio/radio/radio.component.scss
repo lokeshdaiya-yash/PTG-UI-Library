@@ -1,5 +1,6 @@
+@import 'variables';
 .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem rgb(0 33 68 / 25%);
+    box-shadow: 0 0 0 0.1rem $form-control-focus;
 }
 .custom-control-label{
     text-transform: capitalize;

@@ -11,6 +11,7 @@ export class MaterialDatatableComponent implements OnInit {
   dataColumns: any;
   resources = resources;
   matrialdata: any = [];
+  isLoaded=true;
 
   materialDatatableHtmlCode = `
     <ptg-ui-mat-datatable
