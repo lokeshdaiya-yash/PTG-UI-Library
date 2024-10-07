@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class chartService {
-  apiURL = 'https://ptguistrapi.azurewebsites.net/api/';
+  apiURL = 'https://yash-ui-strapi.azurewebsites.net/api/';
 
   constructor(private http: HttpClient) {}
 
