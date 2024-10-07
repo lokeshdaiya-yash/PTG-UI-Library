@@ -88,18 +88,6 @@ export const NavigationData = [
     disabled: false,
   },
   {
-    path: '/breadcrumbs',
-    icon: 'fa fa-link',
-    label: 'BREADCRUMBS',
-    disabled: false,
-  },
-  {
-    path: '/button',
-    icon: 'fa-solid fa-mobile-button',
-    label: 'Buttons',
-    disabled: false,
-  },
-  {
     path: '/calendar',
     icon: 'fa-solid fa-calendar',
     label: 'CALENDAR',
