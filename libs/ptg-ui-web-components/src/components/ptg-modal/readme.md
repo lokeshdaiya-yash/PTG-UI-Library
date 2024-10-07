@@ -9,6 +9,8 @@
 
 | Property            | Attribute             | Description | Type      | Default          |
 | ------------------- | --------------------- | ----------- | --------- | ---------------- |
+| `btnName`           | `btn-name`            |             | `string`  | `''`             |
+| `cancelBtn`         | `cancel-btn`          |             | `string`  | `'secondary'`    |
 | `closeOutsideClick` | `close-outside-click` |             | `boolean` | `false`          |
 | `confirmButtonName` | `confirm-button-name` |             | `string`  | `'Confirm'`      |
 | `isOpen`            | `is-open`             |             | `boolean` | `false`          |

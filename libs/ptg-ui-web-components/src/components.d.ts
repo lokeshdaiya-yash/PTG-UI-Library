@@ -37,7 +37,7 @@ export namespace Components {
     interface PtgButton {
         "appearance": string;
         "btnIconAlignment"?: string;
-        "text": string;
+        "text"?: string;
     }
     interface PtgCalender {
         "callback"?: (val: any) => void;
@@ -102,6 +102,8 @@ export namespace Components {
         "width": string;
     }
     interface PtgModal {
+        "btnName": string;
+        "cancelBtn": string;
         "closeOutsideClick": boolean;
         "confirmButtonName": string;
         "isOpen": boolean;

@@ -11,7 +11,7 @@
 | ------------------ | -------------------- | ----------- | -------- | ----------- |
 | `appearance`       | `appearance`         |             | `string` | `undefined` |
 | `btnIconAlignment` | `btn-icon-alignment` |             | `string` | `'right'`   |
-| `text`             | `text`               |             | `string` | `undefined` |
+| `text`             | `text`               |             | `string` | `""`        |
 
 
 ## Dependencies

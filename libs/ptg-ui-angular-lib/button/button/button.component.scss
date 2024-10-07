@@ -1,42 +1,40 @@
-@import 'variables';
+@import '../../styles/variables';
 .ptg-ui-button {
-    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    border: 0;
-    border-radius: 3em;
-    cursor: pointer;
-    display: inline-block;
-    line-height: 1;
-  }
-  .ptg-ui-button--secondary {
-    color:$dark;
-    background-color: transparent;
-    box-shadow: $secondary-box-shadow 0px 0px 0px 1px inset;
-  }
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 3em;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+}
+.ptg-ui-button--secondary {
+  color: $dark;
+  background-color: transparent;
+  box-shadow: $secondary-box-shadow 0px 0px 0px 1px inset;
+}
 
-  .ptg-ui-button--small {
-    font-size: 8px;
-    color:$dark;
-    padding: 10px 10px;
-  }
+.ptg-ui-button--small {
+  font-size: 8px;
+  color: $dark;
+  padding: 10px 10px;
+}
 
-  .ptg-ui-button--medium {
-    font-size: 12px;
-    color:$dark;
-    padding: 10px 12px;
-  }
-  
-  .ptg-ui-button--large {
-    font-size: 14px;
-    color:$dark;
-    padding: 12px 20px;
-  }
+.ptg-ui-button--medium {
+  font-size: 12px;
+  color: $dark;
+  padding: 10px 12px;
+}
 
-  .ptg-ui-button--isDisable{
-    pointer-events: none;
-    opacity: 0.5;
-    color: $dark;
-    border: 1px solid $dark;
-  }
+.ptg-ui-button--large {
+  font-size: 14px;
+  color: $dark;
+  padding: 12px 20px;
+}
 
-  
+.ptg-ui-button--isDisable {
+  pointer-events: none;
+  opacity: 0.5;
+  color: $dark;
+  border: 1px solid $dark;
+}

@@ -285,13 +285,13 @@ export declare interface PtgModal extends Components.PtgModal {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['closeOutsideClick', 'confirmButtonName', 'isOpen', 'modalHeaderName', 'modalSize', 'showFooter', 'showHeader']
+  inputs: ['btnName', 'cancelBtn', 'closeOutsideClick', 'confirmButtonName', 'isOpen', 'modalHeaderName', 'modalSize', 'primaryBtn', 'showFooter', 'showHeader']
 })
 @Component({
   selector: 'ptg-modal',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['closeOutsideClick', 'confirmButtonName', 'isOpen', 'modalHeaderName', 'modalSize', 'showFooter', 'showHeader']
+  inputs: ['btnName', 'cancelBtn', 'closeOutsideClick', 'confirmButtonName', 'isOpen', 'modalHeaderName', 'modalSize', 'primaryBtn', 'showFooter', 'showHeader']
 })
 export class PtgModal {
   protected el: HTMLElement;
