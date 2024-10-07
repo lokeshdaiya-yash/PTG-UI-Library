@@ -7,13 +7,15 @@
 
 import './date.scss';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DateExampleOne from './dateExampleOne';
 import DateExampleTwo from './dateExampleTwo';
 import DateExampleThree from './dateExampleThree';
 import DateExampleFour from './dateExampleFour';
 import CodeIcon from '@mui/icons-material/Code';
 import LocalDatetime from './localDateTime'
+import { PtgUiMultiSelectbox, PtgUiCalendar , PtguseFetch } from '@ptg-ui/react';
+
 
 
 export interface PtgUiDateExampleProps {}
@@ -27,6 +29,24 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
   const [showCodeFour, setShowCodeFour] = useState(false);
   const [showCodeLocalDate, setShowCodeLocalDate] = useState(false);
     
+
+  const [cityList, setCityList]= useState([])
+  const { data:apiData } = PtguseFetch('city-lists') as any
+
+  useEffect(() => {
+    if(apiData[0]){
+      setCityList(apiData[0]?.attributes?.city)
+    }
+  },[apiData])
+
+
+  const onSelect: any = (event: any) => {
+    console.log('Select Values,onSelect', event);
+  };
+  const onRemove: any = (event: any) => {
+    console.log('Values,onRemove', event);
+  };
+  
   const ShowExampleCode = () => {
     if(!showCodeOne){
       setShowCodeOne(true);
@@ -58,73 +78,152 @@ export function PtgUiDateExample(props: PtgUiDateExampleProps) {
     }else{
       setShowCodeFour(false)
     }
-  };
+  }; 
+
+  const today = new Date();
+  const [date, setStartDate] = useState({
+    startDate: null,
+    endDate: null,
+    errorMsg:false,
+});
+
+/*-----Set date state-----*/
+const setDateState: any = (d: any, field: string) => {
+    setStartDate((preState: any) => {
+        if (field === 'endDate' && date && date.startDate && date.startDate > d) {
+              date.errorMsg = true
+        } else {
+            date.errorMsg = false
+        }
+        return {
+            ...preState,
+            [field]: d
+        }
+    });
+}
+/*-----props for start datepicker-----*/
+const startDateProp = {
+    selected: date.startDate,
+    className: `form-control w-100`,
+    onChange: (d: any) => setDateState(d, 'startDate'),
+    startDate: today,
+    endDate: null,
+    disabled: false,
+}
+
+/*-----props for end datepicker-----*/
+const endDateProp = {
+    selected: date.endDate,
+    className: `form-control w-100`,
+    onChange: (d: any) => setDateState(d, 'endDate'),
+    endDate: null,
+}
+
 
   return (
-    <div className="wrapper">
-      <section>
+    <div>
+      <section className='card-section-two bg-white rounded pt-2 pb-1 pr-3 mt-2'>
         <div className="row">
-          <div className="col-9 mb-3">
-            <h4>{t('CALENDAR_EXAMPLE_1')}</h4>
+          <div className="col-10 mb-2 mt-2">
+            <h5 className='example-heading calender-heading'>{t('CALENDAR_EXAMPLE_1')}</h5>
           </div>
-          <div className='col-3 mr-5'>
-            <CodeIcon onClick={() =>ShowExampleCode()} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2'>
+            <CodeIcon onClick={() =>ShowExampleCode()} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
         </div>
+       
         <DateExampleOne showCodeOne={showCodeOne} />
       </section>
-      <hr />
-      <section>
+
+      <section className='card-section-two bg-white rounded pt-2 pb-1 mt-4'>
         <div className="row">
-          <div className="col-9 mb-3">
-            <h4>{t('CALENDAR_EXAMPLE_2')}</h4>
+          <div className="col-10 mb-2 mt-2">
+            <h5 className='example-heading'>{t('CALENDAR_EXAMPLE_2')}</h5>
           </div>
 
-          <div className='col-3 mr-5'>
-              <CodeIcon onClick={ShowExampleCodeTwo} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2'>
+              <CodeIcon onClick={ShowExampleCodeTwo} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
         </div>
         <DateExampleTwo showCodeTwo={showCodeTwo} />
       </section>
-      <hr />
-            <section>
+  
+        <section className='card-section-two bg-white rounded pt-2 pb-1 mt-4'>
         <div className="row">
-          <div className="col-9 mb-3">
-          <h4>{t('CALENDAR_EXAMPLE_3')}</h4>
+          <div className="col-10 mb-2 mt-2">
+          <h5 className='example-heading'>{t('CALENDAR_EXAMPLE_3')}</h5>
           </div>
 
-          <div className='col-3 mr-5'>
-              <CodeIcon onClick={ShowExampleCodeThree} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2'>
+              <CodeIcon onClick={ShowExampleCodeThree} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
         </div>
         <DateExampleThree showCodeThree={showCodeThree} />
       </section>
-      <hr />
-      <section className="pb-5">
+
+      <section className="card-section-two pb-5 bg-white rounded pt-2 pb-1 mt-4">
         <div className="row">
-          <div className="col-9 mb-3">
-          <h4>{t('CALENDAR_EXAMPLE_4')}</h4>
+          <div className="col-10 mb-2 mt-2">
+          <h5 className='example-heading'>{t('CALENDAR_EXAMPLE_4')}</h5>
           </div>
 
-          <div className='col-3 mr-5'>
-              <CodeIcon onClick={ShowExampleCodeFour} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2'>
+              <CodeIcon onClick={ShowExampleCodeFour} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
         </div>
         <DateExampleFour showCodeFour={showCodeFour} />
       </section>
-      <hr />
-      <section>
+ 
+      <section className="card-section-two pb-5 bg-white rounded mt-4">
       <div className="row">
-          <div className="col-9 mb-3">
-            <h4>{t('CONVERT_TIMEZONE')}</h4>
+          <div className="col-10 mb-2 mt-3">
+            <h5 className='example-heading covert-timezone'>{t('CONVERT_TIMEZONE')}</h5>
           </div>
 
-          <div className='col-3 mr-5'>
-              <CodeIcon onClick={()=>setShowCodeLocalDate(prev=>!prev)} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2 mt-2'>
+              <CodeIcon onClick={()=>setShowCodeLocalDate(prev=>!prev)} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
         </div>
        <LocalDatetime showCodeLocalDate={showCodeLocalDate}/>
       </section>
+
+      {/* <section className="card-section-two pb-5 bg-white rounded pt-2 pb-1 mt-4 ps-4 pe-4">
+        <div className="row">
+          <div className="col-10 mb-2 mt-2">
+          <h5 className='example-heading'>Calender Example 5</h5>
+          </div>
+
+          <div className='col-2'>
+              <CodeIcon onClick={ShowExampleCodeFour} fontSize="large" className='show-code-icon'></CodeIcon>
+          </div>
+          <hr className='horizontal-line'/>
+        </div>
+
+        <div className='row'>
+
+        <div className='col-lg-6 col-md-6'>
+        <PtgUiCalendar {...endDateProp} />
+        </div>
+
+        <div className='multi-select col-lg-6 col-md-6'>
+        <PtgUiMultiSelectbox
+          name="city"
+          list={cityList}
+          onSelect={onSelect}
+          showCheckbox={true}
+          singleSelect={true}
+          className='single-select-field'
+          placeholder={t('SELECT_PLACEHOLDER')}
+        />
+        </div>
+
+        </div>
+      </section> */}
     </div>
   );
 }

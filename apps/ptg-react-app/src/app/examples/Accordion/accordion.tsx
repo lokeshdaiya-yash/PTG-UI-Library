@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PtgAccordion } from '@ptg-ui/ptg-ui-web-components-react';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import "./accordion.scss";
 
 export default function Accordian() {
   const [showCode, setShowCode] = useState(false);
@@ -18,28 +19,30 @@ export default function Accordian() {
   const defaultOpened = false;
  `;
   const htmlCode = `
-<PtgAccordion label={label} description={description} bgColor={bgColor} defaultOpened={defaultOpened}>
+  <PtgAccordion label={label} description={description} bgColor={bgColor} defaultOpened={defaultOpened}>
   <div slot="body-block">
     <h2>React Slot for Body</h2>
   </div>
-</PtgAccordion>
+  </PtgAccordion>
  `;
   return (
-    <div className="row mt-3">
-      <div className="col-md-11">
-        <h3 className="font-weight-bold">Accordion</h3>
+    <section className='card-section-two bg-white rounded pt-2 pb-2 mt-2'>
+    <div className="row">
+      <div className="col-10 mb-2 mt-2">
+        <h5 className="font-weight-bold example-heading">Accordion</h5>
       </div>
-      <div className="col-1 ps-5">
+      <div className="col-2 mb-2 mt-1">
         <CodeIcon
           onClick={() => setShowCode((prev) => !prev)}
-          fontSize="medium"
+          fontSize="large"
           className="show-code-icon"
         ></CodeIcon>
       </div>
+      <hr className='horizontal-line'/>
       {showCode && (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
       )}
-      <div className="col-md-12">
+      <div className="accordion-component col-md-11 col-sm-7   ms-3">
         <PtgAccordion label={label} description={description} bgColor={bgColor} defaultOpened={defaultOpened}>
           <div slot="body-block">
             <h2>React Slot for Body</h2>
@@ -47,5 +50,6 @@ export default function Accordian() {
         </PtgAccordion>
       </div>
     </div>
+    </section>
   );
 }

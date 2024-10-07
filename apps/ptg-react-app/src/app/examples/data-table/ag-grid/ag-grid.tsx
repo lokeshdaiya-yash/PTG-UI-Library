@@ -38,14 +38,7 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
   }, []);
 
   const {data:apiData} = PtguseFetch('table-lists') as any
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {
-  //       setGridData(res.data);
-  //     })
-  //     .catch((err: any) => console.log(err));
-  // }, []);
+  
   const { t } = useTranslation();
   
   useEffect(() => {
@@ -53,15 +46,6 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
       setGridData(apiData[0]?.attributes?.grid)
     }
   },[apiData])
-
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {
-  //       setGridData(res.data);
-  //     })
-  //     .catch((err: any) => console.log(err));
-  // }, []);
 
   const autoGroupColumnDef = useMemo(() => ({
     field: "athlete", 
@@ -88,7 +72,7 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
     { field: "gold", minWidth: 50 },
     { field: "silver", minWidth: 50},
     { field: "total", minWidth: 50},
-    { field: "Action",cellRenderer: AggridButton,minWidth: 100},
+    { field: "Action",cellRenderer: AggridButton,minWidth: 130},
   ]);
 
   const defaultColDef = {
@@ -201,17 +185,19 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
   `
 
   return (
-    <> 
+    <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
       <div className="row">
-        <div className="col-11 mb-3">
-          <h4>{t('AG_GRID_DATATABLE')}</h4>
+        <div className="col-10 mb-2 mt-1">
+          <h5 className='example-heading'>{t('AG_GRID_DATATABLE')}</h5>
         </div>
-        <div className='col-1 mr-3'>
-          <CodeIcon onClick={ShowExampleCode} fontSize="medium"  className='show-code-icon'></CodeIcon>
+        <div className='col-2 mr-3'>
+          <CodeIcon onClick={ShowExampleCode} fontSize="large"  className='show-code-icon'></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
       </div>
       {!showCode ? (
           <>
+          <div className='m-4'>
           <PtgUiAgGrid
           data={gridData}
           autoGroupColumnDef={autoGroupColumnDef}
@@ -223,13 +209,16 @@ export function PtgUiAgGridExample(props: PtgUiAgGridExampleProps) {
           paginationPageSize={8}
           customPagination={true}
           />
-          <h4>{t('DATATABLE_WITH_ACCORDIAN')}</h4>
-          <PtgUiAccordian stories={accordian_array}/>
+          </div>
+          {/* <h5 className='ms-4'>{t('DATATABLE_WITH_ACCORDIAN')}</h5>
+          <div className='me-4 ms-4'>
+          <PtgUiAccordian stories={accordian_array}/> */}
+          {/* </div> */}
         </>
       ):(
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
       )}
-    </>
+    </section>
   );
 }
 

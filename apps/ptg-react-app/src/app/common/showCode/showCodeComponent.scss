@@ -1,11 +1,13 @@
+@import '../../styles/variables';
+
 .syntax-highlighter{
-    background-color: rgb(2,43,55) !important;
-    border : rgb(2,43,55) !important;
+    background-color: $syntax-highlighter-bg-color !important;
+    border : $syntax-highlighter-bg-color !important;
 }
 
 .copy-to-clipboard{
     cursor: pointer;
-    color: rgb(236, 231, 231) !important;
+    color: $copy-icon-color !important;
     position: absolute;
     margin-left: 93%;
     margin-top: 4%;
@@ -17,9 +19,3 @@
 }
 
 
-
-.show-code-icon{
-    background-color: rgb(222, 227, 227);
-    border-radius: 50%;
-    cursor: pointer;
-}

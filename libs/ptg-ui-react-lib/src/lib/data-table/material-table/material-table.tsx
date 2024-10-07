@@ -32,6 +32,7 @@ export interface PtgUiMaterialTableProps {
   paging: boolean,
   paginationPosition?: any
   grouping?: boolean,
+  title?:string,
   detailPanel?: (rowData:any) =>any;
   options?:{
     emptyRowsWhenPaging: boolean;
@@ -47,6 +48,9 @@ const tableOptions ={
 export function PtgUiMaterialTable(props: PtgUiMaterialTableProps) {
   return (
     <MaterialTable
+    style={{
+      fontSize : "14px"
+    }}
       {...props}
     options={tableOptions}
     />

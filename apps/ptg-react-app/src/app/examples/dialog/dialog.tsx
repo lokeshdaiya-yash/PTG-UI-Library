@@ -74,25 +74,29 @@ const DialogExample = () => {
         </div>
       </PtgModal>`
   return (
+    <section className='card-section-two bg-white rounded pt-2 pb-2 mt-2'>
     <div className='row'>
-      <div className="col-11">
-        <h5 className="font-weight-bold">Dialog/Modal</h5>
+      <div className="col-10 mt-1">
+        <h5 className="font-weight-bold example-heading">Dialog/Modal</h5>
       </div>
-      <div className='col-1 mr-5 mb-3'>
-        <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+      <div className='col-2 mr-5 mb-2'>
+        <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
       </div>
+      <hr className='horizontal-line'/>
 
       {showCode && (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} cssCode={cssCode} />
       )}
-      <PtgButton text="Open Modal" data-testid="openButton" appearance="primary" onClick={openModal}
-        btnIconAlignment='left' >
+      <div className='ms-2'>
+      <PtgButton  text="Click Here" data-testid="openButton" appearance="primary" onClick={openModal}
+       >
         <div slot="btnIcon">
           <AddCircleIcon />
         </div>
       </PtgButton>
+      </div>
 
-      <PtgModal isOpen={isOpen} onConfirmClose={confirmClicked}
+      <PtgModal isOpen={isOpen}  onConfirmClose={confirmClicked}
         modal-size='lg' modal-header-name="Header Name Here"
         confirm-button-name="Okay" onModalClose={modalClosed}>
         <div slot="body-block">
@@ -100,6 +104,7 @@ const DialogExample = () => {
         </div>
       </PtgModal>
     </div>
+    </section>
   );
 };
 

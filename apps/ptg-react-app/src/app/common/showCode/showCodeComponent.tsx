@@ -17,7 +17,7 @@ export function ShowCodeComponent(props: ShowCodeComponentProps) {
     <section>
       <div className="container-fluid">
         <div className="col-lg-10 col-md-12 col-sm-12 col-xs-12">
-          <Tabs defaultActiveKey="example1" className="draganddropmain w-100">
+          <Tabs defaultActiveKey="example1" className="draganddropmain active-tabs-copy-code">
          
           <Tab eventKey="example1" title="TypeScript">
             <div className="copy-code-with-highlighter">

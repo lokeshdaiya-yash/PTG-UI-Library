@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './index-4f6af1ca.js';
+import { r as registerInstance, h } from './index-e0983af0.js';
 
 const ptgRadiobtnCss = "input[type=radio]{transform:scale(1.5);margin-left:14px}label{font-size:20px}";
 

@@ -46,7 +46,7 @@ function DragExampleFour(props : DragExampleFourProps) {
                 <span onClick={onToggle}>{isOpen ? <i className="fa fa-minus" aria-hidden="true"></i> : (checkChildExists(node.id)? <i className="fa fa-plus" aria-hidden="true"></i>:null)}</span>
               </span>
             )}
-            {node.text}
+           <span className='ms-2'>{node.text}</span> 
           </div>
         )}
       />

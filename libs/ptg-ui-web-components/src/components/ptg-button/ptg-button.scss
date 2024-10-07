@@ -17,6 +17,7 @@
   align-items: center;
   justify-content: center;
   font-family: inherit;
+ 
 }
 .btn.primary{
   background : var(--primary-50);
@@ -81,6 +82,22 @@
 .btn.dark:hover{
   background : var(--dark-70);
 
+}
+.showLeft {
+  width: 18px;
+  padding-left: 12px;
+}
+
+.showRight {
+  width: 18px;
+  padding-right: 12px;
+}
+
+div[slot="btnIcon"]{
+  svg{
+    width: 20px;
+    height: 20px;
+  }
 }
 .btn .modal{
   display: inline-flex;
