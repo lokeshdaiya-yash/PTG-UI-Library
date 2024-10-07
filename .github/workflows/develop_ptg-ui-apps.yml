@@ -54,7 +54,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'ptg-ui-apps'
+          app-name: 'yash-ui-apps'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_32145BC8C8554972B10AAFAFC4A5BB7F }}
           package: .
