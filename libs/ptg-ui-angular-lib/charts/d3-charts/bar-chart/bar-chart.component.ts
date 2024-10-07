@@ -41,7 +41,8 @@ export class BarChartComponent implements OnInit,OnChanges {
   svg: any;
 
   ngOnChanges() {
-    this.width=300;
+    d3.select('figure#bar').selectAll('*').remove();
+    // this.width=300;
     this.svg = d3
       .select('figure#bar') //returns a selection object that encapsulates the first element in the DOM with a CSS class of "bar"
       .append('svg') //Appends a new element of this type (tag name) as the last child of each selected element
@@ -51,6 +52,8 @@ export class BarChartComponent implements OnInit,OnChanges {
       .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
       .append('g')
       .attr('transform', 'translate(' + this.margin + ',' + this.margin + ')');
+
+      this.drawBars(this.data);
 
   }
 

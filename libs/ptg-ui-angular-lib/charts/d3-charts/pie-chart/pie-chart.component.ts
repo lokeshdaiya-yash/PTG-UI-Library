@@ -23,10 +23,14 @@ export class PieChartComponent implements OnInit {
   @Input() colorsArray: any = ['#8D8741', '#659DBD', '#DAAD86', '#BC986A', '#FBEEC1', '#242582'];
 
   // The radius of the pie chart is half the smallest side
-  private radius = Math.min(this.width, this.height) / 2 - this.margin;
+  //  private radius = Math.min(this.width, this.height) / 2 - this.margin;
+  private radius: any;
   private colors: any;
 
   private createSvg(): void {
+
+    this.radius = Math.min(this.width, this.height) / 2 - this.margin;
+
     this.svg = d3
       .select('figure#pie')
       .append('svg')

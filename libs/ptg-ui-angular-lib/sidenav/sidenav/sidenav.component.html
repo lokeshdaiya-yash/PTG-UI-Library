@@ -1,66 +1,89 @@
 <div class="fixed-button" #fixedButton>
-    <button aria-label="Menu" class="btn btn-primary cstm-btn"
-      
-      (click)="isMenuToggle()">
-      <i class="fa-solid fa-bars fa-2xs"></i>
-    </button>
-
+  <button
+    aria-label="Menu"
+    class="btn btn-primary cstm-btn"
+    (click)="isMenuToggle()"
+  >
+    <i class="fa-solid fa-bars fa-2xs"></i>
+  </button>
 </div>
-<div class="sidenav-container pt-3" [ngClass]="{'width-0': isMenuOpen}">
-    <div class="sidenav">
-        <ng-container *ngFor="let item of menuItems">
-            <a class="menu-item" (click)="navigate(item?.pages ? null : item)" [ngClass]="{
-            active: selectedPath === item.path,
-            disabled: item.disabled !== false,
-            'parent-item': item?.pages
-          }">
-                <i class="icon {{ item.icon }}" *ngIf="item?.icon"></i>
-                <span class="menu-item-text" [innerHtml]="item.label"></span>
-            </a>
-
-            <a class="menu-item child-item" (click)="navigate(childItem)" [ngClass]="{
-            active: selectedPath === childItem.path,
-            disabled: childItem.disabled !== false
-          }" *ngFor="let childItem of item?.pages" [innerHtml]="childItem.label!">
-            </a>
-
-
-        </ng-container>
-        <ng-content select=".app-template-name"></ng-content>
-    </div>
-</div>
-
-<div class="sidenav-container pt-3" [ngClass]="{'width-0': isMenuOpen}">
+<!-- <div class="sidenav-container pt-3" [ngClass]="{'width-0': isMenuOpen}">
   <div class="sidenav">
-    <!-- <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
-      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Toggle collapse
-    </button> 
-  (click)="item?.pages ? isCollapsed = !isCollapsed : isCollapsed = isCollapsed"
---> 
-    <ng-container *ngFor="let item of menuItems">
-      <a class="menu-item" (click)="navigate(item?.pages ? item.id : item)" [ngClass]="{
+      <ng-container *ngFor="let item of menuItems">
+          <a class="menu-item" (click)="navigate(item?.pages ? null : item)" [ngClass]="{
           active: selectedPath === item.path,
           disabled: item.disabled !== false,
           'parent-item': item?.pages
-                }" 
-                [attr.aria-expanded]="!isCollapsed">
-        <i class="icon {{ item.icon }}" *ngIf="item?.icon"></i>
-        <span class="menu-item-text" [innerHtml]="item.label"
-          ></span>
-        <span *ngIf="item.pages" class="d-flex ms-auto"
-          [ngClass]="[!isCollapsed && getMenuId == item.id ? 'fa-solid fa-angle-up' :  'fa-solid fa-angle-down']"></span>
-      </a>
-      <!-- (click)="isCollapsed = !isCollapsed" class="d-flex ms-auto"
-      [attr.aria-expanded]="!isCollapsed" -->
-      <ng-container *ngFor="let childItem of item?.pages">
-        <a *ngIf="childItem.parentId ==getMenuId " id="collapseBasic" class="menu-item child-item" (click)="navigate(childItem)" [ngClass]="{
+        }">
+              <i class="icon {{ item.icon }}" *ngIf="item?.icon"></i>
+              <span class="menu-item-text" [innerHtml]="item.label"></span>
+          </a>
+
+          <a class="menu-item child-item" (click)="navigate(childItem)" [ngClass]="{
           active: selectedPath === childItem.path,
           disabled: childItem.disabled !== false
-        }"  [innerHtml]="childItem.label!" [collapse]="isCollapsed">
+        }" *ngFor="let childItem of item?.pages" [innerHtml]="childItem.label!">
+          </a>
+
+
+      </ng-container>
+      <ng-content select=".app-template-name"></ng-content>
+  </div>
+</div> -->
+
+<div class="sidenav-container" [ngClass]="{ 'width-0': isMenuOpen }">
+  <div class="sidenav">
+    <!-- <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Toggle collapse
+  </button> 
+(click)="item?.pages ? isCollapsed = !isCollapsed : isCollapsed = isCollapsed"
+-->
+    <ng-container *ngFor="let item of menuItems">
+      <a
+        class="menu-item"
+        (click)="navigate(item?.pages ? item.id : item)"
+        [ngClass]="{
+          active: selectedPath === item.path,
+          disabled: item.disabled !== false,
+          'parent-item': item?.pages
+        }"
+        [attr.aria-expanded]="!isCollapsed"
+      >
+        <i class="icon {{ item.icon }}" *ngIf="item?.icon"></i>
+        <span class="menu-item-text" [innerHtml]="item.label"></span>
+        <span
+          *ngIf="item.pages"
+          class="d-flex ms-auto"
+          [ngClass]="[
+            !isCollapsed && getMenuId == item.id
+              ? 'fa-solid fa-angle-up'
+              : 'fa-solid fa-angle-down'
+          ]"
+        ></span>
+      </a>
+      <!-- (click)="isCollapsed = !isCollapsed" class="d-flex ms-auto"
+    [attr.aria-expanded]="!isCollapsed" -->
+      <!-- <ng-container *ngFor="let childItem of item?.pages">
+      <a *ngIf="childItem.parentId ==getMenuId " id="collapseBasic" class="menu-item child-item" (click)="navigate(childItem)" [ngClass]="{
+        active: selectedPath === childItem.path,
+        disabled: childItem.disabled !== false
+      }"  [innerHtml]="childItem.label!" [collapse]="isCollapsed">
+      </a>
+    </ng-container> -->
+
+      <ng-container *ngFor="let childItem of item?.pages">
+        <a
+          *ngIf="item.id === getMenuId && !isCollapsed"
+          class="menu-item child-item"
+          (click)="navigate(childItem)"
+          [ngClass]="{
+            active: selectedPath === childItem.path,
+            disabled: childItem.disabled !== false
+          }"
+        >
+          {{ childItem.label }}
         </a>
       </ng-container>
-
-
     </ng-container>
     <ng-content select=".app-template-name"></ng-content>
   </div>

@@ -1,12 +1,29 @@
 <!-- Select component used for file type selection  -->
 <div class="d-flex mb-3 justify-content-md-end">
   <div class="w-50">
-    <ptg-ui-select class="w-100 textBox"  [items]='fileTypeList'
+    <ptg-ui-select
+      formControlName="select"
+      class="w-100"
+      [items]="fileTypeList"
+      [isMultiple]="false"
+      [closeOnSelect]="true"
+      [placeholder]="'select'"
+      (change)="onChange($event)"
+    >
+    </ptg-ui-select>
+
+    <!-- <ptg-ui-select class="w-100 textBox"  [items]='fileTypeList'
          [closeOnSelect]="true" (change)="onChange($event)">
-      </ptg-ui-select>
+      </ptg-ui-select> -->
   </div>
   <div class="ms-2">
-    <button [disabled]="!fileType" (click)="downloadFile()" class="btn btn-primary">Download</button>
+    <button
+      [disabled]="!fileType"
+      (click)="downloadFile()"
+      class="btn btn-primary"
+    >
+      Download
+    </button>
   </div>
 </div>
 
@@ -15,13 +32,14 @@
   <table class="table table-bordered downloads">
     <thead>
       <tr>
-        <th *ngFor="let columnName of tableData.columnsData;">{{columnName}}</th>
-      </tr> 
+        <th *ngFor="let columnName of tableData.columnsData">
+          {{ columnName }}
+        </th>
+      </tr>
     </thead>
     <tbody>
       <tr *ngFor="let data of tableData.rowsData">
-        
-        <td *ngFor="let item of data">{{item}}</td>
+        <td *ngFor="let item of data">{{ item }}</td>
       </tr>
     </tbody>
   </table>
