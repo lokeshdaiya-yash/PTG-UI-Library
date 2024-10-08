@@ -1,4 +1,5 @@
-const baseUrl = 'https://ptg-ui-apps.azurewebsites.net/';
+// const baseUrl = 'https://ptg-ui-apps.azurewebsites.net/';
+const baseUrl = 'https://yash-ui-strapi.azurewebsites.net/api/';
 export const environment = {
   production: true,
     baseUrl:baseUrl,
