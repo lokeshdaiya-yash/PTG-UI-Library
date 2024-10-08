@@ -552,17 +552,13 @@ const htmlCode = `
       </div>
 
     {!showCode ? (
-      <div className=" signup-wrappper container-fluid p-0 d-flex justify-content-center align-items-center">
+      <div className=" signup-wrappper container-fluid p-0 d-flex  align-items-center">
       <div className="signup-container">
         <div className="signup-form-wrapperr">
-          <div className="form-group">
-          
-          </div>
-
           <div className="row access-wrapper">
             <div className="col-12">
-              <form className="form-login">
-                <div className="login-form w-75 m-auto">
+              <form className="form-login p-4">
+                <div className="login-form">
                   <div className="form-container">
                     <div className="row">
                       <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -743,7 +739,7 @@ const htmlCode = `
                   {t('SUBMIT')}
                   </button>
                 </div>
-                <div className="row mt-5 achieved-heading">
+                <div className="row mt-5 achieved-heading1">
                   <div className="col-md-12">
                     <h6 className='ms-2'>{t('ACHIEVED_HEADING')}</h6>
                         <ol>
