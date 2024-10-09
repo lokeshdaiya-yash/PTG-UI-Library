@@ -11,6 +11,7 @@ import { mocksService } from '@ptg-angular-app/common/data-services/mocks.servic
 export class NgxDatatableComponent implements OnInit {
   constructor(private mocksApiService: mocksService,) {}
   ngxdata:any
+  isLoaded=true;
   columns:any;
   offset: number = 0;
   rowClass: string = '';

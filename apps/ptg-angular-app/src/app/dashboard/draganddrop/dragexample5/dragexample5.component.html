@@ -21,17 +21,13 @@
   </div>
 </ng-template>
 
-<div class="wrapper3 mt-5 pt-3">
-  <h4 [innerHTML]="'DRAG_DROP_EX_5' | translate"></h4>
-  <div cdkDropList [cdkDropListData]="nodes" [id]="'main'" [cdkDropListConnectedTo]="dropTargetIds"
+<div class="wrapper3 mt-2  bg-white">
+  <div class="p-2" cdkDropList [cdkDropListData]="nodes" [id]="'main'" [cdkDropListConnectedTo]="dropTargetIds"
     (cdkDropListDropped)="drop($event)" [cdkDropListSortingDisabled]="true">
     <div *ngFor="let node of nodes, index as index" cdkDrag [cdkDragData]="node.id" (cdkDragMoved)="dragMoved($event)">
       <ng-container *ngTemplateOutlet="tmplNode1, context:{node:node, index: index+1}"></ng-container>
     </div>
   </div>
 </div>
-
-
-<hr />
-<p><strong [innerHTML]="'CURRENT_DRAG_DROP_ACTION' | translate"></strong></p>
+<p  class="p-2"><strong [innerHTML]="'CURRENT_DRAG_DROP_ACTION' | translate"></strong></p>
 <pre>{{dropActionTodo|json}}</pre>

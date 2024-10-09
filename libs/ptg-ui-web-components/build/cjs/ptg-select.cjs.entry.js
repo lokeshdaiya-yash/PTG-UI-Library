@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-cd8d96f6.js');
+const index = require('./index-b272a2a2.js');
 
 const ptgSelectCss = ":host{display:block}#optionValue{width:300px;border:1px solid grey;height:30px;border-radius:5px}#multiSelect{height:200px;width:300px}.multiselect{width:300px}.multiselect ul{list-style:none;border:1px solid gray;padding:0px;margin-top:1px;border-radius:4px}.multiselect ul li{padding:5px 5px 5px 0px}.multiselect ul li+li{border-top:1px gray solid}.selectBox{position:relative;padding:7px;border:1px solid gray;display:flex;align-items:center;font-size:14px;border-radius:4px}.selectBox select{width:100%;width:300px;border:1px solid grey;height:30px;border-radius:5px}.overSelect{line-height:1}#checkboxes{display:none;border:1px #dadada solid}#checkboxes label{display:block}#checkboxes label:hover{background-color:#1e90ff}";
 

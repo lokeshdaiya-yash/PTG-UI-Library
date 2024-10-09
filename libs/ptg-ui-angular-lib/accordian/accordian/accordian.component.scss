@@ -1,23 +1,28 @@
+@import '../../styles/variables';
 .ptg-ui-accordian--isDisable {
   pointer-events: none;
   opacity: 0.5;
-  color: black;
-  // border: 1px solid black;
+  color: $dark;
 }
-
-
 
 .ptg-ui-accordian--isAnimated {
   width: 250px;
-  // height: 130px;
-  background-color: yellow;
-  border: 1px solid black;
-  // transform: rotate(20deg);
-  color: red;
+  background-color: $warning;
+  border: 1px solid $dark;
+  color: $dangerColor;
+  transform: rotate(30deg);
+
+  .animatedCss{
+    margin-top: 3rem;
+  }
+
 }
+
+
 
 .ptg-ui-accordian--oneAtATime:nth-child(2),
 .ptg-ui-accordian--oneAtATime:nth-child(3),
 .ptg-ui-accordian--oneAtATime:nth-child(4) {
   visibility: hidden;
 }
+

@@ -39,6 +39,7 @@ const Indeterminate =  lazy(()=> import ("../examples/indeterminate-checkbox/ind
 const PtgUiReactTable =  lazy(()=> import ("../examples/data-table/react-table"));
 const Accordian = lazy(()=> import("../examples/Accordion/accordion"));
 const Toaster =lazy(()=> import ("../examples/Toaster/toaster"));
+const Button = lazy(()=> import("../examples/buttons/buttons")); 
 
 {/*--Declare routes and component for dynamic load--*/ }
 const routing = [
@@ -169,6 +170,9 @@ const routing = [
   {
     path: '/toaster',
     component: Toaster,
+  },{
+    path: '/button',
+    component: Button,
   }
 ];
 export default routing;

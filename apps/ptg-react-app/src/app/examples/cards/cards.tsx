@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PtgCard } from '@ptg-ui/ptg-ui-web-components-react';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import "./cards.scss";
 export default function Card() {
   const [showCode, setShowCode] = useState(false);
   const componentCode = `
@@ -52,38 +53,42 @@ export default function Card() {
     console.log(data.detail);
   };
   return (
-    <div className="container mt-3">
+    <section className='card-section-two bg-white rounded'>
       <div className="row">
-        <div className="col-md-10">
-          <h3 className="font-weight-bold">Cards</h3>
+        <div className="col-10 mb-2 mt-3">
+          <h5 className="font-weight-bold example-heading">Cards</h5>
         </div>
-        <div className="col-2">
+        <div className="col-2 mb-2 mt-2">
           <CodeIcon
             onClick={() => setShowCode((prev) => !prev)}
-            fontSize="medium"
+            fontSize="large"
             className="show-code-icon"
           ></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
+    
         {showCode && (
           <ShowCodeComponent
             componentCode={componentCode}
             htmlCode={htmlCode}
           />
         )}
+       
         {cardDataObj.map((card) => {
           return (
-            <div className="col-md-4">
+            <div className="col-md-5 col-sm-5 card-component m-3">
               <PtgCard
                 {...card}
                 cardButtonText="select"
                 isCardAction={true}
                 cardContentLength={150}
                 onHandleClick={handleClick}
+        
               />
             </div>
           );
         })}
-      </div>
-    </div>
+        </div>
+    </section>
   );
 }

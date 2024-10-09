@@ -539,37 +539,35 @@ const htmlCode = `
 </form>`
 
   return (
-    <>
+     <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
       <div className='row'>
-        <div className="text-center col-lg-11 mb-3">
-          <h1>{t('WEB_ACCESSIBILITY_TEXT')}</h1>
+        <div className="ms-4 col-6 mb-2 mt-2">
+          <h5 className='web-accessibitlity-heading '>{t('WEB_ACCESSIBILITY_TEXT')}</h5>
         </div>
 
-        <div className="col-lg-1 mb-3 mt-2">
-          <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+        <div className="col mb-2 mt-1">
+          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
       </div>
 
     {!showCode ? (
-      <div className=" signup-wrappper container-fluid p-0 d-flex justify-content-center align-items-center">
+      <div className=" signup-wrappper container-fluid p-0 d-flex  align-items-center">
       <div className="signup-container">
         <div className="signup-form-wrapperr">
-          <div className="form-group">
-          
-          </div>
-
           <div className="row access-wrapper">
             <div className="col-12">
-              <form className="form-login">
-                <div className="login-form w-75 m-auto">
+              <form className="form-login p-4">
+                <div className="login-form">
                   <div className="form-container">
                     <div className="row">
                       <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div className="form-group required mb-2">
+                        <div className="form-group required mb-2 web-field">
                           <label
                             htmlFor="inputUsername"
                             tabIndex={0}
                             aria-label="User Name"
+
                           >
                             {t('USER_NAME')}
                           </label>
@@ -579,10 +577,9 @@ const htmlCode = `
                             id="inputUsername"
                             data-testid="username"
                             placeholder={t('USER_NAME_PLACEHOLDER')}
-                            // accessKey="u"
                             value={user.username}
                             onChange={handleChange}
-                            className={`w-100 form-control bg_0 ${
+                            className={`w-100  form-control bg_0 ${
                               formErr.username ? 'border-danger' : ''
                             }`}
                             onBlur={user.username === '' ? handleBlur : null}
@@ -590,7 +587,7 @@ const htmlCode = `
                         </div>
                       </div>
                       <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div className="form-group required mb-2">
+                        <div className="form-group required mb-2 web-field">
                           <label
                             htmlFor="inputEmail"
                             tabIndex={0}
@@ -604,7 +601,6 @@ const htmlCode = `
                             id="inputEmail"
                             data-testid="email"
                             placeholder={t('INPUT_PLACEHOLDER_EMAIL')}
-                            //accessKey="m"
                             value={user.email}
                             onChange={handleChange}
                             className={`w-100 form-control bg_0 ${
@@ -615,7 +611,7 @@ const htmlCode = `
                         </div>
                       </div>
                       <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div className="form-group required mb-2">
+                        <div className="form-group required mb-2 web-field">
                           <label
                             htmlFor="inputDOB"
                             tabIndex={0}
@@ -634,7 +630,6 @@ const htmlCode = `
                             inputVariant="outlined"
                             value={date}
                             onChange={dateChange}
-                            //accessKey="c"
                             ariaLabel="date"
                             disableRipple={true}
                             disableTouchRipple={true}
@@ -644,7 +639,7 @@ const htmlCode = `
                     </div>
                     <div className="row">
                       <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div className="form-group required mb-2">
+                        <div className="form-group required mb-2 field">
                           <label
                             htmlFor="inputCity"
                             tabIndex={0}
@@ -657,7 +652,6 @@ const htmlCode = `
                             list={cityList}
                             id="inputCity"
                             data-testid="city"
-                            // className={`sel-placeholder w-100`}
                             className={`sel-placeholder w-100 ${
                               formErr.city ? 'border-danger' : ''
                             }`}
@@ -668,7 +662,7 @@ const htmlCode = `
                           />
                         </div>
                       </div>
-                      <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 select-gender">
                         <div className="form-group required mb-2">
                           <fieldset>
                             <legend className="gender-align">
@@ -677,25 +671,24 @@ const htmlCode = `
                               </label>
                             </legend>
 
-                            <div className="d-flex">
+                            <div className="d-flex gender-list">
                               <PtgUiRadio
                                 name="gender"
                                 htmlFor="radioinputForGender"
                                 id="radioinputForGender"
                                 list={genders}
-                                // accessKey="g"
                                 onChange={handleChange}
                                 value={user.gender}
                               />
                             </div>
-                          </fieldset>
+                         </fieldset>
                         </div>
                       </div>
                     </div>
                     <div className="row"></div>
                     <div className="row">
                       <div className="col-12">
-                        <div className="form-group required mb-2">
+                        <div className="form-group required mb-2 field">
                           <label
                             htmlFor="inputPassword"
                             tabIndex={0}
@@ -712,12 +705,11 @@ const htmlCode = `
                             id="inputPassword"
                             data-testid="password"
                             placeholder={t('ENTER_PASSWORD_PLACEHOLDER')}
-                            //accessKey="p"
                           />
                         </div>
                       </div>
                     </div>
-                    <div className="row">
+                    <div className="row ms-1 declaration-check">
                       <div className="col-12">
                         <div className="form-group required mb-2">
                           <PtgUiCheckbox
@@ -728,28 +720,28 @@ const htmlCode = `
                             data-testid="confirm-registration"
                             checked={selectedCheck}
                             onChange={checkHandler}
-                            className={`form-check-input `}
-                            //accessKey="i"
+                            className={`form-check-input`}
                           />
                         </div>
                       </div>
                     </div>
                   </div>
-                  <PtgUiButton
-                    className="w-100"
+                  {/* <PtgUiButton
+                    className="w-100 web-button"
                     type="button"
-                    onClick={handleRegister}
-                    disabled={user.disable}
-                    //accessKey="s"
                     aria-label="submit"
                     data-testid="register"
                   >
-                    {t('SUBMIT')}
-                  </PtgUiButton>
+               
+                  </PtgUiButton> */}
+                  <button type="button" className="w-100 btn btn-primary web-field"  onClick={handleRegister}
+                    disabled={user.disable}>     
+                  {t('SUBMIT')}
+                  </button>
                 </div>
-                <div className="row mt-5">
+                <div className="row mt-5 achieved-heading1">
                   <div className="col-md-12">
-                    <h2>{t('ACHIEVED_HEADING')}</h2>
+                    <h6 className='ms-2'>{t('ACHIEVED_HEADING')}</h6>
                         <ol>
                           <li>{t('ACHIEVED_PNT_ONE')}</li>
                           <li>{t('ACHIEVED_PNT_TWO')}</li>
@@ -768,7 +760,7 @@ const htmlCode = `
     ):(
       <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
     )}
-    </>
+    </section>
   );
 }
 export default WebAccessibility;

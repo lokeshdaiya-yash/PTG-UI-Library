@@ -34,14 +34,6 @@ const ShowExampleCode = () => {
   }
 };
 
-// useEffect(() => {
-//   authClass
-//     .gridData()
-//     .then((res: any) => {
-//       setGridData(res.data);
-//     })
-//     .catch((err: any) => console.log(err));
-// }, []);
   const Columns = [
     { title: "Athlete",field: "athlete" ,width:"20%"},
     { title: "Age",field: "age",filtering: false },
@@ -122,26 +114,33 @@ const htmlCode = `
   
   return (
     <div>
+    <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
     <div className='row'>
-    <div className = 'col-11'></div>
-    <div className='col-1 mr-5 mt-2'>
-      <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+    <div className = 'col-10'>
+      <h5 className='example-heading mt-2'>Material Table</h5>
     </div>
+    <div className='col-2 mr-5 mt-1 mb-2'>
+      <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
+    </div>
+    <hr className='horizontal-line'/>
     </div>
     
     {!showCode ? (
-      <div className=" table-responsive">
+      <div className="table-responsive">
       <PtgUiMaterialTable 
         data ={gridData}
         columns= {Columns}  
         filtering= {true}
         paging= {true}
         paginationPosition={'bottom'}
-        grouping={true}/>
+        grouping={true}
+        title=""
+      />
       </div>
     ): (
       <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
     )}
+    </section>
     </div>
   );
 }

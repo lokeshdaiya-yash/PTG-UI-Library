@@ -21,10 +21,10 @@ export namespace Components {
         "middle": string;
     }
     interface PtgAccordion {
-        "color": string;
+        "bgColor"?: string;
+        "defaultOpened": boolean;
         "description": string;
         "label": string;
-        "width": string;
     }
     interface PtgAlert {
         "appreanced": string;
@@ -36,7 +36,8 @@ export namespace Components {
     }
     interface PtgButton {
         "appearance": string;
-        "text": string;
+        "btnIconAlignment"?: string;
+        "text"?: string;
     }
     interface PtgCalender {
         "callback"?: (val: any) => void;
@@ -102,11 +103,13 @@ export namespace Components {
     }
     interface PtgModal {
         "btnName": string;
+        "cancelBtn": string;
         "closeOutsideClick": boolean;
         "confirmButtonName": string;
         "isOpen": boolean;
         "modalHeaderName": string;
         "modalSize": string;
+        "primaryBtn": string;
         "showFooter": boolean;
         "showHeader": boolean;
     }
@@ -380,10 +383,10 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface PtgAccordion {
-        "color"?: string;
+        "bgColor"?: string;
+        "defaultOpened"?: boolean;
         "description"?: string;
         "label"?: string;
-        "width"?: string;
     }
     interface PtgAlert {
         "appreanced"?: string;
@@ -395,6 +398,7 @@ declare namespace LocalJSX {
     }
     interface PtgButton {
         "appearance"?: string;
+        "btnIconAlignment"?: string;
         "text"?: string;
     }
     interface PtgCalender {
@@ -469,6 +473,7 @@ declare namespace LocalJSX {
     }
     interface PtgModal {
         "btnName"?: string;
+        "cancelBtn"?: string;
         "closeOutsideClick"?: boolean;
         "confirmButtonName"?: string;
         "isOpen"?: boolean;
@@ -476,6 +481,7 @@ declare namespace LocalJSX {
         "modalSize"?: string;
         "onConfirmClose"?: (event: PtgModalCustomEvent<boolean>) => void;
         "onModalClose"?: (event: PtgModalCustomEvent<boolean>) => void;
+        "primaryBtn"?: string;
         "showFooter"?: boolean;
         "showHeader"?: boolean;
     }

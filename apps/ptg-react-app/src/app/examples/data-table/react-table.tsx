@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { authClass } from '@ptg-react-app/auth/services/auth.service';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent';
-import { geoStereographicRaw } from 'd3';
+
 /* eslint-disable-next-line */
 export interface PtgUiReactTableExampleProps {}
 
@@ -41,12 +41,6 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
     }
   },[apiData])
 
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {setGridData(res.data);console.log(res.data)})
-  //     .catch((err: any) => console.log(err));
-  // }, []);
   const columns = React.useMemo(
     () => [
       {
@@ -163,19 +157,24 @@ export function PtgUiReactTableExample(props: PtgUiReactTableExampleProps) {
   `
   return (
     <div className="w-100">
+      <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
        <div className="row">
-        <div className="col-11 mb-3">
-          <h4>{t('REACT_TABLE')}</h4>
+        <div className="col-10 mb-2 mt-1">
+          <h5 className='example-heading'>{t('REACT_TABLE')}</h5>
         </div>
-        <div className='col-1 mr-2'>
-          <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+        <div className='col-2 mr-2'>
+          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
       </div>
       {!showCode ? (
+        <div className='m-4 react-table-component'>
         <PtgUiReactTable columns={columns} data={gridData} />
+        </div>
       ):(
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
       )}
+      </section>
     </div>
   );
 }

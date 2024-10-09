@@ -188,7 +188,7 @@ detailPanel={detailForAccordion}
       </div>
 
       {!showCode ? (
-        <div className=" table-responsive">
+        <div className="table-responsive">
           <PtgUiMaterialTable
             data={gridData}
             columns={Columns}

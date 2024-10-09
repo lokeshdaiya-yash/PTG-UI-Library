@@ -32,14 +32,7 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
       setShowCode(false);
     }
   };
-  // useEffect(() => {
-  //   authClass
-  //     .gridData()
-  //     .then((res: any) => {
-  //       setGridData(res.data);
-  //     })
-  //     .catch((err: any) => console.log(err));
-  // }, []);
+ 
   const {data:apiData, isLoading, error} = PtguseFetch('table-lists') as any
 
   useEffect(() => {
@@ -126,13 +119,15 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
 
   return (
     <div className="w-100">
+      <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
        <div className="row">
-        <div className="col-11 mb-3">
+        <div className="col-10 mb-2">
            <h4>{t('REACT_DATA_GRID')}</h4>
         </div>
-        <div className='col-1 mr-3'>
-          <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+        <div className='col-2 mr-3'>
+          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
         </div>
+        <hr className='horizontal-line'/>
       </div>
       {!showCode ? (
         <PtgUiReactDataGrid
@@ -148,6 +143,7 @@ export function PtgUiReactDataGridExample(props: PtgUiReactDataGridExampleProps)
       ):(
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
       )}
+      </section>
     </div>
   );
 }

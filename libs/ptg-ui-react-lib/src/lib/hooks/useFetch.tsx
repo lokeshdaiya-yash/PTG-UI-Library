@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
-export function PtguseFetch(url:any) {
+export function PtguseFetch(url: any) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('') as any;
   const fetchApi = async () => {
     setIsLoading(true);
     try {
-      const apiData = await fetch("https://ptguistrapi.azurewebsites.net/api/" + url);
+      const apiData = await fetch(
+        'https://yash-ui-strapi.azurewebsites.net/api/' + url
+      );
       const apiJsonData = await apiData.json();
-      if(!apiData.ok){
+      if (!apiData.ok) {
         setError(apiData.status);
         throw new Error();
       }
       setData(apiJsonData.data);
-        setIsLoading(false);
-        setError('');
-    }catch (error) {
+      setIsLoading(false);
+      setError('');
+    } catch (error) {
       console.log(error);
       setIsLoading(false);
       setData([]);

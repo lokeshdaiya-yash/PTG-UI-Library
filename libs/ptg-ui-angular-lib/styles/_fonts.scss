@@ -1,29 +1,53 @@
 
-/********************************************/
-@font-face {
-    font-family: "Poppins";
-    src: url("/assets/fonts/Poppins/Poppins-Regular.ttf");
-    font-weight: normal;
-    font-style: normal;
+  h3 {
+    font-size: calc(1.2rem) !important;
+    margin-bottom: 0 !important;
   }
   
-  @font-face {
-    font-family: "Poppins";
-    src: url("/assets/fonts/Poppins/Poppins-Regular.ttf");
-    font-weight: 350;
-    font-style: normal;
+  .css-yasiti {
+    flex-shrink: 0;
+    border-width: 0px 0px thin;
+    border-style: solid;
+    border-color: $borderColor;
+    opacity: 1;
+    margin: 0;
   }
-  @font-face {
-    font-family: "Poppins";
-    src: url("/assets/fonts/Poppins/Poppins-Medium.ttf");
-    font-weight: 500;
-    font-style: normal;
+  label {
+    display: block;
+    font-size: 1rem !important;
+    margin-bottom: 0.4rem !important;
+    color: $label-color;
+    font-family: sans-serif !important;
+  }
+  ::placeholder {
+    font-size: 15px !important;
+    color: $placeholder-color !important;
+  }
+  .form-control:focus {
+    background-color: $whiteColor !important;
+    border-color: $form-control-border!important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.25rem $form-control-focus !important;
+    border-radius: 5px;
+  }
+  .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    color: $placeholder-color !important;
+    font-size: 15px !important;
   }
   
-  @font-face {
-    font-family: "Poppins";
-    src: url("/assets/fonts/Poppins/Poppins-Bold.ttf");
-    font-weight: 700;
-    font-style: normal;
+  @media screen and (max-width: 405px) {
+    h3 {
+      font-size: 14px !important;
+      word-break: keep-all !important;
+      margin-bottom: 0;
+    }
+    label {
+      font-size: 13px !important;
+    }
+    h6 {
+      font-size: 14px !important;
+    }
   }
-  /********************************************/
+  .text-loader {
+    color: $text-loader-color!important;
+  }

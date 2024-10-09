@@ -5,13 +5,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class mocksService {
-  apiURL = 'https://ptguistrapi.azurewebsites.net/api/';
+  apiURL = 'https://yash-ui-strapi.azurewebsites.net/api/';
 
   constructor(private http: HttpClient) {}
 
   getCityList() {
-    return this.http.get<any>(`${this.apiURL}city-a-lists`, {
-});
+    return this.http.get<any>(`${this.apiURL}city-a-lists`, {});
   }
   getCardList() {
     return this.http.get<any>(`${this.apiURL}card-lists`);

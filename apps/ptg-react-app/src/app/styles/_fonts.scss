@@ -6,7 +6,7 @@
     font-weight: normal;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: "Poppins";
     src: url("assets/fonts/Poppins/Poppins-Regular.ttf");
@@ -27,3 +27,28 @@
     font-style: normal;
   }
   /********************************************/
+
+.example-heading{
+  margin-left: 1.5%;
+  }
+
+
+@media (min-width : 300px) and (max-width: 400px){
+  .example-heading{
+    font-size: 1rem;
+    margin-left: 1rem;
+  }
+  }
+
+@media (min-width : 400px) and (max-width: 600px){
+  .example-heading{
+    font-size: 1.2rem;
+    margin-left: 1rem;
+  }
+  }
+  
+@media (min-width : 600px) and (max-width: 1100px){
+  .example-heading{
+    margin-left: 1rem;
+    }
+  }

@@ -197,10 +197,8 @@ const htmlCode = `
     <>
     {!props.showEventCode ? (
         <>
-        <section>
           <div className="row">
-            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12">
-              {/* <h4>{t('FIRST_LETTER_CAPITAL_TEXT')}</h4> */}
+            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-75">
               <label
                 htmlFor="firstLetterCapitalTextEvent"
                 aria-labelledby="firstLetterCapitalTextEvent"
@@ -219,12 +217,9 @@ const htmlCode = `
               />
             </div>
           </div>
-        </section>
-        <hr />
-        <section>
+  
           <div className="row">
-            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12">
-              {/* <h4>{t('INR_FORMAT_TEXT')}</h4> */}
+            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-75">
               <label
                 htmlFor="inrFormatTextEvent"
                 aria-labelledby="inrFormatTextEvent"
@@ -243,12 +238,9 @@ const htmlCode = `
               />
             </div>
           </div>
-        </section>
-        <hr />
-        <section>
+  
           <div className="row">
-            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12">
-              {/* <h4>Phone Number Pipes</h4> */}
+            <div className="col-lg-4 mb-3 col-sm-6 col-xs-12 w-75">
               <label
                 htmlFor="phoneNumberPipesEvent"
                 aria-labelledby="phoneNumberPipesEvent"
@@ -268,7 +260,6 @@ const htmlCode = `
               />
             </div>
           </div>
-        </section>
         </>
     ):(
       <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />

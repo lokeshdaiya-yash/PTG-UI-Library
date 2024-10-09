@@ -1,4 +1,4 @@
-import { r as registerInstance, c as createEvent, h } from './index-4f6af1ca.js';
+import { r as registerInstance, c as createEvent, h } from './index-e0983af0.js';
 
 const ptgInputCss = ":host{display:block}input{padding:12px 20px;margin:8px 10px;display:inline-block;border-radius:10px;box-sizing:border-box}";
 

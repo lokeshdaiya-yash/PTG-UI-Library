@@ -418,32 +418,37 @@ useEffect(()=>{
 
   return (
     <div className="w-77">
-      <Tabs defaultActiveKey="2d">
+      <Tabs defaultActiveKey="2d" className='active-tabs'>
         <Tab eventKey="2d" title="2D graphs">
+        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
           <div className='row'>
-          <div className="col-11 mb-3">
-          <h4 className="m-3">{t('BAR_CHART_TEXT')}</h4>
+          <div className="col-10 mt-2">
+          <h5 className="example-heading">{t('BAR_CHART_TEXT')}</h5>
           </div>
 
-          <div className='col-1 mr-3 mt-3'>
-          <CodeIcon onClick={ShowBarChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2 mr-3 mt-1 mb-2'>
+          <CodeIcon onClick={ShowBarChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
           </div>
-          
+    
           {!barChartCode ? (
             <PtgUiColumn {...high2DBarData} />
           ):(
             <ShowCodeComponent componentCode={barChartComponentCode} htmlCode={barChartHtmlCode}/>
           )}
+        </section>
           
+        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
           <div className='row'>
-          <div className="col-11 mb-3">
-          <h4 className="m-3">{t('PIE_CHART_TEXT')}</h4>
+          <div className="col-10 mt-2">
+          <h5 className="example-heading">{t('PIE_CHART_TEXT')}</h5>
           </div>
 
-          <div className='col-1 mr-5 mt-3'>
-          <CodeIcon onClick={ShowPieChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2 mr-5 mt-1 mb-2'>
+          <CodeIcon onClick={ShowPieChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
           </div>
           
           {!pieChartCode ? (
@@ -451,17 +456,20 @@ useEffect(()=>{
           ):(
             <ShowCodeComponent componentCode={pieChartComponentCode} htmlCode={pieChartHtmlCode}/>
           )}
-          
+        </section>
+
           <PtgUiHCLine {...[high2DSingleLineChart]} />
 
+        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
           <div className='row'>
-          <div className="col-11 mb-3">
-          <h4 className="m-3">{t('LINE_BAR_CHART_TEXT')}</h4>
+          <div className="col-10 mt-2">
+          <h5 className="example-heading">{t('LINE_BAR_CHART_TEXT')}</h5>
           </div>
 
-          <div className='col-1 mr-5 mt-3'>
-          <CodeIcon onClick={ShowLineBarChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2 mr-5 mt-1 mb-2'>
+          <CodeIcon onClick={ShowLineBarChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
           </div>
 
           {!lineBarChartCode ? (
@@ -469,15 +477,18 @@ useEffect(()=>{
           ):(
             <ShowCodeComponent componentCode={lineBarComponentCode} htmlCode={lineBarHtmlCode}/>
           )}
+        </section>
 
+        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
           <div className='row'>
-          <div className="col-11 mb-3">
-          <h4 className="m-3">{t('STACKED_CHART')}</h4>
+          <div className="col-10 mt-2">
+          <h5 className="example-heading">{t('STACKED_CHART')}</h5>
           </div>
 
-          <div className='col-1 mr-5 mt-3'>
-          <CodeIcon onClick={ShowStackBarChartCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2 mr-5 mt-1 mb-2'>
+          <CodeIcon onClick={ShowStackBarChartCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
           </div>
           
           {!stackChartCode ? (
@@ -485,55 +496,63 @@ useEffect(()=>{
           ):(
             <ShowCodeComponent componentCode={stackChartComponentCode} htmlCode={stackChartHtmlCode}/>
           )}
-          
+        </section>
 
         </Tab>
         <Tab eventKey="3d" title="3D Graphs">
+        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
           <div className='row'>
-          <div className="col-11 mb-3">
-          <h4 className="m-3">{t('BAR_CHART_TEXT')}</h4>
+          <div className="col-10 mt-2">
+          <h5 className="example-heading">{t('BAR_CHART_TEXT')}</h5>
           </div>
 
-          <div className='col-1 mr-5 mt-3'>
-          <CodeIcon onClick={ShowBar3DCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2 mr-5 mt-1 mb-2'>
+          <CodeIcon onClick={ShowBar3DCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
           </div>
           {!bar3DCode ? (
           <PtgUi3dColumn {...high3DBarData} />
           ):(
             <ShowCodeComponent componentCode={bar3DComponentCode} htmlCode={bar3DHtmlCode}/>
           )}
-          
+        </section>
+
+        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>  
           <div className='row'>
-          <div className="col-11 mb-3">
-          <h4 className="m-3">{t('PIE_CHART_TEXT')}</h4>
+          <div className="col-10 mt-2">
+          <h5 className="example-heading">{t('PIE_CHART_TEXT')}</h5>
           </div>
 
-          <div className='col-1 mr-5 mt-3'>
-          <CodeIcon onClick={ShowPie3DCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2 mr-5 mt-1 mb-2'>
+          <CodeIcon onClick={ShowPie3DCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
           </div>
           {!pie3DCode ? (
             <PtgUi3dPie data={high3DPieData} title={high3DPieDataTitle} />
           ):(
             <ShowCodeComponent componentCode={pie3DComponentCode} htmlCode={pie3DHtmlCode}/>
           )}
-          
+        </section>
+
+        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
           <div className='row'>
-          <div className="col-11 mb-3">
-          <h4 className="m-3">{t('LINE_CHART_TEXT')}</h4>
+          <div className="col-10 mt-2">
+          <h5 className="example-heading">{t('LINE_CHART_TEXT')}</h5>
           </div>
 
-          <div className='col-1 mr-5 mt-3'>
-          <CodeIcon onClick={ShowLine3DCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2 mr-5 mt-1 mb-2'>
+          <CodeIcon onClick={ShowLine3DCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
+          <hr className='horizontal-line'/>
           </div>
           {!line3DCode ? (
            <PtgUi3dLine data={high3DLineData} categories={high3DLineCat} title={high3DLineName} />
           ):(
             <ShowCodeComponent componentCode={line3DComponentCode} htmlCode={line3DHtmlCode}/>
           )}
-         
+        </section>
         </Tab>
       </Tabs>
     </div> 

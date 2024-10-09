@@ -13,8 +13,8 @@
                 </ptg-ui-alert>
             </div>
             <div class="form-group">
-                <div class="login-logo text-center mb-3">
-                    <img class="" src="assets/logo.png" alt="log is basically use to show purpose" />
+                <div class=" text-center mb-3">
+                    <img src="/assets/yash-logo-new@2x.png" alt="log is basically use to show purpose" />
                 </div>
             </div>
             <form class="form-login" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
@@ -27,7 +27,8 @@
                             </div>
                             <!-- input -->
                             <ptg-ui-input class="w-100" formControlName="email" [id]="'inputEmail'" type="text"
-                                className="form-control bg_0" aria_placeholder="email" [placeholder]="resources.INPUT_PLACEHOLDER_EMAIL">
+                                className="form-control bg_0" aria_placeholder="email"
+                                [placeholder]="resources.INPUT_PLACEHOLDER_EMAIL">
                             </ptg-ui-input>
                         </div>
                     </div>
@@ -40,8 +41,9 @@
                                 <i class="login-password-icon"></i>
                             </div>
                             <!-- input -->
-                            <ptg-ui-input class="w-100" [id]="'inputPassword'" type="password" formControlName="password"
-                                className="form-control bg_0" [placeholder]="resources.INPUT_PLACEHOLDER_PASSWORD" aria_placeholder="password">
+                            <ptg-ui-input class="w-100" [id]="'inputPassword'" type="password"
+                                formControlName="password" className="form-control bg_0"
+                                [placeholder]="resources.INPUT_PLACEHOLDER_PASSWORD" aria_placeholder="password">
                             </ptg-ui-input>
                         </div>
                     </div>
@@ -51,8 +53,8 @@
                             <a class="signup-btn" [routerLink]="['../signup']">{{resources.SIGN_UP}}</a>.</label>
                     </div>
                     <!-- button -->
-                    <ptg-ui-button tabindex="0" class="w-100" type="submit" btnStyleType="primary" id="btnSignin" [isBlock]="true"
-                        [isDisable]="!loginForm.valid">
+                    <ptg-ui-button tabindex="0" class="w-100" type="submit" btnStyleType="primary" id="btnSignin"
+                        [isBlock]="true" [isDisable]="!loginForm.valid">
                         {{resources.SIGN_IN}}
                     </ptg-ui-button>
                     <!-- <span>Or login in using</span>

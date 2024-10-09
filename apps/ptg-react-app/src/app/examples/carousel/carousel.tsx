@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { PtgUiCarousel } from '@ptg-ui/ptg-ui-web-components-react';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../common/showCode/showCodeComponent';
+import "./carousel.scss";
 
 const CarouselExample = () => {
 
@@ -37,33 +38,46 @@ const CarouselExample = () => {
       <PtgUiCarousel images={sampleImages} show-indicators="false" img-width='500' img-height='400'></PtgUiCarousel>`
     return (
       <div>
+        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-2'>
         <div className='row'>
-          <div className="col-11">
-            <h5 className="font-weight-bold">Carousel</h5>
+          <div className="col-10 mt-1">
+            <h5 className="font-weight-bold example-heading">Carousel</h5>
           </div>
-          <div className='col-1 mr-5 mb-3'>
-            <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2 mr-5 mb-2'>
+            <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
-
+          <hr className='horizontal-line'/>
+          <div className='mb-3'>
           {showCode && (
             <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
           )}
+            <div className='carousel-component'>
             <PtgUiCarousel images={sampleImages}></PtgUiCarousel>
+            </div>
         </div>
-        <hr />
+        </div>
+        </section>
+   
+        <section className='card-section-two bg-white rounded pt-2 pb-2 mt-4'>
         <div className='row'>
-          <div className="col-11">
-            <h5 className="font-weight-bold">Carousel example to hide Indicators</h5>
+          <div className="col-10 mt-1">
+            <h5 className="example-heading hide-indicators-heading">Carousel example to hide Indicators</h5>
           </div>
-          <div className='col-1 mr-5 mb-3'>
-            <CodeIcon onClick={ShowExampleCode} fontSize="medium" className='show-code-icon'></CodeIcon>
+          <div className='col-2 mr-5 mb-2'>
+            <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
           </div>
-
+          <hr className='horizontal-line'/>
+          <div className='mb-3'>
           {showCode && (
             <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCodeWithIndicators} />
           )}
-            <PtgUiCarousel images={sampleImages} show-indicators="false" img-width='400' img-height='300'></PtgUiCarousel>
+            <div className='carousel-component'>
+            <PtgUiCarousel  images={sampleImages} show-indicators="false"></PtgUiCarousel>
+            </div>
+          </div>
         </div>
+        </section>
+       
       </div>
   );
 };
