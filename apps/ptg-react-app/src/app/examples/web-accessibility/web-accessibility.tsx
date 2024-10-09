@@ -625,6 +625,7 @@ const htmlCode = `
                             className="date-picker mt-1 w-100"
                             format="MM/dd/yyyy"
                             id="inputDOB"
+                            
                             data-testid="inputDOB"
                             placeholder={t('DATE_PLACEHOLDER')}
                             inputVariant="outlined"
@@ -709,7 +710,7 @@ const htmlCode = `
                         </div>
                       </div>
                     </div>
-                    <div className="row ms-1 declaration-check">
+                    <div className="row declaration-check">
                       <div className="col-12">
                         <div className="form-group required mb-2">
                           <PtgUiCheckbox
@@ -734,14 +735,19 @@ const htmlCode = `
                   >
                
                   </PtgUiButton> */}
-                  <button type="button" className="w-100 btn btn-primary web-field"  onClick={handleRegister}
+                  <div className='row'>
+                    <div className='col-auto ml-auto'>
+                  <button type="button" className=" btn btn-primary web-field"  onClick={handleRegister}
                     disabled={user.disable}>     
                   {t('SUBMIT')}
                   </button>
+                  </div>
+                  </div>
                 </div>
-                <div className="row mt-5 achieved-heading1">
+                <hr className='mt-5'/>
+                <div className="row mt-5 achieved-heading">
                   <div className="col-md-12">
-                    <h6 className='ms-2'>{t('ACHIEVED_HEADING')}</h6>
+                    <h6 className='mb-3'>{t('ACHIEVED_HEADING')}</h6>
                         <ol>
                           <li>{t('ACHIEVED_PNT_ONE')}</li>
                           <li>{t('ACHIEVED_PNT_TWO')}</li>
