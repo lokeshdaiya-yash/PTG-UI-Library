@@ -83,7 +83,7 @@
   "ACHIEVED_PNT_FOUR": "when we use any color for like button or background color the color contrast are according to the Accessibility",
   "ACHIEVED_PNT_FIVE": "For readable plugin or read labels we have to pass tabindex = 0, so that the screen ready can ready the label also.",
   "INTERMEDIATE_CHECKBOX_TEXT": "Indeterminate Checkbox",
-  "CLICK_HERE": "Click Here",
+  "CLICK_HERE": "ACtion",
   "REUSABLE_MATERIAL_TABLE": "Reusable Material Table",
   "MATERIAL_TABLE_WITH_ACTION_BTN": "Material Table with Action Button",
   "GRID_LAYOUT_EXAMPLE_HEADING": "Grid Layout Example",
