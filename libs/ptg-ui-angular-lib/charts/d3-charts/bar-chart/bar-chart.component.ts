@@ -64,7 +64,7 @@ export class BarChartComponent implements OnInit,OnChanges {
       .range([0, this.width])
       .domain(data.map((d) => d.Framework))
       .padding(0.2);
-       console.log(data)
+
 
     // Draw the X-axis on the DOM
     this.svg

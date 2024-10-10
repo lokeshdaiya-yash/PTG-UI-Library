@@ -217,7 +217,7 @@ export class SidenavComponent {
       },
     ];
 
-    console.log(this.menuItems);
+
     this.breakpointObserver
       .observe([
         Breakpoints.XSmall,
