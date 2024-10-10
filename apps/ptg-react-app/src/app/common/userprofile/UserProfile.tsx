@@ -62,7 +62,8 @@ export default function UserProfile() {
         data-testid="profileIcon"
       >
       <AccountCircleIcon fontSize='large'/>
-        {userData.shortname}
+        {/* note: comment for username */}
+        {/* {userData.shortname} */}
 
       </span>
       {toggle && (
