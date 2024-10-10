@@ -61,7 +61,6 @@ export class SidenavComponent {
       {
         id: '1',
         path: '/accordian-example',
-        // icon: 'home-icon',
         icon: 'fa-solid fa-chevron-down',
         label: 'ACCORDIAN',
         disabled: false,
@@ -69,7 +68,6 @@ export class SidenavComponent {
       {
         id: '2',
         path: '/calendar',
-        // icon: 'home-icon',
         icon: 'fa-solid fa-calendar',
         label: 'CALENDER',
         disabled: false,
@@ -77,7 +75,6 @@ export class SidenavComponent {
       {
         id: '3',
         path: '/carousel',
-        // icon: 'home-icon',
         icon: 'fas fa-solid fa-slideshare',
         label: 'CAROUSEL',
         disabled: false,
@@ -186,7 +183,6 @@ export class SidenavComponent {
       {
         id: '13',
         path: '/select',
-        // icon: 'home-icon',
         icon: 'fa-solid fa-check-to-slot',
         label: 'SELECT',
         disabled: false,
@@ -194,7 +190,6 @@ export class SidenavComponent {
       {
         id: '14',
         path: '/accessibility',
-        // icon: 'home-icon',
         icon: 'fa-solid fa-keyboard',
         label: 'WEB_ACCESSIBILITY',
         disabled: false,
@@ -202,7 +197,6 @@ export class SidenavComponent {
       {
         id: '15',
         path: '/multistep-form',
-        // icon: 'home-icon',
         icon: 'fa-solid fa-file',
         label: 'MULTI_FORMS',
         disabled: false,
@@ -210,7 +204,6 @@ export class SidenavComponent {
       {
         id: '15',
         path: '/card',
-        // icon: 'home-icon',
         icon: 'fa-solid fa-file',
         label: 'CARDS',
         disabled: false,
@@ -218,7 +211,6 @@ export class SidenavComponent {
       {
         id: '16',
         path: '/breadcrumbs',
-        // icon: 'home-icon',
         icon: 'fa-solid fa-file',
         label: 'BREADCRUMBS',
         disabled: false,
@@ -272,12 +264,6 @@ export class SidenavComponent {
   }
   isMenuToggle() {
     this.isMenuOpen = !this.isMenuOpen;
-
-    // if(this.getScreenSize.breakpoint['(max-width: 599.98px)']){
-    //   x[0].style.width = "45vw";
-    // }else{
-    //   x[0].style.width = "15vw";
-    // }
     this.customScss();
   }
   customScss() {

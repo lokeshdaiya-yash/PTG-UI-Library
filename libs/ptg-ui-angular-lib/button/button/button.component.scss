@@ -10,40 +10,39 @@
 }
 
 .ptg-ui-button--primary {
-  background-color: #1ea7fd;
+  background-color: $btnBlue;
 }
 
 .ptg-ui-button--secondary {
-  // color: #333;
-  color: black;
+  color: $dark;
   background-color: transparent;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }
 
 .ptg-ui-button--small {
-  background-color: #1ea7fd;
+  background-color: $btnBlue;
   font-size: 12px;
   padding: 4px 8px;
-  color: black;
+  color: $dark;
 }
 
 .ptg-ui-button--medium {
   font-size: 14px;
-  color: black;
-  background-color: #1ea7fd;
+  color: $dark;
+  background-color: $btnBlue;
   padding: 6px 12px;
 }
 
 .ptg-ui-button--large {
   font-size: 16px;
-  color: black;
+  color: $dark;
   padding: 8px 16px;
-  background-color: #1ea7fd;
+  background-color: $btnBlue;
 }
 
 .ptg-ui-button--isDisable {
   pointer-events: none;
   opacity: 0.5;
-  color: black;
-  border: 1px solid black;
+  color: $dark;
+  border: 1px solid $dark;
 }

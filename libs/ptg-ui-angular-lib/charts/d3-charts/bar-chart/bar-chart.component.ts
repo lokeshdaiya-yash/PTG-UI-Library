@@ -42,7 +42,6 @@ export class BarChartComponent implements OnInit,OnChanges {
 
   ngOnChanges() {
     d3.select('figure#bar').selectAll('*').remove();
-    // this.width=300;
     this.svg = d3
       .select('figure#bar') //returns a selection object that encapsulates the first element in the DOM with a CSS class of "bar"
       .append('svg') //Appends a new element of this type (tag name) as the last child of each selected element
@@ -57,17 +56,6 @@ export class BarChartComponent implements OnInit,OnChanges {
 
   }
 
-  // private createSvg(): void {
-  //   this.svg = d3
-  //     .select('figure#bar') //returns a selection object that encapsulates the first element in the DOM with a CSS class of "bar"
-  //     .append('svg') //Appends a new element of this type (tag name) as the last child of each selected element
-  //     .attr('width', this.width) //Sets the attribute with the specified name to the specified value on the selected elements and returns this selection
-  //     .attr('height', this.height)
-  //     .attr("viewBox", [0, 0, this.width, this.height])
-  //     .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
-  //     .append('g')
-  //     .attr('transform', 'translate(' + this.margin + ',' + this.margin + ')');
-  // }
 
   private drawBars(data: any[]): void {
     // Create the X-axis band scale
@@ -113,9 +101,7 @@ export class BarChartComponent implements OnInit,OnChanges {
   }
 
   ngOnInit(): void {
-    // this.createSvg();
     this.drawBars(this.data);
-    console.log(this.data)
   }
 
 }

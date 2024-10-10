@@ -23,9 +23,6 @@ Placeholder.args = {
   className: 'calendarClass',
   id: 'calendarId',
   disabled: false,
-  // accessKey: '',
-  // aria_placeholder: 'MM-DD-YYYY', 
-  // aria_label: 'given-name',
 };
 
 

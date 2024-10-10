@@ -21,74 +21,45 @@ const Template: Story<InputComponent> = (args: InputComponent) => ({
 export const Placeholder = Template.bind({});
 Placeholder.args = {
   placeholder: '',
-  // bindValue: '',
   className: '',
   type: 'text',
   id: '',
   value: '',
-  // accessKey: '',
-  // aria_placeholder: '',
 };
 
 export const Class = Template.bind({});
 Class.args = {
   placeholder: '',
-  // bindValue: '',
   className: '',
   type: 'text',
   id: '',
   value: '',
-  // accessKey: '',
-  // aria_placeholder: '',
 };
 
 export const Type = Template.bind({});
 Type.args = {
   placeholder: '',
-  // bindValue: '',
   className: '',
   type: 'text',
   id: '',
-  value: '',
-  // accessKey: '',
-  // aria_placeholder: '',
+  value: ''
 };
 
 export const Id = Template.bind({});
 Id.args = {
   placeholder: '',
-  // bindValue: '',
   className: '',
   type: 'text',
   id: '',
-  value: '',
-  // accessKey: '',
-  // aria_placeholder: '',
+  value: ''
 };
 
 export const Value = Template.bind({});
 Value.args = {
   placeholder: '',
-  // bindValue: '',
   className: '',
   type: 'text',
   id: '',
-  value: '',
-  // accessKey: '',
-  // aria_placeholder: '',
+  value: ''
 };
-
-// export const AccessKey = Template.bind({});
-// AccessKey.args = {
-//   placeholder: '',
-//   bindValue: '',
-//   className: '',
-//   type: 'text',
-//   id: '',
-//   value: '',
-//   accessKey: '',
-//   aria_placeholder: '',
-// };
-
-
 

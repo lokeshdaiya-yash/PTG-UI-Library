@@ -29,7 +29,6 @@ import {
 })
 export class ButtonComponent implements OnInit {
   @Input() type: any = 'button';
-  // @Input() btnStyleType: any;
   @Input() isDisable = false;
   @Input() isBlock = false;
   @Input() accessKey = '';
@@ -43,7 +42,6 @@ export class ButtonComponent implements OnInit {
 
   ngOnInit(): void {
     // this.button.nativeElement.accessKey = this.accessKey;
-    
   }
 
   handleKeyDown(event: KeyboardEvent) {
@@ -65,16 +63,9 @@ export class ButtonComponent implements OnInit {
        ? 'ptg-ui-button--primary'
        : 'ptg-ui-button--secondary';
        
-    //  const disablemode = this.isDisable
-    //    ? 'ptg-ui-button--isDisable'
-    //    : 'ptg-ui-button--secondary';
-
-     
+       
      return [`ptg-ui-button`, `ptg-ui-button--${this.size}`, mode];
-   
-
-    //  return ['ptg-ui-button', `ptg-ui-button--${this.size}`, disablemode];
-  
+    
   
    }
    
