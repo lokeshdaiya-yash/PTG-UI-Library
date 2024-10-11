@@ -71,7 +71,6 @@ temp = [];
 
 
 ngOnInit() {
- console.log(this.rows)
  this.temp = this.rows;
 
 }

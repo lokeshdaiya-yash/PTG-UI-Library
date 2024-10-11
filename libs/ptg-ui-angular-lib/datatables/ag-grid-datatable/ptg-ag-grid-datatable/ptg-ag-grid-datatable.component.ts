@@ -161,7 +161,6 @@ export class PtgAgGridDatatableComponent implements OnInit {
 
   counter() {
     // used for set custom pagination numbers
-    // console.log(totalCount);
     let pageArray:any = [];
     if(this.totalPage > 5){
 
