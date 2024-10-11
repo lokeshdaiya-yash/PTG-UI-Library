@@ -10,7 +10,7 @@ import { chartService } from '@ptg-angular-app/common/data-services/chart.servic
 export class D3ChartsComponent implements OnInit {
   title = 'angular-d3';
   resources = resources;
-  isLoaded=true;
+  isLoaded = true;
   barChartHtmlCode = `
   <ptg-ui-bar-chart [data]="data" [width]="width" [height]="height" [margin]="margin"
                     [start]="start" [end]="end">
@@ -121,8 +121,8 @@ export class D3ChartsComponent implements OnInit {
           margin: 50,
           start: 0,
           end: 160000,
-          height: result.height,
-          width: result.width,
+          height: 350,
+          width: 470,
           title: result.title,
           source: result.source,
           x_title: result.x_title,

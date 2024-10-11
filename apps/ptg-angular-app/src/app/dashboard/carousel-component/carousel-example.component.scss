@@ -1,3 +1,16 @@
 .carousel-parent {
   position: relative;
 }
+
+
+::ng-deep .slide-image img {
+  height: 100%;
+  min-width: auto !important;
+  width: auto;
+  border: 1px solid red;
+}
+
+.carouselClass{
+  max-width: 600px;
+  margin:auto; 
+}

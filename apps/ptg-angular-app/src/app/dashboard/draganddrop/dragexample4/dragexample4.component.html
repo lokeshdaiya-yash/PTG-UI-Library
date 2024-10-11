@@ -27,7 +27,7 @@
         <div class="drag-box d-flex justify-content-between" cdkDrag>
           <div class="d-flex">
             <div class="r-code-section">
-              <span>{{ i + 1 }}.</span>
+              <!-- <span>{{ i + 1 }}.</span> -->
               <input
                 #code
                 id="{{ codeKey }}_{{ i }}"
@@ -48,11 +48,11 @@
               </span>
             </div>
           </div>
-          <div class="d-flex">
+          <div class="d-flex r-code-section">
             <!-- TODO: Add Switch button -->
             <button
               id="r_reset_{{ i }}"
-              class="icon-btn mx-1"
+              class="icon-btn mx-1 "
               (click)="resetCollection(i)"
             >
               <i class="fa-solid fa-arrow-rotate-right"></i>

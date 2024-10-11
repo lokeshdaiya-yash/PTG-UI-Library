@@ -1,3 +1,11 @@
 .accordion {
   position: relative;
 }
+
+::ng-deep .panel-default{
+  margin-bottom: 2rem !important;
+}
+
+::ng-deep .btn-link{
+  text-decoration: none !important;
+}
