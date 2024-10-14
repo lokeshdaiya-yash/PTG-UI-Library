@@ -28,6 +28,7 @@ import { DirectiveModule } from './directive/directive.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { DemoPtgUiNgModule } from './demo-ptg-ui-ng/demo-ptg-ui-ng.module';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { SidenavModule } from '@ptg-ui/libs/ptg-ui-angular-lib/sidenav';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     DirectiveModule,
     TranslateModule,
     DemoPtgUiNgModule,
-    ClipboardModule
+    ClipboardModule,
+    SidenavModule
   ],
   exports: [
     HeaderComponent,
@@ -62,7 +64,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     ShowForLoginUsersDirective,
     PtgPipesModule,
     DirectiveModule,
-    ClipboardModule
+    ClipboardModule,
+    SidenavModule
   ],
   providers: [
     {
