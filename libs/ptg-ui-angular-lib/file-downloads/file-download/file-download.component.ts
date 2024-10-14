@@ -68,7 +68,6 @@ export class FileDownloadComponent implements OnInit {
 
   // Download file according to type 
   downloadFile() {
-    console.log(this.fileType);
     const fileType = this.fileType;
     switch (fileType) {
       case FileType.EXCEL:
@@ -149,7 +148,7 @@ export class FileDownloadComponent implements OnInit {
         link.click();
       })
       .catch((error: any) => {
-        console.log(error)
+
       });
   }
 

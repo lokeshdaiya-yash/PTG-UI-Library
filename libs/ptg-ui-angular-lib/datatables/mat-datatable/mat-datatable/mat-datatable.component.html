@@ -6,7 +6,7 @@ Sort - https://material.angular.io/components/sort/overview -->
   <div class="mat-datatable">
     <!-- filter input -->
     <ng-container *ngIf="showFiter">
-      <ptg-ui-input class="w-100 mb-3 d-block" fieldname="search" type="text" className="form-control bg_0"
+      <ptg-ui-input class="w-100 mb-3 d-block form-control bg_0" fieldname="search" type="text" className="form-control bg_0"
           placeholder="Type for default filter" (keyup)="applyFilter($event)">
     </ptg-ui-input>
     </ng-container>
@@ -15,8 +15,12 @@ Sort - https://material.angular.io/components/sort/overview -->
     <div class="table-responsive">
       <table mat-table class="mb-4 table table-bordered " [dataSource]="dataSource" >
         <!-- show columns in upcoming order -->
-        <mat-text-column *ngFor="let columnName of columns;" [name]="columnName"></mat-text-column>
-        
+        <!-- <mat-text-column *ngFor="let columnName of columns;" [name]="columnName"></mat-text-column> -->
+        <ng-container *ngFor="let columnName of columns;">
+          <mat-text-column [name]="columnName"></mat-text-column>
+        </ng-container>
+
+
         <!-- to render rows and columns  -->
         <tr mat-header-row *matHeaderRowDef="columns"></tr>
         <tr mat-row *matRowDef="let row; columns: columns;" (click)="getRow(row)"></tr>
@@ -32,6 +36,7 @@ Sort - https://material.angular.io/components/sort/overview -->
 
     <!-- Paginator  -->
     <mat-paginator 
+      class="mat-paginator"
       [showFirstLastButtons]="true" 
       aria-label="Select page of periodic elements"
       [pageSize]="limit"

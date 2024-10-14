@@ -5,7 +5,7 @@
  * @description This module used for reusable Ngx datatable
  */
 
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { ColumnMode, SelectionType } from '@swimlane/ngx-datatable';
 
 @Component({
@@ -13,7 +13,7 @@ import { ColumnMode, SelectionType } from '@swimlane/ngx-datatable';
   templateUrl: './ptg-ngx-datatable.component.html',
   styleUrls: ['./ptg-ngx-datatable.component.scss']
 })
-export class PtgNgxDatatableComponent  {
+export class PtgNgxDatatableComponent implements OnInit {
 ColumnMode = ColumnMode;
 // Basic UI and functionlity 
 @Input() scrollbarV = false;
@@ -61,12 +61,20 @@ SelectionType = SelectionType;
 currentPage = 0;
 totalPage = 0;
 pageArray: any = [];
+temp = [];
 
 // Action button vars
 @Input() showActionButton = false; 
 @Input() actionButtonLabel = 'Click Here';
 @Input() actionButtonHeaderLabel = 'Action';
 @Output() getActionEvent: EventEmitter<any> = new EventEmitter();
+
+
+ngOnInit() {
+ this.temp = this.rows;
+
+}
+
 
   // Sorting functionlity 
   onSort(event:Event){
@@ -75,7 +83,13 @@ pageArray: any = [];
   }
 
   // filter functionlity 
-  updateFilter(event: Event){
+  updateFilter(event: any){
+    const val = event.target.value.toLowerCase();
+    const temp = this.temp.filter(function (d:any) {
+      return d.athlete.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+    this.rows = temp;
+
     this.getFilterEvent.emit(event);
   }
 

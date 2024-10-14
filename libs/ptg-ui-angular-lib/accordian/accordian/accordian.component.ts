@@ -46,10 +46,6 @@ export class AccordianComponent implements OnInit {
     
     return [`ptg-ui-accordian`, `ptg-ui-accordian--${this.isAnimated}`, animatedmode , disablemode , oneAtTimemode];
   
-
-
-
-   //  return ['ptg-ui-button', `ptg-ui-button--${this.size}`, disablemode];
  
  
   }

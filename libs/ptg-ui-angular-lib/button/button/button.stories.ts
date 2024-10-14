@@ -49,7 +49,6 @@ export default {
           large:'large',
         }
       },
-      // table: { category: 'format' }
     },
     },
 
@@ -87,8 +86,6 @@ export const Small = Template.bind({});
     isBlock: false,
     accessKey: '',
     size: 'small',
-    // btnStyleType:'primary'
-    // backgroundColor : 'red'
   };
   
 export const Medium = Template.bind({});
@@ -99,8 +96,6 @@ export const Medium = Template.bind({});
     isBlock: false,
     accessKey: '',
     size: 'medium',
-    // btnStyleType:'primary'
-    // backgroundColor : 'red'
   };
   
 export const Large = Template.bind({});
@@ -111,8 +106,6 @@ export const Large = Template.bind({});
     label: 'Button',
     accessKey: '',
     size: 'large',
-   // btnStyleType:'primary'
-    // backgroundColor : 'red'
   };
 
 
@@ -167,143 +160,3 @@ export const Large = Template.bind({});
 
 
 
-
-
-// export const Primary = () => ({
-//   props: { label: 'Button',
-//   type: 'button',
-//   isDisable: false,
-//   isBlock: false,
-//   accessKey: '', 
-// },
-// backgroundColor:''
-  
-// });
-
-
-// export const Small = () => ({
-//   props: { label: 'Button',
-//   type: 'button',
-//   isDisable: false,
-//   isBlock: false,
-//   accessKey: '',
-//   size: 'small',
-// },
-// backgroundColor:'',
-// });
-
-
-
-
-// export const Medium = () => ({
-//   props: { label: 'Button',
-//   type: 'button',
-//   isDisable: false,
-//   isBlock: false,
-//   accessKey: '',
-//   size: 'medium',
-//   backgroundColor:'',
-//   },
-// });
-
-
-// export const Medium = () => ({
-//   props: { label: 'Button',
-//   type: 'button',
-//   isDisable: false,
-//   isBlock: false,
-//   accessKey: '',
-//   size: 'medium',
-//   backgroundColor:'red',
-// },
-// });
-
-
-
-// export const Large = () => ({
-//   props: { 
-//   label: 'Button',
-//   type: 'button',
-//   isBlock: false,
-//   accessKey: '',
-//   backgroundColor:'',
-//   size: 'large',
-//   isDisable: false,
-// },
-// });
-
-
-// export const isDisable = () => ({
-//   props: { 
-//   label: 'Button',
-//   type: 'button',
-//   isDisable: true,
-//   isBlock: false,
-//   // backgroundColor:'red',
-// },
-// });
-
-
-// export const isBlock = () => ({
-//   props: { 
-//   label: 'Button',
-//   type: 'button',
-//   isDisable: false,
-//   isBlock: true,
-//   // backgroundColor:'red',
-// },
-// });
-
-
-
-
- 
-// export const isDisable = Template.bind({});
-// isDisable.args = {
-//   isDisable: true,
-// };
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
- 
-
-
-
-  // type: 'button',
-  // isDisable: false,
-  // isBlock: false,
-  // accessKey: '',
-  // size: 'large',
-  // label: 'Label',
-  // btnStyleType:'primary'
-  // backgroundColor : 'red'
-
-  
-
-
-// export const Primary = Template.bind({});
-// Primary.args = {
-//   type: 'button',
-//   isDisable: false,
-//   label: 'Label',
-//   isBlock: false,
-//   accessKey: '',
-
-//   // backgroundColor : 'red'
-//   // btnStyleType:'primary'
-// };

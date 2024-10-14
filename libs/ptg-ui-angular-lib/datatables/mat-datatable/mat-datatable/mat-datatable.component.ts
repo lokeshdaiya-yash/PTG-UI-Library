@@ -52,10 +52,6 @@ export class MatDatatableComponent implements OnInit{
   
   ngOnInit(){
     this.dataSource = new MatTableDataSource<PeriodicElement>(this.data);
-      //  filter works for specific value 
-      // this.dataSource.filterPredicate = function (record:any,filter:any) {
-      //   return record.name.toLocaleLowerCase() == filter.toLocaleLowerCase();
-      // }
   }
 
   getRow(row:any){

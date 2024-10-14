@@ -60,9 +60,6 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   textLimit = '10';
   selectedValue: any = [];
 
-  // get formField(): FormControl {
-  //   return this.parentForm?.get(this.fieldname) as FormControl;
-  // }
 
   constructor(private _changeDetectorRef: ChangeDetectorRef) {}
 
@@ -80,13 +77,11 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit(): void {
-    // this.selectedValue = [this.items[0].name]
-    // this.selectedValue = this.items[0].name;
+
   }
 
   onchangeSelection(event: any) {
     this.change.emit(event);
-    // this.onChange(event);
     if (!this.isMultiple) {
       this.onChange(event?.name);
     } else if (this.isMultiple && !event?.target) {
@@ -107,12 +102,9 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
       const selected =
         items && items.map((item: { [x: string]: any }) => item[bindValue]);
       this.onChange(selected);
-      // this.parentForm.get(control).patchValue(selected);
-      // this.parentForm.updateValueAndValidity();
     } else {
       this.onChange([]);
-      // this.parentForm.get(control).patchValue([]);
-      // this.parentForm.updateValueAndValidity();
+
     }
   }
 

@@ -19,6 +19,11 @@ const Template: Story<SidenavComponent> = (args: SidenavComponent) => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
-  selectedPath: '',
+  isMenuOpen: false,
+};
+
+
+export const isMenuOpen = Template.bind({});
+isMenuOpen.args = {
   isMenuOpen: false,
 };

@@ -18,10 +18,6 @@ import {IndeterminateCheckboxesModule } from '../indeterminate-checkboxes.module
 export class IndeterminateCheckboxesComponent implements OnInit {
   dropdownEnabled = true;
   values: number[] = [];
-  // Chkeckbox treeview config file 
-  // I have removed accordian funtionality by css 
-  // We can set maxHeight also but I also changed this by css 
-  // maxHeight: 500
   
   config = TreeviewConfig.create({
     hasAllCheckBox: false,
