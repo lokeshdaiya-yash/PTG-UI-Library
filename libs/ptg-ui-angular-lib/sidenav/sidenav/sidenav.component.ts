@@ -33,8 +33,8 @@ export class SidenavComponent {
   getMenuId: any;
 
   @Input() selectedPath = '';
-  // @Input() menuItems?: [] | any;
-  menuItems: any[] = [];
+  @Input() menuItems?: [] | any;
+  // menuItems: any[] = [];
   @Input() isMenuOpen = false;
   @Output() selectMenu = new EventEmitter<any>();
   displayNameMap = new Map([
