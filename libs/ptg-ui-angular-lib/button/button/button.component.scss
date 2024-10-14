@@ -8,28 +8,36 @@
   display: inline-block;
   line-height: 1;
 }
+
+.ptg-ui-button--primary {
+  background-color: $btnBlue;
+}
+
 .ptg-ui-button--secondary {
   color: $dark;
   background-color: transparent;
-  box-shadow: $secondary-box-shadow 0px 0px 0px 1px inset;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }
 
 .ptg-ui-button--small {
-  font-size: 8px;
+  background-color: $btnBlue;
+  font-size: 12px;
+  padding: 4px 8px;
   color: $dark;
-  padding: 10px 10px;
 }
 
 .ptg-ui-button--medium {
-  font-size: 12px;
+  font-size: 14px;
   color: $dark;
-  padding: 10px 12px;
+  background-color: $btnBlue;
+  padding: 6px 12px;
 }
 
 .ptg-ui-button--large {
-  font-size: 14px;
+  font-size: 16px;
   color: $dark;
-  padding: 12px 20px;
+  padding: 8px 16px;
+  background-color: $btnBlue;
 }
 
 .ptg-ui-button--isDisable {

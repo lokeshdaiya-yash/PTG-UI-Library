@@ -103,9 +103,6 @@ export class PtgAgGridDatatableComponent implements OnInit {
     this.onFilterModified.emit(event);
   }
 
-  // paginationChanged(event:any){
-  //   this.onPaginationChanged.emit(event);
-  // }
 
   onCellValueChanged(event: CellValueChangedEvent) {
     this.onCellValueChanges.emit(event);
@@ -164,7 +161,6 @@ export class PtgAgGridDatatableComponent implements OnInit {
 
   counter() {
     // used for set custom pagination numbers
-    // console.log(totalCount);
     let pageArray:any = [];
     if(this.totalPage > 5){
 
