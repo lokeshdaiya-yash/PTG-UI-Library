@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 // const baseUrl = 'http://20.114.244.229:1337/';
 //const baseUrl = 'http://localhost:1337/';
-const baseUrl = 'http://localhost:3333/';
+const baseUrl = 'https://yash-ui-strapi.azurewebsites.net/api/';
 export const environment = {
   production: false,
   baseUrl:baseUrl,

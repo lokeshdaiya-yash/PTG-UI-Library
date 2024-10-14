@@ -76,6 +76,12 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/authentication',
+    icon: 'fa fa-lock',
+    label: 'Auth',
+    disabled: false,
+  },
+  {
     path: '/breadcrumbs',
     icon: 'fa fa-link',
     label: 'BREADCRUMBS',
