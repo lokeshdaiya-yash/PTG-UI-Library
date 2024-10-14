@@ -1,25 +1,8 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { AccordianComponent } from './accordian.component';
 import { AccordianModule } from '../accordian.module'
+import { ACCORDIAN_DATA } from './accordian';
 
-export const ACCORDIAN_DATA = [
-  {
-    title: 'Static Header 1',
-    discription: 'This content is straight in the template.',
-  },
-  {
-    title: 'Static Header 2',
-    discription: 'This content is straight in the template.',
-  },
-  {
-    title: 'Static Header 3',
-    discription: 'This content is straight in the template.',
-  },
-  {
-    title: 'Static Header 4',
-    discription: 'This content is straight in the template.',
-  }
-];
 export default {
   title: 'Component/AccordianComponent',
   component: AccordianComponent,

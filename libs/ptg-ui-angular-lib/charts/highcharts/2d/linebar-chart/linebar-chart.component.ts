@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit ,SimpleChanges , OnChanges } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
@@ -6,7 +6,7 @@ import * as Highcharts from 'highcharts';
   templateUrl: './linebar-chart.component.html',
   styleUrls: ['./linebar-chart.component.scss']
 })
-export class LinebarChartComponent implements OnInit {
+export class LinebarChartComponent implements OnInit, OnChanges {
   @Input() remainingOptions:any;
   @Input() title?:any;
   @Input() subtitle?:any;
@@ -17,6 +17,13 @@ export class LinebarChartComponent implements OnInit {
   this.createChartColumn();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['title'] || changes['subtitle']) {
+      // Recreate the chart when input properties change
+      this.createChartColumn();
+    }
+  }
+
   // Function for create chart 
   createChartColumn(): void {
     const chart = Highcharts.chart('linebar-chart' as any, {
@@ -25,7 +32,7 @@ export class LinebarChartComponent implements OnInit {
     },
     
     subtitle:{
-        text:this.subtitle
+        text:this.subtitle 
     },
     title:{
         text:this.title

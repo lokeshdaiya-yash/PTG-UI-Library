@@ -24,10 +24,8 @@ describe('ButtonComponent', () => {
   });
 
   it('on closed handleKeyDown', fakeAsync(() => {
-   // let event: any = KeyboardEvent
     var event = new KeyboardEvent('keydown', {'keyCode': 13,'which':13});
-document.dispatchEvent(event);
-    // event.which = 13
+    document.dispatchEvent(event);
     const spyCloseDialog = jest.spyOn(component, 'handleKeyDown');
     component.handleKeyDown(event)
     let button = fixture.debugElement.nativeElement.querySelector('button');

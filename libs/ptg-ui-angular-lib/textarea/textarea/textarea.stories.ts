@@ -21,10 +21,7 @@ Placeholder.args = {
   className: '',
   type: 'text',
   id: '',
-  value: '',
-  // bindValue: '',
-  // accessKey: '',
-  // aria_placeholder: '',
+  value: ''
 };
 
 export const ClassName = Template.bind({});
@@ -33,10 +30,7 @@ ClassName.args = {
   className: '',
   type: 'text',
   id: '',
-  value: '',
-  // bindValue: '',
-  // accessKey: '',
-  // aria_placeholder: '',
+  value: ''
 };
 
 
@@ -46,10 +40,7 @@ Id.args = {
   className: '',
   type: 'text',
   id: '',
-  value: '',
-  // bindValue: '',
-  // accessKey: '',
-  // aria_placeholder: '',
+  value: ''
 };
 
 
@@ -60,10 +51,7 @@ Value.args = {
   className: '',
   type: 'text',
   id: '',
-  value: '',
-  // bindValue: '',
-  // accessKey: '',
-  // aria_placeholder: '',
+  value: ''
 };
 
 

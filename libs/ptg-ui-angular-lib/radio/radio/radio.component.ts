@@ -48,9 +48,6 @@ export class RadioComponent implements AfterViewInit {
   @Input() aria_label = '';
   @ViewChild('input', { static: true }) input!: ElementRef;
   @Input() isdisabled:boolean = false;
-  // get formField(): FormControl {
-  //   return this.parentForm?.get(this.fieldname) as FormControl;
-  // }
 
   selectedValue: any;
 
@@ -82,7 +79,6 @@ export class RadioComponent implements AfterViewInit {
         this.onChange(this.selectedValue);
       }
     });
-    // this.addAccessKey();
   }
 
   onradioSelect(item: any) {
@@ -91,11 +87,6 @@ export class RadioComponent implements AfterViewInit {
     this.onTouched();
   }
 
-  // addAccessKey() {
-  //   const selector = `#${this.id}0`;
-  //   const element = this.elementRef.nativeElement.querySelector(selector);
-  //   element.accessKey = this.accessKey;
-  // }
 
   handleBlur() {
     this.onTouched();
