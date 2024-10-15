@@ -88,15 +88,13 @@ export class NgxDatatableComponent implements OnInit {
       ]
     }
  
-    updateFilter(event: any) {
-    }
  
     onSelect(event: any){
-
+      // console.log(event);
     }
  
     getAction(event:any){
-
+      // console.log(event);
     }
   }`;
  
@@ -121,6 +119,7 @@ export class NgxDatatableComponent implements OnInit {
  
   // Filter functions
   updateFilter(event: any) {
+
     const val = event.target.value.toLowerCase();
  
     // filter our data
@@ -133,13 +132,13 @@ export class NgxDatatableComponent implements OnInit {
     // Whenever the filter changes, always go back to the first page
     this.offset = 0;
   }
-
-  onSelect(event: any){
-
+ 
+  onSelect(event: any) {
+    // console.log(event);
   }
-
-  getAction(event:any){
-
+ 
+  getAction(event: any) {
+    // console.log(event);
   }
 }
  

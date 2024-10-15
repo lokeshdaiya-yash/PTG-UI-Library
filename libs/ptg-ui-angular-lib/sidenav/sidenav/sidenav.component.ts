@@ -57,13 +57,8 @@ export class SidenavComponent {
   ) {
   }
 
-  sortMenuItems() {
-    this.menuItems.sort((a, b) => a.label.localeCompare(b.label)); 
-  }
-
-  
+    
   ngOnInit(): void {
-    this.sortMenuItems();
     this.menuItems =[
       {
         id: '1',
@@ -223,6 +218,8 @@ export class SidenavComponent {
         disabled: false,
       },
     ];
+    this.menuItems.sort((a, b) => a.label.localeCompare(b.label));
+
 
     this.breakpointObserver
       .observe([
@@ -260,7 +257,7 @@ export class SidenavComponent {
     if (typeof menuItem === 'object') {
       if (menuItem && menuItem.disabled === false) {
         this.selectedPath = menuItem.path;
-        console.log(this.selectedPath);
+        console.log(this.selectedPath)
         this.selectMenu.emit(menuItem);
         this.router.navigate([this.selectedPath], { relativeTo: this.route });
       }
