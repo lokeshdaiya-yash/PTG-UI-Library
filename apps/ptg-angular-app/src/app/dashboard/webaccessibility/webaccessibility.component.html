@@ -2,133 +2,194 @@
 <ptg-ui-loading [loading]="loading"></ptg-ui-loading>
 
 <!-- Signup wrapper Start -->
-<div class="signup-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
-    <div class="signup-container">
-        <div class="signup-form-wrapper">
-            <div class="form-group">
-                <div class="text-center mb-3">
-                    <h3 [innerHTML]="'WEB_ACCESSIBILITY_TEXT' | translate"></h3>
-                </div>
-            </div>
-            <div class="row access-wrapper">
-
-                <div class="col-12">
-                    <form class="form-login" [formGroup]="signupForm" (ngSubmit)="onSignupSubmit()">
-                        <div class="login-form w-75 m-auto">
-                            <div class="form-container">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                        <div class="form-group required mb-2">
-                                            <label tabindex="0" for="user_name" aria-label="User Name"
-                                                [innerHTML]="'USER_NAME' | translate"></label>
-                                            <!-- input -->
-                                            <ptg-ui-input [id]="'user_name'" class="w-100" formControlName='userName'
-                                                type="text" className="form-control bg_0"
-                                                [placeholder]="'USER_NAME_PLACEHOLDER' | translate"
-                                                aria_placeholder="Enter User Name">
-                                            </ptg-ui-input>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                        <div class="form-group required mb-2">
-                                            <label tabindex="0" for="inputEmail" aria-label="Email"
-                                                [innerHTML]="'LABEL_EMAIL' | translate"></label>
-                                            <!-- input -->
-                                            <ptg-ui-input class="w-100" formControlName='email' [id]="'inputEmail'"
-                                                type="text" className="form-control bg_0"
-                                                [placeholder]="'INPUT_PLACEHOLDER_EMAIL' | translate"
-                                                aria_placeholder="Enter Email">
-                                            </ptg-ui-input>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                        <div class="form-group required mb-2">
-                                            <label tabindex="0" aria-label="DOB" [innerHTML]="'DOB' | translate"></label>
-                                            <!-- calendar -->
-                                            <ptg-ui-calendar class="w-100" aria-label="enterDOB" [id]="'inputDob'"
-                                                formControlName='dob' aria_placeholder="MM-DD-YYYY">
-                                            </ptg-ui-calendar>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <div class="form-group required mb-2">
-                                            <label tabindex="0" aria-label="City" [innerHTML]="'CITY' | translate"></label>
-                                            <!-- select -->
-                                            <ptg-ui-select formControlName='city' class="w-100" [items]='cityList'
-                                                [isMultiple]="false" [closeOnSelect]="true"
-                                                [placeholder]="'SELECT_PLACEHOLDER' | translate">
-                                            </ptg-ui-select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                        <div class="form-group required mb-2">
-                                            <fieldset>
-                                                <legend tabindex="0" [innerHTML]="'GENDER' | translate" class="legend-tag">
-                                                </legend>
-                                                <ptg-ui-radio formControlName='gender' [items]='genderList'
-                                                    [name]="'gender-radio-btn'">
-                                                </ptg-ui-radio>
-                                            </fieldset>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group required mb-2">
-                                            <label tabindex="0" for="inputPassword" aria-label="Password"
-                                                [innerHTML]="'LABEL_PASSWORD' | translate"></label>
-                                            <!-- input -->
-                                            <ptg-ui-input class="w-100" [id]="'inputPassword'" type="password"
-                                                formControlName="password" className="form-control bg_0"
-                                                [placeholder]="'INPUT_PLACEHOLDER_PASSWORD' | translate">
-                                            </ptg-ui-input>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group required mb-2">
-                                            <!-- checks -->
-                                            <ptg-ui-checks formControlName='confirm'
-                                                [label]="'DECLARATION_REGISTRATION_TEXT' | translate">
-                                            </ptg-ui-checks>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="new_label text-center mt-3 mb-2">
-                            </div>
-                            <!-- button -->
-                            <ptg-ui-button class="w-100" type="submit" btnStyleType="primary" [isBlock]='true'
-                                [isDisable]='!signupForm.valid' aria-label="submit">
-                                {{'SUBMIT' | translate}}
-                            </ptg-ui-button>
-                        </div>
-                        <div class="row mt-5">
-                            <div class="col-md-12">
-                                <h3 [innerHTML]="'ACHIEVED_HEADING' | translate"></h3>
-                                <div>
-                                    <ol>
-                                        <li>{{'ACHIEVED_PNT_ONE' |translate}}</li>
-                                        <li>{{'ACHIEVED_PNT_TWO' |translate}}</li>
-                                        <li>{{'ACHIEVED_PNT_THREE' |translate}}</li>
-                                        <li>{{'ACHIEVED_PNT_FOUR' |translate}}</li>
-                                        <li>{{'ACHIEVED_PNT_FIVE' |translate}}</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<div
+  class="signup-wrapper container-fluid p-0 d-flex justify-content-center align-items-center"
+>
+  <div class="signup-container">
+    <div class="signup-form-wrapper">
+      <div class="form-group">
+        <div class="text-start mb-3">
+          <h3 [innerHTML]="'WEB_ACCESSIBILITY_TEXT' | translate"></h3>
         </div>
+      </div>
+      <div class="row access-wrapper">
+        <div class="col-12">
+          <form
+            class="form-login"
+            [formGroup]="signupForm"
+            (ngSubmit)="onSignupSubmit()"
+          >
+            <div class="login-form w-75">
+              <div class="form-container">
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="form-group required mb-2">
+                      <label
+                        tabindex="0"
+                        for="user_name"
+                        aria-label="User Name"
+                        [innerHTML]="'USER_NAME' | translate"
+                      ></label>
+                      <!-- input -->
+                      <ptg-ui-input
+                        [id]="'user_name'"
+                        class="w-100"
+                        formControlName="userName"
+                        type="text"
+                        className="form-control bg_0"
+                        [placeholder]="'USER_NAME_PLACEHOLDER' | translate"
+                        aria_placeholder="Enter User Name"
+                      >
+                      </ptg-ui-input>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="form-group required mb-2">
+                      <label
+                        tabindex="0"
+                        for="inputEmail"
+                        aria-label="Email"
+                        [innerHTML]="'LABEL_EMAIL' | translate"
+                      ></label>
+                      <!-- input -->
+                      <ptg-ui-input
+                        class="w-100"
+                        formControlName="email"
+                        [id]="'inputEmail'"
+                        type="text"
+                        className="form-control bg_0"
+                        [placeholder]="'INPUT_PLACEHOLDER_EMAIL' | translate"
+                        aria_placeholder="Enter Email"
+                      >
+                      </ptg-ui-input>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="form-group required mb-2">
+                      <label
+                        tabindex="0"
+                        aria-label="DOB"
+                        [innerHTML]="'DOB' | translate"
+                      ></label>
+                      <!-- calendar -->
+                      <ptg-ui-calendar
+                        class="w-100"
+                        placeholder="DD-MM-YYYY"
+                        aria-label="enterDOB"
+                        [id]="'inputDob'"
+                        formControlName="dob"
+                        aria_placeholder="MM-DD-YYYY"
+                      >
+                      </ptg-ui-calendar>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group required mb-2">
+                      <label
+                        tabindex="0"
+                        aria-label="City"
+                        [innerHTML]="'CITY' | translate"
+                      ></label>
+                      <!-- select -->
+                      <ptg-ui-select
+                        formControlName="city"
+                        class="w-100"
+                        [items]="cityList"
+                        [isMultiple]="false"
+                        [closeOnSelect]="true"
+                        [placeholder]="'SELECT_PLACEHOLDER' | translate"
+                      >
+                      </ptg-ui-select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group required mb-2">
+                      <fieldset>
+                        <legend
+                          tabindex="0"
+                          [innerHTML]="'GENDER' | translate"
+                          class="legend-tag"
+                        ></legend>
+                        <ptg-ui-radio
+                          formControlName="gender"
+                          [items]="genderList"
+                          [name]="'gender-radio-btn'"
+                        >
+                        </ptg-ui-radio>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group required mb-2">
+                      <label
+                        tabindex="0"
+                        for="inputPassword"
+                        aria-label="Password"
+                        [innerHTML]="'LABEL_PASSWORD' | translate"
+                      ></label>
+                      <!-- input -->
+                      <ptg-ui-input
+                        class="w-100"
+                        [id]="'inputPassword'"
+                        type="password"
+                        formControlName="password"
+                        className="form-control bg_0"
+                        [placeholder]="'INPUT_PLACEHOLDER_PASSWORD' | translate"
+                      >
+                      </ptg-ui-input>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-12">
+                    <div class="form-group required mb-2">
+                      <!-- checks -->
+                      <ptg-ui-checks
+                        formControlName="confirm"
+                        [label]="'DECLARATION_REGISTRATION_TEXT' | translate"
+                      >
+                      </ptg-ui-checks>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="new_label text-center mt-3 mb-2"></div>
+              <!-- button -->
+              <ptg-ui-button
+                class="w-100"
+                type="submit"
+                btnStyleType="primary"
+                [isBlock]="true"
+                [isDisable]="!signupForm.valid"
+                aria-label="submit"
+              >
+                {{ 'SUBMIT' | translate }}
+              </ptg-ui-button>
+            </div>
+            <div class="row mt-5">
+              <div class="col-md-12">
+                <h3 [innerHTML]="'ACHIEVED_HEADING' | translate"></h3>
+                <div class="mt-2">
+                  <ol>
+                    <li>{{ 'ACHIEVED_PNT_ONE' | translate }}</li>
+                    <li>{{ 'ACHIEVED_PNT_TWO' | translate }}</li>
+                    <li>{{ 'ACHIEVED_PNT_THREE' | translate }}</li>
+                    <li>{{ 'ACHIEVED_PNT_FOUR' | translate }}</li>
+                    <li>{{ 'ACHIEVED_PNT_FIVE' | translate }}</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 <!-- Signup wrapper End -->

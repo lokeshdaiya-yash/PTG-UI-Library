@@ -1,32 +1,33 @@
 <ng-container *ngIf="isLoaded">
-<div class="parent-block bg-white">
-  <h3 class="pt-4 p-3" [innerHTML]="'NGX_DATATABLE' | translate"></h3>
-  <ptg-ui-toggle-code
-    [htmlCode]="ngxDatatableHtmlCode"
-    [tsCode]="ngxDatatableTsCode"
-  >
-  </ptg-ui-toggle-code>
-  <hr class="css-yasiti">
-<div class="p-3" *ngIf="ngxdata && ngxdata.length > 0; else elseNotDone" >  <ptg-ui-ptg-ngx-datatable
-  [rows]="ngxdata"
-  [columns]="columns"
-  [limit]="10"
-  (getFilterEvent)="updateFilter($event)"
-  [offset]="offset"
-  (getSelectionEvent)="onSelect($event)"
-  [hScroll]="true"
-  (getActionEvent)="getAction($event)"
-  [showActionButton]="true"
->
-</ptg-ui-ptg-ngx-datatable>
-</div>
+  <div class="parent-block bg-white">
+    <h3 class="pt-4 p-3" [innerHTML]="'NGX_DATATABLE' | translate"></h3>
+    <ptg-ui-toggle-code
+      [htmlCode]="ngxDatatableHtmlCode"
+      [tsCode]="ngxDatatableTsCode"
+    >
+    </ptg-ui-toggle-code>
+    <hr class="css-yasiti" />
 
-</div>
-<ng-template #elseNotDone>
-  <div class="d-flex justify-content-center">
-    <div class="spinner-border text-loader m-5" role="status">
-      <span class="visually-hidden">Loading...</span>
+    <div class="p-3">
+      <ptg-ui-ptg-ngx-datatable
+        [rows]="ngxdata"
+        [columns]="columns"
+        [limit]="10"
+        (getFilterEvent)="updateFilter($event)"
+        [offset]="offset"
+        (getSelectionEvent)="onSelect($event)"
+        [hScroll]="true"
+        (getActionEvent)="getAction($event)"
+        [showActionButton]="true"
+      >
+      </ptg-ui-ptg-ngx-datatable>
+
+      <!-- Show "Data not found" message if no data is available -->
+      <!-- <ng-container *ngIf="!(ngxdata && ngxdata.length > 0)">
+        <div class="p-3">
+          <p>Data not found</p>
+        </div>
+      </ng-container> -->
     </div>
   </div>
-</ng-template>
 </ng-container>

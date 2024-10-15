@@ -8,9 +8,12 @@
       .icon-btn {
         height: 30px;
         width: 30px;
+        border: none;
+        border-radius: 50px;
     }
     .drag-box{
       width: 75%;
+      margin: auto;
     }
   }
 
@@ -28,6 +31,10 @@
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
   
+  .r-code-section{
+    margin: 10px;
+  }
+
   @media (max-width: 599.98px){
     .drag-box{
       width: 100% !important;
