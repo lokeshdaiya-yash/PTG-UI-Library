@@ -88,8 +88,6 @@ export class NgxDatatableComponent implements OnInit {
       ]
     }
  
-    updateFilter(event: any) {
-    }
  
     onSelect(event: any){
       // console.log(event);
@@ -121,6 +119,7 @@ export class NgxDatatableComponent implements OnInit {
  
   // Filter functions
   updateFilter(event: any) {
+
     const val = event.target.value.toLowerCase();
  
     // filter our data

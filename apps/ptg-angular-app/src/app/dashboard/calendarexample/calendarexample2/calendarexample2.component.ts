@@ -40,7 +40,7 @@ export class Calendarexample2Component implements OnInit {
 
   ngOnInit(): void {
     this.calendarForm = this.formBuilder.group({
-      startDate: [null, [Validators.required]], //
+      startDate: [null, [Validators.required]], 
       endDate: [null, [Validators.required]],
       calendar1Value: [null, [Validators.required]],
       calendar2Value: [null, Validators.required]
@@ -54,11 +54,11 @@ export class Calendarexample2Component implements OnInit {
   }
 
   onDateChange(event:any){
-    // console.log('this.calendarForm', this.calendarForm);
+
   }
 
   onFormSubmit(event:any){
-    // console.log('this.calendarForm', this.calendarForm);
+
   }
 
 }

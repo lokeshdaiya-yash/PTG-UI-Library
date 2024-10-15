@@ -29,9 +29,9 @@ export class PtgModal {
     this.isOpen = true;
     this.modalClose.emit(true);
   };
-  private confirmEvent = () => {
-    this.confirmClose.emit(true);
-  };
+  // private confirmEvent = () => {
+  //   this.confirmClose.emit(true);
+  // };
 
   render() {
     return (
@@ -78,11 +78,6 @@ export class PtgModal {
                   <ptg-button
                     text={this.confirmButtonName}
                     appearance={this.primaryBtn}
-                    onClick={this.confirmEvent}
-                  ></ptg-button>
-                  <ptg-button
-                    text={this.confirmButtonName}
-                    appearance={this.cancelBtn}
                     onClick={this.closeModule}
                   ></ptg-button>
                 </div>

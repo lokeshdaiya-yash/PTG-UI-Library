@@ -154,7 +154,6 @@ export class SelectexampleComponent implements OnInit, AfterViewInit {
   }
 
   onFormSubmit(event: any) {
-    // console.log('this.calendarForm', this.selectForm);
   }
   ngAfterViewInit() {
     const x: any = document.getElementsByClassName('ng-input');

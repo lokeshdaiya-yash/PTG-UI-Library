@@ -111,36 +111,36 @@ export class AgGridComponent implements OnInit {
     }
 
     onEditButtonClick(params:any){
-      // console.log(params)
+
     }
 
     onFilterChanged(event:any){
-      // console.log('onFilterChanged', event);
+
     }
 
     onFilterModified(event:any){
-      // console.log('onFilterModified', event);
+
     }
 
     onEditing(event:any){
-      // console.log(event);
+
     }
 
     // pagination functionlity start here
     paginate(event:any){
-      // console.log('pagination changed', event);
+
     }
 
     navigateToNext(event:any){
-      // console.log('navigateToNext', event);
+
     }
 
     navigateToPrevious(event:any){
-      // console.log('navigateToPrevious', event);
+
     }
 
     navigateToPage(event:any){
-      // console.log('navigateToPage', event);
+
     }
   }`;
 
@@ -190,35 +190,35 @@ export class AgGridComponent implements OnInit {
   }
 
   onEditButtonClick(params: any) {
-    // console.log(params)
+
   }
 
   onFilterChanged(event: any) {
-    // console.log('onFilterChanged', event);
+
   }
 
   onFilterModified(event: any) {
-    // console.log('onFilterModified', event);
+
   }
 
   onEditing(event: any) {
-    // console.log(event);
+
   }
 
   // pagination functionlity start here
   paginate(event: any) {
-    // console.log('pagination changed', event);
+
   }
 
   navigateToNext(event: any) {
-    // console.log('navigateToNext', event);
+
   }
 
   navigateToPrevious(event: any) {
-    // console.log('navigateToPrevious', event);
+
   }
 
   navigateToPage(event: any) {
-    // console.log('navigateToPage', event);
+
   }
 }

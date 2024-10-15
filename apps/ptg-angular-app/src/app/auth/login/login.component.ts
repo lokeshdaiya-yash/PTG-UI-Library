@@ -74,7 +74,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (res) => {
           // For response success
-          console.log('11133',res);
           this.auth.setToken(JSON.stringify(res));
           this.loading = false;
           this.errorMessage = null;
@@ -83,7 +82,6 @@ export class LoginComponent implements OnInit, OnDestroy {
           
           
           if (this.response.user?.role?.type == 'admin') {
-            // console.log('11134', 'value');
             this.router.navigate(['/admin']);
           } else {
             this.router.navigate(['/']);
@@ -113,7 +111,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   socialLogin(){
-    console.log('working');
+
   }
 
   ngOnDestroy(): void {
