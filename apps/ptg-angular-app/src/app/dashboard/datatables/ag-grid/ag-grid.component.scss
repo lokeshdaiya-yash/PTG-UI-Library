@@ -1,3 +1,7 @@
 .parent-block {
   position: relative;
 }
+
+::ng-deep .btn-link{
+  text-decoration: none;
+}
