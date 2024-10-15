@@ -59,7 +59,7 @@ export class CheckboxExamplesComponent implements OnInit {
     });
 
     onChanges(event:any){
-      console.log(On Change event, 'event');
+
     }
   }`;
 
@@ -70,6 +70,6 @@ export class CheckboxExamplesComponent implements OnInit {
   }
 
   onChanges(event: any){
-    console.log(event, 'event');
+
   }
 }

@@ -19,23 +19,11 @@ export class CapitalizeDirective {
 
   @HostListener('focusout', ['$event'])
   onFocusout(): void {
-    console.log('this.control', this.control);
     this.control.control?.setValue(
       this.control.value.charAt(0).toUpperCase() + this.control.value.slice(1)
     );
   }
 
-  // @HostListener('input', ['$event'])
-  // onInputChange() {
-  //   console.log('this.control', this.control);
-  //   this.control.control?.setValidators([
-  //     Validators.minLength(5),
-  //     Validators.maxLength(30),
-  //   ]);
-  //   this.control.control?.setValue(
-  //     this.control.value.charAt(0).toUpperCase() + this.control.value.slice(1)
-  //   );
-  // }
 
   @HostBinding('class')
   ClassName = this.control;

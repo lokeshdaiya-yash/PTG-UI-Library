@@ -20,13 +20,11 @@ export class PhoneformatDirective {
 
   @HostListener('focusout', ['$event'])
   onFocusout(): void {
-    // console.log('this.control', this.control);
     let rawNum = this.control.value;
     if (rawNum.slice(0, 1) === '+')
       rawNum = rawNum.replace(/\D/g, "").slice(1);
     else
       rawNum = rawNum.replace(/\D/g, "");
-    // console.log('rawNum', rawNum);
     rawNum = "+1"+ rawNum;
     const countryCodeStr = rawNum.slice(0,2);
     const areaCodeStr = rawNum.slice(2,5);
@@ -34,7 +32,6 @@ export class PhoneformatDirective {
     const lastSectionStr = rawNum.slice(8);
 
     this.control.control?.setValue(
-      // this.control.value.charAt(0).toUpperCase() + this.control.value.slice(1)
       `${countryCodeStr} (${areaCodeStr}) ${midSectionStr}-${lastSectionStr}`
     );
   }

@@ -66,7 +66,7 @@ export class MaterialDatatableComponent implements OnInit {
 
     // pagination functionlity start here
     paginate(event:any){
-      // console.log('pagination changed', event);
+
     }
   }`;
   constructor(private mocksApiService: mocksService) {}
@@ -89,7 +89,7 @@ export class MaterialDatatableComponent implements OnInit {
 
   // pagination functionlity start here
   paginate(event: any) {
-    // console.log('pagination changed', event);
+
   }
 
   getValue() {

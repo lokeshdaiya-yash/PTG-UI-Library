@@ -29,7 +29,6 @@ export interface TreeNode {
 })
 export class Dragexample1Component implements OnInit {
   nodes: any;
-  //   nodes:TreeNode[];
   // ids for connected drop lists
   dropTargetIds: any = [];
   nodeLookup: any = {};
@@ -138,7 +137,6 @@ export class Dragexample1Component implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private mocksApiService: mocksService
   ) {
-    // this.prepareDragDrop(this.nodes);
   }
   ngOnInit(): void {
     this.mocksApiService.getDemoData().subscribe((response) => {
@@ -202,9 +200,6 @@ export class Dragexample1Component implements OnInit {
       'main'
     );
 
-    //   console.log(
-    //       '\nmoving\n[' + draggedItemId + '] from list [' + parentItemId + ']',
-    //       '\n[' + this.dropActionTodo.action + ']\n[' + this.dropActionTodo.targetId + '] from list [' + targetListId + ']');
 
     const draggedItem = this.nodeLookup[draggedItemId];
 

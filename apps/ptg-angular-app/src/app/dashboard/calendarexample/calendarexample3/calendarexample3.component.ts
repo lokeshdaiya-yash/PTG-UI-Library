@@ -41,7 +41,7 @@ export class Calendarexample3Component implements OnInit {
 
   ngOnInit(): void {
     this.calendarForm = this.formBuilder.group({
-      startDate: [null, [Validators.required]], //
+      startDate: [null, [Validators.required]], 
       endDate: [null, [Validators.required]]
     });
   }
@@ -75,15 +75,10 @@ export class Calendarexample3Component implements OnInit {
     if(calendar1Control?.value > event){
       calendar1Control?.reset();
     }
-    // console.log('this.calendarForm', this.calendarForm);
   }
 
-  // onDateChange(event:any){
-  //   // console.log('this.calendarForm', this.calendarForm);
-  // }
-
   onFormSubmit(event:any){
-    // console.log('this.calendarForm', this.calendarForm);
+
   }
 
 }

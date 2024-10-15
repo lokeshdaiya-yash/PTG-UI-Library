@@ -49,7 +49,6 @@ export class SidenavComponent {
   // Method for navigation on click on menu
   navigate(menuItem: any): void {
    if (menuItem && menuItem.disabled === false) {
-    // console.log('menuItem----', menuItem);
     this.selectedPath = menuItem.path;
     this.selectMenu.emit(menuItem);
     this.router.navigate([this.selectedPath], { relativeTo: this.route });

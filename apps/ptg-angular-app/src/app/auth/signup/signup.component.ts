@@ -93,7 +93,6 @@ export class SignupComponent implements OnInit, AfterViewInit {
 	 // this code is used for only web-accessibility (for custom ng select issue)
 	 ngAfterViewInit() {
 		const x: any = document.getElementsByClassName('ng-input');
-		console.log(x);
 		for (let i = 0; i < x.length; i++) {
 		  this.setAttributes(x[i].children[0], {
 			autocomplete: 'given-name',
@@ -110,7 +109,6 @@ export class SignupComponent implements OnInit, AfterViewInit {
 	  }
 	
 	  setAttributes(elements: any, attributes: any) {
-		console.log(elements, attributes);
 		
 		Object.keys(attributes).forEach(function (name) {
 		  elements.setAttribute(name, attributes[name]);

@@ -274,7 +274,7 @@ export class SidenavComponent {
     // let btnClass: any = document.getElementsByClassName('fixed-button');
 
     if (!this.isMenuOpen) {
-      x[0].style.width = '0vw';
+      x[0].style.width = '4vw';
     } else {
       if (this.currentScreenSize == 'XSmall') {
         x[0].style.width = '0vw';

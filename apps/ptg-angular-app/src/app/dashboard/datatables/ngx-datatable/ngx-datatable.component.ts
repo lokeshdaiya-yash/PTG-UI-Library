@@ -92,11 +92,11 @@ export class NgxDatatableComponent implements OnInit {
     }
 
     onSelect(event: any){
-      // console.log(event);
+
     }
 
     getAction(event:any){
-      // console.log(event);
+
     }
   }`;
 
@@ -134,10 +134,10 @@ export class NgxDatatableComponent implements OnInit {
   }
 
   onSelect(event: any){
-    // console.log(event);
+
   }
 
   getAction(event:any){
-    // console.log(event);
+
   }
 }

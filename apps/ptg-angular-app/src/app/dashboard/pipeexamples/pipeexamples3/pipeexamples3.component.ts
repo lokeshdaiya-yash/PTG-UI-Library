@@ -37,28 +37,17 @@ export class Pipeexamples3Component {
 
   normalize(event: any) {
     const value = event.target.value;
-    // console.log('value', value);
     const result = value === null || value === 0 || value === '' ? '$0.00' : this.convertIntoCurrency(value);
-    // console.log('result', result);
-    // this.currencyInput.nativeElement.value = result;
     event.srcElement.value = result;
   }
   /***********************************************************/
 
-  // test(event:any){
-  //   console.log('test is working', event);
-  //   console.log('test- path', event.path[0]);
-  //   // event.srcElement.value = '123'
-  //   // event.path[0].value = '123';
-  // }
 
   /****************** convert Into Capitalize**********************/
 
   convertIntoCapitalize(event: any) {
     const value = event.target.value;
-    // console.log('value', value);
     const result = value.charAt(0).toUpperCase() + value.slice(1)
-    // this.currencyInput.nativeElement.value = result;
     event.srcElement.value = result;
   }
 
@@ -73,14 +62,12 @@ export class Pipeexamples3Component {
     }
     else
       rawNum = rawNum.replace(/\D/g, "");
-    // console.log('convert into number', rawNum);
     rawNum = "+1" + rawNum;
     const countryCodeStr = rawNum.slice(0, 2);
     const areaCodeStr = rawNum.slice(2, 5);
     const midSectionStr = rawNum.slice(5, 8);
     const lastSectionStr = rawNum.slice(8);
     const result = `${countryCodeStr} (${areaCodeStr}) ${midSectionStr}-${lastSectionStr}`;
-    // console.log('result', result);
     event.srcElement.value = result;
   }
 

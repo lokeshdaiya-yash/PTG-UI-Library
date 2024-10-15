@@ -1,7 +1,5 @@
 <!-- Loading -->
 <ptg-ui-loading [loading]="loading"></ptg-ui-loading>
-<!-- <header></header>
-<h1 hidden>Login</h1> -->
 <!-- Login wrapper Start -->
 <div class="login-wrapper container-fluid p-0 d-flex justify-content-center align-items-center">
     <div class="login-container">
@@ -57,10 +55,6 @@
                         [isBlock]="true" [isDisable]="!loginForm.valid">
                         {{resources.SIGN_IN}}
                     </ptg-ui-button>
-                    <!-- <span>Or login in using</span>
-                    <ptg-ui-button tabindex="0" class="w-100" type="button" btnStyleType="primary" id="btnSocialSignin" [isBlock]="true" (click)="socialLogin()">
-                        Sign in with Google
-                    </ptg-ui-button> -->
                 </div>
             </form>
         </div>

@@ -62,11 +62,9 @@ export class CardExampleComponent {
         },
       ];
     handleClick() {
-      console.log('handle Click called');
     }
   }`;
 
   handleClick(event) {
-    console.log('handle Click called', event.detail);
   }
 }

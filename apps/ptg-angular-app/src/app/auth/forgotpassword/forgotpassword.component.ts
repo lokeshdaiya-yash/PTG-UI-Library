@@ -47,6 +47,4 @@ export class ForgotpasswordComponent implements OnInit {
     this.forgotForm.reset();
   }
 
-  /* Method for Close Alert*/
-  // closeAlert(event: any) {}
 }

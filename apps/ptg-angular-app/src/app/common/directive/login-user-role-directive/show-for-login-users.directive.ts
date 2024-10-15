@@ -27,7 +27,6 @@ export class ShowForLoginUsersDirective implements AfterViewInit {
     const userRole = JSON.parse(localStorage.getItem('userdata') || '')?.user?.role?.name?.toUpperCase();
     const isAdmin = 'ADMIN' === userRole;
     if (!isAdmin) {
-      // console.log(isAdmin);
       this._el.nativeElement.remove();
     }
   }

@@ -27,14 +27,12 @@ export class CurrencyDirective implements ControlValueAccessor {
 
   @HostListener('input', ['$event'])
     onInput(event:any): void {
-      // console.log('onInput');
     const value = this.normalize(event.target.value);
     this.onChange(value);
   }
 
   @HostListener('keypress', ['$event'])
   onKeypress(event:any): void {
-    // console.log('onKeypress', event.target.value);
     const numberPattern = /^\d*\.?\d{0,2}$/g; // xxx.xx
     const current: string = event.target.value;
     const position = event.target.selectionStart;

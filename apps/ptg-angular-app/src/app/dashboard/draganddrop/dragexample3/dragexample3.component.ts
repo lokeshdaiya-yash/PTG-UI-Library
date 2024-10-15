@@ -94,7 +94,6 @@ export class Dragexample3Component implements OnInit {
 
   // Drop method for example 2
   drop(event: CdkDragDrop<string[]> | any) {
-    console.log('drop', event);
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
