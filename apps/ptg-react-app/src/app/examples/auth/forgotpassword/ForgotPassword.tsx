@@ -16,7 +16,7 @@ import { authClass } from '../services/auth.service';
 import { useNavigate } from 'react-router-dom';
 
 export default function ForgotPassword() {
-   const { t } = useTranslation();
+  const { t } = useTranslation();
   const intialState = {
     show: false,
     email: '',
@@ -49,7 +49,11 @@ export default function ForgotPassword() {
   };
 
   const handleClose = () => setState('show', false);
-  const handleShow = () => setState('show', true);
+  const handleShow = () => {
+    setValues(intialState);
+    setState('show', true);
+  };
+
   //validate email and password
   const validate = (fieldName: string, value: any) => {
     let disabled = false;
@@ -98,34 +102,6 @@ export default function ForgotPassword() {
     setState('btnDisable', btn);
   }, [values.email]);
 
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-    setState('error', null);
-    setState('isLoading', true);
-    authClass
-      .forgot({
-        email: values.email,
-      })
-      .then((response: any) => {
-        setState('isLoading', false);
-        console.log('response', response);
-        if (response.statusCode && response.statusCode !== 200) {
-          throw new Error('Function not implemented.');
-        } else if (response.ok && response.ok === true) {
-          //show success msg
-          setState('showMessage', {
-            show: true,
-            type: 'success',
-            message: t('EMAIL_SENT'),
-          });
-        }
-      })
-      .catch((error: any) => {
-        setState('isAlert', true);
-        console.log(error);
-      });
-  };
-
   return (
     <div>
       <a
@@ -150,49 +126,45 @@ export default function ForgotPassword() {
                   <h3>{t('FORGOT_PASSWORD')}</h3>
                 </div>
               </div>
-              <form className="form-forgot">
-                <div className="forgot-form">
-                  <div className="form-group required mb-4">
-                    <label htmlFor="inputEmail">{t('LABEL_EMAIL')}</label>
-                    <PtgUiInput
-                      type="email"
-                      className={`w-100 form-control bg_0 ${
-                        formErr.email === true ? 'border-danger' : ''
-                      }`}
-                      name="email"
-                      data-testid="email"
-                      placeholder={t('INPUT_PLACEHOLDER_EMAIL')}
-                      onChange={handleChange}
-                      value={values.email}
-                      onBlur={values.email === '' ? handleBlur : null}
-                    />
+              <div className="forgot-form">
+                <div className="form-group required mb-4">
+                  <label htmlFor="inputEmail">{t('LABEL_EMAIL')}</label>
+                  <PtgUiInput
+                    type="email"
+                    className={`w-100 form-control bg_0 ${
+                      formErr.email === true ? 'border-danger' : ''
+                    }`}
+                    name="email"
+                    data-testid="email"
+                    placeholder={t('INPUT_PLACEHOLDER_EMAIL')}
+                    onChange={handleChange}
+                    value={values.email}
+                    onBlur={values.email === '' ? handleBlur : null}
+                  />
+                </div>
+                <div className="row">
+                  <div className="col-9 col-lg-8 col-md-8 col-sm-9 col-xs-9">
+                    <PtgUiButton
+                      type="submit"
+                      variant="primary"
+                      data-testid="handleSubmit"
+                      disabled={values.btnDisable}
+                    >
+                      {t('FORGOT_PASSWORD')}
+                    </PtgUiButton>
                   </div>
-                  <div className="row">
-                    <div className="col-9 col-lg-8 col-md-8 col-sm-9 col-xs-9">
-                      <PtgUiButton
-                        type="submit"
-                        variant="primary"
-                        data-testid="handleSubmit"
-                        onClick={handleSubmit}
-                        // data-testid="forgotButton"
-                        disabled={values.btnDisable}
-                      >
-                        {t('FORGOT_PASSWORD')}
-                      </PtgUiButton>
-                    </div>
-                    <div className="col-3 col-lg-4 col-md-4 col-sm-3 col-xs-3 text-md-end">
-                      <PtgUiButton
-                        type="submit"
-                        variant="secondary"
-                        data-testid="handleClose"
-                        onClick={handleClose}
-                      >
-                        {t('CANCEL')}
-                      </PtgUiButton>
-                    </div>
+                  <div className="col-3 col-lg-4 col-md-4 col-sm-3 col-xs-3 text-md-end">
+                    <PtgUiButton
+                      type="submit"
+                      variant="secondary"
+                      data-testid="handleClose"
+                      onClick={handleClose}
+                    >
+                      {t('CANCEL')}
+                    </PtgUiButton>
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>

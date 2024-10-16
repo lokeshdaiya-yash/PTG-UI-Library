@@ -2,9 +2,10 @@
  * @since March 2022
  * @author Sunil Bhawsar
  * @desc Side bar/navigation list
-*/
-{/*--List of sidebar/side navigation--*/}
-
+ */
+{
+  /*--List of sidebar/side navigation--*/
+}
 
 export const NavigationChildData = [
   {
@@ -13,7 +14,7 @@ export const NavigationChildData = [
     label: 'Carousel',
     disabled: false,
   },
- {
+  {
     label: 'CHARTS',
     icon: 'fas fa-chart-line',
     pages: [
@@ -30,7 +31,7 @@ export const NavigationChildData = [
         icon: 'fa-solid fa-chart-simple',
         id: 'highchart',
         disabled: false,
-      }
+      },
     ],
   },
   {
@@ -58,7 +59,7 @@ export const NavigationChildData = [
         id: 'Material',
         disabled: false,
       },
-            {
+      {
         label: 'REACT TABLE',
         path: '/datatable/reactTable',
         icon: 'fa-solid fa-table-list',
@@ -67,7 +68,7 @@ export const NavigationChildData = [
       },
     ],
   },
-]
+];
 export const NavigationData = [
   {
     path: '/accordian',
@@ -105,7 +106,7 @@ export const NavigationData = [
     label: 'Carousel',
     disabled: false,
   },
- {
+  {
     label: 'CHARTS',
     icon: 'fas fa-chart-line',
     pages: [
@@ -122,7 +123,7 @@ export const NavigationData = [
         icon: 'fa-solid fa-chart-simple',
         id: 'highchart',
         disabled: false,
-      }
+      },
     ],
   },
   {
@@ -150,7 +151,7 @@ export const NavigationData = [
         id: 'Material',
         disabled: false,
       },
-            {
+      {
         label: 'REACT TABLE',
         path: '/datatable/reactTable',
         icon: 'fa-solid fa-table-list',
@@ -158,6 +159,12 @@ export const NavigationData = [
         disabled: false,
       },
     ],
+  },
+  {
+    path: '/pagination',
+    icon: 'fa-solid fa-table-list',
+    label: 'Pagination',
+    disabled: false,
   },
   {
     path: '/dialog',
@@ -219,5 +226,4 @@ export const NavigationData = [
     label: 'WEB ACCESSIBILTY',
     disabled: false,
   },
-
-];  
+];
