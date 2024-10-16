@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class BreadcrumbsExampleComponent {
   dataList: any = [
-    { title: 'home', link: '/home' },
-    { title: 'about', link: '/card' },
-    { title: 'contact', link: '/contact' },
+    { title: 'home', link: '#' },
+    { title: 'about', link: '#' },
+    { title: 'contact', link: '#' },
   ];
   htmlCode = `
   <ptg-breadcrumbs [datalist]="dataList"></ptg-breadcrumbs>

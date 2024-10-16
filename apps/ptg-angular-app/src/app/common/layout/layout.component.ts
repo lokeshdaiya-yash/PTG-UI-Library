@@ -63,7 +63,6 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    // console.log('this.currentScreenSize', this.currentScreenSize);
   }
 
   isMenuToggle(){

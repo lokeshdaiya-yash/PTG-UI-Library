@@ -55,7 +55,6 @@ export class UserprofileComponent implements OnInit {
    // Method for logout 
   logout(){
     this.authService.removeToken();
-    // console.log('logout', this.authService.removeToken());
     sessionStorage.clear();
     window.location.reload();
   }

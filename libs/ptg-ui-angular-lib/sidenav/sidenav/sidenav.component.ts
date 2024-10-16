@@ -33,8 +33,8 @@ export class SidenavComponent {
   getMenuId: any;
 
   @Input() selectedPath = '';
-  // @Input() menuItems?: [] | any;
-  menuItems: any[] = [];
+  @Input() menuItems?: [] | any;
+  // menuItems: any[] = [];
   @Input() isMenuOpen = false;
   @Output() selectMenu = new EventEmitter<any>();
   displayNameMap = new Map([
@@ -54,8 +54,10 @@ export class SidenavComponent {
     private breakpointObserver: BreakpointObserver,
     private cdr: ChangeDetectorRef,
     private elementRef: ElementRef
-  ) {}
-  
+  ) {
+  }
+
+    
   ngOnInit(): void {
     this.menuItems =[
       {
@@ -216,6 +218,7 @@ export class SidenavComponent {
         disabled: false,
       },
     ];
+    this.menuItems.sort((a, b) => a.label.localeCompare(b.label));
 
 
     this.breakpointObserver
@@ -254,6 +257,7 @@ export class SidenavComponent {
     if (typeof menuItem === 'object') {
       if (menuItem && menuItem.disabled === false) {
         this.selectedPath = menuItem.path;
+        console.log(this.selectedPath)
         this.selectMenu.emit(menuItem);
         this.router.navigate([this.selectedPath], { relativeTo: this.route });
       }
@@ -274,7 +278,7 @@ export class SidenavComponent {
     // let btnClass: any = document.getElementsByClassName('fixed-button');
 
     if (!this.isMenuOpen) {
-      x[0].style.width = '0vw';
+      x[0].style.width = '4vw';
     } else {
       if (this.currentScreenSize == 'XSmall') {
         x[0].style.width = '0vw';

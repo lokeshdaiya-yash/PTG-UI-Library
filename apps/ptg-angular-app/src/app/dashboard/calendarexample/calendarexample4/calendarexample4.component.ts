@@ -43,7 +43,7 @@ export class Calendarexample4Component implements OnInit {
 
   ngOnInit(): void {
     this.calendarForm = this.formBuilder.group({
-      startDate: [null, [Validators.required]], //
+      startDate: [null, [Validators.required]], 
       endDate: [null, [Validators.required]],
       calendar2Value: [null, Validators.required]
     },{
@@ -61,21 +61,16 @@ export class Calendarexample4Component implements OnInit {
     }else{
       this.isDisabled = true;
     }
-    // this.startDate = event;
-    // this.endMinDate = event;
+
   }
 
-  // onEndDateChange(event:any){
-  //   // this.endDate = event;
-  //   // console.log('this.calendarForm', this.calendarForm);
-  // }
 
   onDateChange(event:any){
-    // console.log('this.calendarForm', this.calendarForm);
+
   }
 
   onFormSubmit(event:any){
-    // console.log('this.calendarForm', this.calendarForm);
+
   }
 
 }

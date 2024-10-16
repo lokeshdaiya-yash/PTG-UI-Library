@@ -84,11 +84,11 @@ ngOnInit() {
 
   // filter functionlity 
   updateFilter(event: any){
-    const val = event.target.value.toLowerCase();
-    const temp = this.temp.filter(function (d:any) {
-      return d.athlete.toLowerCase().indexOf(val) !== -1 || !val;
-    });
-    this.rows = temp;
+    // const val = event.target.value.toLowerCase();
+    // const temp = this.temp.filter(function (d:any) {
+    //   return d.athlete.toLowerCase().indexOf(val) !== -1 || !val;
+    // });
+    // this.rows = temp;
 
     this.getFilterEvent.emit(event);
   }

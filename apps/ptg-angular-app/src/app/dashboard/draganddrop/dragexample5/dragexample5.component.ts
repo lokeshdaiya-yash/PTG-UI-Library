@@ -31,8 +31,6 @@ export interface TreeNode {
 
 export class Dragexample5Component implements OnInit{
     nodes:any;
-//   nodes: TreeNode[] = demoData1;
-
   // ids for connected drop lists
   dropTargetIds:any = [];
   nodeLookup:any = {};
@@ -98,9 +96,6 @@ ngOnInit(): void {
       const parentItemId = event.previousContainer.id;
       const targetListId = this.getParentNodeId(this.dropActionTodo.targetId, this.nodes, 'main');
 
-    //   console.log(
-    //       '\nmoving\n[' + draggedItemId + '] from list [' + parentItemId + ']',
-    //       '\n[' + this.dropActionTodo.action + ']\n[' + this.dropActionTodo.targetId + '] from list [' + targetListId + ']');
 
       const draggedItem = this.nodeLookup[draggedItemId];
 
@@ -142,7 +137,6 @@ ngOnInit(): void {
   showDragInfo() {
       this.clearDragInfo();
       if (this.dropActionTodo) {
-        // console.log('showDragInfo-----------', this.document.getElementById("node-" + this.dropActionTodo.targetId));
         this.document.getElementById("node-" + this.dropActionTodo.targetId)
         ?.classList.add("drop-" + this.dropActionTodo.action);
       }

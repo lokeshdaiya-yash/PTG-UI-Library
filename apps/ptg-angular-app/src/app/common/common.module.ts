@@ -29,6 +29,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DemoPtgUiNgModule } from './demo-ptg-ui-ng/demo-ptg-ui-ng.module';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 
+
 @NgModule({
   declarations: [
     HeaderComponent,

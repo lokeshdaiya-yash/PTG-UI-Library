@@ -71,7 +71,8 @@
         "libs/ptg-ui-web-components-react/src/index.ts"
       ],
       "@ptg-ui/ptg-ui-web-components/loader": [
-        "libs/ptg-ui-web-components/build/loader"
+         "dist/libs/ptg-ui-web-components/loader"
+        // "libs/ptg-ui-web-components/build/loader"
       ],
       "@ptg-ui/react": ["libs/ptg-ui-react-lib/src/index.ts"]
     }

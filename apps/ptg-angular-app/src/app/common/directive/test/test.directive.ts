@@ -10,16 +10,14 @@ import { CurrencyPipe } from '@angular/common';
 export class TestDirective {
   
   @HostListener('blur', ['$event']) onBlur(event:any) {
-    // this.el.nativeElement.value = event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1);
+
   }
 
   @HostListener('input', ['$event']) onInput(event:any) {
-    //console.log('this.el', this.renderer.(this.el.nativeElement));
     this.el.nativeElement.value = event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1);
   }
 
   @HostListener('keypress', ['$event']) onKeypress(event:any) {
-    // console.log('onKeypress', event);
   }
 
   private highlight(color: string) {
@@ -43,8 +41,7 @@ export class TestDirective {
     private cp: CurrencyPipe,) {}
 
   convertToCurrency(value:any): any {
-    // return this.cp.transform(value, 'USD', '', '1.2-2');
-    // return parseFloat(value).toFixed(2);
+
   }
 
   normalize(value: string): number | string {

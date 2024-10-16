@@ -79,7 +79,7 @@
 
 /* modal body */
 .modal-wrapper .modal .body{
-  color: var(--mono-50);
+  color: black;
   font-size: 14px;
   height: auto;
   line-height: 21px;
@@ -115,6 +115,11 @@
 .close{
   font-size: 33px;
 }
-.isOpen .modal{
-  transform: translate(-50%,154px);
-}
+
+
+// .isOpen .modal{
+//   transform: none !important;
+// }
+
+
+
