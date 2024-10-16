@@ -61,7 +61,6 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
   };
   const handleChange: any = (e: any) => {
     const { name, value } = e.target;
-    console.log(e.target.value);
     validate(name, value);
     setUser((preState: any) => {
       return {
@@ -98,7 +97,6 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
   const validate = (fieldName: string, value: any) => {
     let disabled = false;
     let formErr = false;
-    console.log(fieldName);
     switch (fieldName) {
       case 'username':
         if (value !== '') {

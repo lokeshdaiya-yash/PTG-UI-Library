@@ -30,7 +30,6 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
     };
     const response = await msalInstance.loginPopup(loginRequest);
     const [error, tokenResponse] = await acquireToken(loginRequest);
-    console.log("Hello i'm in msal", tokenResponse);
     authClass.setToken(JSON.stringify(response));
     navigate('/calendar');
   };
