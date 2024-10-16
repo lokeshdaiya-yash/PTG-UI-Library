@@ -21,49 +21,47 @@ import {
   PtgUiRadio,
 } from '@ptg-ui/react';
 
-export interface PtgUiSignupProps { }
+export interface PtgUiSignupProps {}
 
 export function PtgUiSignup(props: PtgUiSignupProps) {
-   const { t } = useTranslation();
+  const { t } = useTranslation();
   const [user, setUser]: any = useState({
     isLoading: false,
-    username:'',
+    username: '',
     email: '',
-    gender:'male',
-    city:'',
+    gender: 'male',
+    city: '',
     password: '',
-    selectedCheck:'',
+    selectedCheck: '',
     error: null,
     disable: true,
   });
   const [formErr, setFormErr] = useState({
-    username:false,
+    username: false,
     email: false,
     gender: false,
     city: false,
-    password: false, 
+    password: false,
   });
   const setState: any = (field: string, value: any) => {
     setUser((preState: any) => {
       return {
         ...preState,
-        [field]: value
-      }
+        [field]: value,
+      };
     });
-  }
+  };
   const setErrState: any = (field: string, value: any) => {
     setFormErr((preState: any) => {
       return {
         ...preState,
-        [field]: value
-      }
+        [field]: value,
+      };
     });
-  }
+  };
   const handleChange: any = (e: any) => {
     const { name, value } = e.target;
-    // console.log('name' + name);
-    // console.log('value' + value);
-    console.log(e.target.value)
+    console.log(e.target.value);
     validate(name, value);
     setUser((preState: any) => {
       return {
@@ -202,11 +200,11 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                   <div className="row">
                     <div className="col-sm-6">
                       <div className="form-group required mb-2">
-                        <label 
-                        htmlFor="inputUsername" 
-                        tabIndex={0}
-                        aria-label="User Name"
-                       >
+                        <label
+                          htmlFor="inputUsername"
+                          tabIndex={0}
+                          aria-label="User Name"
+                        >
                           {t('USER_NAME')}
                         </label>
                         <PtgUiInput
@@ -225,9 +223,11 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                     </div>
                     <div className="col-sm-6">
                       <div className="form-group required mb-2">
-                        <label htmlFor="inputEmail"
+                        <label
+                          htmlFor="inputEmail"
                           tabIndex={0}
-                            aria-label="Email">
+                          aria-label="Email"
+                        >
                           {t('LABEL_EMAIL')}
                         </label>
                         <PtgUiInput
@@ -248,28 +248,27 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                   <div className="row">
                     <div className="col-sm-6">
                       <div className="form-group required mb-2" id="dob">
-                        <label htmlFor="inputDOB" 
-                        tabIndex={0}
-                        aria-label = "DOB"
-                        >
+                        <label htmlFor="inputDOB" tabIndex={0} aria-label="DOB">
                           {t('DOB')}
-                          </label>
+                        </label>
                         <PtgUiCalendar
-                           selected={date}
+                          selected={date}
                           className={`form-control w-100`}
                           onChange={dateChange}
                           startDate={null}
                           endDate={new Date()}
-                          // id="inputDOB"
                         />
                       </div>
                     </div>
                     <div className="col-sm-6">
                       <div className="form-group required mb-2">
-                        <label htmlFor="city" 
-                        tabIndex={0}
-                        aria-label="cityList">
-                          {t('CITY')}</label>
+                        <label
+                          htmlFor="city"
+                          tabIndex={0}
+                          aria-label="cityList"
+                        >
+                          {t('CITY')}
+                        </label>
                         <PtgUiSelect
                           name="city"
                           id="city"
@@ -286,7 +285,11 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                     <div className="row">
                       <div className="col-12">
                         <div className="form-group required mb-2">
-                          <label htmlFor="inputGender" tabIndex={0} aria-label="gender">
+                          <label
+                            htmlFor="inputGender"
+                            tabIndex={0}
+                            aria-label="gender"
+                          >
                             {t('GENDER')}
                           </label>
                           <div className="d-flex">
@@ -304,7 +307,11 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                     <div className="row">
                       <div className="col-12">
                         <div className="form-group required mb-2">
-                          <label htmlFor="password" tabIndex={0} aria-label="password">
+                          <label
+                            htmlFor="password"
+                            tabIndex={0}
+                            aria-label="password"
+                          >
                             {t('LABEL_PASSWORD')}
                           </label>
                           <PtgUiInput
@@ -333,7 +340,7 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                             className={`form-check-input `}
                             name="confirm-registration"
                             id="confirm"
-                            aria-label = "confirm"
+                            aria-label="confirm"
                           />
                         </div>
                       </div>

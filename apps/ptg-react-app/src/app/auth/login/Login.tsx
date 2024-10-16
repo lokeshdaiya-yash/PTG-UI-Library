@@ -19,22 +19,21 @@ import {
   PtgUiAlert,
 } from '@ptg-ui/react';
 import msalInstance from '../msal';
-import { acquireToken } from '../msal'; 
+import { acquireToken } from '../msal';
 
 export interface PtgUiLoginProps {}
 
 export function PtgUiLogin(props: PtgUiLoginProps) {
-
-  const loginMsal = async ()=>{
-     const loginRequest = {
-          scopes: ["user.read","https://management.azure.com/user_impersonation"]
-   };
-   const response = await msalInstance.loginPopup(loginRequest);
-   const [error, tokenResponse] = await acquireToken(loginRequest);
-   console.log("Hello i'm in msal",tokenResponse)
-   authClass.setToken(JSON.stringify(response));
+  const loginMsal = async () => {
+    const loginRequest = {
+      scopes: ['user.read', 'https://management.azure.com/user_impersonation'],
+    };
+    const response = await msalInstance.loginPopup(loginRequest);
+    const [error, tokenResponse] = await acquireToken(loginRequest);
+    console.log("Hello i'm in msal", tokenResponse);
+    authClass.setToken(JSON.stringify(response));
     navigate('/calendar');
-  }
+  };
 
   const { t } = useTranslation();
   const [user, setUser]: any = useState({
@@ -121,7 +120,6 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
   const handleLogin = (event: any) => {
     event.preventDefault();
     setState('error', null);
-    //console.log(error);
     setState('isLoading', true);
     authClass
       .login({
@@ -254,17 +252,11 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
                 tabIndex={0}
                 disabled={user.disable}
                 data-testid="login"
-                // accessKey="s"
               >
                 {t('LOG_IN')}
               </PtgUiButton>
-               <p className="text-center mx-3 mb-0">{t('OR')}</p>
-               <PtgUiButton
-                className="w-100"
-                onClick={loginMsal}
-                tabIndex={0}
-                // accessKey="s"
-              >
+              <p className="text-center mx-3 mb-0">{t('OR')}</p>
+              <PtgUiButton className="w-100" onClick={loginMsal} tabIndex={0}>
                 {t('Msal')}
               </PtgUiButton>
             </form>
