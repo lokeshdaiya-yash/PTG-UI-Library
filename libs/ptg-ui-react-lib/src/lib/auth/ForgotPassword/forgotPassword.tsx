@@ -12,10 +12,8 @@ import './ForgotPassword.scss';
 import { useTranslation } from 'react-i18next';
 import { PtgUiButton, PtgUiInput, PtgUiAlert } from '@ptg-ui/react';
 import { Modal } from 'react-bootstrap';
-import { authClass } from '../services/auth.service';
-import { useNavigate } from 'react-router-dom';
 
-export default function ForgotPassword() {
+export default function PtgUiForgotPassword() {
   const { t } = useTranslation();
   const intialState = {
     show: false,
@@ -48,9 +46,12 @@ export default function ForgotPassword() {
     });
   };
 
-  const handleClose = () => setState('show', false);
+  const handleClose = () => {
+    setState('show', false);
+  };
+
   const handleShow = () => {
-    setValues(intialState);
+    setValues({ ...values, btnDisable: true, email: '' });
     setState('show', true);
   };
 
