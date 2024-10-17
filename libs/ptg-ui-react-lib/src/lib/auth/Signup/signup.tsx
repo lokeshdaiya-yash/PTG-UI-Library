@@ -1,6 +1,6 @@
 /**
- * @since March 2022
- * @author Harsha Zalawa
+ * @since Oct 2024
+ * @author Manish Patidar
  * @desc Reusable Signup Component
  *
  */
@@ -9,8 +9,10 @@ import './signup.scss';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
-import { authClass } from '../services/auth.service';
-import { CITY_LIST, GENDER_LIST } from '../../mock/mocks';
+import {
+  CITY_LIST,
+  GENDER_LIST,
+} from '../../../../../../apps/ptg-react-app/src/app/mock/mocks';
 import {
   PtgUiButton,
   PtgUiInput,
@@ -61,8 +63,6 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
   };
   const handleChange: any = (e: any) => {
     const { name, value } = e.target;
-    // console.log('name' + name);
-    // console.log('value' + value);
     console.log(e.target.value);
     validate(name, value);
     setUser((preState: any) => {
@@ -160,31 +160,6 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
     });
   };
 
-  const navigate = useNavigate();
-  const handleRegister = (event: any) => {
-    event.preventDefault();
-    setState('error', null);
-    setState('isLoading', true);
-    authClass
-      .signUp({
-        username: user.username,
-        email: user.email,
-        DOB: date,
-        city: user.city,
-        gender: user.gender,
-        password: user.password,
-      })
-      .then((response: any) => {
-        if (response) {
-          setState('isLoading', false);
-          localStorage.setItem('token', response);
-          navigate('/login');
-        }
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
-  };
   return (
     <React.Fragment>
       <div>{user.isLoading && <PtgUiLoading />}</div>
@@ -352,7 +327,7 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                   <div className="new_label text-center mt-3 mb-2">
                     <label>
                       {t('REGISTRATION_LABEL_INFO_MSG')}{' '}
-                      <Link to="/login" className="signup-btn">
+                      <Link to="/authentication" className="signup-btn">
                         {t('LOG_IN')}
                       </Link>
                       .
@@ -361,7 +336,6 @@ export function PtgUiSignup(props: PtgUiSignupProps) {
                   <PtgUiButton
                     className="w-100"
                     type="button"
-                    onClick={handleRegister}
                     disabled={user.disable}
                     data-testid="register"
                   >

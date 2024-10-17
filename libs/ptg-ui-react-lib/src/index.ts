@@ -32,4 +32,7 @@ export * from './lib/data-table/react-table/react-table';
 export * from './lib/accordian/accordian';
 export * from './lib/textarea/textarea';
 export * from './lib/hooks/useFetch';
-
+export * from './lib/pagination/pagination';
+export * from './lib/auth/Login/login';
+export * from './lib/auth/ForgotPassword/forgotPassword';
+export * from './lib/auth/Signup/signup';

@@ -2,50 +2,106 @@
  * @since March 2022
  * @author Sunil Bhawsar
  * @desc Layout and Routing for reusable components
-*/
-{/*--Import Components for routing using lazy loading--*/ }
-import { lazy } from "react";
-const Example3 = lazy(() => import('@ptg-react-app/examples/multi-step-form/Example3'));
-const PtgUiHome = lazy(() => import("@ptg-react-app/home/Home"))
-const PtgUiAdminHome = lazy(() => import("@ptg-react-app/admin/AdminHome"))
-const PtgUiResetPassword = lazy(() => import("@ptg-react-app/auth/resetpassword/ResetPassword"))
-const PtgUiPie = lazy(() => import('@ptg-react-app/examples/charts/highcharts/pie/pie'))
-const PtgUiColumn = lazy(() => import('@ptg-react-app/examples/charts/highcharts/column/column'))
-const PtgUiLine = lazy(() => import('@ptg-react-app/examples/charts/highcharts/line/line'))
-const PtgHighcharts = lazy(() => import('@ptg-react-app/examples/charts/highcharts'))
-const PtgUi3dLine = lazy(() => import('@ptg-react-app/examples/charts/highcharts/3D/line/line'))
-const PtgUi3dColumn = lazy(() => import('@ptg-react-app/examples/charts/highcharts/3D/column/column'))
-const PtgUi3dPie = lazy(() => import('@ptg-react-app/examples/charts/highcharts/3D/pie/pie'))
-const PtgUiD3Line = lazy(() => import('@ptg-react-app/examples/charts/d3/line/line'))
-const PtgUiD3Bar = lazy(() => import('@ptg-react-app/examples/charts/d3/bar/bar'))
-const PtgUiD3Pie = lazy(() => import('@ptg-react-app/examples/charts/d3/pie/pie'))
-const PtgD3Charts = lazy(() => import('@ptg-react-app/examples/charts/d3Charts'))
-const PtgUiReactDataGrid = lazy(() => import('@ptg-react-app/examples/data-table/react-data-grid'))
-const PtgUiAgGrid = lazy(() => import("@ptg-react-app/examples/data-table/ag-grid/ag-grid"))
-const PtgUiMaterialTable = lazy(() => import("@ptg-react-app/examples/data-table/material/material-table-tabs"))
-const PtgUiDate = lazy(() => import('@ptg-react-app/examples/date/date'))
-const PtgUiMultiSelectCheckbox = lazy(() => import('@ptg-react-app/examples/select/select'))
-const RoleBased = lazy(() => import('@ptg-react-app/examples/role-based/role-based'))
-const WebAccessibility = lazy(() => import('@ptg-react-app/examples/web-accessibility/web-accessibility'))
-const PtgUiDragnDrop = lazy(() => import('@ptg-react-app/examples/drag-n-drop/drag-n-drop'))
-const PtgUiPipes= lazy(() => import('@ptg-react-app/examples/pipes/pipe-tabs'))
-const PtgUiDownloadFile = lazy(()=> import ("@ptg-react-app/examples/downloadFile/downloadFile"));
-const PtgUiDialog = lazy(()=> import ("../examples/dialog/dialog"));
-const Breadcrumbs =  lazy(()=> import ("../examples/breadcrumbs/breadcrumbs"));
-const Cards =  lazy(()=> import ("../examples/cards/cards"));
-const PtgUiCarousel = lazy(()=> import ("../examples/carousel/carousel"));
-const GridLayout = lazy(()=> import ("../examples/grid-layout/grid-layout"));
-const Indeterminate =  lazy(()=> import ("../examples/indeterminate-checkbox/indeterminate-checkbox"));
-const PtgUiReactTable =  lazy(()=> import ("../examples/data-table/react-table"));
-const Accordian = lazy(()=> import("../examples/Accordion/accordion"));
-const Toaster =lazy(()=> import ("../examples/Toaster/toaster"));
-const Button = lazy(()=> import("../examples/buttons/buttons")); 
+ */
+{
+  /*--Import Components for routing using lazy loading--*/
+}
+import { lazy } from 'react';
+const Example3 = lazy(
+  () => import('@ptg-react-app/examples/multi-step-form/Example3')
+);
+const PtgUiHome = lazy(() => import('@ptg-react-app/home/Home'));
+const PtgUiAdminHome = lazy(() => import('@ptg-react-app/admin/AdminHome'));
+const PtgUiResetPassword = lazy(
+  () => import('@ptg-react-app/auth/resetpassword/ResetPassword')
+);
+const PtgUiPie = lazy(
+  () => import('@ptg-react-app/examples/charts/highcharts/pie/pie')
+);
+const PtgUiColumn = lazy(
+  () => import('@ptg-react-app/examples/charts/highcharts/column/column')
+);
+const PtgUiLine = lazy(
+  () => import('@ptg-react-app/examples/charts/highcharts/line/line')
+);
+const PtgHighcharts = lazy(
+  () => import('@ptg-react-app/examples/charts/highcharts')
+);
+const PtgUi3dLine = lazy(
+  () => import('@ptg-react-app/examples/charts/highcharts/3D/line/line')
+);
+const PtgUi3dColumn = lazy(
+  () => import('@ptg-react-app/examples/charts/highcharts/3D/column/column')
+);
+const PtgUi3dPie = lazy(
+  () => import('@ptg-react-app/examples/charts/highcharts/3D/pie/pie')
+);
+const PtgUiD3Line = lazy(
+  () => import('@ptg-react-app/examples/charts/d3/line/line')
+);
+const PtgUiD3Bar = lazy(
+  () => import('@ptg-react-app/examples/charts/d3/bar/bar')
+);
+const PtgUiD3Pie = lazy(
+  () => import('@ptg-react-app/examples/charts/d3/pie/pie')
+);
+const PtgD3Charts = lazy(
+  () => import('@ptg-react-app/examples/charts/d3Charts')
+);
+const PtgUiReactDataGrid = lazy(
+  () => import('@ptg-react-app/examples/data-table/react-data-grid')
+);
+const PtgUiAgGrid = lazy(
+  () => import('@ptg-react-app/examples/data-table/ag-grid/ag-grid')
+);
+const PtgUiMaterialTable = lazy(
+  () =>
+    import('@ptg-react-app/examples/data-table/material/material-table-tabs')
+);
+const PtgUiDate = lazy(() => import('@ptg-react-app/examples/date/date'));
+const PtgUiMultiSelectCheckbox = lazy(
+  () => import('@ptg-react-app/examples/select/select')
+);
+const RoleBased = lazy(
+  () => import('@ptg-react-app/examples/role-based/role-based')
+);
+const WebAccessibility = lazy(
+  () => import('@ptg-react-app/examples/web-accessibility/web-accessibility')
+);
+const PtgUiDragnDrop = lazy(
+  () => import('@ptg-react-app/examples/drag-n-drop/drag-n-drop')
+);
+const PtgUiPipes = lazy(
+  () => import('@ptg-react-app/examples/pipes/pipe-tabs')
+);
+const PtgUiDownloadFile = lazy(
+  () => import('@ptg-react-app/examples/downloadFile/downloadFile')
+);
+const PtgUiDialog = lazy(() => import('../examples/dialog/dialog'));
+const Breadcrumbs = lazy(() => import('../examples/breadcrumbs/breadcrumbs'));
+const Cards = lazy(() => import('../examples/cards/cards'));
+const PtgUiCarousel = lazy(() => import('../examples/carousel/carousel'));
+const GridLayout = lazy(() => import('../examples/grid-layout/grid-layout'));
+const Indeterminate = lazy(
+  () => import('../examples/indeterminate-checkbox/indeterminate-checkbox')
+);
+const PtgUiReactTable = lazy(
+  () => import('../examples/data-table/react-table')
+);
+const Accordian = lazy(() => import('../examples/Accordion/accordion'));
+const Toaster = lazy(() => import('../examples/Toaster/toaster'));
+const Button = lazy(() => import('../examples/buttons/buttons'));
+const Authentication = lazy(() => import('../examples/auth/login/Login'));
+const signUp = lazy(() => import('../examples/auth/signup/signup'));
+const pagination = lazy(() => import('../examples/pagination/pagination'));
 
-{/*--Declare routes and component for dynamic load--*/ }
+{
+  /*--Declare routes and component for dynamic load--*/
+}
 const routing = [
   {
-    path:'/admin-home',
-    component:PtgUiAdminHome
+    path: '/admin-home',
+    component: PtgUiAdminHome,
   },
   {
     path: '/datatable/aggrid',
@@ -124,16 +180,16 @@ const routing = [
     component: PtgUiDialog,
   },
   {
-    path:'/downloadFile',
-    component:PtgUiDownloadFile,
+    path: '/downloadFile',
+    component: PtgUiDownloadFile,
   },
   {
-    path:'/gridLayout',
-    component:GridLayout,
+    path: '/gridLayout',
+    component: GridLayout,
   },
   {
-    path:'/indeterminate',
-    component:Indeterminate,
+    path: '/indeterminate',
+    component: Indeterminate,
   },
   {
     path: '/pipes',
@@ -170,11 +226,22 @@ const routing = [
   {
     path: '/toaster',
     component: Toaster,
-  },{
+  },
+  {
     path: '/button',
     component: Button,
-  }
+  },
+  {
+    path: 'authentication',
+    component: Authentication,
+  },
+  {
+    path: 'register',
+    component: signUp,
+  },
+  {
+    path: '/pagination',
+    component: pagination,
+  },
 ];
 export default routing;
-
-
