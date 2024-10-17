@@ -71,15 +71,15 @@ export const NavigationChildData = [
 ];
 export const NavigationData = [
   {
-    path: '/accordian',
-    icon: 'fa fa-lock',
-    label: 'Accordion',
-    disabled: false,
-  },
-  {
     path: '/authentication',
     icon: 'fa fa-lock',
     label: 'Auth',
+    disabled: false,
+  },
+  {
+    path: '/accordian',
+    icon: 'fa fa-lock',
+    label: 'Accordion',
     disabled: false,
   },
   {

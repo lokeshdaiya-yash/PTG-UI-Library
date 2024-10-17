@@ -1,44 +1,58 @@
 /**
- * @since March 2022
- * @author Harsha Zalawa
- * @desc Reusable Signup Component
+ * @since Oct 2022
+ * @author Manish Patidar
+ * @desc Reusable pagination Component
  *
  */
 import { useState, useEffect } from 'react';
 import React from 'react';
-import { usePagination } from 'react-table';
+import { usePagination, DOTS } from './usePagination';
 
 export interface PtgUiPaginationProps {
   data?: any;
   pageNumber?: number;
-  pageCount?: number;
+  dataCount?: number;
   pageIndex?: any;
+  siblingCount?: number;
+  pageSize?: number;
 }
 
 export function PtgUiPagination({
   data,
-  pageCount,
+  dataCount,
   pageNumber,
   pageIndex,
+  siblingCount,
+  pageSize,
 }: PtgUiPaginationProps) {
   const [currentPage, setCurrentPage] = useState(pageNumber);
+
+  const paginationRange = usePagination({
+    currentPage,
+    dataCount,
+    siblingCount,
+    pageSize,
+  });
+
   const previousPage = () => {
     setCurrentPage(Number(currentPage) - 1);
     pageIndex(Number(currentPage) - 1);
   };
 
   const nextPage = () => {
-    setCurrentPage(Number(currentPage) + 1);
-    pageIndex(Number(currentPage) + 1);
+    if (
+      dataCount &&
+      pageSize &&
+      Math.ceil(dataCount / pageSize) > Number(currentPage)
+    ) {
+      setCurrentPage(Number(currentPage) + 1);
+      pageIndex(Number(currentPage) + 1);
+    }
   };
 
   const gotoPage = (number) => {
     setCurrentPage(number);
     pageIndex(number);
-  };
-
-  const getpages = () => {
-    return [...Array(pageCount).keys()].map((i) => i + 1);
   };
 
   return (
@@ -49,8 +63,15 @@ export function PtgUiPagination({
             Previous
           </a>
         </li>
+        {paginationRange?.map((num) => {
+          if (num === DOTS) {
+            return (
+              <li className="pagination-item dots">
+                <a className="page-link">&#8230;</a>
+              </li>
+            );
+          }
 
-        {getpages().map((num: any) => {
           return (
             <li className={`page-item ${pageNumber === num ? 'active' : ''}`}>
               <a className="page-link" onClick={() => gotoPage(num)}>
@@ -61,7 +82,13 @@ export function PtgUiPagination({
         })}
 
         <li
-          className={`page-item ${pageNumber === pageCount ? 'disabled' : ''}`}
+          className={`page-item ${
+            dataCount &&
+            pageSize &&
+            Math.ceil(dataCount / pageSize) === Number(currentPage)
+              ? 'disabled'
+              : ''
+          }`}
         >
           <a className="page-link" onClick={() => nextPage()}>
             Next

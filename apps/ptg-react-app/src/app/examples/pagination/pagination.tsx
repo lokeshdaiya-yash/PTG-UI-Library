@@ -16,7 +16,7 @@ export interface PtgPaginationProps {}
 
 export function PtgPagination(props: PtgPaginationProps) {
   const [showCode, setShowCode] = useState(false);
-  const [pageCount, setPageCount] = useState(5);
+  const [dataCount, setDataCount] = useState(80);
   const [pageNumber, setPageNumber] = useState(1);
 
   const { t } = useTranslation();
@@ -38,7 +38,7 @@ export function PtgPagination(props: PtgPaginationProps) {
   const componentCode = `
     import { PtgUiPagination } from '@ptg-ui/react';
 
-    const [pageCount, setPageCount] = useState(3);
+    const [dataCount, setdataCount] = useState(60);
     const [pageNumber, setPageNumber] = useState(1);
     
     const pageIndex = (num) => {
@@ -47,14 +47,13 @@ export function PtgPagination(props: PtgPaginationProps) {
   `;
 
   const htmlCode = `
-    <div className="ms-2">
-      <PtgUiPagination
-        data={[]}
-        pageCount={pageCount}
-        pageNumber={pageNumber}
-        pageIndex={(num) => pageIndex(num)}
-      />
-    </div>
+    <PtgUiPagination
+      data={[]}
+      dataCount={dataCount}
+      pageNumber={pageNumber}
+      pageIndex={(num) => pageIndex(num)}
+      siblingCount={1}
+    />
   `;
 
   return (
@@ -81,9 +80,11 @@ export function PtgPagination(props: PtgPaginationProps) {
         <div className="ms-2">
           <PtgUiPagination
             data={[]}
-            pageCount={pageCount}
+            dataCount={dataCount}
             pageNumber={pageNumber}
             pageIndex={(num) => pageIndex(num)}
+            siblingCount={1}
+            pageSize={7}
           />
         </div>
       </div>
