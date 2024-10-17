@@ -1,5 +1,6 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { CalendarComponent } from './calendar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from '../calendar.module'; 
 
 
@@ -8,7 +9,7 @@ export default {
   component: CalendarComponent,
   decorators: [
     moduleMetadata({
-      imports: [CalendarModule],
+      imports: [CalendarModule,BrowserAnimationsModule],
     }),
   ],
 } as Meta<CalendarComponent>;

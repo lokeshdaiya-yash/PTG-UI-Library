@@ -5,3 +5,9 @@
 .parent-block {
   position: relative;
 }
+
+
+::ng-deep .form-check-input:checked {
+    background-color: unset !important;
+    border-color: #002144;
+}
