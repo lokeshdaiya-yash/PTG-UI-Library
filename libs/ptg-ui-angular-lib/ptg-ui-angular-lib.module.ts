@@ -27,7 +27,7 @@ import { IndeterminateCheckboxesModule } from './indeterminate-checkboxes/indete
 import { FileDownloadsModule } from './file-downloads/file-downloads.module';
 import { AccordianModule } from './accordian/accordian.module';
 import { TextareaModule } from "./textarea/textarea.module";
-import { SidenavModule } from "./sidenav/sidenav.module";
+// import { SidenavModule } from "./sidenav/sidenav.module";
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
@@ -53,7 +53,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     FileDownloadsModule,
     AccordianModule,
     TextareaModule,
-    SidenavModule
+    // SidenavModule
   ],
   exports: [
     CommonModule,
@@ -75,7 +75,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     FileDownloadsModule,
     AccordianModule,
     TextareaModule,
-    SidenavModule
+    // SidenavModule
   ],
 })
 export class PtgUiAngularLibModule {}

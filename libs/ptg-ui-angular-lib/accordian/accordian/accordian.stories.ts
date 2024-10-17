@@ -2,6 +2,7 @@ import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { AccordianComponent } from './accordian.component';
 import { AccordianModule } from '../accordian.module'
 import { ACCORDIAN_DATA } from './accordian';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export default {
   title: 'Component/AccordianComponent',
@@ -9,7 +10,7 @@ export default {
 
   decorators: [
     moduleMetadata({
-      imports: [AccordianModule],
+      imports: [AccordianModule,BrowserAnimationsModule],
     }),
   ],
 } as Meta<AccordianComponent>;

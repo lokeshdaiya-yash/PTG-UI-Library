@@ -9,7 +9,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AccordianComponent } from './accordian/accordian.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -18,9 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     CommonModule,
-    AccordionModule.forRoot(),
-    // BrowserAnimationsModule
-    
+    AccordionModule.forRoot(),    
   ],
   exports:[
     AccordianComponent
