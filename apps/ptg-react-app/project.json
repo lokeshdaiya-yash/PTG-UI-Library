@@ -23,6 +23,7 @@
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
       },
+      "dependsOn": [],
       "configurations": {
         "development": {
           "extractLicenses": false,
