@@ -73,7 +73,7 @@ export const NavigationData = [
   {
     path: '/auth-login',
     icon: 'fa fa-lock',
-    label: 'Auth',
+    label: 'Auth', 
     disabled: false,
   },
   {
