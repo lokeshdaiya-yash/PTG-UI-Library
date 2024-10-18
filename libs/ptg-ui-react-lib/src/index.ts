@@ -33,3 +33,5 @@ export * from './lib/accordian/accordian';
 export * from './lib/textarea/textarea';
 export * from './lib/hooks/useFetch';
 export * from './lib/pagination/pagination';
+export * from './lib/auth/Login/login';
+export * from './lib/auth/Signup/signup';
