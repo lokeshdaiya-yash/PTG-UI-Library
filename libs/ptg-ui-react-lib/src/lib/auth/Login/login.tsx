@@ -5,12 +5,11 @@
  *
  */
 
-import './Login.scss';
-import { useState, useEffect } from 'react';
 import React from 'react';
+import { useState, useEffect } from 'react';
+import './Login.scss';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
-import ForgotPassword from '../ForgotPassword/forgotPassword';
 import {
   PtgUiButton,
   PtgUiInput,
@@ -182,9 +181,9 @@ export function PtgUiLogin(props: PtgUiLoginProps) {
                   >
                     {t('LABEL_PASSWORD')}
                   </label>
-                  <div className="forgot-password float-end" tabIndex={0}>
+                  {/* <div className="forgot-password float-end" tabIndex={0}>
                     <ForgotPassword />
-                  </div>
+                  </div> */}
                   <div className="userid input-group flex-nowrap">
                     <div className="input-group-prepend">
                       <i className="login-password-icon"></i>
