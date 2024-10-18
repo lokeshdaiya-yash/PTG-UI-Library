@@ -70,12 +70,12 @@ export const NavigationChildData = [
   },
 ];
 export const NavigationData = [
-  // {
-  //   path: '/authentication',
-  //   icon: 'fa fa-lock',
-  //   label: 'Auth',
-  //   disabled: false,
-  // },
+  {
+    path: '/auth-login',
+    icon: 'fa fa-lock',
+    label: 'Auth',
+    disabled: false,
+  },
   {
     path: '/accordian',
     icon: 'fa fa-lock',
