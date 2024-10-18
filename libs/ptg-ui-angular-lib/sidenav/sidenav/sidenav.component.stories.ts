@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 export default {
   title: 'Component/SidenavComponent',
-  component: SidenavComponent,
+//   component: SidenavComponent,
   
   decorators: [
     moduleMetadata({
