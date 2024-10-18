@@ -91,8 +91,8 @@ const PtgUiReactTable = lazy(
 const Accordian = lazy(() => import('../examples/Accordion/accordion'));
 const Toaster = lazy(() => import('../examples/Toaster/toaster'));
 const Button = lazy(() => import('../examples/buttons/buttons'));
-const Authentication = lazy(() => import('../examples/auth/login/Login'));
-const signUp = lazy(() => import('../examples/auth/signup/signup'));
+// const Authentication = lazy(() => import('../examples/auth/login/Login'));
+// const signUp = lazy(() => import('../examples/auth/signup/signup'));
 const pagination = lazy(() => import('../examples/pagination/pagination'));
 
 {
@@ -231,14 +231,14 @@ const routing = [
     path: '/button',
     component: Button,
   },
-  {
-    path: 'authentication',
-    component: Authentication,
-  },
-  {
-    path: 'register',
-    component: signUp,
-  },
+  // {
+  //   path: 'authentication',
+  //   component: Authentication,
+  // },
+  // {
+  //   path: 'register',
+  //   component: signUp,
+  // },
   {
     path: '/pagination',
     component: pagination,
