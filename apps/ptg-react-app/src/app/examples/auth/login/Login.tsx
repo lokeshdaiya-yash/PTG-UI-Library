@@ -5,7 +5,7 @@
  *
  */
 import { useState } from 'react';
-import './login.scss';
+import './Login.scss';
 import CodeIcon from '@mui/icons-material/Code';
 import ShowCodeComponent from '../../../common/showCode/showCodeComponent';
 import { PtgUiLogin } from '@ptg-ui/react';

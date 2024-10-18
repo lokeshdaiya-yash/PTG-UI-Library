@@ -8,7 +8,7 @@
  *
  */
 import { useEffect, useState } from 'react';
-import './ForgotPassword.scss';
+import './forgotPassword.scss';
 import { useTranslation } from 'react-i18next';
 import { PtgUiButton, PtgUiInput, PtgUiAlert } from '@ptg-ui/react';
 import { Modal } from 'react-bootstrap';
