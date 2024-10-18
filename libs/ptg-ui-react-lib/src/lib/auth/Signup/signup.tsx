@@ -8,11 +8,8 @@ import { useState, useEffect } from 'react';
 import './signup.scss';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
-import {
-  CITY_LIST,
-  GENDER_LIST,
-} from '../../../../../../apps/ptg-react-app/src/app/mock/mocks';
+import { Link } from 'react-router-dom';
+import { CITY_LIST, GENDER_LIST } from './mocks';
 import {
   PtgUiButton,
   PtgUiInput,
