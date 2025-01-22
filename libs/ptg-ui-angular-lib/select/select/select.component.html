@@ -16,12 +16,6 @@
       {{ item.name | uppercase }}
     </ng-template>
 
-    
-
-  <!-- <ng-template *ngIf="isMultiple" ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-        <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" /> {{item.name}}
-    </ng-template> -->
-
   <!-- chips -->
   <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
     <ng-container *ngTemplateOutlet="
@@ -40,27 +34,24 @@
     </ng-container>
   </ng-template>
 </ng-select>
-<!-- <br>
-<small>{{selectedValue | json}}</small> -->
+
 
 <!-- Multiselect checkbox template -->
 <ng-template  ng-option-tmp let-item="item" let-item$="item$" let-index="index" #multiselect>
   <div class="custom-control custom-checkbox">
     <input id="item-{{ index }}" type="checkbox" class="custom-control-input" [ngModel]="item$.selected"
-      (change)="inputChange()" />
-    <label class="form-check-label custom-control-label ps-3">
-      {{ item.name }}
-    </label>
+    (change)="inputChange()" />
+<label for="item-{{ index }}" class="form-check-label custom-control-label ps-3">
+  {{ item.name }}
+</label>
+
   </div>
 </ng-template>
 
 <!-- chips -->
 <ng-template class="textBox" let-items="items" let-clear="clear" let-itemCount="itemCount" #chips>
   <div class="ng-value" *ngFor="let item of $any(items | slice: 0:itemCount)">
-    <span class="ng-value-label" [title]="item.name">{{
-      item.name
-      }}</span>
-    <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+    <span class="ng-value-label" [title]="item.name">{{item.name}}</span>
   </div>
   <div class="ng-value" *ngIf="items.length > itemCount">
     <span class="ng-value-label">{{ items.length - itemCount }} more...</span>

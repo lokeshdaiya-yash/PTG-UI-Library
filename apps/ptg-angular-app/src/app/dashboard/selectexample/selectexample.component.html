@@ -9,7 +9,7 @@
         >
           <div class="row parent-block bg-white mb-3 rounded">
             <div class="col-12 p-3 justify-content-between align-items-center">
-              <h3 [innerHTML]="'SIMPLE_SELECT_EX' | translate"></h3>
+              <h3>{{ 'SIMPLE_SELECT_EX' | translate }}</h3>
               <ptg-ui-toggle-code
                 [htmlCode]="selectHtmlCode"
                 [tsCode]="selectTsCode"
@@ -20,7 +20,6 @@
 
             <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 p-3">
               <label
-                tabindex="0"
                 aria-label="select"
                 [innerHTML]="'SINGLE_SELECT' | translate"
               >
@@ -39,7 +38,7 @@
           </div>
           <div class="row bg-white mb-3 rounded">
             <div class="col-12 p-3 justify-content-between align-items-center">
-              <h3 [innerHTML]="'MULTI_SELECT_EX' | translate"></h3>
+              <h3>{{ 'MULTI_SELECT_EX' | translate }}</h3>
               <ptg-ui-toggle-code
                 [htmlCode]="multiSelectHtmlCode"
                 [tsCode]="selectTsCode"
@@ -50,7 +49,6 @@
 
             <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 p-3 justify-content-between align-items-center">
               <label
-                tabindex="0"
                 [innerHTML]="'MULTI_SELECT' | translate"
               ></label>
               <ptg-ui-select
@@ -79,7 +77,6 @@
 
             <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 p-3 justify-content-between align-items-center">
               <label
-                tabindex="0"
                 [innerHTML]="'MULTI_SELECT' | translate"
               ></label>
               <ptg-ui-select
