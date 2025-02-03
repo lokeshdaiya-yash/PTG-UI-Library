@@ -38,11 +38,13 @@ export class Dragexample2Component implements OnInit, OnDestroy {
   <div cdkDropList #personList="cdkDropList" [cdkDropListData]="userDetails"
        (cdkDropListDropped)="onDrop($event)">
     <div *ngFor="let item of userDetails; let i = index" cdkDrag>
-      <p cdkDragHandle class="px-2"><i class="fa-solid fa-bars"></i></p>
-      <p>{{i+1}} - {{item.username}}</p>
-      <p cdkDragHandle class="px-2">
-        <i class="fa-solid fa-bars"></i>
-      </p>
+    <span cdkDragHandle>  
+      <p class="px-2"><i class="fa-solid fa-bars"></i></p>
+        <p>{{i+1}} - {{item.username}}</p>
+        <p class="px-2">
+          <i class="fa-solid fa-bars"></i>
+        </p>
+     </span>
     </div>
   </div>
   `;
@@ -64,7 +66,14 @@ export class Dragexample2Component implements OnInit, OnDestroy {
       {username: 'nimish.yash', name: 'Nimish'},
       {username: 'kumar.yash', name: 'Raj Kumar'},
     ]
-  }
+
+
+      onDrop(event: CdkDragDrop<any[]>) {
+      console.log(event);
+      moveItemInArray(this.userDetails, event.previousIndex, event.currentIndex);
+    }
+  
+   }
   `;
 
   constructor(
