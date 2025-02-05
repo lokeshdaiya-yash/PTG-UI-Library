@@ -1,15 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-case-declarations */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-/* eslint-disable @typescript-eslint/no-empty-function */
-
-/**
- * @since April 2022
- * @author Bhanu Prakash Sharma
- * @Component ptg-ui-dragexample5;
- * @description This component for drag and drop example5
-**/
 
 import { Component, Inject, OnInit, ViewEncapsulation } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
@@ -37,6 +25,179 @@ export class Dragexample5Component implements OnInit{
   // dropActionTodo: DropInfo = null;
   dropActionTodo!: any;
   resources=resources;
+
+
+  dragAndDropHtmlCode = `
+
+<ng-template #tmplNode1 let-node="node" let-index="index">
+  <div class="node-item" [attr.data-id]="node.id" [attr.id]="'node-' + node.id">
+    <div class="node-title" (click)="node.isExpanded = !node.isExpanded">
+      {{ node.children.length ? (node.isExpanded ? '-&nbsp;' : '+') : '&nbsp;&nbsp;&nbsp;' }} 
+      {{ index }} &nbsp;&nbsp;&nbsp; {{ node.id }}
+      <span class="item-notes">
+        ({{ node.children.length }} {{ node.children.length ? ', expanded: ' + !!node.isExpanded : '' }})
+      </span>
+    </div>
+
+    <div *ngIf="node.isExpanded && node.children.length" class="node-children" cdkDropList
+         [cdkDropListData]="node.children" [id]="node.id" [cdkDropListConnectedTo]="dropTargetIds"
+         (cdkDropListDropped)="drop($event)" [cdkDropListSortingDisabled]="true">
+
+      <div *ngFor="let child of node.children; index as i" cdkDrag [cdkDragData]="child.id" (cdkDragMoved)="dragMoved($event)">
+        <ng-container *ngTemplateOutlet="tmplNode1; context: { node: child, index: index + '.' + (i + 1) }"></ng-container>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<div class="wrapper3 mt-2 bg-white">
+  <div class="p-2" cdkDropList [cdkDropListData]="nodes" [id]="'main'" [cdkDropListConnectedTo]="dropTargetIds"
+       (cdkDropListDropped)="drop($event)" [cdkDropListSortingDisabled]="true">
+    <div *ngFor="let node of nodes; index as index" cdkDrag [cdkDragData]="node.id" (cdkDragMoved)="dragMoved($event)">
+      <ng-container *ngTemplateOutlet="tmplNode1; context: { node: node, index: index + 1 }"></ng-container>
+    </div>
+  </div>
+</div>
+
+  `;
+dragAndDropTsCode = `
+
+  // Add Material dependency for the CDK "DragDropModule".
+
+  nodes: TreeNode[] = [
+    {
+      id: '1',
+      children: [
+        { id: '1.1', children: [], isExpanded: false },
+        { id: '1.2', children: [], isExpanded: false }
+      ],
+      isExpanded: false
+    },
+    {
+      id: '2',
+      children: [
+        { id: '2.1', children: [], isExpanded: false },
+        { id: '2.2', children: [
+          { id: '2.2.1', children: [], isExpanded: false }
+        ], isExpanded: false }
+      ],
+      isExpanded: false
+    }
+  ];
+  
+  dropTargetIds: string[] = [];
+  nodeLookup: { [key: string]: TreeNode } = {};
+  dropActionTodo: any;
+
+  ngOnInit(): void {
+    this.prepareDragDrop(this.nodes);
+  }
+
+  prepareDragDrop(nodes: TreeNode[]) {
+    nodes.forEach((node) => {
+      this.dropTargetIds.push(node.id);
+      this.nodeLookup[node.id] = node;
+      this.prepareDragDrop(node.children);
+    });
+  }
+
+  @debounce(50)
+  dragMoved(event: any) {
+    const e = document.elementFromPoint(event.pointerPosition.x, event.pointerPosition.y);
+    
+    if (!e) {
+      this.clearDragInfo();
+      return;
+    }
+    const container = e.classList.contains("node-item") ? e : e.closest(".node-item");
+    if (!container) {
+      this.clearDragInfo();
+      return;
+    }
+    this.dropActionTodo = {
+      targetId: container.getAttribute("data-id")
+    };
+    const targetRect = container.getBoundingClientRect();
+    const oneThird = targetRect.height / 3;
+
+    if (event.pointerPosition.y - targetRect.top < oneThird) {
+      this.dropActionTodo["action"] = "before";
+    } else if (event.pointerPosition.y - targetRect.top > 2 * oneThird) {
+      this.dropActionTodo["action"] = "after";
+    } else {
+      this.dropActionTodo["action"] = "inside";
+    }
+    this.showDragInfo();
+  }
+
+  drop(event: any) {
+    if (!this.dropActionTodo) return;
+
+    const draggedItemId = event.item.data;
+    const parentItemId = event.previousContainer.id;
+    const targetListId = this.getParentNodeId(this.dropActionTodo.targetId, this.nodes, 'main');
+
+    const draggedItem = this.nodeLookup[draggedItemId];
+
+    const oldItemContainer = parentItemId !== 'main' ? this.nodeLookup[parentItemId].children : this.nodes;
+    const newContainer = targetListId !== 'main' ? this.nodeLookup[targetListId].children : this.nodes;
+
+    const i = oldItemContainer.findIndex((c: any) => c.id === draggedItemId);
+    oldItemContainer.splice(i, 1);
+
+    switch (this.dropActionTodo.action) {
+      case 'before':
+      case 'after':
+        const targetIndex = newContainer.findIndex((c: any) => c.id === this.dropActionTodo.targetId);
+        if (this.dropActionTodo.action === 'before') {
+          newContainer.splice(targetIndex, 0, draggedItem);
+        } else {
+          newContainer.splice(targetIndex + 1, 0, draggedItem);
+        }
+        break;
+
+      case 'inside':
+        this.nodeLookup[this.dropActionTodo.targetId].children.push(draggedItem);
+        this.nodeLookup[this.dropActionTodo.targetId].isExpanded = true;
+        break;
+    }
+
+    this.clearDragInfo(true);
+  }
+
+  getParentNodeId(id: string, nodesToSearch: TreeNode[], parentId: string): any {
+    for (const node of nodesToSearch) {
+      if (node.id === id) return parentId;
+      const ret = this.getParentNodeId(id, node.children, node.id);
+      if (ret) return ret;
+    }
+    return null;
+  }
+
+  showDragInfo() {
+    this.clearDragInfo();
+    if (this.dropActionTodo) {
+      document.getElementById("node-" + this.dropActionTodo.targetId)
+        ?.classList.add("drop-" + this.dropActionTodo.action);
+    }
+  }
+
+  clearDragInfo(dropped = false) {
+    if (dropped) {
+      this.dropActionTodo = null;
+    }
+    document
+      .querySelectorAll(".drop-before")
+      .forEach(element => element.classList.remove("drop-before"));
+    document
+      .querySelectorAll(".drop-after")
+      .forEach(element => element.classList.remove("drop-after"));
+    document
+      .querySelectorAll(".drop-inside")
+      .forEach(element => element.classList.remove("drop-inside"));
+  }
+  `;
+
 
   constructor(@Inject(DOCUMENT) private document: Document,private mocksApiService: mocksService) {
   }
