@@ -17,7 +17,7 @@ export interface IAccordion {
   title: string;
   content: string;
 }
-// Calender 
+// Calender
 export interface IExampleOneProps {
   showCodeOne: boolean;
 }
@@ -32,26 +32,21 @@ export interface ITimeZoneProps {
   showCodeLocalDate: boolean;
 }
 
-
 export interface IDateState {
   startDate?: Date | null;
   endDate?: Date | null;
   dateRange?: Date | null;
-  errorMsg?:boolean
+  errorMsg?: boolean;
 }
 
-
-
-export  interface IDatePickerProps {
+export interface IDatePickerProps {
   selected?: Date | null | string;
   className?: string;
   onChange?: (d: React.ChangeEvent<HTMLInputElement>) => void;
-  startDate?: Date|string;
+  startDate?: Date | string;
   endDate?: Date | null;
   disabled?: boolean;
 }
-
-
 
 // login
 export interface ILogin {
