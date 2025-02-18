@@ -9,11 +9,7 @@
  * @description This component for drag and drop example4
 **/
 
-import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
-import {
-  CdkDragDrop,
-  moveItemInArray
-} from '@angular/cdk/drag-drop';
+import { Component, QueryList, ViewChildren } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { resources } from "../../../../resource/resource";
 
@@ -23,50 +19,41 @@ import { resources } from "../../../../resource/resource";
   styleUrls: ['./dragexample4.component.scss']
 })
 export class Dragexample4Component {
-
   collectionForm!: FormGroup;
   currentCollection?: any;
-  inputCount = ['test'];
   codeKey = 'key';
-  resources=resources;
+  resources = resources;
+  dragAndDropHtmlCode = `HTML`;
+  dragAndDropTsCode = `TS`;
 
   @ViewChildren('code') codes!: QueryList<any>;
+  draggingIndex: number | null = null;
 
-  get collectionArray(): any {
-    return (
-      this.collectionForm &&
-      (this.collectionForm.get('collection') as FormArray)
-    );
+  get collectionArray(): FormArray {
+    return this.collectionForm.get('collection') as FormArray;
   }
 
   constructor(private fb: FormBuilder) {
     this.collectionForm = this.fb.group({
       collection: this.fb.array([]),
     });
-   }
-
-   /**
-   * @functionality Example 3 - Manual add list   ;
-   * @description This method returns form group for collection
-   **/
+  }
 
   // Method for add CollectionGroup
   addCollectionGroup(collection: any): FormGroup {
-    const group = this.fb.group({
+    return this.fb.group({
       [this.codeKey]: [collection[this.codeKey]],
-      // [this.descKey]: [collection[this.descKey]],
     });
-    return group;
   }
 
   // Method for delete list
-  deleteCollection(i: any): void {
-    this.collectionArray.controls.splice(i, 1);
+  deleteCollection(i: number): void {
+    this.collectionArray.removeAt(i);
   }
 
   // Method for reset list field
-  resetCollection(i: any): void {
-    this.collectionArray.controls[i]?.reset();
+  resetCollection(i: number): void {
+    this.collectionArray.at(i)?.reset();
   }
 
   // Method for add list item
@@ -82,13 +69,23 @@ export class Dragexample4Component {
     });
   }
 
-  // Drop method for example 3
-  drop1(event: CdkDragDrop<string[]>): void {
+  // Start dragging
+  onDragStart(index: number): void {
+    this.draggingIndex = index;
+  }
 
-    moveItemInArray(
-      this.collectionArray.controls,
-      event.previousIndex,
-      event.currentIndex
-    );
+  // Drop the item
+  onDrop(index: number): void {
+    if (this.draggingIndex !== null && this.draggingIndex !== index) {
+      const movedItem = this.collectionArray.at(this.draggingIndex);
+      this.collectionArray.removeAt(this.draggingIndex);
+      this.collectionArray.insert(index, movedItem);
+    }
+    this.draggingIndex = null; // Reset dragging index
+  }
+
+  // Drag over event
+  onDragOver(event: DragEvent): void {
+    event.preventDefault(); // Prevent default to allow drop
   }
 }
