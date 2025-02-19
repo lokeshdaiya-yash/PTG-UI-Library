@@ -88,7 +88,6 @@ import { Component, OnInit } from '@angular/core';
   }
 }
   `;
-
   ngOnInit() {
     this.setGridItems(6); // Pass the count directly 
   }
