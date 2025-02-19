@@ -86,7 +86,6 @@ import { Component, OnInit } from '@angular/core';
     allowDrop(event: DragEvent) {
      event.preventDefault();
   }
-
 }
   `;
 
