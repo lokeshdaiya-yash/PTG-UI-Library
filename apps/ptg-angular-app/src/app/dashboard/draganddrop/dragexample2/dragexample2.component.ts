@@ -1,8 +1,3 @@
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
-/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 /**
  * @since March 2022
@@ -55,7 +50,7 @@ export class Dragexample2Component implements OnInit{
   generateItems(count: number) {
     this.loading = false;
     this.items = Array.from({ length: count }, (_, i) =>
-    Item $'{i + 1}); //use tamplet literals for Item 
+    'Item' +(i + 1)); //use tamplet literals for Item 
   }
 
   setItemCount(count: number) {
@@ -92,7 +87,7 @@ export class Dragexample2Component implements OnInit{
 
   generateItems(count: number) {
     this.loading = false;
-    this.items = Array.from({ length: count }, (_, i) => `Item ${i + 1}`);
+    this.items = Array.from({ length: count }, (_, i) => 'Item' +(i + 1));
   }
 
   setItemCount(count: number) {

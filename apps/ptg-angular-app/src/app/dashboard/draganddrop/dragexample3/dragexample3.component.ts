@@ -1,6 +1,3 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
-/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-/* eslint-disable @typescript-eslint/no-empty-function */
 
 /**
  * @since March 2022

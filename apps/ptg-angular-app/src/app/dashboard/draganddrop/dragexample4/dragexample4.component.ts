@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-/* eslint-disable @typescript-eslint/no-empty-function */
 
 /**
  * @since March 2022
@@ -170,7 +167,7 @@ export class Dragexample4Component {
     return this.collectionForm.get('collection') as FormArray;
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private readonly fb: FormBuilder) {
     this.collectionForm = this.fb.group({
       collection: this.fb.array([]),
     });
