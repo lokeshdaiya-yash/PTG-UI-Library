@@ -36,3 +36,7 @@
 @import '../../../libs/ptg-ui-web-components/src/global/global.css';
 
 @import "../../../node_modules/bootstrap/scss/bootstrap";
+
+// include data grid css
+@import '../../../node_modules/ag-grid-community/dist/styles/ag-grid.css';
+@import '../../../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css';
