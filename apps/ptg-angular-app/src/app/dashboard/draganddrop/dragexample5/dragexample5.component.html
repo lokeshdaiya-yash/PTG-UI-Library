@@ -1,4 +1,10 @@
+
+<ptg-ui-toggle-code
+[htmlCode]="dragAndDropHtmlCode"
+[tsCode]="dragAndDropTsCode">
+</ptg-ui-toggle-code>
 <ng-template #tmplNode1 let-node="node" let-index="index">
+
   <div class="node-item" [attr.data-id]="node.id" [attr.id]="'node-'+node.id">
     <div class="node-title" (click)="node.isExpanded=!node.isExpanded">
       {{node.children.length ? ((node.isExpanded?'-&nbsp;':'+')) : '&nbsp;&nbsp;&nbsp;'}} 
@@ -29,5 +35,3 @@
     </div>
   </div>
 </div>
-<!-- <p  class="p-2"><strong [innerHTML]="'CURRENT_DRAG_DROP_ACTION' | translate"></strong></p>
-<pre>{{dropActionTodo|json}}</pre> -->

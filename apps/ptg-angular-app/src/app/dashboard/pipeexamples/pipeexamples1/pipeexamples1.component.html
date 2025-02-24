@@ -1,5 +1,10 @@
 <div class="wrapper p-3">
     <section>
+        <ptg-ui-toggle-code
+        [htmlCode]="pipeHtmlCode"
+        [tsCode]="pipeTsCode"
+      >
+      </ptg-ui-toggle-code>
         <div class="row  bg-white">
             <div class="col-12 mt-3 mb-3">
                 <label [innerHTML]="'CONVERT_VALUE_USING_DIRECTIVE' | translate"></label>

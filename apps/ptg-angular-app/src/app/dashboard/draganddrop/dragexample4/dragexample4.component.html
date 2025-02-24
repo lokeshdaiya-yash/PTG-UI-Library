@@ -1,6 +1,10 @@
 <div class="wrapper3 mt-2 p-2 bg-white rounded">
   <div class="row pb-2 text-center">
-
+    <ptg-ui-toggle-code
+    [htmlCode]="dragAndDropHtmlCode"
+    [tsCode]="dragAndDropTsCode"
+  >
+  </ptg-ui-toggle-code>
     <div>
       <button
         id="r_add_manual_btn"
@@ -41,7 +45,7 @@
               <span
                 class="invalid-feedback"
                 *ngIf="
-                  collectionArray.at(i).get(codeKey).errors.invalidCode as error
+                  collectionArray.at(i).get(codeKey).errors?.invalidCode as error
                 "
               >
                 {{ error }}

@@ -8,6 +8,8 @@
     [tsCode]="dragAndDropTsCode"
   >
   </ptg-ui-toggle-code>
+
+
   <div *ngIf="personaldetails && personaldetails.length > 0; else elseNotDone"
     cdkDropList
     class="example-list"
@@ -28,6 +30,7 @@
     </div>
   </div>
 </div>
+
 <ng-template #elseNotDone>
   <div class="d-flex justify-content-center">
     <div class="spinner-border text-loader m-5" role="status">
