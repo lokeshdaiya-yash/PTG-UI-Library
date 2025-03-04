@@ -27,7 +27,7 @@ export class Pipeexamples3Component {
   value5 = '0123456789';
   resources=resources
 
-  constructor(private renderer: Renderer2, private elementRef: ElementRef, private cp: CurrencyPipe) { }
+  constructor(private readonly renderer: Renderer2, private readonly elementRef: ElementRef, private readonly cp: CurrencyPipe) { }
 
   /****************** convert Into Currency**********************/
   convertIntoCurrency(value: any) {

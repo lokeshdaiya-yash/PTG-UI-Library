@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { resources } from "../../../../resource/resource";
 /**
  * @since April 2022

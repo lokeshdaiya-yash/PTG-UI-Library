@@ -12,7 +12,7 @@ import { TreeviewItem } from 'ngx-treeview';
   styleUrls: ['./checkbox-examples.component.scss']
 })
 export class CheckboxExamplesComponent implements OnInit {
-  constructor(private mocksApiService: mocksService,) {}
+  constructor(private readonly mocksApiService: mocksService,) {}
   checkBoxData: any;
   isLoaded=true;
   resources = resources

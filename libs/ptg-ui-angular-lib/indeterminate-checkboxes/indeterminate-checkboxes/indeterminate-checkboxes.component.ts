@@ -35,7 +35,6 @@ export class IndeterminateCheckboxesComponent implements OnInit {
   
   ngOnInit(): void {
     this.items = [this.checkBoxList]
-    // this.setIfChildPresent(this.items);
   }
 
   // Function called when you want to uncheck all the checkbox on page onInit
@@ -46,7 +45,6 @@ export class IndeterminateCheckboxesComponent implements OnInit {
     }else{
       arr.forEach((item:any) => {
         item.checked = false;
-        // this.onCheckboxValueChanges.emit(item);
         if(item.internalChildren){
           return this.setIfChildPresent(item.internalChildren)
         }

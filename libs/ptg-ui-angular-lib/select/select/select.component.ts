@@ -22,7 +22,6 @@ import {
 } from '@angular/core';
 import {
   ControlValueAccessor,
-  FormControl,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 
@@ -61,7 +60,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   selectedValue: any = [];
 
 
-  constructor(private _changeDetectorRef: ChangeDetectorRef) {}
+  constructor(private readonly _changeDetectorRef: ChangeDetectorRef) {}
 
   onChange = (_: any) => {};
   onTouched = () => {};
@@ -85,8 +84,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
     if (!this.isMultiple) {
       this.onChange(event?.name);
     } else if (this.isMultiple && !event?.target) {
-      const selected =
-        event && event.map((item: { [x: string]: any }) => item['name']);
+        const selected = event?.map((item: { [x: string]: any }) => item['name']);
       this.onChange(selected);
     }
   }
@@ -99,8 +97,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
     bindValue: string | number
   ): void {
     if (isChecked.checked) {
-      const selected =
-        items && items.map((item: { [x: string]: any }) => item[bindValue]);
+        const selected = items?.map((item: { [x: string]: any }) => item[bindValue]);
       this.onChange(selected);
     } else {
       this.onChange([]);
