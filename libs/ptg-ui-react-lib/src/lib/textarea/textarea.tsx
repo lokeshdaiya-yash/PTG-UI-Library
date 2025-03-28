@@ -1,48 +1,33 @@
+import { PtgUiTextAreaProps } from "@ptg-react-libs/interfaces";
+
 /**
- * @since March 2022
- * @author Devang Kushwah
- * @uses Reusable Component for textarea
- *
+ * PtgUiTextArea Component
+ * 
+ * A functional component that renders a customizable textarea.
+ * 
+ * @param {Readonly<PtgUiTextAreaProps>} props - The props for the textarea component.
+ * @param {string} props.placeholder - The placeholder text for the textarea.
+ * @param {string} props.className - The CSS class name for the textarea.
+ * @param {number} props.rows - The number of rows for the textarea.
+ * @param {string} props.name - The name attribute for the textarea.
+ * @param {string} props.id - The id attribute for the textarea.
+ * @param {string} props.value - The value of the textarea.
+ * @param {function} props.onChange - The function to call when the textarea value changes.
+ * @param {function} props.onBlur - The function to call when the textarea loses focus.
+ * 
+ * @returns {JSX.Element} A JSX element representing the textarea.
  */
-
-
-interface PtgUiTextAreaProps {
-  value?: any;
-  onChange?: any;
-  placeholder?: string;
-  disabled?: boolean;
-  hasError?: boolean;
-  onFocus?: any;
-  dataTest?: string;
-  required?: boolean;
-  className?: string;
-  inputsize?: string;
-  name?: string;
-  onBlur?: any;
-  ref?: any;
-  rows?: any;
-  cols?: any;
-  form?: any;
-  maxlength?: any;
-  onKeyUp?: any;
-  id?: string;
-  // accessKey?: string;
-  //   isReadOnly?: boolean;
-}
-
 const defaultProps: PtgUiTextAreaProps = {
-  rows:'4',
-  value: '',
-  placeholder: '',
-  disabled: false,
-  required: true,
-  inputsize: 'lg',
-  // accessKey: '',
-  id: '',
+	rows: 4,
+	value: '',
+	placeholder: '',
+	id: '',
+	className: '',
+	name: ''
 };
 
-export function PtgUiTextArea({ ...rest }: PtgUiTextAreaProps) {
-  return <textarea {...rest} data-testid={rest.name}/>;
+export function PtgUiTextArea({ ...rest }: Readonly<PtgUiTextAreaProps>) {
+	return <textarea {...rest} data-testid={rest.name} />;
 }
 PtgUiTextArea.defaultProps = defaultProps;
 export default PtgUiTextArea;
