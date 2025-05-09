@@ -1,32 +1,20 @@
-/**
- * @since April 2022
- * @author Harsha Zalawa
- * @uses Reusable Component for Indeterminate Checkbox
- */
+import { ICheckboxProps } from '@ptg-react-libs/interfaces';
+import './checkbox.css';
 
-import "./checkbox.scss";
-
-interface checkboxProps{
-  isChecked?: boolean;
-  indeterminate?: any;
-  onClick?: () => void;
-  labelId:string,
+export const Checkbox = ({ isChecked = false, onClick, indeterminate = false, labelId }: ICheckboxProps) => {
+	const splitId = labelId.split('_');
+	return (
+		<>
+			<input
+				className={`checkbox ${indeterminate ? 'isIndeterminate' : ''}`}
+				type="checkbox"
+				id={labelId}
+				checked={isChecked}
+				onClick={onClick}
+			/>
+			<label htmlFor={labelId}>
+				<span className="indeterminatespan">{splitId[0]}</span>
+			</label>
+		</>
+	);
 };
-
-function Checkbox({ isChecked = false, onClick,indeterminate= false, labelId, }:checkboxProps) {
-  const splitId = labelId.split("_")
-  return (
-    <>
-    <input 
-      className={`checkbox ${indeterminate ? 'isIndeterminate' : ''}`}
-      type="checkbox"
-      id={labelId}
-      checked={isChecked}
-      onClick={onClick}
-    />
-    <label htmlFor={labelId}><span className="indeterminatespan">{splitId[0]}</span></label>
-    </>
-  );
-};
-
-export default Checkbox;

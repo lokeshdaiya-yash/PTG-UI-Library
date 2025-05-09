@@ -1,24 +1,15 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   PtgUiButton,
   PtgUiInput,
   PtgUiSelect,
-  PtgUiCheckbox,
-  PtgUiRadio,
-  PtgUiDatePicker,
   PtgUiTextArea,
   PtguseFetch
 } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 
 
-import {
-  COUNTRY_LIST,
-  GENDER_LIST_SELECT,
-  SALUTATION_LIST,
-  STATE_LIST,
-} from '@ptg-react-app/mock/mocks';
 
 export const StepTwo = ({
   showNext,
@@ -222,7 +213,7 @@ export const StepTwo = ({
           className={`w-100 form-control bg_0 ${
             error.homeAddress ? 'border-danger' : ''
           }`}
-          rows="2"
+          rows={2}
           name="homeAddress"
           id="inputAddress"
           value={details.homeAddress}

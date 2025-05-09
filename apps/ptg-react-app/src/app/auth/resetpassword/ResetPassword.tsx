@@ -2,9 +2,8 @@ import './ResetPassword.scss';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { FormGroup, FormLabel } from 'react-bootstrap';
 import {
-  PtgUiButton,
+  //PtgUiButton,
   PtgUiInput,
   PtgUiLoading,
   PtgUiAlert,
@@ -13,7 +12,7 @@ import { authClass } from '../services/auth.service';
 /* eslint-disable-next-line */
 export interface PtgUiResetPasswordProps {}
 
-export function PtgUiResetPassword(props: PtgUiResetPasswordProps) {
+export function PtgUiResetPassword(_props: PtgUiResetPasswordProps) {
   const { t } = useTranslation();
   const [fields, handleFieldChange] = useState({
     code: '',
@@ -59,6 +58,7 @@ export function PtgUiResetPassword(props: PtgUiResetPasswordProps) {
       })
       .catch((error: any) => {
         setState('isAlert', true);
+        setState('isLoading', false);
         console.log(error);
       });
   };
@@ -146,7 +146,7 @@ export function PtgUiResetPassword(props: PtgUiResetPasswordProps) {
 
   return (
     <>
-      {fields.isLoading && <PtgUiLoading />}
+      {fields.isLoading && <PtgUiLoading type='linear' />}
       {fields.showMessage.show && (
         <PtgUiAlert
           type={fields?.showMessage?.type}
@@ -213,14 +213,14 @@ export function PtgUiResetPassword(props: PtgUiResetPasswordProps) {
                   </div>
                 </div>
               </div>
-              <PtgUiButton
+              <button
                 className="w-100"
                 type="submit"
                 disabled={fields.disable}
                 data-testid="submitPassword"
               >
                 {t('SUBMIT')}
-              </PtgUiButton>
+              </button>
             </form>
           </div>
         </div>

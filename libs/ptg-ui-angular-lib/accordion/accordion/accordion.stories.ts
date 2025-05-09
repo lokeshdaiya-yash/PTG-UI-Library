@@ -1,6 +1,6 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { AccordionComponent } from './accordion.component';
-import { AccordianModule } from '../accordion.module'
+import { AccordionModule } from '../accordion.module'
 import { ACCORDIAN_DATA } from './accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -10,7 +10,7 @@ export default {
 
   decorators: [
     moduleMetadata({
-      imports: [AccordianModule,BrowserAnimationsModule],
+      imports: [AccordionModule,BrowserAnimationsModule],
     }),
   ],
 } as Meta<AccordionComponent>;
@@ -34,16 +34,6 @@ IsAnimated.args = {
   listData : ACCORDIAN_DATA,
   addAccordionGroup:false
 };
-
-
-export const addAccordionGroup = Template.bind({});
-addAccordionGroup.args = {
-  isAnimated: false,
-  oneAtATime: false,
-  listData : ACCORDIAN_DATA,
-  addAccordionGroup:true
-};
-
 
 export const OneAtATime = Template.bind({});
 OneAtATime.args = {

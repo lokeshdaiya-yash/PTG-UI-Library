@@ -1,0 +1,102 @@
+.carousel {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.carousel-content {
+	width: 100%;
+	height: auto;
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.dot-navigation {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.ptg-ui-carousel-dot {
+	width: 1.1vw;
+	height: 1.1vw;
+	border-radius: 50%;
+	background-color: #ccc;
+	margin: 0 5px;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s;
+}
+
+.ptg-ui-carousel-dot.active {
+	background-color: blue;
+	transform: scale(1.5);
+	width: 2.5vw;
+	height: 0.55vw;
+	border-radius: 5px;
+	margin: 4px 10px;
+}
+
+.carousel-controls {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.carousel-controls button {
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.5s;
+	margin: 5%;
+}
+
+.carousel-controls button:hover {
+	background-color: #0056b3;
+}
+
+.carousel-controls.top {
+	top: 10px;
+	position: absolute;
+}
+
+.carousel-controls.middle {
+	top: 50%;
+	transform: translateY(-50%);
+	position: absolute;
+}
+
+.carousel-controls.bottom {
+	margin-top: 10px;
+}
+
+/* carouselWithCard.css */
+.icon-navigation {
+	display: flex;
+	justify-content: center;
+	margin: 10px 0;
+}
+
+.icon-navigation img {
+	transition: opacity 0.3s;
+}
+
+.icon-button {
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	margin: 0 5px;
+	opacity: 0.5;
+}
+
+.icon-button :active {
+	opacity: 1;
+}

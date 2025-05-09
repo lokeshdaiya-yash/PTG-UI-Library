@@ -4,8 +4,8 @@
  * @desc Indeterminate checkbox example using indeterminate checkbox reusable component
  */
 
-import {useState, useEffect} from 'react'
-import  style from './indeterminate-checkbox.module.scss';
+import { useState, useEffect } from 'react';
+import style from './indeterminate-checkbox.module.scss';
 import { PtgUiIndeterminateCheckbox, PtguseFetch } from '@ptg-ui/react';
 import { useTranslation } from 'react-i18next';
 import CodeIcon from '@mui/icons-material/Code';
@@ -13,31 +13,28 @@ import ShowCodeComponent from '@ptg-react-app/common/showCode/showCodeComponent'
 /* eslint-disable-next-line */
 export interface IndeterminateCheckboxProps {}
 type Data = {
-  name:string,
-  id:string|number,
-  parentId:string|number,
-}
-export function IndeterminateCheckbox(props: IndeterminateCheckboxProps) {
-  const [checkBoxData, setCheckBoxData]= useState<Data[]>([])
-  const {data:apiData } = PtguseFetch('checkbox-lists') as any
+  name: string;
+  id: number;
+  parentId: number;
+};
+export function IndeterminateCheckbox(_props: IndeterminateCheckboxProps) {
+  const [checkBoxData, setCheckBoxData] = useState<Data[]>([]);
+  const { data: apiData } = PtguseFetch('checkbox-lists') as any;
 
   const { t } = useTranslation();
 
   useEffect(() => {
-    if(apiData[0]){
-      setCheckBoxData(apiData[0]?.attributes?.data)
+    if (apiData[0]) {
+      setCheckBoxData(apiData[0]?.attributes?.data);
     }
-  },[apiData])
-
-
+  }, [apiData]);
 
   const [showCode, setShowCode] = useState(false);
-  
+
   const ShowExampleCode = () => {
-    if(!showCode){
+    if (!showCode) {
       setShowCode(true);
-    }
-    else{
+    } else {
       setShowCode(false);
     }
   };
@@ -71,23 +68,27 @@ export function IndeterminateCheckbox(props: IndeterminateCheckboxProps) {
     
     
     export default IndeterminateCheckbox;
-  `
+  `;
 
   const htmlCode = `
     <PtgUiIndeterminateCheckbox items={CHECKBOX_DATA} />
-  `
+  `;
   return (
     <section className="card-section-two bg-white rounded pt-2 mt-2 mb-2 pb-4">
       <div className="row">
         <div className="col-10 mb-2 mt-2">
-          <h5 className='example-heading'>{t('INTERMEDIATE_CHECKBOX_TEXT')}</h5>
+          <h5 className="example-heading">{t('INTERMEDIATE_CHECKBOX_TEXT')}</h5>
         </div>
         <div className="col-2">
-          <CodeIcon onClick={ShowExampleCode} fontSize="large" className='show-code-icon'></CodeIcon>
+          <CodeIcon
+            onClick={ShowExampleCode}
+            fontSize="large"
+            className="show-code-icon"
+          ></CodeIcon>
         </div>
-        <hr className='horizontal-line'/>
+        <hr className="horizontal-line" />
       </div>
-      
+
       {!showCode ? (
         <div className="row">
           <div className="checkbox-component col-10 m-3">
@@ -97,7 +98,7 @@ export function IndeterminateCheckbox(props: IndeterminateCheckboxProps) {
             </div>
           </div>
         </div>
-      ): (
+      ) : (
         <ShowCodeComponent componentCode={componentCode} htmlCode={htmlCode} />
       )}
     </section>
