@@ -1,10 +1,12 @@
 {
+  "name": "ptg-ui-apps-backend",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/ptg-ui-apps-backend/src",
   "projectType": "application",
+  "tags": [],
   "targets": {
     "build": {
-      "executor": "@nrwl/node:webpack",
+      "executor": "@nx/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/ptg-ui-apps-backend",
@@ -12,10 +14,8 @@
         "baseHref": "/",
         "main": "apps/ptg-ui-apps-backend/src/main.ts",
         "tsConfig": "apps/ptg-ui-apps-backend/tsconfig.app.json",
-        "assets": [
-          "apps/ptg-ui-apps-backend/src/assets",
-          "apps/ptg-ui-apps-backend/src/index.html"
-        ]
+        "assets": ["apps/ptg-ui-apps-backend/src/assets"],
+        "webpackConfig": "apps/ptg-ui-apps-backend/webpack.config.js"
       },
       "configurations": {
         "production": {
@@ -52,12 +52,11 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ptg-ui-apps-backend"],
+      "outputs": ["{workspaceRoot}/coverage/apps/ptg-ui-apps-backend"],
       "options": {
         "jestConfig": "apps/ptg-ui-apps-backend/jest.config.ts",
         "passWithNoTests": true
       }
     }
-  },
-  "tags": []
+  }
 }

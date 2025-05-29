@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-output-on-prefix */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-empty-function */
@@ -13,6 +14,7 @@
  */
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AgGridModule } from 'ag-grid-angular';
 import {GridOptions, CellValueChangedEvent, ColDef, FilterChangedEvent, FilterModifiedEvent, FilterOpenedEvent, GridApi, GridReadyEvent } from 'ag-grid-community';
 
 @Component({
@@ -184,8 +186,8 @@ export class PtgAgGridDatatableComponent implements OnInit {
 
   // Get selected row by chekbox 
   getSelectedRow(event:any){ 
-    let selectedRows = this.gridApi.getSelectedRows();
-    let selectedNodes = this.gridApi.getSelectedNodes();
+    const selectedRows = this.gridApi.getSelectedRows();
+    const selectedNodes = this.gridApi.getSelectedNodes();
     this.onrowSelect.emit({
       'rows': selectedRows,
       'nodes': selectedNodes
