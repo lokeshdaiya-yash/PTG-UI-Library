@@ -11,7 +11,7 @@ import { TextareaModule } from '@ptg-ui/angular/textarea';
 import { FileDownloadsModule } from '@ptg-ui/angular/file-downloads';
 import { IndeterminateCheckboxesModule } from '@ptg-ui/angular/indeterminate-checkboxes';
 import { SidenavModule } from '@ptg-ui/angular/sidenav';
-import { AccordianModule } from '@ptg-ui/angular/accordion';
+import { AccordionModule } from '@ptg-ui/angular/accordion';
 import { AlertModule } from '@ptg-ui/angular/alert';
 import { ButtonModule } from '@ptg-ui/angular/button';
 import { InputModule } from '@ptg-ui/angular/input';
@@ -22,6 +22,8 @@ import { CardModule } from '@ptg-ui/angular/card';
 import { CarouselModule } from '@ptg-ui/angular/carousel';
 import { GridModule } from '@ptg-ui/angular/grid';
 import { StepperModule } from '@ptg-ui/angular/stepper';
+import { ThemeGeneratorModule } from '@ptg-ui/angular/theme-generator';
+import { MatThemeGeneratorModule } from '@ptg-ui/angular/mat-theme-generator';
 
 const modules = [
   SidenavModule,
@@ -32,7 +34,7 @@ const modules = [
   ChecksModule,
   ChartModule,
   RadioModule,
-  AccordianModule,
+  AccordionModule,
   TextareaModule,
   AlertModule,
   PtgAgGridDatatableModule,
@@ -46,7 +48,9 @@ const modules = [
   CarouselModule,
   GridModule,
   StepperModule,
-  DialogModule
+  DialogModule,
+  ThemeGeneratorModule,
+  MatThemeGeneratorModule
 ];
 @NgModule({
   declarations: [],

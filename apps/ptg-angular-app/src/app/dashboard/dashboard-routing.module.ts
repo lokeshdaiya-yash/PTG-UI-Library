@@ -31,6 +31,9 @@ import { DialogExampleComponent } from './dialog-component/dialog-example.compon
 import { CardExampleComponent } from './card-component/card-example.component';
 import { BreadcrumbsExampleComponent } from './breadcrumbs-component/breadcrumbs-example.component';
 import { CarouselExampleComponent } from './carousel-component/carousel-example.component';
+import { ThemeGeneratorComponent } from './theme-generator-example/theme-generator.component';
+import { MatThemeExampleComponent } from './mat-theme-example/mat-theme-example.component';
+import { ButtonExampleComponent } from './button-component/button-example.component';
 
 const routes: Routes = [
   {
@@ -143,7 +146,19 @@ const routes: Routes = [
   {
     path:'breadcrumbs',
     component:BreadcrumbsExampleComponent
-  }
+  },
+  {
+    path:'theme-generator',
+    component:ThemeGeneratorComponent
+  },
+  {
+    path:'mat-theme',
+    component:MatThemeExampleComponent
+  },
+  {
+    path:'button',
+    component:ButtonExampleComponent
+  },
 ];
 
 @NgModule({
