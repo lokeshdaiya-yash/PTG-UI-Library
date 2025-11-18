@@ -3,18 +3,14 @@
  * @author Sunil Bhawsar
  * @desc Layout and Routing for reusable components
  */
-{
-  /*--Import Components for routing using lazy loading--*/
-}
+
 import { lazy } from 'react';
+
+/*--Import Components for routing using lazy loading--*/
 const Example3 = lazy(
   () => import('@ptg-react-app/examples/multi-step-form/Example3')
 );
-const PtgUiHome = lazy(() => import('@ptg-react-app/home/Home'));
 const PtgUiAdminHome = lazy(() => import('@ptg-react-app/admin/AdminHome'));
-const PtgUiResetPassword = lazy(
-  () => import('@ptg-react-app/auth/resetpassword/ResetPassword')
-);
 const PtgUiPie = lazy(
   () => import('@ptg-react-app/examples/charts/highcharts/pie/pie')
 );
@@ -48,15 +44,8 @@ const PtgUiD3Pie = lazy(
 const PtgD3Charts = lazy(
   () => import('@ptg-react-app/examples/charts/d3Charts')
 );
-const PtgUiReactDataGrid = lazy(
-  () => import('@ptg-react-app/examples/data-table/react-data-grid')
-);
-const PtgUiAgGrid = lazy(
-  () => import('@ptg-react-app/examples/data-table/ag-grid/ag-grid')
-);
-const PtgUiMaterialTable = lazy(
-  () =>
-    import('@ptg-react-app/examples/data-table/material/material-table-tabs')
+const PtgUiTable = lazy(
+  () => import('@ptg-react-app/examples/data-table/Table')
 );
 const PtgUiDate = lazy(() => import('@ptg-react-app/examples/date/date'));
 const PtgUiMultiSelectCheckbox = lazy(
@@ -78,47 +67,51 @@ const PtgUiDownloadFile = lazy(
   () => import('@ptg-react-app/examples/downloadFile/downloadFile')
 );
 const PtgUiDialog = lazy(() => import('../examples/dialog/dialog'));
-const Breadcrumbs = lazy(() => import('../examples/breadcrumbs/breadcrumbs'));
+const Breadcrumbs = lazy(() => import('../examples/breadcrumbs/Breadcrumbs'));
 const Cards = lazy(() => import('../examples/cards/cards'));
 const PtgUiCarousel = lazy(() => import('../examples/carousel/carousel'));
-const GridLayout = lazy(() => import('../examples/grid-layout/grid-layout'));
+const GridLayout = lazy(() => import('../examples/grid-layout/GridLayout'));
 const Indeterminate = lazy(
   () => import('../examples/indeterminate-checkbox/indeterminate-checkbox')
 );
-const PtgUiReactTable = lazy(
-  () => import('../examples/data-table/react-table')
-);
-const Accordian = lazy(() => import('../examples/Accordion/accordion'));
+const Accordian = lazy(() => import('../examples/Accordion/Accordions'));
+const Textarea = lazy(() => import('../examples/Textarea/textarea'));
 const Toaster = lazy(() => import('../examples/Toaster/toaster'));
+const TransferList = lazy(() => import('../examples/TransferList/TransferList'));
+const Avatar = lazy(() => import('../examples/avatar/CustomAvatar'));
 const Button = lazy(() => import('../examples/buttons/buttons'));
 const Authentication = lazy(() => import('../examples/auth/login/Login'));
-const signUp = lazy(() => import('../examples/auth/signup/signup'));
+const SignUp = lazy(() => import('../examples/auth/signup/signup'));
 const pagination = lazy(() => import('../examples/pagination/pagination'));
+const Rating = lazy(() => import('../examples/rating/rating'));
+const DatePicker = lazy(() => import('../examples/DatePicker/DatePicker'));
+const Radiobox = lazy(()=> import('../examples/Radiobox/Radiobox'));
+const Loader = lazy(() => import('../examples/loader/Loader'));
+const AppBar = lazy(() => import('../examples/appbar/appbar'));
+const Chatbot = lazy(() => import('../examples/chatbot/Chatbot'));
+const LangchainChatbot = lazy(
+  () => import('../examples/chatbot-langchain/Chatbot')
+);
+const PDFRenderer = lazy(() => import('../examples/PDF-Renderer/PDFRenderer'));
+const ChatbotFullScreen = lazy(
+  () => import('../examples/chatbot/ChatbotFullScreen')
+);
+const LangChainChatbotFullScreen = lazy(
+  () => import('../examples/chatbot-langchain/ChatbotFullScreen')
+);
+const SocialMediaSignIn = lazy(
+  () => import('../examples/social-sso/SocialMediaSignIn')
+);
+const SocialMediaShare = lazy(() => import('../examples/social-media-share/SocialMediaShare'));
 
-{
-  /*--Declare routes and component for dynamic load--*/
-}
+/*--Declare routes and component for dynamic load--*/
+
 const routing = [
   {
     path: '/admin-home',
     component: PtgUiAdminHome,
   },
-  {
-    path: '/datatable/aggrid',
-    component: PtgUiAgGrid,
-  },
-  {
-    path: '/datatable/reactdatagrid',
-    component: PtgUiReactDataGrid,
-  },
-  {
-    path: '/datatable/materialTable',
-    component: PtgUiMaterialTable,
-  },
-  {
-    path: '/datatable/reactTable',
-    component: PtgUiReactTable,
-  },
+  { path: '/datatable/table', component: PtgUiTable },
   {
     path: '/dragnDrop',
     component: PtgUiDragnDrop,
@@ -176,6 +169,22 @@ const routing = [
     component: PtgUiCarousel,
   },
   {
+    path: '/aichatbot',
+    component: Chatbot,
+  },
+  {
+    path: '/aichatbot-langchain',
+    component: LangchainChatbot,
+  },
+  {
+    path: '/pdf-renderer',
+    component: PDFRenderer,
+  },
+  {
+    path: '/social-media-share',
+    component: SocialMediaShare,
+  },
+  {
     path: '/dialog',
     component: PtgUiDialog,
   },
@@ -228,6 +237,14 @@ const routing = [
     component: Toaster,
   },
   {
+    path: '/avatar',
+    component: Avatar,
+  },
+  {
+    path: '/textarea',
+    component: Textarea,
+  },
+  {
     path: '/button',
     component: Button,
   },
@@ -237,11 +254,49 @@ const routing = [
   },
   {
     path: '/auth-signup',
-    component: signUp,
+    component: SignUp,
   },
   {
     path: '/pagination',
     component: pagination,
+  },
+  {
+    path: '/rating',
+    component: Rating,
+  },
+  {
+    path: '/appbar',
+    component: AppBar,
+  },
+  {
+    path:'/radioBox',
+    component: Radiobox,
+  },
+  {
+    path:'/transferList',
+    component: TransferList,
+  },
+  {
+    path: '/datePicker',
+    component: DatePicker,
+  },
+  {
+    path: '/loader',
+    component: Loader,
+  },
+  {
+    path: '/social-media-login',
+    component: SocialMediaSignIn,
+  },
+  {
+    path: '/aichatbot-yash',
+    component: ChatbotFullScreen,
+    requiresLayout: true,
+  },
+  {
+    path: '/ai-langchain-chatbot-yash',
+    component: LangChainChatbotFullScreen,
+    requiresLayout: true,
   },
 ];
 export default routing;

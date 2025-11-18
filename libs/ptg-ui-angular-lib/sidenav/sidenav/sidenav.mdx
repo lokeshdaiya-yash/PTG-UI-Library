@@ -1,0 +1,52 @@
+import { Meta, Story, Preview, Canvas, ArgsTable } from '@storybook/addon-docs';
+import * as SidenavStories from './sidenav.stories';
+import { SidenavComponent } from './sidenav.component';
+
+<Meta of={SidenavStories} />
+
+# 📌 Sidenav Component
+
+The `SidenavComponent` provides a responsive and collapsible side navigation menu. It adapts based on the screen size and allows navigation via menu items, including nested submenus.
+
+---
+
+## ✅ Import
+
+```ts
+import { SidenavComponent } from '@ptg-ui/angular';
+
+```
+
+⚙️ Component Inputs
+```
+| Input          | Type      | Default | Description                                  |
+| -------------- | --------- | ------- | -------------------------------------------- |
+| `isMenuOpen`   | boolean   | false   | Determines if the sidenav is expanded or not |
+| `menuItems`    | object\[] | `[]`    | List of menu items to render                 |
+| `selectedPath` | string    | `''`    | Currently active/selected route path         |
+
+```
+🔁 Component Outputs
+```
+
+| Output       | Description                       |
+| ------------ | --------------------------------- |
+| `selectMenu` | Emits selected menu item on click |
+```
+
+💡 Usage
+```
+<ptg-ui-sidenav1 
+  [isMenuOpen]="true" 
+  [menuItems]="menuList" 
+  (selectMenu)="onMenuSelect($event)">
+</ptg-ui-sidenav1>
+```
+🧪 Examples
+
+▶️ Default (Collapsed)
+<Canvas of={SidenavStories.Primary} /> 
+
+📂 Expanded with Active Item
+<Canvas of={SidenavStories.ExpandedMenu} /> 
+

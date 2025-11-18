@@ -25,7 +25,7 @@ import { MatDatatableModule } from './datatables/mat-datatable/mat-datatable.mod
 import { PtgNgxDatatableModule } from './datatables/ngx-datatable/ptg-ngx-datatable.module';
 import { IndeterminateCheckboxesModule } from './indeterminate-checkboxes/indeterminate-checkboxes.module';
 import { FileDownloadsModule } from './file-downloads/file-downloads.module';
-import { AccordianModule } from './accordion/accordion.module';
+import { AccordionModule } from './accordion/accordion.module';
 import { TextareaModule } from "./textarea/textarea.module";
 // import { SidenavModule } from "./sidenav/sidenav.module";
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -34,7 +34,8 @@ import { CardModule } from './card/card.module';
 import { CarouselModule } from './carousel/carousel.module';
 import { StepperModule } from '@ptg-ui/angular/stepper';
 import { DialogModule } from './dialog/dialog.module';
-
+import { ThemeGeneratorModule } from '@ptg-ui/angular/theme-generator';
+import { MatThemeGeneratorModule } from '@ptg-ui/angular/mat-theme-generator';
 @NgModule({
   declarations: [],
   imports: [
@@ -56,14 +57,16 @@ import { DialogModule } from './dialog/dialog.module';
     PtgNgxDatatableModule,
     IndeterminateCheckboxesModule,
     FileDownloadsModule,
-    AccordianModule,
+    AccordionModule,
     TextareaModule,
     BreadcrumbsModule,
     CardModule,
     CarouselModule,
     StepperModule,
     // SidenavModule,
-    DialogModule
+    DialogModule,
+    ThemeGeneratorModule,
+    MatThemeGeneratorModule
   ],
   exports: [
     CommonModule,
@@ -83,7 +86,7 @@ import { DialogModule } from './dialog/dialog.module';
     PtgNgxDatatableModule,
     IndeterminateCheckboxesModule,
     FileDownloadsModule,
-    AccordianModule,
+    AccordionModule,
     TextareaModule,
     // SidenavModule,
     DialogModule

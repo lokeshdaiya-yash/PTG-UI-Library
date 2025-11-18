@@ -176,6 +176,11 @@
   "CAROUSEL_EXAMPLE": "Carousel Example",
   "CAROUSEL_EXAMPLE_WITH_INDICATOR": "Carousel example with indicator",
   "CAROUSEL_EXAMPLE_WITH_CAPTION": "Carousel example with caption",
-  "DRAG_DROP": "Drag Drop"
-
+  "DRAG_DROP": "Drag Drop",
+  "THEME_GENERATOR": "Theme Generator Example",
+  "MAT_THEME_GENERATOR": "Mat Theme Generator Example",
+  "CAROUSEL_EXAMPLE_WITH_IMAGE_THUMBNAIL": "Carousel example with image thumbnail",
+  "BUTTON_EXAMPLE": "Button Basic Example",
+  "BUTTON_EXAMPLE_WITH_SIZES": "Button Example with Sizes",
+  "DOWNLOAD_FILE_NAME": "Employee Data"
 }

@@ -22,6 +22,9 @@ export namespace Components {
     }
     interface PtgAccordion {
         "bgColor"?: string;
+        /**
+          * @default false
+         */
         "defaultOpened": boolean;
         "description": string;
         "label": string;
@@ -32,27 +35,60 @@ export namespace Components {
         "texed": string;
     }
     interface PtgBreadcrumbs {
+        /**
+          * @default []
+         */
         "datalist": any;
     }
     interface PtgButton {
         "appearance": string;
+        /**
+          * @default 'right'
+         */
         "btnIconAlignment"?: string;
+        /**
+          * @default ""
+         */
         "text"?: string;
     }
     interface PtgCalender {
         "callback"?: (val: any) => void;
+        /**
+          * @default ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
+         */
         "dayNames": string[];
+        /**
+          * @default [     'January',     'February',     'March',     'April',     'May',     'June',     'July',     'August',     'September',     'October',     'November',     'December',   ]
+         */
         "monthNames": string[];
+        /**
+          * @default true
+         */
         "showFillDays": boolean;
         "startDate": any;
     }
     interface PtgCard {
+        /**
+          * @default 'select'
+         */
         "cardButtonText": string;
+        /**
+          * @default ''
+         */
         "cardContent": string;
         "cardContentLength"?: number;
         "cardId": number;
+        /**
+          * @default ''
+         */
         "cardTitle": string;
+        /**
+          * @default false
+         */
         "isCardAction": boolean;
+        /**
+          * @default ''
+         */
         "src": string;
     }
     interface PtgCheckbox {
@@ -65,6 +101,9 @@ export namespace Components {
         "dataid": any;
         "datavalue": any;
         "disabled"?: boolean;
+        /**
+          * @default false
+         */
         "indeterminate"?: boolean;
         "label"?: string;
     }
@@ -89,6 +128,7 @@ export namespace Components {
         "name": string;
         /**
           * The placeholder
+          * @default ''
          */
         "placeholder": string;
         /**
@@ -97,26 +137,69 @@ export namespace Components {
         "type": string;
         /**
           * name for inout
+          * @default ''
          */
         "value": string;
+        /**
+          * @default '100%'
+         */
         "width": string;
     }
     interface PtgModal {
+        /**
+          * @default ''
+         */
         "btnName": string;
+        /**
+          * @default 'secondary'
+         */
         "cancelBtn": string;
+        /**
+          * @default false
+         */
         "closeOutsideClick": boolean;
+        /**
+          * @default 'Confirm'
+         */
         "confirmButtonName": string;
+        /**
+          * @default false
+         */
         "isOpen": boolean;
+        /**
+          * @default 'Modal Header'
+         */
         "modalHeaderName": string;
+        /**
+          * @default 'md'
+         */
         "modalSize": string;
+        /**
+          * @default 'primary'
+         */
         "primaryBtn": string;
+        /**
+          * @default true
+         */
         "showFooter": boolean;
+        /**
+          * @default true
+         */
         "showHeader": boolean;
     }
     interface PtgPagination {
         "itemCount": number;
+        /**
+          * @default 0
+         */
         "page": number;
+        /**
+          * @default 10
+         */
         "pageSize": number;
+        /**
+          * @default []
+         */
         "pageSizeOptions": number[];
     }
     interface PtgRadiobtn {
@@ -134,6 +217,9 @@ export namespace Components {
         "value": string;
     }
     interface PtgSelect {
+        /**
+          * @default false
+         */
         "multiSelect": boolean;
         "selectData": any;
     }
@@ -146,8 +232,17 @@ export namespace Components {
     }
     interface PtgTable {
         "customClass"?: string;
+        /**
+          * @default []
+         */
         "pageSizeOptions": number[];
+        /**
+          * @default false
+         */
         "searchable": boolean;
+        /**
+          * @default false
+         */
         "sortable": boolean;
         "tableHover"?: boolean;
         "tableStrip"?: boolean;
@@ -175,13 +270,28 @@ export namespace Components {
         "appearance": string;
         "discription": string;
         "id1": string;
+        /**
+          * @default false
+         */
         "open": boolean;
         "type": string;
     }
     interface PtgUiCarousel {
+        /**
+          * @default []
+         */
         "images": Array<string>;
+        /**
+          * @default '200'
+         */
         "imgHeight": string;
+        /**
+          * @default '200'
+         */
         "imgWidth": string;
+        /**
+          * @default true
+         */
         "showIndicators": boolean;
     }
 }
@@ -240,19 +350,53 @@ declare global {
         prototype: HTMLPtgButtonElement;
         new (): HTMLPtgButtonElement;
     };
+    interface HTMLPtgCalenderElementEventMap {
+        "dayChanged": any;
+        "monthChanged": any;
+    }
     interface HTMLPtgCalenderElement extends Components.PtgCalender, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPtgCalenderElementEventMap>(type: K, listener: (this: HTMLPtgCalenderElement, ev: PtgCalenderCustomEvent<HTMLPtgCalenderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPtgCalenderElementEventMap>(type: K, listener: (this: HTMLPtgCalenderElement, ev: PtgCalenderCustomEvent<HTMLPtgCalenderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPtgCalenderElement: {
         prototype: HTMLPtgCalenderElement;
         new (): HTMLPtgCalenderElement;
     };
+    interface HTMLPtgCardElementEventMap {
+        "handleClick": any;
+    }
     interface HTMLPtgCardElement extends Components.PtgCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPtgCardElementEventMap>(type: K, listener: (this: HTMLPtgCardElement, ev: PtgCardCustomEvent<HTMLPtgCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPtgCardElementEventMap>(type: K, listener: (this: HTMLPtgCardElement, ev: PtgCardCustomEvent<HTMLPtgCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPtgCardElement: {
         prototype: HTMLPtgCardElement;
         new (): HTMLPtgCardElement;
     };
+    interface HTMLPtgCheckboxElementEventMap {
+        "valueChanged": string;
+    }
     interface HTMLPtgCheckboxElement extends Components.PtgCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPtgCheckboxElementEventMap>(type: K, listener: (this: HTMLPtgCheckboxElement, ev: PtgCheckboxCustomEvent<HTMLPtgCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPtgCheckboxElementEventMap>(type: K, listener: (this: HTMLPtgCheckboxElement, ev: PtgCheckboxCustomEvent<HTMLPtgCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPtgCheckboxElement: {
         prototype: HTMLPtgCheckboxElement;
@@ -270,19 +414,54 @@ declare global {
         prototype: HTMLPtgHeaderElement;
         new (): HTMLPtgHeaderElement;
     };
+    interface HTMLPtgInputElementEventMap {
+        "valueChanged": string;
+    }
     interface HTMLPtgInputElement extends Components.PtgInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPtgInputElementEventMap>(type: K, listener: (this: HTMLPtgInputElement, ev: PtgInputCustomEvent<HTMLPtgInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPtgInputElementEventMap>(type: K, listener: (this: HTMLPtgInputElement, ev: PtgInputCustomEvent<HTMLPtgInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPtgInputElement: {
         prototype: HTMLPtgInputElement;
         new (): HTMLPtgInputElement;
     };
+    interface HTMLPtgModalElementEventMap {
+        "modalClose": boolean;
+        "confirmClose": boolean;
+    }
     interface HTMLPtgModalElement extends Components.PtgModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPtgModalElementEventMap>(type: K, listener: (this: HTMLPtgModalElement, ev: PtgModalCustomEvent<HTMLPtgModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPtgModalElementEventMap>(type: K, listener: (this: HTMLPtgModalElement, ev: PtgModalCustomEvent<HTMLPtgModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPtgModalElement: {
         prototype: HTMLPtgModalElement;
         new (): HTMLPtgModalElement;
     };
+    interface HTMLPtgPaginationElementEventMap {
+        "pageChanged": any;
+        "sizeChanged": any;
+    }
     interface HTMLPtgPaginationElement extends Components.PtgPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPtgPaginationElementEventMap>(type: K, listener: (this: HTMLPtgPaginationElement, ev: PtgPaginationCustomEvent<HTMLPtgPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPtgPaginationElementEventMap>(type: K, listener: (this: HTMLPtgPaginationElement, ev: PtgPaginationCustomEvent<HTMLPtgPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPtgPaginationElement: {
         prototype: HTMLPtgPaginationElement;
@@ -384,6 +563,9 @@ declare namespace LocalJSX {
     }
     interface PtgAccordion {
         "bgColor"?: string;
+        /**
+          * @default false
+         */
         "defaultOpened"?: boolean;
         "description"?: string;
         "label"?: string;
@@ -394,30 +576,63 @@ declare namespace LocalJSX {
         "texed"?: string;
     }
     interface PtgBreadcrumbs {
+        /**
+          * @default []
+         */
         "datalist"?: any;
     }
     interface PtgButton {
         "appearance"?: string;
+        /**
+          * @default 'right'
+         */
         "btnIconAlignment"?: string;
+        /**
+          * @default ""
+         */
         "text"?: string;
     }
     interface PtgCalender {
         "callback"?: (val: any) => void;
+        /**
+          * @default ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']
+         */
         "dayNames"?: string[];
+        /**
+          * @default [     'January',     'February',     'March',     'April',     'May',     'June',     'July',     'August',     'September',     'October',     'November',     'December',   ]
+         */
         "monthNames"?: string[];
         "onDayChanged"?: (event: PtgCalenderCustomEvent<any>) => void;
         "onMonthChanged"?: (event: PtgCalenderCustomEvent<any>) => void;
+        /**
+          * @default true
+         */
         "showFillDays"?: boolean;
         "startDate"?: any;
     }
     interface PtgCard {
+        /**
+          * @default 'select'
+         */
         "cardButtonText"?: string;
+        /**
+          * @default ''
+         */
         "cardContent"?: string;
         "cardContentLength"?: number;
         "cardId"?: number;
+        /**
+          * @default ''
+         */
         "cardTitle"?: string;
+        /**
+          * @default false
+         */
         "isCardAction"?: boolean;
         "onHandleClick"?: (event: PtgCardCustomEvent<any>) => void;
+        /**
+          * @default ''
+         */
         "src"?: string;
     }
     interface PtgCheckbox {
@@ -430,6 +645,9 @@ declare namespace LocalJSX {
         "dataid"?: any;
         "datavalue"?: any;
         "disabled"?: boolean;
+        /**
+          * @default false
+         */
         "indeterminate"?: boolean;
         "label"?: string;
         "onValueChanged"?: (event: PtgCheckboxCustomEvent<string>) => void;
@@ -459,6 +677,7 @@ declare namespace LocalJSX {
         "onValueChanged"?: (event: PtgInputCustomEvent<string>) => void;
         /**
           * The placeholder
+          * @default ''
          */
         "placeholder"?: string;
         /**
@@ -467,30 +686,73 @@ declare namespace LocalJSX {
         "type"?: string;
         /**
           * name for inout
+          * @default ''
          */
         "value"?: string;
+        /**
+          * @default '100%'
+         */
         "width"?: string;
     }
     interface PtgModal {
+        /**
+          * @default ''
+         */
         "btnName"?: string;
+        /**
+          * @default 'secondary'
+         */
         "cancelBtn"?: string;
+        /**
+          * @default false
+         */
         "closeOutsideClick"?: boolean;
+        /**
+          * @default 'Confirm'
+         */
         "confirmButtonName"?: string;
+        /**
+          * @default false
+         */
         "isOpen"?: boolean;
+        /**
+          * @default 'Modal Header'
+         */
         "modalHeaderName"?: string;
+        /**
+          * @default 'md'
+         */
         "modalSize"?: string;
         "onConfirmClose"?: (event: PtgModalCustomEvent<boolean>) => void;
         "onModalClose"?: (event: PtgModalCustomEvent<boolean>) => void;
+        /**
+          * @default 'primary'
+         */
         "primaryBtn"?: string;
+        /**
+          * @default true
+         */
         "showFooter"?: boolean;
+        /**
+          * @default true
+         */
         "showHeader"?: boolean;
     }
     interface PtgPagination {
         "itemCount"?: number;
         "onPageChanged"?: (event: PtgPaginationCustomEvent<any>) => void;
         "onSizeChanged"?: (event: PtgPaginationCustomEvent<any>) => void;
+        /**
+          * @default 0
+         */
         "page"?: number;
+        /**
+          * @default 10
+         */
         "pageSize"?: number;
+        /**
+          * @default []
+         */
         "pageSizeOptions"?: number[];
     }
     interface PtgRadiobtn {
@@ -508,6 +770,9 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface PtgSelect {
+        /**
+          * @default false
+         */
         "multiSelect"?: boolean;
         "selectData"?: any;
     }
@@ -520,8 +785,17 @@ declare namespace LocalJSX {
     }
     interface PtgTable {
         "customClass"?: string;
+        /**
+          * @default []
+         */
         "pageSizeOptions"?: number[];
+        /**
+          * @default false
+         */
         "searchable"?: boolean;
+        /**
+          * @default false
+         */
         "sortable"?: boolean;
         "tableHover"?: boolean;
         "tableStrip"?: boolean;
@@ -549,13 +823,28 @@ declare namespace LocalJSX {
         "appearance"?: string;
         "discription"?: string;
         "id1"?: string;
+        /**
+          * @default false
+         */
         "open"?: boolean;
         "type"?: string;
     }
     interface PtgUiCarousel {
+        /**
+          * @default []
+         */
         "images"?: Array<string>;
+        /**
+          * @default '200'
+         */
         "imgHeight"?: string;
+        /**
+          * @default '200'
+         */
         "imgWidth"?: string;
+        /**
+          * @default true
+         */
         "showIndicators"?: boolean;
     }
     interface IntrinsicElements {

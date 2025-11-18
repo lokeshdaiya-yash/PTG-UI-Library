@@ -26,14 +26,14 @@ app.all('/*', function (req, res, next) {
   next();
 }); //
 
-
 // main routes
-app.get('/api', (req: any, res: any) => {
+app.get('/api', (req, res) => {
   res.json({ message: 'Welcome to interview-screening-backend!' });
 });
 app.use(express.static(path.join(__dirname, 'assets')));
 
-let server = app.listen(port, async () => {
+const server = app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 // using authentication routes
@@ -51,12 +51,13 @@ mongoose
     // `mongodb+srv://${username}:${password}@atlascluster.27xfa.mongodb.net/${dbName}?retryWrites=true&w=majority`
   )
   .then((data) => {
+    console.log('Database connected successfully:', data);
   })
   .catch((err) => console.log(err));
 
 // fallback when refreshed browser
 app.use('/', express.static(path.join(__dirname, 'public')));
-app.get('*', (req: express.Request, res: express.Response) => {
+app.get('*', (req, res) => {
   const pathname = url.parse(req.url).pathname;
   const pathArr = pathname.split('/');
   const apps = {
@@ -67,12 +68,39 @@ app.get('*', (req: express.Request, res: express.Response) => {
     'ptg-react-animations': 'ptg-react-animations',
     'ptg-ui-web-comp-angular': 'ptg-ui-web-comp-angular',
     'ptg-ui-web-comp-react': 'ptg-ui-web-comp-react',
+    'ptg-ui-apps-react-backend': 'ptg-ui-apps-react-backend',
+    'ptg-frontend-migration-accelerator-app':
+      'ptg-frontend-migration-accelerator-app',
   };
   const projectName = pathArr[1] && apps[pathArr[1]];
-  if (projectName) {
-    res.sendFile(path.join(__dirname, `public/${projectName}`) + '/index.html');
+  console.log('Requested project name:', projectName);
+  if (projectName === 'ptg-frontend-migration-accelerator-app') {
+    console.log(
+      'Serving file from:',
+      path.join(__dirname, `assets/components/Migration_Accelerator.html`)
+    );
+    const filePath = path.join(
+      __dirname,
+      `assets/components/Migration_Accelerator.html`
+    );
+    console.log('Serving file from:', filePath);
+    res.sendFile(filePath, (err) => {
+      if (err) {
+        console.error('File not found:', err);
+        res.status((err as any).status || 404).end();
+      }
+    });
+  } else if (projectName) {
+    const filePath = path.join(__dirname, `public/${projectName}/index.html`);
+    console.log('Serving file from:', filePath);
+    res.sendFile(filePath);
   } else {
-    res.sendFile(path.join(__dirname, ``) + '/index.html');
+    const defaultPath = path.join(
+      __dirname,
+      `public/ptg-ui-apps-react-backend/index.html`
+    );
+    console.log('Serving default file from:', defaultPath);
+    res.sendFile(defaultPath);
   }
 });
 server.on('error', console.error);

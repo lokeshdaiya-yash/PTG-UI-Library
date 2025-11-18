@@ -3,15 +3,14 @@
  * @author Sunil Bhawsar
  * @desc Side bar/navigation list
  */
-{
-  /*--List of sidebar/side navigation--*/
-}
+
+/*--List of sidebar/side navigation--*/
 
 export const NavigationChildData = [
   {
     path: '/carousel',
-    icon: 'fa fa-lock',
-    label: 'Carousel',
+    icon: 'fa fa-sliders',
+    label: 'CAROUSEL',
     disabled: false,
   },
   {
@@ -39,29 +38,8 @@ export const NavigationChildData = [
     icon: 'fa fa-table',
     pages: [
       {
-        label: 'AG GRID',
-        path: '/datatable/aggrid',
-        id: 'Ag-grid',
-        icon: 'fa-solid fa-table-list',
-        disabled: false,
-      },
-      {
-        label: 'REACT DATA GRID',
-        path: '/datatable/reactdatagrid',
-        icon: 'fa-solid fa-table-list',
-        id: 'Ngx-table',
-        disabled: false,
-      },
-      {
-        label: 'MATERIAL',
-        path: '/datatable/materialTable',
-        icon: 'fa-solid fa-table-list',
-        id: 'Material',
-        disabled: false,
-      },
-      {
         label: 'REACT TABLE',
-        path: '/datatable/reactTable',
+        path: '/datatable/table',
         icon: 'fa-solid fa-table-list',
         id: 'react-table',
         disabled: false,
@@ -73,13 +51,37 @@ export const NavigationData = [
   {
     path: '/auth-login',
     icon: 'fa fa-lock',
-    label: 'Auth', 
+    label: 'Auth',
     disabled: false,
   },
   {
     path: '/accordian',
     icon: 'fa fa-lock',
-    label: 'Accordion',
+    label: 'ACCORDION',
+    disabled: false,
+  },
+  {
+    path: '/appbar',
+    icon: 'fa-solid fa-ranking-star',
+    label: 'Appbar',
+    disabled: false,
+  },
+  {
+    path: '/avatar',
+    icon: 'fa-solid fa-user',
+    label: 'Avatar',
+    disabled: false,
+  },
+  {
+    path: '/aichatbot',
+    icon: 'fa fa-android',
+    label: 'AI Chatbot',
+    disabled: false,
+  },
+  {
+    path: '/aichatbot-langchain',
+    icon: 'fa-solid fa-robot',
+    label: 'AI Chatbot Langchain',
     disabled: false,
   },
   {
@@ -91,7 +93,7 @@ export const NavigationData = [
   {
     path: '/button',
     icon: 'fa-solid fa-mobile-button',
-    label: 'Buttons',
+    label: 'BUTTONS',
     disabled: false,
   },
   {
@@ -102,8 +104,8 @@ export const NavigationData = [
   },
   {
     path: '/carousel',
-    icon: 'fa fa-lock',
-    label: 'Carousel',
+    icon: 'fa fa-sliders',
+    label: 'CAROUSEL',
     disabled: false,
   },
   {
@@ -131,53 +133,32 @@ export const NavigationData = [
     icon: 'fa fa-table',
     pages: [
       {
-        label: 'AG GRID',
-        path: '/datatable/aggrid',
-        id: 'Ag-grid',
-        //icon: 'fa-solid fa-table-list',
-        disabled: false,
-      },
-      {
-        label: 'REACT DATA GRID',
-        path: '/datatable/reactdatagrid',
-        //icon: 'fa-solid fa-table-list',
-        id: 'Ngx-table',
-        disabled: false,
-      },
-      {
-        label: 'MATERIAL',
-        path: '/datatable/materialTable',
-        //icon: 'fa-solid fa-table-list',
-        id: 'Material',
-        disabled: false,
-      },
-      {
-        label: 'REACT TABLE',
-        path: '/datatable/reactTable',
-        //icon: 'fa-solid fa-table-list',
-        id: 'react-table',
+        label: 'TABLE',
+        path: '/datatable/table',
         disabled: false,
       },
     ],
   },
   {
-    path: '/pagination',
-    icon: 'fa-solid fa-table-list',
-    label: 'Pagination',
+    path: '/datePicker',
+    icon: 'fa fa-calendar',
+    label: 'Date Picker',
     disabled: false,
   },
+
   {
     path: '/dialog',
     icon: 'fa fa-th',
-    label: 'Dialog',
+    label: 'DIALOG',
     disabled: false,
   },
-  {
+  // Note: The drag and drop example is commented till it start working properly
+  /*   {
     path: '/dragnDrop',
     icon: 'fa fa-bars',
     label: 'DRAG N DROP',
     disabled: false,
-  },
+  }, */
   {
     path: '/downloadFile',
     icon: 'fa-solid fa-download',
@@ -197,15 +178,45 @@ export const NavigationData = [
     disabled: false,
   },
   {
+    path: '/loader',
+    icon: 'fa fa-spinner',
+    label: 'LOADER',
+    disabled: false,
+  },
+  {
     path: '/multistep',
     icon: 'fa fa-brands fa-wpforms',
     label: 'MULTI_STEP_FORM_NAV',
     disabled: false,
   },
   {
+    path: '/pagination',
+    icon: 'fa-solid fa-table-list',
+    label: 'PAGINATION',
+    disabled: false,
+  },
+  {
+    path: '/pdf-renderer',
+    icon: 'fa-solid fa-file-pdf',
+    label: 'PDF RENDERER',
+    disabled: false,
+  },
+  {
     path: '/pipes',
     icon: 'fa fa-solid fa-filter',
     label: 'PIPES & FILTERS',
+    disabled: false,
+  },
+  {
+    path: '/radioBox',
+    icon: 'fa-solid fa-record-vinyl',
+    label: 'Radio',
+    disabled: false,
+  },
+  {
+    path: '/rating',
+    icon: 'fa-solid fa-ranking-star',
+    label: 'RATING',
     disabled: false,
   },
   {
@@ -218,6 +229,36 @@ export const NavigationData = [
     path: '/select',
     icon: 'fa-solid fa-check-to-slot',
     label: 'SELECT',
+    disabled: false,
+  },
+  {
+    path: '/social-media-share',
+    icon: 'fa-solid fa-share-nodes',
+    label: 'SOCIAL MEDIA SHARE',
+    disabled: false,
+  },
+  {
+    path: '/social-media-login',
+    icon: 'fa-solid fa-check-to-slot',
+    label: 'SOCIAL MEDIA LOGIN',
+    disabled: false,
+  },
+  {
+    path: '/toaster',
+    icon: 'fa-solid fa-bell',
+    label: 'TOASTER',
+    disabled: false,
+  },
+  {
+    path: '/textarea',
+    icon: 'fa-solid fa-pen',
+    label: 'TEXTAREA',
+    disabled: false,
+  },
+  {
+    path: '/transferList',
+    icon: 'fa-solid fa-arrow-right-arrow-left',
+    label: 'Transfer List',
     disabled: false,
   },
   {

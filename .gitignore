@@ -2,13 +2,16 @@
 
 # compiled output
 /dist
+/dist_old
 /tmp
 /out-tsc
+/apps/Form-builder
 
 # dependencies
 node_modules
 
 # IDEs and editors
+.scannerwork
 /.idea
 .project
 .classpath
@@ -33,6 +36,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+.scannerwork/
 
 # System Files
 .DS_Store
@@ -40,6 +44,9 @@ Thumbs.db
 
 .angular
 
-
-
+/.nx
+/libs/ptg-ui-web-components/.stencil
+/libs/ptg-ui-web-components/www
 # /apps/ptg-ui-apps-backend/src/assets/
+
+

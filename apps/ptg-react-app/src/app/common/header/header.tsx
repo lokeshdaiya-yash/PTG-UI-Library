@@ -8,11 +8,12 @@
  *
  */
 
+import React from "react";
+import { Link } from "react-router-dom";
 import './header.scss';
 import UserProfile from '../userprofile/UserProfile';
 import MultiLang from '../multi-lang/multi-lang';
-export interface HeaderProps {}
-export function Header({}: HeaderProps) {
+export function Header() {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,13 +21,15 @@ export function Header({}: HeaderProps) {
           <label htmlFor="toggle" className="fa fa-bars" aria-hidden="true">
             <i className="hiddenContent">.</i>
           </label>
-          <a className="navbar-brand logo px-2 me-auto" href="#">
-            <img
-              src="assets/images/yash-logo-new@2x.png"
-              aria-label="logo"
-              className="header-logo"
-            />
-          </a>
+          <Link to="/calendar">
+            <a className="navbar-brand logo px-2 me-auto" href="#">
+              <img
+                src="assets/images/yash-logo-new@2x.png"
+                aria-label="logo"
+                className="header-logo"
+              />
+            </a>
+          </Link>
           <div className="d-flex mt-1">
             <MultiLang />
             <UserProfile />
